@@ -53,15 +53,27 @@ SA.nodeModules = {
     ccxt: require('ccxt'),
     ccxtMisc: require('./node_modules/ccxt/js/base/functions/misc'),
     lookpath: require('lookpath'),
-    twitter: require('twitter')
+    twitter: require('twitter-api-v2'),
+    slack: require('@slack/web-api'),
+    discordjs: require('discord.js'),
+    discordRest: require('@discordjs/rest'),
+    discordTypes: require('discord-api-types/v9')
 }
 /*
 Setting up Secrets.
 */
-SA.secrets = {
-    array: require('./My-Secrets/Secrets.json').secrets,
-    map: new Map()
+try {
+    SA.secrets = {
+        array: require('./My-Secrets/Secrets.json').secrets,
+        map: new Map()
+    }
+} catch(err) {
+    SA.secrets = {
+        array: [],
+        map: new Map()
+    }
 }
+
 for (let i = 0; i < SA.secrets.array.length; i++) {
     let secret = SA.secrets.array[i]
     SA.secrets.map.set(secret.nodeCodeName, secret)

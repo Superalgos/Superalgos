@@ -2,7 +2,14 @@
     "type": "Multi-Time-Frame-Market",
     "definition": {
         "text": "This refers to the Dataset Type that contain files for each Time Frame from 1hs up to 24hs and each file contains the data of the whole market.",
-        "updated": 1622051703688
+        "updated": 1622051703688,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это относится к типу набора данных Dataset Type, который содержит файлы для каждого Time Frame от 1 часа до 24 часов, и каждый файл содержит данные всего рынка.",
+                "updated": 1638286131523
+            }
+        ]
     },
     "paragraphs": [
         {

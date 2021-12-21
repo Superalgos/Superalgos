@@ -30,14 +30,19 @@
             },
             {
                 "language": "DE",
-                "text": "Das Superalgos-Repository hat drei Hauptzweige: master, develop und den, nach dem wir suchen, plugins-docs.",
-                "updated": 1634821013096,
+                "text": "Das Superalgos-Repository hat zwei Hauptzweige: master und develop.",
+                "updated": 1638832363730,
                 "style": "Definition"
             },
             {
                 "language": "RU",
                 "text": "Особенностью репозитория Superalgos является подразделение его на три основных разновидности: мастер, разработка и одно поисковое подразделение - плагины-документы.\n",
                 "updated": 1635515254111
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos deposu iki ana dala sahiptir: Master ve Develop.",
+                "updated": 1639942169332
             }
         ]
     },
@@ -75,6 +80,11 @@
                     "language": "RU",
                     "text": "Их может быть и больше, но эти самые основные!",
                     "updated": 1635581904616
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha fazlası olabilir, ancak şimdilik olanlar bunlar!",
+                    "updated": 1639942190492
                 }
             ]
         },
@@ -110,6 +120,11 @@
                     "language": "RU",
                     "text": "Master Branch: Features имеет устойчивую версию программного обеспечения. Никогда не размещайте материалы в этом подразделении.",
                     "updated": 1635516502634
+                },
+                {
+                    "language": "TR",
+                    "text": "Master Branch: Yazılımın kararlı sürümünü içerir. Bu şubeye asla katkı göndermeyin!",
+                    "updated": 1639942204622
                 }
             ]
         },
@@ -138,14 +153,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis betreffen.",
-                    "updated": 1634821041566,
+                    "text": "Develop Branch: Enthält die Version, die sich derzeit in der Entwicklung befindet. Reichen Sie Beiträge ein, die die Codebasis, Übersetzungen,Verbesserungen der Docs, Tutorials, plugins sowie Data-Mines, trading systems und so weiter betreffen.",
+                    "updated": 1638831914823,
                     "style": "List"
                 },
                 {
                     "language": "RU",
                     "text": "Develop Branch: Features имеет версию, которая на данный момент находится в разработке. Размещайте материалы кода, влияющие на кодовую базу.",
                     "updated": 1635515640752
+                },
+                {
+                    "language": "TR",
+                    "text": "Develop Branch: Şu anda geliştirilmekte olan sürümü içerir. Kod tabanını, çevirileri, Dokümanlardaki iyileştirmeleri, öğreticileri ve veri madenleri, ticaret sistemleri vb. gibi eklentileri etkileyen katkılarınızı bu dala gönderin!",
+                    "updated": 1639942297409
                 }
             ]
         }

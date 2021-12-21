@@ -79,6 +79,16 @@
             "actionFunction": "payload.executeAction"
         },
         {
+            "action": "Save Plugin",
+            "actionProject": "Community-Plugins",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install",
+            "label": "Save Plugin",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "payload.executeAction"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -99,6 +109,7 @@
     "isHierarchyHead": true,
     "addLeftIcons": true,
     "level": 0,
+    "alternativeIcons": "Use External Github Icon",
     "childrenNodesProperties": [
         {
             "name": "tokenPowerSwitch",

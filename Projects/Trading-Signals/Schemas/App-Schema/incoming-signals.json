@@ -3,8 +3,8 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Signal Reference",
-            "relatedUiObject": "Signal Reference",
+            "label": "Add Incoming Signal Reference",
+            "relatedUiObject": "Incoming Signal Reference",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Trading-Signals",
             "actionProject": "Visual-Scripting"
@@ -23,13 +23,13 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Trigger Off Event->"
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Target Rate->Target Size In Base Asset->Target Size In Quoted Asset->Order Rate->Create Order Event->Cancel Order Event->Phase->Next Phase Event->Move To Phase Event->Close Stage Event->Trading System->"
     },
     "childrenNodesProperties": [
         {
-            "name": "signalReferences",
+            "name": "incomingSignalReferences",
             "type": "array",
-            "childType": "Signal Reference",
+            "childType": "Incoming Signal Reference",
             "autoAdd": false
         }
     ],

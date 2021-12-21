@@ -20,19 +20,19 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     let chart
     let exchange
     let market
+    var count = 0;
 
     let portfolioSystem
     let portfolioEngine
     let sessionParameters
-    let dynamicIndicators
 
-    let portfolioStagesModuleObject = TS.projects.portfolioManagement.botModules.portfolioStages.newPortfolioManagementBotModulesPortfolioStages(processIndex)
+    let portfolioManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioManager(processIndex)
 
-    let taskParameters = {
+    /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
             '/' +
             TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-    }
+    }*/
     return thisObject
 
     function initialize() {
@@ -43,7 +43,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem.conditions = new Map()
         portfolioSystem.formulas = new Map()
 
-        portfolioStagesModuleObject.initialize()
+        portfolioManagerModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Portfolio System Definition */
         portfolioSystem.checkConditions = function (situation, passed) {
@@ -127,8 +127,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function finalize() {
-        portfolioStagesModuleObject.finalize()
-        portfolioStagesModuleObject = undefined
+        portfolioManagerModuleObject.finalize()
+        portfolioManagerModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -149,15 +149,15 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem = undefined
         portfolioEngine = undefined
         sessionParameters = undefined
-        taskParameters = undefined
+        //taskParameters = undefined
     }
 
     function mantain() {
-        portfolioStagesModuleObject.mantain()
+        portfolioManagerModuleObject.mantain()
     }
 
     function reset() {
-        portfolioStagesModuleObject.reset()
+        portfolioManagerModuleObject.reset()
 
         portfolioSystem.highlights = []
         portfolioSystem.errors = []
@@ -179,45 +179,38 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         exchange = pExchange
         market = pMarket
 
-        portfolioStagesModuleObject.updateChart(pChart, pExchange, pMarket)
-    }
-
-    function buildDynamicIndicators() {
-        if (portfolioSystem.dynamicIndicators !== undefined) {
-            dynamicIndicators = {}
-            /* Eval Dynamic Indicators */
-            portfolioSystem.evalFormulas(portfolioSystem.dynamicIndicators, 'Indicator Function')
-
-            for (let i = 0; i < portfolioSystem.dynamicIndicators.indicatorFunctions.length; i++) {
-                let indicatorFunction = portfolioSystem.dynamicIndicators.indicatorFunctions[i]
-                if (indicatorFunction.formula === undefined) { return }
-                if (indicatorFunction.config.codeName === undefined) { return }
-                dynamicIndicators[indicatorFunction.config.codeName] = portfolioSystem.formulas.get(indicatorFunction.formula.id)
-            }
-        }
+        portfolioManagerModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     async function run() {
         try {
-            /* Dynamic Indicators */
-            buildDynamicIndicators()
+            /* Run Asset Refresh */
+            // assetRefreshPlaceholderFunction()
+            count++;
 
-            /* Run the Trigger Stage */
-            portfolioStagesModuleObject.runTriggerStage()
+            console.log(" ---- @ PortfolioSystem.run()  ---  TMP MSG - What todo here? ----count=>" + count);
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            await sleep(20000);
+
+
+            //portfolioManagerModuleObject.runTriggerStage()
 
             /* Run the Open Stage */
-            await portfolioStagesModuleObject.runOpenStage()
+            //await portfolioManagerModuleObject.runOpenStage()
 
             /* Run the Manage Stage */
-            portfolioStagesModuleObject.runManageStage()
+            //portfolioManagerModuleObject.runManageStage()
 
             /* Run the Close Stage */
-            await portfolioStagesModuleObject.runCloseStage()
+           //await portfolioManagerModuleObject.runCloseStage()
 
             /* Validation if we need to exit the position */
-            portfolioStagesModuleObject.exitPositionValidation()
+            //portfolioManagerModuleObject.exitPositionValidation()
 
-            portfolioStagesModuleObject.cycleBasedStatistics()
+            portfolioManagerModuleObject.cycleBasedStatistics()
 
         } catch (err) {
             /*
@@ -272,7 +265,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {

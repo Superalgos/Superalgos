@@ -8,17 +8,38 @@
         "icon": {
             "name": "Programs\\referral-program",
             "project": "Governance"
-        }
+        },
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Независимо от того, кто вы, вы можете принести пользу сети Superalgos!",
+                "updated": 1639045362977
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Each of us bring unique talents and experience into our work with Superalgos. Even if you are not a programmer or expert trader there is still ways for you to get involved!",
-            "updated": 1630606036389
+            "updated": 1630606036389,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый из нас привносит уникальные таланты и опыт в работу с Superalgos. Даже если вы не программист или не опытный трейдер, у вас все еще есть способы принять участие!",
+                    "updated": 1639045383920
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "One of the first contributions you can make to the project is getting involved in governance itself. The network of users guiding Superalgos is an integral part of the success of our open collaboration. You bring value to the network just by being a part of it!"
+            "text": "One of the first contributions you can make to the project is getting involved in governance itself. The network of users guiding Superalgos is an integral part of the success of our open collaboration. You bring value to the network just by being a part of it!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Один из первых вкладов, который вы можете внести в проект, - это участие в самом управлении. Сеть пользователей, направляющих Superalgos, является неотъемлемой частью успеха нашего открытого сотрудничества. Вы приносите пользу сети, просто будучи ее частью!",
+                    "updated": 1639045442200
+                }
+            ]
         }
     ]
 }

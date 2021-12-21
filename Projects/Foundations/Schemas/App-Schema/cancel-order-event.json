@@ -11,14 +11,34 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Cancel Order Portfolio Event",
+            "label": "Add Ask Portfolio Manager",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "cancelOrderPMEvent",
-            "relatedUiObject": "Cancel Order PM Event",
+            "propertyToCheckFor": "askPortfolioEventsManager",
+            "relatedUiObject": "Ask Portfolio Events Manager",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Foundations",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
         },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "outgoingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Outgoing Signals",
+            "relatedUiObject": "Outgoing Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "incomingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },    
         {
             "action": "Add UI Object",
             "label": "Add Announcement",
@@ -51,9 +71,21 @@
             "autoAdd": true
         },
         {
-            "name": "cancelOrderPMEvent",
+            "name": "askPortfolioEventsManager",
             "type": "node",
-            "childType": "Cancel Order PM Event"
+            "childType": "Ask Portfolio Events Manager"
+        },
+        {
+            "name": "outgoingSignals",
+            "type": "node",
+            "childType": "Outgoing Signals",
+            "project": "Trading-Signals"
+        },
+        {
+            "name": "incomingSignals",
+            "type": "node",
+            "childType": "Incoming Signals",
+            "project": "Trading-Signals"
         },
         {
             "name": "announcements",

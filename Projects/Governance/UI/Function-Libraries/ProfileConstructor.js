@@ -1,14 +1,17 @@
 function newGovernanceFunctionLibraryProfileConstructor() {
     let thisObject = {
-        buildProfile: buildProfile,
-        installSigningAccounts: installSigningAccounts
+        buildProfileWallet: buildProfile,
+        buildProfileMnemonic: buildProfile,
+        installSigningAccounts: installSigningAccounts,
+        buildProfileWalletConnect: buildProfileWalletConnect
     }
 
     return thisObject
 
     function buildProfile(
         node,
-        rootNodes
+        rootNodes,
+        type
     ) {
         /*
         Some validations first...
@@ -19,6 +22,14 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         if (githubUsername === undefined || githubUsername === "") {
             node.payload.uiObject.setErrorMessage(
                 "githubUsername config property missing.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
+            return
+        }
+
+        if (type === 'mnemonic' && (mnemonic === undefined || mnemonic === "")) {
+            node.payload.uiObject.setErrorMessage(
+                "mnemonic config property missing.",
                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
             )
             return
@@ -84,7 +95,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 signUserProfileData(response.address, response.privateKey)
             }
         }
-
+        
         function signUserProfileData(address, privateKey) {
 
             let request = {
@@ -95,9 +106,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     data: githubUsername
                 }
             }
-
+    
             httpRequest(JSON.stringify(request.params), request.url, onResponse)
-
+    
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -107,9 +118,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     )
                     return
                 }
-
+    
                 let response = JSON.parse(data)
-
+    
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     node.payload.uiObject.setErrorMessage(
@@ -124,7 +135,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
-
+    
                 UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
                 /*
                 Set up a basic profile to start receiving benefits
@@ -132,15 +143,15 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let finServices = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
                 finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 finServices.payload.uiObject.menu.internalClick("Add Financial Program")
-
+    
                 let stakeProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
                 stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
-
+    
                 let liquidProgs = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
                 liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
-
+    
                 let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
@@ -159,10 +170,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 */
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
                 userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
-                /* 
-                Delete the mnemonic from the Profile Constructor config.
-                */
-                node.config = "{}"
                 /*
                 Show nice message.
                 */
@@ -173,6 +180,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                     )
                 } else {
+                    node.config = {}
                     node.payload.uiObject.setInfoMessage(
                         "Mnemonic successfully imported. User Profile installed as a plugin and saved. Your external wallet was sucessfully linked to your profile.",
                         UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
@@ -181,6 +189,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             }
         }
     }
+
 
     function installSigningAccounts(
         node,
@@ -232,6 +241,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         addSigningAccounts(p2pNetworkNodes, 'P2P Network Node')
 
         function addSigningAccounts(nodeArray, targetNodeType) {
+            if (nodeArray === undefined) return;
             for (let i = 0; i < nodeArray.length; i++) {
                 let currentNode = nodeArray[i]
                 addSigningAccount(currentNode, targetNodeType, i + 1)
@@ -273,10 +283,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     console.log('Call to WEB3 Server failed. ' + response.error)
                     return
                 }
-                signSigningAccountData(response.privateKey)
+                signSigningAccountData(response.address, response.privateKey)
             }
 
-            function signSigningAccountData(privateKey) {
+            function signSigningAccountData(blockchainAccount, privateKey) {
 
                 let request = {
                     url: 'WEB3',
@@ -340,7 +350,13 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
-
+                    /*
+                    Save User Profile Plugin
+                    */
+                    UI.projects.communityPlugins.functionLibraries.pluginsFunctions.savePluginHierarchy(userProfile)
+                    /*
+                    Deal with secrets
+                    */
                     let secrets = secretsFile.secrets
 
                     let secret = {
@@ -349,6 +365,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         nodeType: targetNodeType,
                         nodeCodeName: codeName,
                         signingAccountNodeId: signingAccount.id,
+                        blockchainAccount: blockchainAccount, 
                         privateKey: privateKey,
                         userProfileHandle: userProfileHandle,
                         userProfileId: userProfile.id
@@ -380,5 +397,172 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 }
             }
         }
+    }
+
+    async function buildProfileWalletConnect(
+        node,
+        rootNodes
+    ) {
+        let connector, signedMessage
+        /*
+        Some validations first...
+        */
+        let githubUsername = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'githubUsername')
+
+        if (githubUsername === undefined || githubUsername === "") {
+            node.payload.uiObject.setErrorMessage(
+                "githubUsername config property missing.",
+                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+            )
+            return
+        }
+
+        configWallet()
+        
+        async function configWallet() {
+            // Connect to a wallet
+            // TODO
+            // Check that we're in secure mode or MetaMask will behave randomly.
+            // One day, when I feel suicidal, look into this buggy mess...
+            // https://ethereum.stackexchange.com/a/62217/620
+            
+            connectWallet()
+            async function connectWallet() {
+                // Now we pass the information which providers are available
+                const provider = {
+                    bridge: "https://bridge.walletconnect.org",
+                    qrcodeModal: WalletConnectQRCodeModal.default,
+                    qrcodeModalOptions: {
+                        desktopLinks: [""]
+                    },
+                    options: {
+                        rpc: {
+                            56: 'https://bsc-dataseed.binance.org'
+                        },
+                        chainId: 56,
+                        network: 'binance'
+                    }
+                }
+
+                connector = new window.WalletConnect.default(provider)
+                if (!connector.connected) {
+                    connector.createSession()
+                }
+                
+                connector.on("connect", (error) => {
+                    if (error) {
+                        throw error
+                    }
+                    createAccount()
+                })
+
+                async function createAccount() {
+                    const web3 = new window.Web3()
+                    try {
+                        const message = [
+                            web3.utils.fromUtf8("Github username: " + githubUsername),
+                            connector.accounts[0]
+                        ]
+                        signedMessage = await connector.signPersonalMessage(message)
+                        setupProfile(signedMessage, connector.accounts[0], githubUsername)
+                    } catch (e) {
+                        console.log(e)
+                        node.payload.uiObject.setErrorMessage(
+                            "Could not create user. Confirm wallet is correctly configured.",
+                            UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                        )
+                    }
+                }
+            }
+        }
+        function setupProfile(signedMessage, account, githubUsername) {
+            let request = {
+                url: 'WEB3',
+                params: {
+                    method: "recoverWalletAddress",
+                    signature: signedMessage,
+                    account: account,
+                    data: githubUsername
+                }
+            }
+
+            httpRequest(JSON.stringify(request.params), request.url, onResponse)
+
+            function onResponse(err, data) {
+                /* Lets check the result of the call through the http interface */
+                if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    node.payload.uiObject.setErrorMessage(
+                        'Call via HTTP Interface failed.',
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
+                    return
+                }
+
+                let response = JSON.parse(data)
+
+                /* Lets check the result of the method call */
+                if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
+                    node.payload.uiObject.setErrorMessage(
+                        'Call to WEB3 Server failed. ' + response.error,
+                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
+                    )
+                    console.log('Call to WEB3 Server failed. ' + response.error)
+                    return
+                }
+
+                let userProfile = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(
+                    node,
+                    'User Profile',
+                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                )
+
+                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(node, userProfile)
+                /*
+                Set up a basic profile to start receiving benefits
+                */
+                let finServices = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
+                finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                finServices.payload.uiObject.menu.internalClick("Add Financial Program")
+                
+                let stakeProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
+                stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
+
+                let liquidProgs = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
+                liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
+
+                let liquidProg = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
+                liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
+                liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded') 
+                /*
+                We store at the User Profile the Signed githubUsername
+                */
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'signature', response.signature)
+                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(userProfile.payload, 'codeName', response.codeName)
+                /*
+                We set the name of the User Profile as the githubUsername
+                */
+                userProfile.name = githubUsername
+                /*
+                We also Install the User Profile as a Plugin, which in turns saves it.
+                */
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                /*
+                Show nice message.
+                */
+                node.payload.uiObject.setInfoMessage(
+                    "Profile has been successfully created. User Profile installed as a plugin and saved. Your Private Key is stored in your wallet.",
+                    UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                )
+                /* Disconnect from wallet */
+                disconnect()
+                async function disconnect() {
+                    await connector.killSession()
+                    connector = null
+                }
+            }
+        }   
     }
 }

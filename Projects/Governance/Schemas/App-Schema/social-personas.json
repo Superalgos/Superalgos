@@ -38,7 +38,7 @@
     "attachingRules": {
         "compatibleTypes": "->User Profile->"
     },
-    "propertyNameAtParent": "userBots",
+    "propertyNameAtParent": "socialPersonas",
     "childrenNodesProperties": [
         {
             "name": "socialPersonas",

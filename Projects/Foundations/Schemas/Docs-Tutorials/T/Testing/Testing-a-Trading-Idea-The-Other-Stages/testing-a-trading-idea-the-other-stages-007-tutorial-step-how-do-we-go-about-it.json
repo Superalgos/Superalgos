@@ -7,17 +7,38 @@
             "name": "Target\\target-rate",
             "project": "Foundations"
         },
-        "text": "Remember we are taking the position at the close of the 1H candle, whenever the take position event validates true."
+        "text": "Remember we are taking the position at the close of the 1H candle, whenever the take position event validates true.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Denken Sie daran, dass wir die Position zum Abschluss der 1H-Kerze einnehmen, sobald das Ereignis \"Position einnehmen\" bestätigt wird.",
+                "updated": 1639395489264
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "What would be a reasonable rate, then?"
+            "text": "What would be a reasonable rate, then?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was wäre dann ein angemessener Kurs?",
+                    "updated": 1639395510815
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Well... a good choice would be the rate at the close of the candle, right? Our target rate formula would then be:",
-            "updated": 1610472351878
+            "updated": 1610472351878,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nun... eine gute Wahl wäre der Kurs am Ende der Kerze, richtig? Unsere Formel für den Zielkurs wäre dann:",
+                    "updated": 1639395519356
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -25,7 +46,14 @@
         },
         {
             "style": "Callout",
-            "text": "Go ahead and edit the formula with the above syntax!"
+            "text": "Go ahead and edit the formula with the above syntax!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bearbeiten Sie die Formel mit der obigen Syntax!",
+                    "updated": 1639395526472
+                }
+            ]
         }
     ]
 }

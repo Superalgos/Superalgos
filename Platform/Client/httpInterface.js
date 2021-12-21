@@ -129,6 +129,17 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
                                     return
                                 }
+                                case 'recoverWalletAddress': {
+
+                                    let serverResponse = await PL.servers.WEB3_SERVER.recoverWalletAddress(
+                                        params.signature,
+                                        params.account,
+                                        params.data
+                                    )
+
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
+                                    return
+                                }
                                 case 'mnemonicToPrivateKey': {
 
                                     let serverResponse = await PL.servers.WEB3_SERVER.mnemonicToPrivateKey(
@@ -239,6 +250,77 @@ exports.newHttpInterface = function newHttpInterface() {
                         }
                     }
                 }
+                    break
+                case 'Social-Bots':
+                    switch (requestPath[2]) {
+                        case 'Discord-Test-Message':
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    let config = JSON.parse(body)
+                                    let text = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
+                                    socialBot.initialize(config)
+                                        .then(response => {
+                                            console.log('httpInterface > Discord Bot >', response)
+                                            socialBot.sendMessage(text)
+                                                .then(response => {
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                })
+                                                .catch(err => {
+                                                    console.error(err)
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                                })
+                                        })
+                                        .catch(err => {
+                                            console.error('error initializing discord bot', err)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
+                            break
+                        case 'Slack-Test-Message':
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    let config = JSON.parse(body)
+                                    let text = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.slackBot.newSocialBotsBotModulesSlackBot()
+                                    socialBot.initialize(config)
+                                    socialBot.sendMessage(text)
+                                        .then(response => {
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        })
+                                        .catch(err => {
+                                            console.error(err)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
+                            break
+                        case 'Twitter-Test-Message':
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    config = JSON.parse(body)
+                                    let message = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.twitterBot.newSocialBotsBotModulesTwitterBot(0)
+                                    socialBot.initialize(config)
+                                    socialBot.sendMessage(message)
+                                        .then(response => {
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        })
+                                        .catch(err => {
+                                            console.error(err)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
+                            break
+                    }
                     break
                 case 'Webhook': {
                     switch (requestPath[2]) { // switch by command
@@ -1588,7 +1670,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             try {
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
                             } catch (err) {
-                                // we just try to reponnd to the web app, but maybe the response has already been sent.
+                                // we just try to respond to the web app, but maybe the response has already been sent.
                             }
                         }
                     }
@@ -2231,7 +2313,7 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Storage': {
                     let pathToFile = httpRequest.url.substring(9)
-                    /* Unsavping # */
+                    /* Unsaving # */
                     for (let i = 0; i < 10; i++) {
                         pathToFile = pathToFile.replace('_HASHTAG_', '#')
                     }

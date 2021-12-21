@@ -1,0 +1,57 @@
+{
+    "type": "Outgoing Signal Reference",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "signalContextFormula",
+            "label": "Add Signal Context Formula",
+            "relatedUiObject": "Signal Context Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Trading-Signals",
+            "actionProject": "Visual-Scripting"
+        }, 
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Trigger On Signal->Trigger Off Signal->Take Position Signal->Create Order Signal->Cancel Order Signal->Target Rate Signal->Target Size In Base Asset Signal->Target Size In Quoted Asset Signal->Order Rate Signal->Phase Signal->Next Phase Signal->Move To Phase Signal->Close Stage Signal->Trading System Signal->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "signalContextFormula",
+            "type": "node",
+            "childType": "Signal Context Formula",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "outgoingSignalReferences",
+    "title": [
+        "Use Reference Parent Parent",
+        "Use Reference Parent"
+    ]
+}

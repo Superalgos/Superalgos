@@ -42,6 +42,11 @@
                 "language": "RU",
                 "text": "Я быстро введу Вас в курс дела с перемещением и просмотром пространства для построения графиков. Давайте сначала роазберемся с ползунком..\n\n",
                 "updated": 1636198293137
+            },
+            {
+                "language": "NL",
+                "text": "Ik zal je uitleggen hoe je kan rondbewegen in de ruimte van de grafieken. Laten we beginnen met de schuifbalk.",
+                "updated": 1638781775437
             }
         ]
     },
@@ -83,6 +88,11 @@
                     "language": "RU",
                     "text": "Щелкните по нему левой кнопкой мыши и перетащите вниз, чтобы закрыть область проектирования и открыть область построения графиков. Вернитесь в исходное положение. Чтобы сделать это с помощью клавиатуры, нажмите Ctrl + Shift + ↓. Попробуйте также ↑ ← → !",
                     "updated": 1636198484982
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik en sleep de balk naar beneden om de design space te sluiten en de charting space te openen. Andersom heeft het omgekeerde effect. Met het keyboard druk op: Ctrl + Shift + ↓. Probeer ↑ ← → ook!",
+                    "updated": 1638781947765
                 }
             ]
         },
@@ -123,6 +133,11 @@
                     "language": "RU",
                     "text": "До тех пор пока у Вас не появится необходимость частичного открытия обоих пространств, рекомендуется полностью закрыть каждое из них, чтобы сохранить компьютерные ресурсы на вашем устройстве.",
                     "updated": 1636198580623
+                },
+                {
+                    "language": "NL",
+                    "text": "Tenzij je beide ruimtes gedeeltelijk open moet hebben, is het altijd een goed idee om slechts één ruimte open te hebben, om computerkracht te besparen.",
+                    "updated": 1638782082059
                 }
             ]
         }

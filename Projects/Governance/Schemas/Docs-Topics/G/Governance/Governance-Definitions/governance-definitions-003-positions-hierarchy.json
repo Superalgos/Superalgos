@@ -4,7 +4,14 @@
     "type": "Positions Hierarchy",
     "definition": {
         "text": "Projects may define positions that people may assume while contributing to the project.",
-        "updated": 1624719589021
+        "updated": 1624719589021,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "В проектах могут определяться должности, которые люди могут занимать, участвуя в проекте.",
+                "updated": 1639039711837
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Community kann auch Trading Systeme beisteuern! Im Moment gibt es nur ein paar, aber wir hoffen, dass bald mehr dazukommen!",
                 "updated": 1634590727541
+            },
+            {
+                "language": "TR",
+                "text": "Topluluk ( Community ) ayrıca Ticaret Sistemlerine katkıda bulunabilir! Bu noktada, sadece birkaç tane var, ancak yakında daha fazlasının ortaya çıkacağını umuyoruz!",
+                "updated": 1639837225441
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Suchen Sie in den Docs nach Trading Systemen der Community!",
                     "updated": 1634590737156
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Ticaret Sistemleri ( Community Trading systems ) için yardım belgelerinde arama yapın.",
+                    "updated": 1639837290950
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Strategies, die von der Community beigesteuert werden, sind vollständig dokumentiert, so dass Sie sie zum Lernen verwenden können!",
                     "updated": 1634590749764
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluğun katkıda bulunduğu stratejiler ( Strategies ),öğrenmeniz ve kullanabilmeniz için tamamen belgelenmiştir!",
+                    "updated": 1639837347669
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass Trading Systeme, die mit Superalgos ausgeliefert werden, zwar voll funktionsfähig sind, aber nur zu Lernzwecken zur Verfügung gestellt werden! Sie sind voll verantwortlich dafür, wie Sie sie nutzen! Handeln ist ein riskantes Geschäft!",
                     "updated": 1634590755873
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos ile birlikte gönderilen Ticaret Sistemlerinin tamamen işlevsel olabileceğini, ancak bunların yalnızca eğitim amaçlı kullanıma sunulduğunu unutmayın! Bunları nasıl kullandığınızdan tamamen siz sorumlusunuz! Ticaret (Trading ) riskli bir iştir!",
+                    "updated": 1639837386122
                 }
             ]
         }

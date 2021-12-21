@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Prozesse, die Daten aus dem Internet abrufen, sind für den Zugriff auf eine breite Palette von APIs optimiert, die dort verfügbar sind. Der Dataset Type (Datentyp), den sie zum Speichern von Rohdaten verwenden, ist in der Regel nicht der beste für die Weiterverwendung innerhalb des Systems. Aus diesem Grund müssen Dataset-Typ-Konvertierungen vorgenommen werden.",
                 "updated": 1634677302182
+            },
+            {
+                "language": "RU",
+                "text": "Процессы получения данных из Интернета оптимизированы для доступа к широкому спектру доступных API. Тип набора данных, который они используют для хранения необработанных данных, обычно не лучший для потребления данных в системе. По этой причине необходимо выполнить преобразование типов набора данных.",
+                "updated": 1639392705857
             }
         ]
     },
@@ -23,27 +28,60 @@
                     "language": "DE",
                     "text": "Arten von Dataset-Konvertierungen:",
                     "updated": 1634677318651
+                },
+                {
+                    "language": "RU",
+                    "text": "Типы преобразований Dataset",
+                    "updated": 1639392731017
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "The type of conversions currently implemented within the system are:"
+            "text": "The type of conversions currently implemented within the system are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время в системе реализованы следующие типы преобразований:",
+                    "updated": 1639392741604
+                }
+            ]
         },
         {
             "style": "List",
             "text": "From One-Min-Daily Dataset to Multi-Time-Frame-Daily.",
-            "updated": 1621701316752
+            "updated": 1621701316752,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из One-Min-Daily Dataset в Multi-Time-Frame-Daily.",
+                    "updated": 1639392757622
+                }
+            ]
         },
         {
             "style": "List",
             "text": "From One-Min-Daily Dataset to Multi-Time-Frame-Market.",
-            "updated": 1621701322738
+            "updated": 1621701322738,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из One-Min-Daily Dataset в Multi-Time-Frame-Market.",
+                    "updated": 1639392771510
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "How to Convert from One Dataset Type to Another",
-            "updated": 1622205287155
+            "updated": 1622205287155,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как преобразовать один тип набора данных в другой",
+                    "updated": 1639392787246
+                }
+            ]
         },
         {
             "style": "Text",
@@ -54,6 +92,11 @@
                     "language": "DE",
                     "text": "Folgende Arten von Dataset Konvertierungen sind derzeit im System implementiert:",
                     "updated": 1634677350007
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть два способа преобразовать один тип набора данных в другой.",
+                    "updated": 1639392799824
                 }
             ]
         },
@@ -66,6 +109,11 @@
                     "language": "DE",
                     "text": "Benutzerdefinierter Code: Benutzer können Code schreiben, um die Konvertierung in den Fällen durchzuführen, in denen der Standardkonverter für die benötigte Art der Konvertierung nicht verfügbar ist.",
                     "updated": 1634677385514
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский код: пользователи могут написать код для обработки преобразования в тех случаях, когда стандартный преобразователь недоступен для требуемого типа преобразования.",
+                    "updated": 1639392825505
                 }
             ]
         },
@@ -78,6 +126,11 @@
                     "language": "DE",
                     "text": "Standardkonverter: Verwenden Sie einen Standardkonverter, um die Aufgabe zu erledigen. Derzeit gibt es nur einen Standardkonverter, der die Konvertierung von One-Min-Daily-Dataset-Typen in Multi-Time-Frame-Daily- und Multi-Time-Frame-Market-Dataset-Typen ermöglicht.",
                     "updated": 1634677568153
+                },
+                {
+                    "language": "RU",
+                    "text": "Стандартный конвертер: используйте для работы стандартный конвертер. В настоящее время существует только один стандартный конвертер, и он работает с преобразованием типа One-Min-Daily в типы Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
+                    "updated": 1639393115293
                 }
             ]
         },
@@ -90,6 +143,11 @@
                     "language": "DE",
                     "text": "Beispiel für custom (benutzerdefinierten) Code:",
                     "updated": 1634677731371
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример пользовательского кода",
+                    "updated": 1639392984374
                 }
             ]
         },
@@ -102,6 +160,11 @@
                     "language": "DE",
                     "text": "Der Candles-Volumes-Indikator in der Master Data Mine konvertiert One-Min-Candles und Volumes in Candles und Volumes von 2 Minuten, 3 Minuten usw. bis zu 24 Stunden. Zu diesem Zweck wird ein speziell entwickelter Algorithmus ausgeführt, der die vom Exchange Raw Data Sensor Bot bereitgestellten Informationen aggregiert (zusammenfasst).",
                     "updated": 1634678088585
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикатор Candles-Volumes в Master Data Mine конвертирует одноминутные свечи и объемы в свечи и объемы от 2 минут, 3 минут и т. д. До 24 часов. Для этого он запускает индивидуальный алгоритм, который агрегирует эту информацию, предоставленную ботом Raw Data Sensor Bot.",
+                    "updated": 1639393136355
                 }
             ]
         },
@@ -114,6 +177,11 @@
                     "language": "DE",
                     "text": "Der Grund dafür, dass dies als benutzerdefinierter Code implementiert wurde, liegt darin, dass es zu dem Zeitpunkt, als es benötigt wurde, keinen Standardkonverter gab und er nicht in den derzeit bestehenden migriert wurde.",
                     "updated": 1634678403439
+                },
+                {
+                    "language": "RU",
+                    "text": "Причина, по которой это было реализовано как пользовательский код, заключается в том, что, когда он был нужен, не было стандартного конвертера, и он не был перенесен в существующий в настоящее время.",
+                    "updated": 1639393087068
                 }
             ]
         },
@@ -126,6 +194,11 @@
                     "language": "DE",
                     "text": "Beispiel für einen Standardkonverter:",
                     "updated": 1634678436605
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример стандартного преобразователя",
+                    "updated": 1639393107364
                 }
             ]
         },
@@ -138,6 +211,11 @@
                     "language": "DE",
                     "text": "Der Asset Metrics Indicator Bot, der in der Messari Data Mine definiert wurde, verwendet den Standardkonverter von dem One-Min-Daily-Dataset-Typ zu Multi-Time-Frame-Daily und Multi-Time-Frame-Market Dataset-Typen. Um den Konverter verwenden zu können, muss die Process Definition Node des Bots ein Framework des Konverters in seiner Konfiguration definiert haben.",
                     "updated": 1634679002933
+                },
+                {
+                    "language": "RU",
+                    "text": "Бот Asset Metrics Indicator Bot, определенный в Messari Data Mine, использует стандартный конвертер из типа набора данных One-Min-Daily в типы данных Multi-Time-Frame-Daily и Multi-Time-Frame-Market. Чтобы использовать конвертер, узлы Process Definition должны иметь структуру конвертера, определенную в его конфигурации.",
+                    "updated": 1639400365447
                 }
             ]
         },
@@ -150,6 +228,11 @@
                     "language": "DE",
                     "text": "Zur Umstellung auf Multi-Time-Frame-Daily stellen Sie den Framework-Namen wie folgt ein:",
                     "updated": 1634679069645
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы преобразовать в Multi-Time-Frame-Daily, задайте имя фреймворка следующим образом:",
+                    "updated": 1639400383258
                 }
             ]
         },
@@ -167,6 +250,11 @@
                     "language": "DE",
                     "text": "Zur Umwandlung in Multi-Time-Frame-Market setzen Sie den Framework-Namen wie folgt:",
                     "updated": 1634679148016
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы преобразовать в Multi-Time-Frame-Market, задайте имя фреймворка следующим образом:",
+                    "updated": 1639400401580
                 }
             ]
         },
@@ -184,6 +272,11 @@
                     "language": "DE",
                     "text": "Sie benötigen den Standardkonverter jedes Mal, wenn Sie den API Data Fetcher Bot zum Extrahieren von Daten aus einer Inernet-API verwenden. Der Bot speichert die Daten in der Regel in einem One-Min-Daily Dataset Type, und Sie müssen einen Indicator Bot mit zwei Prozessen einrichten, um den One-Min-Daily Dataset Type in einen Multi-Time-Frame-Daily und einen Multi-Time-Frame-Market Dataset Type zu konvertieren.",
                     "updated": 1634679302507
+                },
+                {
+                    "language": "RU",
+                    "text": "Стандартный конвертер понадобится вам каждый раз, когда вы будете использовать бот API Data Fetcher Bot для извлечения данных из некоторого Inernet API. Бот обычно сохраняет данные в виде набора данных One-Min-Daily, и вам нужно будет настроить Indicator Bot с двумя процессами, чтобы преобразовать тип набора данных One-Min-Daily в тип набора данных Multi-Time-Frame-Market",
+                    "updated": 1639400598952
                 }
             ]
         }

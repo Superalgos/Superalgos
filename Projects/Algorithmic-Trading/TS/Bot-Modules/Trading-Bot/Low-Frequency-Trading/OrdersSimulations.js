@@ -208,7 +208,7 @@ exports.newAlgorithmicTradingBotModulesOrdersSimulations = function (processInde
                 case tradingSystemOrder.type === 'Market Buy Order' || tradingSystemOrder.type === 'Limit Buy Order': {
                     if (tradingEngineOrder.orderStatistics.actualRate.value > tradingEngine.tradingCurrent.tradingEpisode.candle.max.value) {
                         
-                        const message = 'Simulating - Actual Rate Too Hight'
+                        const message = 'Simulating - Actual Rate Too High'
                         let docs = {
                             project: 'Foundations',
                             category: 'Topic',

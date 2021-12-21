@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Mit diesem Stil wird der Text als Element einer Aufzählungsliste dargestellt.\n",
                 "updated": 1633953865487
+            },
+            {
+                "language": "RU",
+                "text": "Этот стиль визуализирует текст как элемент маркированного списка.",
+                "updated": 1638533603641
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Jeder Text, den Sie bei der Bearbeitung eines Absatzes dieses Stils eingeben, wird als Element einer Liste angezeigt, dargestellt als Text nach einem Aufzählungszeichen. Wenn Sie an einer Stelle in Ihrem Text einen Doppelpunkt als Anführungszeichen verwenden (außer am Ende), wird der gesamte Text vor dem Doppelpunkt fett dargestellt.",
                     "updated": 1633953930902
+                },
+                {
+                    "language": "RU",
+                    "text": "Любой текст, введенный вами при редактировании абзаца этого стиля, будет отображаться в виде элемента списка, представленного в виде текста после маркера. Если вы используете кавычки с двоеточием в каком-либо месте текста, кроме конца, весь текст перед двоеточием будет выделен жирным шрифтом.",
+                    "updated": 1638533695035
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633954457656
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533708178
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Vor dem ist der Text fett: nach dem Doppelpunkt ist der Text normal.",
                     "updated": 1633954486732
+                },
+                {
+                    "language": "RU",
+                    "text": "Перед двоеточием выделен жирным шрифтом: после двоеточия - обычный текст.",
+                    "updated": 1638533722773
                 }
             ]
         }

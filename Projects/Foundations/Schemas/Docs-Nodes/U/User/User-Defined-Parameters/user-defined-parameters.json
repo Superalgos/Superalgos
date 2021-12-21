@@ -1,7 +1,14 @@
 {
     "type": "User Defined Parameters",
     "definition": {
-        "text": "Users may define parameters to be used within the trading system during the trading session."
+        "text": "Users may define parameters to be used within the trading system during the trading session.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пользователи могут определять параметры, которые будут использоваться в торговой системе во время торговой сессии.",
+                "updated": 1639148203708
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,11 +18,25 @@
         {
             "style": "Text",
             "text": "Parameters defined in the configuration file of these node become available to trading systems using the following path: sessionParameters.userDefinedParameters.config.parameterName",
-            "updated": 1609676793115
+            "updated": 1609676793115,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры, определенные в конфигурационном файле этого узла, становятся доступными для торговых систем по следующему пути: sessionParameters.userDefinedParameters.config.parameterName",
+                    "updated": 1639148223774
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These parameters may be useful, for example, when you wish to use a constant multiple times across several nodes in the definition of a strategy. Instead of feeding a constant value to all formulas involved, you may feed the parameter instead. This gives you the added benefit of being able to change the value of such a constant in a single point."
+            "text": "These parameters may be useful, for example, when you wish to use a constant multiple times across several nodes in the definition of a strategy. Instead of feeding a constant value to all formulas involved, you may feed the parameter instead. This gives you the added benefit of being able to change the value of such a constant in a single point.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти параметры могут быть полезны, например, когда вы хотите использовать константу несколько раз в нескольких узлах при определении стратегии. Вместо того, чтобы указывать постоянное значение для всех задействованных формул, вы можете использовать параметр. Это дает вам дополнительное преимущество, заключающееся в возможности изменять значение такой константы в одной точке.",
+                    "updated": 1639148254298
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,16 +45,37 @@
         {
             "style": "Title",
             "text": "User Defined Parameters Configuration",
-            "updated": 1609676843832
+            "updated": 1609676843832,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация User Defined Parameters",
+                    "updated": 1639148277622
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609676849477
+            "updated": 1609676849477,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639148287995
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "param1Name is an example of a name. You may change the names of the parameters as required. Values including text strings go between quotation marks, while numeric values, without. You may define as many parameters as you wish; simply separate them with a comma to keep a valid JSON format for the configuration file."
+            "text": "param1Name is an example of a name. You may change the names of the parameters as required. Values including text strings go between quotation marks, while numeric values, without. You may define as many parameters as you wish; simply separate them with a comma to keep a valid JSON format for the configuration file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "param1Name - это пример названия. При необходимости вы можете изменить названия параметров. Значения, включая текстовые строки, заключаются в кавычки, а числовые значения - без. Вы можете определить столько параметров, сколько захотите; просто разделите их запятой, чтобы сохранить допустимый формат JSON для файла конфигурации.",
+                    "updated": 1639148361814
+                }
+            ]
         }
     ]
 }

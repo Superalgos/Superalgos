@@ -8,11 +8,25 @@
         },
         {
             "style": "Note",
-            "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability."
+            "text": "Superalgos organizes the data structures in the Network by Project to ensure scalability.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos организует структуры данных в сети по проектам для обеспечения масштабируемости.",
+                    "updated": 1638375172448
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Project Trading Tasks node is an organizational device grouping all Trading Tasks corresponding to the same Project.",
-        "updated": 1609667811768
+        "updated": 1609667811768,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Project Trading Tasks - это организационное устройство, объединяющее все торговые задачи Trading Tasks, соответствующие одному и тому же проекту Project.",
+                "updated": 1638375146985
+            }
+        ]
     }
 }

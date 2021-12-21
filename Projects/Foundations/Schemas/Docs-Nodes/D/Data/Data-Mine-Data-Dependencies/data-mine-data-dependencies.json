@@ -1,7 +1,14 @@
 {
     "type": "Data Mine Data Dependencies",
     "definition": {
-        "text": "Data mine data dependencies are references established with entire data mines to facilitate establishing data dependencies with multiple datasets in the given data mine."
+        "text": "Data mine data dependencies are references established with entire data mines to facilitate establishing data dependencies with multiple datasets in the given data mine.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Data Mine Data Dependencies - это ссылки, установленные для всех хранилищ данных, чтобы облегчить установление зависимостей данных с несколькими наборами данных в данном хранилище данных.",
+                "updated": 1638730257267
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The node may be used as an organizational device, simply to arrange bot data dependencies. However, the smart use of the node involves automating the deployment of multiple data dependencies and their references."
+            "text": "The node may be used as an organizational device, simply to arrange bot data dependencies. However, the smart use of the node involves automating the deployment of multiple data dependencies and their references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел может использоваться как организационное устройство, просто для упорядочивания зависимостей данных бота. Однако разумное использование узла включает автоматизацию развертывания множественных зависимостей данных и их ссылок.",
+                    "updated": 1638730294227
+                }
+            ]
         },
         {
             "style": "Block",
@@ -18,11 +32,25 @@
         },
         {
             "style": "Title",
-            "text": "Configuring Data Mine Data Dependencies"
+            "text": "Configuring Data Mine Data Dependencies",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Data Mine Data Dependencies",
+                    "updated": 1638730306177
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
+                    "updated": 1638730337448
+                }
+            ]
         }
     ]
 }

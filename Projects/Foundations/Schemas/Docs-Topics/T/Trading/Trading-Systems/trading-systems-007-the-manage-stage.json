@@ -4,7 +4,14 @@
     "type": "The Manage Stage",
     "definition": {
         "text": "The Manage Stage is where you define how positions are managed, from the moment the decision to take the position is made, until the moment the decision to exit the position is made.",
-        "updated": 1610199688355
+        "updated": 1610199688355,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Стадия управления Manage Stage - это этап, на котором вы определяете, как осуществляется управление позициями с момента принятия решения о занятии позиции до момента принятия решения о выходе из позиции.",
+                "updated": 1639846779111
+            }
+        ]
     },
     "paragraphs": [
         {

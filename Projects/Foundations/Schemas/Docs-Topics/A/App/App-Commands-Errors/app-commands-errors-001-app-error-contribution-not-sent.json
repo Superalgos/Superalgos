@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Es gab ein Problem beim Versuch, Ihren Beitrag (contribution) an Ihre Fork des Superalgos-Repositorys oder von Ihrer Fork an das Superalgos/Superalgos main repository zu senden.",
                 "updated": 1637847176279
+            },
+            {
+                "language": "RU",
+                "text": "Возникла проблема при попытке отправить ваш вклад в ваш форк репозитория Superalgos или с вашего форка в главный репозиторий Superalgos / Superalgos.",
+                "updated": 1638163298057
             }
         ]
     },
@@ -23,13 +28,25 @@
                     "language": "DE",
                     "text": "Lesen Sie den folgenden Abschnitt, um zu erfahren, was passiert sein könnte. Nachdem Sie das Problem behoben haben, das die Ausführung des App Contribute Command verhindert hat, können Sie es erneut versuchen.",
                     "updated": 1637847279708
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратитесь к следующему разделу для получения подробной информации о том, что могло произойти. После устранения проблемы, из-за которой команда App Contribute Command не запускалась, вы можете попробовать еще раз.",
+                    "updated": 1638163372898
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611154606702
+            "updated": 1611154606702,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1638163397925
+                }
+            ]
         },
         {
             "style": "Text",
@@ -39,6 +56,11 @@
                     "language": "DE",
                     "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
                     "updated": 1637847305339
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1638163423671
                 }
             ]
         },
@@ -51,6 +73,11 @@
                     "language": "DE",
                     "text": "Hinweis: Diese Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
                     "updated": 1637847343322
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате действительно возникшей ошибки.",
+                    "updated": 1638163451251
                 }
             ]
         },
@@ -62,6 +89,11 @@
                     "language": "DE",
                     "text": "Fehlermeldung (Error Message)",
                     "updated": 1637847408680
+                },
+                {
+                    "language": "RU",
+                    "text": "Сообщение об ошибке",
+                    "updated": 1638163470882
                 }
             ]
         },
@@ -73,6 +105,11 @@
                     "language": "DE",
                     "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Ausnahme angezeigt:",
                     "updated": 1637847389630
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приводится сообщение об ошибке исключения, которое произошло на Client:",
+                    "updated": 1638163508896
                 }
             ]
         },
@@ -82,7 +119,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Stack"
+            "text": "Error Stack",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стек ошибок",
+                    "updated": 1638163536906
+                }
+            ]
         },
         {
             "style": "Text",
@@ -92,6 +136,11 @@
                     "language": "DE",
                     "text": "Im Folgenden ist der Error Stack der beim Client aufgetretenen Ausnahme dargestellt:",
                     "updated": 1637847442850
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приводится стек ошибок исключения, возникшего на Client:",
+                    "updated": 1638163563203
                 }
             ]
         },
@@ -101,7 +150,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Error Code"
+            "text": "Error Code",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Код ошибки",
+                    "updated": 1638163579463
+                }
+            ]
         },
         {
             "style": "Text",
@@ -111,6 +167,11 @@
                     "language": "DE",
                     "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
                     "updated": 1637847479023
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, возникшего на Client:",
+                    "updated": 1638163601482
                 }
             ]
         },
@@ -121,7 +182,14 @@
         {
             "style": "Subtitle",
             "text": "Error Details",
-            "updated": 1611154543778
+            "updated": 1611154543778,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Детали ошибки",
+                    "updated": 1638163624397
+                }
+            ]
         },
         {
             "style": "Text",
@@ -132,6 +200,11 @@
                     "language": "DE",
                     "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Ausnahme aufgeführt:",
                     "updated": 1637847501074
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены все подробности об ошибке исключения, которое произошло на Client:",
+                    "updated": 1638163644557
                 }
             ]
         },

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Bei einer Data-Mining-Operation folgen die Indikatoren einem Zyklus, der ihren Zweck erfüllt: Sie verarbeiten Daten, die andere produziert haben, und stellen das Ergebnis anderen zur Verfügung.",
                 "updated": 1635276099757
+            },
+            {
+                "language": "RU",
+                "text": "При выполнении операции интеллектуального анализа данных индикаторы следуют циклу, разработанному для выполнения своей цели: обрабатывать данные, созданные другими, и делать результат доступным для использования другими.",
+                "updated": 1639666789006
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Indicators nehmen Datensätze, die von Sensoren oder anderen Indicators erzeugt werden, als Input. Diese Eingaben werden durch die definierten Datenabhängigkeiten bestimmt. Die Berechnungsprozedur und die Datenerstellungsprozedur erzeugen die beabsichtigten Transformationen. Die Datenerstellungsprozedur speichert die Ergebnisse in Datensätzen, die andere als Eingabe verwenden können, und die Berechnungsprozedur kann bestimmte Informationen zur Verfügung stellen, ohne sie jemals in die Dateien zu schreiben.",
                     "updated": 1635276217755
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикаторы принимают в качестве входных данных наборы данных, полученные с помощью датчиков или других индикаторов. Эти входные данные определяются определенными зависимостями данных. Процедура вычислений и процедура построения данных производят предполагаемые преобразования. Процедура построения данных сохраняет результаты в наборах данных, которые другие могут использовать в качестве входных,и процедура вычислений может сделать некоторые части информации доступными, даже не записывая их в файлы.",
+                    "updated": 1639666827958
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Der Zyklus ist wie folgt aufgeschlüsselt.",
                     "updated": 1635276240360
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приводится разбивка цикла.",
+                    "updated": 1639666855447
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "DE",
                     "text": "1. Laden von data dependencies",
                     "updated": 1635276285780
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Загрузка зависимостей данных",
+                    "updated": 1639666867133
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "DE",
                     "text": "Die von den Indikatoren erzeugten Datensätze bestehen aus Textdateien, in denen die Daten in Form von Arrays gespeichert sind. Jeder Wert in einem Record wird durch Doppelpunkte getrennt, und jeder Record wird durch eckige Klammern abgegrenzt. Auch die Datensätze sind durch Doppelpunkte getrennt. Das Format, in dem die Daten in den Dateien gespeichert werden, zielt darauf ab, die Dateien so leicht (lightweight) wie möglich zu machen.",
                     "updated": 1635276444848
+                },
+                {
+                    "language": "RU",
+                    "text": "Наборы данных, создаваемые индикаторами, представляют собой наборы текстовых файлов с данными, хранящимися в виде массивов. Каждое значение в записи разделяется двоеточиями, а каждая запись заключена в квадратные скобки. Записи излишне разделены двоеточиями. Формат, в котором данные хранятся в файлах, направлен на то, чтобы сделать файлы как можно более легкими.",
+                    "updated": 1639666951482
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "DE",
                     "text": "Das folgende Fragment enthält beispielsweise drei Datensätze in der Datei 24-hours Multi-Time-Frame-Market Bollinger Bands Data.json:",
                     "updated": 1635276468980
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, следующий фрагмент содержит три записи в файле 24-часовых Multi-Time-Frame-Market Bollinger Bands Data.json:",
+                    "updated": 1639666971185
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "DE",
                     "text": "Das ist es, was das System beim Lesen einer typischen Datei in einem Datensatz, dem ersten Schritt im Laufzeitzyklus, vorfindet.",
                     "updated": 1635276614868
+                },
+                {
+                    "language": "RU",
+                    "text": "Это то, с чем сталкивается система во время чтения обычного файла в наборе данных, что является первым шагом в цикле выполнения.",
+                    "updated": 1639666995424
                 }
             ]
         },
@@ -93,6 +128,11 @@
                     "language": "DE",
                     "text": "2. Aufblasen (Inflation) von Dateien in JSON-Objekte mit benannten Eigenschaften:",
                     "updated": 1635276677178
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Преобразование файлов в объекты JSON с именованными свойствами",
+                    "updated": 1639667017776
                 }
             ]
         },
@@ -104,6 +144,11 @@
                     "language": "DE",
                     "text": "Sobald eine Datei in den Speicher geladen ist, wird sie in eine JSON-Objektstruktur mit benannten Eigenschaften aufgeblasen. Dies ist der zweite Schritt im Zyklus und soll den Zugriff auf jeden Datensatz - innerhalb des Codes - wesentlich erleichtern.",
                     "updated": 1635276774378
+                },
+                {
+                    "language": "RU",
+                    "text": "После загрузки файла в память он преобразуется в объектную структуру JSON с именованными свойствами. Это второй шаг в цикле, цель которого - значительно упростить доступ к каждой записи из кода.",
+                    "updated": 1639667033330
                 }
             ]
         },
@@ -115,6 +160,11 @@
                     "language": "DE",
                     "text": "3. Berechnung von Eigenschaften, die nicht im Dataset gespeichert sind:",
                     "updated": 1635276920204
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Вычисление свойств, не сохраненных в наборе данных",
+                    "updated": 1639667051505
                 }
             ]
         },
@@ -126,6 +176,11 @@
                     "language": "DE",
                     "text": "Da die Leistung im umgekehrten Verhältnis zum Gewicht der Dateien steht, können sich Entwickler dafür entscheiden, nicht alle Indikatoreigenschaften in Dateien zu speichern. Sie können sich dafür entscheiden, Eigenschaften, die leicht zu berechnen sind, aus dem Datensatz herauszulassen und sie stattdessen als berechnete Eigenschaften verfügbar zu machen. Berechnete Eigenschaften werden von der Berechnungsprozedur berechnet und in die Formeln der Datensatzdefinition eingespeist, damit sie als integraler Bestandteil des Objekts, auf das andere Indikatoren zugreifen können, zur Verfügung stehen.",
                     "updated": 1635277103260
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку производительность обратно пропорциональна весу файлов, разработчики могут не сохранять все свойства индикаторов в файлах. Они могут оставить свойства, которые легко вычислить, из набора данных и вместо этого сделать их доступными как вычисляемые свойства. Вычисляемые свойства вычисляются процедурой вычислений и передаются в формулы определения записи, которые становятся доступными как неотъемлемая часть объекта, к которому могут обращаться другие индикаторы.",
+                    "updated": 1639667098689
                 }
             ]
         },
@@ -137,6 +192,11 @@
                     "language": "DE",
                     "text": "Stellen Sie sich zum Beispiel einen Indikator vor, der Kauf-, Verkaufs- und Gesamtvolumen anbietet. Da das Gesamtvolumen so einfach zu berechnen ist, kann der Entwickler eines solchen Indikators beschließen, nur das Kauf- und Verkaufsvolumen zu speichern und das Gesamtvolumen als berechnete Eigenschaft zur Verfügung zu stellen.",
                     "updated": 1635277150436
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, представьте индикатор, который предлагает покупки, продажи и общие объемы. Поскольку общий объем очень легко рассчитать, разработчик такого индикатора может выбрать сохранение только объемов покупок и продаж и сделать общий объем доступным в качестве расчетного свойства.",
+                    "updated": 1639667147245
                 }
             ]
         },
@@ -149,6 +209,11 @@
                     "language": "DE",
                     "text": "Erhöhen Sie die Effizienz Ihrer Indikatoren, indem Sie die Menge der in Dateien gespeicherten Informationen begrenzen.",
                     "updated": 1635277178826
+                },
+                {
+                    "language": "RU",
+                    "text": "Сделайте свои индикаторы более эффективными, ограничив объем информации, которую вы храните в файлах.",
+                    "updated": 1639667161658
                 }
             ]
         },
@@ -160,6 +225,11 @@
                     "language": "DE",
                     "text": "Der dritte Schritt im Laufzeitzyklus besteht daher darin, die Berechnungsprozedur jeder Datenabhängigkeit auszuführen und die berechneten Eigenschaften der JSON-Objektstruktur im Speicher hinzuzufügen, so dass alle Eigenschaften für die nächsten Schritte im Zyklus verfügbar sind.",
                     "updated": 1635277221102
+                },
+                {
+                    "language": "RU",
+                    "text": "Таким образом, третьим шагом в цикле выполнения является выполнение процедуры вычислений каждой зависимости данных и добавление вычисленных свойств в структуру объекта JSON в памяти, чтобы все свойства были доступны для следующих шагов цикла.",
+                    "updated": 1639667183316
                 }
             ]
         },
@@ -171,6 +241,11 @@
                     "language": "DE",
                     "text": "4. Struktur der Produkte:",
                     "updated": 1635277246404
+                },
+                {
+                    "language": "RU",
+                    "text": "4. Структура продуктов",
+                    "updated": 1639667201581
                 }
             ]
         },
@@ -182,6 +257,11 @@
                     "language": "DE",
                     "text": "Die Schritte 1, 2 und 3 werden für jede der Datenabhängigkeiten ausgeführt, und die Ergebnisse werden in einem Objekt namens \"products\" abgelegt. Auf diese Weise kann auf alle Datenabhängigkeiten mit der folgenden Art von Syntax leicht zugegriffen werden:",
                     "updated": 1635277911811
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаги 1, 2 и 3 выполняются для каждой из зависимостей данных, а результаты помещаются в объект с именем products. Таким образом, все зависимости данных могут быть легко доступны с помощью следующего синтаксиса:",
+                    "updated": 1639667222623
                 }
             ]
         },
@@ -198,6 +278,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1635278270836
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1639667236352
                 }
             ]
         },
@@ -213,6 +298,11 @@
                     "language": "DE",
                     "text": "Jedes Produkt bleibt ein Array von JSON-Objekten mit benannten Variablen.",
                     "updated": 1635278286054
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый продукт остается массивом объектов JSON с именованными переменными.",
+                    "updated": 1639667259620
                 }
             ]
         },
@@ -224,6 +314,11 @@
                     "language": "DE",
                     "text": "5. Data building (Datenerstellung):",
                     "updated": 1635278314757
+                },
+                {
+                    "language": "RU",
+                    "text": "5. Построение данных",
+                    "updated": 1639667361015
                 }
             ]
         },
@@ -235,6 +330,11 @@
                     "language": "DE",
                     "text": "Der fünfte Schritt im Laufzeitzyklus ist die Ausführung der Datenerstellungsprozedur des Indikators. Hier programmiert der Entwickler die Logik, um die Eingabedatensätze zu überprüfen und die Berechnungen durchzuführen, die für die Ausgabe des Indikators erforderlich sind.",
                     "updated": 1635278729512
+                },
+                {
+                    "language": "RU",
+                    "text": "Пятым шагом в цикле выполнения является выполнение процедуры построения данных индикатора. Именно здесь разработчик кодирует логику для просмотра входных наборов данных и выполнения вычислений, необходимых для получения выходных данных индикатора.",
+                    "updated": 1639667326787
                 }
             ]
         },
@@ -246,6 +346,11 @@
                     "language": "DE",
                     "text": "Da Indikatoren mehrere Produkte haben können, wird das Datenerstellungsverfahren für jedes Produkt nacheinander in der Reihenfolge durchgeführt, in der die Produkte um den Indikator-bot node herum definiert worden sind.",
                     "updated": 1635278793170
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикаторы могут иметь несколько продуктов, таким образом, процедура построения данных, соответствующая каждому продукту, выполняется последовательно, в том порядке, в котором продукты были определены вокруг Indicator Bot.",
+                    "updated": 1639667441570
                 }
             ]
         },
@@ -257,6 +362,11 @@
                     "language": "DE",
                     "text": "Wenn die Transformationen für ein bestimmtes Produkt abgeschlossen sind, werden die Ergebnisse an das Produktobjekt angehängt und stehen den übrigen Produkten in der Warteschlange sofort als Eingabe zur Verfügung, und zwar zusätzlich zu den ursprünglichen Datenabhängigkeiten. Die Datenabhängigkeiten sind für alle Produkte gleich, da die Datenabhängigkeiten auf Prozessebene definiert werden.",
                     "updated": 1635278977927
+                },
+                {
+                    "language": "RU",
+                    "text": "По мере завершения преобразований для данного продукта результаты добавляются к объекту products и немедленно становятся доступными для остальных продуктов в очереди для использования в качестве входных данных в дополнение к исходным зависимостям данных. Зависимости данных одинаковы для всех продуктов, так как зависимости данных определяются на уровне процессов.",
+                    "updated": 1639667507017
                 }
             ]
         },
@@ -268,6 +378,11 @@
                     "language": "DE",
                     "text": "6. Writing the output (Schreiben der Ausgabe):",
                     "updated": 1635278995057
+                },
+                {
+                    "language": "RU",
+                    "text": "6. Запись выходных данных",
+                    "updated": 1639667671310
                 }
             ]
         },
@@ -279,6 +394,11 @@
                     "language": "DE",
                     "text": "Der letzte Schritt besteht darin, die objektformatierten Datensätze wieder in ein minimiertes Array-Format umzuwandeln und die entsprechenden Dateien im Dataset zu speichern.",
                     "updated": 1635279046312
+                },
+                {
+                    "language": "RU",
+                    "text": "Последним шагом является преобразование записей в формате объекта обратно в формат свернутого массива и сохранение соответствующих файлов в наборе данных.",
+                    "updated": 1639667611620
                 }
             ]
         },
@@ -290,6 +410,11 @@
                     "language": "DE",
                     "text": "Appendix: Building 2 Interdependent Indicators (bauen zweier Interdependente Indikatoren):",
                     "updated": 1635279096121
+                },
+                {
+                    "language": "RU",
+                    "text": "Приложение: Построение 2-х взаимозависимых индикаторов",
+                    "updated": 1639667692740
                 }
             ]
         },
@@ -301,6 +426,11 @@
                     "language": "DE",
                     "text": "Nehmen wir an, Sie haben Indikator 1 mit Produkt A erstellt, der vom Indikator Candles Volumens, Produkt Candles, abhängt, und Sie erstellen Indikator 2, Produkt B, der vom Indikator 1, Produkt A, abhängt.",
                     "updated": 1635279123786
+                },
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы создали индикатор 1 с продуктом A, который зависит от Indicator Candles Volumes, продукта Candles, и вы создате индикатор2 с продуктом Б, который зависит от продукта A индикатора1.",
+                    "updated": 1639669676667
                 }
             ]
         },
@@ -312,6 +442,11 @@
                     "language": "DE",
                     "text": "Als Sie den Code für Indikator 1 Produkt A geschrieben haben, haben Sie die Syntax verwendet:",
                     "updated": 1635279152916
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы писали код для Индикатора 1 продукта A, вы использовали синтаксис:",
+                    "updated": 1639668182100
                 }
             ]
         },
@@ -328,6 +463,11 @@
                     "language": "DE",
                     "text": "Warum? Weil Indikator 1 von Kerzenvolumina und Produktkerzen abhängt, und jede Kerze eine Eigenschaft namens \"open\" hat, und da Produktkerzen die einzige Datenabhängigkeit sind, ist dies auch die Hauptabhängigkeit und wird Ihnen innerhalb des Datensatzobjekts zu Ihrer Bequemlichkeit zur Verfügung gestellt.",
                     "updated": 1635279448402
+                },
+                {
+                    "language": "RU",
+                    "text": "Почему? Поскольку индикатор 1 зависит от Candles Volumes, продукта Candles, и каждая свеча имеет свойство, называемое 'open', и поскольку продукт Candles это единственная зависимость от данных, она также является основной зависимостью, а затем она будет предоставлена ​​вам внутри объекта записи для вашего удобства.",
+                    "updated": 1639670107277
                 }
             ]
         },
@@ -340,6 +480,11 @@
                     "language": "DE",
                     "text": "Das hätten Sie auch so tun können:",
                     "updated": 1635279558626
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также можете:",
+                    "updated": 1639670172882
                 }
             ]
         },
@@ -351,6 +496,11 @@
                     "language": "DE",
                     "text": "variable property1 = products.candles[index] aber das ist schwieriger, weil man nicht wirklich weiß, in welchem Index man sich zu einem bestimmten Zeitpunkt befindet. Am besten und einfachsten ist es, das Datensatzobjekt (record object) zu verwenden. Das Array ist für sehr fortgeschrittene Benutzer.",
                     "updated": 1635279751456
+                },
+                {
+                    "language": "RU",
+                    "text": "переменная property1 = products.candles[индекс], но это сложнее, потому что вы точно не знаете, в каком индексе вы находитесь в любой момент времени. Лучше и проще использовать объект записи. Массив предназначен для очень опытных пользователей.",
+                    "updated": 1639670239059
                 }
             ]
         },
@@ -362,6 +512,11 @@
                     "language": "DE",
                     "text": "Wenn Sie dann den Code für Indikator 2, Produkt B, schreiben wollen, haben Sie bereits Indikator 1, Produkt A, als einzige Datenabhängigkeit deklariert.",
                     "updated": 1635281252028
+                },
+                {
+                    "language": "RU",
+                    "text": "Затем вы хотите написать код для индикатора 2, продукта Б, вы уже объявили индикатор 1, продукт A как единственную зависимость данных.",
+                    "updated": 1639670390402
                 }
             ]
         },
@@ -373,6 +528,11 @@
                     "language": "DE",
                     "text": "Da das Produkt A von Indikator 1 die einzige Datenabhängigkeit von Indikator 2 ist, ist es auch die Hauptabhängigkeit, was bedeutet, dass der Datenerstellungsprozess bei der Erstellung von Indikator 2 in diesem Fall über jedes Element von Indikator 1 iteriert (nicht über Kerzen, da dies überhaupt keine Abhängigkeit ist).",
                     "updated": 1635281329720
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку продукт A индикатора 1 является единственной зависимостью данных индикатора 2, то он также является основной зависимостью, что означает, что для построения индикатора 2 процесс построения данных Data Building Process будет перебирать каждый элемент индикатора 1 в этом случае (не свечи, потому что это вообще не зависимость).",
+                    "updated": 1639670456483
                 }
             ]
         },
@@ -384,6 +544,11 @@
                     "language": "DE",
                     "text": "Auf die gleiche Art und Weise wie zuvor werden Sie den Code wie folgt schreiben:",
                     "updated": 1635281342982
+                },
+                {
+                    "language": "RU",
+                    "text": "Так же, как и раньше, вы напишете такой код:",
+                    "updated": 1639670466824
                 }
             ]
         },
@@ -395,6 +560,11 @@
                     "language": "DE",
                     "text": "variable propertyX = record.current.property1 (d. h. die Eigenschaft 1 des Produkts A des Indikators 1)",
                     "updated": 1635281359194
+                },
+                {
+                    "language": "RU",
+                    "text": "переменная propertyX = record.current.property1 (что означает свойство 1 продукта A индикатора 1)",
+                    "updated": 1639670503829
                 }
             ]
         },

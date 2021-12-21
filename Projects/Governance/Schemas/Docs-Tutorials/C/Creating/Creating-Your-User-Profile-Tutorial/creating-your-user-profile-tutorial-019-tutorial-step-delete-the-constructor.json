@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Profil Oluşturucunun içeriğini yedeklediğinizden emin olduktan sonra dükkanı temizlemenin zamanı geldi.",
                 "updated": 1637247271679
+            },
+            {
+                "language": "RU",
+                "text": "После того, как вы сделали резервную копию содержимого Profile Constructor, пора навести порядок в магазине.",
+                "updated": 1639047943148
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "TR",
                     "text": "Özel anahtarı istediğiniz şekilde yedeklediyseniz, Profil Oluşturucu düğümünü silin!",
                     "updated": 1637247304339
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы будете удовлетворены своей резервной копией закрытого ключа, удалите узел Profile Constructor!",
+                    "updated": 1639047969271
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "TR",
                     "text": "Uyarı: Daha sonra Superalgos'a göndereceğiniz katkılarınızdan biriyle yanlışlıkla GitHub.com'a gönderebileceğiniz için özel anahtarınızı Çalışma Alanında saklamak güvenli değildir. Ayrıca, çalışma alanlarının hiçbir güvenlik olmaksızın diske şifrelenmemiş JSON dosyaları olarak kaydedildiğini unutmayın.",
                     "updated": 1637247430421
+                },
+                {
+                    "language": "RU",
+                    "text": "Хранить ваш закрытый ключ в рабочем пространстве небезопасно, так как вы можете случайно отправить его на GitHub.com вместе с одним из ваших вкладов. Также помните, что рабочие пространства сохраняются на диске в виде незашифрованных файлов JSON без какой-либо защиты.",
+                    "updated": 1639048028835
                 }
             ]
         },

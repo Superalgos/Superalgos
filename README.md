@@ -1,4 +1,4 @@
-# Superalgos 1.0.0
+# Superalgos 1.0.1
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -10,19 +10,10 @@
 - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Getting Started Guide](#getting-started-guide)
-- [Pre-Requisites](#pre-requisites)
-  - [Windows Install](#windows-install)
-  - [Mac OS Install](#mac-os-install)
-  - [Linux Install (e.g. Raspberry Pi running Raspberry Pi OS/Raspbian)](#linux-install--eg-raspberry-pi-running-raspberry-pi-os-raspbian-)
-   - [Installing on Debian & Debian WSL/WSL2](#installing-on-debian-or-debian-wsl-wsl2)
-   - [WSL2 IDE Environment Setup](#wsl2-ide-environment-setup)
-- [Superalgos Platform Client Installation](#superalgos-platform-client-installation)
-  - [Fork the Superalgos Repository](#fork-the-superalgos-repository)
-  - [Clone Your Fork](#clone-your-fork)
-  - [Install Node Dependencies](#install-node-dependencies)
-    - [Troubleshooting Dependency Installation](#troubleshooting-dependency-installation)
-    - [Enable Desktop Shortcut in Ubuntu](#enable-desktop-shortcut-in-ubuntu)
-  - [Installation Notes](#installation-notes)
+  - [Packaged Application Installation](#packaged-application-installation)
+  - [Docker Installations](#docker-installations)
+  - [Contributors Installation](#contributors-installation)
+    - [Installation Notes](#installation-notes)
   - [Uninstall](#uninstall)
 - [Usage](#usage)
   - [Run the Client and GUI](#run-the-client-and-gui)
@@ -31,7 +22,6 @@
   - [Usage Notes](#usage-notes)
   - [Running Superalgos on a Headless Linux Server as a Daemon](#running-superalgos-on-a-headless-linux-server-as-a-daemon)
     - [Using Systemd](#using-systemd)
-  - [Docker Deployments](#docker-deployments)
 - [Welcome Tutorial](#welcome-tutorial)
 - [What is the Superalgos Platform?](#what-is-the-superalgos-platform-)
   - [Superalgos Platform Features](#superalgos-platform-features)
@@ -62,62 +52,131 @@ You will notice the difference as soon as you join the [Telegram Community Group
 
 ## Getting Started Guide
 
-All procedures are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
+Superalgos is an ever growing ecosystem of tools and applications.  This guide will walk you through the main ways to install the Superalgos Platform (which is the flagship application of the ecosystem).  Other applications, such as a mobile app, and a p2p networking app, are currently under development.  
+
+There are a variety of methods to install the Superalgos Platform ranging from docker installations and packaged application installations, to fine grained technical installations.  The following instructions will present each type of installation from easiest to most technical.  
+
+> **Note**: 
+> 
+> If you would like to try out Superalgos without any installation, you can check out our online demo [here](https://superalgos.org/crypto-trading-bots-platform-demo.shtml).
+
+
+### Packaged Application Installation
+
+This is by far the easiest way to get started with Superalgos! 
+
+These packages contain the source code for the Superalgos platform wrapped together in one convinent file.  To find these files you can go to Superalgos' [releases page](https://github.com/Superalgos/Superalgos/releases). The releases are organized using two main categories.  First are the stable releases that comes out roughly once a month and are the most tested and bug free.  Second are the nightly development snapshots that offer the most up to date code, but have not under gone the same rigorous testing. 
+
+> **Note**: 
+> 
+> If you are just getting started, it is recommended to begin with installing the most recent stable release before trying out one of the development snapshots.
+
+Once you have chosen which type of release you would like to install, you can then find the proper package for your operating system. Each operating system has it's own packaged application to work natively within your operating system.  The following list highlights the currently available packages:  
+
+> **IMPORTANT:**
+> 
+> These installers are not code signed (this costs money and Superalgos is completely free for everyone). Therefore, antivirus will probably flag the file as unsecure. You can force the installation to allow the packages to run.  A more detailed explanation of this can be found in this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102). If this makes you uncomfortable, it is recommended you look into some of the other installation methods that do not suffer from this limitation.
+
+
+#### Windows Portable Application
+
+This package requires zero installation! Simply download the package (Superalgos-win-{version}.exe) and you’re good to go. All the exchange data that is downloaded and the workspaces you save are stored in your default documents folder (My Documents on Windows) under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
+
+#### Windows Setup Package
+
+Also on windows, there is a more traditional installer that installs the application and sets up the correct icons and shortcuts for you. This way you have a nice entry on the programs list. The downloaded data is stored in your documents folder under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
+
+#### MacOS Image
+
+Users of MacOS have the option of downloading a DMG package. Installation is as simple as downloading the DMG file, copying it into your Applications folder, and run `xattr -rd com.apple.quarantine Superalgos.app` from the Terminal (Intel/M1) or allow the app in `System Preferences > Security & Privacy > General > Open Anyway` (Intel only)!
+
+Currently, there are two types of DMG packages. The x64 variant (for Intel based Mac only), as well as the ARM64 variant for the newer Apple Silicon (M1) based machines. All data is stored in the user's Documents folder under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
+
+For a more detailed walk through of the ins and outs of Superalgos packaged installations see this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102).
+
+#### Pros and Cons of Packaged Installations
+
+The packaged applications are by far the easiest way to install the Superalgos Platform. All of the day to day functionality of the platform is readily available, as well as the ability to create and submit a User Profile to the Governance system! 
+
+The main draw back for this type of installation comes with limitations on the ablity to add contributions. Submitting a review, editing and translating the docs, or any kind of code contribution is not possible from a packaged installation.   
+
+### Docker Installations
+
+Docker installations are another avenue that allows for an easy and clean installation of the Superalgos Platform. While a little more techincal than the packaged applications, it offers the ability to install the platform in a clean and isolated enviroment. 
+
+You can find a walk through for docker installations in our [Docker Guide](Docker/README.md).
+
+Traditional docker installations are not meant to be development environments. Meaning that you cannot submit a review, edit and translate the docs, or any kind of code contribution.  That being said, there is a custom docker image that will allow you to install the platform in a development compatible configuration.  You can find the image and a walk through for installing it [here](https://hub.docker.com/r/martinb78/superalgos-docker-develop).
+
+> **IMPORTANT:**
+> 
+> Please note that the development compatible docker image is not the standard meathod to install Superalgos for contributing. If you are new to contributing, or are not an expereinced developer, it is recommended that you follow the steps for a standard techincal installation.
+
+#### Pros and Cons of Docker Installations
+
+The main purpose of docker installations are for production instances.  This is because the Superalgos Platform will be installed in a nice and clean environment that can be controlled separately from the rest of your computer. This makes it a perfect candidate for users who wish to set up an instance of the platform to run dependably without interruption.
+
+Being aimed at production, this means that standard docker installations are not a good option for users looking to contribute to the ecosystem. Youw will not be able to create a User Profile for the Governance system, submite a review, edit and translate the docs, or contribute any kind of code.     
+
+The development compatible docker installation is for special use cases. For example, using a local NAS to host the platform while still being able to add contributions. This is a nonstandard way of installing Superalgos and is only recommended for users who are comfortable using docker and dealing with potential pitfalls of installing using his method. 
+
+### Contributors Installation
+
+It is also possible to install the Superalgos Platfrom from source code. This is the most pure (albeit more techincal) way of installing Superalgos. There are no limitations to contributing (highly appreciated and rewarded with SA tokens) and gives the user the most freedom for custom configurations.
+
+> **Note**: 
+> 
+> If you are just starting out and want to contribute, this is the recommended meathod of installation to follow.
+
+All procedures (other than pre-requisites) are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
 > **IMPORTANT:**
 > 
 > Remote installations and minimalist hardware — both virtual and physical — are better suited for production deployments, where the use of the GUI is minimal. We highly recommend learning Superalgos in a local installation. Mastering the system takes time, and the use of the GUI to go through in-app tutorials is crucial during the learning process. Your experience will be orders of magnitude better if you follow this advice: leave remote installations and minimalist hardware for when you are ready to start trading live.
 
-## Pre-Requisites
+#### Pre-Requisites
 
-In order to run Superalgos on your computer, you will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended as it is what the development team uses and supports.
+In order to run Superalgos on your computer, you will need the latest versions of Node JS and Git installed. You will also need a web browser to access the interface. Google Chrome is recommended because it is the most tested browser being used by the development team and power users.
 
+Follow the installation wizards to install the latest NodeJS, and Git. If desired also install Chrome.
 - [Node.js download page](https://nodejs.org/en/download/)
 - [Git download page](https://git-scm.com/downloads)
 - [Google Chrome download page](https://www.google.com/chrome/)
 
-### Windows Install
+#### Windows Pre-Requisites (Optional)
 
-You can use the windows installer (Setup file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
+For windows users interested in trying out the machine learning features of the platform (TensorFlow), Python will need to be installed.
+- [install Python 3.9](https://www.python.org/downloads/release/python-390/).
 
- **IMPORTANT:**
- The single executable and the installer do not have Tensorflow active yet.
-
-> **NOTE**
-> There's a known issue where the screen stays white. In this case, go to "View/Reload" and it should work. 
-
-> **NOTE**
-> The application is not signed yet. The antivirus probably will flag the file as unsecure. You can force the installation and running or way for the signed app. 
-
-The manual installation option, tailored for users who are experienced and who want to contribute to the project (highly appreciated and rewarded with SA tokens). Follow the install wizards to install the latest NodeJS and Github Desktop applications.
-
-- [Node.js download page](https://nodejs.org/en/download/). Select "Current" then "Windows Installer", then follow the wizard to install after the download completes.
+For contributors that are Windows users, Github Desktop is a helpful tool to manage contributions.  You can install it using the following link.
 - [GitHub Desktop download page](https://desktop.github.com/). Click the "Download for Windows" button and follow the wizard to install after the download completes.
-- [Google Chrome download page](https://www.google.com/chrome/). After the install, it is recommended to set Chrome as the default browser.
-- If you intend on running the machine learning features (TensorFlow), you must [install Python 2](https://www.python.org/downloads/release/python-2718/) as well.
 
-### Mac OS Install
 
-You can use the MacOS installer (DMG file) which will install all the necessary dependencies and files for you to run the platform. Also the shortcuts are placed. This application will notify you and update as new releases come (to be released).
+#### Mac OS Pre-Requisites (Optional)
 
-> **NOTE**
-> The application is not signed. To be able to run you have to permit it in System Preferences > Security & Privacy > General > Open Anyway. 
+Rather than manually installing NodeJS, Git, and Python, [Homebrew](https://brew.sh/) can be used to install the requirements with minimal effort on Mac OS.  After you clone the repository, change directory to the Superalgos base and install the requirements using Homebrew. 
 
-[Homebrew](https://brew.sh/) can be used to install the requirements with minimal effort on Mac OS.  After you clone the repository, change directory to the Superalgos base and install the requirements using the Brewfile. Python 3 is only required for running machine learning (TensorFlow).
+> **Note**: 
+> 
+> Python 3 is only required for running machine learning (TensorFlow).
+
+There are two ways to use Homebrew.  The first is to type:
 
 ```sh
 brew install git node npm python@3.9
 ```
 
-Or use the `Brewfile` included in the code repository. After downloading, run this command in the same directory where the `Brewfile` resides:
+The second is to use the `Brewfile` included in the code repository. After downloading, run this command in the same directory where the `Brewfile` resides:
 
 ```sh
 brew bundle
 ```
 
-You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
+> **Note**: 
+> 
+> You can use Safari or Google Chrome as your default browser. If you run into a bug in Safari, you will be asked to reproduce it in Chrome as the development team uses Chrome.
 
-### Linux Install (e.g. Raspberry Pi running Raspberry Pi OS/Raspbian)
+#### Linux (e.g. Ubuntu, or Raspberry Pi running Raspberry Pi OS/Raspbian) Pre-Requisites
 
 [Follow the Node.js package manager install instructions](https://nodejs.org/en/download/package-manager/) for your distribution to ensure you are getting the latest version of Node.js. Many distributions only maintain an older version in their default repositories. Python 3 is only required for running machine learning (TensorFlow).
 
@@ -137,17 +196,21 @@ node \
 
 If you are running headless (i.e. as a server without a monitor attached) then you do not need to install a web browser and you can follow the tutorial for information on connecting remotely to the server.
 
-Alternatively, one could use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to setup a tool for using bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian based Distro. Nymea also has tools for automation of IoT products to allow setting up SuperAlgos as a timed function without needing to learn how to code.
+Alternatively, you can use [https://github.com/nymea/berrylan](https://github.com/nymea/berrylan) to setup a tool for using bluetooth to quickly assign WPA2 access on a WLAN on a Raspbian based Distro. Nymea also has tools for automation of IoT products to allow setting up SuperAlgos as a timed function without needing to learn how to code.
 
-Also, if you are having node version errors there is a chance you may need to read the information following this to install and use NVM to handle node versions. This is due to some distributions having out of date repositories in the package manager lists.
+> **IMPORTANT**: 
+> 
+> If you are having node version errors there is a chance you may need to read the information in the Debian Pre-Requisites section and use NVM to handle node versions. This is due to some distributions having out of date repositories in the package manager lists.
 
-#### Installing on Debian or Debian WSL/WSL2 
+#### Debian or Debian WSL/WSL2 Pre-Requisites
 (NVM & NPM Fix)
+
+Debian distributions have been found to have some additional issues with installing the right version of NodeJS needed to run Superalgos. What follows are the steps to fix this issue.
 
 For this to work you will need to [use NVM to install and control node] (https://github.com/nvm-sh/nvm)
 
 - You will need to remove any versions of node already installed on Debian due to the repositories currently being out of date.
-- - __This is necessary before proceeding.__ 
+- __This is necessary before proceeding.__ 
 
 ```sh
 sudo apt \
@@ -205,31 +268,39 @@ and __run the install commands as follows__:
 nvm run node <command string/var>
 ```
 
-(This is for node.js/node only as npm should work fine with Debian.)
+> **Note**: 
+> 
+> This is for node.js/node only, npm should work fine with Debian.
 
-##### WSL2 IDE Environment Setup
+### WSL2 VSCode IDE Environment Setup (Optional) 
 
-__There is a few parts that are necessary to obtain full functionality from VSCode as an app to run notebooks for ML/AI algos and you can turn VSCode and Windows into a development bench for working with Super Algos.__
+VSCode is a poplular IDE used by contributors to develop Superalgos. This short section covers some helpful tips for setting up the IDE's development enviroment.
 
+There are a few things that need configured to obtain full functionality from VSCode. These configurations will make it possible to run notebooks for ML/AI algos and turn VSCode and Windows into a development bench for working with Superalgos.
+
+On windows:
 - First you need to install WSL and WSL2 [https://docs.microsoft.com/en-us/windows/wsl/install](https://docs.microsoft.com/en-us/windows/wsl/install) then reboot if promoted.
   - You may want to review the Docker WSL2 Backend information for VSCode as well before proceeding. [https://aka.ms/vscode-remote/containers/docker-wsl2](https://aka.ms/vscode-remote/containers/docker-wsl2)
   - Install Debian or Ubuntu from the Windows Store, Setup the VM as instructed.
   
-  To make managing these WSL instances a lot easier, we will now move to installing VSCode + Tools to allow for Dockerizing and rapidly deploying as well as editing and manging test/usage cases of SuperAlgos edit and forks you create and contribute.
-
+On windows and Debian:
+To make managing these WSL instances a lot easier, we will now move to installing VSCode + Tools to allow for Dockerizing and rapidly deploying as well as editing and manging test/usage cases of SuperAlgos edit and forks you create and contribute.
 - Install VSCode [https://code.visualstudio.com/docs/?dv=win64user](https://code.visualstudio.com/docs/?dv=win64user)
   - Install the remote container and remote docker plugins/extensions for Visual Studio Code [https://code.visualstudio.com/docs/remote/containers#_installation](https://code.visualstudio.com/docs/remote/containers#_installation) 
     - _You may want to spend time reading the specifics of this documentation on their website._ 
-  - *When prompted* install shell shortcuts for right click options, this way you can open SuperAlgos really easy inside of VSCode.
+  - *When prompted* install shell shortcuts for right click options, this way you can open Superalgos really easy inside of VSCode.
 
-__Please refer to the information above__ for properly setting up node.js and npm on Debian systems with complications regarding versions of node.
+> **IMPORTANT**: 
+> 
+> As mentioned above, you need to remove node.js/node from your system and install NVM if you are using Debian.
+> Please refer to the information above for properly setting up node.js and npm on Debian systems with complications regarding versions of node.
 
 Once the install finishes you can now use VSCode as an interactive IDE/Shell to access SuperAlgos, run Dockers for working with SuperAlgos and more.
 
-*As mentioned above, you need to remove node.js/node from your system and install NVM if you are using Debian.*
-
 
 ## Superalgos Platform Client Installation
+
+Now that you have all the pre-requisites and optional enviroment configurations set up, now we can get to the core installations of Superalgos!
 
 ### Fork the Superalgos Repository
 
@@ -291,13 +362,18 @@ usage: node setup <options>
 > 
 > In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
+> **NOTE FOR USERS INSTALLING ON LINUX:**
+> 
+> If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
+
+
 Congratulations your installation is complete! Follow the "Running the Application" directions below.
 
 #### Troubleshooting Dependency Installation
 
 If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
 
-1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
+1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 16.6 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
 2. If you are installing Superalgos in an administratively protected directory you will need to do one of the following:
    - For Windows start your command prompt as an administrator.
    - For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.
@@ -424,12 +500,9 @@ or to follow the output with `-f`:
 journalctl -u superalgos -f
 ```
 
-### Docker Deployments
+### Workspace Refactoring for Version 1
 
-See the [Docker Readme for more information](Docker/README.md).
-
-### Workspace Refactoring for beta 13
-Beta 13 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+Verion 1.0.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
 
 This means that these projects can now have a project leader and a team working on them.
 

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Data Mining Bots können auf einem oder mehreren Rechnern gleichzeitig eingesetzt werden und finden automatisch einen Weg, ihre Aktionen zu koordinieren.",
                 "updated": 1634999274817
+            },
+            {
+                "language": "RU",
+                "text": "Боты интеллектуального анализа данных могут быть развернуты на одной или нескольких машинах одновременно, и они автоматически найдут способ для координации своих действий.",
+                "updated": 1639578043962
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Sobald Sie Ihre Data Mining Bots definiert haben, können Sie die Tasks, die sie ausführen, auf andere Network Nodes und andere Node Strukturen innerhalb der Network Hierarchie verschieben. Die Bots können auch von verschiedenen Rechnern im Netzwerk ausgeführt.",
                     "updated": 1634999369828
+                },
+                {
+                    "language": "RU",
+                    "text": "После того, как вы закончите определение своих ботов для интеллектуального анализа данных, вы можете переместить задачи Task, которые их выполняют, на другие сетевые узлы и некоторые другие структуры узлов в иерархии LAN Network. Бот по-прежнему будет работать даже на разных компьютерах в сети.",
+                    "updated": 1639578208788
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Woher weiß Superalgos, wie die Bots koordiniert werden?",
                     "updated": 1634999399742
+                },
+                {
+                    "language": "RU",
+                    "text": "Как Superalgos знает, как координировать работу ботов?",
+                    "updated": 1639578283371
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Alles, was man wissen muss, ist bereits im Workspace (Arbeitsbereich) definiert.",
                     "updated": 1634999704931
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что необходимо знать, уже определено в рабочем пространстве Workspace.",
+                    "updated": 1639578319982
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "DE",
                     "text": "In Data Mines: Die Definitionen in der Data Mine enthalten die 3 Arten von Beziehungen zwischen Bots Execution Dependency (Ausführungsabhängigkeit), Data Dependency (Datenabhängigkeit) und Status Dependency (Statusabhängigkeit).",
                     "updated": 1635001153648
+                },
+                {
+                    "language": "RU",
+                    "text": "В узлах Data Mine: определения в Data Mine содержат 3 типа отношений между ботами: Execution Dependency, Data Dependency и Status Dependency.",
+                    "updated": 1639578452034
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "DE",
                     "text": "At the Network: Die Netzwerkhierarchie enthält alle Informationen, die erforderlich sind, um zu wissen, wo die abhängigen Bots ausgeführt werden. Anhand der Tasks auf der Network Node können wir erkennen, welche Bots auf einem bestimmten Rechner im Netzwerk laufen. Ein Blick auf die Datenspeicherhierarchie verrät, wo im Netzwerk Datensätze gespeichert sind.",
                     "updated": 1635001245096
+                },
+                {
+                    "language": "RU",
+                    "text": "В сети LAN Network: иерархия LAN Network содержит всю информацию, необходимую для того, чтобы знать, где работают зависимые боты. Глядя на задачи Task на сетевом узле, мы можем узнать, какие боты работают на определенной машине в сети. Глядя на иерархию Data Storage, мы можем знать, где в сети хранятся наборы данных Dataset.",
+                    "updated": 1639578747681
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "DE",
                     "text": "Woher weiß ein Bot, wo seine Abhängigkeiten ausgeführt werden?",
                     "updated": 1635001264425
+                },
+                {
+                    "language": "RU",
+                    "text": "Как бот узнает, где запущены его зависимости?",
+                    "updated": 1639578719797
                 }
             ]
         },
@@ -95,6 +130,11 @@
                     "language": "DE",
                     "text": "Jedes Mal, wenn ein Task ausgeführt wird, wird die gesamte Netzwerkhierarchie zusammen mit den Bot-Definitionen in den Data Mines an den Task-Server gesendet. Dies umfasst nicht nur die Definition des laufenden Bots, sondern auch alle Definitionen der abhängigen Bots.",
                     "updated": 1635103632758
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый раз, когда задача Task выполняется, вся сетевая иерархия вместе с определениями ботов отправляется на сервер задач Task Server. Это включает не только определение запущенного бота, но и все определения зависимых ботов.",
+                    "updated": 1639578850309
                 }
             ]
         },
@@ -107,6 +147,11 @@
                     "language": "DE",
                     "text": "Zur Laufzeit versorgt Superalgos den Bot mit den unter Data Dependencies definierten Datasets, den unter  Status Dependencies definierten Status Reports und hilft dem Bot bei Bedarf, auf den unter Execution Dependency definierten Bot zu warten, unabhängig davon, wo sich all diese Ressourcen im physischen Netzwerk befinden.",
                     "updated": 1635104587315
+                },
+                {
+                    "language": "RU",
+                    "text": "Во время выполнения Superalgos предоставит боту наборы данных Datasets, определенные в зависимостях Data Dependency, отчеты о состоянии Status Report, определенные как зависимости состояния Status Dependency, и при необходимости это поможет боту дождаться бота, определенного как зависимость Execution Dependency, независимо от того, где находятся все эти ресурсы в физической сети.",
+                    "updated": 1639579079086
                 }
             ]
         }

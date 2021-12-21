@@ -53,18 +53,6 @@ function newFoundationsActionSwitch() {
                     UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
                 }
                 break
-
-            case 'Run All Portfolio Task Managers':
-                {
-                    UI.projects.foundations.functionLibraries.taskFunctions.runAllTaskManagers(action.node)
-                }
-                break
-            case 'Stop All Portfolio Task Managers':
-                {
-                    UI.projects.foundations.functionLibraries.taskFunctions.stopAllTaskManagers(action.node)
-                }
-                break
-
             case 'Run All Managed Tasks':
                 {   /* Portfolio Task References */
                     UI.projects.foundations.functionLibraries.taskFunctions.runAllManagedTasks(action.node);
@@ -528,7 +516,7 @@ function newFoundationsActionSwitch() {
                 {
                     UI.projects.foundations.functionLibraries.workspaceFunctions.fixMissingReferences(action.rootNodes)
                 }
-                break    
+                break
             case 'Switch To Forward Testing':
                 {
                     action.node.type = "Forward Testing Session"
@@ -544,6 +532,12 @@ function newFoundationsActionSwitch() {
             case 'Switch To Paper Trading':
                 {
                     action.node.type = "Paper Trading Session"
+                    UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
+                }
+                break
+            case 'Switch To Backtesting Portfolio':
+                {
+                    action.node.type = "Backtesting Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
                 }
                 break
@@ -579,7 +573,7 @@ function newFoundationsActionSwitch() {
                 {
                     UI.projects.foundations.functionLibraries.productFunctions.installProduct(action.node, action.rootNodes)
                 }
-                break                
+                break
 
             default: {
                 console.log("[WARN] Action sent to Foundations Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)

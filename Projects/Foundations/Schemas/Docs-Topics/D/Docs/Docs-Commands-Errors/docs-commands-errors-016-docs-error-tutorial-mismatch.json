@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Der angegebene Name des Docs Tutorial Name stimmt nicht mit dem Namen des Docs Tutorial Name auf der Seite überein, die Sie löschen möchten.",
                 "updated": 1633900216275
+            },
+            {
+                "language": "RU",
+                "text": "Указанное название учебного пособия Docs Tutorial Name не совпадает с названием, указанным на странице, которую вы хотите удалить.",
+                "updated": 1638531425066
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Seite, die Sie löschen möchten, und geben Sie den korrekten Docs Tutorial Name ein, den Sie für den Befehl benötigen.",
                     "updated": 1633900532083
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте страницу, которую вы хотите удалить, и получите правильное имя учебного пособия Docs Tutorial Name, которое будет использоваться в команде.",
+                    "updated": 1638531465260
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633900538762
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638531476894
                 }
             ]
         },

@@ -1,0 +1,68 @@
+{
+    "type": "Twitter Bot",
+    "definition": {
+        "text": "The Twitter Bot allows Superalgos to send messages to Twitter."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In order to use the Twitter Bot, a Twitter API Application needs to be created. Follow the Twitter API Documentation to apply for access and create the application. Create an Access Token and Secret with Read and Write permissions."
+        },
+        {
+            "style": "Text",
+            "text": "Parameters:"
+        },
+        {
+            "style": "Text",
+            "text": "- consumer_key - required - obtained from the Twitter developer portal application, API Key"
+        },
+        {
+            "style": "Text",
+            "text": "- consumer_secret - required - obtained from the Twitter developer portal application, API Key Secret"
+        },
+        {
+            "style": "Text",
+            "text": "- access_token_key - required - obtained from the Twitter developer portal application, Access Token"
+        },
+        {
+            "style": "Text",
+            "text": "- access_token_secret - required - obtained from the Twitter developer portal application, Access Token Secret"
+        },
+        {
+            "style": "Text",
+            "text": "- format - optional - allows custom formatting of the message being sent into Discord."
+        },
+        {
+            "style": "Text",
+            "text": "Recognized Format Variables:"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{EXCHANGE}` the exchange which is operating, i.e. Binance"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MARKET}` the market which is operating. i.e. BTC/USDT"
+        },
+        {
+            "style": "Text",
+            "text": "- `%{MESSAGE}` the text being sent"
+        },
+        {
+            "style": "Text",
+            "text": "An example format is:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"%{EXCHANGE} %{MARKET}: %{MESSAGE}\""
+        },
+        {
+            "style": "Text",
+            "text": "Which results in a final message in Twitter that looks like:"
+        },
+        {
+            "style": "Javascript",
+            "text": "\"Binance BTC/USDT: Backtesting Session 'Lightning Strike' is starting.\""
+        }
+    ]
+}

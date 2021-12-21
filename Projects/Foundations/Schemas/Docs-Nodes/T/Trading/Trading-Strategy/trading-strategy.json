@@ -8,6 +8,16 @@
                 "language": "ES",
                 "text": "Un trading strategy es la descripción de un conjunto de acciones o eventos que se ejecutan en etapas. Los eventos se desencadenan tras la validación de condiciones precisas que describen situaciones específicas del mercado. Los trading strategies están diseñados para lograr un objetivo específico dentro del plan más amplio de un Trading System mediante la toma y gestión de posiciones.",
                 "updated": 1624496418243
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret stratejisi, aşamalar halinde yürütülen bir dizi eylem veya olaydır. Olaylar, belirli piyasa durumlarını tanımlayan kesin koşulların doğrulanması üzerine tetiklenir. Ticaret stratejileri, pozisyon almak ve yönetmek yoluyla bir ticaret sisteminin daha geniş planı içinde belirli bir hedefe ulaşmak için tasarlanmıştır.",
+                "updated": 1639225031870
+            },
+            {
+                "language": "RU",
+                "text": "Торговая стратегия - это описание набора действий или событий, которые выполняются поэтапно. События инициируются после подтверждения точных условий, описывающих конкретные рыночные ситуации. Торговые стратегии предназначены для достижения конкретной цели в рамках более широкого плана торговой системы посредством открытия позиций и управления ими.",
+                "updated": 1639657330162
             }
         ]
     },
@@ -18,11 +28,25 @@
         },
         {
             "style": "Text",
-            "text": "The definition of a strategy may be analyzed in three sections:"
+            "text": "The definition of a strategy may be analyzed in three sections:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение стратегии можно проанализировать в трех разделах:",
+                    "updated": 1639657343425
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "A strategy is a set of actions occurring in stages"
+            "text": "A strategy is a set of actions occurring in stages",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стратегия - это набор действий, выполняемых поэтапно.",
+                    "updated": 1639657353906
+                }
+            ]
         },
         {
             "style": "Hierarchy",
@@ -31,43 +55,113 @@
         },
         {
             "style": "Text",
-            "text": "While stages are played in a sequence, upon execution there are overlaps. That is, a stage doesn't need to be closed for the next stage to be opened. The framework sets a clear separation of the concepts embodied in each stage to facilitate the process of defining and developing a trading system. But the truth is that, both at the conceptual level and during execution, the lines between stages are rather blurry."
+            "text": "While stages are played in a sequence, upon execution there are overlaps. That is, a stage doesn't need to be closed for the next stage to be opened. The framework sets a clear separation of the concepts embodied in each stage to facilitate the process of defining and developing a trading system. But the truth is that, both at the conceptual level and during execution, the lines between stages are rather blurry.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В то время как этапы разыгрываются последовательно, при выполнении возникают совпадения. То есть этап не нужно закрывать, чтобы открыть следующий этап. Структура устанавливает четкое разделение концепций, воплощенных на каждом этапе, для облегчения процесса определения и разработки торговой системы. Но правда в том, что как на концептуальном уровне, так и во время исполнения, границы между этапами довольно размыты.",
+                    "updated": 1639657431753
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "designed to achieve a specific goal within a broader plan"
+            "text": "designed to achieve a specific goal within a broader plan",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "предназначен для достижения конкретной цели в рамках более широкого плана",
+                    "updated": 1639657460656
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Your investment plan or trading career may have any number of goals (e.g.: accumulating a certain asset, diversifying on a basket of coins, annual profit targets, etc.). If you attempt to achieve more than one goal with a single strategy, you will sooner or later run into problems. It may be doable, but the strategy would certainly be more complex than is necessary or desirable. In any case, the logical thing to do is to analyze each goal separately so that you may design (at least) one clear, straightforward strategy for each goal."
+            "text": "Your investment plan or trading career may have any number of goals (e.g.: accumulating a certain asset, diversifying on a basket of coins, annual profit targets, etc.). If you attempt to achieve more than one goal with a single strategy, you will sooner or later run into problems. It may be doable, but the strategy would certainly be more complex than is necessary or desirable. In any case, the logical thing to do is to analyze each goal separately so that you may design (at least) one clear, straightforward strategy for each goal.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваш инвестиционный план или торговая карьера может иметь любое количество целей (например: накопление определенного актива, диверсификация по корзине монет, цели годовой прибыли и т. д.). Если вы попытаетесь достичь более одной цели с помощью одной стратегии, вы рано или поздно столкнетесь с проблемами. Это может быть выполнимо, но стратегия, безусловно, будет более сложной, чем это необходимо или желательно. В любом случае логично проанализировать каждую цель отдельно, чтобы вы могли разработать (по крайней мере) одну четкую и понятную стратегию для каждой цели.",
+                    "updated": 1639657518059
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "One of the edges granted by trading automation is the capacity to develop and deploy an unlimited number of strategies. At the same time, Superalgos allows the administration of complexity by breaking down and structuring concepts in small units: a trading system contains strategies, which contain stages, which contain specific definitions. "
+            "text": "One of the edges granted by trading automation is the capacity to develop and deploy an unlimited number of strategies. At the same time, Superalgos allows the administration of complexity by breaking down and structuring concepts in small units: a trading system contains strategies, which contain stages, which contain specific definitions. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одно из преимуществ автоматизации торговли - это возможность разрабатывать и развертывать неограниченное количество стратегий. В то же время Superalgos позволяет управлять сложностью, разбивая и структурируя концепции на небольшие единицы: торговая система содержит стратегии, которые содержат этапы, которые содержат конкретные определения.",
+                    "updated": 1639657542835
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Understanding that keeping things simple is important will help you develop a robust and extensible arsenal of bots. Simplicity is the key to sustainability."
+            "text": "Understanding that keeping things simple is important will help you develop a robust and extensible arsenal of bots. Simplicity is the key to sustainability.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Понимание важности простоты поможет вам разработать надежный и расширяемый арсенал ботов. Простота - ключ к устойчивости.",
+                    "updated": 1639657559068
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In other words, the infrastructure provided by Superalgos enables the hyperspecialization of strategies. Do not aim to trade in all sorts of market situations with the same strategy. Instead, develop a strategy for each market situation you wish to trade."
+            "text": "In other words, the infrastructure provided by Superalgos enables the hyperspecialization of strategies. Do not aim to trade in all sorts of market situations with the same strategy. Instead, develop a strategy for each market situation you wish to trade.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, инфраструктура, предоставляемая Superalgos, делает возможным гиперспециализацию стратегий. Не стремитесь торговать во всех рыночных ситуациях, используя одну и ту же стратегию. Вместо этого разработайте стратегию для каждой рыночной ситуации, которой вы хотите торговать.",
+                    "updated": 1639657584380
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "via taking and managing positions"
+            "text": "via taking and managing positions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "через открытие и управление позициями",
+                    "updated": 1639657631465
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The definition of strategy points to the concept of a position. A position is a process that exchanges the base asset for the quoted asset and that—after some time, as the position develops and targets are hit—exchanges back the quoted asset for the base asset."
+            "text": "The definition of strategy points to the concept of a position. A position is a process that exchanges the base asset for the quoted asset and that—after some time, as the position develops and targets are hit—exchanges back the quoted asset for the base asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение стратегии указывает на понятие позиции. Позиция - это процесс, при котором базовый актив обменивается на котируемый и который - через некоторое время, когда позиция развивается и достигаются цели - обменивает котируемый актив обратно на базовый актив.",
+                    "updated": 1639657654202
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The framework implemented in the Superalgos Protocol is optimized to work with such a concept."
+            "text": "The framework implemented in the Superalgos Protocol is optimized to work with such a concept.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фреймворк, реализованный в протоколе Superalgos, оптимизирован для работы с такой концепцией.",
+                    "updated": 1639657667076
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, Superalgos is flexible enough to allow you to override this hard interpretation of the concept of a position. For example, you may design market-making strategies, a strategy to balance portfolios, or develop all sorts of ideas that don't necessarily fit in that part of the definition."
+            "text": "However, Superalgos is flexible enough to allow you to override this hard interpretation of the concept of a position. For example, you may design market-making strategies, a strategy to balance portfolios, or develop all sorts of ideas that don't necessarily fit in that part of the definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако Superpages достаточно гибка, чтобы позволить вам отказаться от этой жесткой интерпретации концепции позиции. Например, вы можете разрабатывать стратегии создания рынка, стратегию балансирования портфелей или разрабатывать всевозможные идеи, которые не обязательно вписываются в эту часть определения.",
+                    "updated": 1639657715265
+                }
+            ]
         }
     ]
 }

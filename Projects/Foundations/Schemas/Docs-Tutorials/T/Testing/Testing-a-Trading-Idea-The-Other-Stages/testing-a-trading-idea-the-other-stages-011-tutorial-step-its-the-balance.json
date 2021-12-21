@@ -7,21 +7,49 @@
             "project": "Foundations",
             "name": "balance"
         },
-        "text": "What we need is the Balance! What balance? Take a minute and see if you can finish tying up the loose ends of the reasoning!"
+        "text": "What we need is the Balance! What balance? Take a minute and see if you can finish tying up the loose ends of the reasoning!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Was wir brauchen, ist das Gleichgewicht! Welches Gleichgewicht? Nehmen Sie sich eine Minute Zeit und versuchen Sie, die losen Enden der Argumentation zu verknüpfen!",
+                "updated": 1639398065960
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We defined the initialBalance in the base asset and will define the target size in the base asset..."
+            "text": "We defined the initialBalance in the base asset and will define the target size in the base asset...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir haben den initialBalance in der Basisanlage definiert und werden die Zielgröße in der Basisanlage definieren...",
+                    "updated": 1639398093353
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "We need the current balance of the base asset! Can you find the node in the Trading Engine that holds precisely that value?"
+            "text": "We need the current balance of the base asset! Can you find the node in the Trading Engine that holds precisely that value?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir brauchen den aktuellen Saldo des Basis-Assets! Können Sie den Knoten in der Trading Engine finden, der genau diesen Wert enthält?",
+                    "updated": 1639398111213
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Trading Current (we need the balance at the moment of evaluation!) > Trading Episode (because it's the balance kept for the whole session) >... what else?",
-            "updated": 1617196723617
+            "updated": 1617196723617,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading Current (wir brauchen den Saldo zum Zeitpunkt der Auswertung!) > Trading Episode (weil es der Saldo ist, der für die gesamte Sitzung gehalten wird) >... was noch?",
+                    "updated": 1639398126585
+                }
+            ]
         }
     ]
 }

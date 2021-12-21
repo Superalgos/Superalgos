@@ -17,7 +17,8 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginApiMaps: addMissingPluginApiMaps,
         enableSavingWithWorkspace: enableSavingWithWorkspace,
         disableSavingWithWorkspace: disableSavingWithWorkspace,
-        savePlugin: savePlugin,
+        savePluginFile: savePluginFile,
+        savePluginHierarchy: savePluginHierarchy, 
         installAsPlugin: installAsPlugin
     }
     return thisObject
@@ -283,8 +284,35 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         callBackFunction(GLOBAL.DEFAULT_OK_RESPONSE)
     }
 
-    function savePlugin(node, rootNodes) {
-        UI.projects.communityPlugins.utilities.plugins.savePluginFile(node)
+    function savePluginFile(pluginFile, rootNodes) {
+        UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
+    }
+
+    function savePluginHierarchy(node, rootNodes) {
+        if (node.isPlugin !== true) { return }
+
+        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
+        let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
+        let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
+        let pluginFolderNode = UI.projects.visualScripting.utilities.nodeChildren.findChildByType(pluginProject, pluginForlderNodeType)
+
+        for (let i = 0; i < pluginFolderNode.pluginFiles.length; i++) {
+            let pluginFile = pluginFolderNode.pluginFiles[i]
+            let fileName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(pluginFile.payload, 'fileName')
+            let codeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(node.payload, 'codeName')
+            if (codeName === fileName) {
+                UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
+                /*
+                Show nice message.
+                */
+                node.payload.uiObject.setInfoMessage(
+                    "Plugin Saved.",
+                    UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
+                )
+                return
+            }
+        }
     }
 
     function installAsPlugin(node, rootNodes) {
@@ -301,6 +329,8 @@ function newPluginsFunctionLibraryPluginsFunctions() {
             return
         }
 
-        UI.projects.communityPlugins.utilities.plugins.savePluginFile(pluginFile)
+        UI.projects.communityPlugins.utilities.plugins.savePluginFileAtClient(pluginFile)
     }
+
+
 }

@@ -111,6 +111,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             let fordwardTestingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Forward Testing Session')
             let paperTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Paper Trading Session')
             let liveTradingSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Trading Session')
+            let backtestingPortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Backtesting Portfolio Session')
             let livePortfolioSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Portfolio Session')
             let backLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Back Learning Session')
             let liveLearningSessionsArray = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(lanNetworkNode, 'Live Learning Session')
@@ -119,6 +120,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             scanSessionArray(fordwardTestingSessionsArray, 'Market Trading Tasks')
             scanSessionArray(paperTradingSessionsArray, 'Market Trading Tasks')
             scanSessionArray(liveTradingSessionsArray, 'Market Trading Tasks')
+            scanSessionArray(backtestingPortfolioSessionsArray, 'Market Portfolio Tasks')
             scanSessionArray(livePortfolioSessionsArray, 'Market Portfolio Tasks')
             scanSessionArray(backLearningSessionsArray, 'Market Trading Tasks')
             scanSessionArray(liveLearningSessionsArray, 'Market Trading Tasks')
@@ -381,6 +383,7 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             function scanNetworkNode(lanNetworkNode) {
                 let testingTradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Testing Trading Tasks', node, true)
                 let productionTradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Production Trading Tasks', node, true)
+                let testingPortfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Testing Portfolio Tasks', node, true)
                 let productionPortfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Production Portfolio Tasks', node, true)
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, testingTradingTasks, true) === true) {
@@ -393,6 +396,12 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
                     dashboard.name = productionTradingTasks.type + ' ' + lanNetworkNode.name
+                }
+
+                if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, testingPortfolioTasks, true) === true) {
+                    let dashboard = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
+                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(dashboard, testingPortfolioTasks)
+                    dashboard.name = testingPortfolioTasks.type + ' ' + lanNetworkNode.name
                 }
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, productionPortfolioTasks, true) === true) {

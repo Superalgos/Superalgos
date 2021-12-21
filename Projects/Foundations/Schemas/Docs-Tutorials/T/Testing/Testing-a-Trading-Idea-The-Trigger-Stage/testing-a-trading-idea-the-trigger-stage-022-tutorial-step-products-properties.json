@@ -7,28 +7,70 @@
             "name": "Record\\record-property",
             "project": "Foundations"
         },
-        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas!"
+        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden!",
+                "updated": 1639263355926
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The bollingerSubChannel product features three different properties:"
+            "text": "The bollingerSubChannel product features three different properties:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Produkt  bollingerSubChannel verfügt über drei verschiedene Eigenschaften:",
+                    "updated": 1639263385134
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "direction: Up, Down"
+            "text": "direction: Up, Down",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Richtung: Aufwärts (Up), Abwärts (Down)",
+                    "updated": 1639263435512
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "period: 1 to n."
+            "text": "period: 1 to n.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Periode: 1 bis n.",
+                    "updated": 1639263445728
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "slope: Side, Gentle, Medium, Steep, Extreme."
+            "text": "slope: Side, Gentle, Medium, Steep, Extreme.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Neigung: Seitlich (Side), Sanft (Gentle), Mittel (Medium), Steil (Steep), Extrem (Extreme).",
+                    "updated": 1639267169486
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property!"
+            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen!",
+                    "updated": 1639263536175
+                }
+            ]
         }
     ]
 }

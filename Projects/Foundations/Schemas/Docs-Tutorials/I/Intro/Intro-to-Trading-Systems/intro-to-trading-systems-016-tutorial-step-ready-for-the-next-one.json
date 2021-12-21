@@ -7,7 +7,14 @@
             "name": "Tutorial\\tutorial",
             "project": "Foundations"
         },
-        "text": "Congratulations! You now know as much about trading systems as I do! Coming next, Defining a Trading Idea."
+        "text": "Congratulations! You now know as much about trading systems as I do! Coming next, Defining a Trading Idea.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Herzlichen Glückwunsch! Sie wissen jetzt genauso viel über Trading Systeme wie ich! ",
+                "updated": 1639148394256
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -17,7 +24,14 @@
         {
             "style": "Success",
             "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!",
-            "updated": 1610466322417
+            "updated": 1610466322417,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Weiter\", um dieses Lernprogramm zu beenden, und wählen Sie \"Play\" im nächsten Lernprogramm, wenn Sie bereit sind!",
+                    "updated": 1639148472008
+                }
+            ]
         }
     ]
 }

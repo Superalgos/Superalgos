@@ -1,7 +1,14 @@
 {
     "type": "Sensor Process Instance",
     "definition": {
-        "text": "A sensor process instance is a reference to the process definition of a sensor bot, as defined in a data mine."
+        "text": "A sensor process instance is a reference to the process definition of a sensor bot, as defined in a data mine.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Sensor Process Instance - это ссылка на определение процесса сенсорного бота, как это определено в Data Mine.",
+                "updated": 1638365082855
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "For example, in the case of an instance of the Masters data mine Exchange Raw Data sensor bot, the bot process instance references the Historic OHLCVs process definition. Once the reference is established, the sensor process instance adopts the name of the process definition it references."
+            "text": "For example, in the case of an instance of the Masters data mine Exchange Raw Data sensor bot, the bot process instance references the Historic OHLCVs process definition. Once the reference is established, the sensor process instance adopts the name of the process definition it references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, в случае экземпляра главного сенсорного бота биржевых данных Raw Data, экземпляр ссылается на определение процесса исторических данных OHLCV. Как только ссылка установлена, экземпляр процесса датчика принимает имя определения процесса, на которое он ссылается.",
+                    "updated": 1638366527103
+                }
+            ]
         },
         {
             "style": "Block",
@@ -18,7 +32,14 @@
         },
         {
             "style": "Note",
-            "text": "You do not start or stop a sensor process instance directly. Instead, you start or stop the corresponding task."
+            "text": "You do not start or stop a sensor process instance directly. Instead, you start or stop the corresponding task.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не запускаете и не останавливаете экземпляр процесса датчика напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу.",
+                    "updated": 1638365246693
+                }
+            ]
         }
     ]
 }

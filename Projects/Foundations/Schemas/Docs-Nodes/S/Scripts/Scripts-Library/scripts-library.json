@@ -1,7 +1,14 @@
 {
     "type": "Scripts Library",
     "definition": {
-        "text": "A script library is a collection of related scripts."
+        "text": "A script library is a collection of related scripts.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Eine script library ist eine Sammlung zusammengehöriger Skripte(scripts).",
+                "updated": 1639495044854
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "The script library node plays an organizational role, grouping masters scripts according to the criteria of the developer."
+            "text": "The script library node plays an organizational role, grouping masters scripts according to the criteria of the developer.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Node script library spielt eine organisatorische Rolle und gruppiert Masterskripte(masters scripts) nach den Kriterien des Entwicklers(developer).",
+                    "updated": 1639495106376
+                }
+            ]
         }
     ]
 }

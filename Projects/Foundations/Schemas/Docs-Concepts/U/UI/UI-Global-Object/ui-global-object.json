@@ -2,12 +2,36 @@
     "type": "UI Global Object",
     "definition": {
         "text": "It is a global object available at the browser, containing at runtime a structure of objects ranging from Utilities, Function Libraries, Spaces and others, ready to be accessed and their functions consumed from anywhere within the UI.",
-        "updated": 1614941411500
+        "updated": 1614941411500,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это глобальный объект, доступный в браузере, содержащий во время выполнения структуру объектов, начиная от утилит, библиотек функций, пространств и других, готовых к доступу и их функциям из любого места в пользовательском интерфейсе UI.",
+                "updated": 1638299920617
+            },
+            {
+                "language": "DE",
+                "text": "Es handelt sich um ein globales Objekt, das im Browser verfügbar ist und zur Laufzeit eine Struktur von Utilities, Function Libraries, Spaces  und anderen enthält, auf die von jeder Stelle der Benutzeroberfläche(UI) aus zugegriffen werden kann und deren Funktionen genutzt werden können.",
+                "updated": 1638747281780
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638299940542
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf \"Bearbeiten\", um in den Bearbeitungsmodus zu gelangen und diesen Text zu ändern. ENTER, um neue Absätze zu schreiben. ESC, um den Bearbeitungsmodus zu verlassen. Dann können Sie docs.save verwenden, um Ihre Änderungen zu speichern und app.contribute, um sie an das Haupt-Repository zu senden.",
+                    "updated": 1638747301282
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,28 @@
+{
+    "topic": "LAN Network",
+    "pageNumber": "10",
+    "type": "Data Storage Section",
+    "definition": {
+        "text": "The data storage structure of nodes within the network hierarchy controls where and how the bots you run store the data they produce.",
+        "updated": 1610122239931,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Структура хранения данных узлов в сетевой иерархии определяет, где и как запущенные вами боты хранят данные, которые они производят.",
+                "updated": 1639148435760
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Storage->Definition",
+            "updated": 1610122265882
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Node->Data Storage->Content",
+            "updated": 1610122272255
+        }
+    ]
+}

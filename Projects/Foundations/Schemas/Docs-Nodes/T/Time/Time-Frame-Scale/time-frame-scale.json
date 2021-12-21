@@ -10,8 +10,13 @@
             },
             {
                 "language": "RU",
-                "text": "Шкала временных рамок управляет настройкой временных рамок, т.е. периодом, представленным каждой свечой, либо машины времени, либо графика временной шкалы, в зависимости от месторасположения узла.",
-                "updated": 1636561017281
+                "text": "Шкала временных рамок Time Frame Scale управляет настройкой временных рамок, т.е. периодом, представленным каждой свечой, либо машины времени, либо графика временной шкалы, в зависимости от месторасположения узла.",
+                "updated": 1639381334074
+            },
+            {
+                "language": "TR",
+                "text": "Zaman çerçevesi ölçeği, zaman çerçevesi ayarını, yani düğümün bulunduğu yere bağlı olarak zaman makinesinin veya zaman çizelgesi grafiğinin her bir mum tarafından temsil edilen periyodu kontrol eder.Kısaca Grafiği hangi zaman diliminde görmek istiyorsak , o zaman dilimine ayarlamamızı sağlar. (Örn. 1dk, 5dk, 1s,  4s vb.) ",
+                "updated": 1639214358968
             }
         ]
     },
@@ -23,11 +28,25 @@
         {
             "style": "Text",
             "text": "When the time frame scale is set at the level of the time machine, the scale setting affects all charts within the time machine. When set at the level of the timeline chart, the setting overrides the time frame scale at the time machine level.",
-            "updated": 1610136694170
+            "updated": 1610136694170,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда шкала временных рамок установлена ​​на уровне машины времени, настройка масштаба влияет на все диаграммы внутри машины времени. Если задано на уровне временной шкалы, параметр имеет приоритет над шкалой временных рамок на уровне машины времени.",
+                    "updated": 1639381280059
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This allows comparing charts in different time frames, but still synchronized at the datetime level."
+            "text": "This allows comparing charts in different time frames, but still synchronized at the datetime level.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это позволяет сравнивать графики на разных таймфреймах, но при этом синхронизировать их на уровне даты и времени.",
+                    "updated": 1639381305150
+                }
+            ]
         },
         {
             "style": "Block",
@@ -35,16 +54,37 @@
         },
         {
             "style": "Title",
-            "text": "Time Frame Scale at the Charts"
+            "text": "Time Frame Scale at the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Time Frame Scale на графиках",
+                    "updated": 1639381356667
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "To set a time frame value, place the mouse pointer over the corresponding time machine or timeline chart time frame box and scroll the mouse wheel.",
-            "updated": 1609783625339
+            "updated": 1609783625339,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы установить значение временного интервала, наведите указатель мыши на соответствующую машину времени или рамку временного интервала на временной шкале и прокрутите колесико мыши.",
+                    "updated": 1639381372632
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Alternatively, you may place the mouse pointer and use the up and down arrows ↑ ↓ to toggle through the available time frames."
+            "text": "Alternatively, you may place the mouse pointer and use the up and down arrows ↑ ↓ to toggle through the available time frames.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве альтернативы вы можете навести указатель мыши и использовать стрелки вверх и вниз ↑ ↓ для переключения доступных временных рамок.",
+                    "updated": 1639381385989
+                }
+            ]
         },
         {
             "style": "Block",
@@ -58,12 +98,26 @@
         {
             "style": "Title",
             "text": "Time Frame Scale Configuration",
-            "updated": 1609783714701
+            "updated": 1609783714701,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Time Frame Scale",
+                    "updated": 1639381399451
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609783740323
+            "updated": 1609783740323,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639381406899
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -73,7 +127,14 @@
         {
             "style": "Note",
             "text": "The values entered via the design space and the charts are synchronized and stored in the node.",
-            "updated": 1609783812074
+            "updated": 1609783812074,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значения, введенные через пространство дизайна и диаграммы, синхронизируются и сохраняются в узле.",
+                    "updated": 1639381584682
+                }
+            ]
         }
     ]
 }

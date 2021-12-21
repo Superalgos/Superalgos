@@ -11,7 +11,7 @@
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -29,7 +29,7 @@
     },
     "level": 4,
     "attachingRules": {
-        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->Social Bot Command->"
+        "compatibleTypes": "->Target Size In Base Asset->Target Size In Quoted Asset->Target Rate->Phase->Simulated Actual Rate->Situation->Indicator Function->Order Rate->Social Bot Command->Ask Portfolio Formula Manager->"
     },
     "propertyNameAtParent": "formula"
 }

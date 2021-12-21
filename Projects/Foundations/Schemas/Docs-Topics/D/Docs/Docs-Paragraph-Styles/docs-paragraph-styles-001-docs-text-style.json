@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Der Textstil wird für den Inhalt verwendet, ohne dass ein bestimmter Stil angewendet wird.",
                 "updated": 1633952110785
+            },
+            {
+                "language": "RU",
+                "text": "Стиль текста - это стиль, используемый для содержимого без применения какого-либо определенного стиля.",
+                "updated": 1638467012753
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Wenn Sie einen Absatz im Textstil bearbeiten, wird alles, was Sie eingeben, als Teil des Absatzes wiedergegeben. Was Sie nicht tun können, ist html in den Text einzubetten, da es verworfen wird. Wenn Sie während der Bearbeitung neue Absätze erstellen, erzeugen Sie effektiv separate Absätze außerhalb des Bearbeitungsmodus. Später können Sie den individuellen Stil jedes Absatzes mit einem der verfügbaren Stile ändern.",
                     "updated": 1633952173049
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы редактируете набор абзацев в текстовом стиле, все, что вы вводите, будет отображаться как часть абзаца. Чего вы не можете сделать, так это встроить html в текст, потому что он будет отброшен. Создавая новые абзацы во время редактирования, вы эффективно создаете отдельные абзацы вне режима редактирования. Позже вы можете изменить индивидуальный стиль каждого абзаца на любой из доступных стилей.",
+                    "updated": 1638467056986
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633952928467
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638467070179
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Absatz im Textstil.",
                     "updated": 1633952218565
+                },
+                {
+                    "language": "RU",
+                    "text": "Это абзац в текстовом стиле.",
+                    "updated": 1638467087843
                 }
             ]
         }

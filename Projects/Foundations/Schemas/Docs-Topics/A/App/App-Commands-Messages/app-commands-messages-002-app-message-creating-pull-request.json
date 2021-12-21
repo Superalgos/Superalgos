@@ -21,6 +21,11 @@
                 "language": "ES",
                 "text": "Espere mientras se cargan los cambios en GitHub.com y una Pull Request es creada. Recibirá un nuevo mensaje cuando se complete la operación.",
                 "updated": 1637852411598
+            },
+            {
+                "language": "RU",
+                "text": "Подождите, пока изменения будут загружены на GitHub.com и будет создан запрос на извлечение (Pull Request). Когда операция будет завершена, вы получите новое сообщение.",
+                "updated": 1638270557307
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Wie geht es nun weiter?",
                     "updated": 1634163743036
+                },
+                {
+                    "language": "RU",
+                    "text": "Что дальше?",
+                    "updated": 1638270571840
                 }
             ]
         },
@@ -63,6 +73,11 @@
                     "language": "ES",
                     "text": "No es necesario que realice ninguna otra acción. Alguien revisará su Pull Request ay fusionarlo con la última versión del software si todo está en orden. Si sus cambios son rechazados por cualquier motivo, deberá hacer un seguimiento del problema en Github.com.",
                     "updated": 1637852466417
+                },
+                {
+                    "language": "RU",
+                    "text": "Никаких дополнительных действий от вас не требуется. Кто-то рассмотрит ваш запрос на слияние и объединит его с последней версией программного обеспечения, если все будет в порядке. Если ваши изменения отклонены по какой-либо причине, вам нужно будет решить проблему на Github.com.",
+                    "updated": 1638270591020
                 }
             ]
         },
@@ -86,6 +101,11 @@
                     "language": "ES",
                     "text": "Si envía más contribuciones mientras la Pull Request está en revisión, se agregarán automáticamente a la Pull Request abierta.",
                     "updated": 1637852529296
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы отправите больше вкладов, а ваш последний Pull Request находится на рассмотрении, они будут автоматически добавлены к открытому Pull Request.",
+                    "updated": 1638270815257
                 }
             ]
         },
@@ -109,6 +129,11 @@
                     "language": "ES",
                     "text": "Debería recibir un correo electrónico de Github.com cuando se fusionen los cambios, o si el revisor hace comentarios o rechaza los cambios. Puede administrar la configuración de su suscripción de correo electrónico en GitHub.com.",
                     "updated": 1637852558644
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны получить электронное письмо от Github.com, когда изменения будут объединены, или если рецензент оставит комментарии или отклонит изменения. Вы можете управлять настройками подписки на электронную почту на GitHub.com.",
+                    "updated": 1638270850375
                 }
             ]
         }

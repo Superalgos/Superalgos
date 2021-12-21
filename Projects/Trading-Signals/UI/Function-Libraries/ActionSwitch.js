@@ -1,4 +1,4 @@
-function newSocialBotsActionSwitch() {
+function newTradingSignalsActionSwitch() {
 
     let thisObject = {
         executeAction: executeAction,

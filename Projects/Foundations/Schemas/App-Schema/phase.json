@@ -31,6 +31,26 @@
         },
         {
             "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "outgoingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Outgoing Signals",
+            "relatedUiObject": "Outgoing Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "incomingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },         
+        {
+            "action": "Add UI Object",
             "label": "Add Announcement",
             "relatedUiObject": "Announcement",
             "actionFunction": "payload.executeAction",
@@ -62,6 +82,18 @@
             "autoAdd": true
         },
         {
+            "name": "outgoingSignals",
+            "type": "node",
+            "childType": "Outgoing Signals",
+            "project": "Trading-Signals"
+        },
+        {
+            "name": "incomingSignals",
+            "type": "node",
+            "childType": "Incoming Signals",
+            "project": "Trading-Signals"
+        },          
+        {
             "name": "nextPhaseEvent",
             "type": "node",
             "childType": "Next Phase Event"
@@ -70,7 +102,7 @@
             "name": "moveToPhaseEvents",
             "type": "array",
             "childType": "Move To Phase Event"
-        },
+        },      
         {
             "name": "announcements",
             "type": "array",

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die Superalgos-Infrastruktur integriert verschiedene Projekte. Das Hauptziel dieser Integrationen ist es, projektübergreifende Operationen zu automatisieren und wertvolle Informationen aus Blockchains oder der jeweiligen Domäne eines jeden Projekts zu extrahieren, um sie in Trading Systems zu verwenden.",
                 "updated": 1636669199719
+            },
+            {
+                "language": "RU",
+                "text": "Инфраструктура Superalgos объединяет разные проекты. Основная цель этих интеграций - автоматизировать межпроектные операции, извлекая ценную информацию из блокчейнов или конкретной области каждого проекта, которая будет использоваться в торговых системах.",
+                "updated": 1638287476258
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Das erste Projekt ist Superalgos selbst, das eine Infrastruktur der untersten Ebene bereitstellt, die jedes andere integrierte Projekt frei wiederverwenden kann. In der Pipeline haben wir diese Projekte, die darauf warten, bald integriert zu werden:",
                     "updated": 1636669240132
+                },
+                {
+                    "language": "RU",
+                    "text": "Первый проект - это сам Superalgos, который обеспечивает инфраструктуру самого низкого уровня, которую любой другой интегрированный проект может свободно повторно использовать. В разработке находятся следующие проекты, которые скоро будут интегрированы:",
+                    "updated": 1638287541874
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "DE",
                     "text": "Sobald es integriert ist, wird jedes Projekt noch mehr Infrastruktur bereitstellen, die später von anderen Projekten genutzt werden kann, die danach integriert werden. Sobald beispielsweise Ethereum vollständig integriert ist, können darauf aufbauend DeFi-Projekte integriert werden.",
                     "updated": 1636669265115
+                },
+                {
+                    "language": "RU",
+                    "text": "После интеграции каждый проект будет предоставлять еще больше инфраструктуры, которая впоследствии может быть использована другими проектами для интеграции после этого. Например, как только Ethereum будет полностью интегрирован, он позволит интегрировать проекты DeFi поверх него.",
+                    "updated": 1638287570052
                 }
             ]
         }

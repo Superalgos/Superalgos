@@ -1,7 +1,14 @@
 {
     "type": "Managed Stop Loss",
     "definition": {
-        "text": "The managed stop loss node features the definition of the phases that make up the management of the stop loss target as the position develops."
+        "text": "The managed stop loss node features the definition of the phases that make up the management of the stop loss target as the position develops.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Managed Stop Loss включает в себя определение фаз, составляющих управление целью стоп-лосса по мере развития позиции.",
+                "updated": 1639846863924
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +17,47 @@
         },
         {
             "style": "Text",
-            "text": "A stop loss target is a crucial element of a trading strategy, as it is the device in charge of preserving capital. Used wisely, the management of the stop loss may also play the role of protecting unrealized profits."
+            "text": "A stop loss target is a crucial element of a trading strategy, as it is the device in charge of preserving capital. Used wisely, the management of the stop loss may also play the role of protecting unrealized profits.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Цель стоп-лосса - важнейший элемент торговой стратегии, поскольку именно он отвечает за сохранение капитала. Разумное управление стоп-лоссом может также играть роль защиты нереализованной прибыли.",
+                    "updated": 1639847043266
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The system for managing the stop loss provided by Superalgos is highly flexible. It may start as simple as a constant value at a certain rate, but may switch to a trailing stop as soon as the price moves away from the target rate by a certain percentage, or when a certain market situation arises."
+            "text": "The system for managing the stop loss provided by Superalgos is highly flexible. It may start as simple as a constant value at a certain rate, but may switch to a trailing stop as soon as the price moves away from the target rate by a certain percentage, or when a certain market situation arises.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система управления стоп-лоссом, предоставляемая Superalgos, очень гибкая. Она может начинаться просто как постоянная величина при определенном курсе, но может переключиться на трейлинг-стоп, как только цена отойдет от целевого курса на определенный процент, или при возникновении определенной рыночной ситуации.",
+                    "updated": 1639847075670
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In fact, the formula may change as many times as required, as you may set up unlimited phases, and switch back and forth as required using predefined events to make the switch."
+            "text": "In fact, the formula may change as many times as required, as you may set up unlimited phases, and switch back and forth as required using predefined events to make the switch.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На самом деле, формула может меняться столько раз, сколько потребуется, поскольку вы можете установить неограниченное количество фаз и переключаться туда и обратно по мере необходимости, используя предопределенные события для переключения.",
+                    "updated": 1639847105501
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The above example of a constant stop loss followed by a trailing stop is merely an example of a typical setup. The formulas you use to determine the rate of the target on each phase may be anything you choose, thus, you may achieve whatever behavior you imagine and can describe mathematically."
+            "text": "The above example of a constant stop loss followed by a trailing stop is merely an example of a typical setup. The formulas you use to determine the rate of the target on each phase may be anything you choose, thus, you may achieve whatever behavior you imagine and can describe mathematically.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенный выше пример постоянного стоп-лосса, за которым следует трейлинг-стоп, является лишь примером стандартной настройки. Формулы, которые вы используете для определения ставки цели на каждой фазе, могут быть любыми по вашему выбору, таким образом, вы можете добиться любого поведения, которое вы себе представляете и можете описать математически.",
+                    "updated": 1639847190766
+                }
+            ]
         }
     ]
 }

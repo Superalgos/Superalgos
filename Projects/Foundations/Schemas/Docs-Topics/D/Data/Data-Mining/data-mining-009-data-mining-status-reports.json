@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Statusberichte sind Dateien, die von den einzelnen Bot-Prozessen erstellt werden und wichtige Informationen enthalten, die der Bot speichern muss, um sich bei der nächsten Ausführung an sie zu erinnern.",
                 "updated": 1634847240243
+            },
+            {
+                "language": "RU",
+                "text": "Отчеты о состоянии Status Reports - это файлы, создаваемые процессами каждого бота, с ключевой информацией, которую бот должен сохранить, чтобы запомнить при следующем запуске.",
+                "updated": 1639412860714
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "The Task Server Main Loop (Die Hauptschleife des Aufgabenservers):",
                     "updated": 1634847263150
+                },
+                {
+                    "language": "RU",
+                    "text": "Главный цикл сервера задач Task Server",
+                    "updated": 1639412905521
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Die meisten Bots in Superalgos werden vom Task Server ausgeführt und implementieren eine Hauptschleife. Bei jeder Schleifenausführung erledigen die Bots ihre Aufgabe und gehen am Ende in eine art \"Schlaf\" (wie ein Ruhezustand Modus) bis die Schleife wieder ausgeführt wird.",
                     "updated": 1634847458538
+                },
+                {
+                    "language": "RU",
+                    "text": "Большинство ботов в Superalgos запускаются сервером задач Task Server и реализуют основной цикл Main Loop. При выполнении каждого цикла боты выполняют свою работу и в конце засыпают.",
+                    "updated": 1639412976422
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "DE",
                     "text": "Wie lange sie \"schlafen\" und andere Details werden in der Prozessdefinition des Bots konfiguriert.",
                     "updated": 1634847359588
+                },
+                {
+                    "language": "RU",
+                    "text": "Сколько времени они спят, и другие детали настраиваются в определении процесса Process Definition бота.",
+                    "updated": 1639413013057
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Status Report Mechanics (Statusbericht Mechaniken):",
                     "updated": 1634847419703
+                },
+                {
+                    "language": "RU",
+                    "text": "Механизм отчета о состоянии",
+                    "updated": 1639413056970
                 }
             ]
         },
@@ -70,6 +95,11 @@
                     "language": "DE",
                     "text": "Bevor ein Bot in den Ruhezustand geht, werden alle mit dem Bot verbundenen Informationen aus dem Computerspeicher entfernt. Dies ist wichtig, um Hardware-Ressourcen für andere Bots freizugeben, die auf demselben Computer laufen. Es gibt jedoch einige Informationen, die sich Bots zwischen den einzelnen Ausführungen der Hauptschleife selber und zwischen den Ausführungen des Tasks selbst merken müssen.Diese Informationen werden in einer JSON-/Textdatei namens Status Report gespeichert. Der Name \"Status\" wurde gewählt, da die gespeicherten Informationen oft den Status des Bot-Prozesses darstellen. Hier ist ein Beispiel für eine einfache Status Report Datei:",
                     "updated": 1634847824025
+                },
+                {
+                    "language": "RU",
+                    "text": "Перед тем, как бот перейдет в спящий режим, из памяти компьютера удаляется вся информация, связанная с ботом. Это важно для освобождения аппаратных ресурсов для других ботов, работающих на той же машине. Однако существует некоторая информация, которую ботам необходимо запоминать между каждым выполнением основного цикла Main Loop и между выполнениями самой задачи. Эта информация хранится в JSON / текстовом файле, который называется Status Report. Название \"Status\" использовалось, поскольку хранимая информация часто является статусом процесса бота. Вот пример простого файла Status Report:",
+                    "updated": 1639413309271
                 }
             ]
         },
@@ -87,6 +117,11 @@
                     "language": "DE",
                     "text": "Status Report Dateien können auch eine Datenstruktur namens Inter Execution Memory enthalten. Statusinformationen sind für alle Arten von Bots Standard. Der Inter Execution Memory (Ausführungsspeicher) hingegen hängt vom Typ des jeweiligen Bots ab und davon, was tatsächlich verarbeitet wird.",
                     "updated": 1634847925406
+                },
+                {
+                    "language": "RU",
+                    "text": "Файлы Status Report также могут включать структуру данных, называемую памятью выполнения Inter Execution Memory. Информация о статусе стандартна для всех типов ботов. С другой стороны, Inter Execution Memory зависит от типа каждого бота и от того, что на самом деле обрабатывается.",
+                    "updated": 1639413401296
                 }
             ]
         },

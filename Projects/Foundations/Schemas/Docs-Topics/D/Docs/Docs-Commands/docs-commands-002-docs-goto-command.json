@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Dieser command bietet einen Mechanismus, um zu einer Docs-Seite oder einem anchor innerhalb der Seite zu navigieren.",
                 "updated": 1633892921614
+            },
+            {
+                "language": "RU",
+                "text": "Эта команда предоставляет механизм для перехода на страницу документов или привязку внутри страницы.",
+                "updated": 1638527465475
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1609150441764
+            "updated": 1609150441764,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1638527481955
+                }
+            ]
         },
         {
             "style": "Json",
@@ -33,6 +45,11 @@
                     "language": "DE",
                     "text": "Parameter",
                     "updated": 1633892931320
+                },
+                {
+                    "language": "RU",
+                    "text": "Параметры",
+                    "updated": 1638527498175
                 }
             ]
         },
@@ -45,6 +62,11 @@
                     "language": "DE",
                     "text": "Project: Es ist das Projekt, in dem die Seite definiert ist.",
                     "updated": 1633893005929
+                },
+                {
+                    "language": "RU",
+                    "text": "Project: Это проект, в котором определена страница.",
+                    "updated": 1638527543684
                 }
             ]
         },
@@ -57,6 +79,11 @@
                     "language": "DE",
                     "text": "Docs Page Category: Eine der verfügbaren Kategorien.",
                     "updated": 1633893023879
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Category: Одна из доступных категорий.",
+                    "updated": 1638527559565
                 }
             ]
         },
@@ -69,6 +96,11 @@
                     "language": "DE",
                     "text": "Docs Page Name: Der Name der Seite.",
                     "updated": 1633893042591
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Name: Название страницы.",
+                    "updated": 1638527580289
                 }
             ]
         },
@@ -81,6 +113,11 @@
                     "language": "DE",
                     "text": "Docs Page Anchor: Dieser Parameter ist optional. Wenn er vorhanden ist, verweist er auf einen Docs Paragraph mit dem Docs Anchor Style innerhalb der Seite.",
                     "updated": 1633893112576
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот параметр не является обязательным. Когда он присутствует, он относится к абзацу  Docs Paragraph со стилем привязки Docs Anchor Style.",
+                    "updated": 1638527685449
                 }
             ]
         },
@@ -93,6 +130,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633893131581
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638527693521
                 }
             ]
         },

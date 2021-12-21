@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Superalgos ermöglicht es Benutzern, leistungsstarke Data-Mining-Operationen einzurichten. Auf dieser Seite werden die Arbeitsabläufe vorgestellt, die beim Data Mining involviert sind.",
                 "updated": 1634578254653
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos позволяет пользователям настраивать мощные операции интеллектуального анализа данных. На этой странице представлены рабочие процессы, участвующие в интеллектуальном анализе данных.",
+                "updated": 1639382432870
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Im Allgemeinen fließen die Daten aus dem Internet in das Superalgos-System. Dort werden sie anschließend verarbeitet und weiterverarbeitet und schließlich von den trading strategies (Handelsstrategien) verbraucht.",
                     "updated": 1634578330154
+                },
+                {
+                    "language": "RU",
+                    "text": "Как правило, данные поступают из Интернета в систему Superalgos. Попав внутрь, он обрабатывается и повторно обрабатывается и, наконец, потребляется торговыми стратегиями.",
+                    "updated": 1639382456057
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Bedingt dadurch, dass sich mehr Nutzer beteiligen und mehr Inhalte erstellen, die sie mit der Gemeinschaft teilen, werden die Data-Mining-Funktionen des Systems erweitert.",
                     "updated": 1634578512210
+                },
+                {
+                    "language": "RU",
+                    "text": "По мере того, как все больше пользователей присоединяются, чтобы вносить свой вклад и создавать больше ресурсов, которыми они делятся с сообществом, возможности системы интеллектуального анализа данных будут расширяться.",
+                    "updated": 1639382490493
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "DE",
                     "text": "Die zwei Haupt Daten-Workflows:",
                     "updated": 1634578558625
+                },
+                {
+                    "language": "RU",
+                    "text": "Два основных рабочих процесса с данными Main Data Workflows",
+                    "updated": 1639382574950
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "DE",
                     "text": "Sensor Bot Workflow: Die Daten werden über einen Sensor Bot in das System eingespeist. In diesem Haupt-Workflow dient der resultierende Datensatz als Input für einen Indicator Bot, der ihn weiterverarbeitet.",
                     "updated": 1634580249065
+                },
+                {
+                    "language": "RU",
+                    "text": "Sensor Bot Workflow: Данные поступают в систему через Sensor Bot. В этом основном рабочем процессе результирующий набор данных служит входными данными для бота Indicator Bot, который будет его обрабатывать.",
+                    "updated": 1639382685536
                 }
             ]
         },
@@ -73,6 +98,11 @@
                     "language": "DE",
                     "text": "Warum? Weil die Daten in einem Format ankommen, das noch nicht standardisiert ist, um von Handelsstrategien verarbeitet oder in Charts dargestellt zu werden (mit Ausnahme von Webhooks, die Daten im Typ Single-File Dataset aufzeichnen, der von Plottern und trading strategies (Handelsstrategien) verarbeitet werden kann).",
                     "updated": 1634580399832
+                },
+                {
+                    "language": "RU",
+                    "text": "Почему? Поскольку данные поступают в формате, который еще не стандартизирован для использования в торговых стратегиях или построения графиков на графиках (за исключением Webhooks, которые записывают данные в типе однофайлового набора данных, который может использоваться плоттерами и торговыми стратегиями).",
+                    "updated": 1639382710361
                 }
             ]
         },
@@ -85,6 +115,11 @@
                     "language": "DE",
                     "text": "API Data Fetcher Bot Workflow: Die Daten werden über einen API Data Fetcher Bot in das System eingespeist. In diesem Haupt-Workflow dient der resultierende Datensatz als Eingabe für einen Indicator Bot, der ihn danach weiter verarbeitet.",
                     "updated": 1634580475107
+                },
+                {
+                    "language": "RU",
+                    "text": "API Data Fetcher Bot Workflow: В этом основном рабочем процессе результирующий набор данных служит входными данными для бота Indicator Bot, который будет его обрабатывать.",
+                    "updated": 1639382770553
                 }
             ]
         },
@@ -97,6 +132,11 @@
                     "language": "DE",
                     "text": "Die Daten, die von einer externen Quelle kommen, werden als Raw Data (Rohdaten) betrachtet. Beide Workflows erzeugen Rohdaten, die von Indikator-Bots verarbeitet werden müssen.",
                     "updated": 1634580517112
+                },
+                {
+                    "language": "RU",
+                    "text": "Данные, поступающие из внешнего источника, считаются необработанными данными Raw Data. Оба этих двух рабочих процесса производят необработанные данные, которые должны обрабатываться ботами Indicator Bots.",
+                    "updated": 1639382929172
                 }
             ]
         },
@@ -120,6 +160,11 @@
                     "language": "DE",
                     "text": "Indicator-Bots haben zwei unterschiedliche Zwecke:",
                     "updated": 1634580952464
+                },
+                {
+                    "language": "RU",
+                    "text": "Боты Indicator bot имеют две разные цели::",
+                    "updated": 1639382906500
                 }
             ],
             "updated": 1634580879323
@@ -133,6 +178,11 @@
                     "language": "DE",
                     "text": "Datensätze standardisieren: Sie werden zur Standardisierung von Rohdaten verwendet, die von einem Sensor Bot oder einem API Data Fetcher Bot aus dem Internet extrahiert wurden. Sobald die Daten standardisiert sind, können sie durch andere Indikator-Bots geleitet werden, die das Beste aus ihnen herausholen. Sobald die Daten standardisiert sind, können sie auch geplottet und von Trading Strategies (Handelsstrategien) verwendet werden. Mit Standardisierung meinen wir insbesondere die Umwandlung der Daten in einen Dataset Typ, der zum Plotten von Diagrammen oder zum Füttern von Lern- und Trading-Bots verwendet werden kann. Diese Datensatztypen sind Multi-Time-Frame-Daily und Multi-Time-Frame-Market.",
                     "updated": 1634582999079
+                },
+                {
+                    "language": "RU",
+                    "text": "Стандартизация наборов данных: они используются для стандартизации необработанных данных, извлеченных из Интернета ботами Sensor Bot или API Data Fetcher Bot. После стандартизации данных их можно будет запустить с помощью других ботов Indicator Bot, которые извлекут из них все соки. После стандартизации данные также могут быть нанесены на график и использованы в торговых стратегиях. Путем стандартизации мы конкретно имеем в виду преобразование данных в тип набора данных, который можно использовать для построения графиков или подачи обучающих и торговых роботов. Эти типы наборов данных Dataset Type - Multi-Time-Frame-Daily и Multi-Time-Frame-Market.",
+                    "updated": 1639383368304
                 }
             ]
         },
@@ -145,6 +195,11 @@
                     "language": "DE",
                     "text": "Daten verarbeiten: Dies bedeutet, dass die Daten auf jede Art und Weise verarbeitet werden, die für die Nutzer sinnvoll ist. Viele Nutzer verwenden Indicator Bots, um Standardindikatoren zu berechnen, andere berechnen nicht standardisierte Dinge, sogar Ideen, was aus einem bestimmten Datensatz nützlich sein könnte, können umgesetzt werden. Das System ist offen und erlaubt es den Nutzern, mit den Daten zu spielen, indem sie sie auf jede beliebige Art und Weise umwandeln.",
                     "updated": 1634583321196
+                },
+                {
+                    "language": "RU",
+                    "text": "Обработка данных: это означает обработку данных любым способом, который имеет смысл для пользователей. Многие пользователи используют боты Indicator Bot для расчета стандартных индикаторов, другие рассчитывают нестандартные данные, даже можно реализовать идеи о том, что может быть полезно извлечь из определенного набора данных. Система открыта и позволяет пользователям делать именно это, играть с данными, преобразовывая их так, как они хотят.",
+                    "updated": 1639383479790
                 }
             ]
         },
@@ -169,6 +224,11 @@
                     "language": "DE",
                     "text": "Plotter sind Werkzeuge für Benutzer, nicht für Bots. Plotter stellen die Informationen eines Datensatzes auf der Grundlage der Definition des Plotters in den Diagrammen dar. Auf diese Weise können Nutzer visuell Muster in Datensätzen entdecken und Ideen entwickeln. Diese Ideen können dem Nutzer dann bei der Entscheidung helfen, wie er die Daten weiterverarbeitet oder sie an einen Learning Bot oder Trading Bot weitergibt.",
                     "updated": 1634583962530
+                },
+                {
+                    "language": "RU",
+                    "text": "Плоттеры Plotters - это инструменты для пользователей, а не для ботов. Плоттеры будут отображать информацию набора данных в диаграммах на основе определения плоттера. Это позволяет пользователям визуально обнаруживать закономерности в наборах данных и генерировать идеи. Эти идеи могут затем помочь пользователю решить, как обрабатывать данные дальше или передать данные обучающемуся боту или торговому боту.",
+                    "updated": 1639383564172
                 }
             ]
         },
@@ -180,6 +240,11 @@
                     "language": "DE",
                     "text": "Plotter können nur Daten von bestimmten Dataset Typen lesen. Welche das sind, erfahren Sie später in diesem Thema.",
                     "updated": 1634583996041
+                },
+                {
+                    "language": "RU",
+                    "text": "Плоттеры могут считывать данные только из определенных типов наборов данных Dataset types, вы узнаете, какие из них позже в этом разделе.",
+                    "updated": 1639383606356
                 }
             ]
         },
@@ -192,6 +257,11 @@
                     "language": "DE",
                     "text": "Indikatoren -> Learning Bots (stecken mitten in der Entwicklung):",
                     "updated": 1634585606476
+                },
+                {
+                    "language": "RU",
+                    "text": "Indicators -> Learning Bots (в разработке)",
+                    "updated": 1639383633997
                 }
             ]
         },
@@ -204,6 +274,11 @@
                     "language": "DE",
                     "text": "Learning Bots haben Zugang zu geschürften Daten, die sie zum Trainieren ihrer KI-Modelle verwenden. Einmal trainiert, können diese KI-Modelle von Trading-Strategien genutzt werden, um Vorhersagen anzufordern und daraufhin zu handeln.",
                     "updated": 1634585521697
+                },
+                {
+                    "language": "RU",
+                    "text": "Обучающиеся боты Learning Bots имеют доступ к добытым данным, которые они используют для обучения своих моделей ИИ (Искуственный интеллект). После обучения эти модели ИИ могут использоваться в торговых стратегиях для запроса прогнозов и действий в соответствии с ними.",
+                    "updated": 1639383746828
                 }
             ]
         },
@@ -228,6 +303,11 @@
                     "language": "DE",
                     "text": "Trading Bots sind die ultimativen Konsumenten von Daten. Sie nutzen die Daten, die sie erhalten, um auf der Grundlage ihrer Definitionen Handelsentscheidungen zu treffen. Der ultimative Zweck der gesamten Data-Mining-Operation besteht darin, Daten so zu verarbeiten, dass sie für Handelsstrategien leicht zugänglich sind.",
                     "updated": 1634585828124
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговые боты Trading bots - конечный потребитель данных. Они используют полученные данные для принятия торговых решений на основе своих определений. Конечная цель всей операции интеллектуального анализа данных - переваривать данные, чтобы они были легко доступны для торговых стратегий.",
+                    "updated": 1639383796247
                 }
             ]
         }

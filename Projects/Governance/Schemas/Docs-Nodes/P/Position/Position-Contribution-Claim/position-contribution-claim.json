@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo para referenciar un nodo de Position ( Posición) de una jerarquía de posición para establecer una Position Contribution Claim ( Solicitud de Contribución de Posición). Esta solicitud significa que declara que ha trabajado en esa posición, y que espera ser recompensado consecuentemente!",
                 "updated": 1636282196871
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел для ссылки на узел Position в одной из иерархий Positions для создания Position Contribution Claim. Это заявление означает, что вы заявляете, что работали на этим Position и ожидаете соответствующего вознаграждения!",
+                "updated": 1639134163757
             }
         ]
     },
@@ -28,7 +33,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639134175536
+                }
+            ]
         }
     ]
 }

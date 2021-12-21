@@ -2,7 +2,14 @@
     "type": "Actual Size",
     "definition": {
         "text": "The Actual Size is the size reported by the exchange during synchronization, or the size resulting from the simulation of the synchronization with the exchange in the case of simulations.",
-        "updated": 1609927441472
+        "updated": 1609927441472,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Actual Size - это размер, сообщаемый биржей во время синхронизации, или размер, полученный в результате моделирования синхронизации с биржей в случае моделирования.",
+                "updated": 1638622835827
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,7 +18,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1638622857230
+                }
+            ]
         },
         {
             "style": "Block",
@@ -21,17 +35,38 @@
         {
             "style": "Title",
             "text": "Actual Size Configuration",
-            "updated": 1609927221799
+            "updated": 1609927221799,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Actual Size",
+                    "updated": 1638622875942
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638622890052
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638622903742
+                }
+            ]
         }
     ]
 }

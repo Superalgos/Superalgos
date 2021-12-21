@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "How to Contribute Icons",
     "definition": {
-        "text": "Superalgos' visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
-        "updated": 1613590520324,
+        "text": "Superalgos visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
+        "updated": 1638485927150,
         "translations": [
             {
                 "language": "DE",
@@ -47,8 +47,8 @@
         },
         {
             "style": "Link",
-            "text": "flaticon.com->https://www.flaticon.com/packs/web-design-10?k=1596385749125",
-            "updated": 1613590565452
+            "text": "flaticon.com->www.flaticon.com/packs/web-design-10?k=1596385749125",
+            "updated": 1638484886093
         },
         {
             "style": "Text",
@@ -734,7 +734,8 @@
                     "updated": 1634040237516,
                     "style": "Text"
                 }
-            ]
+            ],
+            "updated": 1638486054822
         },
         {
             "style": "Important",

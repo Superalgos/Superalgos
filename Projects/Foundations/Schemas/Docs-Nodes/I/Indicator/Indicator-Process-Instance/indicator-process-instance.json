@@ -1,7 +1,14 @@
 {
     "type": "Indicator Process Instance",
     "definition": {
-        "text": "An indicator process instance is a reference to the process definition of an indicator bot, as defined in a data mine."
+        "text": "An indicator process instance is a reference to the process definition of an indicator bot, as defined in a data mine.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Indicator Process Instance - это ссылка на определение процесса индикаторного бота, как это определено в Data Mine.",
+                "updated": 1638363500962
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "Indicator bot instances usually require two indicator process instances. One of them references the indicator's Multi-Time-Frame-Market process definition and the second references the Multi-Time-Frame-Daily process definition."
+            "text": "Indicator bot instances usually require two indicator process instances. One of them references the indicator's Multi-Time-Frame-Market process definition and the second references the Multi-Time-Frame-Daily process definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для экземпляров индикаторного бота обычно требуется два экземпляра индикаторного процесса. Один из них ссылается на определение процесса индикатора Multi-Time-Frame-Market, а второй - на определение процесса Multi-Time-Frame-Daily.",
+                    "updated": 1638363909956
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the reference is established, the indicator process instance adopts the name of the process definition it references."
+            "text": "Once the reference is established, the indicator process instance adopts the name of the process definition it references.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только ссылка установлена, экземпляр процесса индикатора принимает имя определения процесса, на которое он ссылается.",
+                    "updated": 1638363941404
+                }
+            ]
         },
         {
             "style": "Block",
@@ -22,11 +43,25 @@
         },
         {
             "style": "Title",
-            "text": "Running Indicator Process Instance"
+            "text": "Running Indicator Process Instance",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск экземпляра Indicator Process",
+                    "updated": 1638364035368
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You do not start or stop an indicator process instance directly. Instead, you start or stop the corresponding task."
+            "text": "You do not start or stop an indicator process instance directly. Instead, you start or stop the corresponding task.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не запускаете и не останавливаете экземпляр процесса индикатора напрямую. Вместо этого вы запускаете или останавливаете соответствующую задачу.",
+                    "updated": 1638363995817
+                }
+            ]
         }
     ]
 }

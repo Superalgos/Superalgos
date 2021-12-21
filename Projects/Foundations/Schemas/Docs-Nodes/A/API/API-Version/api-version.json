@@ -2,13 +2,27 @@
     "type": "API Version",
     "definition": {
         "text": "An API might have different versions. This node is used for specifying the version that it's children are defining. At the codeName property we expect the version string that will be needed in the URL when calling the API Server.",
-        "updated": 1622848609952
+        "updated": 1622848609952,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "У API могут быть разные версии. Этот узел используется для указания версии, которую определяют его дочерние элементы. В свойстве codeName мы ожидаем строку версии, которая понадобится в URL-адресе при вызове сервера API.",
+                "updated": 1638632287124
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "We expect every API to have at least one version. Others may have three or more.",
-            "updated": 1622848637394
+            "updated": 1622848637394,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы ожидаем, что у каждого API будет хотя бы одна версия. У других их может быть три или больше.",
+                    "updated": 1638632301907
+                }
+            ]
         },
         {
             "style": "Include",

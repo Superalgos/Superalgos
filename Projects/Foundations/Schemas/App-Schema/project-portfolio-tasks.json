@@ -70,6 +70,5 @@
             "childType": "Exchange Portfolio Tasks",
             "monitorChildrenRunning": true
         }
-    ],
-    "icon": "bitcoin"
+    ]
 }

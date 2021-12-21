@@ -67,8 +67,9 @@ exports.newDesktopApp = function newDesktopApp() {
 
             /* TODO use new port settings*/
             let express = require('./backend/src/index')
-            express.startExpress(DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
-            console.log('express Interface ................................................ Listening at port ' );
+            let expressPort = JSON.parse(DK.desktopApp.p2pNetworkClientIdentity.node.config).webPort;
+            express.startExpress(expressPort,SA, DK);
+            console.log('express Interface ................................................ Listening at port ' + expressPort);
 
             let react = require('./frontend/scripts/start')
             react.start(+DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort + 1);

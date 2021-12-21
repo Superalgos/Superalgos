@@ -4,18 +4,39 @@
     "type": "Accessing Runtime Data",
     "definition": {
         "text": "The Trading Bot makes every piece of information processed available to Trading Systems in the data structure of the Trading Engine hierarchy.",
-        "updated": 1610216690404
+        "updated": 1610216690404,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот делает каждый обработанный фрагмент информации доступным для торговых систем в структуре данных иерархии Trading Engine.",
+                "updated": 1640094205402
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "To access the value of any of the nodes in the Trading Engine  from within conditions and formulas, the syntax follows the ramifications of the data structure, exactly as seen in the visual representation of the hierarchy on the Design Space.",
-            "updated": 1610216724389
+            "updated": 1610216724389,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы получить доступ к значению любого из узлов в Trading Engine из условий и формул, синтаксис следует за разветвлениями структуры данных, в точности как показано в визуальном представлении иерархии на Design Space.",
+                    "updated": 1640094282515
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example, let’s say you wish to access the value of the Begin node under Strategy Open Stage. The path to that node, as denoted by the structure of the hierarchy below, is:",
-            "updated": 1610216746961
+            "updated": 1610216746961,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, допустим, вы хотите получить доступ к значению узла Begin в разделе Strategy Open Stage. Путь к этому узлу, как обозначено в структуре иерархии ниже, таков:",
+                    "updated": 1640094305108
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -24,7 +45,14 @@
         {
             "style": "Text",
             "text": "If you wish to go one step lower and access the value of the Target Size under the Stage Quoted Asset, then the path is:",
-            "updated": 1610216775084
+            "updated": 1610216775084,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите спуститься на ступень ниже и получить доступ к значению Target Size под Stage Quoted Asset, то путь будет следующим:",
+                    "updated": 1640094381268
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -33,7 +61,14 @@
         {
             "style": "Note",
             "text": "As usual, make sure you follow the JavaScript camel case notation by which the first word is in lower case and the rest in uppercase.",
-            "updated": 1610216790819
+            "updated": 1610216790819,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как обычно, убедитесь, что вы следуете правилам  JavaScript, согласно которым первое слово пишется в нижнем регистре, а остальные - в верхнем.",
+                    "updated": 1640094467430
+                }
+            ]
         },
         {
             "style": "Title",
@@ -41,24 +76,59 @@
         },
         {
             "style": "Text",
-            "text": "For ease of use, you may copy the path of any node that holds a valid value directly from within the node’s menu. Simply use the Copy Node Path button."
+            "text": "For ease of use, you may copy the path of any node that holds a valid value directly from within the node’s menu. Simply use the Copy Node Path button.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для удобства использования вы можете скопировать путь любого узла, содержащего действительное значение, непосредственно из меню узла. Просто воспользуйтесь кнопкой Copy Node Path (Копировать путь узла).",
+                    "updated": 1640094635196
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Formula Example"
+            "text": "Formula Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример формулы",
+                    "updated": 1640094665879
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let’s say you wish to set a take profit 3% above the initial target rate you defined in the open stage of your strategy."
+            "text": "Let’s say you wish to set a take profit 3% above the initial target rate you defined in the open stage of your strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы хотите установить тейк-профит на 3% выше начальной целевой ставки, которую вы определили на стадии открытия вашей стратегии.",
+                    "updated": 1640094710176
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That value is stored in the Entry Target Rate node under the Current Position.",
-            "updated": 1610216903247
+            "updated": 1610216903247,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это значение хранится в узле Entry Target Rate.",
+                    "updated": 1640094829783
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "So, the formula for the take profit phase is:"
+            "text": "So, the formula for the take profit phase is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Итак, формула для фазы тейк-профита такова:",
+                    "updated": 1640094852867
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -68,7 +138,14 @@
         {
             "style": "Success",
             "text": "All of this will become clear when you study the Trading Engine hierarchy!",
-            "updated": 1610216962576
+            "updated": 1610216962576,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все это станет ясно, когда вы изучите иерархию Trading Engine!",
+                    "updated": 1640094876193
+                }
+            ]
         }
     ]
 }

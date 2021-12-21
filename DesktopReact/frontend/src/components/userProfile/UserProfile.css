@@ -1,5 +1,6 @@
 .userSection {
     margin-top: 50px;
+    display: block;
 }
 
 .banner {
@@ -28,6 +29,8 @@
     display: flex;
     flex-direction: row;
     height: 8rem;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .profileSection {
@@ -38,4 +41,5 @@
 
 .middleSection {
     width: 39rem;
+    /*height: 50rem;*/
 }

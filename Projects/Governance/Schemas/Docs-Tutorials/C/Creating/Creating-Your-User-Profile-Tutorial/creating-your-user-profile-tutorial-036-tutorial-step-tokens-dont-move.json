@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Когда мы говорим о потоках Token Power Flows, важно уточнить, что токены никуда не денутся! Это  течет Token Power!",
                 "updated": 1639052530492
+            },
+            {
+                "language": "DE",
+                "text": "Wenn wir über Token Power Flows sprechen, ist es wichtig klarzustellen, dass Token nirgendwo hingehen! Es ist Token Power, die fließt!",
+                "updated": 1640081480599
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Токены в вашем адресе управления Governance Address никогда не покидают ваш адрес! Нет никаких затрат на участие в управлении! Баланс в вашем адресе наделяет ваш профиль пользователя абстракцией Token Power, и именно эта абстракция течет вниз по иерархии, а не фактические токены.",
                     "updated": 1639052656259
+                },
+                {
+                    "language": "DE",
+                    "text": "Token in Ihrer Governance-Adresse verlassen niemals Ihre Adresse! Es gibt keine Kosten für die Teilnahme an der Governance! Das Guthaben in Ihrer Adresse verleiht Ihrem Benutzerprofil Token Power, und es ist diese Abstraktion, die in der Hierarchie nach unten fließt, nicht die tatsächlichen Token.",
+                    "updated": 1640081494857
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Напомните мне показать вам, как играть с Token Power Flows, прежде чем мы завершим урок! Но давайте вернемся к программам Community Building Programs, пока мы не заблудились!",
                     "updated": 1639052702735
+                },
+                {
+                    "language": "DE",
+                    "text": "Erinnern Sie mich daran, Ihnen zu zeigen, wie Sie mit Token Power Flows spielen können, bevor wir das Tutorial abschließen! Aber lassen Sie uns zu den Community Building Programs zurückkehren, bevor wir uns verirren!",
+                    "updated": 1640081505208
                 }
             ]
         }

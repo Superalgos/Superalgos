@@ -21,6 +21,11 @@
                 "text": "¡ Strategy está definida!",
                 "updated": 1629357095005,
                 "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "La strategia è completa!",
+                "updated": 1640110202335
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "text": "Es cuestión de unas pocas líneas de código.",
                     "updated": 1629576702851,
                     "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Impostare una semplice strategia è veramente questione di poche linee di codice!",
+                    "updated": 1640110226107
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "text": "Ten esto en cuenta para tratar correctamente Base and Quoted Asset. Base está en la cima, Quoted está en el fondo! Entonces en nuestro caso BTC / USD tenemos BTC es el Base Asset mientras que USDT es el Quoted Asset",
                     "updated": 1629357672381,
                     "style": "Success"
+                },
+                {
+                    "language": "IT",
+                    "text": "Tieni a mente di gestire correttamente gli asset Base e Quoted. Base è in alto, Quoted è in basso! Quindi nel nostro caso BTC/USD abbiamo che BTC è il Base asset mentre USDT è il Quoted asset",
+                    "updated": 1640110306534
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "text": "No cambia si te vas Short. Si la estrategia es Short luego en el Open Stage Bot venderá el Base Asset y luego volver a comprarlo usando Quoted Asset!",
                     "updated": 1629357633755,
                     "style": "Warning"
+                },
+                {
+                    "language": "IT",
+                    "text": "Non cambia se la strategia è Short. Infatti, nella fase di apertura (Open Stage) il bot venderà il Base asset e in seguito lo riacquisterà utilizzando il Quoted asset",
+                    "updated": 1640110410952
                 }
             ]
         }

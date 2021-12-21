@@ -329,17 +329,17 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 return
             }
 
-            if (message.signalMessage !== undefined) {
-                let signalMessage
+            if (message.signal !== undefined) {
+                let signal
                 try {
-                    signalMessage = JSON.parse(message.signalMessage)
+                    signal = JSON.parse(message.signal)
                 } catch (err) {
                     console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
                     console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
                     thisObject.socket.close()
                     return
                 }
-                thisObject.p2pNetworkInterface.signalReceived(signalMessage)
+                thisObject.p2pNetworkInterface.signalReceived(signal)
                 return
             }            
         }

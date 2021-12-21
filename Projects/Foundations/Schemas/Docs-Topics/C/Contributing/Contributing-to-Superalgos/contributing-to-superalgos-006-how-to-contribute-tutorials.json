@@ -21,8 +21,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Esta página habla a cerca de  las mejores prácticas para construir y contribuir tutoriales de Superalgos. No cubre la mecanica actual de construir tutoriales. en lugar de eso está enfocado en lo que sería deseable.",
-                    "updated": 1633364195196
+                    "text": "Esta página habla acerca de las mejores prácticas para construir y contribuir tutoriales de Superalgos. No cubre la mecánica actual de construir tutoriales. en lugar de eso está enfocado en lo que sería deseable.",
+                    "updated": 1640113151245
                 }
             ]
         },
@@ -38,8 +38,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En Superalgos, nosotros nos sentimos orgullosos de la cualidad del producto que estamos construyendo. La documentación y los tutoriales son una parte crucial de Superalgos.",
-                    "updated": 1633364296850
+                    "text": "En Superalgos, nosotros nos sentimos orgullosos de la calidad del producto que estamos construyendo. La documentación y los tutoriales son una parte crucial de Superalgos.",
+                    "updated": 1640113065328
                 }
             ]
         },
@@ -50,8 +50,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Dicho esto, nosotros entendemos que se requiere de tiempo y esfuerzo para obtener un producto de cualidad por lo tanto, interactuar sobre los primeros prototipos e implementar la retroalimentación en las primeras etapas es una buena manera de lograr el objetivo deseado de los estándares de cualidad.",
-                    "updated": 1640111356767
+                    "text": "Dicho esto, nosotros entendemos que se requiere de tiempo y esfuerzo para obtener un producto de calidad por lo tanto, interactuar sobre los primeros prototipos e implementar la retroalimentación en las primeras etapas es una buena manera de lograr el objetivo deseado de los estándares de cualidad.",
+                    "updated": 1640113076479
                 }
             ]
         },
@@ -62,8 +62,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando construye un tutorial para Superalgos, se convierte en quien mantiene el tutorial. Es su reponsabilidad ,mantener el tutorial actualizado con el sistema, e implementar los comentarios que los usuarios pueden compartir! Su tutorial debe convertirse en la fuente fundamental para aprender el tópico con el cual está relacionado.",
-                    "updated": 1633364765692
+                    "text": "Cuando construye un tutorial para Superalgos, se convierte en quien mantiene el tutorial. Es su responsabilidad, mantener el tutorial actualizado con el sistema, e implementar los comentarios que los usuarios pueden compartir! Su tutorial debe convertirse en la fuente fundamental para aprender el tópico con el cual está relacionado.",
+                    "updated": 1640113096575
                 }
             ]
         },
@@ -96,8 +96,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el tutorial your tutorial trata con datos,es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendran los datos y pueden ir a través del tutorial con mayor facilidad.",
-                    "updated": 1640111441431
+                    "text": "Si el tutorial trata con datos, es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendrán los datos y pueden ir a través del tutorial con mayor facilidad.",
+                    "updated": 1640113215381
                 }
             ]
         },
@@ -136,8 +136,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Algunos tópicos son amplios, tienen ramificaciones, o requieren un análisis mas profundo para ser cubiertos por completo. en estos casos, la planificación de una serie de tutoriales es lo ideal.",
-                    "updated": 1633365921291
+                    "text": "Algunos tópicos son amplios, tienen ramificaciones, o requieren un análisis más profundo para ser cubiertos por completo. en estos casos, la planificación de una serie de tutoriales es lo ideal.",
+                    "updated": 1640113411134
                 }
             ]
         },
@@ -159,8 +159,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El primer tutorial en a serie da una introducción amplia del tópico, mayormente en términos conceptuales. Esto permite a los usuarios ver la  la idea completa y aprender a cerca de como los conceptos han sido estructurados y porque están estructurados así.",
-                    "updated": 1633366158719
+                    "text": "El primer tutorial en la serie da una introducción amplia del tópico, mayormente en términos conceptuales. Esto permite a los usuarios ver la la idea completa y aprender acerca de cómo los conceptos han sido estructurados y porque están estructurados así.",
+                    "updated": 1640113306197
                 }
             ]
         },
@@ -183,8 +183,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El tutorials siguiente en la serie disecciona el ejercicio propuesto anteriormente y cubre con un nivel fino de detalles la implementación. Al mismo tiempo, ellos cubren todo el contexto y muchos temas laterales.",
-                    "updated": 1640111454325
+                    "text": "El tutorial siguiente en la serie disecciona el ejercicio propuesto anteriormente y cubre con un nivel fino de detalles la implementación. Al mismo tiempo, ellos cubren todo el contexto y muchos temas laterales.",
+                    "updated": 1640113344402
                 }
             ]
         },
@@ -195,8 +195,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Toda la serie enhebra un tema común y lo desarrolla desde lo más simplea los conceptos más complejos, paso a paso. Una serie de tutoriales debe ser exhaustiva y ocacionalmente cubrir el tópico completo. Debe convertirse en la herramienta  definitiva para aprender sobre el tema!",
-                    "updated": 1633366741272
+                    "text": "Toda la serie enhebra un tema común y lo desarrolla desde lo más simple a  los conceptos más complejos, paso a paso. Una serie de tutoriales debe ser exhaustiva y ocasionalmente cubrir el tópico completo. Debe convertirse en la herramienta definitiva para aprender sobre el tema!",
+                    "updated": 1640113505527
                 }
             ]
         },
@@ -236,8 +236,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Es en esta etapa temprana, que no podemos darnos el lujo de duplicar esfuerzos y construir tutorials diferentes para distintas clases de aprendices. Tenemos que elegir el método que mejor sirva al projecto.",
-                    "updated": 1633367412845
+                    "text": "Es en esta etapa temprana, que no podemos darnos el lujo de duplicar esfuerzos y construir tutoriales diferentes para distintas clases de aprendices. Tenemos que elegir el método que mejor sirva al proyecto.",
+                    "updated": 1640113524529
                 }
             ]
         },
@@ -277,8 +277,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Analicemos algunos de los detalles sobre la construcción de los tutorials para Superalgos!",
-                    "updated": 1633368160422
+                    "text": "Analicemos algunos de los detalles sobre la construcción de los tutoriales para Superalgos!",
+                    "updated": 1640113587890
                 }
             ]
         },
@@ -289,8 +289,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Los tutoriales de Superalgos han evolucionado a lo largo de varios meses valiosos feedbacks de los primeros usuarios. Sentimos que hemos encontrado un modo propio, y hemos comenzado a desarrollar un estilo en el modo en que utilizamos el espacio disponible en cada paso de un tutorial. A continuaciòn algunas notas que le ayudará a construir tutoriales que combinen con el formato de los tutoriales existentes.",
-                    "updated": 1633437837617
+                    "text": "Los tutoriales de Superalgos han evolucionado a lo largo de varios meses valiosos feedbacks de los primeros usuarios. Sentimos que hemos encontrado un modo propio, y hemos comenzado a desarrollar un estilo en el modo en que utilizamos el espacio disponible en cada paso de un tutorial. A continuaciòn algunas notas que le ayudarán a construir tutoriales que combinen con el formato de los tutoriales existentes.",
+                    "updated": 1640113597334
                 }
             ]
         },
@@ -318,8 +318,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Sea preciso exacto con el lenguaje. Lea lo que ha escrito una y otra vez en búsqueda de frases que pueden no ser entendidas facilmente, o que puedan ser interpretadas de diferentes maneras. Mejora las oraciones para hacerlas lo más claras posibles. Recuerde, mientras menos clara sea su escritura, más preguntas nosotros tendremos en el Support Group.",
-                    "updated": 1640111804288
+                    "text": "Sea preciso, exacto con el lenguaje. Lea lo que ha escrito una y otra vez en búsqueda de frases que pueden no ser entendidas fácilmente, o que puedan ser interpretadas de diferentes maneras. Mejore las oraciones para hacerlas lo más claras posibles. Recuerde, mientras menos clara sea su escritura, más preguntas  tendremos  nosotros en el Support Group.",
+                    "updated": 1640113692593
                 }
             ]
         },
@@ -329,8 +329,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Esté preparado para interactuar una y otra vez hasta que el tutorial se estabilice. Eso sucederá cuando no haya más preguntas acerca de el tópico en el Support Group!",
-                    "updated": 1640111672011
+                    "text": "Esté preparado para interactuar una y otra vez hasta que el tutorial se estabilice. Eso sucederá cuando no haya más preguntas acerca del tópico en el Support Group!",
+                    "updated": 1640113776665
                 }
             ]
         },
@@ -344,8 +344,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Use las diferentes secciones de la página y los distintos estilos de párrafos para popósitos concretos. Esto a los usuarios a acostumbrarse a cierto formato  para que sepan que esperar en cada sección de la página. La consistencia en el modo en que la información es enviada hace que los tutoriales sean más útiles!",
-                    "updated": 1633369382341
+                    "text": "Use las diferentes secciones de la página y los distintos estilos de párrafos para popósitos concretos. Esto ayudará a los usuarios a acostumbrarse a cierto formato para qué sepan que esperar en cada sección de la página. La consistencia en el modo en que la información es enviada hace que los tutoriales sean más útiles!",
+                    "updated": 1640113829127
                 }
             ]
         },
@@ -360,8 +360,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El box de definición es el espacio a la derecha del ícono, debajo el título. Use este espacio para introducir a cerca de qué es el paso, esto es, establecer la historia que el paso contrará, o proveer algún contexto básico.",
-                    "updated": 1633369713286
+                    "text": "El box de definición es el espacio a la derecha del ícono, debajo del título. Use este espacio para introducir acerca de qué es el paso, esto es, establecer la historia que el paso contará, o proveer algún contexto básico.",
+                    "updated": 1640113873421
                 }
             ]
         },
@@ -372,8 +372,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para usar la box de definición correctamente, explique el contexto en cuatro o cinco lineas. Evite una o dos lineas o sobrepasar las cinco.",
-                    "updated": 1633369703258
+                    "text": "Para usar la box de definición correctamente, explique el contexto en cuatro o cinco líneas. Evite una o dos líneas o sobrepasar las cinco.",
+                    "updated": 1640113929610
                 }
             ]
         },
@@ -434,8 +434,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En algunos casos, puede necesitar que el usuario haga una acción muy simple para que el principal llamado a la acción pueda realizarse. En esos casos, puede utilizar la definition box para decirle al usuario como estar listo para ejecutar el llamado a la acción, que será entregado mas adelante en la ´pagina.",
-                    "updated": 1633438618455
+                    "text": "En algunos casos, puede necesitar que el usuario haga una acción muy simple para que el principal llamado a la acción pueda realizarse. En esos casos, puede utilizar la definition box para decirle al usuario como estar listo para ejecutar el llamado a la acción, que será entregado más adelante en la ´página.",
+                    "updated": 1640113942422
                 }
             ]
         },
@@ -520,8 +520,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando necesite que el usuario aprenda un concepto específico  para obtener un contexto adecuado del tema, no repita en el tutorial la información que ya existe en los Docs. Duplicar la información no es una buena idea, ya que hace mas difícil mantener los Docs y los tutoriales.",
-                    "updated": 1633439488393
+                    "text": "Cuando necesite que el usuario aprenda un concepto específico para obtener un contexto adecuado del tema, no repita en el tutorial la información que ya existe en los Docs. Duplicar la información no es una buena idea, ya que hace más difícil mantener los Docs y los tutoriales.",
+                    "updated": 1640114025286
                 }
             ]
         },
@@ -532,8 +532,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pedirle al usuario leer una página o una parte de la página en los  Docs es el acercamiento adecado. Esto tiene el beneficio adicional de hacer que el usuario se de cuenta  de que los Docs también cubren el tópico.",
-                    "updated": 1633439691786
+                    "text": "Pedirle al usuario leer una página o una parte de la página en los Docs es el acercamiento adecuado. Esto tiene el beneficio adicional de hacer que el usuario se de cuenta de que los Docs también cubren el tópico.",
+                    "updated": 1640114018246
                 }
             ]
         },
@@ -573,8 +573,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Asegúrese de usar esta cualidad a máximo, pero tambien intente mantener un cierto balance!",
-                    "updated": 1633440365877
+                    "text": "Asegúrese de usar esta cualidad al máximo, pero también intente mantener un cierto balance!",
+                    "updated": 1640114093816
                 }
             ]
         },
@@ -585,8 +585,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el tutorial está hablando de jerarquías, un grupo de nodos en particular, asegúrese que el paso del tutorial lo lleve a ese lugar en el Workspace. Esto agrega un elemento visual a la explaicación y ayuda al usuario a familiarizarse con la estructura de datos involucrada.",
-                    "updated": 1633440573331
+                    "text": "Si el tutorial está hablando de jerarquías, un grupo de nodos en particular, asegúrese que el paso del tutorial lo lleve a ese lugar en el Workspace. Esto agrega un elemento visual a la explicación y ayuda al usuario a familiarizarse con la estructura de datos involucrada.",
+                    "updated": 1640114145589
                 }
             ]
         },
@@ -609,8 +609,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Por otro lado, el tutorial debería cuidar de no hacer cosas que no lleven a aprender nada reevante del contexto del tutorial. Realizar estas acciones directamente puede ayudar a mantener al usuario concentrado en lo que más importa.",
-                    "updated": 1633440988592
+                    "text": "Por otro lado, el tutorial debería cuidar de no hacer cosas que no lleven a aprender nada relevante del contexto del tutorial. Realizar estas acciones directamente puede ayudar a mantener al usuario concentrado en lo que más importa.",
+                    "updated": 1640114167809
                 }
             ]
         },
@@ -621,8 +621,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En algunos casos, las acciones que los usuarios realizan tienene efectos determinados. Mostrales a los usuarios los resultados de sus acciones inmediatamente después de haber completado una tarea es de gran valor educativo. Por ejemplo, si el usuarioestá configurando una nueva Time Machine en un tutorial a cerca de el Charting Space, mostrarle a los usuarios como la time machine aparece en el charting space inmediatamente después de crearla. Si los usuarios configuran una Timeline Chart que referencia a una particular Data Mine, mostrarles a los usuarios como la nueva Timeline Chart aparece dentro de la Time Machine, y permitéles verificar que los administradores de capas esperados están allí. no tengas miedo de ir hacia atrás y hacia adelante... Ese es el punto después de todo!",
-                    "updated": 1640111909542
+                    "text": "En algunos casos, las acciones que los usuarios realizan tienene efectos determinados. Mostrarles a los usuarios los resultados de sus acciones inmediatamente después de haber completado una tarea es de gran valor educativo. Por ejemplo, si el usuario está configurando una nueva Time Machine en un tutorial acerca de el Charting Space, mostrarle a los usuarios como la time machine aparece en el charting space inmediatamente después de crearla. Si los usuarios configuran una Timeline Chart que referencia a una particular Data Mine, mostrarles a los usuarios como la nueva Timeline Chart aparece dentro de la Time Machine, y permíteles verificar que los administradores de capas esperados están allí. no tengas miedo de ir hacia atrás y hacia adelante... Ese es el punto después de todo!",
+                    "updated": 1640114293366
                 }
             ]
         },
@@ -985,8 +985,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La primera página de un tutorial es una página que describe brevemente de qué trata el tutorial, utilizando el campo Resumen. La página debe tener el mismo nombre que el tutorial y terminar con la palabra `Tutorial`, ya que el resumen que ingrese servirá como información sobre herramientas cuando se mencione el tutorial en los Documentos.",
-                    "updated": 1640109952205
+                    "text": "La primera página de un tutorial es una página que describe brevemente de qué trata el tutorial, utilizando el campo Resumen. La página debe tener el mismo nombre que el tutorial y terminar con la palabra `Tutorial`, ya que el resumen que ingrese servirá como información sobre herramientas cuando se menciona el tutorial en los Documentos.",
+                    "updated": 1640114342532
                 }
             ]
         },
@@ -1020,8 +1020,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Mirar la página del utrial de bienvenida como ejempl (Welcome to Superalgos Tutorial).",
-                    "updated": 1640110468005
+                    "text": "Mirar la página del tutorial de bienvenida como ejemplo (Welcome to Superalgos Tutorial).",
+                    "updated": 1640114413800
                 }
             ]
         },

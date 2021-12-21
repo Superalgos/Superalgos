@@ -10,9 +10,9 @@
                 "updated": 1624283917619
             },
             {
-                "language": "RU",
-                "text": "Sensor Bot извлекает необработанные данные из внешних источников, где необходимо закодировать определенный алгоритм извлечения, и сохраняет их в наборе данных, который могут использовать другие боты.",
-                "updated": 1639406692285
+                "language": "TR",
+                "text": "Sensör botu, belirli bir özel ayıklama algoritmasının kodlanması ile, harici kaynaklardan ham verileri alır ve diğer botların tüketebileceği bir veri kümesinde saklar.",
+                "updated": 1640086869499
             }
         ]
     },
@@ -24,70 +24,28 @@
         {
             "style": "Text",
             "text": "When there is no need for a special algorithm to be coded, Superalgos users run an API Data Fetcher Bot, which uses an API Map to describe the API itself and the bot allows fetching data without the need to code an algorithm at all.",
-            "updated": 1621692364436,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Когда нет необходимости в кодировании специального алгоритма, пользователи Superalgos запускают бот API Data Fetcher Bot, который использует API Map для описания самого API, а бот позволяет извлекать данные без необходимости кодировать алгоритм вообще.",
-                    "updated": 1639406773116
-                }
-            ]
+            "updated": 1621692364436
         },
         {
             "style": "Title",
-            "text": "Current Implementation",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Текущая реализация",
-                    "updated": 1639406782138
-                }
-            ]
+            "text": "Current Implementation"
         },
         {
             "style": "Text",
             "text": "There are only two processes coded for the Sensor Bot so far:",
-            "updated": 1621692240145,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Пока для Sensor Bot закодированы только два процесса:",
-                    "updated": 1639406795512
-                }
-            ]
+            "updated": 1621692240145
         },
         {
             "style": "List",
-            "text": "Historic-OHLCVs: It can specifically fetch 1 minute candles from exchanges supported by the CCXT open source library.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Исторические данные - OHLCV: он может специально получать 1-минутные свечи с бирж, поддерживаемых библиотекой с открытым исходным кодом CCXT.",
-                    "updated": 1639406893465
-                }
-            ]
+            "text": "Historic-OHLCVs: It can specifically fetch 1 minute candles from exchanges supported by the CCXT open source library."
         },
         {
             "style": "List",
-            "text": "Check Webhooks: It checks for information that arrived at the client comming from webhook calls from external systems.",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Проверка Webhooks: Он проверяет информацию, поступившую к клиенту в результате вызовов webhook из внешних систем.",
-                    "updated": 1639406959823
-                }
-            ]
+            "text": "Check Webhooks: It checks for information that arrived at the client comming from webhook calls from external systems."
         },
         {
             "style": "Text",
-            "text": "More processes might be coded in the future as the system grows. ",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "В будущем по мере роста системы может быть закодировано больше процессов.",
-                    "updated": 1639406975132
-                }
-            ]
+            "text": "More processes might be coded in the future as the system grows. "
         },
         {
             "style": "Block",
@@ -96,38 +54,17 @@
         {
             "style": "Title",
             "text": "Sensor Bot Configuration",
-            "updated": 1609790137912,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Конфигурация Sensor Bot",
-                    "updated": 1639406989637
-                }
-            ]
+            "updated": 1609790137912
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609790143486,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Свойства",
-                    "updated": 1639406996298
-                }
-            ]
+            "updated": 1609790143486
         },
         {
             "style": "List",
             "text": "codeName is the name of the bot as used within the code of the system. This will also be used as the folder name at the Data-Storage folder structure.",
-            "updated": 1621692071539,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "codeName - это имя бота, используемое в коде системы. Это также будет использоваться как имя папки в структуре папок хранилища данных.",
-                    "updated": 1639407072621
-                }
-            ]
+            "updated": 1621692071539
         }
     ]
 }

@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Superalgos процветает благодаря вкладу и сотрудничеству. Мы разработали программы построения сообщества Community Building Programs, чтобы способствовать развитию сообщества, члены которого всегда готовы помочь и внести свой вклад! Узел может порождать узлы Referral Program, Support Program и Mentorship Program.",
                 "updated": 1638980684785
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, katkılar ve işbirliği yoluyla gelişir. Topluluk Oluşturma Programlarını, üyelerin her zaman yardım etmeye ve geri vermeye hazır olduğu bir topluluğu teşvik etmek için tasarladık! Bu Düğüm, Yönlendirme Programı ( Referral Program ) , Destek Programı (Support Program) ve Mentorluk Programı ( Mentorship Program ) düğümlerini oluşturabilir.",
+                "updated": 1640035040189
             }
         ]
     },

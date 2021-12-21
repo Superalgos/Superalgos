@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "То, как вы используете свои токены, определяется рядом программ управления Governance Programs в иерархии вашего профиля.",
                 "updated": 1639046605191
+            },
+            {
+                "language": "DE",
+                "text": "Wie Sie Ihre Token Power einsetzen, wird in einer Reihe von Governance Programs innerhalb Ihrer Profilhierarchie festgelegt.",
+                "updated": 1640072792109
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Эти программы помогают организовать типы развития и взаимоотношений с сообществом, которые вы хотите вознаградить.",
                     "updated": 1639046620513
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Programme helfen bei der Organisation der Arten von Entwicklung und Gemeinschaftsbeziehungen, die Sie belohnen möchten.",
+                    "updated": 1640072801388
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Например, программа Claims Program позволяет вам предъявлять претензии по выполненной вами работе. Программа Support Program позволяет вам благодарить других пользователей Superalgos, которые помогли вам с технической поддержкой.",
                     "updated": 1639046715682
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dem Claims Program können Sie zum Beispiel Ansprüche für die von Ihnen geleistete Arbeit geltend machen. Mit dem Support Program können Sie anderen Superalgos-Benutzern danken, die Ihnen mit technischem Support geholfen haben.",
+                    "updated": 1640072818879
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "RU",
                     "text": "Мы подробно рассмотрим все эти и другие программы, когда у вас будет рабочий профиль!",
                     "updated": 1639046733330
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir werden alle diese und andere Programme im Detail behandeln, sobald Sie ein funktionierendes Profil haben!",
+                    "updated": 1640072824886
                 }
             ]
         }

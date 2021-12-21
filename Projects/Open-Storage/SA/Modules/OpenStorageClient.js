@@ -19,28 +19,40 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     let availableStorage
     let web3
     let saveIntervalId
-    let recordsToSave
+    let socialTradingBotsMap
+    let candlesSignalsMap
     let saveOneFileCanRun
 
     return thisObject
 
     function finalize() {
+        socialTradingBotsMap = undefined
+        candlesSignalsMap = undefined
         availableStorage = undefined
         web3 = undefined
         clearInterval(saveIntervalId)
     }
 
     async function initialize() {
-        recordsToSave = []
+        socialTradingBotsMap = new Map()
+        candlesSignalsMap = new Map()
         saveOneFileCanRun = true
         web3 = new SA.nodeModules.web3()
         availableStorage = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent.availableStorage
 
-        saveIntervalId = setInterval(saveOneFile, 1000)
+        saveIntervalId = setInterval(saveMultipleFiles, 1000)
     }
 
-    function persit(record) {
-        recordsToSave.push(record)
+    function persit(candleSignals, socialTradingBot) {
+
+        let recordsToSave = candlesSignalsMap.get(socialTradingBot.id)
+        if (recordsToSave === undefined) {
+            recordsToSave = []
+            candlesSignalsMap.set(socialTradingBot.id, recordsToSave)
+        }
+
+        recordsToSave.push(candleSignals)
+        socialTradingBotsMap.set(socialTradingBot.id, socialTradingBot)
     }
 
     async function loadFile(fileKey) {
@@ -76,7 +88,11 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         return fileContent
     }
 
-    async function saveOneFile() {
+    async function saveMultipleFiles() {
+        candlesSignalsMap.forEach(saveOneFile)
+    }
+
+    async function saveOneFile(recordsToSave, socialTradingBotId) {
 
         if (recordsToSave.length === 0) { return }
         if (saveOneFileCanRun === false) { return }
@@ -127,7 +143,9 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
                     storageContainerId: storageContainer.id,
                     password: password
                 }
-                await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(fileKey)
+
+                socialTradingBot = socialTradingBotsMap.get(socialTradingBotId)
+                TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastFileKey(fileKey, socialTradingBot)
             }
 
             function onFileNodeSaved() {

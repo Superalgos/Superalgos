@@ -134,8 +134,8 @@ exports.newTaskServer = function newTaskServer() {
                         return
                     }
                     TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS = {
-                        incomingCandleSignals: SA.projects.tradingSignals.modules.outgoingCandleSignals.newTradingSignalsModulesIncomingCandleSignals(),
-                        outgoingCandleSignals: SA.projects.tradingSignals.modules.outgoingCandleSignals.newTradingSignalsModulesOutgoingCandleSignals()
+                        incomingCandleSignals: TS.projects.tradingSignals.modules.incomingCandleSignals.newTradingSignalsModulesIncomingCandleSignals(),
+                        outgoingCandleSignals: TS.projects.tradingSignals.modules.outgoingCandleSignals.newTradingSignalsModulesOutgoingCandleSignals()
                     }
 
                     TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.initialize()

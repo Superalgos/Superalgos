@@ -4,26 +4,61 @@
     "type": "Syntax Overview",
     "definition": {
         "text": "The syntax for writing conditions and formulas combine references to the data product name, the name of the property, and the time frame.",
-        "updated": 1610214683129
+        "updated": 1610214683129,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Синтаксис для написания условий и формул объединяет ссылки на имя продукта данных, имя свойства и временной интервал.",
+                "updated": 1640089442417
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Introduction",
-            "updated": 1610214707473
+            "updated": 1610214707473,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введение",
+                    "updated": 1640089455355
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Different bots running within the system produce data products that others may consume. These products are available for you to use within your strategies."
+            "text": "Different bots running within the system produce data products that others may consume. These products are available for you to use within your strategies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Различные боты, работающие в системе, производят продукты данных, которые могут потреблять другие. Эти продукты вы можете использовать в своих стратегиях.",
+                    "updated": 1640089475871
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Datasets are stored as a collection of sequential records and you may access any of the properties (fields) of each record."
+            "text": "Datasets are stored as a collection of sequential records and you may access any of the properties (fields) of each record.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наборы данных хранятся как коллекция последовательных записей, и вы можете получить доступ к любому из свойств (полей) каждой записи.",
+                    "updated": 1640089497632
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "To do that, you will use the following syntax: ",
-            "updated": 1610214730077
+            "updated": 1610214730077,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этого используется следующий синтаксис:",
+                    "updated": 1640089510035
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -31,12 +66,26 @@
         },
         {
             "style": "Text",
-            "text": "The above syntax returns the value of the property of the declared product at the latest closed candle. This is common throughout all available datasets."
+            "text": "The above syntax returns the value of the property of the declared product at the latest closed candle. This is common throughout all available datasets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенный выше синтаксис возвращает значение свойства заявленного продукта на последней закрывшейся свече. Это одинаково для всех доступных наборов данных.",
+                    "updated": 1640089674859
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Each Indicator Bot outputs one or more data products, each with a set of properties. Find the details of the products and properties available in the documentation of each indicator.",
-            "updated": 1610216390888
+            "updated": 1610216390888,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый Indicator Bot выводит один или несколько продуктов данных, каждый из которых имеет набор свойств. Подробную информацию о продуктах и свойствах можно найти в документации каждого индикатора.",
+                    "updated": 1640089727471
+                }
+            ]
         },
         {
             "style": "Text",
@@ -48,19 +97,47 @@
         },
         {
             "style": "Title",
-            "text": "Specifying the Time Frame"
+            "text": "Specifying the Time Frame",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение таймфрейма",
+                    "updated": 1640089794128
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When building conditions and formulas, you may want to use analysis concerning different time frames. This is perfectly possible."
+            "text": "When building conditions and formulas, you may want to use analysis concerning different time frames. This is perfectly possible.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При составлении условий и формул вы можете захотеть использовать анализ, относящийся к разным таймфреймам. Это вполне возможно.",
+                    "updated": 1640089884818
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The variables explained further down this section, written as described for each indicator, are not valid unless they are proceeded by the declaration of the time frame they refer to."
+            "text": "The variables explained further down this section, written as described for each indicator, are not valid unless they are proceeded by the declaration of the time frame they refer to.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переменные, описанные далее в этом разделе и написанные так, как описано для каждого индикатора, недействительны, если им не предшествует объявление таймфрейма, к которым они относятся. ",
+                    "updated": 1640090397420
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To do that, you need to proceed the above syntax with the following:"
+            "text": "To do that, you need to proceed the above syntax with the following:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этого необходимо продолжить приведенный выше синтаксис следующим образом:",
+                    "updated": 1640090951839
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -68,7 +145,14 @@
         },
         {
             "style": "Text",
-            "text": "Therefore, the complete syntax to build a valid statement is:"
+            "text": "Therefore, the complete syntax to build a valid statement is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следовательно, полный синтаксис для построения действительного оператора:",
+                    "updated": 1640091005798
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -76,7 +160,14 @@
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640091020264
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -84,11 +175,25 @@
         },
         {
             "style": "Text",
-            "text": "The above statement compares the current 4 hours candle to the previous 4 hours candle."
+            "text": "The above statement compares the current 4 hours candle to the previous 4 hours candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенное выше выражение сравнивает текущую 4-часовую свечу с предыдущей 4-часовой свечой.",
+                    "updated": 1640091079122
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The complete list of time frames available is:"
+            "text": "The complete list of time frames available is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Полный список доступных таймфреймов:",
+                    "updated": 1640091113520
+                }
+            ]
         },
         {
             "style": "Table",
@@ -102,16 +207,37 @@
         },
         {
             "style": "Title",
-            "text": "Previous Property"
+            "text": "Previous Property",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Cвойство Previous",
+                    "updated": 1640091716742
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The previous property is a property common to all products that allows you to retrieve the value of the candle that closed previous to the last one."
+            "text": "The previous property is a property common to all products that allows you to retrieve the value of the candle that closed previous to the last one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойство previous - это общее для всех продуктов свойство, которое позволяет получить значение свечи, закрывшейся перед последней.",
+                    "updated": 1640091296219
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The property is used with the following syntax: ",
-            "updated": 1610215018833
+            "updated": 1610215018833,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойство работает со следующим синтаксисом:",
+                    "updated": 1640091367007
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -119,12 +245,26 @@
         },
         {
             "style": "Text",
-            "text": "You may use the property on any of the indicators in a similar way."
+            "text": "You may use the property on any of the indicators in a similar way.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать свойство на любых индикаторах аналогичным образом.",
+                    "updated": 1640091412343
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In addition, you may use the previous property more than once, to retrieve values further in the past: ",
-            "updated": 1610215040020
+            "updated": 1610215040020,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, вы можете использовать свойство previous более одного раза, чтобы получить предыдущие значения:",
+                    "updated": 1640091493180
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -134,7 +274,14 @@
         {
             "style": "Text",
             "text": "For example:",
-            "updated": 1610215089118
+            "updated": 1610215089118,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640091502309
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -143,20 +290,48 @@
         {
             "style": "Text",
             "text": "The above returns the maximum value of two candles before the last closed candle at the 1-hour chart.",
-            "updated": 1610215099927
+            "updated": 1610215099927,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенное выше выражение возвращает максимальное значение двух свечей перед последней закрытой свечой на 1-часовом графике.",
+                    "updated": 1640091638490
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Alternative to the Previous Property"
+            "text": "Alternative to the Previous Property",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Альтернатива свойству Previous",
+                    "updated": 1640091834434
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There is a cool alternative to the previous property, that you can use to fetch the value of a property beyond the last closed candle."
+            "text": "There is a cool alternative to the previous property, that you can use to fetch the value of a property beyond the last closed candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует отличная альтернатива свойству previous, которую можно использовать для получения значения свойства за пределами последней закрытой свечи.",
+                    "updated": 1640091790110
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The syntax is:",
-            "updated": 1610215130206
+            "updated": 1610215130206,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис:",
+                    "updated": 1640091844472
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -166,12 +341,26 @@
         {
             "style": "Text",
             "text": "... where tradingEngine.tradingCurrent.tradingEpisode.candle.index.value represents the last closed candle and n may be replaced by any integer number.",
-            "updated": 1616079709332
+            "updated": 1616079709332,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "... где tradingEngine.tradingCurrent.tradingEpisode.candle.index.value представляет последнюю закрытую свечу, а n может быть заменен любым целым числом.",
+                    "updated": 1640091961040
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example:",
-            "updated": 1610215164809
+            "updated": 1610215164809,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640091979633
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -180,47 +369,117 @@
         },
         {
             "style": "Text",
-            "text": "... retrieves the maximum value of the fifth candle previous to the last closed candle at the 1-hour chart."
+            "text": "... retrieves the maximum value of the fifth candle previous to the last closed candle at the 1-hour chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "... извлекает максимальное значение пятой свечи, предшествующей последней закрытой свече на 1-часовом графике.",
+                    "updated": 1640092015822
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "There is a technical limitation by which you may retrieve the value of a property up to a maximum of 24 hours in the past, whatever number of periods that may represent, depending on the time frame you may be working on. For instance, if you are working on the 1 hour time frame, you may fetch up to 23 candles before the last one. If you are working on the 1 minute time frame, you may retrieve 1439 candles. If you need to retrieve information further in the past, then you should consider building an indicator that makes the data available to your strategies.",
-            "updated": 1610215195223
+            "updated": 1610215195223,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует техническое ограничение, согласно которому вы можете получить значение свойства за предыдущие 24 часа максимум , сколько бы периодов это ни составляло, в зависимости от таймфрейма, на котором вы работаете. Например, если вы работаете на часовом таймфрейме, вы можете получить значение до 23 свечей, предшествующих последней. Если вы работаете на 1-минутном таймфрейме, вы можете получить 1439 свечей. Если вам необходимо получить информацию о более отдаленном прошлом, то вам следует подумать о создании индикатора, который сделает эти данные доступными для ваших стратегий.",
+                    "updated": 1640092308943
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Comparison and Logical Operators"
+            "text": "Comparison and Logical Operators",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сравнение и логические операторы",
+                    "updated": 1640092339460
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To define conditions you will use statements using the syntax described above. You will use the properties of indicators that will be introduced later on. The data behind those indicators describe what is happening with the market."
+            "text": "To define conditions you will use statements using the syntax described above. You will use the properties of indicators that will be introduced later on. The data behind those indicators describe what is happening with the market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для определения условий вы будете использовать операторы, использующие синтаксис, описанный выше. Вы будете использовать свойства индикаторов, которые будут представлены позже. Данные, лежащие в основе этих индикаторов, описывают то, что происходит с рынком.",
+                    "updated": 1640092394197
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Remember, conditions need to evaluate either true or false."
+            "text": "Remember, conditions need to evaluate either true or false.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что условия должны возвращать значение true или false.",
+                    "updated": 1640092472066
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To create such statements you will use comparison and logical operators:"
+            "text": "To create such statements you will use comparison and logical operators:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для создания таких выражений вы будете использовать операторы сравнения и логические операторы:",
+                    "updated": 1640092530943
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Operator | Description |\n| === | equal value and equal type |\n| != | not equal |\n| > | greater than |\n| < | less than |\n| >= | greater than or equal to |\n| <= | less than or equal to |\n| && | and |\n| ∣∣ | or |",
-            "updated": 1610215345573
+            "updated": 1610215345573,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Operator | Description |\n| === | равно по значению и по типу|\n|!= | не равно |\n| > | больше |\n| < | меньше |\n| >= | больше или равно |\n| <= | меньше или равно |\n| && | и |\n| ∣∣ | или |",
+                    "updated": 1640092745193
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example:",
-            "updated": 1610215388469
+            "updated": 1610215388469,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640092756529
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Situation 1"
+            "text": "Situation 1",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ситуация 1",
+                    "updated": 1640092787785
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Condition A: The latest candle at the 1 hour chart closed above the Bollinger Bands moving average.",
-            "updated": 1610215456837
+            "updated": 1610215456837,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Условие A: Последняя свеча на 1-часовом графике закрылась выше скользящей средней Bollinger Bands.",
+                    "updated": 1640092811303
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -229,7 +488,14 @@
         {
             "style": "List",
             "text": "Condition B: The maximum value of the candle before the last one, was higher than the Bollinger Bands moving average.",
-            "updated": 1610215484498
+            "updated": 1610215484498,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Условие Б: Максимальное значение свечи, предшествующей последней, было выше скользящей средней Bollinger Bands.",
+                    "updated": 1640092852225
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -237,16 +503,37 @@
         },
         {
             "style": "Text",
-            "text": "In the example above, conditions A and B are comparison statements that may evaluate either true or false. In the case both would evaluate true then Situation 1 would be true as well."
+            "text": "In the example above, conditions A and B are comparison statements that may evaluate either true or false. In the case both would evaluate true then Situation 1 would be true as well.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В приведенном выше примере условия A и Б являются аргументами сравнения, которые могут принимать значение либо true, либо false.В случае, если оба значения будут true, то ситуация 1 также будет true.",
+                    "updated": 1640093879365
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Situation 2"
+            "text": "Situation 2",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ситуация 2",
+                    "updated": 1640093893768
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Condition C:  The entire candle at the 4 hours chart fits within the price range between 9000 and 10000.",
-            "updated": 1610215565978
+            "updated": 1610215565978,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Условие В: Вся свеча на 4-часовом графике вписывается в ценовой диапазон между 9000 и 10000.",
+                    "updated": 1640093947611
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -254,16 +541,37 @@
         },
         {
             "style": "Text",
-            "text": "In the example above, condition C would be true if the whole 4-hour candle falls within the range between 9000 and 10000. If this is true, then situation 2 is true as well, as there is only one condition to check."
+            "text": "In the example above, condition C would be true if the whole 4-hour candle falls within the range between 9000 and 10000. If this is true, then situation 2 is true as well, as there is only one condition to check.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В приведенном выше примере условие В будет true, если вся 4-часовая свеча попадает в диапазон между 9000 и 10000. Если это так, то ситуация 2 тоже будет true, поскольку проверять нужно только одно условие.",
+                    "updated": 1640094010764
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "JaveScript Code"
+            "text": "JaveScript Code",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Код JaveScript",
+                    "updated": 1640094020598
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may use any valid piece of JavaScript code for your conditions and formulas. The system imposes no constraints whatsoever. The code on conditions and formulas is run through the eval() function, as follows:",
-            "updated": 1610215780497
+            "updated": 1610215780497,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать любой допустимый фрагмент кода JavaScript для своих условий и формул. Система не накладывает никаких ограничений. Код условий и формул выполняется через функцию eval() следующим образом:",
+                    "updated": 1640094044548
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -273,7 +581,14 @@
         {
             "style": "Success",
             "text": "Remember that all conditions must evaluate to true or false and that formulas must evaluate to a number. If you are having issues with your code, learn how to debug a task.",
-            "updated": 1610215814504
+            "updated": 1610215814504,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что все условия должны иметь значение true или false, а формулы должны иметь числовое значение. Если у вас возникли проблемы с кодом, узнайте, как выполнить отладку задачи.",
+                    "updated": 1640094107548
+                }
+            ]
         }
     ]
 }

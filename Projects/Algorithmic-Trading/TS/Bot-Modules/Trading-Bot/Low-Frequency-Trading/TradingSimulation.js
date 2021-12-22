@@ -627,7 +627,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     let stopRunningDate = (new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value)).toUTCString()
 
                     if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
-                        if (tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
+                        if (tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value < sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
 
                             let docs = {

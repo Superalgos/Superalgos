@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Мы закончили! Это все, что мы сделаем, прежде чем отправлять ваш профиль. Теперь давайте убедимся, что вы сохранили его, прежде чем мы продолжим.",
                 "updated": 1639053034034
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind fertig! Das ist alles, was wir tun, bevor wir Ihr Profil abschicken. Jetzt müssen Sie es noch speichern, bevor wir fortfahren.",
+                "updated": 1640081686592
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Нажмите Ctrl + Shift + Alt + Key-S, чтобы в последний раз сохранить профиль пользователя User Profile!",
                     "updated": 1639053068029
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>Alt</kbd> + <kbd>Taste-S</kbd>, um Ihr Benutzerprofil ein letztes Mal zu speichern!",
+                    "updated": 1640081723769
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "RU",
                     "text": "Нет ничего плохого в том, чтобы проверить, правильно ли сохранен файл, не так ли? По указанному ниже пути должен существовать файл с вашим именем пользователя Github и расширением \".json\"!",
                     "updated": 1639053132458
+                },
+                {
+                    "language": "DE",
+                    "text": " Es kann nicht schaden, zu überprüfen, ob die Datei korrekt gespeichert wurde, oder? Eine Datei mit Ihrem Github-Benutzernamen und der Erweiterung.json sollte im unten angegebenen Pfad vorhanden sein!",
+                    "updated": 1640081742313
                 }
             ]
         },

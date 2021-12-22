@@ -34,29 +34,33 @@ const UserProfileHeader = ({actualUser}) => {
                                alt="ProfilePic"
                     />
                 </div>
-                <CardContent className="userSection">
-                    <Typography variant="h5">{actualUser}</Typography>
-                    <div>
-                        @username
-                    </div>
-                    <div>
-                        Bio
-                    </div>
-                    <div>
-                        joined date
-                    </div>
-                    <div>
-                        #Following - #Followers
-                    </div>
-                </CardContent>
+                <Button className="editProfileButton"
+                        variant="outlined"
+                        onClick={handleClick}>
+                    Edit profile
+                </Button>
                 {/*todo button to handle the modal*/}
-                {/*<div className="editProfile">
-                    <Button className="editProfileButton"
-                            variant="outlined"
-                            onClick={handleClick}>
-                        Edit profile
-                    </Button>
-                </div>*/}
+            </div>
+            <div>
+                <CardContent className="userSection">
+                    <Typography className="username" variant="h5">{actualUser}</Typography>
+                    <Typography className="userHandle">
+                        @username
+                    </Typography>
+                    <Typography className="bio">
+                        what
+                    </Typography>
+                    <Typography className="joinDate">
+                        when
+                    </Typography>
+                    <Typography className="location">
+                        where
+                    </Typography>
+                    <Typography className="stats">
+                        100 Following - 100 Followers
+                    </Typography>
+
+                </CardContent>
             </div>
         </Card>
     );

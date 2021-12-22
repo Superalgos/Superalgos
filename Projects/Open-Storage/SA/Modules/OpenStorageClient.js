@@ -54,7 +54,6 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         recordsToSave.push(candleSignals)
         socialTradingBotsMap.set(socialTradingBot.id, socialTradingBot)
 
-        process.nextTick()
     }
 
     async function loadFile(fileKey) {

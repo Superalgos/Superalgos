@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Чуть не забыл! Прежде чем вы уйдете, я дам вам ускоренный курс, чтобы вы могли немного поиграть с настоящей силой Token Power!",
                 "updated": 1639054268952
+            },
+            {
+                "language": "DE",
+                "text": "Fast vergessen! Bevor Sie gehen, gebe ich Ihnen einen Crashkurs, damit Sie ein bisschen mit echter Token Power spielen können!",
+                "updated": 1640082755036
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Мы пробираемся в профиль пользователя ведущего разработчика, особенно в его программу делегирования Delegation Program! Ваша миссия: делегировать себе некоторую часть Token Power, чтобы вы могли играть с потоками в своем собственном профиле!",
                     "updated": 1639054385904
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir schleichen uns in das Benutzerprofil des Hauptentwicklers, insbesondere in sein Delegation Program! Ihre Aufgabe: Delegieren Sie sich selbst etwas Token Power, damit Sie mit den Abläufen in Ihrem eigenen Profil spielen können!",
+                    "updated": 1640082784254
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Используйте узел делегирования пользователей User Delegate справа, чтобы ссылаться на свой собственный профиль пользователя User Profile!",
                     "updated": 1639054442027
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie den Knoten User Delegate auf der rechten Seite, um auf Ihr eigenes Benutzerprofil zu verweisen!",
+                    "updated": 1640082804692
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Вы можете свободно играть с другими профилями пользователей.",
                     "updated": 1639054457749
+                },
+                {
+                    "language": "DE",
+                    "text": "Du kannst mit anderen Benutzerprofilen frei spielen.",
+                    "updated": 1640082813232
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Эти профили не сохраняются в рабочей области.",
                     "updated": 1639054467286
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Profile werden nicht mit dem Workspace gespeichert.",
+                    "updated": 1640082827690
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "RU",
                     "text": "Даже если вы отправите их в репозиторий, они будут отклонены нашим ботом, контролирующим, что профили загружаются только их владельцами.",
                     "updated": 1639054507561
+                },
+                {
+                    "language": "DE",
+                    "text": "Selbst wenn Sie sie in das Repo einreichen würden, würden sie von unserem Bot abgelehnt werden, der kontrolliert, dass Profile nur von ihren Besitzern hochgeladen werden.",
+                    "updated": 1640082839390
                 }
             ]
         }

@@ -1,6 +1,6 @@
 
 import { configureStore } from '@reduxjs/toolkit';
-import ExampleReducer from './slices/Globals'
+import ExampleReducer from './slices/Example.slice'
 
 export default configureStore({
     reducer:{

@@ -1,0 +1,40 @@
+{
+    "actionsNav":[
+        {
+            "id": 1,
+            "name": "Love",
+            "icon": "FavoriteBorder",
+            "badgeCounter": 1
+        },
+        {
+            "id": 2,
+            "name": "Haha",
+            "icon": "Mood",
+            "badgeCounter": 1
+        },
+        {
+            "id": 3,
+            "name": "Wow",
+            "icon": "OutletOutlined",
+            "badgeCounter": 1
+        },
+        {
+            "id": 4,
+            "name": "Sad",
+            "icon": "SentimentVeryDissatisfied",
+            "badgeCounter": 1
+        },
+        {
+            "id": 5,
+            "name": "Angry",
+            "icon": "SentimentVeryDissatisfiedOutlined",
+            "badgeCounter": 1
+        },
+        {
+            "id": 6,
+            "name": "Care",
+            "icon": "AccessibilityNewOutlined",
+            "badgeCounter": 1
+        }
+    ]
+}

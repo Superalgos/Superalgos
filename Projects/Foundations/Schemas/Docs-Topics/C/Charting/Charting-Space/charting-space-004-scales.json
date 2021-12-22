@@ -58,7 +58,14 @@
         },
         {
             "style": "Title",
-            "text": "Rate Scale"
+            "text": "Rate Scale",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Rate Scale (Κλίμακες Τιμών)",
+                    "updated": 1640126467484
+                }
+            ]
         },
         {
             "style": "Include",
@@ -77,7 +84,14 @@
         },
         {
             "style": "Title",
-            "text": "Time Frame Scale"
+            "text": "Time Frame Scale",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Time Frame Scale (Κλίμακα Χρονικού Πλαισίου)",
+                    "updated": 1640126536270
+                }
+            ]
         },
         {
             "style": "Include",

@@ -15,7 +15,7 @@ const UsersSidebar = () => {
                sx={{minWidth: "max-content"}}>
 
             <SearchBox/>
-            <SuggestedUsers showMoreCallback={showMoreCallback}/>
+            <SuggestedUsers/>
         </Stack>
     );
 }

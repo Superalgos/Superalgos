@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Jedem Produkt kann ein Plottermodul zugeordnet sein. Dieses Plottermodul enthält alle Definitionen, die zur Interpretation der Datensätze des Produkts und zur Darstellung der Informationen in einer chart (Diagramm) erforderlich sind.",
                 "updated": 1635105939995
+            },
+            {
+                "language": "RU",
+                "text": "С каждым продуктом может быть связан один модуль плоттера Plotter Module. Этот модуль плоттера имеет все определения, необходимые для интерпретации наборов данных продукта и отображения информации на диаграмме.",
+                "updated": 1639580741790
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Superalgos bietet die Möglichkeit, Plotter zu erstellen, ohne dass ein Code geschrieben werden muss. Der Plotter wird im Designer Space definiert. Dies geschieht durch die Definition von Scheitelpunkten und Polygonen. Benutzer können benutzerdefinierte Diagramme für jedes Dataset erstellen.",
                     "updated": 1635106017833
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos позволяет пользователям создавать плоттеры без написания кода. Плоттер определяется в пространстве Designer Space. Это делается посредством определения вершин и полигонов. Пользователи могут создавать собственные диаграммы для любого набора данных Dataset.",
+                    "updated": 1639580856393
                 }
             ]
         }

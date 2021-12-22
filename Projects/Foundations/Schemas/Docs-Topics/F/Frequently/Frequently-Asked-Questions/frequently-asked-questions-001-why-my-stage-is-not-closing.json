@@ -4,18 +4,39 @@
     "type": "Why My Stage is not Closing?",
     "definition": {
         "text": "One of the most common questions asked by users is why the open or close stage are not closing after the order was filled.",
-        "updated": 1615100269026
+        "updated": 1615100269026,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Один из самых распространенных вопросов, задаваемых пользователями, заключается в том, почему стадия открытия или закрытия не закрывается после того, как ордер был исполнен.",
+                "updated": 1639761514920
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "The short answer is because the Stage Size Filled did not reach the value of the Stage Target Size.",
-            "updated": 1615100332173
+            "updated": 1615100332173,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Короткий ответ: потому что величина Size Filled не достигла значения Size Filled.",
+                    "updated": 1639761649231
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are many reason why this can happen, but they all have to do with syncronization between the system and the exchange, and dust getting accumulated in decimal places.",
-            "updated": 1615053796132
+            "updated": 1615053796132,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть много причин, почему это может произойти, но все они связаны с синхронизацией между системой и биржей, а также с накоплением пыли в десятичных знаках.",
+                    "updated": 1639761733882
+                }
+            ]
         },
         {
             "style": "Block",
@@ -24,16 +45,37 @@
         },
         {
             "style": "Subtitle",
-            "text": "The Stage Does Not Close"
+            "text": "The Stage Does Not Close",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стадия не закрывается",
+                    "updated": 1639761771287
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "One common issue users have while dealing with stages is that they do not get closed after their orders get filled. This usually happens because there are several adjustments on rate that happens during trading, specially during live trading. The reason a Stage does not get closed automatically is because the total filled for the whole stage is not close enough to the Stage Target Size defined by users. In order to avoid this situation there are three configurations at the Stage node you can use:",
-            "updated": 1615053929853
+            "updated": 1615053929853,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одна из распространенных проблем, с которой сталкиваются пользователи при работе со стадиями, заключается в том, что они не закрываются после исполнения ордеров. Обычно это происходит потому, что во время торговли, особенно во время реальной торговли, происходит несколько корректировок по стадиям. Причина, по которой стадия не закрывается автоматически, заключается в том, что общее количество исполненных ордеров для всей стадии не достаточно близко к целевому размеру стадии, определенному пользователями. Для того чтобы избежать этой ситуации, существует три конфигурации узла Stage, которые вы можете использовать:",
+                    "updated": 1639761882959
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "ROUNDING_ERROR_CORRECTION_FACTOR : is a configurable factor that can be applied to the stage filled at runtime in order to force it to reach the Stage Target Size. The default value for this factor is:"
+            "text": "ROUNDING_ERROR_CORRECTION_FACTOR : is a configurable factor that can be applied to the stage filled at runtime in order to force it to reach the Stage Target Size. The default value for this factor is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ROUNDING_ERROR_CORRECTION_FACTOR: это настраиваемый коэффициент, который может быть применен к стадии, заполненной во время выполнения, чтобы заставить ее достичь целевой величины Target Size. Значение по умолчанию для этого коэффициента:",
+                    "updated": 1639762040608
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -42,30 +84,72 @@
         },
         {
             "style": "Text",
-            "text": "This value is overwritten by whatever users config at the Stage node under the roundingErrorCorrectionFactor property."
+            "text": "This value is overwritten by whatever users config at the Stage node under the roundingErrorCorrectionFactor property.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это значение перезаписывается тем, что настроено пользователями на узле Stage в свойстве roundingErrorCorrectionFactor.",
+                    "updated": 1639762080821
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A value of 1.01 would mean that when the Filled amount is at 1% distance from the Stage Target, the stage will be closed."
+            "text": "A value of 1.01 would mean that when the Filled amount is at 1% distance from the Stage Target, the stage will be closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значение 1.01 означает, что когда заполненное количество находится на расстоянии 1% от цели, то стадия будет закрыта.",
+                    "updated": 1639763518531
+                }
+            ]
         },
         {
             "style": "List",
             "text": "ABSOLUTE_DUST_IN_BASE_ASSET: is a numeric value that represents the distance that you allow to be between the Size Filled and the Target Side for a stage, measured in Base Asset. It's default value is Zero and you can define it at the config of a Stage node using the absoluteDustInBaseAsset property.",
-            "updated": 1615054114048
+            "updated": 1615054114048,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ABSOLUTE_DUST_IN_BASE_ASSET: это числовое значение, которое представляет собой расстояние, допустимое между Size Filled и Target Side для стадии, измеряемое в базовых активах Base Asset. По умолчанию это значение равно нулю, и вы можете определить его в конфигурации узла Stage с помощью свойства absoluteDustInBaseAsset.",
+                    "updated": 1639763655860
+                }
+            ]
         },
         {
             "style": "List",
             "text": "ABSOLUTE_DUST_IN_QUOTED_ASSET: is a numeric value that represents the distance that you allow to be between the Size Filled and the Target Side for a stage, measured in Base Asset. It's default value is Zero and you can define it at the config of a Stage node using the absoluteDustInQuotedAsset property.",
-            "updated": 1615054151393
+            "updated": 1615054151393,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ABSOLUTE_DUST_IN_QUOTED_ASSET: это числовое значение, которое представляет собой расстояние, допустимое между Size Filled и Target Side для стадии, измеряемое в базовых активах Base Asset. По умолчанию это значение равно нулю, и вы можете определить его в конфигурации узла Stage с помощью свойства absoluteDustInQuotedAsset.",
+                    "updated": 1639763755147
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Implementation",
-            "updated": 1615054281409
+            "updated": 1615054281409,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Реализация",
+                    "updated": 1639763777340
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here you can see how these parameters are implemented in the Low Frequency Trading Bot code:"
+            "text": "Here you can see how these parameters are implemented in the Low Frequency Trading Bot code:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Здесь вы можете увидеть, как эти параметры реализованы в коде Low Frequency Trading Bot:",
+                    "updated": 1639763795071
+                }
+            ]
         },
         {
             "style": "Javascript",

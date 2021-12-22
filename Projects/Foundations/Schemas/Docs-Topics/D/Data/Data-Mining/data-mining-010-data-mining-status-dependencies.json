@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Statusabhängigkeiten sind eine weitere Art der Beziehung zwischen Bots. Manchmal sind Bots nicht von den von anderen Bots erzeugten Datensätzen abhängig, sondern direkt vom Status anderer Bots.",
                 "updated": 1634848429664
+            },
+            {
+                "language": "RU",
+                "text": "Status Dependency - это еще один тип отношений между ботами. Иногда боты не зависят от наборов данных Dataset, созданных другими ботами, но они напрямую зависят от состяния других ботов.",
+                "updated": 1639577373124
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Status Dependency Tree (Status-Abhängigkeitsbaum):",
                     "updated": 1634848589978
+                },
+                {
+                    "language": "RU",
+                    "text": "Дерево Status Dependency",
+                    "updated": 1639573425555
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Statusabhängigkeiten funktionieren nach der gleichen Idee eines Baums wie Ausführungs- und Datenabhängigkeiten. Jeder Bot kann zwischen null und vielen Statusabhängigkeiten-(dependencies) haben. Für jede Status Dependency lädt der Prozess des Bots zur Laufzeit die Status Report Datei des abhängigen Bots und extrahiert daraus die Informationen, die er benötigt.",
                     "updated": 1634848766593
+                },
+                {
+                    "language": "RU",
+                    "text": "Зависимости от состояния работают с использованием той же идеи дерева, что и зависимости выполнения и данных Data Dependency. Любой бот может иметь от нуля до множества зависимостей от состояний. Для каждой зависимости от состояния процесс бота во время выполнения загружает файл отчета о состоянии зависимого бота и извлекает оттуда необходимую информацию.",
+                    "updated": 1639577506769
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "DE",
                     "text": "Bots, die Rohdaten (Raw Data) produzieren, hängen in der Regel nicht vom Status eines anderen Bots ab und sind normalerweise die Wurzel eines Statusabhängigkeitsbaums.",
                     "updated": 1634848799068
+                },
+                {
+                    "language": "RU",
+                    "text": "Боты, производящие необработанные данные Raw Data, обычно не зависят от состояния других ботов и обычно являются корнем дерева зависимостей от состояний.",
+                    "updated": 1639577577470
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "DE",
                     "text": "Anhand eines Beispiels lässt sich gut nachvollziehen, warum Statusabhängigkeiten erforderlich sind:",
                     "updated": 1634848845441
+                },
+                {
+                    "language": "RU",
+                    "text": "Хороший способ понять, зачем нужны эти зависимости, - это на примере:",
+                    "updated": 1639577662015
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Der Indikator-Bot Bollinger-Bänder hängt vom Candles-Volumes-Datensatz ab, um die Bollinger-Bänder zu berechnen. Aber er hängt auch vom Exchange Raw Data Sensor Bot ab, um zu wissen, wo der Markt beginnt, nämlich mit dem Datum der ersten Daten. Diese Information ist Teil der Statusinformationen, die der Exchange Raw Data Sensor Bot in seinem Statusbericht speichert.",
                     "updated": 1634848951838
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикаторный бот Bollinger-Bands зависит от набора данных Candles-Volumes для расчета полос Боллинджера, но он зависит от бота Exchange Raw Data Sensor Bot, чтобы знать, где начинается рынок, то есть дата первого фрагмента данных. Эта информация является частью информации о состоянии, которую бот Exchange Raw Data Sensor Bot хранит в своем отчете о состоянии Status Report.",
+                    "updated": 1639576511235
                 }
             ]
         },
@@ -81,6 +111,11 @@
                     "language": "DE",
                     "text": "Classification by Utility (Klassifizierung nach \"Nutzen\"):",
                     "updated": 1634849057981
+                },
+                {
+                    "language": "RU",
+                    "text": "Классификация по полезности",
+                    "updated": 1639576544621
                 }
             ]
         },
@@ -93,6 +128,11 @@
                     "language": "DE",
                     "text": "Eine Status Dependency kann nach ihrem Nutzen klassifiziert werden. Das macht es für Prozesse einfacher, sie im Code zu behandeln. Derzeit gibt es drei verschiedene Hilfsprogramme(utilities):",
                     "updated": 1634849116125
+                },
+                {
+                    "language": "RU",
+                    "text": "Status Dependency можно классифицировать по ее полезности. Это упрощает процессам обработку их в коде. В настоящее время существует три разных утилиты:",
+                    "updated": 1639576606153
                 }
             ]
         },
@@ -105,6 +145,11 @@
                     "language": "DE",
                     "text": "Self Reference: wird verwendet, um den Statusbericht eines Bots zu laden, um Daten daraus zu extrahieren oder ihn zu ändern.",
                     "updated": 1634849138412
+                },
+                {
+                    "language": "RU",
+                    "text": "Self Reference: используется для загрузки отчета о состоянии бота, чтобы извлечь из него данные или изменить его.",
+                    "updated": 1639577893344
                 }
             ]
         },
@@ -117,6 +162,11 @@
                     "language": "DE",
                     "text": "Market Starting Point: Dies bedeutet, dass der referenzierte Status Report verwendet werden soll, um die Information zu extrahieren, wo der Markt beginnt.",
                     "updated": 1634849231211
+                },
+                {
+                    "language": "RU",
+                    "text": "Market Starting Point: Начальная точка рынка: это означает, что указанный отчет о состоянии должен использоваться для извлечения информации о том, где начинается рынок.",
+                    "updated": 1639577876702
                 }
             ]
         },
@@ -128,6 +178,11 @@
                     "language": "DE",
                     "text": "Market Ending Point: Das bedeutet, dass der referenzierte Status Report dazu verwendet werden soll, die Information zu extrahieren, wo der Markt endet, das heißt an welchem Datum der Markt endet.",
                     "updated": 1634849541450
+                },
+                {
+                    "language": "RU",
+                    "text": "Market Ending Point: это означает, что упомянутый отчет о состоянии должен использоваться для извлечения информации о том, где заканчивается рынок, то есть о дате окончания рынка.",
+                    "updated": 1639577911127
                 }
             ]
         },
@@ -140,6 +195,11 @@
                     "language": "DE",
                     "text": "Der Prozess eines Bots darf den Statusbericht (Status Report) eines anderen Bots nicht aktualisieren!",
                     "updated": 1634849635487
+                },
+                {
+                    "language": "RU",
+                    "text": "Процесс бота не может обновлять Status Report, принадлежащий другим ботам!",
+                    "updated": 1639577953867
                 }
             ]
         },

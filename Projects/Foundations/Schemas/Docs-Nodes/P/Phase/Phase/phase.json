@@ -2,7 +2,14 @@
     "type": "Phase",
     "definition": {
         "text": "The management of take profit and stop loss targets is done in phases, each with their own formula that determines the target. ",
-        "updated": 1610205977723
+        "updated": 1610205977723,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Управление целями тейк-профита и стоп-лосса осуществляется фазами, каждая из которых имеет свою формулу, определяющую цель.",
+                "updated": 1639847728686
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,38 +19,94 @@
         {
             "style": "Text",
             "text": "Phase 1 sets the initial targets, either for the Managed Stop Loss or the Managed Take Profit, and becomes active as soon as the Take Position Event validates true. Subsequent phases allows switching to different formulas given certain market situations.",
-            "updated": 1610206033350
+            "updated": 1610206033350,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фаза 1 устанавливает начальные цели, либо для управляемого стоп-лосса Managed Stop Loss, либо для управляемого тейк-профита Managed Take Profit, и становится активной, как только событие Take Position Event становится true (истинным). Последующие фазы позволяют переключаться на различные формулы при определенных ситуациях на рынке.",
+                    "updated": 1639847844303
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The default management of phases is sequential, meaning that phase 2 comes after phase 1, phase 3 comes after phase 2, and so on."
+            "text": "The default management of phases is sequential, meaning that phase 2 comes after phase 1, phase 3 comes after phase 2, and so on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Управление фазами по умолчанию является последовательным, то есть фаза 2 наступает после фазы 1, фаза 3 наступает после фазы 2 и так далее.",
+                    "updated": 1639847873692
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "To switch from one phase to the next phase in the sequence, the Next Phase event is used. When the Situation described in the next phase event validates true, the switch occurs and the next phase becomes the active phase.",
-            "updated": 1610206075265
+            "updated": 1610206075265,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для перехода от одной фазы к следующей в последовательности используется событие Next Phase. Когда ситуация Situation, описанная в событии следующей фазы, становится истинной, происходит переключение, и следующая фаза становится активной.",
+                    "updated": 1639847969929
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "However, management does not need to happen sequentially. By using the Move To Phase Event instead of the Next Phase Event, the system may activate any other phase and not just the one next in the sequence.",
-            "updated": 1610206113858
+            "updated": 1610206113858,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако управление не обязательно должно происходить последовательно. Используя событие Move To Phase Event вместо события Next Phase Event, система может активировать любую другую фазу, а не только следующую в последовательности.",
+                    "updated": 1639847998032
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Both events may be used at the same time, and whichever event is triggered first takes precedence."
+            "text": "Both events may be used at the same time, and whichever event is triggered first takes precedence.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Оба события могут быть использованы одновременно, при этом приоритет имеет то событие, которое сработало первым.",
+                    "updated": 1639848015265
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Notice that stop loss and take profit phases are independent and defined separately from each other, each below the corresponding managed stop loss and managed take profit nodes."
+            "text": "Notice that stop loss and take profit phases are independent and defined separately from each other, each below the corresponding managed stop loss and managed take profit nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что фазы стоп-лосс и тейк-профит являются независимыми и определяются отдельно друг от друга, каждая из них находится ниже соответствующих узлов управляемого стоп-лосс и управляемого тейк-профит.",
+                    "updated": 1639848049136
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The value of the target set for a phase is expressed by a formula. Learn more about formulas and how to write them."
+            "text": "The value of the target set for a phase is expressed by a formula. Learn more about formulas and how to write them.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значение цели, установленной для фазы, выражается формулой. Узнайте больше о формулах и о том, как их написать.",
+                    "updated": 1639848109450
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "This explanation about phase 1 may be extended to any other phase, as they all work similarly, and it applies both for managed stop loss phases and managed take profit phases.",
-            "updated": 1609609940697
+            "updated": 1609609940697,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это объяснение о фазе 1 можно распространить на любую другую фазу, поскольку все они работают одинаково, и оно применимо как к фазам управляемого стоп-лосса, так и к фазам управляемого тейк-профита.",
+                    "updated": 1639848134202
+                }
+            ]
         },
         {
             "style": "Block",

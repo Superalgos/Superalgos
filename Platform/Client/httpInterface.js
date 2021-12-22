@@ -253,6 +253,33 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Social-Bots':
                     switch (requestPath[2]) {
+                        case 'Discord-Test-Message':
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    let config = JSON.parse(body)
+                                    let text = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
+                                    socialBot.initialize(config)
+                                        .then(response => {
+                                            console.log('httpInterface > Discord Bot >', response)
+                                            socialBot.sendMessage(text)
+                                                .then(response => {
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                })
+                                                .catch(err => {
+                                                    console.error(err)
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                                })
+                                        })
+                                        .catch(err => {
+                                            console.error('error initializing discord bot', err)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
+                            break
                         case 'Slack-Test-Message':
                             SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
                                 .then(body => {
@@ -265,6 +292,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                         })
                                         .catch(err => {
+                                            console.error(err)
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
@@ -284,6 +312,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                         })
                                         .catch(err => {
+                                            console.error(err)
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })

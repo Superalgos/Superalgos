@@ -2,13 +2,27 @@
     "type": "User Defined Code",
     "definition": {
         "text": "You can use this node to inject your own executable code into the Trading System. The exact moment when this code will be run depends on its config properties. From your code you can access the Trading Engine, read and modify it's values, modifying the standard behaviour of the Trading Bot.",
-        "updated": 1622832915295
+        "updated": 1622832915295,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете использовать этот узел для внедрения собственного исполняемого кода в торговую систему Trading System. Точный момент, когда этот код будет запущен, зависит от его свойств конфигурации. Из своего кода вы можете получить доступ к свойствам Trading Engine, прочитать и изменить его значения, изменив стандартное поведение торгового бота Trading Bot.",
+                "updated": 1639551929354
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Configuration",
-            "updated": 1622832997207
+            "updated": 1622832997207,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639551958384
+                }
+            ]
         }
     ]
 }

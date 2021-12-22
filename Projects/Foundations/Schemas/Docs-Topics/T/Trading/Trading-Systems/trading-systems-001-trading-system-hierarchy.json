@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Ein Trading System trägt die vom Trading Bot implementierte Handelslogik während einer trading session (Handelssitzung).",
                 "updated": 1636658786831
+            },
+            {
+                "language": "RU",
+                "text": "Торговая система Trading System несет в себе торговую логику, реализуемую торговым ботом Trading Bot во время торговой сессии.",
+                "updated": 1639732638426
             }
         ]
     },

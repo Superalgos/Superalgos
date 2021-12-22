@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Trittbrettfahren ist nicht cool! Wir wissen, dass Sie, sobald Sie einen Beitrag leisten, mehr Leute dazu inspirieren werden, Ihrem Beispiel zu folgen!",
                 "updated": 1634820436879
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u sadece kullanmak asla havalı değil! Bir kez katkıda bulunmaya başladığınızda, daha fazla kişiye ulaşarak, liderliğinizi takip etmeleri için onlara fırsat vereceğinizi ve Superalgos'a katkıda bulunmaları için cesaretlendireceğinizi biliyoruz!",
+                "updated": 1639869188287
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Das Projekt hat ein starkes Anreizsystem eingeführt, um das gewünschte Verhalten zu fördern und eine Kultur der Zusammenarbeit zu unterstützen. Wir verteilen den Superalgos (SA) Token ausschließlich an Mitwirkende!",
                     "updated": 1634820476632
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje, katkı sağlayabilecek insanları bir araya getirebilmek,bu davranışı teşvik etmek ve bir işbirliği kültürünü geliştirmek için güçlü bir teşvik planı uygular. Superalgos (SA) jetonunu yalnızca katkıda bulunanlar arasında dağıtır!",
+                    "updated": 1639869321051
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "DE",
                     "text": "Wir bekämpfen Trittbrettfahren mit Anreizen!",
                     "updated": 1634820484905
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece kullanıcı olmaya karşı, sizleri SA Token ile teşvik ediyoruz",
+                    "updated": 1639869392599
                 }
             ]
         },
@@ -110,6 +125,11 @@
                     "language": "DE",
                     "text": "Lassen Sie uns Ihren ersten Beitrag ins Rollen bringen! Zuerst zeige ich Ihnen, wie Sie den Zweig wechseln können!",
                     "updated": 1634820492671
+                },
+                {
+                    "language": "TR",
+                    "text": "Haydi ilk katkınızı yayınlayalım! İlk önce, sana dalları ( Branches ) nasıl değiştireceğini öğreteceğim!",
+                    "updated": 1639869434737
                 }
             ]
         }

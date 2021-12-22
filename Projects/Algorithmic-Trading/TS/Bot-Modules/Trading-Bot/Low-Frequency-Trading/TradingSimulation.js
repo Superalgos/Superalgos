@@ -129,6 +129,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             */
             let initialTime = (new Date).valueOf()
             for (let i = initialCandle; i < candles.length - 1; i++) {
+                if (i === 10) { i = 1430 }
                 tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = i
 
                 /* This is the current candle the Simulation is working at. */
@@ -240,7 +241,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     /*
                     Mantain Signal Storage.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.mantain(candle)
+                   TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
                     break
                 }
                 /* 
@@ -263,7 +264,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /*
                 Mantain Signal Storage.
                 */
-                TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.mantain(candle)
+                TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
                 /*
                 Check if we need to stop.
                 */

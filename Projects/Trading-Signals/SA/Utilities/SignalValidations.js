@@ -6,13 +6,13 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
 
     return thisObject
 
-    function validateSignatures(signalMessage) {
+    function validateSignatures(signal) {
         let web3 = new SA.nodeModules.web3()
         /*
         We check that the entities sending the Signal belong to some User Profile,
         by extracting the blockchain accounts of the signatures.
         */
-        let userAppBLockchainAccount = web3.eth.accounts.recover(signalMessage.signatures.userApp)
+        let userAppBLockchainAccount = web3.eth.accounts.recover(signal.signatures.userApp)
 
         if (userAppBLockchainAccount === undefined) {
             let response = {
@@ -30,7 +30,7 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
             return response
         }
 
-        let socialTradingBotBLockchainAccount = web3.eth.accounts.recover(signalMessage.signatures.socialTradingBot)
+        let socialTradingBotBLockchainAccount = web3.eth.accounts.recover(signal.signatures.socialTradingBot)
 
         if (socialTradingBotBLockchainAccount === undefined) {
             let response = {
@@ -50,10 +50,10 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
         /*
         Validate that the Signed Message is the same as the Signal received.
         */
-        let signedMessage = JSON.stringify(signalMessage.signal)
+        let signedMessage = JSON.stringify(signal.fileKey)
         if (
-            signedMessage !== signalMessage.signatures.userApp.message ||
-            signedMessage !== signalMessage.signatures.socialTradingBot.message
+            signedMessage !== signal.signatures.userApp.message ||
+            signedMessage !== signal.signatures.socialTradingBot.message
         ) {
             let response = {
                 result: 'Error',
@@ -68,8 +68,8 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
         */
         let hash = web3.eth.accounts.hashMessage(signedMessage)
         if (
-            hash !== signalMessage.signatures.userApp.messageHash ||
-            hash !== signalMessage.signatures.socialTradingBot.messageHash
+            hash !== signal.signatures.userApp.messageHash ||
+            hash !== signal.signatures.socialTradingBot.messageHash
         ) {
             let response = {
                 result: 'Error',

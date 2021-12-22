@@ -45,13 +45,14 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
     function persit(candleSignals, socialTradingBot) {
 
-        let recordsToSave = candlesSignalsMap.get(socialTradingBot.id)
-        if (recordsToSave === undefined) {
-            recordsToSave = []
-            candlesSignalsMap.set(socialTradingBot.id, recordsToSave)
+        let candlesSignalsToSave = candlesSignalsMap.get(socialTradingBot.id)
+        if (candlesSignalsToSave === undefined) {
+            candlesSignalsToSave = []
+
+            candlesSignalsMap.set(socialTradingBot.id, candlesSignalsToSave)
         }
 
-        recordsToSave.push(candleSignals)
+        candlesSignalsToSave.push(candleSignals)
         socialTradingBotsMap.set(socialTradingBot.id, socialTradingBot)
 
     }
@@ -93,17 +94,24 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         candlesSignalsMap.forEach(saveOneFile)
     }
 
-    async function saveOneFile(recordsToSave, socialTradingBotId) {
+    async function saveOneFile(candlesSignalsToSave, socialTradingBotId) {
 
-        if (recordsToSave.length === 0) { return }
+        if (candlesSignalsToSave.length === 0) { return }
         if (saveOneFileCanRun === false) { return }
 
         saveOneFileCanRun = false
 
+        let socialTradingBot = socialTradingBotsMap.get(socialTradingBotId)
+        /*
+        Cleaning these maps before the next async operation.
+        */
+        candlesSignalsMap.delete(socialTradingBotId)
+        socialTradingBotsMap.delete(socialTradingBotId)
+
         let timestamp = (new Date()).valueOf()
         let file = {
             timestamp: timestamp,
-            content: recordsToSave
+            content: candlesSignalsToSave
         }
 
         let fileContent = JSON.stringify(file)
@@ -136,8 +144,6 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
             function onFileSaved() {
 
-                recordsToSave = []
-
                 let fileKey = {
                     timestamp: timestamp,
                     fileName: fileName,
@@ -145,7 +151,6 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
                     password: password
                 }
 
-                socialTradingBot = socialTradingBotsMap.get(socialTradingBotId)
                 TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.broadcastFileKey(fileKey, socialTradingBot)
             }
 

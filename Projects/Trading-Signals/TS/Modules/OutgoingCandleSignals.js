@@ -8,14 +8,17 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
     }
 
     let socialTradingBotsMap
+    let web3
     return thisObject
 
     function initialize() {
         socialTradingBotsMap = new Map()
+        web3 = new SA.nodeModules.web3()
     }
 
     function finalize() {
         socialTradingBotsMap = undefined
+        web3 = undefined
     }
 
     function broadcastSignal(tradingSignalMessage, socialTradingBot) {
@@ -42,7 +45,7 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
         }
     }
 
-    function broadcastFileKey(fileKey, socialTradingBot) {
+    async function broadcastFileKey(fileKey, socialTradingBot) {
 
         let userApp = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
         if (userApp === undefined) { return }
@@ -76,8 +79,8 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
             }
         }
 
-        signal.signatures.userApp = web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
-        signal.signatures.socialTradingBot = web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(socialTradingBotCodeName).privateKey)
+        signal.signatures.userApp = await web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
+        signal.signatures.socialTradingBot = await web3.eth.accounts.sign(JSON.stringify(signal.fileKey), SA.secrets.signingAccountSecrets.map.get(socialTradingBotCodeName).privateKey)
 
         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signal)
     }

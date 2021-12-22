@@ -16,8 +16,8 @@
             },
             {
                 "language": "TR",
-                "text": "Bir ticaret botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer ticaret botları) tarafından ürün olarak sunulan veri kümelerine dayanan bir bilgisayar programıdır ve bir taraftan tam bir ticaret simülasyonu oluşturmak için bir Ticaret Sisteminde ( Trading System ) tanımlanan ticaret mantığını uygularken (işlemleri, stratejilerin yürütülmesi, koşulların doğrulanmasını vb. içeren çıktı veri kümeleri) ve diğer taraftan, bir ileri test veya canlı ticaret oturumu sırasında emirlerin yürütülmesini yönetir",
-                "updated": 1639144490011
+                "text": "Bir ticaret botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer ticaret botları) tarafından ürün olarak sunulan veri kümelerine dayanan bir bilgisayar programıdır ve bir tarafta tam bir ticaret simülasyonu oluşturmak için bir Ticaret Sisteminde ( Trading System ) tanımlanan ticaret mantığını uygular. (işlemleri, stratejilerin eylemini, koşulların doğrulanmasını vb. içeren çıktı veri kümeleri) ve diğer tarafta, bir ileri test veya canlı ticaret oturumu sırasında emirlerin yürütülmesini yönetir.",
+                "updated": 1640083729205
             }
         ]
     },

@@ -129,7 +129,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             */
             let initialTime = (new Date).valueOf()
             for (let i = initialCandle; i < candles.length - 1; i++) {
-                if (i === 10) { i = 1430 }
+             
                 tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = i
 
                 /* This is the current candle the Simulation is working at. */

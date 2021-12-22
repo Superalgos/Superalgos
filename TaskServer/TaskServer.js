@@ -150,8 +150,7 @@ exports.newTaskServer = function newTaskServer() {
                     if (
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined ||
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent.availableStorage === undefined
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined 
                     ) {
                         return
                     }

@@ -22,10 +22,12 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     let socialTradingBotsMap
     let candlesSignalsMap
     let saveOneFileCanRun
+    let filesLoadedByIdMap
 
     return thisObject
 
     function finalize() {
+        filesLoadedByIdMap = undefined
         socialTradingBotsMap = undefined
         candlesSignalsMap = undefined
         availableStorage = undefined
@@ -34,6 +36,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
     }
 
     async function initialize() {
+        filesLoadedByIdMap = new Map()
         socialTradingBotsMap = new Map()
         candlesSignalsMap = new Map()
         saveOneFileCanRun = true
@@ -59,6 +62,15 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
     async function loadFile(fileKey) {
         /*
+        Control if this file was not already laoded. 
+        Because the same file can be stored at multiple storage
+        containers for resilience, we are going to load the first
+        one and the rest we are going to ingore the load request.
+        */
+        if (filesLoadedByIdMap.get(fileKey.fileId) === true) {
+            return 
+        }
+        /*
         We are going to load this file from the Storage Containers defined.
         We are going to try to read it first from the first Storage container
         and if it is not possible we will try with the next ones.
@@ -66,27 +78,25 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         let fileName = fileKey.fileName
         let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
         let password = fileKey.password
-
+        let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
         let fileContent
-        for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
-            let storageContainerReference = availableStorage.storageContainerReferences[i]
-            if (storageContainerReference.referenceParent === undefined) { continue }
-            if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
 
-            let storageContainer = storageContainerReference.referenceParent
-
-            switch (storageContainer.parentNode.type) {
-                case 'Github Storage': {
-                    let encryptedFileContent = await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
-                    fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
-                    break
-                }
-                case 'Superalgos Storage': {
-                    // TODO Build the Superalgos Storage Provider
-                    break
-                }
+        switch (storageContainer.parentNode.type) {
+            case 'Github Storage': {
+                let encryptedFileContent = await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                fileContent = SA.projects.foundations.utilities.encryption.decrypt(encryptedFileContent, password)
+                /*
+                We are going to remember that we already loaded this file from one of it's storage containers.
+                */
+                filesLoadedByIdMap.set(fileKey.fileId, true)
+                break
+            }
+            case 'Superalgos Storage': {
+                // TODO Build the Superalgos Storage Provider
+                break
             }
         }
+
         return fileContent
     }
 
@@ -119,6 +129,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
         let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
         let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
         let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+        let fileId = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
         /*
         We are going to save this file at all of the Storage Containers defined.
         */
@@ -147,6 +158,7 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
                 let fileKey = {
                     timestamp: timestamp,
                     fileName: fileName,
+                    fileId: fileId,
                     storageContainerId: storageContainer.id,
                     password: password
                 }

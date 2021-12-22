@@ -39,11 +39,12 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
         we will ask them to the Open Storage.
         */
         let fileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(signal.fileKey)
+        if (fileContent === undefined) { return } // Happens when the signal was already loaded / processed.
         let file = JSON.parse(fileContent)
-        let recordsLoaded = file.content
+        let candleSignalsToLoad = file.content
 
-        for (let i = 0; i < recordsLoaded.length; i++) {
-            let candleSignals = recordsLoaded[i]
+        for (let i = 0; i < candleSignalsToLoad.length; i++) {
+            let candleSignals = candleSignalsToLoad[i]
             for (let j = 0; j < candleSignals.length; j++) {
                 let tradingSignalMessage = candleSignals[j]
                 tradingSignalMessageReceived(tradingSignalMessage)

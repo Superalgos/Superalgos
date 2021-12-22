@@ -153,6 +153,13 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                         p2pNetworkClientIdentity.userSocialProfile = userSocialProfile
                     }
                 }
+
+                let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
+
+                for (let j = 0; j < storageContainers.length; j++) { 
+                    let storageContainer = storageContainers[j]
+                    SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                }
             }
         }
     }

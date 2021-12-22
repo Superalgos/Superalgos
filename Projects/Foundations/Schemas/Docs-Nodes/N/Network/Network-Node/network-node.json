@@ -1,0 +1,145 @@
+{
+    "type": "LAN Network Node",
+    "definition": {
+        "text": "A network node represents a machine running Superalgos, on which processes run and data is stored.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un network node representa una maquina corriendo Superalgos, en la cual procesos corren y data es guardada.",
+                "updated": 1624229963419
+            },
+            {
+                "language": "RU",
+                "text": "Узел LAN Network представляет собой машину, на которой работает Superalgos, на которой выполняются процессы и хранятся данные.",
+                "updated": 1638353600754
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "By default, processes are set up to run locally in a network node representing your local machine. However, the system is prepared to run distributed on a network of nodes, or what we call a trading farm.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По умолчанию процессы настроены для локального запуска на сетевом узле, представляющем ваш локальный компьютер. Однако система готова к работе в сети узлов, или в том, что мы называем торговой фермой.",
+                    "updated": 1638353637092
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "You may create unlimited network nodes and map them with different machines on a network. Each computer in the network runs an instance of the Superalgos backend, and you may control the whole network operation from a single machine, or—in general—from any machine in the network running the Superalgos frontend. To learn more about distributed setups, check the trading farms pages.",
+            "updated": 1609249489127,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете создать неограниченное количество сетевых узлов и сопоставить их с разными машинами в сети. На каждом компьютере в сети работает экземпляр бэкэнда Superalgos, и вы можете управлять всей работой сети с одной машины или - в общем - с любой машины в сети, на которой запущен интерфейс Superalgos. Чтобы узнать больше о распределенных настройках, посетите страницы торговых ферм.",
+                    "updated": 1638354477297
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The easiest and fastest way to set up a network node is using the Install Market function available on markets defined in the Crypto Ecosystem hierarchy, under the exchange markets node. This function adds data mining tasks for all sensor and indicator bots shipping with the system, backtesting and live trading tasks for trading systems shipping with the system, including the data storage definitions for both, and also creates the corresponding dashboards and charts in the Charting Space hierarchy. You may learn more about this function in the how to install a new market page.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Самый простой и быстрый способ настроить сетевой узел - использовать функцию Install Market, доступную на рынках, определенных в иерархии Crypto Ecosystem в узле биржевых рынков. Эта функция добавляет задачи интеллектуального анализа данных для всех сенсорных и индикаторных роботов, поставляемых с системой, бэктестирование и задачи реальной торговли для торговых систем, поставляемых с системой, включая определения хранилищ данных для обеих, а также создание соответствующих панелей мониторинга и диаграмм в иерархии пространства диаграмм. Вы можете узнать больше об этой функции на странице, посвященной установке новой торговой площадки.",
+                    "updated": 1638354521595
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you need finer control over the operation you wish to deploy on the network, then you may use the individual functions available under each section of the hierarchy under the network node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вам нужен более точный контроль над операцией, которую вы хотите развернуть в сети, вы можете использовать отдельные функции, доступные в каждом разделе иерархии под сетевым узлом.",
+                    "updated": 1638354544089
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Network Node Configuration",
+            "updated": 1609594117302,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация сетевого узла",
+                    "updated": 1638354570942
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638354578590
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "List",
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "host - это машина или оборудование, представленное сетевым узлом. Параметр по умолчанию - localhost, но если вы намереваетесь получить доступ к серверным службам этого узла с удаленного компьютера, вы должны изменить localhost для IP-адреса компьютера, на котором работает узел, например, на 147.0.0.1.",
+                    "updated": 1638354599031
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "webPort is the port used by the Web Server, at this stage 34248.",
+            "updated": 1609247881896,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "webPort - это порт, используемый веб-сервером, на данном этапе 34248.",
+                    "updated": 1638354613945
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "webSocketsPort - это порт, используемый системой для связи по локальной сети, по умолчанию установлен 18041.",
+                    "updated": 1638354625777
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "webSocketsExternalURL is the URL used by the system to communicate over the wide area network, by default set undefined.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "webSocketsExternalURL - это URL-адрес, используемый системой для связи по глобальной сети, по умолчанию установлен в \"undefined\".",
+                    "updated": 1638354664660
+                }
+            ]
+        }
+    ]
+}

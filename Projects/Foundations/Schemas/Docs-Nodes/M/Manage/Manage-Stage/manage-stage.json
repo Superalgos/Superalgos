@@ -12,6 +12,11 @@
                 "language": "DE",
                 "text": "In der \" manage stage\" geht es um das Setzen und Verwalten von Stop Loss und Take Profit Zielen, sowohl zum Schutz Ihres Kapitals als auch zur Steigerung der Effizienz Ihres trading systems.",
                 "updated": 1636665519510
+            },
+            {
+                "language": "RU",
+                "text": "Стадия управления Manage Stage связана с установкой и управлением целями стоп-лосс и тейк-профит, как для защиты вашего капитала, так и для повышения эффективности вашей торговой системы.",
+                "updated": 1639758290305
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "DE",
                     "text": "Optionalität:",
                     "updated": 1636665447488
+                },
+                {
+                    "language": "RU",
+                    "text": "Опциональность",
+                    "updated": 1639758359055
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "DE",
                     "text": "Diese \"Stage\" ist optional. Das bedeutet, dass Sie diese Node einfach löschen können, wenn Sie keine Stop-Loss- oder Take-Profits in Ihrer Strategie verwenden möchten, und alles wird weiterhin gut funktionieren. Wenn Sie diesen Knoten entfernen, wird das System zur runtime(Laufzeit), sobald die Position ausgelöst wird, feststellen, dass die Manage Stage undefiniert ist, und es wird sie überspringen, indem es zur Close Stage springt und sie öffnet (falls sie existiert, da sie ebenfalls optional ist).",
                     "updated": 1636665947878
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот стадия является необязательной. Это означает, что если вы не хотите иметь дело со стоп-лоссами или тейк-профитами в своей стратегии, вы можете просто удалить этот узел, и все будет работать нормально. Если вы удалите этот узел, во время исполнения произойдет следующее: как только позиция сработает, система обнаружит, что стадия управления не определена, и перейдет к ней, открыв стадию закрытия (если она существует, поскольку она также необязательна).",
+                    "updated": 1639758414686
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "DE",
                     "text": "So sieht die Optionalität im Code aus:",
                     "updated": 1636666049375
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот как опциональность выглядит в коде:",
+                    "updated": 1639758433696
                 }
             ]
         },
@@ -69,6 +89,11 @@
                     "language": "DE",
                     "text": "Wenn sowohl die Manage Stage als auch die Close Stage undefiniert sind, werden Sie die Position verlassen, sobald die Open Stage geschlossen wird.",
                     "updated": 1636666084552
+                },
+                {
+                    "language": "RU",
+                    "text": "Если и Manage Stage, и Close Stage не определены, произойдет то, что всякий раз, когда стадия Open Stage будет закрыта, вы выйдете из позиции.",
+                    "updated": 1639758527509
                 }
             ]
         },
@@ -80,6 +105,11 @@
                     "language": "DE",
                     "text": "Manage Stage Konzept:",
                     "updated": 1636666115181
+                },
+                {
+                    "language": "RU",
+                    "text": "Концепция управления стадиями",
+                    "updated": 1639758558078
                 }
             ]
         },
@@ -91,6 +121,11 @@
                     "language": "DE",
                     "text": "Die erste und wichtigste Regel des Handels ist es, das Kapital zu erhalten, und sein Hauptziel ist es, es zu vermehren.",
                     "updated": 1636666147357
+                },
+                {
+                    "language": "RU",
+                    "text": "Первое и главное правило трейдинга - сохранение капитала, а основная цель - его увеличение.",
+                    "updated": 1639758578294
                 }
             ]
         },
@@ -102,6 +137,11 @@
                     "language": "DE",
                     "text": "Vom Konzept her ist eine Position kein sofortiges Ereignis, sondern ein Ereignis, das eine Eröffnung, eine Reifeperiode und eine Schließung hat. Die Verwaltung der Position erfolgt während dem Prozess.",
                     "updated": 1636666274128
+                },
+                {
+                    "language": "RU",
+                    "text": "Концептуально, позиция - это не мгновенное событие, а событие, которое имеет начало, период созревания и закрытие. Управление позицией происходит на протяжении всего процесса.",
+                    "updated": 1639758616056
                 }
             ]
         },
@@ -113,6 +153,11 @@
                     "language": "DE",
                     "text": "Das Konzept der Positionen-managements bezieht sich auf die Tatsache, dass sich die Formeln zur Bestimmung der Take-Profit- und Stop-Loss-Ziele im Laufe der Entwicklung der Position ändern können. Eine typische Situation, in der Sie Ihre ursprünglichen Take-Profit- und Stop-Loss-Formeln ändern möchten, ist, wenn sich die Position zu Ihren Gunsten entwickelt.",
                     "updated": 1636666520021
+                },
+                {
+                    "language": "RU",
+                    "text": "Концепция управления позицией относится к тому факту, что формулы, определяющие цели тейк-профита и стоп-лосса, могут меняться по мере развития позиции. Типичная ситуация, в которой вы можете захотеть изменить первоначальные формулы тейк-профита и стоп-лосса, - это когда позиция, похоже, развивается в вашу пользу.",
+                    "updated": 1639758662177
                 }
             ]
         },
@@ -124,6 +169,11 @@
                     "language": "DE",
                     "text": "Es kann in Ihrem Interesse sein, den Stop-Loss zu steuern und das Ziel in die Richtung zu verschieben, die zum Schutz nicht realisierter Gewinne beiträgt. Es kann auch in Ihrem Interesse sein, das Take-Profit-Ziel zu verschieben, um einen größeren Gewinn als ursprünglich erwartet zu erzielen. Oder Sie möchten einen Mechanismus einrichten, der den trade schließt, sobald eine bestimmte Marktsituation eintritt.",
                     "updated": 1636666733738
+                },
+                {
+                    "language": "RU",
+                    "text": "В ваших интересах может быть управление стоп-лоссом, перемещение цели в направлении, которое поможет защитить нереализованную прибыль. Также в ваших интересах может быть перемещение цели тейк-профита для получения большей прибыли, чем ожидалось изначально. Или вы можете установить механизм, который закроет сделку, как только на рынке возникнет определенная ситуация.",
+                    "updated": 1639758705522
                 }
             ]
         },
@@ -135,6 +185,11 @@
                     "language": "DE",
                     "text": "Die Verwaltung von Take-Profit und Stop-Loss erfolgt unabhängig voneinander, in Phasen. Daher hat jedes Konzept seine eigene Reihe von management phases (Verwaltungsphasen).",
                     "updated": 1636666836988
+                },
+                {
+                    "language": "RU",
+                    "text": "Управление тейк-профитом и стоп-лоссом осуществляется независимо друг от друга, поэтапно. Поэтому каждая концепция имеет свой набор фаз управления.",
+                    "updated": 1639758830081
                 }
             ]
         },
@@ -146,6 +201,11 @@
                     "language": "DE",
                     "text": "Für jede Phase gibt es eine Formel, die das entsprechende Ziel beschreibt. Die Benutzer können Situationen definieren, in denen die aktuelle Phase aufgegeben und eine andere Phase - mit ihrer Formel - durchgeführt werden soll.",
                     "updated": 1636666931674
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая фаза имеет свою формулу для описания соответствующей цели. Пользователи могут определить ситуации, в которых текущая фаза должна быть отменена и реализована другая фаза со своей формулой.",
+                    "updated": 1639758822360
                 }
             ]
         },
@@ -157,6 +217,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass sich die Position ständig weiterentwickelt, so dass es so viele Phasen geben kann, wie Sie für Ihre spezielle Strategie für angemessen halten.",
                     "updated": 1636667005964
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что позиция находится в постоянном развитии, поэтому количество фаз может быть столько, сколько вы посчитаете нужным для вашей конкретной стратегии.",
+                    "updated": 1639758879187
                 }
             ]
         },
@@ -179,6 +244,11 @@
                     "language": "DE",
                     "text": "All diese Überlegungen können in die dynamische Analyse einfließen, die in jeder Phase der Positionsentwicklung durchgeführt wird.",
                     "updated": 1636667340670
+                },
+                {
+                    "language": "RU",
+                    "text": "Все эти соображения могут повлиять на динамический анализ, проводимый на каждом этапе по мере развития позиции.",
+                    "updated": 1639759344142
                 }
             ]
         },
@@ -190,30 +260,70 @@
                     "language": "DE",
                     "text": "Bei der Ausführung prüft das System, ob die aktuelle candle eines der Ziele markiert hat. Wenn dies der Fall ist, wird die close stage eingeleitet und die Ausführung der closing execution beginnt.",
                     "updated": 1636667407532
+                },
+                {
+                    "language": "RU",
+                    "text": "После выполнения система проверяет, достигла ли текущая свеча одной из целей. Если - или когда - это происходит, включается стадия закрытия, и начинается осуществление закрытия.",
+                    "updated": 1639759531573
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "It is crucial to understand that Superalgos does not place orders to close a position until the stop loss or take profit targets are hit. That is, stop loss and take profit are not orders sitting at the exchange waiting to be filled at a certain rate. Instead, Superalgos keeps track of targets internally, and places the orders at the exchange during the execution cycle in which it detects either of the targets has been hit."
+            "text": "It is crucial to understand that Superalgos does not place orders to close a position until the stop loss or take profit targets are hit. That is, stop loss and take profit are not orders sitting at the exchange waiting to be filled at a certain rate. Instead, Superalgos keeps track of targets internally, and places the orders at the exchange during the execution cycle in which it detects either of the targets has been hit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Очень важно понимать, что Superalgos не выставляет ордера на закрытие позиции до тех пор, пока не будут достигнуты цели стоп-лосс или тейк-профит. То есть, стоп-лосс и тейк-профит - это не ордера, сидящие на бирже и ожидающие исполнения по определенному курсу. Вместо этого Superalgos отслеживает цели внутри своей системы и размещает ордера на бирже во время цикла исполнения, в котором он обнаруживает, что одна из целей была достигнута.",
+                    "updated": 1639759595798
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This behavior has advantages and disadvantages, but it was designed as is because the former outweigh the latter.",
-            "updated": 1609609696864
+            "updated": 1609609696864,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Такое поведение имеет свои преимущества и недостатки, но оно было разработано таким, как есть, потому что первые перевешивают вторые.",
+                    "updated": 1639760653457
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "By not placing stop or take profit orders at the exchange, Superalgos keeps your targets&mdash;and the underlying strategy&mdash;secret. This guarantees that such a crucial piece of information may not be used against you by the exchange itself or any third party that may have access to privileged information."
+            "text": "By not placing stop or take profit orders at the exchange, Superalgos keeps your targets&mdash;and the underlying strategy&mdash;secret. This guarantees that such a crucial piece of information may not be used against you by the exchange itself or any third party that may have access to privileged information.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не размещая на бирже ордера стоп или тейк-профит, Superalgos сохраняет в тайне ваши цели и основную стратегию. Это гарантирует, что такая важная часть информации не может быть использована против вас самой биржей или любой третьей стороной, которая может иметь доступ к привилегированной информации.",
+                    "updated": 1639760696214
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On the other hand, not placing a stop order in advance may occasionally cause relatively more slippage, for instance, in cases of massive flash market moves."
+            "text": "On the other hand, not placing a stop order in advance may occasionally cause relatively more slippage, for instance, in cases of massive flash market moves.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, отсутствие заблаговременного размещения стоп-приказа иногда может привести к относительно большему проскальзыванию, например, в случаях мощных внезапных движений рынка.",
+                    "updated": 1639760727914
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "That said, the default behavior of the system may be hacked to avoid the eventual risk of excessive slippage: set your stop loss and take profit targets tighter and place limit orders to close the position.",
-            "updated": 1609609264299
+            "updated": 1609609264299,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тем не менее, поведение системы по умолчанию можно изменить, чтобы избежать риска чрезмерного проскальзывания: установите более жесткие цели стоп-лосса и тейк-профита и разместите лимитные ордера для закрытия позиции.",
+                    "updated": 1639760773040
+                }
+            ]
         }
     ]
 }

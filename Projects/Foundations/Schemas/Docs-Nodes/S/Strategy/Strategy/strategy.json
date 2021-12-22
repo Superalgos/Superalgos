@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El strategy sección del motor de trading realiza un seguimiento de la información relacionada con las estrategias de trading que se activan, durante el tiempo que permanecen abiertas.",
                 "updated": 1629580247307
+            },
+            {
+                "language": "RU",
+                "text": "Узел Strategy иерархии Trading Engine отслеживает информацию, относящуюся к торговым стратегиям.",
+                "updated": 1639551591088
             }
         ]
     },
@@ -17,19 +22,47 @@
         },
         {
             "style": "Text",
-            "text": "The strategy node is available both in the current context and the last context, that is, you may retrieve information of the strategy that was last triggered or the one currently open."
+            "text": "The strategy node is available both in the current context and the last context, that is, you may retrieve information of the strategy that was last triggered or the one currently open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Strategy доступен как в текущем контексте, так и в последнем контексте, то есть вы можете получить информацию о стратегии, которая была запущена последней или открытой в данный момент.",
+                    "updated": 1639551238974
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A strategy is open from the instant it is triggered-on until the instant it is triggered-off. Therefore, this section of the data structure features information spaning those periods only."
+            "text": "A strategy is open from the instant it is triggered-on until the instant it is triggered-off. Therefore, this section of the data structure features information spaning those periods only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стратегия открыта с момента ее включения до момента ее выключения. Поэтому в этом разделе структуры данных содержится информация, охватывающая только эти периоды.",
+                    "updated": 1639551294404
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This section provides all the basic details about the strategy, which is particularly useful when the trading system features multiple strategies. It also provides information about the context, that is, what is going on with the market at the time strategies are triggered-on and off."
+            "text": "This section provides all the basic details about the strategy, which is particularly useful when the trading system features multiple strategies. It also provides information about the context, that is, what is going on with the market at the time strategies are triggered-on and off.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этом разделе представлены все основные сведения о стратегии, что особенно полезно, когда торговая система включает в себя несколько стратегий. Он также предоставляет информацию о контексте, то есть о том, что происходит на рынке в момент срабатывания стратегий - включения и выключения.",
+                    "updated": 1639551342673
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Most interestingly, the strategy section provides information such as which situation was responsible for triggering the strategy. This may be particularly useful in complex strategies in which the trigger on event may be defined by multiple situations."
+            "text": "Most interestingly, the strategy section provides information such as which situation was responsible for triggering the strategy. This may be particularly useful in complex strategies in which the trigger on event may be defined by multiple situations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Самое интересное, что в разделе Strategy представлена ​​информация, например, какая ситуация привела к срабатыванию стратегии. Это может быть особенно полезно в сложных стратегиях, в которых запуск по событию может определяться несколькими ситуациями.",
+                    "updated": 1639551443748
+                }
+            ]
         }
     ]
 }

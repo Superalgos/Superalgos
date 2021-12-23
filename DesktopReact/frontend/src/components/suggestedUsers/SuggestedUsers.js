@@ -1,16 +1,39 @@
 import "./SuggestedUsers.css"
 import React, {useEffect, useState} from 'react';
 import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
-import {Stack} from "@mui/material";
+import {Skeleton, Stack} from "@mui/material";
 import {STATUS_OK} from "../../api/httpConfig";
-import { getProfiles } from "../../api/profile.httpService";
+import {getProfiles} from "../../api/profile.httpService";
 import UserCard from "../User/UserCard";
 
 
 const SuggestedUsers = () => {
+    //  TODO change this, should not be here
+    const skeletons = [<div className="skeleton">
+        <Skeleton variant="circular" width="3rem" height="3rem"/>
+        <Skeleton variant="text"
+                  width="8rem"/>
+        <Skeleton variant="text"
+                  width="4rem"/>
+    </div>, <div className="skeleton">
+        <Skeleton variant="circular" width="3rem" height="3rem"/>
+        <Skeleton variant="text"
+                  width="8rem"/>
+        <Skeleton variant="text"
+                  width="4rem"/>
+    </div>, <div className="skeleton">
+        <Skeleton variant="circular" width="3rem" height="3rem"/>
+        <Skeleton variant="text"
+                  width="8rem"/>
+        <Skeleton variant="text"
+                  width="4rem"/>
+    </div>]
 
+    const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
     const loadProfiles = async () => {
+        console.log('loading profiles')
+        setLoading(true)
         let {data, result} = await getProfiles().then(response => response.json());
         if (result === STATUS_OK) {
             let mappedUsers = data.map((profile, index) => {
@@ -20,6 +43,7 @@ const SuggestedUsers = () => {
             });
             setUsers(mappedUsers);
         }
+        setLoading(false);
 
     }
 
@@ -32,9 +56,13 @@ const SuggestedUsers = () => {
         <Stack direction="column"
                justifyContent="flex-start"
                alignItems="center"
-               spacing={1}>
-            {users}
-            <ShowMoreUsers/>
+               spacing={1}
+               width="20rem">
+
+            {
+                loading ? (skeletons) : (users)
+            }
+            {/*<ShowMoreUsers  showMoreCallback={() => {console.log("need to show more users")}}/>*/}
         </Stack>
     );
 };

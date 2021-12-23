@@ -17,11 +17,7 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
         processEvent: processEvent
     }
 
-    let portfolioStrategyModuleObject = TS.projects.portfolioManagement.botModules.portfolioStrategy.newPortfolioManagementBotModulesPortfolioStrategy(processIndex)
-    let portfolioPositionModuleObject = TS.projects.portfolioManagement.botModules.portfolioPosition.newPortfolioManagementBotModulesPortfolioPosition(processIndex)
-    let portfolioExecutionModuleObject = TS.projects.portfolioManagement.botModules.portfolioExecution.newPortfolioManagementBotModulesPortfolioExecution(processIndex)
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
-    let snapshotsModuleObject = TS.projects.portfolioManagement.botModules.snapshots.newPortfolioManagementBotModulesSnapshots(processIndex)
     let portfolioEpisodeModuleObject = TS.projects.portfolioManagement.botModules.portfolioEpisode.newPortfolioManagementBotModulesPortfolioEpisode(processIndex)
 
     let portfolioEngine
@@ -35,11 +31,7 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
         portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
         sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters
 
-        portfolioStrategyModuleObject.initialize()
-        portfolioPositionModuleObject.initialize()
         announcementsModuleObject.initialize()
-        snapshotsModuleObject.initialize()
-        portfolioExecutionModuleObject.initialize()
         portfolioEpisodeModuleObject.initialize()
     }
 
@@ -48,33 +40,18 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
         portfolioSystem = undefined
         sessionParameters = undefined
 
-        portfolioStrategyModuleObject.finalize()
-        portfolioStrategyModuleObject = undefined
-
-        portfolioPositionModuleObject.finalize()
-        portfolioPositionModuleObject = undefined
-
         announcementsModuleObject.finalize()
         announcementsModuleObject = undefined
-
-        snapshotsModuleObject.finalize()
-        snapshotsModuleObject = undefined
-
-        portfolioExecutionModuleObject.finalize()
-        portfolioExecutionModuleObject = undefined
 
         portfolioEpisodeModuleObject.finalize()
         portfolioEpisodeModuleObject = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {
-        snapshotsModuleObject.updateChart(pChart, pExchange, pMarket)
+
     }
 
     function mantain() {
-        portfolioPositionModuleObject.mantain()
-        portfolioStrategyModuleObject.mantain()
-        portfolioExecutionModuleObject.mantain()
 
         updateCounters()
         updateEnds()
@@ -82,10 +59,6 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
 
     function reset() {
         resetPortfolioEngineDataStructure()
-
-        portfolioPositionModuleObject.reset()
-        portfolioStrategyModuleObject.reset()
-        portfolioExecutionModuleObject.reset()
     }
 
     /* processEvent() :
@@ -200,7 +173,6 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
 
     function cycleBasedStatistics() {
         portfolioEpisodeModuleObject.cycleBasedStatistics()
-        portfolioPositionModuleObject.cycleBasedStatistics()
     } 
 
     function updateEnds() {

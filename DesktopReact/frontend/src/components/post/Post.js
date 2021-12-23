@@ -4,17 +4,20 @@ import {Avatar, Card, Stack} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import PostFooter from "../PostFooter/PostFooter";
 import FooterReply from "../FooterReply/FooterReply";
+import {useNavigate} from "react-router-dom";
 
-const Post = ({userName, postBody}) => {
-
+const Post = ({postData}) => {
+    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId} = postData;
+    let navigate = useNavigate()
     const [collapse, setCollapse] = useState(false)
     const ToggleCollapseComment = () => setCollapse(!collapse)
 
+    const handlePostClick = (e) => {
+      e.preventDefault()
+        // navigate(`/post/${postId}`) todo implement reply feed
+    }
     return (
-        <div className="postWrapper" onClick={(e) => { // TODO needs to handle onclick event in post
-            e.stopPropagation()
-            //console.log("Hello from clicked post: ")
-        }}
+        <div className="postWrapper" onClick={handlePostClick}
         >
             <Card className="post">
                 <Stack direction="row">

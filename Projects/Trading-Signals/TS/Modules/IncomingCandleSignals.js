@@ -62,7 +62,7 @@ exports.newTradingSignalsModulesIncomingCandleSignals = function (processIndex) 
 
             let signals = signalsByCandleAndSignalDefinitionId.get(key)
             if (signals === undefined) { signals = [] }
-            signals.push(tradingSignalMessage.signal)
+            signals.push(tradingSignalMessage.tradingSignal)
             signalsByCandleAndSignalDefinitionId.set(key, signals)
 
             let candleKey =

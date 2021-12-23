@@ -44,14 +44,13 @@ exports.newAlgorithmicTradingBotModulesTradingOutput = function (processIndex) {
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.tradingEpisode.headOfTheMarket.value
             )
 
+            tradingSimulationModuleObject.initialize(outputDatasetsMap)
             await tradingSimulationModuleObject.runSimulation(
                 chart,
                 market,
                 exchange,
-                outputDatasetsMap,
                 writeOutputFiles
             )
-
             tradingSimulationModuleObject.finalize()
             return
 

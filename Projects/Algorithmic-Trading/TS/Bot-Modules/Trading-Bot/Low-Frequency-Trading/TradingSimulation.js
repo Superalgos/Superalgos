@@ -6,47 +6,69 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
     const MODULE_NAME = 'Trading Simulation -> ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name
 
     let thisObject = {
+        initialize: initialize,
         finalize: finalize,
         runSimulation: runSimulation
     }
+
+    let tradingSystem
+    let tradingEngine
+    let sessionParameters
+
+    /* These are the Modules we will need to run the Simulation */
+    let tradingRecordsModuleObject
+    let tradingSystemModuleObject
+    let tradingEpisodeModuleObject
+    let incomingTradingSignalsModuleObject
+    let outgoingTradingSignalsModuleObject
+
     return thisObject
 
+    function initialize(outputDatasetsMap) {
+        tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
+        tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
+        sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
+
+        tradingRecordsModuleObject = TS.projects.algorithmicTrading.botModules.tradingRecords.newAlgorithmicTradingBotModulesTradingRecords(processIndex)
+        tradingRecordsModuleObject.initialize(outputDatasetsMap)
+
+        tradingSystemModuleObject = TS.projects.algorithmicTrading.botModules.tradingSystem.newAlgorithmicTradingBotModulesTradingSystem(processIndex)
+        tradingSystemModuleObject.initialize()
+
+        tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
+        tradingEpisodeModuleObject.initialize()
+
+        incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
+        incomingTradingSignalsModuleObject.initialize()
+
+        outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+        outgoingTradingSignalsModuleObject.initialize()
+    }
+
     function finalize() {
-        thisObject = undefined
+        tradingSystem = undefined
+        tradingEngine = undefined
+        sessionParameters = undefined
+
+        tradingRecordsModuleObject = undefined
+        tradingSystemModuleObject = undefined
+        tradingEpisodeModuleObject = undefined
+        incomingTradingSignalsModuleObject = undefined
+        outgoingTradingSignalsModuleObject = undefined
     }
 
     async function runSimulation(
         chart,
         market,
         exchange,
-        outputDatasetsMap,
         writeFiles,
     ) {
         try {
-            let tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
-            let tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
-            let sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
 
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime)
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime)
-
-            /* These are the Modules we will need to run the Simulation */
-            let tradingRecordsModuleObject = TS.projects.algorithmicTrading.botModules.tradingRecords.newAlgorithmicTradingBotModulesTradingRecords(processIndex)
-            tradingRecordsModuleObject.initialize(outputDatasetsMap)
-
-            let tradingSystemModuleObject = TS.projects.algorithmicTrading.botModules.tradingSystem.newAlgorithmicTradingBotModulesTradingSystem(processIndex)
-            tradingSystemModuleObject.initialize()
-
-            let tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
-            tradingEpisodeModuleObject.initialize()
-
-            let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
-            incomingTradingSignalsModuleObject.initialize()
-
-            let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
-            outgoingTradingSignalsModuleObject.initialize()
 
             /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')

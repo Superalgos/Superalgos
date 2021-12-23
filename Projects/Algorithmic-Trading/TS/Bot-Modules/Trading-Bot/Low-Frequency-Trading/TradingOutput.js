@@ -48,10 +48,11 @@ exports.newAlgorithmicTradingBotModulesTradingOutput = function (processIndex) {
             await tradingSimulationModuleObject.runSimulation(
                 chart,
                 market,
-                exchange,
-                writeOutputFiles
+                exchange
             )
             tradingSimulationModuleObject.finalize()
+
+            await writeOutputFiles()
             return
 
             async function writeOutputFiles() {

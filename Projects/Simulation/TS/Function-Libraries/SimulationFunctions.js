@@ -5,8 +5,10 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     const MODULE_NAME = "Simulation"
 
     let thisObject = {
-        setUpCandles: setUpCandles, 
-        setUpInitialCandles: setUpInitialCandles, 
+        setCurrentCandle: setCurrentCandle,
+        syncronizeLoopWithSignals: syncronizeLoopWithSignals,
+        setUpCandles: setUpCandles,
+        setUpInitialCandles: setUpInitialCandles,
         closeEpisode: closeEpisode,
         updateEpisode: updateEpisode,
         heartBeat: heartBeat,
@@ -17,6 +19,55 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     }
 
     return thisObject
+
+    function setCurrentCandle(engine, candles, index, processIndex) {
+
+        engine.tradingCurrent.tradingEpisode.candle.index.value = index
+        /* This is the current candle the Simulation is working at. */
+        let candle = candles[engine.tradingCurrent.tradingEpisode.candle.index.value]
+        /*
+        Logging abount the current candle
+        */
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
+        return candle
+    }
+
+    async function syncronizeLoopWithSignals(tradingSystem) {
+        /*
+        Incoming Signals
+        */
+        if (
+            tradingSystem.incomingSignals !== undefined &&
+            tradingSystem.incomingSignals.incomingSignalReferences !== undefined &&
+            tradingSystem.incomingSignals.incomingSignalReferences.length > 0
+        ) {
+            /*
+            This means that the user that defined the Trading System, wants it to be
+            syncronized by signals comming from other bots.
+
+            Check for the signal that would allow us to syncronize the simulation
+            loop with the simulation loop of the bot sending us signals.
+            */
+            while (true) {
+                let signals = await incomingTradingSignalsModuleObject.getAllSignals(
+                    tradingSystem
+                )
+                let signal = signals[0]
+                if (signal === undefined) {
+                    /*
+                    This means that the signal we are waiting for has not yet arrived, so
+                    we are going to wait for one second and check it again.
+                    */
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(500)
+                } else {
+                    break
+                }
+            }
+        }
+    }
 
     function setUpInitialCandles(sessionParameters, engine, candles, processIndex) {
         /*

@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "В отличие от некоторых крипто-токенов, Superalgos SA Token на самом деле что-то значит!",
                 "updated": 1639044536320
+            },
+            {
+                "language": "DE",
+                "text": "Im Gegensatz zu einigen Krypto-Token bedeutet der Superalgos SA Token tatsächlich etwas!",
+                "updated": 1640072156465
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Токен SA - это токен BEP20 в Binance Smart Chain (BSC). Ваши токены воплощают ваш вклад в проект и сообщество Superalgos, поскольку токен используется для вознаграждения пользовательской базы и увеличения пула разработчиков.",
                     "updated": 1639044639834
+                },
+                {
+                    "language": "DE",
+                    "text": "Der SA Token ist ein BEP20 Token auf der Binance Smart Chain (BSC). Ihr Token-Besitz verkörpert Ihren Beitrag zum Superalgos Project und zur Community, da der Token verwendet wird, um die Benutzerbasis zu belohnen und den Entwicklungspool zu vergrößern.",
+                    "updated": 1640072201983
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "RU",
                     "text": "Проект раздает токены исключительно участникам!",
                     "updated": 1639044655036
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Projekt verteilt die Token ausschließlich unter den Mitwirkenden!",
+                    "updated": 1640072214302
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "RU",
                     "text": "Чем больше вы вносите свой вклад в проект и помогаете другим, тем больше токенов вы заработаете!",
                     "updated": 1639044669780
+                },
+                {
+                    "language": "DE",
+                    "text": "Je mehr Sie zum Projekt beitragen und anderen helfen, desto mehr Token werden Sie verdienen!",
+                    "updated": 1640072225653
                 }
             ]
         },

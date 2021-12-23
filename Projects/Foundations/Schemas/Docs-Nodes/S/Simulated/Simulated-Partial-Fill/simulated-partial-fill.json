@@ -1,7 +1,14 @@
 {
     "type": "Simulated Partial Fill",
     "definition": {
-        "text": "The simulated partial fill parameter allows simulating the partial fill of orders."
+        "text": "The simulated partial fill parameter allows simulating the partial fill of orders.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Параметр Simulated Partial Fill позволяет имитировать частичное заполнение ордеров.",
+                "updated": 1639846059936
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "Upon each execution, the simulation verifies if the current candle intersects the rate set for the order. If it does, it uses the value in this parameter as a factor to determine and keep track of what percentage of the order is filled."
+            "text": "Upon each execution, the simulation verifies if the current candle intersects the rate set for the order. If it does, it uses the value in this parameter as a factor to determine and keep track of what percentage of the order is filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При каждом запуске симуляция проверяет, пересекает ли текущая свеча курс, установленный для ордера. Если да, то значение этого параметра используется в качестве коэффициента для определения и отслеживания того, какой процент ордера будет исполнен.",
+                    "updated": 1639846113004
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The same process repeats for each subsequent candle, until the order is filled."
+            "text": "The same process repeats for each subsequent candle, until the order is filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тот же процесс повторяется для каждой последующей свечи, пока ордер не будет исполнен.",
+                    "updated": 1639846126588
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When the parameter is not present or undefined, the simulation assumes the order is filled as soon as the rate is hit."
+            "text": "When the parameter is not present or undefined, the simulation assumes the order is filled as soon as the rate is hit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если параметр отсутствует или не определен, симуляция предполагает, что ордер будет выполнен, как только будет достигнута указанная ставка.",
+                    "updated": 1639846169845
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,16 +55,37 @@
         {
             "style": "Title",
             "text": "Simulated Partial Fill Configuration",
-            "updated": 1609607669992
+            "updated": 1609607669992,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Simulated Partial Fill",
+                    "updated": 1639846184730
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609607682304
+            "updated": 1609607682304,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639846191784
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "fillProbability indicates the probability of an order getting filled upon each tag of the price. Values may range from 0 to 1. The value 0 indicates that there are 0% chances of the order getting filled. With such a setting, the order will never get filled in the simulation.  The value 1 indicates that there is a 100% probability of the order getting filled. With such a setting, the order is filled upon the first tag of the price. A value of 0.5 indicates a 50% probability, thus, it takes two tags of the price for the order to fill completely with such a setting."
+            "text": "fillProbability indicates the probability of an order getting filled upon each tag of the price. Values may range from 0 to 1. The value 0 indicates that there are 0% chances of the order getting filled. With such a setting, the order will never get filled in the simulation.  The value 1 indicates that there is a 100% probability of the order getting filled. With such a setting, the order is filled upon the first tag of the price. A value of 0.5 indicates a 50% probability, thus, it takes two tags of the price for the order to fill completely with such a setting.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "fillProbability указывает вероятность того, что ордер будет исполнен при каждом изменении цены. Значения могут варьироваться от 0 до 1. Значение 0 означает, что вероятность того, что ордер будет исполнен, равна 0%. При таком значении ордер никогда не будет заполнен в симуляции. Значение 1 означает, что вероятность того, что ордер будет исполнен, составляет 100%. При такой настройке ордер будет исполнен при первой метке цены. Значение 0,5 указывает на 50%-ную вероятность, поэтому для полного заполнения ордера при такой настройке требуется две метки цены.",
+                    "updated": 1639846256339
+                }
+            ]
         }
     ]
 }

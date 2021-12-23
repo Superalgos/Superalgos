@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "Независимо от того, кто вы, вы можете принести пользу сети Superalgos!",
                 "updated": 1639045362977
+            },
+            {
+                "language": "DE",
+                "text": "Ganz gleich, wer Sie sind, Sie können dem Superalgos-Netzwerk einen Mehrwert bieten!",
+                "updated": 1640072430688
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "RU",
                     "text": "Каждый из нас привносит уникальные таланты и опыт в работу с Superalgos. Даже если вы не программист или не опытный трейдер, у вас все еще есть способы принять участие!",
                     "updated": 1639045383920
+                },
+                {
+                    "language": "DE",
+                    "text": "Jeder von uns bringt einzigartige Talente und Erfahrungen in unsere Arbeit mit Superalgos ein. Auch wenn Sie kein Programmierer oder Handelsexperte sind, gibt es Möglichkeiten, sich einzubringen!",
+                    "updated": 1640072443184
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "RU",
                     "text": "Один из первых вкладов, который вы можете внести в проект, - это участие в самом управлении. Сеть пользователей, направляющих Superalgos, является неотъемлемой частью успеха нашего открытого сотрудничества. Вы приносите пользу сети, просто будучи ее частью!",
                     "updated": 1639045442200
+                },
+                {
+                    "language": "DE",
+                    "text": "Einer der ersten Beiträge, die Sie zu dem Projekt leisten können, ist die Beteiligung an der Verwaltung selbst. Das Netzwerk der Nutzer, die Superalgos leiten, ist ein wesentlicher Bestandteil des Erfolgs unserer offenen Zusammenarbeit. Sie tragen zum Wert des Netzwerks bei, indem Sie einfach ein Teil davon sind!",
+                    "updated": 1640072453264
                 }
             ]
         }

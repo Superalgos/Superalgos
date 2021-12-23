@@ -1,7 +1,14 @@
 {
     "type": "Take Position Event",
     "definition": {
-        "text": "The take position event defines the situation that needs to be met to take a position."
+        "text": "The take position event defines the situation that needs to be met to take a position.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Событие Take Position Event определяет ситуацию, которую необходимо выполнить, чтобы занять позицию.",
+                "updated": 1639560363115
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "The trigger-on event merely selects a strategy to be considered for trading under the current market situation. The actual decision to enter a position may require more specific conditions to be met. For that reason, the take position event is a separate entity from the trigger-on event."
+            "text": "The trigger-on event merely selects a strategy to be considered for trading under the current market situation. The actual decision to enter a position may require more specific conditions to be met. For that reason, the take position event is a separate entity from the trigger-on event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие срабатывания просто выбирает стратегию, которую следует учитывать для торговли в текущей рыночной ситуации. Фактическое решение о входе в позициюоткрыть позицию может потребовать выполнения более конкретных условий. По этой причине событие Take Position Event является отдельной сущностью от события включения триггера.",
+                    "updated": 1639560766450
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Therefore, the take position event is defined with its own set of situations and conditions."
+            "text": "Therefore, the take position event is defined with its own set of situations and conditions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следовательно, событие Take Position Event определяется собственным набором ситуаций и условий.",
+                    "updated": 1639560757047
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the take position event is triggered, the decision to take a position has been made and there is nothing else to consider in that regard. Therefore, the runtime evaluation of the trading system shifts from the trigger stage to the open stage."
+            "text": "Once the take position event is triggered, the decision to take a position has been made and there is nothing else to consider in that regard. Therefore, the runtime evaluation of the trading system shifts from the trigger stage to the open stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только срабатывает событие Take Position Event, решение об открытии позиции принято, и в этом отношении больше нечего рассматривать. Таким образом, оценка времени выполнения торговой системы переходит от стадии запуска Trigger Stage к стадии открытия Open Stage.",
+                    "updated": 1639560888792
+                }
+            ]
         }
     ]
 }

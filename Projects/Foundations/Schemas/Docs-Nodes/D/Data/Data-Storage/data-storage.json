@@ -1,0 +1,60 @@
+{
+    "type": "Data Storage",
+    "definition": {
+        "text": "The data storage hierarchy holds references to all the data bots have produced.",
+        "updated": 1640023232674
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1640024629811
+        },
+        {
+            "style": "Text",
+            "text": "Think of this hierarchy like a treasure chest. Inside this chest is kept all the valuable datasets generated within this workspace in one convenient place so that it can be used across the system by other bots, trading systems, etc."
+        },
+        {
+            "style": "Text",
+            "text": "The main types of data held under this hierarchy are:"
+        },
+        {
+            "style": "List",
+            "text": "Learning Mines Data"
+        },
+        {
+            "style": "List",
+            "text": "Trading Mines Data"
+        },
+        {
+            "style": "List",
+            "text": "Data Mines Data"
+        },
+        {
+            "style": "List",
+            "text": "Portfolio Mines Data"
+        },
+        {
+            "style": "Text",
+            "text": "As you look down the hierarchy you will see that data is organized according Mine Type, Project, Exchange, and Market. This helps to keep the vast array of data used within Superalgos accessibly and understandable.  The nodes under this hierarchy that hold specific sets of data are:",
+            "updated": 1640023886022
+        },
+        {
+            "style": "List",
+            "text": "Bot Products "
+        },
+        {
+            "style": "List",
+            "text": "Trading Session Reference"
+        },
+        {
+            "style": "List",
+            "text": "Learning Session Reference"
+        },
+        {
+            "style": "List",
+            "text": "Portfolio Session Reference",
+            "updated": 1640023666443
+        }
+    ]
+}

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die process definition ist die Zusammenstellung von Konfigurationen, Abhängigkeiten und Referenzen, die einen Prozess ausmachen.",
                 "updated": 1635249685989
+            },
+            {
+                "language": "RU",
+                "text": "Определение процесса - это компиляция конфигураций, зависимостей и ссылок, составляющих процесс.",
+                "updated": 1639658401131
             }
         ]
     },

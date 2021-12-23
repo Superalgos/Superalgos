@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Конструктор профилей Profile Constructor также проделал некоторую работу, чтобы убедиться, что только вы можете изменить свой профиль.",
                 "updated": 1639047448365
+            },
+            {
+                "language": "DE",
+                "text": "Der Profile Constructor hat auch einiges getan, um sicherzustellen, dass nur Sie Ihr Profil ändern können.",
+                "updated": 1640073301086
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Криптографическое сообщение с вашим именем пользователя GitHub.com было подписано закрытым ключом, соответствующим вашему управленческому адресу Governance Address. Это сообщение будет храниться в вашем профиле пользователя User Profile, чтобы мы могли подтвердить, что оно исходит от вас после того, как вы отправите свой профиль в качестве плагина в проект управления Governance Project.",
                     "updated": 1639047538767
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine kryptografische Nachricht mit Ihrem GitHub.com-Benutzernamen wurde mit dem privaten Schlüssel signiert, der Ihrer Governance Address entspricht. Diese Nachricht wird in Ihrem Benutzerprofil ( User Profile ) gespeichert, so dass wir authentifizieren können, dass sie von Ihnen stammt, sobald Sie Ihr Profil als Plugin an das Governance Project übermitteln.",
+                    "updated": 1640073373864
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Это означает, что ваш профиль и связанный с ним токен-адрес могут быть доступны и изменены только вами!",
                     "updated": 1639047555279
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Ihr Profil und die zugehörige Token-Adresse nur von Ihnen eingesehen und geändert werden können!",
+                    "updated": 1640073385346
                 }
             ]
         },

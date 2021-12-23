@@ -20,13 +20,14 @@ exports.startExpress = (port, SA, DK) => {
     });
 
     app.post('/follow', async (req, res) => {
-        let follow = followProfile(req.body.userProfileId, SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE);
-        res.send("Followed")
+        let follow = await followProfileHandler(req.body.userProfileId, SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE);
+        console.log(follow)
+        res.send(follow)
     });
 
     app.post('/unFollow', async (req, res) => {
-        let follow = followProfile(req.body.userProfileId, SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE);
-        res.send("UnFollow")
+        let unfollow = await followProfileHandler(req.body.userProfileId, SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE);
+        res.send(unfollow)
     });
 
     app.post('/createPost', async (req, res) => {
@@ -39,10 +40,19 @@ exports.startExpress = (port, SA, DK) => {
         res.json(posts)
     });
 
+    app.get('/getGlobaConfig', async (req, res) => {
+        let posts = await getGlobalConfig();
+        res.json(posts)
+    });
+
     // start the Express server
     app.listen(port, () => {
         console.log(`server started at http://localhost:${port}`);
     });
+
+    async function getGlobalConfig(){
+        return SA.projects.socialTrading.globals;
+    }
 
     async function getPosts() {
         let queryMessage = {
@@ -114,24 +124,22 @@ exports.startExpress = (port, SA, DK) => {
         }
     }
 
-    async function followProfile(userProfileId, eventType) {
-
+    async function followProfileHandler(userProfileId, eventType) {
         try {
-            let queryMessage = {
-                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
-                emitterUserProfileId: undefined,
-                initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
-                amountRequested: 3,
-                direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
+            let eventMessage = {
+                eventType: eventType,
+                eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                targetUserProfileId: userProfileId,
+                timestamp: (new Date()).valueOf()
             }
 
-            let query = {
-                requestType: 'Query',
-                queryMessage: JSON.stringify(queryMessage)
+            let event = {
+                requestType: 'Event',
+                eventMessage: JSON.stringify(eventMessage)
             }
-
+            
             return await webAppInterface.messageReceived(
-                JSON.stringify(query)
+                JSON.stringify(event)
             );
         } catch (e) {
             console.log(e);

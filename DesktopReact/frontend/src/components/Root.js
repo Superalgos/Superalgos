@@ -6,7 +6,6 @@ import NotFound from "./notFound/NotFound";
 import Feed from "./feed/Feed";
 import PostPlaceholder from "./postPlaceholder/PostPlaceholder";
 
-
 const Root = () => {
     return (
         <BrowserRouter>
@@ -16,7 +15,7 @@ const Root = () => {
                     <Route path='Profile' element={<UserProfile/>}>
                         {/*<Route path=':profileId' element={<UserProfile/>}/>*/}
                     </Route>
-                    <Route path='PostPlaceholder' element={<PostPlaceholder />}/>
+                    <Route path='PostPlaceholder' element={<PostPlaceholder/>}/>
                 </Route>
                 <Route
                     path="*"

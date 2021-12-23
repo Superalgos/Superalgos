@@ -8,25 +8,17 @@ import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 
 const UserProfileHeader = ({actualUser}) => {
 
-    const profileIcons = { // this need to be moved to style css file
+    const profileIcons = { // todo need proper style, and handle from css file
         width: "15px",
         height: "15px",
         verticalAlign: "text-top"
     }
 
-    const buttonStyle = { // this need to be moved to style css file
+    const buttonStyle = { // todo need proper style, and handle from css file
 
     }
     const [modal, setModal] = useState(false);
     const handleClick = () => setModal(!modal);
-        //console.log("hello from edit profile: ");
-        /*if(modal === true){ // assign to a variable, unreachable from state.
-            return <UserProfileModal show={modal}/>
-             console.log("hello from edit profile: ");
-             console.log(modal);
-        }*/
-        // console.log("hello from edit profile: ");
-        // console.log(modal)
 
     return (
         <Card className="profileSection">

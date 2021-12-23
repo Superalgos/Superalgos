@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Вам нужна резервная копия закрытого ключа, чтобы впоследствии вы могли импортировать свой управляющий адрес Governance Address в криптокошелек.",
                 "updated": 1639047714952
+            },
+            {
+                "language": "DE",
+                "text": "Sie müssen den privaten Schlüssel sichern, damit Sie Ihre Governance Address später in eine Krypto-Brieftasche importieren können.",
+                "updated": 1640077205761
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Superalgos генерирует закрытый ключ локально. Никто в мире не имеет доступа к вашему ключу и не знает его, пока ваша машина в безопасности.",
                     "updated": 1639047734831
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos generiert den privaten Schlüssel lokal. Niemand sonst auf der Welt hat Zugang zu Ihrem Schlüssel oder kennt ihn, solange Ihr Rechner sicher ist.",
+                    "updated": 1640077220051
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Некоторые люди распечатывают несколько копий закрытого ключа, чтобы хранить каждую копию в разных местах. Помните, что в большинстве случаев потери криптовалюты связаны с потерей ключей людьми, а не с взломом!",
                     "updated": 1639047754684
+                },
+                {
+                    "language": "DE",
+                    "text": "Manche Leute drucken mehrere Kopien des privaten Schlüssels aus, um jede Kopie an verschiedenen Orten aufzubewahren. Denken Sie daran, dass es sich bei den meisten Fällen von verlorener Kryptowährung um den Verlust von Schlüsseln handelt, nicht um Hacks!",
+                    "updated": 1640077227969
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "RU",
                     "text": "Если вы связали ранее принадлежавший адрес, вам не нужно сохранять закрытый ключ, но для безопасности следует создать резервную копию содержимого конструктора.",
                     "updated": 1639047772176
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Adresse verknüpfen, die Sie bereits besitzen, müssen Sie den privaten Schlüssel nicht speichern, sollten aber zur Sicherheit den Inhalt des Konstruktors sichern.",
+                    "updated": 1640077234596
                 }
             ]
         },

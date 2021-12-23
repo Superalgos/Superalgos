@@ -26,6 +26,7 @@ function newEducationTutorialSpace() {
     let PAGE_NUMBER
 
     let isInitialized = false
+    let doUpdateTutorialDiv = true
 
     thisObject.container = newContainer()
     thisObject.container.name = MODULE_NAME
@@ -164,16 +165,16 @@ function newEducationTutorialSpace() {
                 break
             }
             case 'Playing Tutorial': {
-                makeVsible()
+                makeVisible()
                 thisObject.sidePanelTab.open()
                 break
             }
             case 'Playing Topic': {
-                makeVsible()
+                makeVisible()
                 break
             }
             case 'Playing Step': {
-                makeVsible()
+                makeVisible()
                 break
             }
         }
@@ -732,46 +733,34 @@ function newEducationTutorialSpace() {
         }
 
         function makeInvisible() {
-            const HEIGHT = 0
-            const WIDTH = 0
-            const FORM_HEIGHT = 0
-
-            tutorialPosition = {
-                x: 100000,
-                y: 100000
-            }
-
-            tutorialDiv.style = '   ' +
-                'position:fixed; top:' + tutorialPosition.y + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
-                'height: ' + HEIGHT + 'px;' +
-                'z-index:1;'
-
-            tutorialFormDiv.style = '   ' +
-                'position:fixed; top:' + (tutorialPosition.y) + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
-                'height: ' + FORM_HEIGHT + 'px;' +
-                'z-index:1;'
+            if (doUpdateTutorialDiv === true) { return }
+            // Since we’re using jQuery UI enyway, use the native hide and show methods
+            $("#tutorialDiv").hide()
+            doUpdateTutorialDiv = true
         }
 
-        function makeVsible() {
+        function makeVisible() {
             const HEIGHT = 675
             const WIDTH = 400
             const MARGIN = 100
-            const FORM_HEIGHT = 40
 
+            if (doUpdateTutorialDiv === false) { return }
+            
             let nodeConfig
             try {
-                nodeConfig = JSON.parse(currentNode.config)
+                /* Check the NEXT node, or we’re late */
+                nodeConfig = JSON.parse(navigationStack[navigationStack.length - 1].config)
             } catch (err) {
                 return
             }
             let position = nodeConfig.position
-            if (UI.projects.education.spaces.docsSpace.isVisible === true || UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+            if (nodeConfig.controlDocs !== undefined && nodeConfig.controlDocs.panel === 'Open') {
                 position = 'Left'
             }
+            /* This is ineffective now */
+            /* if (UI.projects.education.spaces.docsSpace.isVisible === true || UI.projects.foundations.spaces.codeEditorSpace.isVisible === true) {
+                position = 'Left'
+            } */
 
             switch (position) {
                 case 'Left': {
@@ -803,21 +792,12 @@ function newEducationTutorialSpace() {
                     break
                 }
             }
-            tutorialDiv.style = '   ' +
-                'position:fixed; top:' + tutorialPosition.y + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + WIDTH + 'px;' +
-                'height: ' + HEIGHT + 'px;' +
-                'z-index:1;'
 
+            tutorialDiv.style.left = tutorialPosition.x
+            tutorialDiv.style.top = tutorialPosition.y
+            $("#tutorialDiv").show()
             buildHTML()
-
-            tutorialFormDiv.style = '   ' +
-                'position:fixed; top:' + (tutorialPosition.y + HEIGHT - 30) + 'px; ' +
-                'left:' + tutorialPosition.x + 'px; ' +
-                'width: ' + (WIDTH + 20) + 'px;' +
-                'height: ' + FORM_HEIGHT + 'px;' +
-                'z-index:1;'
+            doUpdateTutorialDiv = false
         }
     }
 
@@ -841,6 +821,7 @@ function newEducationTutorialSpace() {
         }
         UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance(true)
+        doUpdateTutorialDiv = true
     }
 
     function previous() {
@@ -886,6 +867,7 @@ function newEducationTutorialSpace() {
                 }
             }
         }
+        doUpdateTutorialDiv = true
     }
 
     function next() {
@@ -898,6 +880,7 @@ function newEducationTutorialSpace() {
         }
         UI.projects.foundations.utilities.tutorial.saveTutorial(currentNode.payload, tutorial)
         advance()
+        doUpdateTutorialDiv = true
     }
 
     function resetAfterButtonPressed() {
@@ -1542,6 +1525,7 @@ function newEducationTutorialSpace() {
             html = html + '</div>'
 
             tutorialDiv.innerHTML = html
+            tutorialDiv.appendChild(tutorialFormDiv)
             _self.Prism.highlightAllUnder(tutorialDiv, true)
             // Create tooltip objects for all the elements
             tippy('#tooltip-container', {

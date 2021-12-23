@@ -41,39 +41,18 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     onRequest)
         
                 function onRequest() {
-                    let message  = arguments[0].event;
-                    message.returnToCallerId = arguments[0].callerId;
-                    inbound(message);
-                    
-                    /*let response = 'This is the response'///portfolioSystem.newRequest(message)
-        
+                    let message  = arguments[0];
+                    SA.projects.portfolioManagement.globals.memory.modules.PORTFOLIO_MANAGER.processEvent(message.event)
+
+                    // Return response:
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-                        SESSION_KEY,
-                        'Response From Profile Manager',
-                        response
-                    )*/
+                        message.callerId,
+                        'Response From Portfolio Manager',
+                        message.event
+                    )
                 }
             }            
         }
-    }
-
-    function inbound(message) {
-        // First, listen for processed response:
-        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
-            MANAGERS_KEY,
-            message.returnToCallerId,
-            undefined,
-            undefined,
-            undefined,
-            outbound
-        );
-
-        // Second, hand off event to PortfolioManager BotModule:
-        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-            MANAGERS_KEY,
-            message.question,
-            message
-        );
     }
 
     function outbound() {

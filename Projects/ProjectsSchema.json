@@ -163,6 +163,16 @@
                 }
             ]
         },
+        "SA": {
+        "globals": [
+            {
+                "name": "Memory",
+                "propertyName": "memory",
+                "functionName": "newPortfolioManagementGlobalsMemory",
+                "fileName": "Memory.js"
+            }
+        ]
+        },
         "TS": {
             "modules": [
                 {

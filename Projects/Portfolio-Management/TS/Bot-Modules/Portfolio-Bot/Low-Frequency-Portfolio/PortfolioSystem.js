@@ -28,6 +28,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     let portfolioManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioManager(processIndex)
 
+    SA.projects.portfolioManagement.globals.memory.modules.PORTFOLIO_MANAGER = portfolioManagerModuleObject;
+
     /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
             '/' +

@@ -13,7 +13,8 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
         updateCounters: updateCounters,
         updateStatistics: updateStatistics,
         initialize: initialize,
-        finalize: finalize
+        finalize: finalize,
+        processEvent: processEvent
     }
 
     let portfolioStrategyModuleObject = TS.projects.portfolioManagement.botModules.portfolioStrategy.newPortfolioManagementBotModulesPortfolioStrategy(processIndex)
@@ -40,16 +41,6 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
         snapshotsModuleObject.initialize()
         portfolioExecutionModuleObject.initialize()
         portfolioEpisodeModuleObject.initialize()
-
-        /* Initialize listeners: */
-        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
-            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY,
-            'Confirm This Event',
-            undefined,
-            undefined,
-            undefined,
-            eventConfirmer
-        )
     }
 
     function finalize() {
@@ -97,41 +88,114 @@ exports.newPortfolioManagementBotModulesPortfolioManager = function (processInde
         portfolioExecutionModuleObject.reset()
     }
 
-    /* eventConfirmer() :
-     *  Properties of arguments[0].event: {event:eventType, question:questionType, returnToCallerId:returnAddress }
+    /* processEvent() :
+     *  switch to choose how to process this event received from Trade Bot.
      */
-    function eventConfirmer() {
-        let message = arguments[0].event;
+    function processEvent(message) {
+        switch (message.question) {
+            case 'Confirm This Event':
+                confirmEvent(message);
+                break;
+            case 'Must This Event Be Raised':
+                raiseEvent(message);
+                break;
+            case 'Give Me A Value For This Formula':
+                setFormula(message);
+                break;
+            case 'Confirm This Formula Value':
+                confirmFormula(message);
+                break;
+            default:
+                break;
+        }
+    }
 
+    /* eventConfirmer() :
+     *  Confirms an event that has evaluated as true at the Trading System.
+     */
+    function confirmEvent(message) {
         message.raiseEvent = (function() {
-            // First find the correct eventReference node to test:
             let refNode;
             let passed;
-            if (portfolioSystem !== undefined && portfolioSystem.eventsManager !== undefined &&
-                portfolioSystem.eventsManager.confirmEventRules !== undefined) {
-                for (let i = 0; i < portfolioSystem.eventsManager.confirmEventRules.confirmEventReference.length; i++) {
-                    if (portfolioSystem.eventsManager.confirmEventRules.confirmEventReference[i].referenceParent !== undefined && portfolioSystem.eventsManager.confirmEventRules.confirmEventReference[i].referenceParent.id == message.eventNodeId) {
-                        refNode = portfolioSystem.eventsManager.confirmEventRules.confirmEventReference[i];
-                        break;
+
+            if (portfolioSystem !== undefined && portfolioSystem.eventsManager != undefined) {
+                let eventsManager = portfolioSystem.eventsManager;  // For simplicity below.
+
+                if (eventsManager.confirmEventRules != undefined) {
+                    for (let i = 0; i < eventsManager.confirmEventRules.confirmEventReference.length; i++) {
+                        if (eventsManager.confirmEventRules.confirmEventReference[i].referenceParent != undefined &&
+                            eventsManager.confirmEventRules.confirmEventReference[i].referenceParent.id == message.eventNodeId) {
+                                refNode = eventsManager.confirmEventRules.confirmEventReference[i];
+                                break;
+                        }
                     }
-                }
-                if (refNode === undefined) { return true; } // Default Behavior.
-                portfolioSystem.evalConditions(refNode, 'Confirm Event Reference');
-                for (let i = 0; i < refNode.situations.length; i++) {
-                    let situation = refNode.situations[i];
-                    passed = true;
-                    if ((passed = portfolioSystem.checkConditions(situation, passed)) === true) { break; }
+                    if (refNode == undefined) { return true; } // Default (we have nothing to say of the decision taken)
+                    portfolioSystem.evalConditions(refNode, 'Confirm Event Reference');
+                    for (let i = 0; i < refNode.situations.length; i++) {
+                        let situation = refNode.situations[i];
+                        passed = true;
+                        if ((passed = portfolioSystem.checkConditions(situation, passed)) === true) { break; }
+                    }
                 }
             }
             return passed;
         })();
+    }
 
-        // Send back response to Events Interface Outbound:
-        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY,
-            message.returnToCallerId,
-            message
-        )
+    /* raiseEvent() :
+     *  Determines if an event should be raised regardless of its evaluation at the Trade System.
+     */
+    function raiseEvent(message) {
+        message.raiseEvent = (function() {
+            let refNode;
+            let passed;
+            
+            if (portfolioSystem != undefined && portfolioSystem.eventsManager != undefined) {
+                let eventsManager = portfolioSystem.eventsManager;  // For simplicity below.
+
+                if (eventsManager.raiseEventRules != undefined) {
+                    for (let i = 0; i < eventsManager.raiseEventRules.raiseEventReference.length; i++) {
+                        if (eventsManager.raiseEventRules.raiseEventReference[i].referenceParent != undefined &&
+                            eventsManager.raiseEventRules.raiseEventReference[i].referenceParent.id == message.eventNodeId) {
+                                refNode = eventsManager.raiseEventRules.raiseEventReference[i];
+                                break;
+                        }
+                    }
+                    if (refNode == undefined) { return false; } // Default (we are not demanding to raise event)
+                    portfolioSystem.evalConditions(refNode, 'Raise Event Reference');
+                    for (let i = 0; i < refNode.situations.length; i++) {
+                        let situation = refNode.situations[i];
+                        passed = true;
+                        if ((passed = portfolioSystem.checkConditions(situation, passed)) === true) { break; }
+                    }
+                }
+            }
+            return passed;
+        })();
+    }
+
+    /* setFormula() : Portfolio Manager asked to define the formula to be used. */
+    function setFormula(message) {
+        message.value = (function() {
+            let refNode;
+            let value;
+
+            if (portfolioSystem != undefined && portfolioSystem.formulasManager != undefined) {
+                let formulasManager = portfolioSystem.formulasManager;  // For simplicity below.
+                
+                if (formulasManager.setFormulaRules != undefined) {
+                    for (let i = 0; i < formulasManager.setFormulaRules.setFormulaReference.length; i++) {
+                        if (formulasManager.setFormulaRules.setFormulaReference[i].referenceParent != undefined &&
+                            formulasManager.setFormulaRules.setFormulaReference[i].referenceParent.id == message.formulaParentNodeId) {
+                                refNode = formulasManager.setFormulaRules.setFormulaReference[i];
+                                break;
+                            }
+                    }
+                    if (refNode == undefined) { return value; }
+                    // Todo: portfolioSystem.evalFormulas() return value.
+                }
+            }
+        })();
     }
 
     function cycleBasedStatistics() {

@@ -5,6 +5,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     const MODULE_NAME = "Simulation"
 
     let thisObject = {
+        setUpCandles: setUpCandles, 
+        setUpInitialCandles: setUpInitialCandles, 
         closeEpisode: closeEpisode,
         updateEpisode: updateEpisode,
         heartBeat: heartBeat,
@@ -15,6 +17,73 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     }
 
     return thisObject
+
+    function setUpInitialCandles(sessionParameters, engine, candles, processIndex) {
+        /*
+        Estimation of the Initial Candle to Process in this Run.
+        */
+        let initialCandle
+        if (
+            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true &&
+            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
+            /* Estimate Initial Candle based on the timeRange configured for the session. */
+            let firstEnd = candles[0].end
+            let targetEnd = sessionParameters.timeRange.config.initialDatetime
+            let diff = targetEnd - firstEnd
+            let amount = diff / sessionParameters.timeFrame.config.value
+
+            initialCandle = Math.trunc(amount)
+            if (initialCandle < 0) { initialCandle = 0 }
+            if (initialCandle > candles.length - 1) {
+                /*
+                This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available,
+                meaning that the dataSet needs to be updated with more up-to-date data.
+                */
+                TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
+                return
+            }
+        } else {
+            /*
+            In this case we already have at the last candle index the next candle to be
+            processed. We will just continue with this candle.
+            */
+            initialCandle = engine.tradingCurrent.tradingEpisode.candle.index.value
+        }
+        return initialCandle
+    }
+
+    function setUpCandles(sessionParameters, chart, processIndex) {
+        /* 
+        Setting up the candles array: The whole simulation is based on the array of 
+        candles at the time-frame defined at the session parameters. 
+        */
+        let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
+        let candles = chart[propertyName].candles
+
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            /*
+            We need to purge from the candles array all the candles from the previous day
+            that comes when processing daily files.
+            */
+            let dailyCandles = []
+            for (let i = 0; i < candles.length; i++) {
+                let candle = candles[i]
+                if (
+                    candle.begin
+                    >=
+                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.tradingEpisode.processDate.value
+                ) {
+                    dailyCandles.push(candle)
+                }
+            }
+            candles = dailyCandles
+        } else {
+            candles = chart[propertyName].candles
+        }
+        return candles
+    }
 
     function closeEpisode(episodeModuleObject, exitType) {
         episodeModuleObject.updateExitType(exitType)

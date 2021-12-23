@@ -5,6 +5,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     const MODULE_NAME = "Simulation"
 
     let thisObject = {
+        checkIfWeNeedToStopBetweenCycles: checkIfWeNeedToStopBetweenCycles, 
+        checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles, 
         setCurrentCandle: setCurrentCandle,
         syncronizeLoopWithSignals: syncronizeLoopWithSignals,
         setUpCandles: setUpCandles,
@@ -20,6 +22,47 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     return thisObject
 
+    function checkIfWeNeedToStopBetweenCycles(episodeModuleObject, sessionParameters, system, engine, processIndex) {
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
+            TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'Session Stopped')
+            return true
+        }
+
+        if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
+            TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'Task Stopped')
+            return true
+        }
+
+        if (TS.projects.simulation.functionLibraries.simulationFunctions.checkFinalDatetime(engine, sessionParameters, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(episodeModuleObject, 'Final Datetime Reached')
+            TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ')
+            return true
+        }
+
+        if (TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkMinimunAndMaximunBalance(sessionParameters, system, engine, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(episodeModuleObject, 'Min or Max Balance Reached')
+            TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ')
+            return true
+        }
+        return false
+    }
+
+    function checkIfWeNeedToStopAfterBothCycles(episodeModuleObject, engine, sessionParameters, candles, processIndex) {
+        if (TS.projects.simulation.functionLibraries.simulationFunctions.checkNextCandle(engine, sessionParameters, candles, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'All Candles Processed')
+            return true
+        }
+        return false
+    }
+
     function setCurrentCandle(engine, candles, index, processIndex) {
 
         engine.tradingCurrent.tradingEpisode.candle.index.value = index
@@ -32,17 +75,24 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
             '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
+
+        /*
+        We move the current candle we are standing at, to the trading engine data structure
+        to make it available to anyone, including conditions and formulas.
+        */
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
+
         return candle
     }
 
-    async function syncronizeLoopWithSignals(tradingSystem) {
+    async function syncronizeLoopWithSignals(system) {
         /*
         Incoming Signals
         */
         if (
-            tradingSystem.incomingSignals !== undefined &&
-            tradingSystem.incomingSignals.incomingSignalReferences !== undefined &&
-            tradingSystem.incomingSignals.incomingSignalReferences.length > 0
+            system.incomingSignals !== undefined &&
+            system.incomingSignals.incomingSignalReferences !== undefined &&
+            system.incomingSignals.incomingSignalReferences.length > 0
         ) {
             /*
             This means that the user that defined the Trading System, wants it to be
@@ -53,7 +103,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             */
             while (true) {
                 let signals = await incomingTradingSignalsModuleObject.getAllSignals(
-                    tradingSystem
+                    system
                 )
                 let signal = signals[0]
                 if (signal === undefined) {
@@ -381,14 +431,20 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         }
     }
 
-    function checkInitialDatetime(sessionParameters, engine, processIndex) {
-        /* Here we check that the current candle is not before the initial datetime defined at the session parameters. */
+    function checkInitialDatetime(sessionParameters, engine, candle, processIndex) {
+        /* 
+        Here we check that the current candle is not before the initial 
+        datetime defined at the session parameters. 
+        */
         if (engine.tradingCurrent.tradingEpisode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.')
             return false
+        } else {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> loop -> Candle Before the Initial Date Time @ ' + (new Date(candle.begin)).toUTCString())
+            return true
         }
-        return true
     }
 
     function checkFinalDatetime(engine, sessionParameters, processIndex) {

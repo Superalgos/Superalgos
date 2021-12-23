@@ -3,7 +3,7 @@ import {Box, Button, CardContent, Modal, TextField, Typography} from "@mui/mater
 import "./UserProfileModal.css"
 import {CloseOutlined} from "@mui/icons-material";
 
-const style = { // todo need proper style
+const style = { // todo need proper style, and handle from css file
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -19,7 +19,7 @@ const UserProfileModal = ({show, close}) => {
 
     const [inputValue, setInputValue] = useState()
     const handleInput = () => {
-        if(inputValue === ""){
+        if(inputValue === ""){ // todo handle the inputbox. if is empty show error state
 
         }
     }
@@ -44,14 +44,12 @@ const UserProfileModal = ({show, close}) => {
                                     </div>
                                 </div>
                                 <div className="editProfile">
-                                    <Typography className="styleASDASD" variant="subtitle2">
                                         <TextField className="editProfileInputBoxes"
                                             id="outlined-helperText"
                                             label="Name"
                                             defaultValue="This is my name" // show the actual value, hardcoded ftm
                                             helperText="" // only show when input is empty
                                         />
-                                    </Typography>
                                 </div>
                                 <div className="editProfile">
                                     <TextField className="editProfileInputBoxes"

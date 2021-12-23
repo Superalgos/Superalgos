@@ -12,6 +12,14 @@
             ]
         },
         "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Functions",
+                    "propertyName": "tradingFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibrariesTradingFunctions",
+                    "fileName": "TradingFunctions.js"
+                }
+            ],
             "botModules": [
                 {
                     "name": "Single Market Trading Bot",

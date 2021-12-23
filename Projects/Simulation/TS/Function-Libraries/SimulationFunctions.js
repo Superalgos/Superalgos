@@ -9,11 +9,9 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         updateEpisode: updateEpisode,
         heartBeat: heartBeat,
         positionDataStructuresAtCurrentCandle: positionDataStructuresAtCurrentCandle,
-        getElement: getElement,
-        checkNextCandle: checkNextCandle, 
+        checkNextCandle: checkNextCandle,
         checkInitialDatetime: checkInitialDatetime,
-        checkFinalDatetime: checkFinalDatetime,
-        checkMinimunAndMaximunBalance: checkMinimunAndMaximunBalance
+        checkFinalDatetime: checkFinalDatetime
     }
 
     return thisObject
@@ -27,31 +25,38 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         episodeModuleObject.updateExitType(exitType)
     }
 
-    function heartBeat() {
+    function heartBeat(sessionParameters, engine, heartbeat, processIndex) {
         let hartbeatText = ''
         if (sessionParameters.heartbeats !== undefined) {
             if (sessionParameters.heartbeats.config.date === true || sessionParameters.heartbeats.config.candleIndex === true) {
                 /* We will produce a simulation level heartbeat in order to inform the user this is running. */
 
-                heartBeatDate = new Date(Math.trunc(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value / SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS) * SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS)
+                heartbeat.currentDate = new Date(
+                    Math.trunc(
+                        engine.tradingCurrent.tradingEpisode.candle.begin.value /
+                        SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                    ) *
+                    SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS +
+                    SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                )
 
                 let fromDate = new Date(sessionParameters.timeRange.config.initialDatetime)
                 let lastDate = new Date(sessionParameters.timeRange.config.finalDatetime)
 
-                let currentDateString = heartBeatDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
-                let currentDate = new Date(heartBeatDate)
+                let currentDateString = heartbeat.currentDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartbeat.currentDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartbeat.currentDate.getUTCDate(), 2)
+                let currentDate = new Date(heartbeat.currentDate)
                 let percentage = TS.projects.foundations.utilities.dateTimeFunctions.getPercentage(fromDate, currentDate, lastDate)
                 /*
                 There are a few tasks that we need to do only when the date changes,
                 otherwise it would be suboptimal.
                 */
-                if (heartBeatDate.valueOf() !== previousHeartBeatDate) {
-                    previousHeartBeatDate = heartBeatDate.valueOf()
+                if (heartbeat.currentDate.valueOf() !== heartbeat.previousDate) {
+                    heartbeat.previousDate = heartbeat.currentDate.valueOf()
 
-                    let processingDate = heartBeatDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartBeatDate.getUTCDate(), 2)
+                    let processingDate = heartbeat.currentDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartbeat.currentDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartbeat.currentDate.getUTCDate(), 2)
 
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + ' @ ' + processingDate)
+                        '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + engine.tradingCurrent.tradingEpisode.candle.index.value + ' @ ' + processingDate)
 
                     /*  Logging to console and disk */
                     if (TS.projects.foundations.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
@@ -65,7 +70,6 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                         return
                     }
                 }
-
                 /*
                 When the Candle Index needs to be shown, then we can not send the heartbeat
                 only when the dates changes, we have to send it for every candle.
@@ -75,14 +79,14 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     if (sessionParameters.heartbeats.config.date === true) {
                         hartbeatText = hartbeatText + currentDateString
                     }
-                    hartbeatText = hartbeatText + ' Candle # ' + tradingEngine.tradingCurrent.tradingEpisode.candle.index.value
+                    hartbeatText = hartbeatText + ' Candle # ' + engine.tradingCurrent.tradingEpisode.candle.index.value
                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
                 }
             }
         }
     }
 
-    function positionDataStructuresAtCurrentCandle() {
+    function positionDataStructuresAtCurrentCandle(engine, exchange, processIndex) {
         /*
         In conditions and Formulas, we want users to have an easy syntax to refer to indicators. In order to achieve that, we need the user to have
         easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
@@ -170,43 +174,43 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                 thisChart[singularVariableName] = currentElement
             }
         }
-    }
 
-    function getElement(pArray, datasetName) {
-        if (pArray === undefined) { return }
-        try {
-            let element
-            for (let i = 0; i < pArray.length; i++) {
-                element = pArray[i]
+        function getElement(pArray, datasetName) {
+            if (pArray === undefined) { return }
+            try {
+                let element
+                for (let i = 0; i < pArray.length; i++) {
+                    element = pArray[i]
 
-                if (tradingEngine.tradingCurrent.tradingEpisode.candle.end.value === element.end) { // when there is an exact match at the end we take that element
-                    return element
-                } else {
-                    if (
-                        i > 0 &&
-                        element.end > tradingEngine.tradingCurrent.tradingEpisode.candle.end.value
-                    ) {
-                        let previousElement = pArray[i - 1]
-                        if (previousElement.end < tradingEngine.tradingCurrent.tradingEpisode.candle.end.value) {
-                            return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
-                        } else {
-                            return
+                    if (engine.tradingCurrent.tradingEpisode.candle.end.value === element.end) { // when there is an exact match at the end we take that element
+                        return element
+                    } else {
+                        if (
+                            i > 0 &&
+                            element.end > engine.tradingCurrent.tradingEpisode.candle.end.value
+                        ) {
+                            let previousElement = pArray[i - 1]
+                            if (previousElement.end < engine.tradingCurrent.tradingEpisode.candle.end.value) {
+                                return previousElement // If one elements goes into the future of currentCandle, then we stop and take the previous element.
+                            } else {
+                                return
+                            }
                         }
                     }
                 }
+                return
+            } catch (err) {
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
+                throw (TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
-            return
-        } catch (err) {
-            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
-            throw (TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
         }
     }
 
-    function checkNextCandle() {
+    function checkNextCandle(engine, sessionParameters, candles, processIndex) {
         /*
         We need to check that the candle we have just processed it is not the last candle.
         The candle at the head of the market is already skipped from the loop because it has not closed yet.
@@ -216,7 +220,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         The second +1 is because we need to compare the next candle (remember that the loops always avoid the
         last candle of the dataset available.)
         */
-        if (tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candles.length) {
+        if (engine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candles.length) {
             /*
             When processing daily files, we need a mechanism to turn from one day to the next one.
             That mechanism is the one implemented here. If we detect that the next candle is the last candle of
@@ -226,7 +230,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             let candlesPerDay = SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
             if (
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
-                tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candlesPerDay
+                engine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candlesPerDay
             ) {
                 /*
                 Here we found that the next candle of the dataset is the last candle of the day.
@@ -235,9 +239,9 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                 the first candle of the new dataset we shall receive. The first candle of the next day starts
                 at index 0, so we will position the index now at zero.
                 */
-                tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = 0
-                tradingEngine.tradingCurrent.tradingEpisode.processDate.value =
-                    tradingEngine.tradingCurrent.tradingEpisode.processDate.value + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
+                engine.tradingCurrent.tradingEpisode.candle.index.value = 0
+                engine.tradingCurrent.tradingEpisode.processDate.value =
+                    engine.tradingCurrent.tradingEpisode.processDate.value + SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 return false
             }
 
@@ -247,20 +251,20 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             next execution it will likely have more candles at the dataset. And if it does not,
             it will just wait there until it does.
             */
-            tradingEngine.tradingCurrent.tradingEpisode.headOfTheMarket.value = true
-            tradingEngine.tradingCurrent.tradingEpisode.candle.index.value++
+            engine.tradingCurrent.tradingEpisode.headOfTheMarket.value = true
+            engine.tradingCurrent.tradingEpisode.candle.index.value++
             return false
         } else {
             /* Wd did not reach the head of the market */
-            tradingEngine.tradingCurrent.tradingEpisode.headOfTheMarket.value = false
-            tradingEngine.tradingCurrent.tradingEpisode.candle.index.value++
+            engine.tradingCurrent.tradingEpisode.headOfTheMarket.value = false
+            engine.tradingCurrent.tradingEpisode.candle.index.value++
             return true
         }
     }
 
-    function checkInitialDatetime() {
+    function checkInitialDatetime(sessionParameters, engine, processIndex) {
         /* Here we check that the current candle is not before the initial datetime defined at the session parameters. */
-        if (tradingEngine.tradingCurrent.tradingEpisode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
+        if (engine.tradingCurrent.tradingEpisode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.')
             return false
@@ -268,131 +272,12 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return true
     }
 
-    function checkFinalDatetime() {
+    function checkFinalDatetime(engine, sessionParameters, processIndex) {
         /* Here we check that the next candle is not after of the user-defined final datetime at the session parameters. */
-        if (tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
+        if (engine.tradingCurrent.tradingEpisode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.')
             return false
-        }
-        return true
-    }
-
-    function checkMinimunAndMaximunBalance() {
-        /* Checks for Minimum and Maximum Balance. We do the check while not inside any strategy only. */
-        if (
-            tradingEngine.tradingCurrent.strategy.index.value === tradingEngine.tradingCurrent.strategy.index.config.initialValue
-        ) {
-            /*
-            We will perform this check only when we are not inside a position,
-            because there the balances have shifted from their resting position.
-            */
-
-            let stopRunningDate = (new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value)).toUTCString()
-
-            if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
-                if (tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
-                    const errorMessage = 'Min Balance reached @ ' + stopRunningDate
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS LF Trading Bot Error - Minimum Balance Reached',
-                        placeholder: {}
-                    }
-
-                    let contextInfo = {
-                        timestamp: stopRunningDate,
-                        episodeBaseAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value,
-                        sessionBaseAssetMinimumBalance: sessionParameters.sessionBaseAsset.config.minimumBalance
-                    }
-
-                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-
-                    tradingSystem.addError([tradingSystem.id, errorMessage, docs])
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
-                    return false
-                }
-            }
-
-            if (sessionParameters.sessionBaseAsset.config.maximumBalance !== undefined) {
-                if (tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value >= sessionParameters.sessionBaseAsset.config.maximumBalance) {
-                    const errorMessage = 'Max Balance reached @ ' + stopRunningDate
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS LF Trading Bot Error - Maximum Balance Reached',
-                        placeholder: {}
-                    }
-
-                    let contextInfo = {
-                        timestamp: stopRunningDate,
-                        episodeBaseAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value,
-                        sessionBaseAssetMaximumBalance: sessionParameters.sessionBaseAsset.config.maximumBalance
-                    }
-
-                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-
-                    tradingSystem.addError([tradingSystem.id, errorMessage, docs])
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
-                    return false
-                }
-            }
-
-            if (sessionParameters.sessionQuotedAsset.config.minimumBalance !== undefined) {
-                if (tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value <= sessionParameters.sessionQuotedAsset.config.minimumBalance) {
-                    const errorMessage = 'Min Balance reached @ ' + stopRunningDate
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS LF Trading Bot Error - Minimum Balance Reached',
-                        placeholder: {}
-                    }
-
-                    let contextInfo = {
-                        timestamp: stopRunningDate,
-                        episodeQuotedAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value,
-                        sessionQuotedAssetMinimumBalance: sessionParameters.sessionQuotedAsset.config.minimumBalance
-                    }
-
-                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-
-                    tradingSystem.addError([tradingSystem.id, errorMessage, docs])
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
-                    return false
-                }
-            }
-
-            if (sessionParameters.sessionQuotedAsset.config.maximumBalance !== undefined) {
-                if (tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value >= sessionParameters.sessionQuotedAsset.config.maximumBalance) {
-                    const errorMessage = 'Max Balance reached @ ' + stopRunningDate
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS LF Trading Bot Error - Maximum Balance Reached',
-                        placeholder: {}
-                    }
-
-                    let contextInfo = {
-                        timestamp: stopRunningDate,
-                        episodeQuotedAssetBalance: tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.balance.value,
-                        sessionQuotedAssetMaximumBalance: sessionParameters.sessionQuotedAsset.config.maximumBalance
-                    }
-
-                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-
-                    tradingSystem.addError([tradingSystem.id, errorMessage, docs])
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[WARN] runSimulation -> checkMinimunAndMaximunBalance -> ' + errorMessage)
-                    return false
-                }
-            }
         }
         return true
     }

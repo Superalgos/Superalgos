@@ -1,11 +1,12 @@
 import "./PostFooter.css"
 import React, {useEffect, useState} from 'react';
-import {Collapse, createTheme, Divider, IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
+import {IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {
     AccessibilityNewOutlined,
     Autorenew,
-    FavoriteBorder, MessageOutlined,
+    FavoriteBorder,
+    MessageOutlined,
     Mood,
     OutletOutlined,
     SentimentVeryDissatisfied,
@@ -13,11 +14,11 @@ import {
     ThumbUp
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
-import FooterReply from "../FooterReply/FooterReply";
 import {actionsNav} from './interactionsConfig.json';
-import {toString} from "ip";
-import {reactToPost, STATUS_OK} from "../../api/httpService";
+import {reactToPost} from "../../api/httpService";
+import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 
+// todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
     '& .MuiBadge-badge': {
         right: -3,
@@ -26,15 +27,9 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-const PostFooter = (props) => {
-    //console.log(props)
-    //const [isCollapse, setIsCollapse] = useState(false) // todo comment collapse function to listen the onClick
-    //const [isToggled, setIsToggled] = useState(); // TODO handle the reaction icons, if one pressed set it true and the others to false.
-    const [onHover, setOnHover] = useState(false)
-    const onHoverMouse = () => { // added onHover func to comment button, to hide it on reaction overmouse. Needed?
-        setOnHover(!onHover)
-    }
+const PostFooter = (props) => { // props needed? review
 
+    // todo need proper style, and handle from css file
     const dialStyle = {
         backgroundColor: "white", 
         minHeight: "2rem", 
@@ -49,39 +44,44 @@ const PostFooter = (props) => {
         minWidth: "2rem",
         backgroundColor:'transparent'
     }
-    //let badgeCounterValue = 1; // todo hardcoded values
 
     // gets values from httpService.js array reactToPost function
     const [badgeValues, setBadgeValues] = useState([])
     const [likeValue, setLikeValue] = useState()
+    const [replyModal, setReplyModal] = useState(false)
 
     const BadgeCounterValue = () => {
-        let {data, result} = reactToPost();
+        let {data} = reactToPost();
         //console.log(data);
-        setLikeValue(data[0][1])
+        setLikeValue(data[0][1]) // need an callback
         let reactionsValue = data.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
         setBadgeValues(reactionsValue)
 
     }
+
     useEffect(() => {
-        return null;
+        return BadgeCounterValue();
     }, []);
 
-    const handleRepost = () => {
+    const handleRepost = (e) => {
+        e.stopPropagation();
         console.log('clicked repost')
     }
 
     const HandleCommentContainer = () => {
-        const {stateCallback} = props
-        stateCallback && stateCallback()
+        // review, maybe not needed. Using other method to handle the button
+        // const {stateCallback} = props
+        // stateCallback && stateCallback()
+        setReplyModal(!replyModal)
     }
 
-    const handleLikeReaction = (id, name) => {
+    const handleLikeReaction = (e, id, name) => {
+        e.stopPropagation()
         console.log(`click on button ${name}, id ${id}`)
     }
 
     const handleReactions = (e, id, name) => {
-        e.preventDefault()
+        e.stopPropagation()
         console.log(`click on button ${name}, id ${id}`)
     }
 
@@ -127,10 +127,10 @@ const PostFooter = (props) => {
         return <div className="footerCommentContainer">
             <Stack className="postFooterComment" direction="row">
                 <IconButton className="commentIconButton" size="small"
-                            //disabled={onHover}
-                    onClick={() => HandleCommentContainer()} >
+                    onClick={(e) => e.stopPropagation(HandleCommentContainer())} > {/* need review, correct way?*/}
                         <MessageOutlined/>
                     </IconButton>
+                    <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>
                 </Stack>
                 <Stack className="postFooterRepost" direction="row">
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">
@@ -144,18 +144,16 @@ const PostFooter = (props) => {
         <div className="postFooterContainer">
             <Stack className="postFooterContainerStack" direction="row">
                 <Stack className="postFooterContainerSpeedDial" direction="row">
-                    <SpeedDial
+                    <SpeedDial className="speedDialContainer"
                         FabProps={{
                             style: {...dialStyle}
                         }} // Access to props of SpeedDial
                         color="secondary"
                         ariaLabel="SpeedDial"
-                        //onOpen={onHoverMouse}
-                        //onClose={onHoverMouse}
                         icon={<StyledBadge
                             color="primary"
                             badgeContent={likeValue}>
-                            <ThumbUp //sx={{width: "15px", height: "15px"}}
+                            <ThumbUp // sx={{width: "15px", height: "15px"}}  review if removed
                                 color="action"
                                 fontSize="small"
                                 onClick={handleLikeReaction}>
@@ -165,7 +163,7 @@ const PostFooter = (props) => {
                     >
                         { actionsNav.map(e => {
                             const {id, name, badgeCounter, icon} = e
-                            return FooterButton(String(id), name, icon, badgeValues[e])
+                            return FooterButton(String(id), name, icon, badgeValues[badgeCounter]) /* todo need populate the reactions bar with the new array */
                         })}
                     </SpeedDial>
                 </Stack>

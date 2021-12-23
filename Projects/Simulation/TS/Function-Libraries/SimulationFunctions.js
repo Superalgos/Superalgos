@@ -36,7 +36,6 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                         engine.tradingCurrent.tradingEpisode.candle.begin.value /
                         SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                     ) *
-                    SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS +
                     SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS
                 )
 

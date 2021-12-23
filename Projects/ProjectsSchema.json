@@ -1009,6 +1009,12 @@
                     "propertyName": "asyncFunctions",
                     "functionName": "newFoundationsUtilitiesAsyncFunctions",
                     "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Encryption",
+                    "propertyName": "encryption",
+                    "functionName": "newFoundationsUtilitiesEncryption",
+                    "fileName": "Encryption.js"
                 }
             ]
         },
@@ -1979,6 +1985,20 @@
                     "functionName": "newTradingSignalsModulesIncomingTradingSignals",
                     "fileName": "IncomingTradingSignals.js",
                     "folderName": ""
+                },
+                {
+                    "name": "Outgoing Candle Signals",
+                    "propertyName": "outgoingCandleSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingCandleSignals",
+                    "fileName": "OutgoingCandleSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Candle Signals",
+                    "propertyName": "incomingCandleSignals",
+                    "functionName": "newTradingSignalsModulesIncomingCandleSignals",
+                    "fileName": "IncomingCandleSignals.js",
+                    "folderName": ""
                 }
             ]
         },
@@ -1989,6 +2009,34 @@
                     "propertyName": "signalValidations",
                     "functionName": "newTradingSignalsUtilitiesSignalValidations",
                     "fileName": "SignalValidations.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Open-Storage",
+        "propertyName": "openStorage",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {},
+        "SA": {
+            "modules": [
+                {
+                    "name": "Open Storage Client",
+                    "propertyName": "openStorageClient",
+                    "functionName": "newOpenStorageModulesOpenStorageClient",
+                    "fileName": "OpenStorageClient.js",
+                    "folderName": ""
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
                 }
             ]
         }

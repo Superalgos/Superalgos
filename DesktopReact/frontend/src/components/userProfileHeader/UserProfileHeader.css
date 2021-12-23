@@ -1,6 +1,7 @@
 .userSection {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 16px !important;
 }
 
 .profilePicBG {
@@ -42,10 +43,15 @@
 
 .editProfileButton {
     margin-bottom: 0.4rem !important;
+    margin-right: 1.25rem !important;
+    height: 1.5rem;
+    width: 8.3rem;
 }
 
 .stats {
+    padding-top: 1px;
     width: 100%;
+    color: #6b6b6b;
 }
 
 .username {
@@ -53,17 +59,34 @@
 }
 
 .bio {
+    padding-top: 1px;
+    padding-bottom: 1px;
     width: 100%;
 }
 
 .location {
-    width: 50%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 74%;
+    color: #6b6b6b;
 }
 
 .joinDate {
-    width: 50%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 26%;
+    color: #6b6b6b;
 }
 
 .userHandle {
+    padding-top: 1px;
+    padding-bottom: 1px;
     width: 100%;
+    color: #6b6b6b;
+}
+
+.profileIcons{ /* css not working in component icons. Used a workaround. Help xD */
+    width: 15px;
+    height: 15px;
+    vertical-align: text-top;
 }

@@ -21,6 +21,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
     let tradingEpisodeModuleObject
     let incomingTradingSignalsModuleObject
     let outgoingTradingSignalsModuleObject
+    let tradingEngineModuleObject
 
     return thisObject
 
@@ -43,6 +44,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
         outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
         outgoingTradingSignalsModuleObject.initialize()
+
+        /* This object is already initialized */
+        tradingEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT
     }
 
     function finalize() {
@@ -83,10 +87,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             let initialCandle = TS.projects.simulation.functionLibraries.simulationFunctions.setUpInitialCandles(sessionParameters, tradingEngine, candles, processIndex)
             /*
             Main Simulation Loop
-            */
-            /* We are going to use this to exit the loop if needed. */
-            let breakLoop = false
-            /*
+ 
             We will assume that we are at the head of the market here. We do this
             because the loop could be empty and no validation is going to run. If the
             loop is not empty, then the lascCandle() check will override this value
@@ -104,37 +105,24 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             that still can change. So effectively will be processing all closed candles.
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
-
+                /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(tradingEngine, candles, i, processIndex)
-                /*
-                We move the current candle we are standing at, to the trading engine data structure
-                to make it available to anyone, including conditions and formulas.
-                */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
-
+                /* Signals */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopWithSignals(tradingSystem)
-
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(sessionParameters, tradingEngine, heartbeat, processIndex)
-
                 /* Opening the Episode, if needed. */
                 tradingEpisodeModuleObject.openEpisode()
-
-                if (TS.projects.simulation.functionLibraries.simulationFunctions.checkInitialDatetime(sessionParameters, tradingEngine, processIndex) === false) {
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> Candle Before the Initial Date Time @ ' + (new Date(candle.begin)).toUTCString())
-                    continue
-                }
-
+                /* Initial Datetime Check */
+                if (TS.projects.simulation.functionLibraries.simulationFunctions.checkInitialDatetime(sessionParameters, tradingEngine, candle, processIndex) === false) { continue }
+                /* Positioning Data Structure */
                 TS.projects.simulation.functionLibraries.simulationFunctions.positionDataStructuresAtCurrentCandle(tradingEngine, exchange, processIndex)
-
                 /* The chart was recalculated based on the current candle. */
                 tradingSystemModuleObject.updateChart(
                     chart,
                     exchange,
                     market
                 )
-
                 /*
                 Do the stuff needed previous to the run like
                 Episode Counters and Statistics update. Maintenance is done
@@ -142,8 +130,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 */
                 tradingSystemModuleObject.mantain()
                 tradingEpisodeModuleObject.mantain()
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.mantain()
-
+                tradingEngineModuleObject.mantain()
                 /*
                 Run the first cycle of the Trading System. In this first cycle we
                 give some room so that orders can be canceled or filled and we can
@@ -151,9 +138,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 orders can not be created, since otherwise the could be cancelled at
                 the second cycle without spending real time at the order book.
                 */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
+                tradingEngineModuleObject.setCurrentCycle('First')
                 await runCycle()
-
                 /*
                 We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. Note also that we check this after the first
@@ -161,7 +147,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 had the chance to check for the status of placed orders or even cancel
                 the ones that needed cancellation.
                 */
-                checkIfWeNeedToStopBetweenCycles()
+                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopBetweenCycles(tradingEpisodeModuleObject, sessionParameters, tradingSystem, tradingEngine, processIndex)
 
                 /* Add new records to the process output */
                 tradingRecordsModuleObject.appendRecords()
@@ -190,7 +176,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 without the need to wait until the next candle. Orders can not be cancelled
                 during the second cycle.
                 */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
+                tradingEngineModuleObject.setCurrentCycle('Second')
                 await runCycle()
                 /*
                 Outgoing Episode Syncronization Signal Sent at the end of both cycles.
@@ -208,7 +194,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /*
                 Check if we need to stop.
                 */
-                checkIfWeNeedToStopAfterBothCycles()
+                breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopAfterBothCycles(tradingEpisodeModuleObject, tradingEngine, sessionParameters, candles, processIndex)
 
                 /* Add new records to the process output */
                 tradingRecordsModuleObject.appendRecords()
@@ -219,7 +205,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     /* Reset Data Structures */
                     tradingSystemModuleObject.reset()
                     tradingEpisodeModuleObject.reset()
-                    TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.reset()
+                    tradingEngineModuleObject.reset()
 
                     let infoMessage = 'Processing candle # ' + tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + ' @ the ' + tradingEngine.tradingCurrent.tradingEpisode.cycle.value + ' cycle.'
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
@@ -241,50 +227,6 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     tradingSystem.addInfo([tradingSystem.id, infoMessage, docs])
 
                     await tradingSystemModuleObject.run()
-                }
-
-                function checkIfWeNeedToStopBetweenCycles() {
-                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
-                        TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(tradingEpisodeModuleObject, 'Session Stopped')
-                        breakLoop = true
-                        return
-                    }
-
-                    if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
-                        TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(tradingEpisodeModuleObject, 'Task Stopped')
-                        breakLoop = true
-                        return
-                    }
-
-                    if (TS.projects.simulation.functionLibraries.simulationFunctions.checkFinalDatetime(tradingEngine, sessionParameters, processIndex) === false) {
-                        TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(tradingEpisodeModuleObject, 'Final Datetime Reached')
-                        breakLoop = true
-                        TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ')
-                        return
-                    }
-
-                    if (TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkMinimunAndMaximunBalance(sessionParameters, tradingSystem, tradingEngine, processIndex) === false) {
-                        TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(tradingEpisodeModuleObject, 'Min or Max Balance Reached')
-                        breakLoop = true
-                        TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
-                        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                            '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ')
-                        return
-                    }
-                }
-
-                function checkIfWeNeedToStopAfterBothCycles() {
-                    if (TS.projects.simulation.functionLibraries.simulationFunctions.checkNextCandle(tradingEngine, sessionParameters, candles, processIndex) === false) {
-                        TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(tradingEpisodeModuleObject, 'All Candles Processed')
-                        breakLoop = true
-                        return
-                    }
                 }
             }
             /*

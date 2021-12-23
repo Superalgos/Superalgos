@@ -6,11 +6,11 @@ import {
 } from './httpConfig'
 
 const followUser = (userProfileId) =>{
-   return httpRequest('/follow', POST, { userProfileId: userProfileId })
+   return httpRequest('/users/follow', POST, { userProfileId: userProfileId })
 }
 
 function unfollowUser(userProfileId) {
-    return httpRequest('/unFollow', POST, { userProfileId: userProfileId })
+    return httpRequest('/users/unFollow', POST, { userProfileId: userProfileId })
 }
 
 export {

@@ -5,11 +5,11 @@ import {
 } from './httpConfig'
 
 function createPost(postBody) {
-    return httpRequest('/createPost', POST, postBody);
+    return httpRequest('/posts', POST, postBody);
 }
 
 function getPosts(postBody) {
-    return httpRequest('/getPosts', GET, postBody);
+    return httpRequest('/posts', GET, postBody);
 }
 
 export {

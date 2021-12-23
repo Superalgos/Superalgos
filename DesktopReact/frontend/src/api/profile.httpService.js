@@ -4,7 +4,7 @@ import {
 } from './httpConfig'
 
 function getProfiles() {
-    return httpRequest('/profiles', GET);
+    return httpRequest('/users/profiles', GET);
 }
 
 

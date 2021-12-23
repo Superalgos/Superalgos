@@ -66,8 +66,8 @@ exports.newDesktopApp = function newDesktopApp() {
             await thisObject.socialGraph.initialize()
 
             /* TODO use new port settings*/
-            let express = require('./backend/src/index')
-            express.startExpress(DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
+            let express = require('./backend/src/index.js')
+            express.DesktopBackend(DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
             console.log('express Interface ................................................ Listening at port ' );
 
             let react = require('./frontend/scripts/start')

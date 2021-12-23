@@ -53,20 +53,18 @@ const PostFooter = (props) => {
 
     // gets values from httpService.js array reactToPost function
     const [badgeValues, setBadgeValues] = useState([])
-    const BadgeCounterValue = async () => {
+    const [likeValue, setLikeValue] = useState()
+
+    const BadgeCounterValue = () => {
         let {data, result} = reactToPost();
-        console.log(result);
-        if (result === STATUS_OK){
-            console.log("Hello from badge counter: ");
-            //setBadgeValues(data);
-            data.map(el => {
+        //console.log(data);
+        setLikeValue(data[0][1])
+        let reactionsValue = data.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
+        setBadgeValues(reactionsValue)
 
-            })
-
-        }
     }
     useEffect(() => {
-        return null; //BadgeCounterValue();
+        return null;
     }, []);
 
     const handleRepost = () => {
@@ -149,14 +147,14 @@ const PostFooter = (props) => {
                     <SpeedDial
                         FabProps={{
                             style: {...dialStyle}
-                        }} // Access to the props of SpeedDial
+                        }} // Access to props of SpeedDial
                         color="secondary"
                         ariaLabel="SpeedDial"
                         //onOpen={onHoverMouse}
                         //onClose={onHoverMouse}
                         icon={<StyledBadge
                             color="primary"
-                            badgeContent={badgeValues}>
+                            badgeContent={likeValue}>
                             <ThumbUp //sx={{width: "15px", height: "15px"}}
                                 color="action"
                                 fontSize="small"
@@ -167,7 +165,7 @@ const PostFooter = (props) => {
                     >
                         { actionsNav.map(e => {
                             const {id, name, badgeCounter, icon} = e
-                            return FooterButton(String(id), name, icon, badgeCounter)
+                            return FooterButton(String(id), name, icon, badgeValues[e])
                         })}
                     </SpeedDial>
                 </Stack>

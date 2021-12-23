@@ -223,19 +223,19 @@
         },
         {
             "style": "Subtitle",
-            "text": "Token Distrabution Superalgos"
+            "text": "Token Distribution Superalgos"
         },
         {
             "style": "List",
             "text": "Creating Your User Profile Tutorial"
         },
         {
-            "style": "Text",
-            "text": ""
+            "style": "Subtitle",
+            "text": "Developers Intro Tutorial"
         },
         {
-            "style": "Text",
-            "text": ""
+            "style": "List",
+            "text": "Tutorial - Intro for Developers"
         }
     ]
 }

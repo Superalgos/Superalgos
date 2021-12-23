@@ -163,6 +163,16 @@
                 }
             ]
         },
+        "SA": {
+        "globals": [
+            {
+                "name": "Memory",
+                "propertyName": "memory",
+                "functionName": "newPortfolioManagementGlobalsMemory",
+                "fileName": "Memory.js"
+            }
+        ]
+        },
         "TS": {
             "modules": [
                 {
@@ -250,10 +260,10 @@
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
-                    "name": "Portfolio Stages",
-                    "propertyName": "portfolioStages",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioStages",
-                    "fileName": "PortfolioStages.js",
+                    "name": "Portfolio Manager",
+                    "propertyName": "portfolioManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioManager",
+                    "fileName": "PortfolioManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
@@ -999,6 +1009,12 @@
                     "propertyName": "asyncFunctions",
                     "functionName": "newFoundationsUtilitiesAsyncFunctions",
                     "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Encryption",
+                    "propertyName": "encryption",
+                    "functionName": "newFoundationsUtilitiesEncryption",
+                    "fileName": "Encryption.js"
                 }
             ]
         },
@@ -1969,6 +1985,20 @@
                     "functionName": "newTradingSignalsModulesIncomingTradingSignals",
                     "fileName": "IncomingTradingSignals.js",
                     "folderName": ""
+                },
+                {
+                    "name": "Outgoing Candle Signals",
+                    "propertyName": "outgoingCandleSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingCandleSignals",
+                    "fileName": "OutgoingCandleSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Candle Signals",
+                    "propertyName": "incomingCandleSignals",
+                    "functionName": "newTradingSignalsModulesIncomingCandleSignals",
+                    "fileName": "IncomingCandleSignals.js",
+                    "folderName": ""
                 }
             ]
         },
@@ -1978,8 +2008,36 @@
                     "name": "Signal Validations",
                     "propertyName": "signalValidations",
                     "functionName": "newTradingSignalsUtilitiesSignalValidations",
-                    "fileName": "SignalValidations.js" 
-                } 
+                    "fileName": "SignalValidations.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Open-Storage",
+        "propertyName": "openStorage",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {},
+        "SA": {
+            "modules": [
+                {
+                    "name": "Open Storage Client",
+                    "propertyName": "openStorageClient",
+                    "functionName": "newOpenStorageModulesOpenStorageClient",
+                    "fileName": "OpenStorageClient.js",
+                    "folderName": ""
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
+                }
             ]
         }
     }

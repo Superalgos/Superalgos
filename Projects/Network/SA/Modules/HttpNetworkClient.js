@@ -42,7 +42,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         */
         let promise = new Promise((resolve, reject) => {
 
-            const axios = require('axios')
+            const axios = SA.nodeModules.axios  
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
                 .then(res => {
@@ -67,7 +67,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         */
         let promise = new Promise((resolve, reject) => {
 
-            const axios = require('axios')
+            const axios = SA.nodeModules.axios
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
                 .then(res => {

@@ -8,6 +8,7 @@ import UserCard from "../User/UserCard";
 
 
 const SuggestedUsers = () => {
+    //  TODO change this, should not be here
     const skeletons = [<div className="skeleton">
         <Skeleton variant="circular" width="3rem" height="3rem"/>
         <Skeleton variant="text"
@@ -30,7 +31,6 @@ const SuggestedUsers = () => {
 
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
-    const [reload, setReload] = useState(0);
     const loadProfiles = async () => {
         console.log('loading profiles')
         setLoading(true)
@@ -49,11 +49,8 @@ const SuggestedUsers = () => {
 
     useEffect(() => {
         return loadProfiles();
-    }, [reload]);
+    }, []);
 
-    const reloadUsers = () => {
-      setReload((val)=> val++ );
-    }
 
     return (
         <Stack direction="column"
@@ -65,7 +62,7 @@ const SuggestedUsers = () => {
             {
                 loading ? (skeletons) : (users)
             }
-            <ShowMoreUsers  showMoreCallback={reloadUsers}/>
+            {/*<ShowMoreUsers  showMoreCallback={() => {console.log("need to show more users")}}/>*/}
         </Stack>
     );
 };

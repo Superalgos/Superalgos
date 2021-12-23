@@ -10,7 +10,14 @@
         },
         {
             "style": "Note",
-            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
+                    "updated": 1640189702489
+                }
+            ]
         }
     ]
 }

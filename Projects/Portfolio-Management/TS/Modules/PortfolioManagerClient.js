@@ -99,6 +99,6 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             }
             response = await portfolioManagerEventsClient.sendMessage(message)
         }
-    }
         return response
+    }
 }

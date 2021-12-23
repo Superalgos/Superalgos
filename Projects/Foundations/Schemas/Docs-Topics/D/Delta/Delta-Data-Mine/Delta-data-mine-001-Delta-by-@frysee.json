@@ -1,7 +1,7 @@
 {
     "topic": "Delta Data Mine",
     "pageNumber": 1,
-    "type": "Delta By unknown",
+    "type": "Delta By frysee",
     "definition": {
         "text": "This data mine includes trend indicators such as Money Flow Index (MFI) and Wilder's Relative Strength Index (W-RSI) ",
         "updated": 1611685345604
@@ -14,7 +14,7 @@
         },
         {
             "style": "Link",
-            "text": "@unknown->github.com/unknown/",
+            "text": "@frysee->github.com/frysee/",
             "updated": 1611685413223
         },
         {

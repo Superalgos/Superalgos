@@ -69,9 +69,11 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 candles = chart[propertyName].candles
             }
 
-            /* Variables needed for heartbeat functionality */
-            let heartBeatDate
-            let previousHeartBeatDate
+            /* Object needed for heartbeat functionality */
+            let heartbeat = {
+                currentDate: undefined,
+                previousDate: undefined
+            }
             /*
             Estimation of the Initial Candle to Process in this Run.
             */
@@ -175,18 +177,18 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     }
                 }
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
-                heartBeat()
+                TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(sessionParameters, tradingEngine, heartbeat, processIndex)
 
                 /* Opening the Episode, if needed. */
                 tradingEpisodeModuleObject.openEpisode()
 
-                if (checkInitialDatetime() === false) {
+                if (TS.projects.simulation.functionLibraries.simulationFunctions.checkInitialDatetime(sessionParameters, tradingEngine, processIndex) === false) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toUTCString())
                     continue
                 }
 
-                positionDataStructuresAtCurrentCandle()
+                TS.projects.simulation.functionLibraries.simulationFunctions.positionDataStructuresAtCurrentCandle(tradingEngine, exchange, processIndex)
 
                 /* The chart was recalculated based on the current candle. */
                 tradingSystemModuleObject.updateChart(
@@ -237,7 +239,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     /*
                     Mantain Signal Storage.
                     */
-                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
+                    if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
+                        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
+                    }
                     break
                 }
                 /*
@@ -260,7 +264,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /*
                 Mantain Signal Storage.
                 */
-                TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
+                if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
+                }
                 /*
                 Check if we need to stop.
                 */
@@ -316,7 +322,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         return
                     }
 
-                    if (checkFinalDatetime() === false) {
+                    if (TS.projects.simulation.functionLibraries.simulationFunctions.checkFinalDatetime(tradingEngine, sessionParameters, processIndex) === false) {
                         TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(tradingEpisodeModuleObject, 'Final Datetime Reached')
                         breakLoop = true
                         TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
@@ -325,7 +331,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         return
                     }
 
-                    if (checkMinimunAndMaximunBalance() === false) {
+                    if (TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkMinimunAndMaximunBalance(sessionParameters, tradingSystem, tradingEngine, processIndex) === false) {
                         TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(tradingEpisodeModuleObject, 'Min or Max Balance Reached')
                         breakLoop = true
                         TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
@@ -336,7 +342,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 }
 
                 function checkIfWeNeedToStopAfterBothCycles() {
-                    if (checkNextCandle() === false) {
+                    if (TS.projects.simulation.functionLibraries.simulationFunctions.checkNextCandle(tradingEngine, sessionParameters, candles, processIndex) === false) {
                         TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(tradingEpisodeModuleObject, 'All Candles Processed')
                         breakLoop = true
                         return

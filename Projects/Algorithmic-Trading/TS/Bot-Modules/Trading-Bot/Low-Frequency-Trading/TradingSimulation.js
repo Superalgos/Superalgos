@@ -108,7 +108,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(tradingEngine, candles, i, processIndex)
                 /* Signals */
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopWithSignals(tradingSystem)
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(tradingSystem)
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(sessionParameters, tradingEngine, heartbeat, processIndex)
                 /* Opening the Episode, if needed. */
@@ -153,19 +153,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 tradingRecordsModuleObject.appendRecords()
 
                 if (breakLoop === true) {
-                    /*
-                    Outgoing Episode Syncronization Signal Sent before breaking the loop.
-                    */
-                    await outgoingTradingSignalsModuleObject.broadcastSignal(
-                        tradingSystem,
-                        undefined
-                    )
-                    /*
-                    Mantain Signal Storage.
-                    */
-                    if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
-                        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
-                    }
+                    await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, tradingSystem, candle)
                     break
                 }
                 /*
@@ -178,19 +166,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 */
                 tradingEngineModuleObject.setCurrentCycle('Second')
                 await runCycle()
-                /*
-                Outgoing Episode Syncronization Signal Sent at the end of both cycles.
-                */
-                await outgoingTradingSignalsModuleObject.broadcastSignal(
-                    tradingSystem,
-                    undefined
-                )
-                /*
-                Mantain Signal Storage.
-                */
-                if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
-                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
-                }
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, tradingSystem, candle)
                 /*
                 Check if we need to stop.
                 */
@@ -207,24 +183,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     tradingEpisodeModuleObject.reset()
                     tradingEngineModuleObject.reset()
 
-                    let infoMessage = 'Processing candle # ' + tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + ' @ the ' + tradingEngine.tradingCurrent.tradingEpisode.cycle.value + ' cycle.'
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> ' + infoMessage)
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS LF Trading Bot Info - Candle And Cycle',
-                        placeholder: {}
-                    }
-
-                    contextInfo = {
-                        candleIndex: tradingEngine.tradingCurrent.tradingEpisode.candle.index.value,
-                        cycle: tradingEngine.tradingCurrent.tradingEpisode.cycle.value
-                    }
-                    TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
-
-                    tradingSystem.addInfo([tradingSystem.id, infoMessage, docs])
+                    TS.projects.simulation.functionLibraries.simulationFunctions.createInfoMessage(tradingSystem, tradingEngine, processIndex)
 
                     await tradingSystemModuleObject.run()
                 }

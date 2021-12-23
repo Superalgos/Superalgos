@@ -676,7 +676,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 70\n}",
+            "config": "{\n    \"percentage\": 50\n}",
             "project": "Governance",
             "claimsProgram": {
                 "type": "Claims Program",
@@ -1002,15 +1002,15 @@
                                 "id": "2432aacc-9d3a-4c9f-8d50-9e057f13b9fc",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 33626.53389405286,
-                                        "y": 33639.25
+                                        "x": 39415.432852445505,
+                                        "y": 14825.000000000002
                                     },
                                     "targetPosition": {
                                         "x": 39415.432852445505,
                                         "y": 14487.500000000002
                                     },
                                     "floatingObject": {
-                                        "isPinned": true,
+                                        "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
                                         "angleToParent": 1,
@@ -1069,7 +1069,9 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "marcosgrivas",
-                                            "User Profile"
+                                            "User Profile",
+                                            "Governance",
+                                            "df922216-439c-46b5-a426-72a28cf4145f"
                                         ]
                                     ]
                                 }

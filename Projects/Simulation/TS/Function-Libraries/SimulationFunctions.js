@@ -5,10 +5,12 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     const MODULE_NAME = "Simulation"
 
     let thisObject = {
-        checkIfWeNeedToStopBetweenCycles: checkIfWeNeedToStopBetweenCycles, 
-        checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles, 
+        createInfoMessage: createInfoMessage,
+        checkIfWeNeedToStopBetweenCycles: checkIfWeNeedToStopBetweenCycles,
+        checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
         setCurrentCandle: setCurrentCandle,
-        syncronizeLoopWithSignals: syncronizeLoopWithSignals,
+        syncronizeLoopIncomingSignals: syncronizeLoopIncomingSignals,
+        syncronizeLoopOutgoingSignals: syncronizeLoopOutgoingSignals, 
         setUpCandles: setUpCandles,
         setUpInitialCandles: setUpInitialCandles,
         closeEpisode: closeEpisode,
@@ -21,6 +23,27 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     }
 
     return thisObject
+
+    function createInfoMessage(system, engine, processIndex) {
+        let infoMessage = 'Processing candle # ' + engine.tradingCurrent.tradingEpisode.candle.index.value + ' @ the ' + engine.tradingCurrent.tradingEpisode.cycle.value + ' cycle.'
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            '[INFO] runSimulation -> loop -> ' + infoMessage)
+
+        let docs = {
+            project: 'Foundations',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Info - Candle And Cycle',
+            placeholder: {}
+        }
+
+        let contextInfo = {
+            candleIndex: engine.tradingCurrent.tradingEpisode.candle.index.value,
+            cycle: engine.tradingCurrent.tradingEpisode.cycle.value
+        }
+        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+        system.addInfo([system.id, infoMessage, docs])
+    }
 
     function checkIfWeNeedToStopBetweenCycles(episodeModuleObject, sessionParameters, system, engine, processIndex) {
         if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
@@ -85,7 +108,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return candle
     }
 
-    async function syncronizeLoopWithSignals(system) {
+    async function syncronizeLoopIncomingSignals(system) {
         /*
         Incoming Signals
         */
@@ -116,6 +139,22 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     break
                 }
             }
+        }
+    }
+
+    async function syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, system, candle) {
+        /*
+        Outgoing Episode Syncronization Signal Sent before breaking the loop.
+        */
+        await outgoingTradingSignalsModuleObject.broadcastSignal(
+            system,
+            undefined
+        )
+        /*
+        Mantain Signal Storage.
+        */
+        if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
+            TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
         }
     }
 

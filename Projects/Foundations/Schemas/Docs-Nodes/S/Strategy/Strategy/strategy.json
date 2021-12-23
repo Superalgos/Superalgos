@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Узел Strategy иерархии Trading Engine отслеживает информацию, относящуюся к торговым стратегиям.",
                 "updated": 1639551591088
+            },
+            {
+                "language": "TR",
+                "text": "Alım satım motorunun strateji bölümü, açık kaldıkları süre boyunca tetiklenen alım satım stratejileri ile ilgili bilgileri takip eder.",
+                "updated": 1640259871194
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Узел Strategy доступен как в текущем контексте, так и в последнем контексте, то есть вы можете получить информацию о стратегии, которая была запущена последней или открытой в данный момент.",
                     "updated": 1639551238974
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji düğümü hem mevcut bağlamda hem de son bağlamda mevcuttur, yani en son tetiklenen veya şu anda açık olan stratejinin bilgilerini alabilirsiniz.",
+                    "updated": 1640259934626
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Стратегия открыта с момента ее включения до момента ее выключения. Поэтому в этом разделе структуры данных содержится информация, охватывающая только эти периоды.",
                     "updated": 1639551294404
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji tetiklendiği andan itibaren - açık olduğu andan tetiklendiği ana kadar - kapalıdır. Bu nedenle, veri yapısının bu bölümünde yalnızca bu dönemleri kapsayan bilgiler bulunur.",
+                    "updated": 1640260119572
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "В этом разделе представлены все основные сведения о стратегии, что особенно полезно, когда торговая система включает в себя несколько стратегий. Он также предоставляет информацию о контексте, то есть о том, что происходит на рынке в момент срабатывания стратегий - включения и выключения.",
                     "updated": 1639551342673
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölüm, ticaret sistemi birden fazla stratejiye sahip olduğunda özellikle yararlı olan stratejiyle ilgili tüm temel ayrıntıları sağlar. Aynı zamanda bağlam, yani stratejilerin tetiklendiği ve kapatıldığı sırada piyasada neler olup bittiği hakkında bilgi sağlar.",
+                    "updated": 1640260192628
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Самое интересное, что в разделе Strategy представлена ​​информация, например, какая ситуация привела к срабатыванию стратегии. Это может быть особенно полезно в сложных стратегиях, в которых запуск по событию может определяться несколькими ситуациями.",
                     "updated": 1639551443748
+                },
+                {
+                    "language": "TR",
+                    "text": "En ilginç olanı, strateji bölümü, stratejinin tetiklenmesinden hangi durumun sorumlu olduğu gibi hakkında bilgiler verir. Bu, olay tetiklemesinin birden fazla durum tarafından tanımlanabileceği karmaşık stratejilerde özellikle yararlı olabilir.",
+                    "updated": 1640260322103
                 }
             ]
         }

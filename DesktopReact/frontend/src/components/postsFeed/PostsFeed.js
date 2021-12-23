@@ -18,8 +18,7 @@ const PostsFeed = () => {
         let {data, result} = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
             let mappedPosts = data.map((post, index) => <Post key={index} id={index}
-                                                              userName={post.emitterUserProfile.userProfileHandle}
-                                                              postBody={post.postText}/>
+                                                              postData={post}/>
             );
             setPosts(mappedPosts);
         }

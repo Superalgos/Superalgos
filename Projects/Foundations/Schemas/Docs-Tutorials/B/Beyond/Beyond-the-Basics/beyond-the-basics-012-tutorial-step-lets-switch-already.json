@@ -26,11 +26,6 @@
                 "language": "DE",
                 "text": "Jetzt, wo alles klar ist, können wir den Wechsel vornehmen und uns auf das vorbereiten, was als nächstes kommt!",
                 "updated": 1635147821432
-            },
-            {
-                "language": "RU",
-                "text": "Теперь, когда все ясно, давайте сделаем переключение и подготовимся к тому, что будет дальше!",
-                "updated": 1640158571387
             }
         ]
     },
@@ -56,11 +51,6 @@
                     "language": "DE",
                     "text": "Das müssen Sie tun:",
                     "updated": 1635147831988
-                },
-                {
-                    "language": "RU",
-                    "text": "Вот что вам нужно сделать:",
-                    "updated": 1640158582221
                 }
             ]
         },
@@ -85,11 +75,6 @@
                     "language": "DE",
                     "text": "Scrollen Sie in den Docs runter bis zur Fußzeile und wählen Sie develop als Ihren aktuellen Zweig. ",
                     "updated": 1638832398965
-                },
-                {
-                    "language": "RU",
-                    "text": "Вернитесь в нижний колонтитул и выберите Develop в качестве текущей ветки (Current Branch).",
-                    "updated": 1640158641234
                 }
             ]
         },
@@ -114,11 +99,6 @@
                     "language": "DE",
                     "text": "Sie erhalten eine Seite, auf der erklärt wird, was gemacht wird. Dann erhalten Sie eine weitere Seite, die Sie über das Ergebnis informiert und Ihnen erklärt, dass Sie die Anwendung neu starten müssen.",
                     "updated": 1635147885655
-                },
-                {
-                    "language": "RU",
-                    "text": "Вы получите страницу с описанием того, что происходит. Затем вы получите еще одну страницу с информацией о результате, на которой будет сказано, что вы должны перезапустить приложение.",
-                    "updated": 1640158696037
                 }
             ]
         },
@@ -143,11 +123,6 @@
                     "language": "DE",
                     "text": "Schließen Sie die Anwendung und starten Sie sie neu (Browser und Konsole).",
                     "updated": 1635147913233
-                },
-                {
-                    "language": "RU",
-                    "text": "Закройте приложение и перезапустите его (браузер и консоль).",
-                    "updated": 1640158714923
                 }
             ]
         },
@@ -172,11 +147,6 @@
                     "language": "DE",
                     "text": "Suchen Sie das Beyond the Basics Tutorial in der unteren rechten Ecke des Arbeitsbereichs und wählen Sie \"Resume\" im Menü! Wenn \"Fortsetzen\" nicht funktioniert, suchen Sie den Schritt \"Welcome Back!\" unter dem Thema Zweige und klicken Sie im Menü auf \"Abspielen\"!",
                     "updated": 1635147950486
-                },
-                {
-                    "language": "RU",
-                    "text": "Найдите учебник Beyond the Basics в правом нижнем углу рабочего пространства и выберите \"Resume\" в меню! Если \"Resume\" не работает, найдите шаг \"Welcome Back!\" в разделе Branches Topic и нажмите \"Play\" в меню!",
-                    "updated": 1640158754087
                 }
             ]
         }

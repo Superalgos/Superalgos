@@ -26,11 +26,6 @@
                 "language": "DE",
                 "text": "Bevor Sie mit dem Schreiben Ihrer tollen Rezension weitermachen, lassen Sie mich den Befehl zerlegen, damit Sie verstehen, was Sie gerade getan haben!",
                 "updated": 1635148901086
-            },
-            {
-                "language": "RU",
-                "text": "Прежде чем вы приступите к написанию своего потрясающего обзора, позвольте мне описать эту команду, чтобы вы поняли, что вы только что сделали!",
-                "updated": 1640160619289
             }
         ]
     },
@@ -56,11 +51,6 @@
                     "language": "DE",
                     "text": "docs.add: root syntax des Docs Add Command.",
                     "updated": 1635148919397
-                },
-                {
-                    "language": "RU",
-                    "text": "docs.add: корневой синтаксис команды добавления документов (Docs Add Command).",
-                    "updated": 1640159775339
                 }
             ]
         },
@@ -85,11 +75,6 @@
                     "language": "DE",
                     "text": "Review: die Docs Page Category der Seite.",
                     "updated": 1635148950148
-                },
-                {
-                    "language": "RU",
-                    "text": "Review: категория страницы документов (Docs Page Category).",
-                    "updated": 1640159864526
                 }
             ]
         },
@@ -114,11 +99,6 @@
                     "language": "DE",
                     "text": "to: ein umgangssprachlicher Konnektor, um die Lesbarkeit zu verbessern.",
                     "updated": 1635148965566
-                },
-                {
-                    "language": "RU",
-                    "text": "to: колокальный соединитель для улучшения читабельности.",
-                    "updated": 1640159893159
                 }
             ]
         },
@@ -137,11 +117,6 @@
                     "language": "DE",
                     "text": "Superalgos: das Projekt, zu dem die Seite hinzugefügt wird.",
                     "updated": 1635148976136
-                },
-                {
-                    "language": "RU",
-                    "text": "Foundations: проект, в который добавляется страница.",
-                    "updated": 1640159909273
                 }
             ]
         },
@@ -166,11 +141,6 @@
                     "language": "DE",
                     "text": "Superalgos Project Review: der Name der Seitensammlung, zu der die Review gehört.",
                     "updated": 1635148984696
-                },
-                {
-                    "language": "RU",
-                    "text": "Superalgos Project Review: название коллекции страниц, к которой относится обзор.",
-                    "updated": 1640160379654
                 }
             ]
         },
@@ -195,11 +165,6 @@
                     "language": "DE",
                     "text": "->: ein Trennzeichen, das in Befehlen verwendet wird, die zwei benutzerdefinierte Parameter erfordern (in diesem Fall den Namen der Seitensammlung und den Namen der Seite).",
                     "updated": 1635148994252
-                },
-                {
-                    "language": "RU",
-                    "text": "->: разделитель, используемый в командах, требующих два определяемых пользователем параметра (в данном случае название коллекции страниц и название страницы).",
-                    "updated": 1640160413029
                 }
             ]
         },
@@ -224,11 +189,6 @@
                     "language": "DE",
                     "text": "Superalgos Review - Your Review Title: dies ist der Docs Page Name; wir wiederholen Superalgos Review im Seitennamen, um die Wahrscheinlichkeit doppelter Namen zu verringern",
                     "updated": 1635149022701
-                },
-                {
-                    "language": "RU",
-                    "text": "Superalgos Review - Your Review Title: это название страницы (Docs Page Name); мы повторяем Superalgos Review в названии страницы, чтобы снизить вероятность дублирования названий.",
-                    "updated": 1640160523658
                 }
             ]
         }

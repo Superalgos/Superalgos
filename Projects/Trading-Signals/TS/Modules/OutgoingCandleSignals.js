@@ -58,7 +58,6 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
         if (socialTradingBot === undefined) { return }
         if (socialTradingBot.config === undefined) { return }
         let socialTradingBotCodeName = socialTradingBot.config.codeName
-        if (socialTradingBot === undefined) { return }
         if (socialTradingBot.signingAccount === undefined) { return }
 
         let signal = {

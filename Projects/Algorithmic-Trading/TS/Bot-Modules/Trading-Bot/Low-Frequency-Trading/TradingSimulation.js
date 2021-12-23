@@ -345,7 +345,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             }
             let finalTime = (new Date()).valueOf()
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000) + ' seconds.'
+                '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000 + ' seconds.')
 
             tradingSystemModuleObject.finalize()
             tradingRecordsModuleObject.finalize()

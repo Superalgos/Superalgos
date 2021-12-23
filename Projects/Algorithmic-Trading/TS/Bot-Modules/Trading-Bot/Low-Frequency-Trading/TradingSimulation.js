@@ -46,6 +46,12 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
     }
 
     function finalize() {
+        tradingSystemModuleObject.finalize()
+        tradingRecordsModuleObject.finalize()
+        tradingEpisodeModuleObject.finalize()
+        incomingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject.finalize()
+
         tradingSystem = undefined
         tradingEngine = undefined
         sessionParameters = undefined
@@ -64,77 +70,23 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         writeFiles,
     ) {
         try {
-
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime)
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime)
-
-            /* Setting up the candles array: The whole simulation is based on the array of candles at the time-frame defined at the session parameters. */
-            let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
-            let candles = chart[propertyName].candles
-
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
-                /*
-                We need to purge from the candles array all the candles from the previous day
-                that comes when processing daily files.
-                */
-                let dailyCandles = []
-                for (let i = 0; i < candles.length; i++) {
-                    let candle = candles[i]
-                    if (candle.begin >= TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.tradingEpisode.processDate.value) {
-                        dailyCandles.push(candle)
-                    }
-                }
-                candles = dailyCandles
-            } else {
-                candles = chart[propertyName].candles
-            }
-
             /* Object needed for heartbeat functionality */
             let heartbeat = {
                 currentDate: undefined,
                 previousDate: undefined
             }
-            /*
-            Estimation of the Initial Candle to Process in this Run.
-            */
-            let initialCandle
-            if (
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true &&
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
-                /* Estimate Initial Candle based on the timeRange configured for the session. */
-                let firstEnd = candles[0].end
-                let targetEnd = sessionParameters.timeRange.config.initialDatetime
-                let diff = targetEnd - firstEnd
-                let amount = diff / sessionParameters.timeFrame.config.value
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> initialDatetime = ' + sessionParameters.timeRange.config.initialDatetime)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> finalDatetime = ' + sessionParameters.timeRange.config.finalDatetime)
 
-                initialCandle = Math.trunc(amount)
-                if (initialCandle < 0) { initialCandle = 0 }
-                if (initialCandle > candles.length - 1) {
-                    /*
-                    This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available,
-                    meaning that the dataSet needs to be updated with more up-to-date data.
-                    */
-                    console.log('DEBUGGING ..................', initialCandle, candles.length)
-                    TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
-                    return
-                }
-            } else {
-                /*
-                In this case we already have at the last candle index the next candle to be
-                processed. We will just continue with this candle.
-                */
-                initialCandle = tradingEngine.tradingCurrent.tradingEpisode.candle.index.value
-            }
+            let candles = TS.projects.simulation.functionLibraries.simulationFunctions.setUpCandles(sessionParameters, chart, processIndex)
+            let initialCandle = TS.projects.simulation.functionLibraries.simulationFunctions.setUpInitialCandles(sessionParameters, tradingEngine, candles, processIndex)
             /*
             Main Simulation Loop
             */
             /* We are going to use this to exit the loop if needed. */
             let breakLoop = false
-
             /*
             We will assume that we are at the head of the market here. We do this
             because the loop could be empty and no validation is going to run. If the
@@ -143,12 +95,15 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             */
             tradingEngine.tradingCurrent.tradingEpisode.headOfTheMarket.value = true
             /*
+            To Measure the Loop Duration
+            */
+            let initialTime = (new Date()).valueOf()
+            /*
             This is the main simulation loop. It will go through the initial candle
             until one less than the last candle available. We will never process the last
             candle available since it is not considered a closed candle, but a candle
             that still can change. So effectively will be processing all closed candles.
             */
-            let initialTime = (new Date()).valueOf()
             for (let i = initialCandle; i < candles.length - 1; i++) {
                 tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = i
 
@@ -371,21 +326,12 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     }
                 }
             }
+            /*
+            To Measure the Loop Duration
+            */
             let finalTime = (new Date()).valueOf()
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000 + ' seconds.')
-
-            tradingSystemModuleObject.finalize()
-            tradingRecordsModuleObject.finalize()
-            tradingEpisodeModuleObject.finalize()
-            incomingTradingSignalsModuleObject.finalize()
-            outgoingTradingSignalsModuleObject.finalize()
-
-            tradingSystemModuleObject = undefined
-            tradingRecordsModuleObject = undefined
-            tradingEpisodeModuleObject = undefined
-            incomingTradingSignalsModuleObject = undefined
-            outgoingTradingSignalsModuleObject = undefined
 
             await writeFiles()
 

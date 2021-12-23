@@ -66,8 +66,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
     async function runSimulation(
         chart,
         market,
-        exchange,
-        writeFiles,
+        exchange
     ) {
         try {
             /* Object needed for heartbeat functionality */
@@ -105,54 +104,16 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             that still can change. So effectively will be processing all closed candles.
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
-                tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = i
 
-                /* This is the current candle the Simulation is working at. */
-                let candle = candles[tradingEngine.tradingCurrent.tradingEpisode.candle.index.value]
-                /*
-                Logging abount the current candle
-                */
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
-                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
-
+                let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(tradingEngine, candles, i, processIndex)
                 /*
                 We move the current candle we are standing at, to the trading engine data structure
                 to make it available to anyone, including conditions and formulas.
                 */
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
-                /*
-                Incoming Signals
-                */
-                if (
-                    tradingSystem.incomingSignals !== undefined &&
-                    tradingSystem.incomingSignals.incomingSignalReferences !== undefined &&
-                    tradingSystem.incomingSignals.incomingSignalReferences.length > 0
-                ) {
-                    /*
-                    This means that the user that defined the Trading System, wants it to be
-                    syncronized by signals comming from other bots.
 
-                    Check for the signal that would allow us to syncronize the simulation
-                    loop with the simulation loop of the bot sending us signals.
-                    */
-                    while (true) {
-                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(
-                            tradingSystem
-                        )
-                        let signal = signals[0]
-                        if (signal === undefined) {
-                            /*
-                            This means that the signal we are waiting for has not yet arrived, so
-                            we are going to wait for one second and check it again.
-                            */
-                            await SA.projects.foundations.utilities.asyncFunctions.sleep(500)
-                        } else {
-                            break
-                        }
-                    }
-                }
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopWithSignals(tradingSystem)
+
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(sessionParameters, tradingEngine, heartbeat, processIndex)
 
@@ -161,7 +122,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 if (TS.projects.simulation.functionLibraries.simulationFunctions.checkInitialDatetime(sessionParameters, tradingEngine, processIndex) === false) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> Candle Before the Initia Date Time @ ' + (new Date(candle.begin)).toUTCString())
+                        '[INFO] runSimulation -> loop -> Candle Before the Initial Date Time @ ' + (new Date(candle.begin)).toUTCString())
                     continue
                 }
 
@@ -332,8 +293,6 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             let finalTime = (new Date()).valueOf()
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000 + ' seconds.')
-
-            await writeFiles()
 
         } catch (err) {
             TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err

@@ -26,8 +26,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Esta página habla a cerca de  las mejores prácticas para construir y contribuir tutoriales de Superalgos. No cubre la mecanica actual de construir tutoriales. en lugar de eso está enfocado en lo que sería deseable.",
-                    "updated": 1633364195196
+                    "text": "Esta página habla acerca de las mejores prácticas para construir y contribuir tutoriales de Superalgos. No cubre la mecánica actual de construir tutoriales. en lugar de eso está enfocado en lo que sería deseable.",
+                    "updated": 1640113151245
                 },
                 {
                     "language": "RU",
@@ -55,8 +55,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En Superalgos, nosotros nos sentimos orgullosos de la cualidad del producto que estamos construyendo. La documentación y los tutoriales son una parte crucial de Superalgos.",
-                    "updated": 1633364296850
+                    "text": "En Superalgos, nosotros nos sentimos orgullosos de la calidad del producto que estamos construyendo. La documentación y los tutoriales son una parte crucial de Superalgos.",
+                    "updated": 1640113065328
                 },
                 {
                     "language": "RU",
@@ -72,8 +72,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Dicho esto, nosotros entendemos que se requiere de tiempo y esfuerzo para obtener un producto de cualidad por lo tanto, iteractuar sobre los primeros prototipos e implementar la retroalimentación en las primeras etapas es una buena manera de lograr el objetivo deseado de los estándares de cualidad.",
-                    "updated": 1633364481390
+                    "text": "Dicho esto, nosotros entendemos que se requiere de tiempo y esfuerzo para obtener un producto de calidad por lo tanto, interactuar sobre los primeros prototipos e implementar la retroalimentación en las primeras etapas es una buena manera de lograr el objetivo deseado de los estándares de cualidad.",
+                    "updated": 1640113076479
                 },
                 {
                     "language": "RU",
@@ -89,8 +89,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando construye un tutorial para Superalgos, se convierte en quien mantiene el tutorial. Es su reponsabilidad ,mantener el tutorial actualizado con el sistema, e implementar los comentarios que los usuarios pueden compartir! Su tutorial debe convertirse en la fuente fundamental para aprender el tópico con el cual está relacionado.",
-                    "updated": 1633364765692
+                    "text": "Cuando construye un tutorial para Superalgos, se convierte en quien mantiene el tutorial. Es su responsabilidad, mantener el tutorial actualizado con el sistema, e implementar los comentarios que los usuarios pueden compartir! Su tutorial debe convertirse en la fuente fundamental para aprender el tópico con el cual está relacionado.",
+                    "updated": 1640113096575
                 },
                 {
                     "language": "RU",
@@ -147,8 +147,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el tutorial your tutorial trata con datos,es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendran los dtos y pueden ir a través del tutorial con mayor facilidad.",
-                    "updated": 1633365432578
+                    "text": "Si el tutorial trata con datos, es lo mejor utilizar el mismo exchange, market, y rango de datoss, ya en uso en los tutoriales de Getting Started Plugin Workspace. De este modo, los usuarios ya tendrán los datos y pueden ir a través del tutorial con mayor facilidad.",
+                    "updated": 1640113215381
                 },
                 {
                     "language": "RU",
@@ -209,8 +209,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Algunos tópicos son amplios, tienen ramificaciones, o requieren un análisis mas profundo para ser cubiertos por completo. en estos casos, la planificación de una serie de tutoriales es lo ideal.",
-                    "updated": 1633365921291
+                    "text": "Algunos tópicos son amplios, tienen ramificaciones, o requieren un análisis más profundo para ser cubiertos por completo. en estos casos, la planificación de una serie de tutoriales es lo ideal.",
+                    "updated": 1640113411134
                 },
                 {
                     "language": "RU",
@@ -242,8 +242,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El primer tutorial en a serie da una introducción amplia del tópico, mayormente en términos conceptuales. Esto permite a los usuarios ver la  la idea completa y aprender a cerca de como los conceptos han sido estructurados y porque están estructurados así.",
-                    "updated": 1633366158719
+                    "text": "El primer tutorial en la serie da una introducción amplia del tópico, mayormente en términos conceptuales. Esto permite a los usuarios ver la la idea completa y aprender acerca de cómo los conceptos han sido estructurados y porque están estructurados así.",
+                    "updated": 1640113306197
                 },
                 {
                     "language": "RU",
@@ -259,8 +259,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El segundo tutorial en la serie propone un ejercicio que incuye varios tutoriales para desarrollar e implementar. Esto es, el tutorial sienta las bases de lo que la serie cubrirá.",
-                    "updated": 1633366319793
+                    "text": "El segundo tutorial en la serie propone un ejercicio que incluye varios tutoriales para desarrollar e implementar. Esto es, el tutorial sienta las bases de lo que la serie cubrirá.",
+                    "updated": 1640111459663
                 },
                 {
                     "language": "RU",
@@ -276,8 +276,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El tutorials siguiente en la serie disecciona el ejercicio propuesto anteriormente y cubre con un nivel fino de detalles la implementación. Al mism tiempo, ellos cubren todo el contexto y muchos temas laterales.",
-                    "updated": 1633366468389
+                    "text": "El tutorial siguiente en la serie disecciona el ejercicio propuesto anteriormente y cubre con un nivel fino de detalles la implementación. Al mismo tiempo, ellos cubren todo el contexto y muchos temas laterales.",
+                    "updated": 1640113344402
                 },
                 {
                     "language": "RU",
@@ -293,8 +293,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Toda la serie enhebra un tema común y lo desarrolla desde lo más simplea los conceptos más complejos, paso a paso. Una serie de tutoriales debe ser exhaustiva y ocacionalmente cubrir el tópico completo. Debe convertirse en la herramienta  definitiva para aprender sobre el tema!",
-                    "updated": 1633366741272
+                    "text": "Toda la serie enhebra un tema común y lo desarrolla desde lo más simple a  los conceptos más complejos, paso a paso. Una serie de tutoriales debe ser exhaustiva y ocasionalmente cubrir el tópico completo. Debe convertirse en la herramienta definitiva para aprender sobre el tema!",
+                    "updated": 1640113505527
                 },
                 {
                     "language": "RU",
@@ -310,8 +310,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Consulte a los project maintainers cuúal serían buenos nombres para cada tutorial de la serie. Nombrar tutoriales con nombres claros y descriptivos es importante.",
-                    "updated": 1633366871577
+                    "text": "Consulte a los que mantienen el proyecto (project maintainers) cual serían buenos nombres para cada tutorial de la serie. Nombrar tutoriales con nombres claros y descriptivos es importante.",
+                    "updated": 1640111508245
                 },
                 {
                     "language": "RU",
@@ -356,8 +356,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Es en esta etapa temprana, que no podemos darnos el lujo de duplicar esfuerzos y construir tutorials diferentes para distintas clases de aprendices. Tenemos que elegir el método que mejor sirva al projecto.",
-                    "updated": 1633367412845
+                    "text": "Es en esta etapa temprana, que no podemos darnos el lujo de duplicar esfuerzos y construir tutoriales diferentes para distintas clases de aprendices. Tenemos que elegir el método que mejor sirva al proyecto.",
+                    "updated": 1640113524529
                 },
                 {
                     "language": "RU",
@@ -373,8 +373,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Elegimos enfocarnos en construirtutoriales comprensibles que todos puedan seguir y que no deje a nadie atrás. Creemos que un tutorial que va lento, cubriendo cada detalle, y tomándose el tiempo de explicar los matices es el enfoque correcto en esta etapa. Al construir tutoriales de esta manera, garantizamos que aquellos que están dispuestos a invertir tiempo en aprender el sistema tengan el material adecuado para convertirse rápidamente en usuarios poderosos.",
-                    "updated": 1633437811992
+                    "text": "Elegimos enfocarnos en construir tutoriales comprensibles que todos puedan seguir y que no deje a nadie atrás. Creemos que un tutorial que va lento, cubriendo cada detalle, y tomándose el tiempo de explicar los matices es el enfoque correcto en esta etapa. Al construir tutoriales de esta manera, garantizamos que aquellos que están dispuestos a invertir tiempo en aprender el sistema tengan el material adecuado para convertirse rápidamente en usuarios poderosos.",
+                    "updated": 1640111615070
                 },
                 {
                     "language": "RU",
@@ -419,8 +419,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Analicemos algunos de los detalles sobre la construcción de los tutorials para Superalgos!",
-                    "updated": 1633368160422
+                    "text": "Analicemos algunos de los detalles sobre la construcción de los tutoriales para Superalgos!",
+                    "updated": 1640113587890
                 },
                 {
                     "language": "RU",
@@ -436,8 +436,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Los tutoriales de Superalgos han evolucionado a lo largo de varios meses valiosos feedbacks de los primeros usuarios. Sentimos que hemos encontrado un modo propio, y hemos comenzado a desarrollar un estilo en el modo en que utilizamos el espacio disponible en cada paso de un tutorial. A continuaciòn algunas notas que le ayudará a construir tutoriales que combinen con el formato de los tutoriales existentes.",
-                    "updated": 1633437837617
+                    "text": "Los tutoriales de Superalgos han evolucionado a lo largo de varios meses valiosos feedbacks de los primeros usuarios. Sentimos que hemos encontrado un modo propio, y hemos comenzado a desarrollar un estilo en el modo en que utilizamos el espacio disponible en cada paso de un tutorial. A continuaciòn algunas notas que le ayudarán a construir tutoriales que combinen con el formato de los tutoriales existentes.",
+                    "updated": 1640113597334
                 },
                 {
                     "language": "RU",
@@ -465,8 +465,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La meta final de los tutoriales es proveer a los usuarios con una experiencia de aprendizaje práctica que cubra el tópico al detalle. En terminos generales, sabemos que un tutorial es bueno — o que ha alcanzado su estado maduro — cuando los usuarios no hacen preguntas a cerca de ellos en el Support Group.",
-                    "updated": 1633368718874
+                    "text": "La meta final de los tutoriales es proveer a los usuarios con una experiencia de aprendizaje práctica que cubra el tópico al detalle. En términos generales, sabemos que un tutorial es bueno — o que ha alcanzado su estado maduro — cuando los usuarios no hacen preguntas acerca de ellos en el Support Group.",
+                    "updated": 1640111822806
                 },
                 {
                     "language": "RU",
@@ -482,8 +482,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Se preciso exacto con el lenguaje. Lee lo que ha escrito una y otra vez en búsqueda de frases que pueden no ser entendidas facilmente, o que puedan ser interpretadas de diferentes maneras. Mejora las oraciones para acerlas lo mas claras posibles. Recuerde, mientras menos clara sea su escritura, más preguntas nosotros tendremos en el  Support Group.",
-                    "updated": 1633368994567
+                    "text": "Sea preciso, exacto con el lenguaje. Lea lo que ha escrito una y otra vez en búsqueda de frases que pueden no ser entendidas fácilmente, o que puedan ser interpretadas de diferentes maneras. Mejore las oraciones para hacerlas lo más claras posibles. Recuerde, mientras menos clara sea su escritura, más preguntas  tendremos  nosotros en el Support Group.",
+                    "updated": 1640113692593
                 },
                 {
                     "language": "RU",
@@ -498,8 +498,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Esté preparado para itneractuar una y otra vez hasta que el tutorial se estabilice. Eso sucederá cuando no haya más preguntas  acerca de el tópico en el Support Group!",
-                    "updated": 1633369113576
+                    "text": "Esté preparado para interactuar una y otra vez hasta que el tutorial se estabilice. Eso sucederá cuando no haya más preguntas acerca del tópico en el Support Group!",
+                    "updated": 1640113776665
                 },
                 {
                     "language": "RU",
@@ -525,8 +525,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Use las diferentes secciones de la página y los distintos estilos de párrafos para popósitos concretos. Esto a los usuarios a acostumbrarse a cierto formato  para que sepan que esperar en cada sección de la página. La consistencia en el modo en que la información es enviada hace que los tutoriales sean más útiles!",
-                    "updated": 1633369382341
+                    "text": "Use las diferentes secciones de la página y los distintos estilos de párrafos para popósitos concretos. Esto ayudará a los usuarios a acostumbrarse a cierto formato para qué sepan que esperar en cada sección de la página. La consistencia en el modo en que la información es enviada hace que los tutoriales sean más útiles!",
+                    "updated": 1640113829127
                 },
                 {
                     "language": "RU",
@@ -553,8 +553,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "El box de definición es el espacio a la derecha del ícono, debajo el título. Use este espacio para introducir a cerca de qué es el paso, esto es, establecer la historia que el paso contrará, o proveer algún contexto básico.",
-                    "updated": 1633369713286
+                    "text": "El box de definición es el espacio a la derecha del ícono, debajo del título. Use este espacio para introducir acerca de qué es el paso, esto es, establecer la historia que el paso contará, o proveer algún contexto básico.",
+                    "updated": 1640113873421
                 },
                 {
                     "language": "RU",
@@ -570,8 +570,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Para usar la box de definición correctamente, explique el contexto en cuatro o cinco lineas. Evite una o dos lineas o sobrepasar las cinco.",
-                    "updated": 1633369703258
+                    "text": "Para usar la box de definición correctamente, explique el contexto en cuatro o cinco líneas. Evite una o dos líneas o sobrepasar las cinco.",
+                    "updated": 1640113929610
                 },
                 {
                     "language": "RU",
@@ -598,8 +598,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La sección más importante de cualquier paso es el llamad a la acción, esto es, la instrucción que el usuario debe seguir para progresar en el tutorial. Mauchas veces los usuarios rehacen los tutoriales o vuelven atrás un par de pasos para asegurarse que hicieron todo correctamente.",
-                    "updated": 1633369877553
+                    "text": "La sección más importante de cualquier paso es el llamado a la acción, esto es, la instrucción que el usuario debe seguir para progresar en el tutorial. Muchas veces los usuarios rehacen los tutoriales o vuelven atrás un par de pasos para asegurarse que hicieron todo correctamente.",
+                    "updated": 1640111708495
                 },
                 {
                     "language": "RU",
@@ -614,8 +614,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Siempre respete el estilo — el que está en este párrafo — para el llamado a la acción!  Al igual, trate de evitar usar este estilo para ninguna otra cosa- Si un paso en particular no tiene llamad a la acción, entonces este estilo no debería estar para nada!",
-                    "updated": 1633370216971
+                    "text": "Siempre respete el estilo — el que está en este párrafo — para el llamado a la acción! Al igual, trate de evitar usar este estilo para ninguna otra cosa- Si un paso en particular no tiene llamado a la acción, entonces este estilo no debería estar para nada!",
+                    "updated": 1640111715747
                 },
                 {
                     "language": "RU",
@@ -664,8 +664,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En algunos casos, puede necesitar que el usuario haga una acción muy simple para que el principal llamado a la acción pueda realizarse. En esos casos, puede utilizar la definition box para decirle al usuario como estar listo para ejecutar el llamado a la acción, que será entregado mas adelante en la ´pagina.",
-                    "updated": 1633438618455
+                    "text": "En algunos casos, puede necesitar que el usuario haga una acción muy simple para que el principal llamado a la acción pueda realizarse. En esos casos, puede utilizar la definition box para decirle al usuario como estar listo para ejecutar el llamado a la acción, que será entregado más adelante en la ´página.",
+                    "updated": 1640113942422
                 },
                 {
                     "language": "RU",
@@ -680,9 +680,15 @@
             "updated": 1617906135945,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Alternating Colors  ( Alternando colores)",
+                    "updated": 1640111782340
+                },
+                {
                     "language": "RU",
                     "text": "Чередование цветов",
                     "updated": 1640270393606
+            
                 }
             ]
         },
@@ -787,8 +793,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Cuando necesite que el usuario aprenda un concepto específico  para obtener un contexto adecuado del tema, no repita en el tutorial la información que ya existe en los Docs. Duplicar la información no es una buena idea, ya que hace mas difícil mantener los Docs y los tutoriales.",
-                    "updated": 1633439488393
+                    "text": "Cuando necesite que el usuario aprenda un concepto específico para obtener un contexto adecuado del tema, no repita en el tutorial la información que ya existe en los Docs. Duplicar la información no es una buena idea, ya que hace más difícil mantener los Docs y los tutoriales.",
+                    "updated": 1640114025286
                 },
                 {
                     "language": "RU",
@@ -804,8 +810,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Pedirle al usuario leer una página o una parte de la página en los  Docs es el acercamiento adecado. Esto tiene el beneficio adicional de hacer que el usuario se de cuenta  de que los Docs también cubren el tópico.",
-                    "updated": 1633439691786
+                    "text": "Pedirle al usuario leer una página o una parte de la página en los Docs es el acercamiento adecuado. Esto tiene el beneficio adicional de hacer que el usuario se de cuenta de que los Docs también cubren el tópico.",
+                    "updated": 1640114018246
                 },
                 {
                     "language": "RU",
@@ -867,8 +873,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Asegúrese de usar esta cualidad a máximo, pero tambien intente mantener un cierto balance!",
-                    "updated": 1633440365877
+                    "text": "Asegúrese de usar esta cualidad al máximo, pero también intente mantener un cierto balance!",
+                    "updated": 1640114093816
                 },
                 {
                     "language": "RU",
@@ -884,8 +890,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Si el tutorial está hablando de jerarquías, un grupo de nodos en particular, asegúrese que el paso del tutorial lo lleve a ese lugar en el Workspace. Esto agrega un elemento visual a la explaicación y ayuda al usuario a familiarizarse con la estructura de datos involucrada.",
-                    "updated": 1633440573331
+                    "text": "Si el tutorial está hablando de jerarquías, un grupo de nodos en particular, asegúrese que el paso del tutorial lo lleve a ese lugar en el Workspace. Esto agrega un elemento visual a la explicación y ayuda al usuario a familiarizarse con la estructura de datos involucrada.",
+                    "updated": 1640114145589
                 },
                 {
                     "language": "RU",
@@ -918,8 +924,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Por otro lado, el tutorial debería cuidar de no hacer cosas que no lleven a aprender nada reevante del contexto del tutorial. Realizar estas acciones directamente puede ayudar a mantener al usuario concentrado en lo que más importa.",
-                    "updated": 1633440988592
+                    "text": "Por otro lado, el tutorial debería cuidar de no hacer cosas que no lleven a aprender nada relevante del contexto del tutorial. Realizar estas acciones directamente puede ayudar a mantener al usuario concentrado en lo que más importa.",
+                    "updated": 1640114167809
                 },
                 {
                     "language": "RU",
@@ -935,8 +941,8 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "En algunos casos, las acciones que los usuarios realizan tienene efectos determinados. Mostrales a los usuarios los resultados de sus acciones inmediatamente después de haber completado una tarea es de gran valor educativo. Por ejemplo, si el usuarioestá configurando una nueva Time Machine en un tutorial a cerca de el Charting Space, mostrale a a os usuarios como la  time machine aparece en el charting space inmediatamente después de crearla. Si los usuarios configuran una Timeline Chart que referencia a una particular Data Mine, mostrarles a los usuarios como la nueva  Timeline Chart aparece dentro de la Time Machine, y permitéles verificar que los administradores de capas esperados están allí. no tengas miedo de ir hacia atrás y hacia adelante... Ese es el punto después de todo!",
-                    "updated": 1633441873892
+                    "text": "En algunos casos, las acciones que los usuarios realizan tienene efectos determinados. Mostrarles a los usuarios los resultados de sus acciones inmediatamente después de haber completado una tarea es de gran valor educativo. Por ejemplo, si el usuario está configurando una nueva Time Machine en un tutorial acerca de el Charting Space, mostrarle a los usuarios como la time machine aparece en el charting space inmediatamente después de crearla. Si los usuarios configuran una Timeline Chart que referencia a una particular Data Mine, mostrarles a los usuarios como la nueva Timeline Chart aparece dentro de la Time Machine, y permíteles verificar que los administradores de capas esperados están allí. no tengas miedo de ir hacia atrás y hacia adelante... Ese es el punto después de todo!",
+                    "updated": 1640114293366
                 },
                 {
                     "language": "RU",
@@ -963,6 +969,11 @@
             "updated": 1617731953773,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "El sistema reconoce el nombre de todas las entidades que tienen una página de documentos cuando el nombre de la entidad se escribe en mayúsculas y minúsculas. Cuando eso sucede, el sistema crea automáticamente una información sobre herramientas para la frase. Este es un recurso valioso, ya que proporciona un contexto que no necesita explicar.",
+                    "updated": 1640109235581
+                },
+                {
                     "language": "RU",
                     "text": "Система распознает имена всех объектов, у которых есть страница документов Docs Page, когда имя объекта написано в регистре заголовка. Когда это происходит, система автоматически создает всплывающую подсказку для фразы. Это ценный ресурс, поскольку он предоставляет контекст, который вам не нужно объяснять.",
                     "updated": 1640272283985
@@ -973,6 +984,11 @@
             "style": "Text",
             "text": "Make sure you use this resource wisely, as too many tooltips on a single tutorial page may be overwhelming, and probably irrelevant.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Asegúrese de utilizar este recurso con prudencia, ya que demasiada información sobre herramientas en una sola página de tutorial puede resultar abrumadora y probablemente irrelevante.",
+                    "updated": 1640109266196
+                },
                 {
                     "language": "RU",
                     "text": "Используйте этот ресурс с умом, поскольку слишком большое количество подсказок на одной странице учебника может быть чрезмерным и, возможно, неактуальным.",
@@ -986,6 +1002,11 @@
             "updated": 1617733407351,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Cuando crea que la información sobre herramientas es relevante, escriba el nombre de la entidad en mayúsculas y minúsculas. Si la información sobre herramientas no es relevante, escriba el nombre de la entidad en minúsculas.",
+                    "updated": 1640109287587
+                },
+                {
                     "language": "RU",
                     "text": "Если вы считаете, что подсказка уместна, напишите название сущности в заглавном регистре. Если подсказка не имеет значения, напишите название сущности в нижнем регистре.",
                     "updated": 1640272351376
@@ -997,6 +1018,11 @@
             "text": "Naming of Nodes",
             "updated": 1617731585276,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Naming of Nodes  (Nombrando los nodos)",
+                    "updated": 1640109314526
+                },
                 {
                     "language": "RU",
                     "text": "Присвоение имен узлам",
@@ -1010,6 +1036,11 @@
             "updated": 1617732614881,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Superalgos es un sistema complejo. Ayudar a los usuarios a desarrollar buenos hábitos organizativos es muy deseable. Cuantos más usuarios de alto nivel podamos ayudar a formar, más poderoso se vuelve el proyecto.",
+                    "updated": 1640109341120
+                },
+                {
                     "language": "RU",
                     "text": "Superalgos - это сложная система. Очень желательно помочь пользователям выработать хорошие организационные навыки. Чем больше пользователей высшего уровня мы можем помочь сформировать, тем мощнее становится проект.",
                     "updated": 1640272438547
@@ -1021,6 +1052,11 @@
             "text": "When users create new data structures, it's good practice to have them name the relevant nodes. This is particularly important with nodes that pass on their names through references to other nodes.",
             "updated": 1617733435330,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando los usuarios crean nuevas estructuras de datos, es una buena práctica que nombren los nodos relevantes. Esto es particularmente importante con los nodos que transmiten sus nombres a través de referencias a otros nodos.",
+                    "updated": 1640109366248
+                },
                 {
                     "language": "RU",
                     "text": "Когда пользователи создают новые структуры данных, хорошей практикой является присвоение имен соответствующим узлам. Это особенно важно для узлов, которые передают свои имена через ссылки на другие узлы.",
@@ -1034,6 +1070,11 @@
             "updated": 1617731598259,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Asegúrese de que su tutorial vaya más allá y recuerde a los usuarios que nombren ese tipo de nodos. Proponer un nombre específico es ideal. Recuerde que es posible que el usuario no sepa qué viene a continuación o para qué se utiliza el nodo en el momento de la creación, por lo que es posible que no sepa cuál puede ser un nombre relevante. Pero lo hace, por lo que puede proponer un nombre que sea coherente con el objetivo del tutorial.",
+                    "updated": 1640109408736
+                },
+                {
                     "language": "RU",
                     "text": "Убедитесь, что ваше руководство прилагает дополнительные усилия и напоминает пользователям о необходимости присвоить названия таким узлам. Идеальным вариантом является предложение конкретного названия. Помните, что пользователь может не знать, что будет дальше или для чего будет использоваться узел в момент его создания, поэтому он может не знать, какое название может быть уместным. Но вы знаете, поэтому вы можете предложить название, соответствующее цели учебника.",
                     "updated": 1640272686177
@@ -1045,6 +1086,11 @@
             "text": "Look & Feel",
             "updated": 1617722154194,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Look & Feel  (Mire y sienta)",
+                    "updated": 1640109438059
+                },
                 {
                     "language": "RU",
                     "text": "Внешний вид и восприятие",
@@ -1062,6 +1108,11 @@
             "updated": 1617733474625,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Existe un debate filosófico sobre si la belleza es objetiva o subjetiva. Algunas personas piensan que la belleza está en los ojos del espectador, mientras que otras creen que hay cosas inherentemente hermosas.",
+                    "updated": 1640109463696
+                },
+                {
                     "language": "RU",
                     "text": "Существует философский спор о том, является ли красота объективной или субъективной. Некоторые люди считают, что красота находится в глазах смотрящего, в то время как другие полагают, что существуют изначально красивые вещи.",
                     "updated": 1640272741532
@@ -1073,6 +1124,11 @@
             "text": "Whatever the case may be, we want the overall look & feel of tutorials to be consistent!",
             "updated": 1617733495986,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cualquiera que sea el caso, queremos que el aspecto general de los tutoriales sea coherente.",
+                    "updated": 1640109487182
+                },
                 {
                     "language": "RU",
                     "text": "Как бы там ни было, мы хотим, чтобы общий вид и восприятие учебников были одинаковыми!",
@@ -1086,6 +1142,11 @@
             "updated": 1617722868882,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Aquí hay una lista de requisitos que ayudan a que los tutoriales sean consistentes en su apariencia:",
+                    "updated": 1640109538015
+                },
+                {
                     "language": "RU",
                     "text": "Вот список требований, которые помогают учебным пособиям быть единообразными в своем внешнем виде:",
                     "updated": 1640272834101
@@ -1096,6 +1157,11 @@
             "style": "List",
             "text": "Always use an icon to illustrate the step. Sometimes the appropriate icon is the one corresponding to the node the user is working with. Other times you may use icons figuratively, playing with alternate meanings of what the drawing may represent.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Utilice siempre un icono para ilustrar el paso. A veces, el icono apropiado es el correspondiente al nodo con el que está trabajando el usuario. En otras ocasiones, puede utilizar iconos en sentido figurado, jugando con significados alternativos de lo que puede representar el dibujo.",
+                    "updated": 1640109510421
+                },
                 {
                     "language": "RU",
                     "text": "Всегда используйте иконку для иллюстрации шага. Иногда подходящим значком является тот, который соответствует узлу, с которым работает пользователь. В других случаях вы можете использовать значки образно, играя с альтернативными значениями того, что может представлять рисунок.",
@@ -1109,6 +1175,11 @@
             "updated": 1617733584684,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Evite las páginas de pasos monumentales. Los pasos con muy poco contenido parecen vacíos y se sienten extraños. No necesita sentir el espacio con galimatías o información innecesaria. En su lugar, intente utilizar el espacio para proporcionar contexto para el llamado a la acción. Explique por qué se le pide al usuario que haga esto o aquello. Informe al usuario qué se puede esperar de la acción, etc.",
+                    "updated": 1640109616502
+                },
+                {
                     "language": "RU",
                     "text": "Избегайте страниц с шагами небольшим содержанием, они кажутся пустыми и кажутся странными. Вам не нужно заполнять пространство тарабарщиной или ненужной информацией. Вместо этого постарайтесь использовать пространство для предоставления контекста призыва к действию. Объясните, почему пользователя просят сделать то или иное действие. Дайте пользователю понять, что можно ожидать от этого действия и так далее.",
                     "updated": 1640273694929
@@ -1120,6 +1191,11 @@
             "text": "As a corollary of the above, the opposite case may be problematic too. That is, when the content barely fits the page and gets too close to the row of buttons fixed at the bottom of each step. The problem is that some browsers / OS combinations render styles slightly differently, and what may seem close to the buttons in one system may overlap the buttons in the next. Try to level at least one full empty line — preferably two.",
             "updated": 1617733668851,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Como corolario de lo anterior, el caso contrario también puede ser problemático. Es decir, cuando el contenido apenas cabe en la página y se acerca demasiado a la fila de botones fijada en la parte inferior de cada paso. El problema es que algunas combinaciones de navegadores / sistemas operativos representan los estilos de manera ligeramente diferente, y lo que puede parecer cercano a los botones de un sistema puede superponerse a los botones del siguiente. Intente nivelar al menos una línea vacía completa, preferiblemente dos.",
+                    "updated": 1640109655881
+                },
                 {
                     "language": "RU",
                     "text": "Как следствие вышесказанного, обратный случай также может быть проблематичным. То есть, когда содержимое едва умещается на странице и слишком близко подходит к ряду кнопок, закрепленных внизу каждого шага. Проблема заключается в том, что некоторые комбинации браузер / оперционная система отображают стили немного по-разному, и то, что может показаться близко к кнопкам в одной системе, может перекрывать их в другой. Постарайтесь выровнять хотя бы одну полную пустую строку, а лучше две.",
@@ -1133,6 +1209,11 @@
             "updated": 1617723650896,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "No establezca dos párrafos consecutivos con el mismo estilo. La única excepción son las listas de viñetas. Incluso el estilo de texto del documento( Docs Text Style) no está formateado para verse bien como párrafos consecutivos en el contexto de un tutorial (no hay relleno entre párrafos).",
+                    "updated": 1640109712414
+                },
+                {
                     "language": "RU",
                     "text": "Не выделяйте два следующих друг за другом абзаца одним и тем же стилем. Единственное исключение - это списки. Даже стиль текста Docs не сформирован так, чтобы хорошо смотреться в качестве последовательных абзацев в контексте учебника (между абзацами нет прокладок).",
                     "updated": 1640273977383
@@ -1144,6 +1225,11 @@
             "text": "Leave at least one line empty before the buttons at the bottom of the tutorial window. Otherwise, in other browsers, the content may overflow the window.",
             "updated": 1620646218773,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Deje al menos una línea vacía antes de los botones en la parte inferior de la ventana del tutorial. De lo contrario, en otros navegadores, el contenido puede desbordar la ventana.",
+                    "updated": 1640109727420
+                },
                 {
                     "language": "RU",
                     "text": "Оставьте пустой хотя бы одну строку перед кнопками в нижней части окна учебника. В противном случае в других браузерах содержимое может выйти за пределы окна.",
@@ -1168,6 +1254,11 @@
             "updated": 1617902503383,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Utilice siempre mayúsculas y minúsculas adecuadas para los títulos. Pero, ¿qué es exactamente el caso de título adecuado? Aceptemos la propuesta estándar en esta publicación de blog:",
+                    "updated": 1640109742566
+                },
+                {
                     "language": "RU",
                     "text": "Всегда используйте правильный регистр заголовков. Но что именно является правильным регистром заголовка? Давайте договоримся о стандартном варианте, предложенном в этой статье блога:",
                     "updated": 1640274069802
@@ -1185,6 +1276,11 @@
             "updated": 1617902549247,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Los títulos se ven mejor cuando ocupan una sola línea. ¡Utilice títulos de dos líneas solo si es estrictamente necesario!",
+                    "updated": 1640109761257
+                },
+                {
                     "language": "RU",
                     "text": "Заголовки лучше всего смотрятся, когда они занимают одну строку. Используйте двустрочные заголовки только в случае крайней необходимости!",
                     "updated": 1640274087733
@@ -1197,6 +1293,11 @@
             "updated": 1617905396529,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Unique Identifiers  ( Identificadores Unicos)",
+                    "updated": 1640109784229
+                },
+                {
                     "language": "RU",
                     "text": "Уникальные идентификаторы",
                     "updated": 1640274101948
@@ -1207,6 +1308,11 @@
             "style": "Important",
             "text": "Remember that the title of a tutorial step is also the unique identifier of the corresponding Docs Page. This means that the system does not allow for duplicate titles. Avoid at all costs naming pages after single words or short phrases. Let's leave those unique names for particular cases that may merit the use of such special phrases.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Recuerde que el título de un paso del tutorial es también el identificador único de la página de documentos correspondiente. Esto significa que el sistema no permite títulos duplicados. Evite a toda costa nombrar páginas después de palabras sueltas o frases cortas. Dejemos esos nombres únicos para casos particulares que pueden ameritar el uso de frases tan especiales.",
+                    "updated": 1640109811000
+                },
                 {
                     "language": "RU",
                     "text": "Помните, что название шага учебника также является уникальным идентификатором соответствующей страницы Docs Page. Это означает, что система не допускает дублирования названий. Избегайте любой ценой называть страницы одним словом или короткой фразой. Давайте оставим эти уникальные имена для особых случаев, которые могут заслуживать использования таких специальных фраз.",
@@ -1219,6 +1325,11 @@
             "text": "For the same reason, all titles should begin with the following fixed string of text:",
             "updated": 1617905464492,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por la misma razón, todos los títulos deben comenzar con la siguiente cadena de texto fija:",
+                    "updated": 1640109828737
+                },
                 {
                     "language": "RU",
                     "text": "По этой же причине все заголовки должны начинаться со следующей фиксированной строки текста:",
@@ -1237,6 +1348,11 @@
             "updated": 1617905844332,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Lo anterior ayuda a reservar algunas frases para contextos diferentes a los tutoriales.",
+                    "updated": 1640109842831
+                },
+                {
                     "language": "RU",
                     "text": "Вышеизложенное помогает зарезервировать некоторые фразы для контекстов, отличных от учебных пособий.",
                     "updated": 1640274262809
@@ -1248,6 +1364,11 @@
             "text": "Don't worry! Your titles will not look ugly in the tutorial, as the system filters the prefix and doesn't show it in the tutorial window!",
             "updated": 1617905922481,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡No te preocupes! ¡Tus títulos no se verán feos en el tutorial, ya que el sistema filtra el prefijo y no lo muestra en la ventana del tutorial!",
+                    "updated": 1640109862813
+                },
                 {
                     "language": "RU",
                     "text": "Не волнуйтесь! Ваши заголовки не будут выглядеть некрасиво в учебнике, так как система фильтрует префикс и не показывает его в окне учебника!",
@@ -1273,6 +1394,11 @@
             "updated": 1617734204593,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Hay al menos dos razones por las que es deseable contar con tutoriales con revisión ortográfica y gramatical:",
+                    "updated": 1640109910214
+                },
+                {
                     "language": "RU",
                     "text": "Есть как минимум две причины, по которым желательно иметь учебники с проверкой орфографии и грамматики:",
                     "updated": 1640274316991
@@ -1283,6 +1409,11 @@
             "style": "List",
             "text": "Proper language speaks to the quality of the product.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "El lenguaje adecuado habla de la calidad del producto.",
+                    "updated": 1640109891642
+                },
                 {
                     "language": "RU",
                     "text": "Грамотное изложение говорит о качестве продукта.",
@@ -1295,6 +1426,11 @@
             "text": "Users who don't speak English may be using online translators, which perform well only when they have a proper source.",
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Los usuarios que no hablan inglés pueden estar usando traductores en línea, que funcionan bien solo cuando tienen una fuente adecuada.",
+                    "updated": 1640109880071
+                },
+                {
                     "language": "RU",
                     "text": "Пользователи, не владеющие английским языком, могут использовать онлайн-переводчики, которые хорошо работают только при правильном исходном тексте.",
                     "updated": 1640274534629
@@ -1306,6 +1442,11 @@
             "text": "Always use a grammar and spell-checker to make sure your tutorial is as correct as it may be!",
             "updated": 1617734220351,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "¡Utilice siempre un corrector gramatical y ortográfico para asegurarse de que su tutorial sea lo más correcto posible!",
+                    "updated": 1640109928532
+                },
                 {
                     "language": "RU",
                     "text": "Всегда используйте грамматику и средство проверки правописания, чтобы убедиться, что ваше руководство настолько правильное, насколько это возможно!",
@@ -1331,6 +1472,11 @@
             "updated": 1621877951283,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "La primera página de un tutorial es una página que describe brevemente de qué trata el tutorial, utilizando el campo Resumen. La página debe tener el mismo nombre que el tutorial y terminar con la palabra `Tutorial`, ya que el resumen que ingrese servirá como información sobre herramientas cuando se menciona el tutorial en los Documentos.",
+                    "updated": 1640114342532
+                },
+                {
                     "language": "RU",
                     "text": "Самая первая страница учебника - это страница, которая кратко описывает, о чем учебник, с помощью поля Summary. Страница должна иметь то же название, что и учебник, и заканчиваться словом 'Tutorial', поскольку введенное вами резюме будет служить подсказкой при упоминании учебника в Docs.",
                     "updated": 1640274677965
@@ -1341,6 +1487,11 @@
             "style": "Callout",
             "text": "For example, the first page of the Welcome to Superalgos! tutorial is Welcome to Superalgos Tutorial.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Por ejemplo, la primera página del ¡Bienvenido a Superalgos! tutorial es Welcome to Superalgos Tutorial.",
+                    "updated": 1640109973544
+                },
                 {
                     "language": "RU",
                     "text": "Например, первая страница учебника Welcome to Superalgos Tutorial - \"Welcome to Superalgos!\".",
@@ -1354,6 +1505,11 @@
             "updated": 1621875043974,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "La página debe tener un Acerca de esto Tutorial encabezado indicando en que Workspace el tutorial está disponible y quién es el mantenedor, preferiblemente con detalles de contacto básicos (nombre de usuario de Github, Telegram o Discord).",
+                    "updated": 1640110527097
+                },
+                {
                     "language": "RU",
                     "text": "На странице должен быть заголовок About This Tutorial, в котором указывается, в каком рабочем пространстве доступен учебник, и кто является его сопровождающим, желательно с основной контактной информацией (имя пользователя Github, Telegram или Discord).",
                     "updated": 1640274941128
@@ -1366,6 +1522,11 @@
             "updated": 1621875007923,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Mirar la página del tutorial de bienvenida como ejemplo (Welcome to Superalgos Tutorial).",
+                    "updated": 1640114413800
+                },
+                {
                     "language": "RU",
                     "text": "Пример смотрите на странице Welcome to Superalgos Tutorial.",
                     "updated": 1640274960693
@@ -1376,6 +1537,11 @@
             "style": "Title",
             "text": "The First Few Steps",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "The First Few Steps   (Los primeros pasos)",
+                    "updated": 1640110548334
+                },
                 {
                     "language": "RU",
                     "text": "Первые несколько шагов",
@@ -1388,6 +1554,11 @@
             "text": "Tutorials should start with a welcome message, and a clear explanation of what the tutorial is about, including a brief description of what the user will do while following the tutorial, and what lessons will be learned. No need to compress everything into a single step... two and even three steps are fine.",
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Los tutoriales deben comenzar con un mensaje de bienvenida y una explicación clara de qué trata el tutorial, incluida una breve descripción de lo que hará el usuario mientras sigue el tutorial y qué lecciones aprenderá. No es necesario comprimir todo en un solo paso ... dos e incluso tres pasos están bien.",
+                    "updated": 1640110413442
+                },
+                {
                     "language": "RU",
                     "text": "Учебники должны начинаться с приветствия и четкого объяснения того, о чем идет речь, включая краткое описание того, что пользователь будет делать, следуя учебнику, и какие уроки он извлечет. Не нужно сжимать все в один шаг... два и даже три шага вполне подойдут.",
                     "updated": 1640275011930
@@ -1398,6 +1569,11 @@
             "style": "List",
             "text": "If the tutorial requires prior knowledge beyond the tutorials in the Getting Started Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si el tutorial requiere conocimientos previos más allá de los tutoriales en el Espacio de trabajo del complemento Getting Started, dedique un paso a explicar qué conocimientos previos se requieren para que los usuarios puedan completar primero los tutoriales relevantes.",
+                    "updated": 1640110390869
+                },
                 {
                     "language": "RU",
                     "text": "Если учебник требует предварительных знаний, выходящих за рамки учебников Getting Started Plugin Workspace, посвятите отдельный шаг объяснению того, какие предварительные знания требуются, чтобы пользователи могли сначала пройти соответствующие учебники.",
@@ -1411,6 +1587,11 @@
             "updated": 1620198644147,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "También debe tomarse el tiempo para explicar lo que se presenta en el Workspace. La idea es que los usuarios se familiaricen con el espacio de trabajo lo antes posible para comprender en qué puede diferir de otros espacios de trabajo que hayan encontrado antes. Puede mencionar qué minas utilizará, aclarar si se agregan como complementos o no, qué sistemas de trading, etc. Puede omitir las jerarquías obligatorias, como Red oTrading Engine.",
+                    "updated": 1640110371600
+                },
+                {
                     "language": "RU",
                     "text": "Вы также должны найти время, чтобы объяснить, что именно представлено в рабочем пространстве. Идея заключается в том, что пользователи должны как можно скорее ознакомиться с рабочим пространством, чтобы понять, чем оно может отличаться от других рабочих пространств, с которыми они могли сталкиваться ранее. Вы можете упомянуть, какие именно шахты вы будете использовать, уточнить, добавлены ли они в виде плагинов или нет, какие торговые системы и так далее. Вы можете пропустить обязательные иерархии, такие как Network или Trading Engine.",
                     "updated": 1640275278957
@@ -1423,6 +1604,11 @@
             "updated": 1620198654823,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Si instaló mercados, creó gráficos personalizados, una configuración particular de tareas en la jerarquía de la red o cualquier estructura de datos específica que no está presente en la instalación de mercado predeterminada, asegúrese de explicar lo que hizo y por qué. Puede resultar confuso para los usuarios encontrar cosas y no saber cómo llegaron allí.",
+                    "updated": 1640110306420
+                },
+                {
                     "language": "RU",
                     "text": "Если вы установили какие-либо рынки, создали пользовательские графики, определенную настройку задач в иерархии Network или какую-либо специфическую структуру данных, которая отсутствует в стандартной установке рынка, обязательно объясните, что вы сделали и почему. Это может сбить пользователей с толку, если они найдут что-то и не будут знать, как они туда попали.",
                     "updated": 1640275329441
@@ -1434,6 +1620,11 @@
             "text": "The Last Few Steps",
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "The Last Few Steps (Los últimos pasos)",
+                    "updated": 1640110568242
+                },
+                {
                     "language": "RU",
                     "text": "Последние несколько шагов",
                     "updated": 1640275341956
@@ -1444,6 +1635,11 @@
             "style": "List",
             "text": "If there are more tutorials in the series, make sure you leave users right by the next one, inviting them to keep going.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si hay más tutoriales en la serie, asegúrese de dejar a los usuarios justo al lado del siguiente, invitándolos a continuar.",
+                    "updated": 1640110288956
+                },
                 {
                     "language": "RU",
                     "text": "Если в курсе есть еще несколько уроков, убедитесь, что вы оставляете пользователей прямо перед следующим уроком, приглашая их продолжить.",
@@ -1457,6 +1653,11 @@
             "updated": 1620198840899,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Si los tutoriales restantes de la serie aún no están listos, utilice los últimos pasos para describir qué más se cubrirá en la serie y pida a los usuarios que estén atentos.",
+                    "updated": 1640110270237
+                },
+                {
                     "language": "RU",
                     "text": "Если остальные уроки серии еще не готовы, используйте последние несколько шагов, чтобы описать, что еще будет рассмотрено в этих уроках, и попросите пользователей оставаться с нами.",
                     "updated": 1640275561407
@@ -1467,6 +1668,11 @@
             "style": "Title",
             "text": "Wrapping Up",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Wrapping Up  (Terminando)",
+                    "updated": 1640110248244
+                },
                 {
                     "language": "RU",
                     "text": "Подведение итогов",
@@ -1480,6 +1686,11 @@
             "updated": 1621875234349,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Cuando su tutorial esté listo y haya sido revisado por los encargados del mantenimiento del proyecto, hay algunas cosas de las que debe ocuparse para poder encontrar fácilmente el espacio de trabajo y los tutoriales.",
+                    "updated": 1640110222035
+                },
+                {
                     "language": "RU",
                     "text": "Когда ваш учебник готов и прошел проверку сопровождающими проекта, вам нужно позаботиться о нескольких вещах, чтобы рабочее пространство и учебники можно было легко найти.",
                     "updated": 1640275603184
@@ -1490,6 +1701,11 @@
             "style": "Subtitle",
             "text": "Create a Page for the Workspace",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Create a Page for the Workspace  (Crear una página para el espacio de trabajo)",
+                    "updated": 1640110203651
+                },
                 {
                     "language": "RU",
                     "text": "Создайте страницу для рабочего пространства",
@@ -1502,6 +1718,11 @@
             "text": "Every workspace must be documented, so make sure you create a page for the workspace in the `Community Workspaces` Topic.",
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Cada espacio de trabajo debe estar documentado, así que asegúrese de crear una página para el espacio de trabajo en el tema \"Espacios de trabajo comunitarios\".",
+                    "updated": 1640110185150
+                },
+                {
                     "language": "RU",
                     "text": "Каждое рабочее пространство должно быть документировано, поэтому обязательно создайте для него страницу в теме 'Community Workspaces'.",
                     "updated": 1640275701507
@@ -1513,6 +1734,11 @@
             "text": "Please use a clear and descriptive name and follow the naming convention ending the name with `Plugin Workspace`. Feel free to consult what a good name may be with other contributors in the Docs Group.",
             "updated": 1621874212145,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Utilice un nombre claro y descriptivo y siga la convención de nomenclatura que termina el nombre con \"Espacio de trabajo del complemento\". No dude en consultar cuál puede ser un buen nombre con otros colaboradores del Grupo de Documentos.",
+                    "updated": 1640110160309
+                },
                 {
                     "language": "RU",
                     "text": "Пожалуйста, используйте ясное и описательное название и следуйте соглашению о присвоении имен, заканчивая название словами 'Plugin Workspace'. Не стесняйтесь советоваться о том, каким может быть хорошее название, с другими участниками в группе Docs Group.",
@@ -1538,6 +1764,11 @@
             "updated": 1621875373640,
             "translations": [
                 {
+                    "language": "ES",
+                    "text": "Agregue el espacio de trabajo y el tutorial a esta lista: List of Plugin Workspaces and Tutorials, para que aparezcan en el libro Tutoriales de primeros pasos.",
+                    "updated": 1640110079022
+                },
+                {
                     "language": "RU",
                     "text": "Добавьте рабочее пространство и учебник в этот список: List of Plugin Workspaces and Tutorials, чтобы они отображались в книге First Steps Tutorials.",
                     "updated": 1640275953541
@@ -1548,6 +1779,11 @@
             "style": "Success",
             "text": "Consult with project mantainers the spot the tutorial should take in the list.",
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Consulte con los encargados del mantenimiento del proyecto el lugar que debe ocupar el tutorial en la lista.",
+                    "updated": 1640110104301
+                },
                 {
                     "language": "RU",
                     "text": "Посоветуйтесь с кураторами проекта, какое место в списке должно занять учебное пособие.",
@@ -1572,6 +1808,11 @@
             "text": "Add the tutorial as a chapter in the First Steps Tutorials book.",
             "updated": 1621875405546,
             "translations": [
+                {
+                    "language": "ES",
+                    "text": "Agregue el tutorial como un capítulo en el First Steps Tutorials book.",
+                    "updated": 1640110131511
+                },
                 {
                     "language": "RU",
                     "text": "Добавьте учебник в качестве главы в книгу First Steps Tutorials.",

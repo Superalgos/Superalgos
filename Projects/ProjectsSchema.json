@@ -1990,5 +1990,24 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Simulation",
+        "propertyName": "simulation",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Simulation Functions",
+                    "propertyName": "simulationFunctions",
+                    "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
+                    "fileName": "SimulationFunctions.js"
+                }
+            ]
+        },
+        "SA": {}
     }
 ]

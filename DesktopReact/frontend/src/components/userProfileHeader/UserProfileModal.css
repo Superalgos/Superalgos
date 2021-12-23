@@ -1,0 +1,43 @@
+.editProfile {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.editProfileHeader {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.editProfileCloseBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 7%
+}
+
+.editProfileHeaderTitleAndBtn{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.editProfileTitle {
+    width: 30%;
+}
+
+.editProfileTitles { /* not needed? */
+    font-weight: bolder !important;
+}
+
+.editProfileFooter {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.editProfileInputBoxes{
+    width: 100%;
+}

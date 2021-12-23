@@ -7,7 +7,7 @@ import {
 
 function reactToPost(body) {
     return {
-        status: 'ok', "data": [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [6, 0]]
+        status: 'ok', "data": [[0, 52], [1, 3], [2, 8], [3, 1], [4, 9], [5, 5], [6, 17]]
     }
 }
 /*

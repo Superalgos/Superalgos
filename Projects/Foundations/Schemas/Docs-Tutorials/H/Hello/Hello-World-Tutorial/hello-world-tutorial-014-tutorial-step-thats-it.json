@@ -23,9 +23,9 @@
                 "style": "Definition"
             },
             {
-                "language": "IT",
-                "text": "La strategia è completa!",
-                "updated": 1640110202335
+                "language": "TR",
+                "text": "Strateji ( Strategy ) tanımlandı!",
+                "updated": 1640271164616
             }
         ]
     },
@@ -48,9 +48,9 @@
                     "style": "Text"
                 },
                 {
-                    "language": "IT",
-                    "text": "Impostare una semplice strategia è veramente questione di poche linee di codice!",
-                    "updated": 1640110226107
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, basit bir strateji uygulamak birkaç satırlık bir kod meselesidir!",
+                    "updated": 1640271189035
                 }
             ]
         },
@@ -72,9 +72,9 @@
                     "style": "Success"
                 },
                 {
-                    "language": "IT",
-                    "text": "Tieni a mente di gestire correttamente gli asset Base e Quoted. Base è in alto, Quoted è in basso! Quindi nel nostro caso BTC/USD abbiamo che BTC è il Base asset mentre USDT è il Quoted asset",
-                    "updated": 1640110306534
+                    "language": "TR",
+                    "text": "İpucu: Baz ve Kota Edilen Varlık ile doğru bir şekilde işlem yapmak için bunu aklınızda bulundurun. Taban üstte, Alıntı altta! Yani bizim durumumuzda BTC/USD, Temel Varlıktır ( Asset ) BTC, USDT ise Kota Edilmiş Varlıktır ( Asset ).",
+                    "updated": 1640271290842
                 }
             ]
         },
@@ -96,9 +96,9 @@
                     "style": "Warning"
                 },
                 {
-                    "language": "IT",
-                    "text": "Non cambia se la strategia è Short. Infatti, nella fase di apertura (Open Stage) il bot venderà il Base asset e in seguito lo riacquisterà utilizzando il Quoted asset",
-                    "updated": 1640110410952
+                    "language": "TR",
+                    "text": "Uyarı:Strateji Kısaysa, Açık Aşamada ( Open Stage ) her ikisi de Temel Varlığı satacak ve daha sonra Kota Edilmiş Varlığı ( Asset ) kullanarak geri satın alacaktır!",
+                    "updated": 1640271479236
                 }
             ]
         }

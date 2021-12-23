@@ -1,7 +1,14 @@
 {
     "type": "Trigger Off",
     "definition": {
-        "text": "Counts the periods since the last time a strategy was triggered off."
+        "text": "Counts the periods since the last time a strategy was triggered off.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Bir stratejinin en son tetiklenmesinden bu yana geçen süreyi sayar.",
+                "updated": 1640264787126
+            }
+        ]
     },
     "paragraphs": [
         {

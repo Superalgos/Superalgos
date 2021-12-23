@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Market Sell Order - это распоряжение, отправленное на биржу для продажи базового актива с целью немедленного исполнения по текущим рыночным ценам.",
                 "updated": 1639841489842
+            },
+            {
+                "language": "TR",
+                "text": "Piyasa satış emri, cari piyasa fiyatlarında anında icra edilmek üzere baz varlığın satılması için borsaya gönderilen bir talimattır.",
+                "updated": 1640271076421
             }
         ]
     },

@@ -23,7 +23,6 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         writeFiles,
     ) {
         try {
-
             let tradingSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingSystem
             let tradingEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine
             let sessionParameters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.tradingParameters
@@ -55,7 +54,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
             if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
                 /*
-                We need to purge from the candles array all the candles from the previous day 
+                We need to purge from the candles array all the candles from the previous day
                 that comes when processing daily files.
                 */
                 let dailyCandles = []
@@ -80,7 +79,6 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             if (
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true &&
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
-
                 /* Estimate Initial Candle based on the timeRange configured for the session. */
                 let firstEnd = candles[0].end
                 let targetEnd = sessionParameters.timeRange.config.initialDatetime
@@ -90,9 +88,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 initialCandle = Math.trunc(amount)
                 if (initialCandle < 0) { initialCandle = 0 }
                 if (initialCandle > candles.length - 1) {
-                    /* 
-                    This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available, 
-                    meaning that the dataSet needs to be updated with more up-to-date data. 
+                    /*
+                    This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available,
+                    meaning that the dataSet needs to be updated with more up-to-date data.
                     */
                     console.log('DEBUGGING ..................', initialCandle, candles.length)
                     TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
@@ -100,9 +98,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
                     return
                 }
-
             } else {
-                /* 
+                /*
                 In this case we already have at the last candle index the next candle to be
                 processed. We will just continue with this candle.
                 */
@@ -114,9 +111,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             /* We are going to use this to exit the loop if needed. */
             let breakLoop = false
 
-            /* 
+            /*
             We will assume that we are at the head of the market here. We do this
-            because the loop could be empty and no validation is going to run. If the 
+            because the loop could be empty and no validation is going to run. If the
             loop is not empty, then the lascCandle() check will override this value
             depending on if we really are at the head of the market or not.
             */
@@ -125,9 +122,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             This is the main simulation loop. It will go through the initial candle
             until one less than the last candle available. We will never process the last
             candle available since it is not considered a closed candle, but a candle
-            that still can change. So effectively will be processing all closed candles. 
+            that still can change. So effectively will be processing all closed candles.
             */
-            let initialTime = (new Date).valueOf()
+            let initialTime = (new Date()).valueOf()
             for (let i = initialCandle; i < candles.length - 1; i++) {
                 tradingEngine.tradingCurrent.tradingEpisode.candle.index.value = i
 
@@ -141,8 +138,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                     '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
 
-                /*                
-                We move the current candle we are standing at, to the trading engine data structure 
+                /*
+                We move the current candle we are standing at, to the trading engine data structure
                 to make it available to anyone, including conditions and formulas.
                 */
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
@@ -158,7 +155,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     This means that the user that defined the Trading System, wants it to be
                     syncronized by signals comming from other bots.
 
-                    Check for the signal that would allow us to syncronize the simulation 
+                    Check for the signal that would allow us to syncronize the simulation
                     loop with the simulation loop of the bot sending us signals.
                     */
                     while (true) {
@@ -177,7 +174,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         }
                     }
                 }
-                /* We emit a heart beat so that the UI can now where we are at the overall process.*/
+                /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 heartBeat()
 
                 /* Opening the Episode, if needed. */
@@ -198,8 +195,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     market
                 )
 
-                /* 
-                Do the stuff needed previous to the run like 
+                /*
+                Do the stuff needed previous to the run like
                 Episode Counters and Statistics update. Maintenance is done
                 once per simulation candle.
                 */
@@ -207,7 +204,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 tradingEpisodeModuleObject.mantain()
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.mantain()
 
-                /* 
+                /*
                 Run the first cycle of the Trading System. In this first cycle we
                 give some room so that orders can be canceled or filled and we can
                 write those records into the output memory. During this cycle new
@@ -217,11 +214,11 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('First')
                 await runCycle()
 
-                /* 
-                We check if we need to stop before appending the records so that the stop 
+                /*
+                We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. Note also that we check this after the first
                 cycle, where orders have not been submitted to the exchange yet, but we
-                had the chance to check for the status of placed orders or even cancel 
+                had the chance to check for the status of placed orders or even cancel
                 the ones that needed cancellation.
                 */
                 checkIfWeNeedToStopBetweenCycles()
@@ -231,31 +228,42 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 if (breakLoop === true) {
                     /*
-                    Outgoing Episode Syncronization Signal Sent before breaking the loop. 
+                    Outgoing Episode Syncronization Signal Sent before breaking the loop.
                     */
                     await outgoingTradingSignalsModuleObject.broadcastSignal(
                         tradingSystem,
                         undefined
                     )
+                    /*
+                    Mantain Signal Storage.
+                    */
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
                     break
                 }
-                /* 
+                /*
                 Run the second cycle of the Trading System. During this second run
-                some new orders might be created at slots freed up during the first 
-                run. This allows for example for a Limit Order to be cancelled during the 
-                first run, and the same Limit Order definition to spawn a new order 
+                some new orders might be created at slots freed up during the first
+                run. This allows for example for a Limit Order to be cancelled during the
+                first run, and the same Limit Order definition to spawn a new order
                 without the need to wait until the next candle. Orders can not be cancelled
                 during the second cycle.
                 */
                 TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCycle('Second')
                 await runCycle()
                 /*
-                Outgoing Episode Syncronization Signal Sent at the end of both cycles. 
+                Outgoing Episode Syncronization Signal Sent at the end of both cycles.
                 */
                 await outgoingTradingSignalsModuleObject.broadcastSignal(
                     tradingSystem,
                     undefined
                 )
+                /*
+                Mantain Signal Storage.
+                */
+                TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
+                /*
+                Check if we need to stop.
+                */
                 checkIfWeNeedToStopAfterBothCycles()
 
                 /* Add new records to the process output */
@@ -335,9 +343,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     }
                 }
             }
-            let finalTime = (new Date).valueOf()
+            let finalTime = (new Date()).valueOf()
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000) + " seconds."
+                '[INFO] runSimulation -> Trading Simulation ran in ' + (finalTime - initialTime) / 1000 + ' seconds.')
 
             tradingSystemModuleObject.finalize()
             tradingRecordsModuleObject.finalize()
@@ -401,7 +409,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                             }
                         }
 
-                        /* 
+                        /*
                         When the Candle Index needs to be shown, then we can not send the heartbeat
                         only when the dates changes, we have to send it for every candle.
                         It might also contain the date information.
@@ -421,7 +429,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /*
                 In conditions and Formulas, we want users to have an easy syntax to refer to indicators. In order to achieve that, we need the user to have
                 easy access to the current candle for instance, or the current bollinger band, meaning the one the Simulation is currently standing at.
-                For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.  
+                For that reason we do the following processing, to have at the chart data structure the current objects of each indicator / time frame.
                 */
 
                 for (const exchangeCodeName in exchange) {
@@ -486,7 +494,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         }
                     }
 
-                    /* Finding the Current Element At Single Files*/
+                    /* Finding the Current Element At Single Files */
                     let propertyName = 'atAnyTimeFrame'
                     let thisChart = chart[propertyName]
 
@@ -542,21 +550,21 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             }
 
             function checkNextCandle() {
-                /* 
+                /*
                 We need to check that the candle we have just processed it is not the last candle.
-                The candle at the head of the market is already skipped from the loop because it has not closed yet. 
+                The candle at the head of the market is already skipped from the loop because it has not closed yet.
                 Note: for Daily Files, this means that the last candle of each day will never be processed.
 
-                The first +1 is because array indexes are based on 0. 
+                The first +1 is because array indexes are based on 0.
                 The second +1 is because we need to compare the next candle (remember that the loops always avoid the
                 last candle of the dataset available.)
                 */
                 if (tradingEngine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candles.length) {
                     /*
                     When processing daily files, we need a mechanism to turn from one day to the next one.
-                    That mechanism is the one implemented here. If we detect that the next candle is the last candle of 
+                    That mechanism is the one implemented here. If we detect that the next candle is the last candle of
                     the day, we will advance current process day one day. By doing so, during the next execution, the
-                    simulation will receive the candles and indicators files of the next day. 
+                    simulation will receive the candles and indicators files of the next day.
                     */
                     let candlesPerDay = SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
@@ -565,7 +573,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     ) {
                         /*
                         Here we found that the next candle of the dataset is the last candle of the day.
-                        It is time to move to the next day so as to receive at the next execution, the indicator files from 
+                        It is time to move to the next day so as to receive at the next execution, the indicator files from
                         the next day. At the same time we will reset the index to be pointing to
                         the first candle of the new dataset we shall receive. The first candle of the next day starts
                         at index 0, so we will position the index now at zero.
@@ -576,17 +584,16 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         return false
                     }
 
-                    /* 
-                    We reached the head of the market but we are not at the last candle of a day during 
-                    Daily Files processing. We will advance to the next candle index anyways because in the 
-                    next execution it will likely have more candles at the dataset. And if it does not, 
+                    /*
+                    We reached the head of the market but we are not at the last candle of a day during
+                    Daily Files processing. We will advance to the next candle index anyways because in the
+                    next execution it will likely have more candles at the dataset. And if it does not,
                     it will just wait there until it does.
                     */
                     tradingEngine.tradingCurrent.tradingEpisode.headOfTheMarket.value = true
                     tradingEngine.tradingCurrent.tradingEpisode.candle.index.value++
                     return false
                 } else {
-
                     /* Wd did not reach the head of the market */
                     tradingEngine.tradingCurrent.tradingEpisode.headOfTheMarket.value = false
                     tradingEngine.tradingCurrent.tradingEpisode.candle.index.value++
@@ -595,7 +602,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             }
 
             function checkInitialDatetime() {
-                /* Here we check that the current candle is not before the initial datetime defined at the session parameters.*/
+                /* Here we check that the current candle is not before the initial datetime defined at the session parameters. */
                 if (tradingEngine.tradingCurrent.tradingEpisode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.')
@@ -605,7 +612,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             }
 
             function checkFinalDatetime() {
-                /* Here we check that the next candle is not after of the user-defined final datetime at the session parameters.*/
+                /* Here we check that the next candle is not after of the user-defined final datetime at the session parameters. */
                 if (tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                         '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.')
@@ -627,7 +634,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     let stopRunningDate = (new Date(tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value)).toUTCString()
 
                     if (sessionParameters.sessionBaseAsset.config.minimumBalance !== undefined) {
-                        if (tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value < sessionParameters.sessionBaseAsset.config.minimumBalance) {
+                        if (tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.balance.value <= sessionParameters.sessionBaseAsset.config.minimumBalance) {
                             const errorMessage = 'Min Balance reached @ ' + stopRunningDate
 
                             let docs = {
@@ -729,7 +736,6 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                             return false
                         }
                     }
-
                 }
                 return true
             }
@@ -741,4 +747,3 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         }
     }
 }
-

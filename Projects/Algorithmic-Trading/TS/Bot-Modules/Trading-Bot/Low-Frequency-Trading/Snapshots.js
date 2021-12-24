@@ -300,8 +300,8 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
             TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, nodeWithCode.name, nodeWithCode.code, undefined)
 
             tradingSystem.addError([nodeWithCode.id, message, docs])
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] addCodeToSnapshot -> err = ' + err.stack)
         }
     }
 

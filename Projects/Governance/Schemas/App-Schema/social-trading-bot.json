@@ -27,7 +27,17 @@
             "label": "Add Available Signals",
             "relatedUiObject": "Available Signals",
             "relatedUiObjectProject": "Trading-Signals"
-        },        
+        },    
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableStorage",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Available Storage",
+            "relatedUiObject": "Available Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },    
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -68,6 +78,13 @@
             "name": "availableSignals",
             "type": "node",
             "childType": "Available Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "availableStorage",
+            "type": "node",
+            "childType": "Available Storage",
+            "actionProject": "Foundations",
             "autoAdd": false
         }
     ]

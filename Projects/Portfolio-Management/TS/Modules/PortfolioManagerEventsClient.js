@@ -1,6 +1,6 @@
 exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (processIndex) {
     /*
-    This object represents the client to access the Portfolio Manager from a Trading Bot.
+    This object represents the client to access the Portfolio Manager Interface from a Trading Bot.
     It is an events client because the communication with the Portfolio Manager happens 
     at the events layer, provided by the Events Server.
     */
@@ -34,11 +34,11 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             // First, listen for response:
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
                 SESSION_KEY,
-                'Response From Profile Manager',
+                'Response From Portfolio Manager',
                 undefined,
                 SESSION_KEY,
                 undefined,
-                triggerOnEventsCallback
+                eventCallback
             );
 
             // Second, Raise Event:
@@ -49,10 +49,13 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             );
 
             // Third, events Callback:
-            function triggerOnEventsCallback() {
-                console.log("-----HERE @ triggerOnResponse callback received----- arguments[0].event=>" + arguments[0].event);
+            function eventCallback() {
                 if (arguments[0].event !== undefined) {
-                    resolve(arguments[0]);
+                    let response = {
+                        raiseEvent: arguments[0].event.raiseEvent,
+                        reason: "Reply from Portfolio Manager"
+                    }
+                    resolve(response);
                 } else { reject(); }
             }
         });

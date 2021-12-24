@@ -430,7 +430,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             let lastSignalFormulaValue = 0
             for (let i = 0; i < signals.length; i++) {
                 let signal = signals[i]
-                lastSignalFormulaValue = signal.source.tradingSystem.node.formula.value
+                lastSignalFormulaValue = tradingSignal.source.tradingSystem.node.formula.value
             }
             lastSignalFormulaValue
 
@@ -439,7 +439,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             let lastSignalContextValue = 0
             for (let i = 0; i < signals.length; i++) {
                 let signal = signals[i]
-                lastSignalContextValue = signal.source.tradingSystem.node.context.roi
+                lastSignalContextValue = tradingSignal.source.tradingSystem.node.context.roi
             }
             lastSignalContextValue
 

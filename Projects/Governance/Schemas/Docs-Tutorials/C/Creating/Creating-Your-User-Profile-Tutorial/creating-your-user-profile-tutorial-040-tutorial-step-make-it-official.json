@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Теперь вы готовы разместить свой новый профиль в основном репозитории Superalgos!",
                 "updated": 1639053389431
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt sind Sie bereit, Ihr neues Profil in das Superalgos-Haupt-Repository zu übertragen!",
+                "updated": 1640082203331
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Настройте учетные данные Github API, чтобы подготовиться к публикации своего профиля!",
                     "updated": 1639053414116
+                },
+                {
+                    "language": "DE",
+                    "text": "Richten Sie Ihre Github API Zugangsdaten ein und machen Sie sich bereit, Ihr Profil zu veröffentlichen!",
+                    "updated": 1640082217473
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "RU",
                     "text": "Если вы не понимаете, о чем я говорю, вам может потребоваться напоминание о том, как отправить статью в Superalgos. Прочтите эти несколько шагов, взятых из руководства Beyond the Basics Tutorial, чтобы напомнить вам, на что похож процесс аутентификации GitHub.",
                     "updated": 1639053488934
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie nicht wissen, wovon ich rede, brauchen Sie vielleicht eine Auffrischung, wie man einen Beitrag zu Superalgos einreicht. Lesen Sie die folgenden Schritte aus dem Tutorial \"Beyond the Basics\", um sich daran zu erinnern, wie der GitHub-Authentifizierungsprozess abläuft.",
+                    "updated": 1640082225089
                 }
             ]
         },

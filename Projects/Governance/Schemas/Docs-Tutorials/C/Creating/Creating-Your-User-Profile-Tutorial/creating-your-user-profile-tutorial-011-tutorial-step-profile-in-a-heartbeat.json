@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Конструктор профиля Profile Constructor- это устройство, которое вы будете использовать для настройки своего профиля.",
                 "updated": 1639046904844
+            },
+            {
+                "language": "DE",
+                "text": "Der Profile Constructor ist das Gerät, das Sie zum Einrichten Ihres Profils verwenden.",
+                "updated": 1640072911650
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Он создаст уникальный кошелек Binance Smart Chain, связанный с вашим профилем: вашим управленческим адресом Governance Address.",
                     "updated": 1639046965050
+                },
+                {
+                    "language": "DE",
+                    "text": "Er erstellt eine einzigartige Binance Smart Chain-Brieftasche, die mit Ihrem Profil verbunden ist: Ihre Governance Adresse.",
+                    "updated": 1640072931374
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Однако, если у вас уже есть кошелек BSC, у вас будет возможность связать этот адрес вместо создания нового.",
                     "updated": 1639046984711
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie jedoch bereits ein BSC-Wallet besitzen, haben Sie die Möglichkeit, diese Adresse zu verknüpfen, anstatt eine neue zu erstellen.",
+                    "updated": 1640072963422
                 }
             ]
         },

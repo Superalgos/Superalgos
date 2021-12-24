@@ -4,27 +4,62 @@
     "type": "Accessing Trading System Definitions and Session Parameters",
     "definition": {
         "text": "The Trading System may access it's own definitions as well as Session Parameters from any Formula or Condition.",
-        "updated": 1610217064031
+        "updated": 1610217064031,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговая система может получить доступ к своим собственным определениям, а также к параметрам сессии Session Parameters из любой формулы Formula или условия Condition.",
+                "updated": 1640094939978
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Trading System definitions and Trading Session Parameters are accessible from within conditions and formulas, pretty much like conditions and formulas may access the values of indicators, or the Trading Engine hierarchy.",
-            "updated": 1610217113377
+            "updated": 1610217113377,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определения торговой системы и параметры торговой сессии Trading Session доступны из условий и формул, точно так же, как условия и формулы могут получить доступ к значениям индикаторов или иерархии Trading Engine.",
+                    "updated": 1640095083242
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This is a technical feature mostly oriented to developers. Practical use cases are few for less technically oriented individuals.",
-            "updated": 1610217120684
+            "updated": 1610217120684,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это техническая функция, ориентированная в основном на разработчиков. Практические случаи использования для менее технически ориентированных людей немногочисленны.",
+                    "updated": 1640095107277
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Syntax"
+            "text": "Syntax",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1640095114292
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "To access a trading system definition, follow the path given by the trading system structure. For example, to access a condition in the take position event, use:",
-            "updated": 1610217151294
+            "updated": 1610217151294,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы получить доступ к определению торговой системы, следуйте пути, указанному в структуре торговой системы. Например, чтобы получить доступ к условию в событии занятия позиции, используйте:",
+                    "updated": 1640095153050
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -33,7 +68,14 @@
         {
             "style": "Text",
             "text": "To access a trading session parameter, use the syntax starting with sessionParameters followed by the name of the parameter, and the name of the specific parameter in the configuration. For example, to access the taker parameter in the fee structure, use:",
-            "updated": 1610217182677
+            "updated": 1610217182677,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для доступа к параметру торговой сессии используйте синтаксис, начинающийся с sessionParameters, за которым следует название параметра и название конкретного параметра в конфигурации. Например, чтобы получить доступ к параметру taker в структуре комиссии, используйте:",
+                    "updated": 1640095180389
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -42,11 +84,25 @@
         },
         {
             "style": "Title",
-            "text": "Example"
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1640095187176
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Such a feature may be useful, for instance, to include such definitions or parameters on Telegram announcement messages, as in:"
+            "text": "Such a feature may be useful, for instance, to include such definitions or parameters on Telegram announcement messages, as in:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Такая возможность может быть полезной, например, для включения таких определений или параметров оповещения в Telegram, как в:",
+                    "updated": 1640095323144
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -56,7 +112,14 @@
         {
             "style": "Text",
             "text": "Notice that...",
-            "updated": 1610217314692
+            "updated": 1610217314692,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что...",
+                    "updated": 1640095345122
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -64,7 +127,14 @@
         },
         {
             "style": "Text",
-            "text": "... corresponds to the syntax deriving from the trading engine hierarchy."
+            "text": "... corresponds to the syntax deriving from the trading engine hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "... соответствует синтаксису, вытекающему из иерархии Trading Engine.",
+                    "updated": 1640095425809
+                }
+            ]
         }
     ]
 }

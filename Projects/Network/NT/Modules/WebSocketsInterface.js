@@ -23,7 +23,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         finalize: finalize
     }
 
-    let web3 = new SA.nodeModules.web3()
+    let web3
 
     return thisObject
 
@@ -40,6 +40,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     }
 
     function initialize() {
+
+        web3 = new SA.nodeModules.web3()
+
         let port = NT.networkNode.p2pNetworkNode.node.config.webSocketsPort
 
         thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
@@ -294,11 +297,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     */
                     let signedMessage = {
                         callerProfileHandle: messageHeader.callerProfileHandle,
-                        calledProfileHandle: SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
+                        calledProfileHandle: SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
                         callerTimestamp: messageHeader.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
-                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
+                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
 
                     let response = {
                         result: 'Ok',
@@ -393,7 +396,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     We will check that the signature includes this Network Node handle, to avoid
                     man in the middle attacks.
                     */
-                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
+                    if (signedMessage.calledProfileHandle !== SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                         let response = {
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'

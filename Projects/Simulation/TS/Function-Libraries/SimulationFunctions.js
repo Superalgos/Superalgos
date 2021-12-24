@@ -202,7 +202,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
         let candles = chart[propertyName].candles
 
-        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
             /*
             We need to purge from the candles array all the candles from the previous day
             that comes when processing daily files.
@@ -318,7 +318,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
             /* Finding the Current Element on Daily Files */
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
                 for (let j = 0; j < TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray().length; j++) {
                     let mapKey = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[j][1]
                     let propertyName = 'at' + mapKey.replace('-', '')
@@ -437,7 +437,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             */
             let candlesPerDay = SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
             if (
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES &&
                 engine.tradingCurrent.tradingEpisode.candle.index.value + 1 + 1 === candlesPerDay
             ) {
                 /*

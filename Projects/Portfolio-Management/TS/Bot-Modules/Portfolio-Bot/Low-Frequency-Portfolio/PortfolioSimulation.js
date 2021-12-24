@@ -1,6 +1,6 @@
 exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processIndex) {
     /*
-    This Module represents the portfolio simulacion. Escentially a loop through a set of candles and 
+    This Module represents the portfolio simulation. Escentially a loop through a set of candles and 
     the execution at each loop cycle of the Portfolio System Protocol.
     */
     const MODULE_NAME = 'Portfolio Simulation -> ' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name

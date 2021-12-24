@@ -12,6 +12,14 @@
             ]
         },
         "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Functions",
+                    "propertyName": "tradingFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibrariesTradingFunctions",
+                    "fileName": "TradingFunctions.js"
+                }
+            ],
             "botModules": [
                 {
                     "name": "Single Market Trading Bot",
@@ -163,17 +171,16 @@
                 }
             ]
         },
-        "SA": {
-        "globals": [
-            {
-                "name": "Memory",
-                "propertyName": "memory",
-                "functionName": "newPortfolioManagementGlobalsMemory",
-                "fileName": "Memory.js"
-            }
-        ]
-        },
+        "SA": {},
         "TS": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newPortfolioManagementGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
             "modules": [
                 {
                     "name": "Portfolio Manager Client",
@@ -264,55 +271,6 @@
                     "propertyName": "portfolioManager",
                     "functionName": "newPortfolioManagementBotModulesPortfolioManager",
                     "fileName": "PortfolioManager.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Strategy",
-                    "propertyName": "portfolioStrategy",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioStrategy",
-                    "fileName": "PortfolioStrategy.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Execution",
-                    "propertyName": "portfolioExecution",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioExecution",
-                    "fileName": "PortfolioExecution.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Position",
-                    "propertyName": "portfolioPosition",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioPosition",
-                    "fileName": "PortfolioPosition.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Snapshots",
-                    "propertyName": "snapshots",
-                    "functionName": "newPortfolioManagementBotModulesSnapshots",
-                    "fileName": "Snapshots.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Orders",
-                    "propertyName": "portfolioOrders",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioOrders",
-                    "fileName": "PortfolioOrders.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Orders Simulations",
-                    "propertyName": "ordersSimulations",
-                    "functionName": "newPortfolioManagementBotModulesOrdersSimulations",
-                    "fileName": "OrdersSimulations.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Orders Calculations",
-                    "propertyName": "ordersCalculations",
-                    "functionName": "newPortfolioManagementBotModulesOrdersCalculations",
-                    "fileName": "OrdersCalculations.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
@@ -2040,5 +1998,24 @@
                 }
             ]
         }
+    },
+    {
+        "name": "Simulation",
+        "propertyName": "simulation",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Simulation Functions",
+                    "propertyName": "simulationFunctions",
+                    "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
+                    "fileName": "SimulationFunctions.js"
+                }
+            ]
+        },
+        "SA": {}
     }
 ]

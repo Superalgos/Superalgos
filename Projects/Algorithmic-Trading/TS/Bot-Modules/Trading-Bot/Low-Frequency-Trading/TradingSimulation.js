@@ -138,8 +138,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 orders can not be created, since otherwise the could be cancelled at
                 the second cycle without spending real time at the order book.
                 */
-                tradingEngineModuleObject.setCurrentCycle('First')
-                await runCycle()
+                await runCycle('First')
                 /*
                 We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. Note also that we check this after the first
@@ -164,8 +163,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 without the need to wait until the next candle. Orders can not be cancelled
                 during the second cycle.
                 */
-                tradingEngineModuleObject.setCurrentCycle('Second')
-                await runCycle()
+                await runCycle('Second')
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, tradingSystem, candle)
                 /*
                 Check if we need to stop.
@@ -177,7 +175,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
 
                 if (breakLoop === true) { break }
 
-                async function runCycle() {
+                async function runCycle(cycleName) {
+                    tradingEngineModuleObject.setCurrentCycle(cycleName)
                     /* Reset Data Structures */
                     tradingSystemModuleObject.reset()
                     tradingEpisodeModuleObject.reset()

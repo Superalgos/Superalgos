@@ -1,6 +1,6 @@
 exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) {
     /*
-    This module facilitates the appending of records to the output of the process.
+    This module facilitates the appending of records to the output files of the simulation.
     */
     const MODULE_NAME = 'Trading Records'
 
@@ -37,7 +37,9 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
             we have a pointer to the node that have the information we need to extract.
             Later, based on the product record definition we will extract each individual value.
        */
-        let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset')
+        let outputDatasets = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+            TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processOutput, 'Output Dataset'
+        )
 
         for (let i = 0; i < outputDatasets.length; i++) {
             let outputDatasetNode = outputDatasets[i]
@@ -45,11 +47,16 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
             let product = dataset.parentNode
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true && dataset.config.type === 'Daily Files') {
+            if (
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true &&
+                dataset.config.type === 'Daily Files'
+            ) {
                 persistRecords()
             }
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === false && dataset.config.type === 'Market Files') {
+            if (
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === false && 
+                dataset.config.type === 'Market Files') {
                 persistRecords()
             }
 
@@ -294,7 +301,7 @@ exports.newAlgorithmicTradingBotModulesTradingRecords = function (processIndex) 
                         let recordProperty = product.record.properties[j]
                         if (recordProperty.config.codeName === product.config.propertyNameThatDefinesStatus) {
                             let propertyValue = record[j]
-                            
+
                             if (product.config.propertyValueThatPreventsSavingObject === "->Empty Array->" && propertyValue.length === 0) {
                                 break
                             }

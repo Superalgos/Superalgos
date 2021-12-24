@@ -2,7 +2,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     /*
     This module contains the functions that are used at Simulations.
     */
-    const MODULE_NAME = "Simulation"
+    const MODULE_NAME = "Simulation Functions"
 
     let thisObject = {
         createInfoMessage: createInfoMessage,

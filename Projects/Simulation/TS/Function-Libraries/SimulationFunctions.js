@@ -10,7 +10,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
         setCurrentCandle: setCurrentCandle,
         syncronizeLoopIncomingSignals: syncronizeLoopIncomingSignals,
-        syncronizeLoopOutgoingSignals: syncronizeLoopOutgoingSignals, 
+        syncronizeLoopOutgoingSignals: syncronizeLoopOutgoingSignals,
         setUpCandles: setUpCandles,
         setUpInitialCandles: setUpInitialCandles,
         closeEpisode: closeEpisode,
@@ -24,8 +24,13 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     return thisObject
 
-    function createInfoMessage(system, engine, processIndex) {
-        let infoMessage = 'Processing candle # ' + engine.tradingCurrent.tradingEpisode.candle.index.value + ' @ the ' + engine.tradingCurrent.tradingEpisode.cycle.value + ' cycle.'
+    function createInfoMessage(
+        system,
+        candleIndex,
+        cycle,
+        processIndex
+    ) {
+        let infoMessage = 'Processing candle # ' + candleIndex + ' @ the ' + cycle + ' cycle.'
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
             '[INFO] runSimulation -> loop -> ' + infoMessage)
 
@@ -37,8 +42,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         }
 
         let contextInfo = {
-            candleIndex: engine.tradingCurrent.tradingEpisode.candle.index.value,
-            cycle: engine.tradingCurrent.tradingEpisode.cycle.value
+            candleIndex: candleIndex,
+            cycle: cycle
         }
         TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
 
@@ -86,11 +91,15 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return false
     }
 
-    function setCurrentCandle(engine, candles, index, processIndex) {
-
-        engine.tradingCurrent.tradingEpisode.candle.index.value = index
+    function setCurrentCandle(
+        episodeCandle,
+        candles,
+        index,
+        processIndex
+    ) {
+        episodeCandle.index.value = index
         /* This is the current candle the Simulation is working at. */
-        let candle = candles[engine.tradingCurrent.tradingEpisode.candle.index.value]
+        let candle = candles[episodeCandle.index.value]
         /*
         Logging abount the current candle
         */
@@ -100,10 +109,10 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
 
         /*
-        We move the current candle we are standing at, to the trading engine data structure
+        We move the current candle we are standing at, to the engine data structure
         to make it available to anyone, including conditions and formulas.
         */
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
 
         return candle
     }

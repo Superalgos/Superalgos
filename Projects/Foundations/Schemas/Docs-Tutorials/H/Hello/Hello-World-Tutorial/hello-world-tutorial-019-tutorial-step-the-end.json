@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Este es el paso final de este tutorial, ¡pero un primer gran paso para ti!",
                 "updated": 1629578693755
+            },
+            {
+                "language": "IT",
+                "text": "Sei arrivato alla fine di questo tutorial!",
+                "updated": 1640111747286
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "Ahora que ha visto lo rápido y fácil que es implementar estrategias simples en SA, le dejo algunos consejos que puede explorar.",
                     "updated": 1629578879458
+                },
+                {
+                    "language": "IT",
+                    "text": "Ora che hai visto quanto sia facile e veloce implementare strategie semplici in SA, ti lascio con alcuni suggerimenti che puoi esplorare.",
+                    "updated": 1640111763816
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "ES",
                     "text": "Tal vez puedas agregar un nuevo indicador y usar sus propiedades como un filtro adicional para el Trigger Stage.",
                     "updated": 1629578981875
+                },
+                {
+                    "language": "IT",
+                    "text": "Per esempio potresti aggiungere un nuovo indicatore e utilizzare le sue proprietà come un filtro aggiuntivo per il Trigger Stage.",
+                    "updated": 1640111791051
                 }
             ],
             "updated": 1622980962381
@@ -74,6 +89,11 @@
                     "language": "ES",
                     "text": "O puedes modificar el SL para tener uno final en lugar de ser fijo.",
                     "updated": 1629579019376
+                },
+                {
+                    "language": "IT",
+                    "text": "O potresti provare ad impostare un Trailer Stop Loss.",
+                    "updated": 1640111815335
                 }
             ]
         },
@@ -92,6 +112,11 @@
                     "language": "ES",
                     "text": "Gracias por tu tiempo. Puede leer un artículo más detallado aquí: http://bit.ly/9808usHelloWorld",
                     "updated": 1629579335349
+                },
+                {
+                    "language": "IT",
+                    "text": "Grazie per il tuo impegno. Se desideri qui puoi trovare un articolo riguardo questo tutorial: http://bit.ly/9808usHelloWorld",
+                    "updated": 1640111869718
                 }
             ]
         }

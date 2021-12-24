@@ -1,0 +1,100 @@
+{
+    "topic": "Omega One Data Mine",
+    "pageNumber": "6",
+    "type": "Triple Arnaud Legoux Moving Average (ALMA)",
+    "definition": {
+        "text": "This indicator contains three ALMA products. For more information on the Arnaud Legoux moving average (ALMA) indicator, see the previous topic.",
+        "updated": 1617958214490
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This indicator uses 3 separate ALMA signals:",
+            "updated": 1617958138349
+        },
+       {
+            "style": "List",
+            "text": "ALMA 1: window: 9, sigma: 6, offset: 0.85"
+        },		
+		{
+            "style": "List",
+            "text": "ALMA 2: window: 14, sigma: 6, offset: 0.85"
+        },	
+		{
+            "style": "List",
+            "text": "ALMA 3: window: 25, sigma: 6, offset: 0.85"
+        },	
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-TALMA-on-the-charts.png"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Change the input to optimise it for your use case!",
+            "updated": 1617953879921
+        },
+        {
+            "style": "Text",
+            "text": "Most of Omega indicators can use different period values. To change periods:",
+            "updated": 1617955135049
+        },
+        {
+            "style": "List",
+            "text": "Locate the Data Mine and expand it."
+        },
+        {
+            "style": "List",
+            "text": "Expand the Indicator Bot node."
+        },
+        {
+            "style": "List",
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+        },
+        {
+            "style": "List",
+            "text": "Edit the Procedure Javascript Code node."
+        },
+        {
+            "style": "List",
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+        },
+        {
+            "style": "List",
+            "text": "Look for \"User defined values\".",
+            "updated": 1617954642138
+        },
+        {
+            "style": "List",
+            "text": "Enter the values of your choice."
+        },
+        {
+            "style": "Note",
+            "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
+            "updated": 1617954918128
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Omega-One-TALMA-params.png",
+            "updated": 1617958956443
+        },
+        {
+            "style": "Subtitle",
+            "text": "Products, Properties & Examples",
+            "updated": 1617967853007
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Triple ALMA | tripleALMA | alma01, alma02, alma03 |",
+            "updated": 1617972838194
+        },
+        {
+            "style": "Javascript",
+            "text": "/* EXAMPLE */\n\n// Candle close is above ALMA trend.\nchart.at01hs.candle.close > chart.at01hs.ALMA.alma01\n//ALMA 2 is above ALMA3\nchart.at01hs.ALMA.alma02 > chart.at01hs.ALMA.alma03",
+            "updated": 1617973639173
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

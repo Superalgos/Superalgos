@@ -409,14 +409,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Secrets': {
                     switch (requestPath[2]) { // switch by command
-                        case 'Save-Secrets-File': {
+                        case 'Save-Singing-Accounts-Secrets-File': {
                             SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                             async function processRequest(body) {
                                 try {
 
                                     let filePath = global.env.PATH_TO_SECRETS + '/'
-                                    let fileName = "Secrets.json"
+                                    let fileName = "SigningAccountsSecrets.json"
 
                                     createNewDir(filePath)
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
@@ -426,9 +426,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Params Received = ' + body)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
 
                                     let error = {
                                         result: 'Fail Because',

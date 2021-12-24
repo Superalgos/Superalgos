@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Proje, küresel işbirliğini teşvik etmeyi başardığında amacına ulaaşmış olacaktır. Her türlü katkıyı önemsiyor ve memnuniyetle karşılıyoruz!Aşağıda hangi konularda katkı sağlayabileceğiniz konusunda ufuk açıcı bir liste var..",
                 "updated": 1639868641174
+            },
+            {
+                "language": "RU",
+                "text": "Проект будет успешным, если ему удастся наладить глобальное сотрудничество. Мы приветствуем всевозможные пожертвования, чтобы каждый мог получить отдачу!",
+                "updated": 1640154907740
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Kısacası değer katan her şey güzeldir!",
                     "updated": 1639868533886
+                },
+                {
+                    "language": "RU",
+                    "text": "Короче говоря, все, что добавляет ценность, это хорошо!",
+                    "updated": 1640154943935
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Bir yazım hatası, ölü bir bağlantı düzeltme ve Dokümanları iyileştirme.",
                     "updated": 1639868570288
+                },
+                {
+                    "language": "RU",
+                    "text": "Исправление опечатки, неработающей ссылки и улучшение документации.",
+                    "updated": 1640154958323
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Bir sayfayı ana dilinize çevirmek.",
                     "updated": 1639868552106
+                },
+                {
+                    "language": "RU",
+                    "text": "Перевод страницы на ваш родной язык.",
+                    "updated": 1640154987810
                 }
             ]
         },
@@ -147,6 +167,11 @@
                     "language": "TR",
                     "text": "İkonlar UX/UI'yi geliştirmeye çalışmak.",
                     "updated": 1639868700900
+                },
+                {
+                    "language": "RU",
+                    "text": "Разработка иконок, работа над улучшением UX/UI.",
+                    "updated": 1640155003488
                 }
             ]
         },
@@ -176,6 +201,11 @@
                     "language": "TR",
                     "text": "Uygulama içi eğitimler veya videolar yayınlayarak içerik üretmek.",
                     "updated": 1639868728461
+                },
+                {
+                    "language": "RU",
+                    "text": "Производство контента в виде обучающих материалов или видеороликов для приложения.",
+                    "updated": 1640155041742
                 }
             ]
         },
@@ -205,6 +235,11 @@
                     "language": "TR",
                     "text": "Superalgos hakkında blog yazmak, sosyal medyada onu daha bilinir hale getirebilmek için çalışmak.",
                     "updated": 1639868777936
+                },
+                {
+                    "language": "RU",
+                    "text": "Ведение блога о Superalgos и распространение информации.",
+                    "updated": 1640155056460
                 }
             ]
         },
@@ -234,6 +269,11 @@
                     "language": "TR",
                     "text": "Bir Veri Madeni ( Data Mine ) veya Ticaret Sistemini ( Trading System ) Paylaşmak!",
                     "updated": 1639868821518
+                },
+                {
+                    "language": "RU",
+                    "text": "Распространение Data Mine или торговой системы (Trading System)!",
+                    "updated": 1640155183174
                 }
             ]
         },
@@ -263,6 +303,11 @@
                     "language": "TR",
                     "text": "Testler yapmak, hataları bulmak ve düzeltmek, kripto projelerini entegre etme ve kod tabanına katkıda bulunma.",
                     "updated": 1639868861975
+                },
+                {
+                    "language": "RU",
+                    "text": "Тестирование, устранение ошибок, интеграция криптопроектов и внесение вклада в кодовую базу.",
+                    "updated": 1640155202216
                 }
             ]
         }

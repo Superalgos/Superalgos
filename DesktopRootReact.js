@@ -53,27 +53,16 @@ exports.newDesktopRoot = function newDesktopRoot() {
             http: require('http'),
             octokit: require("@octokit/rest"),
             simpleGit: require('simple-git'),
-            nodeFetch: require('node-fetch')
+            nodeFetch: require('node-fetch'),
+            graphql: require("@octokit/graphql"),
+            axios: require('axios')
         }
+        SA.version = require('./package.json').version
         /*
         Setting up Secrets.
         */
-        try {
-            SA.secrets = {
-                array: require('./My-Secrets/Secrets.json').secrets,
-                map: new Map()
-            }
-        } catch (err) {
-            SA.secrets = {
-                array: [],
-                map: new Map()
-            }
-        }
-
-        for (let i = 0; i < SA.secrets.array.length; i++) {
-            let secret = SA.secrets.array[i]
-            SA.secrets.map.set(secret.nodeCodeName, secret)
-        }
+        let SECRETS = require('./Secrets.js').newSecrets()
+        SECRETS.initialize()
 
         run()
 

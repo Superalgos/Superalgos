@@ -46,7 +46,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         outgoingTradingSignalsModuleObject.initialize()
 
         /* This object is already initialized */
-        tradingEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT
+        tradingEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT
     }
 
     function finalize() {
@@ -106,7 +106,12 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
                 /* Next Candle */
-                let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(tradingEngine, candles, i, processIndex)
+                let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
+                    tradingEngine.tradingCurrent.tradingEpisode.candle,
+                    candles,
+                    i,
+                    processIndex
+                )
                 /* Signals */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(tradingSystem)
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
@@ -182,7 +187,12 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     tradingEpisodeModuleObject.reset()
                     tradingEngineModuleObject.reset()
 
-                    TS.projects.simulation.functionLibraries.simulationFunctions.createInfoMessage(tradingSystem, tradingEngine, processIndex)
+                    TS.projects.simulation.functionLibraries.simulationFunctions.createInfoMessage(
+                        tradingSystem,
+                        tradingEngine.tradingCurrent.tradingEpisode.candle.index.value,
+                        tradingEngine.tradingCurrent.tradingEpisode.cycle.value,
+                        processIndex
+                    )
 
                     await tradingSystemModuleObject.run()
                 }

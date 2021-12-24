@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "107.1",
+    "type": "Tutorial Step - Buy the Token!",
+    "definition": {
+        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap is the way to go! This is why...",
+        "icon": {
+            "name": "Crypto-Exchanges\\pancakeswap",
+            "project": "Foundations"
+        },
+        "updated": 1640335838861
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Superalgos is a community-owned crypto project. The native token is used to incentivize contributions, meaning that the project distributes the token exclusively among contributors. Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!",
+            "updated": 1640334923676
+        },
+        {
+            "style": "Link",
+            "text": "Learn more about the Superalgos SA Token->https://superalgos.org/token-overview.shtml",
+            "updated": 1640335484013
+        },
+        {
+            "style": "Link",
+            "text": "</br>How to buy the token using Trust Wallet->https://medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
+            "updated": 1640335796928
+        }
+    ]
+}

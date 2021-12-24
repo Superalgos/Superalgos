@@ -12,11 +12,6 @@
                 "language": "RU",
                 "text": "Trigger Off Event (событие выключения) определяет ситуацию, в которой соответствующая стратегия должна быть выключена. Выключенная стратегия освобождает резервный капитал и делает его доступным для других стратегий в торговой системе.",
                 "updated": 1639736651020
-            },
-            {
-                "language": "TR",
-                "text": "Tetikleme olayı, ilgili stratejinin tetikleneceği durumu tanımlar. Tetiklenen bir strateji, yedekteki sermayeyi serbest bırakır ve onu ticaret sistemindeki diğer stratejiler için kullanılabilir hale getirir.",
-                "updated": 1640266871067
             }
         ]
     },
@@ -33,11 +28,6 @@
                     "language": "RU",
                     "text": "В концептуальном плане событие выключения - это механизм, который вы используете для определения ситуации, в которой соответствующая стратегия должна прекратить рассматривать торговую возможность, о которой сигнализирует событие включения. Иными словами, вы используете событие выключения для описания сценария отмены торговой идеи, лежащей в основе стратегии.",
                     "updated": 1639736793351
-                },
-                {
-                    "language": "TR",
-                    "text": "Kavramsal olarak, tetikleme olayı, tetikleme olayı tarafından işaret edilen ticaret fırsatını dikkate alarak ilgili stratejinin durması gereken durumu tanımlamak için kullandığınız mekanizmadır. Yani, stratejinin arkasındaki ticaret fikrinin geçersiz kılınmasına ilişkin senaryoyu açıklamak için tetikleme olayını kullanırsınız.",
-                    "updated": 1640266992619
                 }
             ]
         },
@@ -49,11 +39,6 @@
                     "language": "RU",
                     "text": "Когда стратегия включена, возможны только два сценария развития событий. Либо срабатывает событие открытия позиции, что приводит к открытию позиции, либо сначала срабатывает событие закрытия позиции.",
                     "updated": 1639736885955
-                },
-                {
-                    "language": "TR",
-                    "text": "Bir strateji tetiklendiğinde, yalnızca iki olası senaryo izlenebilir. Ya konum alma olayı tetiklenir, dolayısıyla bir konum alma olayı tetiklenir ya da ilk önce tetikleme olayı tetiklenir.",
-                    "updated": 1640267049192
                 }
             ]
         },
@@ -65,11 +50,6 @@
                     "language": "RU",
                     "text": "В первом случае стратегия остается включенной до тех пор, пока позиция не будет закрыта. Когда позиция закрывается, стратегия отключается. Во втором случае стратегия срабатывает немедленно.",
                     "updated": 1639736973779
-                },
-                {
-                    "language": "TR",
-                    "text": "İlk senaryoda, strateji pozisyon kapanana kadar devam eder. Pozisyon kapatıldığında, strateji tetiklenir. İkinci senaryoda, strateji anında tetiklenir.",
-                    "updated": 1640267113235
                 }
             ]
         }

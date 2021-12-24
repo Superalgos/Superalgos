@@ -45,11 +45,11 @@ exports.newMachineLearningBotModulesLearningRecords = function (processIndex) {
             let product = dataset.parentNode
             let outputDatasetArray = outputDatasetsMap.get(product.config.codeName)
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true && dataset.config.type === 'Daily Files') {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES === true && dataset.config.type === 'Daily Files') {
                 persistRecords()
             }
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === false && dataset.config.type === 'Market Files') {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES === false && dataset.config.type === 'Market Files') {
                 persistRecords()
             }
 
@@ -238,7 +238,7 @@ exports.newMachineLearningBotModulesLearningRecords = function (processIndex) {
                     if (recordProperty.config.codeName === product.config.propertyNameThatDefinesObject) {
                         let propertyValue = record[j]
 
-                        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
                             if (product.config.doNotCutObjectInDays !== true) {
                                 /* 
                                 By default we will cut objects in days.

@@ -2227,6 +2227,11 @@ exports.newHttpInterface = function newHttpInterface() {
                     SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
                 }
                     break
+                case 'ProjectsMenu': {
+                    let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsMenu.json'
+                    SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
+                }
+                    break
                 case 'ListSpaceFiles': {
                     let fs = SA.nodeModules.fs
                     let allFiles = []

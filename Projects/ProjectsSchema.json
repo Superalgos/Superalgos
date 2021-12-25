@@ -563,6 +563,11 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
+                },
+                {
+                    "name": "System Action Functions",
+                    "propertyName": "systemActionFunctions",
+                    "functionName": "newFoundationsSystemActionFunctions"
                 }
             ],
             "utilities": [

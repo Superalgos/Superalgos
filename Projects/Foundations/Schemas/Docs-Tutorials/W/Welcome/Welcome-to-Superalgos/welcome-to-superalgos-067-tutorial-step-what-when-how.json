@@ -202,7 +202,7 @@
         },
         {
             "style": "List",
-            "text": "Fee Structure: 0.1% is the lower Binance tier.",
+            "text": "Fee Structure: 0.1% is just an example.",
             "translations": [
                 {
                     "language": "IT",
@@ -231,7 +231,8 @@
                     "text": "Структура оплаты:  0.1%  - это нижний уровень на Binance.",
                     "updated": 1636930145101
                 }
-            ]
+            ],
+            "updated": 1640359705451
         },
         {
             "style": "Text",

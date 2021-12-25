@@ -4,24 +4,14 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
     It is an events based interface because the communication happens via the Events Server.
     */
     let thisObject = {
-        run: run,
-        stop: stop,
         initialize: initialize,
         finalize: finalize
     }
 
-    let portfolioSystemModuleObject
     return thisObject
 
     function initialize(portfolioSystemModuleObject) {
-        portfolioSystemModuleObject = portfolioSystemModuleObject
-    }
 
-    function finalize() {
-
-    }
-
-    function run() {
         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
 
             let SESSION_KEY = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.name +
@@ -59,18 +49,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
         }
     }
 
-    function stop() {
+    function finalize() {
 
-    }
-
-    function outbound() {
-        let message = arguments[0];
-
-
-        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-            message.event.returnToCallerId,
-            'Response From Portfolio Manager',
-            message.event
-        )
     }
 }

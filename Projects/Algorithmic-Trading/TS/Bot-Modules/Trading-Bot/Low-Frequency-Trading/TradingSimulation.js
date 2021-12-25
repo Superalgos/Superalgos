@@ -175,14 +175,22 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 had the chance to check for the status of placed orders or even cancel
                 the ones that needed cancellation.
                 */
-                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopBetweenCycles(
-                    tradingEpisodeModuleObject, 
-                    sessionParameters, 
-                    tradingSystem, 
-                    tradingEngine, 
+                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopTheSimulation(
+                    tradingEpisodeModuleObject,
+                    sessionParameters,
                     tradingEngine.tradingCurrent.tradingEpisode,
                     processIndex
+                )
+
+                if (breakLoop === false) {
+                    breakLoop = TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkIfWeNeedToStopTheSimulation(
+                        tradingEpisodeModuleObject,
+                        sessionParameters,
+                        tradingSystem,
+                        tradingEngine,
+                        processIndex
                     )
+                }
 
                 /* Add new records to the process output */
                 tradingRecordsModuleObject.appendRecords()

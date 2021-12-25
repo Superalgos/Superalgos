@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "stop"
         },
-        "text": "We are not going to run a Live Trading Session just yet, so there is no point in keeping our data mining running at this point.",
+        "text": "We are not going to run a Live Trading Session just yet, so there is no point in keeping our data mining running.",
         "translations": [
             {
                 "language": "IT",
@@ -48,7 +48,8 @@
                 "text": "We gaan nog niet een Live Trading Session starten, dus heeft het geen zin om data mining te blijven uitvoeren.",
                 "updated": 1638779733396
             }
-        ]
+        ],
+        "updated": 1640265234059
     },
     "paragraphs": [
         {

@@ -209,7 +209,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 We check if we need to stop before appending the records so that the stop 
                 reason is also properly recorded.
                 */
-                checkIfWeNeedToStopBetweenCycles()
+                checkIfWeNeedToStopTheSimulation()
 
                 /* Add new records to the process output */
                 learningRecordsModuleObject.appendRecords()
@@ -249,7 +249,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                     await learningSystemModuleObject.run()
                 }
 
-                function checkIfWeNeedToStopBetweenCycles() {
+                function checkIfWeNeedToStopTheSimulation() {
                     if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             '[INFO] runSimulation -> controlLoop -> We are going to stop here because we were requested to stop processing this session.')

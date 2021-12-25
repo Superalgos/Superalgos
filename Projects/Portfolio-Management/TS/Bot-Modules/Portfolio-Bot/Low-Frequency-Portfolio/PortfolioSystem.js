@@ -185,31 +185,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     async function run() {
         try {
-            /* Run Asset Refresh */
-            // assetRefreshPlaceholderFunction()
-            count++;
-
-            console.log(" ---- @ PortfolioSystem.run()  ---  TMP MSG - What todo here? ----count=>" + count);
-
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-            await sleep(20000);
-
-
-            //portfolioManagerModuleObject.runTriggerStage()
-
-            /* Run the Open Stage */
-            //await portfolioManagerModuleObject.runOpenStage()
-
-            /* Run the Manage Stage */
-            //portfolioManagerModuleObject.runManageStage()
-
-            /* Run the Close Stage */
-           //await portfolioManagerModuleObject.runCloseStage()
-
-            /* Validation if we need to exit the position */
-            //portfolioManagerModuleObject.exitPositionValidation()
 
             portfolioManagerModuleObject.cycleBasedStatistics()
 

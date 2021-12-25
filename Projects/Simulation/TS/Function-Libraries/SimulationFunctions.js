@@ -6,7 +6,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     let thisObject = {
         createInfoMessage: createInfoMessage,
-        checkIfWeNeedToStopBetweenCycles: checkIfWeNeedToStopBetweenCycles,
+        checkIfWeNeedToStopTheSimulation: checkIfWeNeedToStopTheSimulation,
         checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
         setCurrentCandle: setCurrentCandle,
         syncronizeLoopIncomingSignals: syncronizeLoopIncomingSignals,
@@ -50,11 +50,9 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         system.addInfo([system.id, infoMessage, docs])
     }
 
-    function checkIfWeNeedToStopBetweenCycles(
+    function checkIfWeNeedToStopTheSimulation(
         episodeModuleObject,
         sessionParameters,
-        system,
-        engine,
         episode,
         processIndex
     ) {
@@ -77,14 +75,6 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                 '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ')
-            return true
-        }
-
-        if (TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkMinimunAndMaximunBalance(sessionParameters, system, engine, processIndex) === false) {
-            TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(episodeModuleObject, 'Min or Max Balance Reached')
-            TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ')
             return true
         }
         return false

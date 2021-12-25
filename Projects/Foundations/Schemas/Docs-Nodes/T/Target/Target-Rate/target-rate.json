@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Target Rate (целевая ставка)  - это базовая ставка, которая может влиять на моделирование и которая, в сочетании с размещением управляемых стоп-лоссов и управляемых тейк-профитов, используется для определения того, были ли достигнуты цели.",
                 "updated": 1639822060269
+            },
+            {
+                "language": "TR",
+                "text": "Hedef oran, simülasyonları etkileyebilecek bir referans orandır ve yönetilen zararı durdur ve yönetilen kârı al hedeflerinin yerleştirilmesiyle birlikte, hedeflere ulaşılıp ulaşılmadığını belirlemek için kullanılır.",
+                "updated": 1640445423569
             }
         ]
     },

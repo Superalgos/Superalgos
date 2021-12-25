@@ -1,7 +1,14 @@
 {
     "type": "Target Size",
     "definition": {
-        "text": "Target size is the target set on the initial targets definition which, in the context of a strategy stage, acts as a limit."
+        "text": "Target size is the target set on the initial targets definition which, in the context of a strategy stage, acts as a limit.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Hedef boyutu, bir strateji aşaması bağlamında bir sınır görevi gören ilk hedefler tanımında belirlenen hedeftir.",
+                "updated": 1640445639704
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "Both the close and open stages may have multiple execution algorithms, each with multiple orders defined. In this context, the target size acts as a limit, as it is defined by the user as the maximum size allowed for any given position."
+            "text": "Both the close and open stages may have multiple execution algorithms, each with multiple orders defined. In this context, the target size acts as a limit, as it is defined by the user as the maximum size allowed for any given position.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Hem kapalı hem de açık aşamalar, her biri tanımlanmış birden çok siparişe sahip birden çok yürütme algoritmasına sahip olabilir. Bu bağlamda, kullanıcı tarafından herhangi bir pozisyon için izin verilen maksimum boyut olarak tanımlandığı için hedef boyut bir sınır görevi görür.",
+                    "updated": 1640445665392
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before placing an order, the system makes sure that the size limit embodied in the target size would not be breached by opening a new order."
+            "text": "Before placing an order, the system makes sure that the size limit embodied in the target size would not be breached by opening a new order.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bir sipariş vermeden önce, sistem hedef boyutta somutlaşan boyut sınırının yeni bir sipariş açarak ihlal edilmeyeceğinden emin olur.",
+                    "updated": 1640445679484
+                }
+            ]
         }
     ]
 }

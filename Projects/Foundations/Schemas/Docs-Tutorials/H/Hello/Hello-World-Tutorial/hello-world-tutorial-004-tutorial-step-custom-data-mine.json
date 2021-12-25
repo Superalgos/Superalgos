@@ -25,6 +25,11 @@
                 "language": "IT",
                 "text": "Non solo i Workspaces possono essere modificati",
                 "updated": 1639073159902
+            },
+            {
+                "language": "TR",
+                "text": "Yalnızca Çalışma Alanları ( Workspaces ) değiştirilemez",
+                "updated": 1640440852234
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "IT",
                     "text": "SA è modulare e può essere organizzato nel modo che preferiamo per le nostre esigenze.",
                     "updated": 1639073670338
+                },
+                {
+                    "language": "TR",
+                    "text": "SA çok modülerdir ve ihtiyaçlarımız için tercih ettiğimiz şekilde düzenlenebilir.",
+                    "updated": 1640440905054
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "IT",
                     "text": "Ho preparato per te un workspace molto semplice con un nuovo  Data Mine e ho organizzato i nodi eliminando tutto ciò che non mi serviva per questo tutorial.",
                     "updated": 1639073239124
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir Veri Madeni ( Data Mine ) ile sizin için çok basit bir Çalışma Alanı ( Workspace ) hazırladım ve bu eğitim için ihtiyacım olmayan her şeyi silerek düğümleri düzenledim.",
+                    "updated": 1640440984215
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "IT",
                     "text": "In SA anche i Data Mine possono essere aggiunti o rimossi ma ricorda che i dati salvati sul disco rigido non verranno eliminati se si rimuove un indicatore!",
                     "updated": 1639073315071
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Sa veri madenleri eklenebilir ve kaldırılabilir, ancak bir göstergeyi kaldırırsanız sabit diskinize kaydedilen veriler silinmez!",
+                    "updated": 1640441002596
                 }
             ]
         },

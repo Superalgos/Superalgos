@@ -25,6 +25,11 @@
                 "language": "IT",
                 "text": "Il Trading System è già impostato. Diamo un'occhiata!",
                 "updated": 1639075033970
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Sistemi ( Trading System ) çoktan kuruldu. Hadi kontrol edelim!",
+                "updated": 1640441681478
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "IT",
                     "text": "Ho già proveduto a settare l'occorrente e la strategia è già implementata. Diamo un'occhiata in giro!",
                     "updated": 1639075146492
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji çoktan uygulandı. Bunu anlamak için etrafa bir göz atalım!",
+                    "updated": 1640441813827
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "IT",
                     "text": "Come puoi vedere, il Trading System ha 2 figli (offsprings) principali:",
                     "updated": 1639076579571
+                },
+                {
+                    "language": "TR",
+                    "text": "Gördüğünüz gibi, bir Ticaret Sisteminin ( Trading System ) 2 ana ürünü vardır:",
+                    "updated": 1640441864088
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "IT",
                     "text": "Dynamic Indicators: Serve per costruire indicatori On-The-Fly (non verrà usato in questo tutorial)",
                     "updated": 1639075240227
+                },
+                {
+                    "language": "TR",
+                    "text": "Dinamik Göstergeler: Bu, Anında göstergeler oluşturmanızı sağlar",
+                    "updated": 1640441924310
                 }
             ]
         },
@@ -117,6 +137,11 @@
                     "language": "IT",
                     "text": "Trading Strategy: È qui che definiamo parametri, condizioni e formule per la nostra strategia",
                     "updated": 1639075258476
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Stratejisi ( Strategy ): Stratejimiz için parametreleri, koşulları ve formülleri tanımladığımız yerdir",
+                    "updated": 1640441950885
                 }
             ]
         },
@@ -139,6 +164,11 @@
                     "language": "IT",
                     "text": "Questo tutorial non copre definizioni o concetti utilizzati in SA. Questo tutorial riguarda solo come implementare una strategia!",
                     "updated": 1639075281490
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu öğretici, SA'da kullanılan tanımları veya kavramları kapsamaz. Bu öğretici yalnızca bir stratejinin nasıl uygulanacağıyla ilgilidir!",
+                    "updated": 1640441974464
                 }
             ]
         }

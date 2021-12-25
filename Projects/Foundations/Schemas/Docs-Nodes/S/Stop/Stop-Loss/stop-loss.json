@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "Stop loss es el objetivo actual de stop loss, según se define en la etapa de gestión de la estrategia correspondiente.",
                 "updated": 1629580794189
+            },
+            {
+                "language": "TR",
+                "text": "Zararı durdur, ilgili stratejinin yönetim aşamasında tanımlandığı gibi, mevcut zararı durdurma hedefidir.",
+                "updated": 1640444175348
             }
         ]
     },

@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Стадия закрытия является зеркальным отражением стадии открытия, с определениями, касающимися закрытия позиции, включая выполнение закрытия.",
                 "updated": 1639847628100
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Kapanış aşaması, kapalı yürütme de dahil olmak üzere pozisyonun kapatılmasıyla ilgili tanımlarla açık aşamanın bir aynasıdır.",
+                "updated": 1640446748183
             }
         ]
     },

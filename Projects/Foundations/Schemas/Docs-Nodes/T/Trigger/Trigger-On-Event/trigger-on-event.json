@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Trigger On Event (событие включения) определяет набор правил, которые должны быть выполнены для включения соответствующей стратегии. Сработавшая стратегия может использовать весь капитал, доступный торговой системе, и препятствует срабатыванию других стратегий в системе.",
                 "updated": 1639734975463
+            },
+            {
+                "language": "TR",
+                "text": "Tetikleme olayı, ilgili stratejinin tetiklenmesi için karşılanması gereken kurallar kümesini tanımlar. Tetiklenen bir strateji, ticaret sistemi için mevcut olan tüm sermayeyi kullanabilir ve sistemdeki diğer stratejilerin tetiklenmesini engelleyebilir.",
+                "updated": 1640446096656
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "В концептуальном плане событие включения - это механизм, который вы используете для определения конкретных ситуаций, в которых вы будете рассматривать возможность торговли с помощью соответствующей стратегии. Воспринимайте событие включения как определение сценария, в котором торговая идея, лежащая в основе стратегии, должна быть тщательно продумана.",
                     "updated": 1639736452767
+                },
+                {
+                    "language": "TR",
+                    "text": "Kavramsal olarak, tetikleme olayı, ilgili stratejiyle işlem yapmayı düşündüğünüz belirli durumları tanımlamak için kullandığınız mekanizmadır. Tetikleme olayını, stratejinin arkasındaki ticaret fikrinin dikkatlice düşünülmesi gereken senaryonun tanımı olarak düşünün.",
+                    "updated": 1640446115738
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Как только стратегия срабатывает, система начинает оценивать событие открытия позиции. В концептуальном плане это означает, что система получила сигнал о том, что торговая идея, лежащая в основе соответствующей торговой стратегии, дала сигнал и что она должна внимательно следить за рынком в поисках возможности открыть позицию.",
                     "updated": 1639736510224
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji tetiklendiğinde, sistem pozisyon alma olayını değerlendirmeye başlar. Kavramsal olarak, sistemin ilgili ticaret stratejisinin arkasındaki ticaret fikrinin bir sinyal ürettiği ve bir pozisyon alma fırsatı için piyasayı dikkatle izlemesi gerektiği konusunda uyarıldığı anlamına gelir.",
+                    "updated": 1640446138599
                 }
             ]
         }

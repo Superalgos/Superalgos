@@ -17,6 +17,11 @@
                 "language": "RU",
                 "text": "Стадия управления Manage Stage связана с установкой и управлением целями стоп-лосс и тейк-профит, как для защиты вашего капитала, так и для повышения эффективности вашей торговой системы.",
                 "updated": 1639758290305
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim aşaması, hem sermayenizi korumak hem de ticaret sisteminizin verimliliğini artırmak için zararı durdur ve kârı al hedeflerinin belirlenmesi ve yönetimi ile ilgilenir.",
+                "updated": 1640444976290
             }
         ]
     },

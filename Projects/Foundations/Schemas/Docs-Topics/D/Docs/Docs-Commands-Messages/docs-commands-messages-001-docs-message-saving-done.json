@@ -36,8 +36,8 @@
             },
             {
                 "language": "TR",
-                "text": "docs.save komutu başarılı oldu ve tüm değişiklikler Superalgos İstemcisine kaydedildi",
-                "updated": 1640002778163
+                "text": "Özet: docs.save komutu başarılı oldu ve tüm değişiklikler Superalgos İstemcisine kaydedildi",
+                "updated": 1640439191816
             }
         ]
     },
@@ -71,8 +71,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Node, concept, topic, tutorial, review, and dokümanlar sayfalarındaki en son değişikliklerin tümü diske kaydedildi.",
-                    "updated": 1640002830025
+                    "text": "İpucu : Node, concept, topic, tutorial, review, ve dokümanlar sayfalarındaki en son değişikliklerin tümü diske kaydedildi.",
+                    "updated": 1640439159873
                 }
             ]
         }

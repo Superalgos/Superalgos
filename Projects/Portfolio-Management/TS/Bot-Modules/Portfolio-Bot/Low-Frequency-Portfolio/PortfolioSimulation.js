@@ -23,6 +23,9 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
     let outgoingPortfolioSignalsModuleObject
     let portfolioEngineModuleObject
 
+    /* Events Interface */
+    let eventsInterfaceModuleObject
+
     return thisObject
 
     function initialize(outputDatasetsMap) {
@@ -47,6 +50,10 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
 
         /* This object is already initialized */
         portfolioEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT
+
+        /* Event Interface */
+        eventsInterfaceModuleObject = TS.projects.portfolioManagement.modules.portfolioManagerEventsInterface.newPortfolioManagementModulesPortfolioManagerEventsInterface(processIndex)
+        eventsInterfaceModuleObject.initialize(portfolioSystemModuleObject)
     }
 
     function finalize() {
@@ -55,6 +62,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioEpisodeModuleObject.finalize()
         incomingPortfolioSignalsModuleObject.finalize()
         outgoingPortfolioSignalsModuleObject.finalize()
+        eventsInterfaceModuleObject.finalize()
 
         portfolioSystem = undefined
         portfolioEngine = undefined
@@ -65,6 +73,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioEpisodeModuleObject = undefined
         incomingPortfolioSignalsModuleObject = undefined
         outgoingPortfolioSignalsModuleObject = undefined
+        eventsInterfaceModuleObject = undefined
     }
 
     async function runSimulation(

@@ -19,8 +19,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
     let portfolioRecordsModuleObject
     let portfolioSystemModuleObject
     let portfolioEpisodeModuleObject
-    let incomingPortfolioSignalsModuleObject
-    let outgoingPortfolioSignalsModuleObject
     let portfolioEngineModuleObject
 
     /* Events Interface */
@@ -42,12 +40,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioEpisodeModuleObject = TS.projects.portfolioManagement.botModules.portfolioEpisode.newPortfolioManagementBotModulesPortfolioEpisode(processIndex)
         portfolioEpisodeModuleObject.initialize()
 
-        incomingPortfolioSignalsModuleObject = TS.projects.portfolioSignals.modules.incomingPortfolioSignals.newPortfolioSignalsModulesIncomingPortfolioSignals(processIndex)
-        incomingPortfolioSignalsModuleObject.initialize()
-
-        outgoingPortfolioSignalsModuleObject = TS.projects.portfolioSignals.modules.outgoingPortfolioSignals.newPortfolioSignalsModulesOutgoingPortfolioSignals(processIndex)
-        outgoingPortfolioSignalsModuleObject.initialize()
-
         /* This object is already initialized */
         portfolioEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT
 
@@ -60,8 +52,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioSystemModuleObject.finalize()
         portfolioRecordsModuleObject.finalize()
         portfolioEpisodeModuleObject.finalize()
-        incomingPortfolioSignalsModuleObject.finalize()
-        outgoingPortfolioSignalsModuleObject.finalize()
         eventsInterfaceModuleObject.finalize()
 
         portfolioSystem = undefined
@@ -71,8 +61,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioRecordsModuleObject = undefined
         portfolioSystemModuleObject = undefined
         portfolioEpisodeModuleObject = undefined
-        incomingPortfolioSignalsModuleObject = undefined
-        outgoingPortfolioSignalsModuleObject = undefined
         eventsInterfaceModuleObject = undefined
     }
 
@@ -131,8 +119,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     i,
                     processIndex
                 )
-                /* Signals */
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(portfolioSystem)
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(
                     sessionParameters,
@@ -197,7 +183,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 portfolioRecordsModuleObject.appendRecords()
 
                 if (breakLoop === true) {
-                    await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingPortfolioSignalsModuleObject, portfolioSystem, candle)
                     break
                 }
                 /*
@@ -209,7 +194,6 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 during the second cycle.
                 */
                 await runCycle('Second')
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingPortfolioSignalsModuleObject, portfolioSystem, candle)
                 /*
                 Check if we need to stop.
                 */

@@ -5,6 +5,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     */
     const MODULE_NAME = 'Portfolio System'
     let thisObject = {
+        processEvent: processEvent, 
         mantain: mantain,
         reset: reset,
         run: run,
@@ -27,8 +28,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     let sessionParameters
 
     let portfolioManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioManager(processIndex)
-
-    SA.projects.portfolioManagement.globals.memory.modules.PORTFOLIO_MANAGER = portfolioManagerModuleObject;
 
     /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -186,31 +185,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     async function run() {
         try {
-            /* Run Asset Refresh */
-            // assetRefreshPlaceholderFunction()
-            count++;
-
-            console.log(" ---- @ PortfolioSystem.run()  ---  TMP MSG - What todo here? ----count=>" + count);
-
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-            await sleep(20000);
-
-
-            //portfolioManagerModuleObject.runTriggerStage()
-
-            /* Run the Open Stage */
-            //await portfolioManagerModuleObject.runOpenStage()
-
-            /* Run the Manage Stage */
-            //portfolioManagerModuleObject.runManageStage()
-
-            /* Run the Close Stage */
-           //await portfolioManagerModuleObject.runCloseStage()
-
-            /* Validation if we need to exit the position */
-            //portfolioManagerModuleObject.exitPositionValidation()
 
             portfolioManagerModuleObject.cycleBasedStatistics()
 
@@ -227,6 +201,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
+    }
+
+    function processEvent(event) {
+
     }
 
     function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {

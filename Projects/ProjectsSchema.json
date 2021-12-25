@@ -2013,6 +2013,12 @@
                     "propertyName": "simulationFunctions",
                     "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
                     "fileName": "SimulationFunctions.js"
+                },
+                {
+                    "name": "Output Records Functions",
+                    "propertyName": "outputRecordsFunctions",
+                    "functionName": "newSimulationFunctionLibrariesOutputRecordsFunctions",
+                    "fileName": "OutputRecordsFunctions.js"
                 }
             ]
         },

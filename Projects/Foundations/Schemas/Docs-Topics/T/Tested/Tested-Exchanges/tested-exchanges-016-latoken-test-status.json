@@ -1,9 +1,9 @@
 {
     "topic": "Tested Exchanges",
-    "pageNumber": 15,
-    "type": "Gate.io Test Status",
+    "pageNumber": 16,
+    "type": "Latoken Test Status",
     "definition": {
-        "text": "Passed Live Trading Test but Gate.io doesn't support Market Orders",
+        "text": "Passed Live Trading Test but limited Historical Data ",
         "updated": 1636810465259
     },
     "paragraphs": [
@@ -14,17 +14,17 @@
         },
         {
             "style": "List",
-            "text": "1-min OHLCVs Capability: Yes",
+            "text": "1-min OHLCVs Capability: No. The ability to fetch historical data for backtesting purposes is not possible.",
             "updated": 1636811644277
         },
         {
             "style": "List",
-            "text": "Market History: From August 2020",
+            "text": "Market History: From that day you to start mining historical data",
             "updated": 1636811635789
         },
         {
             "style": "List",
-            "text": "Trading Capability: Yes The ability to create and cancel limit orders in a live-trading mode has been verified. Gate.io doesn't support Market Orders",
+            "text": "Trading Capability: Yes The ability to place market orders, create and cancel limit orders in a live-trading mode has been verified.",
             "updated": 1636811869127
         },
         {
@@ -38,7 +38,7 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"gateio\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
+            "text": "{\n    \"codeName\": \"latoken\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
             "updated": 1636811208143
         }
        

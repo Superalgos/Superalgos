@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Kullanıcıların Superalgos ile inşa ettikleri şeye katkıda bulunmalarının proje için ne kadar önemli olduğunu anlatmama gerek yok!",
                 "updated": 1640002927653
+            },
+            {
+                "language": "RU",
+                "text": "Я не могу не подчеркнуть, насколько важно для проекта, чтобы пользователи вносили свой вклад в развитие Superalgos!",
+                "updated": 1640163701075
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Projeye ve Topluluğa dahil olmayı seçerseniz, Superalgos'u daha iyi hale getirmek için ortak çabaya katılabilirsiniz. Ancak ekip çalışmasına ilgi duymasanız bile, yine de becerilerinizi geliştirecek, güçlü bir kullanıcı olacak ve sizden sonra gelen insanlara faydalı olabilecek birçok şey inşa edeceksiniz!",
                     "updated": 1640002967511
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы решите участвовать в проекте и Сообществе (Community), вы сможете принять участие в коллективных усилиях по улучшению Superalgos. Но даже если вы не заинтересованы в командной работе, вы все равно будете развивать свои навыки, станете опытным пользователем и создадите много вещей, которые могут пригодиться тем, кто придет после вас!",
+                    "updated": 1640163762784
                 }
             ]
         },

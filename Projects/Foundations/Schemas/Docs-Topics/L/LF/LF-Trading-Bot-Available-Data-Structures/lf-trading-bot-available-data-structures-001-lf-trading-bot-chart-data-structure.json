@@ -4,22 +4,50 @@
     "type": "LF Trading Bot - Chart Data Structure",
     "definition": {
         "text": "The Chart Data Structure is an object that contains Indicator Bot or Sensor Bot data available at runtime, and can be accessed from the code of Conditions and Formulas.",
-        "updated": 1617615874508
+        "updated": 1617615874508,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Chart Data Structure - это объект, содержащий данные Indicator Bot или Sensor Bot, доступные во время выполнения, к которым можно получить из кода условий (Condition) и формул (Formula).",
+                "updated": 1640150363527
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "This Javascript object, together with the other two data structures described on this topic, ultimately defines the syntax that used to write conditions and formulas, and more precisely the syntax to retrieve Indicator Bot and Sensor Bot data.",
-            "updated": 1617615932665
+            "updated": 1617615932665,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот объект Javascript, вместе с двумя другими структурами данных, описанными в этой теме, в конечном итоге определяет синтаксис, который используется для записи условий и формул, и, более точно, синтаксис для получения данных Indicator Bot и Sensor Bot.",
+                    "updated": 1640150405987
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Structure"
+            "text": "Structure",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Структура",
+                    "updated": 1640150421822
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The root of the object is...",
-            "updated": 1617615941456
+            "updated": 1617615941456,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Корнем объекта является...",
+                    "updated": 1640150995029
+                }
+            ]
         },
         {
             "style": "Json",
@@ -28,7 +56,14 @@
         {
             "style": "List",
             "text": "After the root, the definition of the timeframe is mandatory...",
-            "updated": 1617616001919
+            "updated": 1617616001919,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После корня определение таймфрейма является обязательным...",
+                    "updated": 1640150541896
+                }
+            ]
         },
         {
             "style": "Json",
@@ -38,17 +73,38 @@
         {
             "style": "List",
             "text": "After that comes the singleVariableName defined at the config of the Product Definition of an Indicator Bot or Sensor Bot.",
-            "updated": 1617616054644
+            "updated": 1617616054644,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После этого идет singleVariableName, определенное в конфигурации Product Definition ботов Indicator Bot или Sensor Bot.",
+                    "updated": 1640150587102
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Finally, the last property is the codeName of a Record Property node, corresponding to the same Product Definition mentioned earlier.",
-            "updated": 1617616859394
+            "updated": 1617616859394,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наконец, последнее свойство - это codeName узла Record Property, соответствующего тому же самому Product Definition, упомянутому ранее.",
+                    "updated": 1640150607476
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Examples",
-            "updated": 1612350235632
+            "updated": 1612350235632,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640150615902
+                }
+            ]
         },
         {
             "style": "Json",
@@ -67,25 +123,60 @@
         {
             "style": "Title",
             "text": "Advanced Use",
-            "updated": 1617616121116
+            "updated": 1617616121116,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расширенное использование",
+                    "updated": 1640150628035
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You also have access to the set of indicator objects loaded in memory through this same data structure.",
-            "updated": 1617616255365
+            "updated": 1617616255365,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Через эту же структуру данных вы имеете доступ к набору объектов индикатора, загруженных в память.",
+                    "updated": 1640150650094
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If instead of using the singleVariableName you use the pluralVariableName, you get an array of objects that — depending on the time frame — could be the object featuring the whole market (for time frames of one hour and above) or the current and previous day (for time frames below one hour).",
-            "updated": 1617616419121
+            "updated": 1617616419121,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вместо singleVariableName вы используете pluralVariableName, вы получите массив объектов, который - в зависимости от таймфрейма - может быть объектом, отображающим весь рынок (для таймфреймов один час и выше) или текущий и предыдущий день (для таймфреймов менее одного часа).",
+                    "updated": 1640150680569
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Remember that time frames of one hour and above are stored as Market Files while time frames below one hour are stored as Daily Files."
+            "text": "Remember that time frames of one hour and above are stored as Market Files while time frames below one hour are stored as Daily Files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что таймфреймы от одного часа и выше хранятся как Market Files, а таймфреймы меньше одного часа - как Daily Files.",
+                    "updated": 1640150712009
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640150721099
+                }
+            ]
         },
         {
             "style": "Json",
@@ -94,7 +185,14 @@
         {
             "style": "Text",
             "text": "The above returns an array of candles of the previous days concatenated with the candles of the current day. You may use this information as you wish.",
-            "updated": 1617616467792
+            "updated": 1617616467792,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вышеприведенное действие возвращает массив свечей предыдущих дней, объединенный со свечами текущего дня. Вы можете использовать эту информацию по своему усмотрению.",
+                    "updated": 1640150769463
+                }
+            ]
         },
         {
             "style": "Json",
@@ -103,7 +201,14 @@
         {
             "style": "Text",
             "text": "The above returns an array of all bollingerBands object of the whole market since the time frame is above 1 hour.",
-            "updated": 1617616877744
+            "updated": 1617616877744,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вышеприведенное действие возвращает массив всех объектов BollingerBands всего рынка, поскольку таймфрейм выше 1 часа.",
+                    "updated": 1640150785874
+                }
+            ]
         },
         {
             "style": "Text",

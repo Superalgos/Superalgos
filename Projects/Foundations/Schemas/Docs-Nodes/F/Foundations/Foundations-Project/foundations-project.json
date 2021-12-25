@@ -12,6 +12,11 @@
                 "language": "EL",
                 "text": "Η ιεραρχία Foundations Project διέπει τα περιουσιακά στοιχεία που σχετίζονται με το Superalgos. Στην τρέχουσα κατάστασή του, εξυπηρετεί το σκοπό της αναπαραγωγής ιεραρχιών.",
                 "updated": 1639090054011
+            },
+            {
+                "language": "DE",
+                "text": "Die Hierarchie des  Foundations Projekts regelt die Vermögenswerte, die sich auf Superalgos beziehen. In ihrem derzeitigen Zustand dient sie dem Zweck, Hierarchien zu erzeugen.",
+                "updated": 1640089727334
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "EL",
                     "text": "Το Superalgos είναι μια πολυ-πλατφόρμα που σημαίνει ότι μπορεί να ενσωματωθούν και άλλα κρυπτογραφικά εγχειρήματα. Σε αυτό το πλαίσιο υπάρχουν ιεραρχίες ανά έργο.",
                     "updated": 1639090762657
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist eine Multiprojekt-Plattform, d.h. andere Krypto-Projekte können integriert werden. In diesem Zusammenhang gibt es auch projektspezifische Hierarchien.",
+                    "updated": 1640089762291
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "EL",
                     "text": "Μια ενοποίηση κρυπτογραφικού έργου σημαίνει ότι οι χρήστες του Superalgos θα μπορούν να συνδέονται με κόμβους μπλοκ αλυσίδας μέσα από το Superalgos, εκθέτοντας τα δεδομένα μπλοκ αλυσίδας στην υπόλοιπη υποδομή του Superalgos. Οι χρήστες θα μπορούν να εξορύσσουν τα δεδομένα του κόμβου, να δημιουργήσουν δείκτες, να τους χρησιμοποιήσουν μέσα από συστήματα συναλλαγών και να οπτικοποιήσουν πληροφορίες μπλοκ αλυσίδας στα γραφήματα—μεταξύ άλλων.",
                     "updated": 1639091379467
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Krypto-Projekt-Integration (crypto-project integration) bedeutet, dass Superalgos-Benutzer in der Lage sein werden, sich von Superalgos aus mit Blockchain Nodes zu verbinden und die Blockchain Daten dem Rest der Superalgos Infrastruktur zugänglich zu machen. Die Nutzer werden in der Lage sein, die Daten der Node zu schürfen, Indikatoren zu erstellen, sie innerhalb von trading systems zu verwenden und Blockchain Informationen in den Charts zu visualisieren - neben anderen Dingen.",
+                    "updated": 1640089838753
                 }
             ]
         }

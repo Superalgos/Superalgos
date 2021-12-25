@@ -12,6 +12,14 @@
             ]
         },
         "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Functions",
+                    "propertyName": "tradingFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibrariesTradingFunctions",
+                    "fileName": "TradingFunctions.js"
+                }
+            ],
             "botModules": [
                 {
                     "name": "Single Market Trading Bot",
@@ -163,7 +171,16 @@
                 }
             ]
         },
+        "SA": {},
         "TS": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newPortfolioManagementGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
             "modules": [
                 {
                     "name": "Portfolio Manager Client",
@@ -250,59 +267,10 @@
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
-                    "name": "Portfolio Stages",
-                    "propertyName": "portfolioStages",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioStages",
-                    "fileName": "PortfolioStages.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Strategy",
-                    "propertyName": "portfolioStrategy",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioStrategy",
-                    "fileName": "PortfolioStrategy.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Execution",
-                    "propertyName": "portfolioExecution",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioExecution",
-                    "fileName": "PortfolioExecution.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Position",
-                    "propertyName": "portfolioPosition",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioPosition",
-                    "fileName": "PortfolioPosition.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Snapshots",
-                    "propertyName": "snapshots",
-                    "functionName": "newPortfolioManagementBotModulesSnapshots",
-                    "fileName": "Snapshots.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Portfolio Orders",
-                    "propertyName": "portfolioOrders",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioOrders",
-                    "fileName": "PortfolioOrders.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Orders Simulations",
-                    "propertyName": "ordersSimulations",
-                    "functionName": "newPortfolioManagementBotModulesOrdersSimulations",
-                    "fileName": "OrdersSimulations.js",
-                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },
-                {
-                    "name": "Orders Calculations",
-                    "propertyName": "ordersCalculations",
-                    "functionName": "newPortfolioManagementBotModulesOrdersCalculations",
-                    "fileName": "OrdersCalculations.js",
+                    "name": "Portfolio Manager",
+                    "propertyName": "portfolioManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioManager",
+                    "fileName": "PortfolioManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
@@ -1004,6 +972,12 @@
                     "propertyName": "asyncFunctions",
                     "functionName": "newFoundationsUtilitiesAsyncFunctions",
                     "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Encryption",
+                    "propertyName": "encryption",
+                    "functionName": "newFoundationsUtilitiesEncryption",
+                    "fileName": "Encryption.js"
                 }
             ]
         },
@@ -1974,6 +1948,20 @@
                     "functionName": "newTradingSignalsModulesIncomingTradingSignals",
                     "fileName": "IncomingTradingSignals.js",
                     "folderName": ""
+                },
+                {
+                    "name": "Outgoing Candle Signals",
+                    "propertyName": "outgoingCandleSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingCandleSignals",
+                    "fileName": "OutgoingCandleSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Candle Signals",
+                    "propertyName": "incomingCandleSignals",
+                    "functionName": "newTradingSignalsModulesIncomingCandleSignals",
+                    "fileName": "IncomingCandleSignals.js",
+                    "folderName": ""
                 }
             ]
         },
@@ -1983,9 +1971,62 @@
                     "name": "Signal Validations",
                     "propertyName": "signalValidations",
                     "functionName": "newTradingSignalsUtilitiesSignalValidations",
-                    "fileName": "SignalValidations.js" 
-                } 
+                    "fileName": "SignalValidations.js"
+                }
             ]
         }
+    },
+    {
+        "name": "Open-Storage",
+        "propertyName": "openStorage",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {},
+        "SA": {
+            "modules": [
+                {
+                    "name": "Open Storage Client",
+                    "propertyName": "openStorageClient",
+                    "functionName": "newOpenStorageModulesOpenStorageClient",
+                    "fileName": "OpenStorageClient.js",
+                    "folderName": ""
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Simulation",
+        "propertyName": "simulation",
+        "UI": {
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Simulation Functions",
+                    "propertyName": "simulationFunctions",
+                    "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
+                    "fileName": "SimulationFunctions.js"
+                },
+                {
+                    "name": "Output Records Functions",
+                    "propertyName": "outputRecordsFunctions",
+                    "functionName": "newSimulationFunctionLibrariesOutputRecordsFunctions",
+                    "fileName": "OutputRecordsFunctions.js"
+                }
+            ]
+        },
+        "SA": {}
     }
 ]

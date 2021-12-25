@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Программа поддержки Support Program работает почти так же, как и реферальная программа Referral Program, только вы указываете, какие сообщества Community Mods вам нравятся больше всего!",
                 "updated": 1639052784452
+            },
+            {
+                "language": "DE",
+                "text": "Das Support Program funktioniert so ähnlich wie das Referral Program, nur dass Sie angeben, wer Ihre lieblings Community Mods sind!",
+                "updated": 1640081563583
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Добавьте программу Support Program и используйте узлы User Supporter, чтобы настроить ссылки на ваших любимых модераторов! Их профили уже загружены!",
                     "updated": 1639052832419
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie das Support Program hinzu und verwenden Sie den User Supporter Knoten, um Verweise auf Ihre Lieblingsmoderatoren einzurichten! Ihre Profile sind bereits geladen!",
+                    "updated": 1640081606209
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "RU",
                     "text": "Хотя сообщество всегда готово помочь с типичными вопросами, для оказания эффективной поддержки требуется определенный уровень опыта и знаний. Вот почему за это отвечают избранные сообщества Community Mods! Участие в этой программе - лучший способ поблагодарить людей, которые бескорыстно помогают другим!",
                     "updated": 1639052947238
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl die Community immer bereit ist, bei typischen Fragen zu helfen, braucht es ein gewisses Maß an Erfahrung und Wissen, um effektive Unterstützung zu leisten. Aus diesem Grund sind ausgewählte Community Mods dafür zuständig! Die Teilnahme an diesem Programm ist der beste Weg, sich bei den Leuten zu bedanken, die anderen selbstlos helfen!",
+                    "updated": 1640081621732
                 }
             ]
         }

@@ -4,17 +4,38 @@
     "type": "LF Trading Bot - Exchange Data Structure",
     "definition": {
         "text": "You may use this Javascript object when you want to specify a Crypto Exchange which is different from the Default Exchange. Then you may, for example, access data from Coinbase Pro from a Trading Session running on Binance.",
-        "updated": 1617617256390
+        "updated": 1617617256390,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете использовать этот объект Javascript, когда хотите указать криптовалютную биржу (Crypto Exchange), отличную от Default Exchange. Тогда вы можете, например, получить доступ к данным с Coinbase Pro из торговой сессии (Trading Session), запущенной на Binance.",
+                "updated": 1640151721875
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Structure"
+            "text": "Structure",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Структура",
+                    "updated": 1640151740628
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The root of the object is...",
-            "updated": 1617617272058
+            "updated": 1617617272058,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Корнем объекта является...",
+                    "updated": 1640151750321
+                }
+            ]
         },
         {
             "style": "Json",
@@ -24,7 +45,14 @@
         {
             "style": "List",
             "text": "Then, you must specify the codeName of a Crypto Exchange, for instance...",
-            "updated": 1617617294733
+            "updated": 1617617294733,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Затем необходимо указать codeName криптовалютной биржи, например...",
+                    "updated": 1640151771091
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,12 +62,26 @@
         {
             "style": "List",
             "text": "Finally, continue with the syntax of the LF Trading Bot - Market Data Structure",
-            "updated": 1617617310038
+            "updated": 1617617310038,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наконец, продолжим с синтаксисом LF Trading Bot - Chart Data Structure",
+                    "updated": 1640151796948
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Examples",
-            "updated": 1612352354839
+            "updated": 1612352354839,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640151803714
+                }
+            ]
         },
         {
             "style": "Json",
@@ -59,12 +101,26 @@
         {
             "style": "Title",
             "text": "Formula Example",
-            "updated": 1612352272503
+            "updated": 1612352272503,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример формулы",
+                    "updated": 1640151816352
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "As you can see in the following example, you may have a mix of chart, market and exchange usage within the same Formula or Condition.",
-            "updated": 1617617348929
+            "updated": 1617617348929,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как видно из следующего примера, в одной и той же формуле (Formula) или условии (Condition) можно использовать графики, рынки и биржи.",
+                    "updated": 1640151893791
+                }
+            ]
         },
         {
             "style": "Json",

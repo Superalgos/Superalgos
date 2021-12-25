@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "¡Es hora de mirar el gráfico!",
                 "updated": 1629578259488
+            },
+            {
+                "language": "IT",
+                "text": "Guradiamo il grafico del backtest!",
+                "updated": 1640111014977
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "ES",
                     "text": "Cuando finaliza el backtest, detengo toda la jerarquía del nodo Testing Trading Tasks. Expande el nodo y has clic en Stop All.",
                     "updated": 1629578317859
+                },
+                {
+                    "language": "IT",
+                    "text": "Per risparmiare risorse quando il backtest finische fermo tutto il processo. Espandi un nodo e premi Stop.",
+                    "updated": 1640111147458
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "ES",
                     "text": "Recuerda que es una buena práctica mantener las jerarquías colapsadas y detener las tareas inútiles para ahorrar recursos.",
                     "updated": 1629578351656
+                },
+                {
+                    "language": "IT",
+                    "text": "SA è molto esoso di risorse! E' buona norma fermare i process non essenziali.",
+                    "updated": 1640111143226
                 }
             ]
         },

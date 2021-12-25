@@ -160,23 +160,6 @@
             ]
         },
         {
-            "style": "List",
-            "text": "Machine Learning Group — Discuss TensorFlow!",
-            "updated": 1630944752351,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Machine Learning Group - Diskutieren Sie über TensorFlow!",
-                    "updated": 1634247524820
-                },
-                {
-                    "language": "TR",
-                    "text": "Makine Öğrenimi Grubu ( Machine Learning Group ) — TensorFlow'u tartışın!",
-                    "updated": 1638914441873
-                }
-            ]
-        },
-        {
             "style": "Callout",
             "text": "Click to find the invite link in the Docs panel!",
             "updated": 1630944807940,

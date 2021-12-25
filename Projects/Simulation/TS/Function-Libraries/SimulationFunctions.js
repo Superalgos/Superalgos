@@ -5,6 +5,14 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     const MODULE_NAME = "Simulation"
 
     let thisObject = {
+        createInfoMessage: createInfoMessage,
+        checkIfWeNeedToStopBetweenCycles: checkIfWeNeedToStopBetweenCycles,
+        checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
+        setCurrentCandle: setCurrentCandle,
+        syncronizeLoopIncomingSignals: syncronizeLoopIncomingSignals,
+        syncronizeLoopOutgoingSignals: syncronizeLoopOutgoingSignals, 
+        setUpCandles: setUpCandles,
+        setUpInitialCandles: setUpInitialCandles,
         closeEpisode: closeEpisode,
         updateEpisode: updateEpisode,
         heartBeat: heartBeat,
@@ -15,6 +23,207 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     }
 
     return thisObject
+
+    function createInfoMessage(system, engine, processIndex) {
+        let infoMessage = 'Processing candle # ' + engine.tradingCurrent.tradingEpisode.candle.index.value + ' @ the ' + engine.tradingCurrent.tradingEpisode.cycle.value + ' cycle.'
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            '[INFO] runSimulation -> loop -> ' + infoMessage)
+
+        let docs = {
+            project: 'Foundations',
+            category: 'Topic',
+            type: 'TS LF Trading Bot Info - Candle And Cycle',
+            placeholder: {}
+        }
+
+        let contextInfo = {
+            candleIndex: engine.tradingCurrent.tradingEpisode.candle.index.value,
+            cycle: engine.tradingCurrent.tradingEpisode.cycle.value
+        }
+        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, undefined, undefined, undefined, undefined, undefined, contextInfo)
+
+        system.addInfo([system.id, infoMessage, docs])
+    }
+
+    function checkIfWeNeedToStopBetweenCycles(episodeModuleObject, sessionParameters, system, engine, processIndex) {
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this session.')
+            TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'Session Stopped')
+            return true
+        }
+
+        if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> controlLoop -> We are going to stop here bacause we were requested to stop processing this task.')
+            TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'Task Stopped')
+            return true
+        }
+
+        if (TS.projects.simulation.functionLibraries.simulationFunctions.checkFinalDatetime(engine, sessionParameters, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(episodeModuleObject, 'Final Datetime Reached')
+            TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Final Datetime Reached')
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[IMPORTANT] runSimulation -> Final Datetime Reached. Stopping the Session now. ')
+            return true
+        }
+
+        if (TS.projects.algorithmicTrading.functionLibraries.tradingFunctions.checkMinimunAndMaximunBalance(sessionParameters, system, engine, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(episodeModuleObject, 'Min or Max Balance Reached')
+            TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ')
+            return true
+        }
+        return false
+    }
+
+    function checkIfWeNeedToStopAfterBothCycles(episodeModuleObject, engine, sessionParameters, candles, processIndex) {
+        if (TS.projects.simulation.functionLibraries.simulationFunctions.checkNextCandle(engine, sessionParameters, candles, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'All Candles Processed')
+            return true
+        }
+        return false
+    }
+
+    function setCurrentCandle(engine, candles, index, processIndex) {
+
+        engine.tradingCurrent.tradingEpisode.candle.index.value = index
+        /* This is the current candle the Simulation is working at. */
+        let candle = candles[engine.tradingCurrent.tradingEpisode.candle.index.value]
+        /*
+        Logging abount the current candle
+        */
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            '[INFO] runSimulation -> loop -> Candle Begin @ ' + (new Date(candle.begin)).toUTCString())
+        TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+            '[INFO] runSimulation -> loop -> Candle End @ ' + (new Date(candle.end)).toUTCString())
+
+        /*
+        We move the current candle we are standing at, to the trading engine data structure
+        to make it available to anyone, including conditions and formulas.
+        */
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.setCurrentCandle(candle)
+
+        return candle
+    }
+
+    async function syncronizeLoopIncomingSignals(system) {
+        /*
+        Incoming Signals
+        */
+        if (
+            system.incomingSignals !== undefined &&
+            system.incomingSignals.incomingSignalReferences !== undefined &&
+            system.incomingSignals.incomingSignalReferences.length > 0
+        ) {
+            /*
+            This means that the user that defined the Trading System, wants it to be
+            syncronized by signals comming from other bots.
+
+            Check for the signal that would allow us to syncronize the simulation
+            loop with the simulation loop of the bot sending us signals.
+            */
+            while (true) {
+                let signals = await incomingTradingSignalsModuleObject.getAllSignals(
+                    system
+                )
+                let signal = signals[0]
+                if (signal === undefined) {
+                    /*
+                    This means that the signal we are waiting for has not yet arrived, so
+                    we are going to wait for one second and check it again.
+                    */
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(500)
+                } else {
+                    break
+                }
+            }
+        }
+    }
+
+    async function syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, system, candle) {
+        /*
+        Outgoing Episode Syncronization Signal Sent before breaking the loop.
+        */
+        await outgoingTradingSignalsModuleObject.broadcastSignal(
+            system,
+            undefined
+        )
+        /*
+        Mantain Signal Storage.
+        */
+        if (TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS !== undefined) {
+            TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.mantain(candle)
+        }
+    }
+
+    function setUpInitialCandles(sessionParameters, engine, candles, processIndex) {
+        /*
+        Estimation of the Initial Candle to Process in this Run.
+        */
+        let initialCandle
+        if (
+            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true &&
+            TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {
+            /* Estimate Initial Candle based on the timeRange configured for the session. */
+            let firstEnd = candles[0].end
+            let targetEnd = sessionParameters.timeRange.config.initialDatetime
+            let diff = targetEnd - firstEnd
+            let amount = diff / sessionParameters.timeFrame.config.value
+
+            initialCandle = Math.trunc(amount)
+            if (initialCandle < 0) { initialCandle = 0 }
+            if (initialCandle > candles.length - 1) {
+                /*
+                This will happen when the sessionParameters.timeRange.config.initialDatetime is beyond the last candle available,
+                meaning that the dataSet needs to be updated with more up-to-date data.
+                */
+                TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Data is not up-to-date enough. Please start the Data Mining Operation.')
+                TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                    '[IMPORTANT] runSimulation -> Data is not up-to-date enough. Stopping the Session now. ')
+                return
+            }
+        } else {
+            /*
+            In this case we already have at the last candle index the next candle to be
+            processed. We will just continue with this candle.
+            */
+            initialCandle = engine.tradingCurrent.tradingEpisode.candle.index.value
+        }
+        return initialCandle
+    }
+
+    function setUpCandles(sessionParameters, chart, processIndex) {
+        /* 
+        Setting up the candles array: The whole simulation is based on the array of 
+        candles at the time-frame defined at the session parameters. 
+        */
+        let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
+        let candles = chart[propertyName].candles
+
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            /*
+            We need to purge from the candles array all the candles from the previous day
+            that comes when processing daily files.
+            */
+            let dailyCandles = []
+            for (let i = 0; i < candles.length; i++) {
+                let candle = candles[i]
+                if (
+                    candle.begin
+                    >=
+                    TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.tradingEngine.tradingCurrent.tradingEpisode.processDate.value
+                ) {
+                    dailyCandles.push(candle)
+                }
+            }
+            candles = dailyCandles
+        } else {
+            candles = chart[propertyName].candles
+        }
+        return candles
+    }
 
     function closeEpisode(episodeModuleObject, exitType) {
         episodeModuleObject.updateExitType(exitType)
@@ -55,7 +264,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     let processingDate = heartbeat.currentDate.getUTCFullYear() + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartbeat.currentDate.getUTCMonth() + 1, 2) + '-' + SA.projects.foundations.utilities.miscellaneousFunctions.pad(heartbeat.currentDate.getUTCDate(), 2)
 
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        '[INFO] runSimulation -> loop -> Simulation ' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + engine.tradingCurrent.tradingEpisode.candle.index.value + ' @ ' + processingDate)
+                        '[INFO] loop -> Simulation ' + TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY + ' Loop # ' + engine.tradingCurrent.tradingEpisode.candle.index.value + ' @ ' + processingDate)
 
                     /*  Logging to console and disk */
                     if (TS.projects.foundations.utilities.dateTimeFunctions.areTheseDatesEqual(currentDate, new Date()) === false) {
@@ -201,9 +410,9 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             } catch (err) {
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).UNEXPECTED_ERROR = err
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    '[ERROR] runSimulation -> getElement -> datasetName = ' + datasetName)
+                    '[ERROR] getElement -> datasetName = ' + datasetName)
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                    '[ERROR] runSimulation -> getElement -> err = ' + err.stack)
+                    '[ERROR] getElement -> err = ' + err.stack)
                 throw (TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
             }
         }
@@ -261,21 +470,27 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         }
     }
 
-    function checkInitialDatetime(sessionParameters, engine, processIndex) {
-        /* Here we check that the current candle is not before the initial datetime defined at the session parameters. */
+    function checkInitialDatetime(sessionParameters, engine, candle, processIndex) {
+        /* 
+        Here we check that the current candle is not before the initial 
+        datetime defined at the session parameters. 
+        */
         if (engine.tradingCurrent.tradingEpisode.candle.end.value < sessionParameters.timeRange.config.initialDatetime) {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.')
+                '[INFO] checkInitialAndFinalDatetime -> Skipping Candle before the sessionParameters.timeRange.config.initialDatetime.')
             return false
+        } else {
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[INFO] runSimulation -> loop -> Candle Before the Initial Date Time @ ' + (new Date(candle.begin)).toUTCString())
+            return true
         }
-        return true
     }
 
     function checkFinalDatetime(engine, sessionParameters, processIndex) {
         /* Here we check that the next candle is not after of the user-defined final datetime at the session parameters. */
         if (engine.tradingCurrent.tradingEpisode.candle.begin.value + sessionParameters.timeFrame.config.value > sessionParameters.timeRange.config.finalDatetime) {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                '[INFO] runSimulation -> checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.')
+                '[INFO] checkInitialAndFinalDatetime -> Skipping Candle after the sessionParameters.timeRange.config.finalDatetime.')
             return false
         }
         return true

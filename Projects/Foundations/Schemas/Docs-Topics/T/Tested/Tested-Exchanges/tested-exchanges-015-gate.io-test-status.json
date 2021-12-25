@@ -38,8 +38,8 @@
         },
         {
             "style": "Json",
-            "text": "{\n    \"codeName\": \"gateio\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicGetHistoricalTrades\",\n            \"firstId\": \"f\"\n        }\n    ]\n}",
-            "updated": 1636811208143
+            "text": "{\n    \"codeName\": \"gateio\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicSpotGetCurrencyPairs\",\n            \"firstId\": \"f\",\n            \"requiredCredentials\": \"apiKey,secret\"\n        }\n    ]\n}",
+            "updated": 1640466675579
         }
     ]
 }

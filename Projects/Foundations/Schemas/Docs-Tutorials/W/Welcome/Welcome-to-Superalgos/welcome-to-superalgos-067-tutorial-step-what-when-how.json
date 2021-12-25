@@ -35,7 +35,7 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Session Base Asset: no capital is assigned in BTC.",
+            "text": "Session Base Asset : no capital is assigned in BTC.",
             "translations": [
                 {
                     "language": "IT",
@@ -64,7 +64,8 @@
                     "text": "Базовый Asset сессии: капитал в BTC не присваивается.",
                     "updated": 1636929551268
                 }
-            ]
+            ],
+            "updated": 1640288657193
         },
         {
             "style": "List",

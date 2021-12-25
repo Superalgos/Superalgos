@@ -326,16 +326,37 @@
         {
             "style": "Text",
             "text": "Canceled orders go through the same processes of synchronization (see Syncing With the Exchange) and the recalculation of the size of the stage (see Accounting).",
-            "updated": 1610221173299
+            "updated": 1610221173299,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отмененные ордера проходят через те же процессы синхронизации (см. Syncing With the Exchange) и пересчета размера этапа (см. Accounting).",
+                    "updated": 1640327066588
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "All other instances"
+            "text": "All other instances",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все остальные случаи",
+                    "updated": 1640327085470
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The cases described above refer to orders with particular characteristics. Orders that do not match any of the above criteria trigger the synchronization process described earlier (see Syncing With the Exchange).",
-            "updated": 1610221181661
+            "updated": 1610221181661,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Описанные выше случаи относятся к ордерам с определенными характеристиками. Ордера, не соответствующие ни одному из вышеперечисленных критериев, запускают процесс синхронизации, описанный ранее (см. раздел Syncing With the Exchange).",
+                    "updated": 1640327124828
+                }
+            ]
         },
         {
             "style": "Text",

@@ -2,7 +2,14 @@
     "type": "Position Class",
     "definition": {
         "text": "A Position Class node is an organizational device used to group positions in arbitrary arrangements. The node may receive Weight Votes. When it does, votes are evenly distributed among offspring nodes.",
-        "updated": 1630427487603
+        "updated": 1630427487603,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Position Class - это организационное устройство, используемое для группировки должностей в произвольном порядке. Узел может получать Weight Votes (Весовые голоса). Когда это происходит, голоса равномерно распределяются между узлами-потомками.",
+                "updated": 1640284343476
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,7 +19,14 @@
         },
         {
             "style": "Text",
-            "text": "You may direct Weight Votes to a Position Class node when you intend to support the whole class, including all positions within."
+            "text": "You may direct Weight Votes to a Position Class node when you intend to support the whole class, including all positions within.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете направить Weight Votes на узел Position Class, если вы собираетесь поддерживать весь класс, включая все должности в нем.",
+                    "updated": 1640284371012
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,7 +34,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1640284378739
+                }
+            ]
         }
     ]
 }

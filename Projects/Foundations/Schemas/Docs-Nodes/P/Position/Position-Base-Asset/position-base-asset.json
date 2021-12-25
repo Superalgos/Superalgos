@@ -1,7 +1,14 @@
 {
     "type": "Position Base Asset",
     "definition": {
-        "text": "The position base asset node keeps track of the evolution of variables related to the base asset throughout the position."
+        "text": "The position base asset node keeps track of the evolution of variables related to the base asset throughout the position.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Position Base Asset отслеживает эволюцию переменных, связанных с базовым активом, на протяжении всей позиции.",
+                "updated": 1640345518925
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Note",
-            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
+                    "updated": 1640345553048
+                }
+            ]
         }
     ]
 }

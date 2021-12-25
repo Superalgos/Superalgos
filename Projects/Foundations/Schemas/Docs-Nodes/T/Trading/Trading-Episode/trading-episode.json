@@ -1,7 +1,14 @@
 {
     "type": "Trading Episode",
     "definition": {
-        "text": "Episode is the object that handles the information corresponding to the whole run of the trading bot&mdash;beginning to end&mdash;between the specified initial datetime and final datetime, in the time range parameter of the trading session."
+        "text": "Episode is the object that handles the information corresponding to the whole run of the trading bot&mdash;beginning to end&mdash;between the specified initial datetime and final datetime, in the time range parameter of the trading session.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Episode - это объект, который обрабатывает информацию, соответствующую всему запуску торгового бота - от начала до конца - между указанным начальным временем и конечным временем, в параметре временного диапазона (Time Range) торговой сессии.",
+                "updated": 1640342495399
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,31 +17,80 @@
         },
         {
             "style": "Text",
-            "text": "In other words, episode is the context framed between the datetimes that make up the whole trading session, as per the session's configuration. As such, an episode keeps track of&mdash;and accumulates&mdash;the results of all positions entered throughout a complete run of a trading session."
+            "text": "In other words, episode is the context framed between the datetimes that make up the whole trading session, as per the session's configuration. As such, an episode keeps track of&mdash;and accumulates&mdash;the results of all positions entered throughout a complete run of a trading session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, эпизод - это контекст между датами, составляющими всю торговую сессию, в соответствии с конфигурацией сессии. Таким образом, эпизод отслеживает и накапливает результаты всех позиций, введенных на протяжении всей торговой сессии.",
+                    "updated": 1640342547504
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In this section of the hierarchy, you have access to:"
+            "text": "In this section of the hierarchy, you have access to:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этом разделе иерархии у вас есть доступ к:",
+                    "updated": 1640342566394
+                }
+            ]
         },
         {
             "style": "List",
-            "text": " running balances and overall performance metrics denominated in both the base and quoted assets;"
+            "text": " running balances and overall performance metrics denominated in both the base and quoted assets;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "текущим балансам и общим показателям эффективности, выраженных как в базовых, так и в котируемых активах;",
+                    "updated": 1640342722780
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "counters, such as the number of positions taken, orders placed, hits, fails, and so on;"
+            "text": "counters, such as the number of positions taken, orders placed, hits, fails, and so on;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "счетчикам, таких как количество занятых позиций, размещенных ордеров, попаданий, неудач и так далее;",
+                    "updated": 1640342740815
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "statistics, such as performance metrics consolidating both assets, number of days in the episode, or user-defined statistics;"
+            "text": "statistics, such as performance metrics consolidating both assets, number of days in the episode, or user-defined statistics;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "статистике, такой как показатели производительности, объединяющие оба актива, количество дней в эпизоде или статистика, задаваемая пользователем;",
+                    "updated": 1640342674348
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "the distance to certain events, such as the number of candles to the last  take position event, or the last create order event;"
+            "text": "the distance to certain events, such as the number of candles to the last  take position event, or the last create order event;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "расстоянии до определенных событий, например, количество свечей до последнего события взятия позиции или последнего события создания ордера;",
+                    "updated": 1640342792439
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "rates describing each candle in the episode, such as the open, close, min and max rates;"
+            "text": "rates describing each candle in the episode, such as the open, close, min and max rates;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ставкам, описывающим каждую свечу в эпизоде, таким как ставки открытия, закрытия, min и max;",
+                    "updated": 1640342822991
+                }
+            ]
         }
     ]
 }

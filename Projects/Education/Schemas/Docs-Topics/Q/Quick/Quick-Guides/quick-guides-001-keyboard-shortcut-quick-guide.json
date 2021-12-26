@@ -3,8 +3,8 @@
     "pageNumber": 1,
     "type": "Keyboard Shortcut Quick Guide",
     "definition": {
-        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly.",
-        "updated": 1634909540261,
+        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly. Keyboard Shortcuts improve your Workflow and contain functions like recording GIF`s.\n\n",
+        "updated": 1640560120092,
         "translations": [
             {
                 "language": "RU",
@@ -13,8 +13,8 @@
             },
             {
                 "language": "DE",
-                "text": "Superalgos bietet eine Reihe von Tastenkombinationen, um die Arbeit mit der Plattform effizienter und benutzerfreundlicher zu gestalten. Ein sogenannter Shortcut = Tastenkombination ist eine Funktionn um wiederkehrende Aufgaben schneller Ausführen zu können oder manche Funktionen wie das Aufnehmen eines Videos zu ermöglichen.",
-                "updated": 1640558641868
+                "text": "Superalgos bietet eine Reihe von Tastenkombinationen, um die Arbeit mit der Plattform effizienter und benutzerfreundlicher zu gestalten. Shortcuts (Tastaturkürzel) verbessern Ihren Workflow und enthalten Funktionen wie die Aufnahme von GIFs.",
+                "updated": 1640560205845
             }
         ]
     },

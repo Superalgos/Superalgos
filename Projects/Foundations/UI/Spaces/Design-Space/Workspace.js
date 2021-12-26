@@ -49,7 +49,7 @@ function newWorkspace() {
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
-    let actionSwitchesByProject = new Map()
+    let nodeActionSwitchesByProject = new Map()
     let systemActionSwitchesByProject = new Map()
     let topMenu = document.getElementById('topMenu')
 
@@ -58,7 +58,8 @@ function newWorkspace() {
     function finalize() {
         thisObject.definition = undefined
         thisObject.workspaceNode = undefined
-        actionSwitchesByProject = undefined
+        nodeActionSwitchesByProject = undefined
+        systemActionSwitchesByProject = undefined
     }
 
     async function initialize() {
@@ -71,8 +72,8 @@ function newWorkspace() {
                 for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                     let project = PROJECTS_SCHEMA[i].name
                     try {
-                        let actionSwitch = eval('new' + project.replaceAll('-', '') + 'ActionSwitch()')
-                        actionSwitchesByProject.set(project, actionSwitch)
+                        let nodeActionSwitch = eval('new' + project.replaceAll('-', '') + 'NodeActionSwitch()')
+                        nodeActionSwitchesByProject.set(project, nodeActionSwitch)
                     } catch (err) {
                         console.log('[WARN] Action Switch for project ' + project + ' not found.')
                     }
@@ -821,12 +822,12 @@ function newWorkspace() {
         */
         action.rootNodes = thisObject.workspaceNode.rootNodes
 
-        let actionSwitch = actionSwitchesByProject.get(action.project)
-        if (actionSwitch === undefined) {
+        let nodeActionSwitch = nodeActionSwitchesByProject.get(action.project)
+        if (nodeActionSwitch === undefined) {
             console.log('[ERROR] Action Switch for project ' + action.project + ' could not be found.')
             return
         }
-        return actionSwitch.executeAction(action)
+        return nodeActionSwitch.executeAction(action)
 
     }
 }

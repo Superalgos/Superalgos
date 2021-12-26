@@ -327,7 +327,7 @@ function newFoundationsCodeEditorEditorPage() {
                 })
             } else if (node.type === 'Trading Engine') {
                 // Create an object representation for the engine
-                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
+                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
             }
         })
 

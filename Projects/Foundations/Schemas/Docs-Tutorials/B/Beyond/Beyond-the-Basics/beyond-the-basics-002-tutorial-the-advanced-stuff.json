@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Du bist immer noch da, jetzt mit den ersten beiden Tutorials unter deinem Gürtel! Du gehörst schon zur Familie! Willkommen in der Community!",
                 "updated": 1634819545877
+            },
+            {
+                "language": "TR",
+                "text": "İlk iki eğitim sonrasında hala buralardasınız! Bu yüzden artık aileden olduğunu farzediyorum! Topluluğa hoş geldin!",
+                "updated": 1639859287265
+            },
+            {
+                "language": "RU",
+                "text": "Вы все еще здесь, теперь у вас за плечами первые два урока! Вы уже член семьи! Добро пожаловать в Сообщество (Community)!",
+                "updated": 1640154207923
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "In diesem Tutorial lernst du, dein System auf dem neuesten Stand zu halten, die eingebaute Kommandozeile zu benutzen, Zweige zu wechseln und ein paar weitere Tricks, die dir das Leben leichter machen werden!",
                     "updated": 1634819554314
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğreticide, sisteminizi güncel tutmayı, yerleşik komut satırını kullanmayı, dalları değiştirmeyi ve hayatınızı kolaylaştıracak birkaç püf noktası daha öğreneceksiniz!",
+                    "updated": 1639859317105
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом учебнике вы научитесь поддерживать систему в актуальном состоянии, использовать встроенную командную строку, переключать ветви и еще нескольким приемам, которые облегчат вам жизнь!",
+                    "updated": 1640154232069
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Die Fähigkeiten, die Sie erlernen werden, werden es Ihnen auch ermöglichen, einen Beitrag zum Projekt zu leisten! Denken Sie daran, dass dies ein Community-Projekt ist... Es wird von uns allen erwartet, dass wir etwas zurückgeben und helfen, die Software zu verbessern!",
                     "updated": 1634819569822
+                },
+                {
+                    "language": "TR",
+                    "text": "Edineceğiniz beceriler, projeye katkıda bulunmaya başlamanıza da yardımcı olacak! Unutmayın, bu bir topluluk projesidir... Hepimizinden aldıklarımızı geri vermemiz ve yazılımın geliştirilmesine yardımcı olmamız bekleniyor!",
+                    "updated": 1639859425481
+                },
+                {
+                    "language": "RU",
+                    "text": "Навыки, которые вы приобретете, также позволят вам начать вносить свой вклад в проект! Помните, это проект сообщества... Мы все должны внести свой вклад и помочь улучшить программное обеспечение!",
+                    "updated": 1640154256163
                 }
             ]
         },

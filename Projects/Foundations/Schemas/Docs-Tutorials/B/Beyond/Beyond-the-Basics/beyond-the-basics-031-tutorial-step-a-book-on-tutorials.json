@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Herzlichen Glückwunsch! Du hast das Ende eines weiteren Tutorials erreicht! Ich hoffe, du hast das Gefühl, dass du langsam verstehst, wie Superalgos funktioniert!",
                 "updated": 1635151990380
+            },
+            {
+                "language": "TR",
+                "text": "Tebrikler! Bir eğitimin daha sonuna geldiniz! Umarım Superalgos'un nasıl çalıştığını kavramaya başladığınızı hissediyorsunuzdur!",
+                "updated": 1640003125242
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляем! Вы дошли до конца очередного урока! Надеюсь, вы чувствуете, что начинаете понимать, как работает Superalgos!",
+                "updated": 1640163997856
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Lassen Sie uns darüber reden, was als nächstes kommt! Die Seite, die ich gerade aufgeschlagen habe, ist das Buch First Steps Tutorials. Von nun an kannst du frei wählen, welche Tutorials du als nächstes machen willst!",
                     "updated": 1635151996002
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan sonrasınıda konuşalım! Az önce açtığım sayfa İlk Adımlar Öğreticiler kitabı ( First Steps Tutorials ). Şu andan itibaren, bir sonraki öğreticileri seçmekte özgürsünüz!",
+                    "updated": 1640003188497
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поговорим о том, что будет дальше! Страница, которую я только что открыл, - это книга First Steps Tutorials. С этого момента вы можете сами выбирать, какими учебниками заниматься дальше!",
+                    "updated": 1640164185796
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Schauen Sie sich die Liste der Tutorials an, die auf den einzelnen Plugin Workspaces verfügbar sind, und wählen Sie aus, welches Sie als nächstes machen wollen!",
                     "updated": 1635152004196
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanlarının ( Plugin Workspace ) her birinde bulunan eğitim listesine bir göz atın ve bir sonraki adımda hangisini yapacağınızı seçin!",
+                    "updated": 1640003237540
+                },
+                {
+                    "language": "RU",
+                    "text": "Просмотрите список учебных пособий, доступных на каждом из рабочих пространств плагинов (Plugin Workspaces), и выберите, каким из них заняться в следующий раз!",
+                    "updated": 1640164219826
                 }
             ]
         },
@@ -98,6 +128,16 @@
                     "language": "DE",
                     "text": "Um am nächsten Airdrop und an der Governance im Allgemeinen teilzunehmen, laden Sie einfach die folgenden Dateien:",
                     "updated": 1635152010580
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki Airdrop'a ve genel olarak Yönetişime katılmak için aşağıdakileri yükleyerek başlayın:",
+                    "updated": 1640003385936
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы принять участие в следующем Airdrop и в управлении (Governance) в целом , начните с загрузки следующего:",
+                    "updated": 1640164274970
                 }
             ],
             "updated": 1630945286991

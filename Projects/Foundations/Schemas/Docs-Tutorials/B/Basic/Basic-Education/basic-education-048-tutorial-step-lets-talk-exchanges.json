@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wir alle haben unsere bevorzugten Börsen... lassen Sie uns ein wenig darüber sprechen, wie Superalgos mit ihnen umgeht und welche Sie verwenden können...",
                 "updated": 1634589422384
+            },
+            {
+                "language": "TR",
+                "text": "Hepimizin tercih ettiği borsalar var... Hadi biraz Superalgos'un bunlarla nasıl ilgilendiğinden ve hangilerini kullanabileceğinizden bahsedelim...",
+                "updated": 1639819162110
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Superalgos verwendet CCXT, eine Open-Source-Bibliothek, die einen Standard für die API-Kommunikation von Börsen vorschlägt. Das System arbeitet mit Börsen, die diesen Standard einhalten:",
                     "updated": 1634589429073
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, Borsa API iletişimleri için bir standart öneren açık kaynaklı bir kitaplık olan CCXT'yi kullanır. Sistem, standarda uygun borsalarla çalışır:",
+                    "updated": 1639819344622
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Die Aufnahme in die Liste ist jedoch nicht ausreichend! Viele Börsen halten sich nicht wirklich daran! Daher gibt es laufende Bemühungen der Community, Börsen zu testen und zu dokumentieren, welche mit Superalgos verwendet werden können und wie! Dies ist das Thema in den Docs, das diese Bemühungen abdeckt. Schauen Sie sich das TOC an, um herauszufinden, welche Börsen getestet wurden und in welchem Umfang.",
                     "updated": 1634589436559
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak listede görünmek yetmez! Birçok borsa gerçekten uymuyor! Sonuç olarak, Superalgos ile kullanılabilecek Borsaları ve belgeleri test etmek için devam eden bir topluluk çabası var! Bu, çabayı kapsayan Dokümanlar'daki konudur. Hangi borsaların ne ölçüde test edildiğini öğrenmek için TOC'ye bakın.",
+                    "updated": 1639819393029
                 }
             ]
         }

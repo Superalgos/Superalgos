@@ -4,17 +4,38 @@
     "type": "LF Trading Bot - Market Data Structure",
     "definition": {
         "text": "You may use this Javascript object from within conditions and formulas when you want to specify a Market different from the Default Market. For example, you may access data of the ETH/USDT market from a Trading System running on the BTC/USDT market.",
-        "updated": 1617617047716
+        "updated": 1617617047716,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете использовать этот объект Javascript в условиях и формулах, когда вы хотите указать рынок (Market), отличный от рынка по умолчанию (Default Market). Например, вы можете получить доступ к данным рынка ETH/USDT из торговой системы, работающей на рынке BTC/USDT.",
+                "updated": 1640150937302
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
-            "text": "Structure"
+            "text": "Structure",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Структура",
+                    "updated": 1640150952566
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The root of the object is...",
-            "updated": 1617617057256
+            "updated": 1617617057256,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Корнем объекта является...",
+                    "updated": 1640150983934
+                }
+            ]
         },
         {
             "style": "Json",
@@ -24,7 +45,14 @@
         {
             "style": "List",
             "text": "Then you must specify the codeName of an Asset representing the Market Base Asset, as follows...",
-            "updated": 1617617165183
+            "updated": 1617617165183,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Затем необходимо указать codeName актива (Asset), представляющего рыночный базовый актив (Market Base Asset), следующим образом...",
+                    "updated": 1640151061209
+                }
+            ]
         },
         {
             "style": "Json",
@@ -34,7 +62,14 @@
         {
             "style": "List",
             "text": "After that, specify the codeName of an Asset but this time representing the Market Quoted Asset...",
-            "updated": 1617617108322
+            "updated": 1617617108322,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После этого укажите codeName актива (Asset), но на этот раз представляющего собой котируемый на рынке актив...",
+                    "updated": 1640151162023
+                }
+            ]
         },
         {
             "style": "Json",
@@ -43,12 +78,26 @@
         {
             "style": "List",
             "text": "Finally, continue with the syntax of the LF Trading Bot - Chart Data Structure",
-            "updated": 1617617178876
+            "updated": 1617617178876,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наконец, продолжим с синтаксисом LF Trading Bot - Chart Data Structure",
+                    "updated": 1640151251800
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Examples",
-            "updated": 1612352364588
+            "updated": 1612352364588,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640151280385
+                }
+            ]
         },
         {
             "style": "Json",

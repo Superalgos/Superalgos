@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Suchen Sie den Knoten Plugin Trading Systems und erweitern Sie ihn! Beachten Sie den Plugin-Datei-Knoten namens Masters-Lightning-Strike...",
                 "updated": 1634588528149
+            },
+            {
+                "language": "TR",
+                "text": "Algorithmic Trading düğümünün  içindeki Trading System düğümünü bulun ve genişletin.Masters-Lightning-Strike adlı Eklenti Dosyası ( Plugin File ) düğümüne dikkat edin...",
+                "updated": 1639809090671
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Lightning Strike ist das Demo Trading System, mit dem Sie während des Willkommens-Tutorials gespielt haben. Es wurde als Plugin in diesem Workspace platziert!",
                     "updated": 1634588533500
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike, Hoş Geldiniz eğitimi sırasında oynadığınız demo Ticaret Sistemidir. Bu çalışma alanına bir eklenti olarak yerleştirilmiştir!",
+                    "updated": 1639809134459
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Folgen Sie der orange gepunkteten Linie nach unten, bis Sie den Knoten finden, mit dem es verbunden ist! Benutzen Sie den Tastaturtrick Ctrl + Pfeile, um schneller zu werden!",
                     "updated": 1634588564331
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlandığı düğümü bulana kadar turuncu noktalı çizgiyi aşağı doğru takip edin! Daha hızlı gitmek için Ctrl + oklarını kullanın!",
+                    "updated": 1639809189331
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Das war's! Sie haben den Knoten Lightning Strike Trading System gefunden. Wenn Sie ihn zur Seite ziehen, finden Sie darunter den Knoten Plugin File Position.",
                     "updated": 1634588578954
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kadar! Lightning Strike Trading System düğümünü buldunuz. Yan tarafa sürüklerseniz, aşağıda Eklenti Dosya Konumu ( Plugin File Position ) düğümünü bulacaksınız.",
+                    "updated": 1639812130557
                 }
             ]
         }

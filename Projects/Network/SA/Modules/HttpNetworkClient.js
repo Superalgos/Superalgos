@@ -42,13 +42,13 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         */
         let promise = new Promise((resolve, reject) => {
 
-            const axios = require('axios')
-            console.log('Sending Message to P2P Network Node')
+            const axios = SA.nodeModules.axios  
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
-                    console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
+                    //console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
+                    // TODO : Do something when Network Node could not process this signal.
                     resolve()
                 })
                 .catch(error => {
@@ -67,7 +67,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         */
         let promise = new Promise((resolve, reject) => {
 
-            const axios = require('axios')
+            const axios = SA.nodeModules.axios
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
                 .then(res => {

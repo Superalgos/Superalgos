@@ -238,11 +238,11 @@ min-width: 100px;
 }
 
 .tutorial-form {
-padding: 5px;
+padding: 0px;
 border: solid 0px;
 margin-left: auto;
 margin-right: auto;
-margin-bottom: 20px;
+margin-top: 15px;
 width: 100%;
 -webkit-transition-duration: 1s;
 transition-duration: 1s;

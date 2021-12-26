@@ -4,7 +4,14 @@
     "type": "Position Management Phases",
     "definition": {
         "text": "You may manage a position using dynamic stop loss and take profit targets. Targets are dynamic in the sense that they are defined by formulas, which may change depending on defined market situations.",
-        "updated": 1610207512419
+        "updated": 1610207512419,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете управлять позицией, используя динамические цели стоп-лосс и тейк-профит. Цели являются динамическими в том смысле, что они определяются формулами, которые могут меняться в зависимости от определенных рыночных ситуаций.",
+                "updated": 1639847670497
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -28,7 +35,14 @@
         {
             "style": "Callout",
             "text": "We will discuss formulas later on, together with situations and conditions.",
-            "updated": 1610206194016
+            "updated": 1610206194016,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы обсудим формулы позже, вместе с ситуациями и условиями.",
+                    "updated": 1639848420588
+                }
+            ]
         },
         {
             "style": "Title",

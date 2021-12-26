@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Теперь программа Github Program вознаградит вас дополнительными токенами за помощь разработчикам в поиске Superalgos в поисковике Github.com!",
                 "updated": 1639048490110
+            },
+            {
+                "language": "DE",
+                "text": "Jetzt belohnt das Github Program Sie mit mehr Token für die Unterstützung von Entwicklern bei der Suche nach Superalgos auf Github.com!",
+                "updated": 1640078339157
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Добавьте программу Github Program из меню узла Onboarding Programs.",
                     "updated": 1639048551915
+                },
+                {
+                    "language": "DE",
+                    "text": "Fügen Sie das Github Program aus dem Menü des Knotens Onboarding Programs hinzu.",
+                    "updated": 1640078363222
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "RU",
                     "text": "Вы можете помочь с тремя вещами! Выполнение всех трех может принести вам до 3000 SA!",
                     "updated": 1639048568486
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt drei Dinge, bei denen Sie helfen können! Wenn Sie alle drei tun, können Sie bis zu 3.000 SA mehr erhalten!",
+                    "updated": 1640078462105
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "RU",
                     "text": "Поставьте звезду репозиторию Superalgos.",
                     "updated": 1639048581148
+                },
+                {
+                    "language": "DE",
+                    "text": "Geben Sie dem Superalgos-Repository einen Stern.",
+                    "updated": 1640078471534
                 }
             ]
         },
@@ -116,6 +136,11 @@
                     "language": "RU",
                     "text": "Создайте форк репозитория Superalgos на свою учетную запись Github - вы, вероятно, уже сделали это!",
                     "updated": 1639048631144
+                },
+                {
+                    "language": "DE",
+                    "text": "Forken Sie das Superalgos-Repository in Ihr Github-Konto - Sie haben es wahrscheinlich schon getan!",
+                    "updated": 1640078480538
                 }
             ]
         },
@@ -139,13 +164,25 @@
                     "language": "RU",
                     "text": "Также нажмите кнопку \"Watch\"!",
                     "updated": 1639048666463
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auch auf den Watch-Button!",
+                    "updated": 1640078490663
                 }
             ]
         },
         {
             "style": "Link",
             "text": "Go to the Superalgos repo to click the Star and Watch buttons. Make sure you have a fork too!->github.com/Superalgos/Superalgos",
-            "updated": 1630601392808
+            "updated": 1630601392808,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Superalgos-Repository und klicken Sie auf die Schaltflächen Stern und Beobachten. Stellen Sie sicher, dass Sie auch einen Fork haben!->github.com/Superalgos/Superalgos",
+                    "updated": 1640078528743
+                }
+            ]
         },
         {
             "style": "Text",

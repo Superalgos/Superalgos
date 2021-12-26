@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Lernen Sie, wie man data dependencies und das variable object verwendet und wie man mit indicators mit unregelmäßigen Perioden (irregular periods) umgeht.",
                 "updated": 1635354439837
+            },
+            {
+                "language": "RU",
+                "text": "Узнайте, как использовать зависимости данных, переменный объект и как работать с индикаторами с нерегулярными периодами.",
+                "updated": 1639670541463
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Haupt-Data Dependency:",
                     "updated": 1635354651687
+                },
+                {
+                    "language": "RU",
+                    "text": "Основная зависимость от данных (Main Data Dependency)",
+                    "updated": 1639676429660
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Die data building procedure funktioniert unter der Prämisse, dass der Algorithmus in Schleifen um eine Datensammlung herumläuft und für jede Schleife einen Datensatz für das zu erstellende Produkt erzeugt. Der SMA-Indikator umkreist beispielsweise das Kerzen-Produkt des Kerzen-Volumen-Indikators, so dass die Kerzen die main Datenabhängigkeit darstellen. Im Fall des Produkts bollingerChannels ist die Hauptdatenabhängigkeit das Produkt bollingerBands des Indikators Bollinger Bands.",
                     "updated": 1635354770094
+                },
+                {
+                    "language": "RU",
+                    "text": "Процедура построения данных работает на основе того, что алгоритм циклически обращается к сбору данных и для каждого цикла генерирует запись для строящегося продукта. Например, индикатор SMA циклично взаимодействует с продуктом Candles индикатора Candles Volumes, таким образом, свечи являются основной зависимостью данных. В случае продукта bollingerChannels основной зависимостью данных является продукт bollingerBands индикатора Bollinger Bands.",
+                    "updated": 1639722475226
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "DE",
                     "text": "Die main data dependency ist die erste Abhängigkeit, die auf der Ebene der Prozesse deklariert wird. Diese Abhängigkeit wird im record object zur Verfügung gestellt, das über drei Eigenschaften verfügt:",
                     "updated": 1635354968813
+                },
+                {
+                    "language": "RU",
+                    "text": "Основная зависимость данных - это первая зависимость, объявленная на уровне процессов. Эта зависимость доступна в объекте записи, который имеет три свойства:",
+                    "updated": 1639676238380
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "DE",
                     "text": "Die Variable index ist der Index im Array der main dependency.",
                     "updated": 1635355002222
+                },
+                {
+                    "language": "RU",
+                    "text": "Переменная index - это индекс в массиве основной зависимости.",
+                    "updated": 1639676297703
                 }
             ]
         },
@@ -95,6 +120,11 @@
                     "language": "DE",
                     "text": "Sie können zum Beispiel die Anweisung record.propertyName verwenden, um auf den Wert einer beliebigen Eigenschaft in den Eingabedatensätzen für den aktuellen Datensatz zuzugreifen, oder record.previous.propertyName, um auf den Wert der Eigenschaft im vorherigen Datensatz zuzugreifen.",
                     "updated": 1635355095733
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, вы можете использовать оператор record.propertyName для доступа к значению любого из свойств во входных наборах данных для текущей записи или record.previous.propertyName для доступа к значению свойства в предыдущей записи.",
+                    "updated": 1639676324151
                 }
             ]
         },
@@ -107,6 +137,11 @@
                     "language": "DE",
                     "text": "Die Reihenfolge, in der die dependencies definiert werden, bestimmt, welche die Hauptdatenabhängigkeit ist.",
                     "updated": 1635355151609
+                },
+                {
+                    "language": "RU",
+                    "text": "Порядок определения зависимостей определяет, какая из них является основной зависимостью данных.",
+                    "updated": 1639676339363
                 }
             ]
         },
@@ -119,6 +154,11 @@
                     "language": "DE",
                     "text": "Mehrere Data Dependencies:",
                     "updated": 1635355230718
+                },
+                {
+                    "language": "RU",
+                    "text": "Множественные зависимости от данных (Multiple Data Dependencies)",
+                    "updated": 1639676408965
                 }
             ]
         },
@@ -130,6 +170,11 @@
                     "language": "DE",
                     "text": "Das products-Objekt enthält eine Eigenschaft für jede Datenabhängigkeit, und jede Eigenschaft ist mit dem in der Produktkonfiguration definierten pluralVariableName benannt. Jede Eigenschaft enthält ein Array mit der Datensammlung der Abhängigkeit.",
                     "updated": 1635355293053
+                },
+                {
+                    "language": "RU",
+                    "text": "Объект products имеет свойство для каждой зависимости данных, и каждое свойство имеет pluralVariableName, определенное в конфигурации продукта. Каждое свойство представляет собой массив с набором данных зависимости.",
+                    "updated": 1639676565091
                 }
             ]
         },
@@ -141,6 +186,11 @@
                     "language": "DE",
                     "text": "Data collections für verschiedene Produkte können zu unterschiedlichen Zeitpunkten beginnen und enden. So dauert es beispielsweise 20 Kerzen, um das erste bollingerBands-Objekt des Bollinger Bands-Indikators zu erstellen, oder 200 Kerzen, um das erste popularSMAs-Objekt des SMA-Indikators zu erstellen. Daher entspricht der Datensatz an der Position \"i\" im Array eines Produkts möglicherweise nicht demselben Zeitraum wie der Datensatz an derselben Position eines anderen Produkts.",
                     "updated": 1635355398375
+                },
+                {
+                    "language": "RU",
+                    "text": "Сбор данных по разным продуктам может начинаться и заканчиваться в разные моменты времени. Например, требуется 20 свечей, чтобы построить первый объект bollingerBands индикатора Bollinger Bands, или 200 свечей, чтобы построить первые popularSMA индикатора SMA. Следовательно, запись в позиции i в массиве одного продукта может не соответствовать тому же периоду времени записи в той же позиции другого продукта.",
+                    "updated": 1639676703769
                 }
             ]
         },
@@ -152,6 +202,11 @@
                     "language": "DE",
                     "text": "\"getElement Function\" ",
                     "updated": 1635355493612
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция getElement",
+                    "updated": 1639676720490
                 }
             ]
         },
@@ -164,6 +219,11 @@
                     "language": "DE",
                     "text": "Diese Funktion ermöglicht es dem Benutzer, ein Objekt in einem Datensatz zu finden, dessen Objekte keine Anfangs- und Ende-Eigenschaft haben, sondern eine timestamp (Zeitstempel) Eigenschaft besitzen. Sie empfängt ein beliebiges Anfangs-/Endobjekt, und die Funktion sucht innerhalb des Abhängigkeitsdatensatzes nach dem ersten Datensatz, dessen Zeitstempel mit dem Anfang und Ende des empfangenen Referenzobjekts übereinstimmt. Zum Beispiel kann ein Benutzer die News-Datensätze abrufen, die zu einem bestimmten Candle object gehören.",
                     "updated": 1635355600885
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта функция позволяет пользователям находить объект в наборе данных, у объектов которого нет свойства begin и end, но вместо этого у них есть свойство timestamp. Он получает произвольный объект начала / конца, и функция будет искать в наборе данных зависимостей первую запись, метка времени которой совпадает с началом и концом полученного ссылочного объекта. Например, пользователь может получить запись новостей, принадлежащую определенному объекту Candle.",
+                    "updated": 1639676797678
                 }
             ]
         },
@@ -176,6 +236,11 @@
                     "language": "DE",
                     "text": "Die Funktion getElement, die zwei Parameter benötigt, kann so verwendet werden:",
                     "updated": 1635355644238
+                },
+                {
+                    "language": "RU",
+                    "text": "Можно использовать функцию getElement, которая принимает два параметра:",
+                    "updated": 1639676874313
                 }
             ]
         },
@@ -187,6 +252,11 @@
                     "language": "DE",
                     "text": "Der Name der Datensammlung (pluralVariableName) die Sie abfragen möchten.",
                     "updated": 1635355679335
+                },
+                {
+                    "language": "RU",
+                    "text": "Имя набора данных (pluralVariableName), к которому вы хотите обратиться.",
+                    "updated": 1639676889008
                 }
             ]
         },
@@ -198,6 +268,11 @@
                     "language": "DE",
                     "text": "Ein Objekt mit Anfangs- und Endeigenschaften, zum Beispiel die zehnte candle.",
                     "updated": 1635355699147
+                },
+                {
+                    "language": "RU",
+                    "text": "Объект со свойствами begin и end, например десятая свеча.",
+                    "updated": 1639676945239
                 }
             ]
         },
@@ -209,6 +284,11 @@
                     "language": "DE",
                     "text": "Die Funktion gibt den Datensatz zurück, der mit dem Anfangs- und Enddatum des zweiten Parameters übereinstimmt.",
                     "updated": 1635355840137
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция возвращает запись, которая соответствует датам начала и окончания второго параметра.",
+                    "updated": 1639677433185
                 }
             ]
         },
@@ -220,6 +300,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Beispiel aus dem Candle Patterns indicator, der das candle product des Candles Volumes indicator als Hauptdatenabhängigkeit hat:",
                     "updated": 1635355927938
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример индикатора Candle Patterns, в котором прдукт Candles индикатора Candles Volumes является основной зависимостью данных:",
+                    "updated": 1639722462769
                 }
             ]
         },
@@ -231,7 +316,14 @@
         {
             "style": "Subtitle",
             "text": "getTimestampElement Function",
-            "updated": 1621105629181
+            "updated": 1621105629181,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функция getTimestampElement",
+                    "updated": 1639677507588
+                }
+            ]
         },
         {
             "style": "Text",
@@ -242,6 +334,11 @@
                     "language": "DE",
                     "text": "Indikatoren können Parameter haben, die ihre Berechnungen beeinflussen. Diese Parameter werden in der Process Instance config definiert, und ihre Werte werden in der Process Instance config festgelegt. Die Parameter werden im Initialization Code der Prozedur extrahiert. Um diese Extraktion zu erleichtern, erstellen wir hier ein Objekt, auf das von der Procedure Initialization aus mit allen Parametern und ihren definierten Werten zugegriffen werden kann.",
                     "updated": 1635356111873
+                },
+                {
+                    "language": "RU",
+                    "text": "Индикаторы могут иметь параметры, влияющие на их расчеты. Эти параметры определяются в конфигурации определения продукта Product Definition, а их значения устанавливаются в конфигурации экземпляра процесса Process Instance. Параметры извлекаются из кода инициализации процедуры Procedure Initialization. Чтобы облегчить это извлечение, мы создадим здесь объект, который будет приниматься из процедуры инициализации со всеми параметрами и их определенными значениями.",
+                    "updated": 1639677736261
                 }
             ]
         },
@@ -257,7 +354,14 @@
         {
             "style": "Title",
             "text": "Variable Object",
-            "updated": 1611431014179
+            "updated": 1611431014179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переменный объект (Variable Object)",
+                    "updated": 1639677770787
+                }
+            ]
         },
         {
             "style": "Text",
@@ -267,6 +371,11 @@
                     "language": "DE",
                     "text": "Die erzeugten Ausgaben müssen als neue properties des variable object gespeichert werden, das den record properties unter dem record definition node zur Verfügung gestellt wird.",
                     "updated": 1635356249718
+                },
+                {
+                    "language": "RU",
+                    "text": "Сгенерированный вывод должен быть сохранен как новые свойства объекта переменной, который становится доступным для записи свойств в узле определения записи Record Definition.",
+                    "updated": 1639677824227
                 }
             ]
         },
@@ -278,6 +387,11 @@
                     "language": "DE",
                     "text": "Im Falle der data building procedure loop kann das variable object auch dazu verwendet werden, Informationen zwischen verschiedenen Schleifenzyklen oder sogar zwischen verschiedenen Ausführungen des indicator process zu speichern und später abzurufen. In der calculations procedure loop ist eine solche Funktion nicht verfügbar, da das object in diesem Kontext nicht über jede Schleife hinaus bestehen bleibt.",
                     "updated": 1635356359862
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае цикла процедуры построения данных переменный объект также может использоваться для хранения и - позже - извлечения информации между различными тактами цикла или даже между различными выполнениями индикаторного процесса. Такая функция недоступна в цикле процедуры расчетов (Calculations Procedure), поскольку объект не сохраняется за пределами каждого цикла в этом контексте.",
+                    "updated": 1639678261995
                 }
             ]
         },
@@ -293,6 +407,11 @@
                     "language": "DE",
                     "text": "In Zeiträumen von weniger als einer Stunde erlaubt das System den Zugriff auf Daten, die bis zu 48 Stunden in der Vergangenheit liegen, bezogen auf den aktuellen Datensatz. Werden mehr als 48 Stunden an Daten benötigt, um das gewünschte data building zu erstellen, müssen die Daten in dem variable object gespeichert werden, um später abgerufen werden zu können (wie oben erklärt).",
                     "updated": 1635356432924
+                },
+                {
+                    "language": "RU",
+                    "text": "В периоды времени менее одного часа система позволяет получать доступ к данным за последние 48 часов относительно текущей записи. Если для создания желаемого построения данных требуется более 48 часов данных, то данные должны быть сохранены в переменном объекте для последующего извлечения, как описано выше.",
+                    "updated": 1639678535937
                 }
             ]
         },
@@ -305,6 +424,11 @@
                     "language": "DE",
                     "text": "Verfahren können nur auf Daten zugreifen, die bis zu 48 Stunden in die Vergangenheit zurückreichen, gerechnet ab dem Datum des zu verarbeitenden Datensatzes. Die Berechnung eines gleitenden Durchschnitts (moving average), der sich über 100 Perioden erstreckt, erfordert beispielsweise die Zwischenspeicherung von Daten in einem Array, da für den Zeitrahmen von 45 Minuten Daten im Wert von 75 Stunden benötigt werden.",
                     "updated": 1635356514722
+                },
+                {
+                    "language": "RU",
+                    "text": "Процедуры могут обращаться к данным только за прошедшие 48 часов, считая от времени даты обрабатываемой записи. Например, расчет скользящего среднего, охватывающего 100 периодов, требует временного хранения данных в массиве, поскольку для временного интервала в 45 минут требуется 75 часовых данных.",
+                    "updated": 1639721265072
                 }
             ]
         },
@@ -316,6 +440,11 @@
                     "language": "DE",
                     "text": "Im Folgenden finden Sie ein Beispiel für einen procedure loop code, insbesondere den Code, der das Produkt Popular SMAs des Simple Moving Average (SMA) Indikators berechnet. Beachten Sie, wie die von der Funktion calculateSMA erzeugte Ausgabe im variable object gespeichert wird und wie ein im variable object gespeichertes Array verwendet wird, um die 48-Stunden-data-access limitation (Datenzugriffsbeschränkung) von Multi-Priod-Daily Zeitrahmen zu überwinden.",
                     "updated": 1635356663510
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен пример кода цикла процедуры, в частности, кода, который вычисляет продут Popular SMA индикатора Simple Moving Average (SMA). Обратите внимание, как вывод, генерируемый функцией calculateSMA, сохраняется в объекте переменной, и как массив, хранящийся в объекте переменной, используется для преодоления 48-часового ограничения на доступ к данным для таймфреймов Multi-Priod-Daily.",
+                    "updated": 1639721678638
                 }
             ]
         },
@@ -333,6 +462,11 @@
                     "language": "DE",
                     "text": "Irregular Periods (Irreguläre Perioden):",
                     "updated": 1635356682237
+                },
+                {
+                    "language": "RU",
+                    "text": "Нерегулярные периоды (Irregular Periods)",
+                    "updated": 1639722557754
                 }
             ]
         },
@@ -344,6 +478,11 @@
                     "language": "DE",
                     "text": "Hin und wieder gibt es keine Eins-zu-Eins-Zuordnung zwischen den Perioden der Datenabhängigkeit und den Perioden des resultierenden Produkts. Zum Beispiel im Fall des bollingerChannels product, das die bollingerBands als main dependency verwendet. In einem solchen Fall kann der Algorithmus die 1-hour bollingerBands als Eingabe lesen, aber das resultierende object kann sich über mehrere Stunden erstrecken.",
                     "updated": 1635356783859
+                },
+                {
+                    "language": "RU",
+                    "text": "Иногда не существует однозначного сопоставления периодов зависимости данных с периодами конечного продукта. Например, в случае продукта bollingerChannels, использующего в качестве основной зависимости bollingerBands. В этом случае алгоритм может считывать 1-часовые полосы Боллинджера в качестве входных данных, но результирующий объект может охватывать несколько часов.",
+                    "updated": 1639722619765
                 }
             ]
         },
@@ -355,6 +494,11 @@
                     "language": "DE",
                     "text": "Standardmäßig schiebt das System bei jeder Schleife einen Datensatz in die Datensammlung. Um Produkte zu erstellen, die sich über mehrere Perioden der Hauptabhängigkeit erstrecken, müssen Sie den Push in Ihrem eigenen Code durchführen.",
                     "updated": 1635356902606
+                },
+                {
+                    "language": "RU",
+                    "text": "По умолчанию система переносит запись в коллекцию данных для каждого цикла. Для создания продуктов, которые охватывают несколько периодов основной зависимости, вы должны выполнять это действие из собственного кода.",
+                    "updated": 1639723688268
                 }
             ]
         },
@@ -366,6 +510,11 @@
                     "language": "DE",
                     "text": "Wenn das System einen Push im Code der procedure loop feststellt, bricht es den automatischen Push in jeder Schleife ab.",
                     "updated": 1635356945154
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда система обнаруживает перенос в коде процедурного цикла, она отменяет автоматическое перенос в каждом цикле.",
+                    "updated": 1639723664544
                 }
             ]
         },
@@ -377,6 +526,11 @@
                     "language": "DE",
                     "text": "Das folgende Beispiel aus der Schleife der data building procedure loop des Bollinger Channels Object zeigt mehrere Beispiele für die willkürliche Verwendung von Pushs.",
                     "updated": 1635357060928
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующий пример, взятый из цикла процедуры построения данных индикатора Bollinger Channels Object, содержит несколько примеров произвольного использования переносов.",
+                    "updated": 1639723579255
                 }
             ]
         },
@@ -394,6 +548,11 @@
                     "language": "DE",
                     "text": "Undefined Objects verwalten:",
                     "updated": 1635357087320
+                },
+                {
+                    "language": "RU",
+                    "text": "Управление неопределенными объектами (Managing Undefined Objects)",
+                    "updated": 1639723717529
                 }
             ]
         },
@@ -405,6 +564,11 @@
                     "language": "DE",
                     "text": "In vielen Fällen können die Objekte undefiniert sein. Beispielsweise können die ersten 199 candles in der Datensammlung, die einem gleitenden 200-Perioden-Durchschnitt entsprechen, undefiniert sein, da die Datenerstellungsprozedur das Objekt möglicherweise erst nach der Auswertung der 200sten candle erstellt.",
                     "updated": 1635357128634
+                },
+                {
+                    "language": "RU",
+                    "text": "Во многих случаях объекты могут быть неопределенными. Например, первые 199 свечей в коллекции данных, соответствующих 200-периодной скользящей средней, могут быть неопределенными, поскольку процедура построения данных может построить объект только после оценки 200-й свечи.",
+                    "updated": 1639723755351
                 }
             ]
         },
@@ -416,6 +580,11 @@
                     "language": "DE",
                     "text": "Die Speicherung von undifined property values ist höchst unerwünscht, da dies wahrscheinlich zu Fehlern führen würde, wenn andere versuchen, die von dem indicator erzeugten Produkte zu konsumieren. Wie man mit solchen Umständen umgeht, bleibt dem Entwickler überlassen.",
                     "updated": 1635357275201
+                },
+                {
+                    "language": "RU",
+                    "text": "Хранение неопределенных значений свойств крайне нежелательно, так как это, скорее всего, приведет к ошибкам, когда другие попытаются использовать продукты, произведенные индикатором. Как поступать в таких случаях, зависит от разработчика.",
+                    "updated": 1639723785241
                 }
             ]
         },
@@ -427,6 +596,11 @@
                     "language": "DE",
                     "text": "Das obige Beispiel des Bollinger Channels Object zeichnet sich durch den bewussten Umgang mit undefinierten Objekten aus.",
                     "updated": 1635357307246
+                },
+                {
+                    "language": "RU",
+                    "text": "Приведенный выше пример на Bollinger Channels Object отличается продуманной работой с неопределенными объектами.",
+                    "updated": 1639723883623
                 }
             ]
         },
@@ -438,13 +612,25 @@
                     "language": "DE",
                     "text": "Im Falle des oben beschriebenen  200-period moving average kann der Entwickler eine beliebige Schätzung des gleitenden Durchschnitts für die ersten 199 Kerzen vornehmen oder den Wert für die ersten 199 Kerzen einfach auf Null setzen. Letzteres wurde für das Produkt popularSMAs gewählt, wie im Code der initialization procedure zu sehen ist:",
                     "updated": 1635357513374
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае 200-периодного скользящего среднего, о котором говорилось выше, разработчик может захотеть произвести произвольную оценку скользящего среднего для первых 199 свечей или просто установить значение нуля для первых 199 свечей. Последнее было выбрано для продукта popularSMA, что можно заметить в коде процедуры инициализации:",
+                    "updated": 1639723960686
                 }
             ]
         },
         {
             "style": "Javascript",
             "text": "/* Initialization Code*/\n\nvariable.previousEMA20 = 0\nvariable.previousEMA50 = 0\nvariable.previousEMA100 = 0\nvariable.previousEMA200 = 0",
-            "updated": 1611431131070
+            "updated": 1611431131070,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "/* Initialization Code */\n\nvariable.previousEMA20 = 0\nvariable.previousEMA50 = 0\nvariable.previousEMA100 = 0\nvariable.previousEMA200 = 0",
+                    "updated": 1639723968537
+                }
+            ]
         },
         {
             "style": "Text",

@@ -298,15 +298,16 @@ function newFloatingLayer() {
                 /* This function makes all the calculations to apply physics on all visible floatingObjects in this layer. */
 
                 try {
-
-                    if (UI.projects.foundations.spaces.floatingSpace.settings.physics !== true) {return}
-
                     for (let i = 0; i < visibleFloatingObjects.length; i++) {
                         let floatingObject = visibleFloatingObjects[i]
                         if (floatingObject.isFrozen === true) { continue }
 
                         /* From here on, only if they are not too far. */
                         if (UI.projects.foundations.spaces.floatingSpace.isItFar(floatingObject.payload)) { continue }
+                        checkBoundaries(floatingObject)
+
+                        if (UI.projects.foundations.spaces.floatingSpace.settings.physics !== true) { continue }
+
 
                         if (floatingObject.positionLocked === false) {
                             floatingObject.container.frame.position.x = floatingObject.container.frame.position.x + floatingObject.currentSpeed.x
@@ -369,7 +370,6 @@ function newFloatingLayer() {
                         }
 
                         // We let the Floating Object animate the physics loops by itself.
-                        checkBoundaries(floatingObject)
 
                         /* Collision Control */
 
@@ -408,8 +408,8 @@ function newFloatingLayer() {
             floatingObject.currentSpeed.x = -floatingObject.currentSpeed.x
         }
 
-        if (floatingObject.container.frame.position.y - floatingObject.container.frame.radius < 0) {
-            floatingObject.container.frame.position.y = floatingObject.container.frame.radius
+        if (floatingObject.container.frame.position.y - floatingObject.container.frame.radius < (TOP_SPACE_HEIGHT + COCKPIT_SPACE_HEIGHT) * (1 + UI.projects.foundations.spaces.floatingSpace.container.frame.height / browserCanvas.height)) {
+            floatingObject.container.frame.position.y = floatingObject.container.frame.radius + (TOP_SPACE_HEIGHT + COCKPIT_SPACE_HEIGHT) * (1 + UI.projects.foundations.spaces.floatingSpace.container.frame.height / browserCanvas.height)
             floatingObject.currentSpeed.y = -floatingObject.currentSpeed.y
         }
 

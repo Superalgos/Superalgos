@@ -36,8 +36,9 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             if (timeout !== undefined) {
                 setTimeout(onTimeout, timeout)
             }
-
-            // First, listen for response:
+            /* 
+            First, listen for response
+            */
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
                 SESSION_KEY,
                 'Response From Portfolio Manager',
@@ -46,15 +47,17 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
                 undefined,
                 onResponse
             )
-
-            // Second, Raise Event:
+            /* 
+            Second, Raise Event 
+            */
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                 SESSION_KEY,
                 'Request From Trading Bot',
                 message
             )
-
-            // Third, events Callback:
+            /* 
+            Third, events Callback
+            */
             function onResponse() {
                 if (arguments[0].event !== undefined) {
                     let response = {

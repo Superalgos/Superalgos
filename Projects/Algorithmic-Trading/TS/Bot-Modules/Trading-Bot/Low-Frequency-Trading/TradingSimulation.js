@@ -219,7 +219,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                         candle
                     )
                     /*
-                    Reporting to Portfolio Manager
+                    Checkout at Portfolio Manager
                     */
                     await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                         portfolioManagerClientModuleObject,
@@ -245,7 +245,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     candle
                 )
                 /*
-                Reporting to Portfolio Manager
+                Checkout at Portfolio Manager
                 */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                     portfolioManagerClientModuleObject,

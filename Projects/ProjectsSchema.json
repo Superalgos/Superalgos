@@ -191,6 +191,12 @@
                     "propertyName": "portfolioManagerEventsInterface",
                     "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
                     "fileName": "PortfolioManagerEventsInterface.js"
+                },
+                {
+                    "name": "Trading Bots Interface",
+                    "propertyName": "tradingBotsInterface",
+                    "functionName": "newPortfolioManagementModulesTradingBotsInterface",
+                    "fileName": "TradingBotsInterface.js"
                 }
             ],
             "botModules": [
@@ -235,6 +241,13 @@
                     "propertyName": "portfolioSimulation",
                     "functionName": "newPortfolioManagementBotModulesPortfolioSimulation",
                     "fileName": "PortfolioSimulation.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Managed Trading Bots",
+                    "propertyName": "managedTradingBots",
+                    "functionName": "newPortfolioManagementBotModulesManagedTradingBots",
+                    "fileName": "ManagedTradingBots.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {

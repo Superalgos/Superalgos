@@ -38,27 +38,27 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
                 undefined,
                 SESSION_KEY,
                 undefined,
-                eventCallback
-            );
+                onResponse
+            )
 
             // Second, Raise Event:
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                 SESSION_KEY,
                 'Request From Trading Bot',
                 message
-            );
+            )
 
             // Third, events Callback:
-            function eventCallback() {
+            function onResponse() {
                 if (arguments[0].event !== undefined) {
                     let response = {
                         raiseEvent: arguments[0].event.raiseEvent,
                         reason: "Reply from Portfolio Manager"
                     }
-                    resolve(response);
-                } else { reject(); }
+                    resolve(response)
+                } else { reject() }
             }
         });
-        return promise;
+        return promise
     }
 }

@@ -581,10 +581,6 @@
             }
 
             function startLiveTrading() {
-                /* Testing to be removed  @PLUV: */
-                /*TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE.beginListening();
-                TS.projects.foundations.globals.processVariables.PM_COMMUNICATION_MODULE.getQuoteAssetBalance();*/
-                /* End Testing */
                 return checkKey()
             }
 

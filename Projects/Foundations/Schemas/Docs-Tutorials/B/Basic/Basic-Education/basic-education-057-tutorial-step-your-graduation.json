@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Herzlichen Glückwunsch! Sie haben Ihre Grundausbildung abgeschlossen und sind nun bereit für fortgeschrittenere Dinge!",
                 "updated": 1634590980526
+            },
+            {
+                "language": "TR",
+                "text": "Tebrikler! Temel Eğitiminden mezun oldunuz ve daha ileri seviyelere geçmeye hazırsınız!",
+                "updated": 1639837530748
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Im nächsten Tutorial werden Sie lernen, wie Sie Ihre Anwendung aktualisieren, den Zweig wechseln, um die Version im Entwicklungszweig zu testen, ein paar Tricks zu den Docs und vieles mehr!",
                     "updated": 1634590987001
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki eğitimde uygulamanızı nasıl güncelleyeceğinizi, geliştirme dalındaki sürümü test etmek için dalları nasıl değiştireceğinizi, Dokümanlar hakkında birkaç püf noktası ve daha fazlasını öğreneceksiniz!",
+                    "updated": 1639837561573
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Sie werden auch die Möglichkeit haben, einen Bericht über Ihre bisherigen Erfahrungen mit Superalgos zu verfassen!",
                     "updated": 1634590998253
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca bu noktaya kadar Superalgos ile olan deneyiminiz hakkında bir inceleme gönderebileceksiniz!",
+                    "updated": 1639837576185
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Wenn Sie mit Superalgos weiterkommen, brauchen Sie vielleicht eine Auffrischung der Themen, die in diesem oder dem vorherigen Tutorial behandelt wurden! Das ist eine gängige Praxis, also kommen Sie wieder, bis Sie alle Tricks gelernt haben!",
                     "updated": 1634591004640
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos ile ilerlerken, bu eğitimde veya bir öncekinde ele alınan konularda tazelemeye ihtiyacınız olabilir! Bu standart bir uygulamadır, bu yüzden tüm püf noktalarını öğrenene kadar tekrar etmeyi ihmal etmeyin!",
+                    "updated": 1639837606771
                 }
             ]
         }

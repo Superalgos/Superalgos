@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Um ein Plugin in einem Workspace zu platzieren, müssen Sie die Option wählen, die fehlenden Plugins auf dem Knoten des passenden Typs hinzuzufügen!",
                 "updated": 1634588716948
+            },
+            {
+                "language": "TR",
+                "text": "Bir çalışma alanına bir eklenti yerleştirmek için, Add The Missing Plugins seçeneğini seçmelisiniz!",
+                "updated": 1639813267037
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Probieren wir es aus! Wählen Sie Add Missing Trading Systems im Knoten Plugin Trading Systems!",
                     "updated": 1634588730509
+                },
+                {
+                    "language": "TR",
+                    "text": "Plugin Trading System düğümünde Add Missing Trading System'ı  seçin!",
+                    "updated": 1639815783798
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Für jedes Plugin in \\Foundations\\Plugins\\Trading-Systems werden neue Plugin File Knoten erstellt. Sie können die Plugin File Knoten, die Sie nicht benötigen, löschen und die gewünschten behalten! Fügen Sie nun den Knoten Plugin File Position hinzu und heften Sie ihn an die Stelle, an der Sie die Plugin Hierarchie platzieren möchten!",
                     "updated": 1634588766367
+                },
+                {
+                    "language": "TR",
+                    "text": "Her eklenti için \\Foundations\\Plugins\\Trading-Systems dizininde Plugin Files dosyası oluşturulur.İhtiyacınız olmayan Plugin File düğümlerini silebilir ve istediklerinizi saklayabilirsiniz! Şimdi herhangi bir Plugin File düğümünü genişletin, Plugin File Position düğümünü eklentiyi yerleştirmek istediğiniz yere sürükleyerek sabitleyin",
+                    "updated": 1639816060254
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Die Plugins werden hinzugefügt, wenn Sie den Workspace das nächste Mal laden! Wenn Sie sie testen wollen, aktualisieren Sie!",
                     "updated": 1634588775070
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanını bir sonraki yüklediğinizde Plugin eklenecektir! Test etmek istiyorsanız, sayfayı yenileyin!",
+                    "updated": 1639816105489
                 }
             ]
         }

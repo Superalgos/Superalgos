@@ -1,7 +1,14 @@
 {
     "type": "Market Buy Order",
     "definition": {
-        "text": "A market buy order is an instruction sent to the exchange to buy the base asset, for immediate execution at current market prices."
+        "text": "A market buy order is an instruction sent to the exchange to buy the base asset, for immediate execution at current market prices.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Market Buy Order - это распоряжение, отправленное на биржу для покупки базового актива с целью немедленного исполнения по текущим рыночным ценам.",
+                "updated": 1639838986180
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,21 +17,49 @@
         },
         {
             "style": "Text",
-            "text": "Traders usually use market orders when the priority is the certainty of execution over the rate of execution. Depending on the size of the order and the liquidity of the particular market/exchange, market orders may experience more or less slippage."
+            "text": "Traders usually use market orders when the priority is the certainty of execution over the rate of execution. Depending on the size of the order and the liquidity of the particular market/exchange, market orders may experience more or less slippage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Трейдеры обычно используют рыночные ордера, когда приоритетом является уверенность в исполнении, а не скорость исполнения. В зависимости от размера ордера и ликвидности конкретного рынка/биржи, рыночные ордера могут испытывать большее или меньшее проскальзывание.",
+                    "updated": 1639839013560
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Market Orders' Rate",
-            "updated": 1609604792445
+            "updated": 1609604792445,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ставка рыночных ордеров",
+                    "updated": 1639839033551
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users have no control over the rate at which a market order is filled. The exchange fills the order with available bids/asks at the time of execution."
+            "text": "Users have no control over the rate at which a market order is filled. The exchange fills the order with available bids/asks at the time of execution.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи не могут контролировать курс, по которому исполняется рыночный ордер. Биржа заполняет ордер доступными предложением / спросом на момент исполнения.",
+                    "updated": 1639839134775
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "The information below this banner is valid for all types of orders.",
-            "updated": 1609604814108
+            "updated": 1609604814108,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация под этим сообщением действительна для всех типов заказов.",
+                    "updated": 1639839274292
+                }
+            ]
         },
         {
             "style": "Title",
@@ -33,11 +68,25 @@
         },
         {
             "style": "Text",
-            "text": "As explained in the definition of the execution algorithm, each algorithm is allocated a percentage of the target size defined under the initial targets node."
+            "text": "As explained in the definition of the execution algorithm, each algorithm is allocated a percentage of the target size defined under the initial targets node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как описано в определении алгоритма выполнения Execution Algorithm, каждому алгоритму выделяется процент от размера цели Target Size, определенного в узле начальных целей Initial Targets.",
+                    "updated": 1639839505229
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The simplified logic for non-coders:"
+            "text": "The simplified logic for non-coders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Упрощенная логика для непрограммистов:",
+                    "updated": 1639839532915
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -45,7 +94,14 @@
         },
         {
             "style": "Text",
-            "text": "The actual code:"
+            "text": "The actual code:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактичксий код:",
+                    "updated": 1639840177589
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -54,11 +110,25 @@
         },
         {
             "style": "Text",
-            "text": "Similarly, the size of an order is defined as a percentage of the size that the particular algorithm is allowed to execute (see the configuration)."
+            "text": "Similarly, the size of an order is defined as a percentage of the size that the particular algorithm is allowed to execute (see the configuration).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Аналогично, размер заявки определяется как процент от размера, который разрешено выполнить конкретному алгоритму (см. конфигурацию).",
+                    "updated": 1639839678825
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The simplified logic for non-coders:"
+            "text": "The simplified logic for non-coders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Упрощенная логика для непрограммистов:",
+                    "updated": 1639839698575
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -66,7 +136,14 @@
         },
         {
             "style": "Text",
-            "text": "The actual code:"
+            "text": "The actual code:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактичксий код:",
+                    "updated": 1639840171972
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -75,35 +152,91 @@
         },
         {
             "style": "Text",
-            "text": "Because each execution algorithm may define multiple orders, the typical scenario is that all orders defined within an algorithm add up to 100% of the size allocated to the algorithm."
+            "text": "Because each execution algorithm may define multiple orders, the typical scenario is that all orders defined within an algorithm add up to 100% of the size allocated to the algorithm.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку каждый алгоритм выполнения может определять несколько заказов, типичным сценарием является то, что все заявки, определенные в рамках алгоритма, составляют 100% от размера, выделенного алгоритму.",
+                    "updated": 1639839774441
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, it is up to the user how to manage this setting, as different hacks may be found to achieve different behaviors."
+            "text": "However, it is up to the user how to manage this setting, as different hacks may be found to achieve different behaviors.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако, как управлять этой настройкой, зависит от пользователя, так как можно найти различные способы для достижения различных моделей поведения.",
+                    "updated": 1639839828502
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "If orders defined add up to more than 100% of the size allocated to the algorithm, the trading engine does not enforce a cap."
+            "text": "If orders defined add up to more than 100% of the size allocated to the algorithm, the trading engine does not enforce a cap.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если сумма определенных ордеров превышает 100% от размера, выделенного алгоритму, торговый движок не устанавливает ограничение.",
+                    "updated": 1639839881215
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Pretty much like the user may decide to define the size of orders within an algorithm above or below the 100% mark, the same is true when defining multiple algorithms. In other words, the user may choose to set up algorithms whose combined sizes amount to more or less than 100%."
+            "text": "Pretty much like the user may decide to define the size of orders within an algorithm above or below the 100% mark, the same is true when defining multiple algorithms. In other words, the user may choose to set up algorithms whose combined sizes amount to more or less than 100%.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Точно так же, как пользователь может определить размер заявок в рамках алгоритма выше или ниже отметки 100%, то же самое верно и при определении нескольких алгоритмов. Другими словами, пользователь может выбрать алгоритмы, чьи суммарные размеры составляют больше или меньше 100%.",
+                    "updated": 1639839947364
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In cases in which the combined sizes amount to less than 100%, the target size would be partially filled at best. On the other hand, in cases in which the combined sizes amount to more than 100%, then the orders and/or algorithms would compete with each other."
+            "text": "In cases in which the combined sizes amount to less than 100%, the target size would be partially filled at best. On the other hand, in cases in which the combined sizes amount to more than 100%, then the orders and/or algorithms would compete with each other.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случаях, когда совокупный размер составляет менее 100%, целевой размер будет заполнен в лучшем случае частично. С другой стороны, в случаях, когда комбинированные размеры составляют более 100%, заявки и/или алгоритмы будут конкурировать друг с другом.",
+                    "updated": 1639840004015
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The one validation the trading engine does is to enforce the target size defined under the initial targets node. The target size is treated as a hard cap, so that no position may ever be sized larger than the target."
+            "text": "The one validation the trading engine does is to enforce the target size defined under the initial targets node. The target size is treated as a hard cap, so that no position may ever be sized larger than the target.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Единственная проверка, которую делает торговый движок, заключается в том, что он принудительно устанавливает размер цели, определенный в узле начальных целей. Целевой размер рассматривается как установленный лимит, так что ни одна позиция не может быть больше целевого размера.",
+                    "updated": 1639840110533
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the order size as defined would cause the target size to be breached, then the order size is lowered to match the hard cap."
+            "text": "If the order size as defined would cause the target size to be breached, then the order size is lowered to match the hard cap.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если установленный размер ордера приведет к превышению целевого размера, то размер ордера снижается до соответствия установленному лимиту.",
+                    "updated": 1639840091466
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The simplified logic for non-coders:"
+            "text": "The simplified logic for non-coders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Упрощенная логика для непрограммистов:",
+                    "updated": 1639840131899
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -112,7 +245,14 @@
         },
         {
             "style": "Text",
-            "text": "The actual code:"
+            "text": "The actual code:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактичксий код:",
+                    "updated": 1639840160789
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -126,56 +266,147 @@
         {
             "style": "Title",
             "text": "Placing and Filling of Orders",
-            "updated": 1609605682783
+            "updated": 1609605682783,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Размещение и исполнение заявок",
+                    "updated": 1639840203628
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading engine keeps track of the amounts placed and the amounts filled based on the feedback obtained from the exchange, and makes the information available in the size placed and size filled nodes. The nodes are present in multiple contexts, such as the particular stage (open and close) or the particular order type, and are denominated both in the base asset and quoted asset. You may learn more about how to track the size placed and size filled on the trading engine pages."
+            "text": "The trading engine keeps track of the amounts placed and the amounts filled based on the feedback obtained from the exchange, and makes the information available in the size placed and size filled nodes. The nodes are present in multiple contexts, such as the particular stage (open and close) or the particular order type, and are denominated both in the base asset and quoted asset. You may learn more about how to track the size placed and size filled on the trading engine pages.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый движок отслеживает размещенные и исполненные суммы на основе обратной связи, полученной от биржи, и предоставляет эту информацию в узлах Size Placed и Size Filled. Узлы присутствуют в различных контекстах, таких как конкретный этап (открытие и закрытие) или конкретный тип ордера, и номинированы как в базовом активе, так и в котируемом активе. Более подробно о том, как отслеживать размер размещенного и исполненного ордера, вы можете узнать на страницах торгового движка.",
+                    "updated": 1639840385055
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Closing of Orders",
-            "updated": 1609605695838
+            "updated": 1609605695838,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Закрытие заявок",
+                    "updated": 1639840411240
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Orders may be closed upon the occurrence of the following two events:"
+            "text": "Orders may be closed upon the occurrence of the following two events:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заявки могут быть закрыты при следующих двух событиях:",
+                    "updated": 1639840476157
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The exchange reports the order was filled. In such a case, the trading engine closes the order."
+            "text": "The exchange reports the order was filled. In such a case, the trading engine closes the order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржа сообщает, что ордер был исполнен. В этом случае торговый движок закрывает ордер.",
+                    "updated": 1639840497724
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The cancel order event is triggered. This is an event the user may configure with the typical set up of situations and conditions."
+            "text": "The cancel order event is triggered. This is an event the user may configure with the typical set up of situations and conditions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запускается событие отмены заказа. Это событие пользователь может настроить с помощью типичного набора ситуаций и условий.",
+                    "updated": 1639840522016
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All of the available types of orders may be configured so that multiple orders may be spawned, one after the other, through the same order definition."
+            "text": "All of the available types of orders may be configured so that multiple orders may be spawned, one after the other, through the same order definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все доступные типы ордеров могут быть настроены таким образом, что несколько ордеров могут быть порождены один за другим через одно и то же определение ордера Order Definitions.",
+                    "updated": 1639840789281
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This allows, for example, setting an order for 1% of the size allocated to the algorithm, and have the trading engine spawn one order per execution cycle until the 100% mark is reached. Such a feature may allow many more hacks and is yet another tool that&mdash;combined with the rest&mdash;enables a great deal of control over orders execution."
+            "text": "This allows, for example, setting an order for 1% of the size allocated to the algorithm, and have the trading engine spawn one order per execution cycle until the 100% mark is reached. Such a feature may allow many more hacks and is yet another tool that&mdash;combined with the rest&mdash;enables a great deal of control over orders execution.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это позволяет, например, установить ордер на 1% от размера, выделенного алгоритму, и заставить торговый движок порождать по одному ордеру за цикл исполнения, пока не будет достигнута отметка 100%.  Такая функция может позволить множество других хитростей и является еще одним инструментом, который в сочетании с остальными позволяет получить большой контроль над исполнением ордеров.",
+                    "updated": 1639840954454
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A new instance of an order may be spawned only under the following  context:"
+            "text": "A new instance of an order may be spawned only under the following  context:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Новый экземпляр ордера может быть порожден только в следующем случае:",
+                    "updated": 1639840994661
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The previous instance of the order is closed. That is, two instances of the same order may not exist at the same time."
+            "text": "The previous instance of the order is closed. That is, two instances of the same order may not exist at the same time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предыдущий экземпляр ордера закрывается. То есть, два экземпляра одного и того же ордера не могут существовать одновременно.",
+                    "updated": 1639841023270
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The size filled at the level of the execution algorithm is within the limit established in the algorithm's configuration."
+            "text": "The size filled at the level of the execution algorithm is within the limit established in the algorithm's configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Размер, заполненный на уровне алгоритма выполнения, находится в пределах лимита, установленного в конфигурации алгоритма.",
+                    "updated": 1639841095250
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The size filled at the level of the stage must be within the target size defined under the initial targets node."
+            "text": "The size filled at the level of the stage must be within the target size defined under the initial targets node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Размер, заполненный на уровне стадии, должен быть в пределах целевого размера, определенного в узле начальных целей Initial Targets.",
+                    "updated": 1639841166103
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "See the order’s configuration to learn how to configure the parameter affecting this behavior."
+            "text": "See the order’s configuration to learn how to configure the parameter affecting this behavior.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Смотрите конфигурацию ордера, чтобы узнать, как настроить параметр, влияющий на это поведение.",
+                    "updated": 1639841197970
+                }
+            ]
         },
         {
             "style": "Block",
@@ -184,19 +415,47 @@
         {
             "style": "Title",
             "text": "Market Buy Order Configuration",
-            "updated": 1609605867112
+            "updated": 1609605867112,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Market Buy Order",
+                    "updated": 1639841226657
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639841234183
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного заказа. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
+                    "updated": 1639841691576
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
+                    "updated": 1639841678188
+                }
+            ]
         }
     ]
 }

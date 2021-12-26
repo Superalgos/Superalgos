@@ -7,7 +7,7 @@
             "name": "Bullet\\bullet-limit-buy-order",
             "project": "Foundations"
         },
-        "text": "You thought I would let you monitor the Live Trading Session watching the ugly list of orders at the exchange? No way!",
+        "text": "You thought I would let you monitor the Live Trading Session watching the list of orders at the exchange? No way!",
         "translations": [
             {
                 "language": "IT",
@@ -31,7 +31,8 @@
                 "text": "Borsadaki kirli emir listesini izleyerek Canlı İşlem Oturumunu ( Live Trading Session ) izlemene izin vereceğimi mi sandın? Mümkün değil!",
                 "updated": 1636632883293
             }
-        ]
+        ],
+        "updated": 1640291830600
     },
     "paragraphs": [
         {

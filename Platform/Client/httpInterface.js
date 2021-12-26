@@ -253,6 +253,33 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Social-Bots':
                     switch (requestPath[2]) {
+                        case 'Discord-Test-Message':
+                            SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                                .then(body => {
+                                    let config = JSON.parse(body)
+                                    let text = config.text
+                                    let socialBot = SA.projects.socialBots.botModules.discordBot.newSocialBotsBotModulesDiscordBot()
+                                    socialBot.initialize(config)
+                                        .then(response => {
+                                            console.log('httpInterface > Discord Bot >', response)
+                                            socialBot.sendMessage(text)
+                                                .then(response => {
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                })
+                                                .catch(err => {
+                                                    console.error(err)
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                                })
+                                        })
+                                        .catch(err => {
+                                            console.error('error initializing discord bot', err)
+                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
+                                        })
+                                })
+                                .catch (err => {
+                                    console.error(err)
+                                })
+                            break
                         case 'Slack-Test-Message':
                             SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
                                 .then(body => {
@@ -265,6 +292,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                         })
                                         .catch(err => {
+                                            console.error(err)
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
@@ -284,6 +312,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                         })
                                         .catch(err => {
+                                            console.error(err)
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
@@ -380,14 +409,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'Secrets': {
                     switch (requestPath[2]) { // switch by command
-                        case 'Save-Secrets-File': {
+                        case 'Save-Singing-Accounts-Secrets-File': {
                             SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                             async function processRequest(body) {
                                 try {
 
                                     let filePath = global.env.PATH_TO_SECRETS + '/'
-                                    let fileName = "Secrets.json"
+                                    let fileName = "SigningAccountsSecrets.json"
 
                                     createNewDir(filePath)
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
@@ -397,9 +426,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
 
                                 } catch (err) {
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Method call produced an error.')
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> err.stack = ' + err.stack)
-                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Secrets-File -> Params Received = ' + body)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Method call produced an error.')
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> err.stack = ' + err.stack)
+                                    console.log('[ERROR] httpInterface -> Secrets -> Save-Singing-Accounts-Secrets-File -> Params Received = ' + body)
 
                                     let error = {
                                         result: 'Fail Because',

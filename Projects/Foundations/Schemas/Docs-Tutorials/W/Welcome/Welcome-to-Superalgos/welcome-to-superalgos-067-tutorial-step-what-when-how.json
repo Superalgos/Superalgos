@@ -40,7 +40,7 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Session Base Asset: no capital is assigned in BTC.",
+            "text": "Session Base Asset : no capital is assigned in BTC.",
             "translations": [
                 {
                     "language": "IT",
@@ -74,7 +74,8 @@
                     "text": "Session Base Asset: tidak ada modal yang ditetapkan dalam BTC.",
                     "updated": 1639747618439
                 }
-            ]
+            ],
+            "updated": 1640288657193
         },
         {
             "style": "List",
@@ -231,7 +232,7 @@
         },
         {
             "style": "List",
-            "text": "Fee Structure: 0.1% is the lower Binance tier.",
+            "text": "Fee Structure: 0.1% is just an example.",
             "translations": [
                 {
                     "language": "IT",
@@ -260,7 +261,8 @@
                     "text": "Структура оплаты:  0.1%  - это нижний уровень на Binance.",
                     "updated": 1636930145101
                 }
-            ]
+            ],
+            "updated": 1640359705451
         },
         {
             "style": "Text",

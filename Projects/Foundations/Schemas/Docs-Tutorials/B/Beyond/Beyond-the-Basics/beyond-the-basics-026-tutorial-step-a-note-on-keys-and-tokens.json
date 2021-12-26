@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Lassen Sie mich eine kurze Pause einlegen, um auf etwas Wichtiges hinzuweisen, was die Sicherheit Ihrer Schlüssel und Token betrifft...",
                 "updated": 1635151451291
+            },
+            {
+                "language": "TR",
+                "text": "Anahtarlarınızın ve belirteçlerinizin güvenliğiyle ilgili önemli bir şeye dikkat çekmek için kısa bir ara vermeme izin verin...",
+                "updated": 1640001687641
+            },
+            {
+                "language": "RU",
+                "text": "Позвольте мне сделать небольшую паузу, чтобы отметить кое-что важное в отношении безопасности ваших ключей и токенов...",
+                "updated": 1640163119058
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Superalgos speichert die Workspace-Datei, die Ihre Schlüssel und Token enthält, im JSON-Format - unverschlüsselt. In diesem Zustand sind diese wichtigen Informationen so sicher wie Ihr Computer selbst.",
                     "updated": 1635151459148
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, anahtarlarınızı ve belirteçlerinizi içeren çalışma alanı dosyasını JSON biçiminde (şifrelenmemiş) saklar. Bu durumda, bu önemli bilgiler bilgisayarınız ne kadar güvenli ise o kadar güvenlidir.",
+                    "updated": 1640001729081
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos хранит файл рабочего пространства, содержащий ваши ключи и токены, в формате JSON в незашифрованном виде. В таком состоянии эта важнейшая информация находится в такой же безопасности, как и ваш компьютер.",
+                    "updated": 1640163149064
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Geben Sie Ihre Arbeitsbereichsdatei niemals in diesem Zustand weiter. Um einen Arbeitsbereich freizugeben, verwenden Sie die Schaltfläche Freigeben im Menü. Es wird eine freizugebende Kopie des Arbeitsbereichs erstellt, die um sensible Informationen bereinigt ist, indem die APIs Hierarchie und der Abschnitt Exchange Accounts des Crypto Exchange Knotens entfernt werden.",
                     "updated": 1635151467293
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı dosyanızı asla OLDUĞU GİBİ paylaşmayın. Bir çalışma alanını paylaşmak için menüdeki Share düğmesini kullanın. Bu şekilde paylaşmanız, API hiyerarşisini ve Crypto Exchange düğümünün Exchange Accounts bölümünü kaldırarak çalışma alanınızı hassas bilgilerden arındırır ve güvenli bir kopyasını oluşturarak sizi korur.",
+                    "updated": 1640002064921
+                },
+                {
+                    "language": "RU",
+                    "text": "Никогда не делитесь файлом рабочего пространства КАК ЕСТЬ. Чтобы поделиться рабочим пространством, используйте кнопку Share в меню. Она создает безопасную для общего доступа копию рабочего пространства, очищенную от конфиденциальной информации путем удаления иерархии APIs и раздела Exchange Accounts узла Crypto Exchange.",
+                    "updated": 1640163182388
                 }
             ]
         },

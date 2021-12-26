@@ -2,13 +2,37 @@
     "type": "Procedure Javascript Code",
     "definition": {
         "text": "The Procedure JavaScript code node may hold any snippet of valid JavaScript.",
-        "updated": 1609789511058
+        "updated": 1609789511058,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die JavaScript-Code-Node \"Procedure\" kann einen beliebigen gültigen JavaScript-Ausschnitt enthalten.",
+                "updated": 1639913948496
+            },
+            {
+                "language": "RU",
+                "text": "Узел Procedure Javascript Code может содержать любой фрагмент допустимого кода JavaScript.",
+                "updated": 1639660938246
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The system allows developers great flexibility as all valid JavaScript code is allowed.",
-            "updated": 1609789473533
+            "updated": 1609789473533,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System bietet Entwicklern große Flexibilität, da jeder gültige JavaScript-Code zulässig ist.",
+                    "updated": 1639913971997
+                },
+                {
+                    "language": "RU",
+                    "text": "Система предоставляет разработчикам большую гибкость, так как разрешен весь допустимый код JavaScript.",
+                    "updated": 1639660952852
+                }
+            ]
         }
     ]
 }

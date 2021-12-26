@@ -12,6 +12,11 @@
                 "language": "TR",
                 "text": "Pozisyon, veri yapısının her pozisyon kapsamında ve pozisyonun açık olduğu süre boyunca bilgileri takip eden bölümüdür.",
                 "updated": 1639225406261
+            },
+            {
+                "language": "RU",
+                "text": "Position - это раздел структуры данных, который отслеживает информацию в рамках каждой позиции и в течение времени, когда позиция открыта.",
+                "updated": 1639559977476
             }
         ]
     },
@@ -22,11 +27,25 @@
         },
         {
             "style": "Text",
-            "text": "The position node is available both in the current context and the last context, that is, you may retrieve information of the position that was last opened or the one currently open."
+            "text": "The position node is available both in the current context and the last context, that is, you may retrieve information of the position that was last opened or the one currently open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Position доступен как в текущем контексте, так и в последнем контексте, то есть вы можете получить информацию о позиции, которая была открыта последней или открытой в данный момент.",
+                    "updated": 1639560091465
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only."
+            "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "A position is open from the instant the take position event is triggered until the instant the close stage is closed. Therefore, this section of the data structure features information spaning those periods only.Позиция открыта с момента срабатывания события \"занять позицию\" до момента закрытия этапа закрытия. Поэтому в этом разделе структуры данных содержится информация, охватывающая только эти периоды.",
+                    "updated": 1639560192315
+                }
+            ]
         },
         {
             "style": "Text",

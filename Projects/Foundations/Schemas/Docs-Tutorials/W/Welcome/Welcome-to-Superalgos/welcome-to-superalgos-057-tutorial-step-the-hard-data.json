@@ -122,7 +122,7 @@
         },
         {
             "style": "Success",
-            "text": "You may move layers managers and plotter panels by left-clicking on their headers and dragging them to any corner of the screen.",
+            "text": "You may move layer managers and plotter panels by left-clicking on their headers and dragging them to any corner of the screen.",
             "translations": [
                 {
                     "language": "IT",
@@ -156,7 +156,8 @@
                     "text": "Kamu dapat memindahkan layers manager dan plotter panels dengan mengklik kiri pada headernya dan menyeretnya ke sudut mana pun di layar.",
                     "updated": 1639587712869
                 }
-            ]
+            ],
+            "updated": 1640359316083
         }
     ]
 }

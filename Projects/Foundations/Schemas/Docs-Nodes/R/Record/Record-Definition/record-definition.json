@@ -1,7 +1,19 @@
 {
     "type": "Record Definition",
     "definition": {
-        "text": "The record definition is where indicators define how many properties, what properties and in which order those properties will be made available in each record."
+        "text": "The record definition is where indicators define how many properties, what properties and in which order those properties will be made available in each record.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Record Definition - это то место, где индикаторы определяют, сколько свойств, какие свойства и в каком порядке эти свойства будут доступны в каждой записи.",
+                "updated": 1639592594316
+            },
+            {
+                "language": "DE",
+                "text": "In der record definition (Datensatzdefinition) legen die Indikatoren fest, wie viele properties (Eigenschaften), welche properties und in welcher Reihenfolge diese properties in jedem record (Datensatz) zur Verfügung gestellt werden sollen.",
+                "updated": 1640035265551
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,19 +22,67 @@
         },
         {
             "style": "Text",
-            "text": "Bots store data in the form of arrays of records, in a minimized plain text file and the standard JSON format, although not as objects with named properties, but as arrays."
+            "text": "Bots store data in the form of arrays of records, in a minimized plain text file and the standard JSON format, although not as objects with named properties, but as arrays.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Боты хранят данные в виде массивов записей, в минимизированном текстовом файле и стандартном формате JSON, но не как объекты с именованными свойствами, а как массивы.",
+                    "updated": 1639592620040
+                },
+                {
+                    "language": "DE",
+                    "text": "Bots speichern Daten in Form von Arrays von records (Datensätzen), in einer minimierten Klartextdatei( plain text file) und im Standard JSON Format, allerdings nicht als Objekte mit benannten properties (Eigenschaften), sondern als Arrays.",
+                    "updated": 1640035363032
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The choice of plain text for storage of large volumes of information has benefits in terms of not requiring any sophisticated technology to store and serve the data (i.e.: no database is required)."
+            "text": "The choice of plain text for storage of large volumes of information has benefits in terms of not requiring any sophisticated technology to store and serve the data (i.e.: no database is required).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выбор обычного текста для хранения больших объемов информации имеет преимущества с точки зрения отсутствия необходимости в каких-либо сложных технологиях для хранения и обслуживания данных (т.е. база данных не требуется).",
+                    "updated": 1639592641525
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Wahl von Klartext(Text Datei) für die Speicherung großer Informationsmengen hat den Vorteil, dass keine ausgefeilte Technologie für die Speicherung und Bereitstellung der Daten erforderlich ist (d. h. es wird keine Datenbank benötigt).",
+                    "updated": 1640035544388
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Best practice indicates that there needs to be a balance between the amount of data that is stored and calculations that may be performed at runtime."
+            "text": "Best practice indicates that there needs to be a balance between the amount of data that is stored and calculations that may be performed at runtime.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наилучшая практика показывает, что необходимо соблюдать баланс между объемом хранимых данных и вычислениями, которые могут выполняться во время выполнения.",
+                    "updated": 1639592680216
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewährte Verfahren zeigen, dass ein Gleichgewicht zwischen der Menge der gespeicherten Daten und den Berechnungen, die zur Laufzeit durchgeführt werden können, bestehen muss.",
+                    "updated": 1640035572898
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Storing objects with named properties in the JSON format would be inappropriate as labels would repeat over and over, creating a ridiculous amount of unnecessary information. However, storing arrays in the JSON standard facilitates the handling of files in the context of JavaScript and Node.JS."
+            "text": "Storing objects with named properties in the JSON format would be inappropriate as labels would repeat over and over, creating a ridiculous amount of unnecessary information. However, storing arrays in the JSON standard facilitates the handling of files in the context of JavaScript and Node.JS.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хранение объектов с именованными свойствами в формате JSON было бы неуместным, поскольку метки будут повторяться снова и снова, создавая смехотворное количество ненужной информации. Однако хранение массивов в стандарте JSON облегчает обработку файлов в контексте JavaScript и Node.JS.",
+                    "updated": 1639592708601
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Speicherung von Objekten mit benannten properties (Eigenschaften) im JSON-Format wäre unangemessen, da sich die labels (Bezeichnungen) immer wieder wiederholen würden, wodurch eine absurde Menge an unnötigen Informationen entstehen würde.  Die Speicherung von Arrays im JSON-Standard erleichtert jedoch die Handhabung von Dateien im Kontext von JavaScript und Node.JS.",
+                    "updated": 1640035925577
+                }
+            ]
         },
         {
             "style": "Block",
@@ -30,19 +90,67 @@
         },
         {
             "style": "Title",
-            "text": "What are the Record Properties used for?"
+            "text": "What are the Record Properties used for?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для чего используется Record Property?",
+                    "updated": 1639636419100
+                },
+                {
+                    "language": "DE",
+                    "text": "Wofür werden die Record Properties (Datensatzeigenschaften) verwendet?",
+                    "updated": 1640035956015
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In general this is the mechanism to define what information is going to be available to the consumers of data of this product. "
+            "text": "In general this is the mechanism to define what information is going to be available to the consumers of data of this product. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В общем, это механизм для определения того, какая информация будет доступна потребителям данных этого продукта.",
+                    "updated": 1639592805150
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Allgemeinen ist dies der Mechanismus, mit dem festgelegt wird, welche Informationen den Nutzern der Daten dieses Produkts zur Verfügung gestellt werden sollen.",
+                    "updated": 1640036109563
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When properties don't have a Formula, they define the format of the file that stores this data on disk. These record properties defines, the data type (string, number, etc), and in which order the data is saved. At the file there are no headers, just the data, because the header information is available here, for any process writing or reading the data from disk."
+            "text": "When properties don't have a Formula, they define the format of the file that stores this data on disk. These record properties defines, the data type (string, number, etc), and in which order the data is saved. At the file there are no headers, just the data, because the header information is available here, for any process writing or reading the data from disk.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если свойства не содержат формулы Formula, они определяют формат файла, в котором хранятся эти данные на диске. Эти свойства записи определяют тип данных (строка, число и т.д.) и порядок сохранения данных. В файле нет заголовков, только данные, потому что информация о заголовке доступна здесь для любого процесса, записывающего или считывающего данные с диска.",
+                    "updated": 1639592974439
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn properties (Eigenschaften) keine Formel haben, definieren sie das Format der Datei, in der diese Daten auf der Festplatte gespeichert werden. Diese record properties(Datensatzeigenschaften) definieren den Datentyp (String, Zahl usw.) und die Reihenfolge, in der die Daten gespeichert werden. In der Datei gibt es keine Kopfzeilen, sondern nur die Daten, da die Kopfzeileninformationen hier für jeden Prozess, der die Daten von der Festplatte schreibt oder liest, verfügbar sind.",
+                    "updated": 1640036261551
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The formulas nodes there are used to expand the record definition adding fields that are not actually going to be saved on disk, to minimize space used, and they are going to be calculated at runtime. This allows processes that consume this data to have ell the fields available at runtime even though some were not actually saved on disk."
+            "text": "The formulas nodes there are used to expand the record definition adding fields that are not actually going to be saved on disk, to minimize space used, and they are going to be calculated at runtime. This allows processes that consume this data to have ell the fields available at runtime even though some were not actually saved on disk.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы формул используются для расширения определения записи, добавляя поля, которые на самом деле не будут сохраняться на диске, чтобы минимизировать используемое пространство, и они будут вычисляться во время выполнения. Это позволяет процессам, потребляющим эти данные, иметь все поля, доступные во время выполнения, даже если некоторые из них фактически не были сохранены на диске.",
+                    "updated": 1639593010562
+                },
+                {
+                    "language": "DE",
+                    "text": "Die dortigen Formel-Nodes dienen dazu, die record definition (Datensatzdefinition) um Felder zu erweitern, die nicht auf der Festplatte gespeichert werden, um den Platzbedarf zu minimieren, und die zur Laufzeit berechnet werden. Auf die Weise können Prozesse, die diese Daten verbrauchen, alle Felder zur Laufzeit zur Verfügung haben, auch wenn einige nicht auf der Festplatte gespeichert wurden.",
+                    "updated": 1640036903820
+                }
+            ]
         }
     ]
 }

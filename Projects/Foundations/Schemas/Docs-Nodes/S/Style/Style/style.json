@@ -1,7 +1,14 @@
 {
     "type": "Style",
     "definition": {
-        "text": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders."
+        "text": "A style is a definition of color and opacity in case of a polygon body, and color, opacity and line thickness in case of polygon borders.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Стиль - это определение цвета и прозрачности в случае тела полигона, и цвета, прозрачности и толщины линии в случае границ полигона.",
+                "updated": 1639728298317
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "A style applied to a polygon body or a polygon border node acts as the default style. Styles including colors, opacity, line width, and more, are defined in the node's configuration."
+            "text": "A style applied to a polygon body or a polygon border node acts as the default style. Styles including colors, opacity, line width, and more, are defined in the node's configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стиль, примененный к узлу Polygon Body или Polygon Border, действует как стиль по умолчанию. Стили, включая цвет, прозрачность, ширину линии и другие, определяются в конфигурации узла.",
+                    "updated": 1639728411774
+                }
+            ]
         },
         {
             "style": "Note",
@@ -23,16 +37,37 @@
         {
             "style": "Title",
             "text": "Style Configuration",
-            "updated": 1609854042226
+            "updated": 1609854042226,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Style",
+                    "updated": 1639728432622
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609854059581
+            "updated": 1609854059581,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639728442942
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A typical definition for a polygon body style looks like this:"
+            "text": "A typical definition for a polygon body style looks like this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Типичное определение стиля тела полигона выглядит так:",
+                    "updated": 1639728464603
+                }
+            ]
         },
         {
             "style": "Json",
@@ -41,7 +76,14 @@
         },
         {
             "style": "Text",
-            "text": "A typical definition for a polygon border style has a couple more properties:"
+            "text": "A typical definition for a polygon border style has a couple more properties:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Типичное определение стиля границы полигона имеет еще пару свойств:",
+                    "updated": 1639728492319
+                }
+            ]
         },
         {
             "style": "Json",
@@ -50,21 +92,49 @@
         },
         {
             "style": "Text",
-            "text": "The first section of the definition refers, as explicitly stated, to the default state of the style."
+            "text": "The first section of the definition refers, as explicitly stated, to the default state of the style.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первый раздел определения относится, как прямо указано, к состоянию стиля по умолчанию.",
+                    "updated": 1639728527253
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The second section refers to the style assigned to the column or period on which the mouse pointer is located. This is very useful for highlighting the specific zone of interest as the user browses the charts."
+            "text": "The second section refers to the style assigned to the column or period on which the mouse pointer is located. This is very useful for highlighting the specific zone of interest as the user browses the charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вторая секция относится к стилю, назначенному столбцу или периоду, на котором находится указатель мыши. Это очень полезно для выделения конкретной зоны, представляющей интерес, когда пользователь просматривает графики.",
+                    "updated": 1639728567538
+                }
+            ]
         },
         {
             "style": "List",
             "text": "opacity is probably self-explanatory. It may range from 0 for a fully transparent object to 1 for a solid object.",
-            "updated": 1609854205298
+            "updated": 1609854205298,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "прозрачность, вероятно, не требует пояснений. Она может варьироваться от 0 для полностью прозрачного объекта до 1 для непрозрачного объекта.",
+                    "updated": 1639728632311
+                }
+            ]
         },
         {
             "style": "List",
             "text": "paletteColor sets the color for the fill or stroke in cases of polygon bodies and polygon borders respectively. Use the variable UI_COLOR followed by a dot and any of the properties in the following list for a selection of currently available colors.",
-            "updated": 1609854289128
+            "updated": 1609854289128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "paletteColor задает цвет для заливки или обводки в случае тел полигонов и границ полигонов соответственно. Используйте переменную UI_COLOR, за которой следует точка, и любое из свойств в следующем списке для выбора доступных цветов.",
+                    "updated": 1639728666789
+                }
+            ]
         },
         {
             "style": "Table",
@@ -73,11 +143,25 @@
         },
         {
             "style": "List",
-            "text": "lineWidth is the width of the border line, which should be greater than 0."
+            "text": "lineWidth is the width of the border line, which should be greater than 0.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "lineWidth - ширина линии границы, которая должна быть больше 0.",
+                    "updated": 1639728691054
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "lineDash is used to turn the border into a dashed-line; the first value corresponds to the length of the dash while the second value defines the length of the space."
+            "text": "lineDash is used to turn the border into a dashed-line; the first value corresponds to the length of the dash while the second value defines the length of the space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "lineDash используется для превращения границы в пунктирную линию; первое значение соответствует длине тире, а второе определяет длину пробела.",
+                    "updated": 1639728712658
+                }
+            ]
         }
     ]
 }

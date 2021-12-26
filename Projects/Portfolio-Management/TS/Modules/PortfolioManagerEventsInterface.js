@@ -4,28 +4,20 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
     It is an events based interface because the communication happens via the Events Server.
     */
     let thisObject = {
-        run: run,
         initialize: initialize,
         finalize: finalize
     }
 
     return thisObject
 
-    function initialize() {
+    function initialize(portfolioSystemModuleObject) {
 
-    }
-
-    function finalize() {
-
-    }
-
-    function run() {
         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
-            
+
             let SESSION_KEY = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.name +
-            '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
-            '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id;
-            
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id;
+
             waitForRequests()
 
             function waitForRequests() {
@@ -37,18 +29,27 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     SESSION_KEY,
                     undefined,
                     onRequest)
-        
+
                 function onRequest() {
-                    message = arguments[0].event
-                    let response = 'This is the response'///portfolioSystem.newRequest(message)
-        
+                    let message = arguments[0]
+
+                    /* Run Validations on the Message Received. */
+                    // TODO
+
+                    portfolioSystemModuleObject.processEvent(message.event)
+
+                    /* Return Response */
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-                        SESSION_KEY,
-                        'Response From Profile Manager',
-                        response
+                        message.callerId,
+                        'Response From Portfolio Manager',
+                        message.event
                     )
                 }
-            }            
+            }
         }
+    }
+
+    function finalize() {
+
     }
 }

@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Ich kann gar nicht genug betonen, wie wichtig es für das Projekt ist, dass die Benutzer alles, was sie mit Superalgos bauen, beitragen!",
                 "updated": 1635151772826
+            },
+            {
+                "language": "TR",
+                "text": "Kullanıcıların Superalgos ile inşa ettikleri şeye katkıda bulunmalarının proje için ne kadar önemli olduğunu anlatmama gerek yok!",
+                "updated": 1640002927653
+            },
+            {
+                "language": "RU",
+                "text": "Я не могу не подчеркнуть, насколько важно для проекта, чтобы пользователи вносили свой вклад в развитие Superalgos!",
+                "updated": 1640163701075
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Wenn Sie sich entscheiden, sich in das Projekt und die Community einzubringen, können Sie an den kollektiven Bemühungen teilnehmen, Superalgos besser zu machen. Aber auch wenn Sie nicht an Teamarbeit interessiert sind, werden Sie Ihre Fähigkeiten weiterentwickeln, ein Power-User werden und viele Dinge bauen, die für die Menschen nach Ihnen von Nutzen sein können!",
                     "updated": 1635151779014
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye ve Topluluğa dahil olmayı seçerseniz, Superalgos'u daha iyi hale getirmek için ortak çabaya katılabilirsiniz. Ancak ekip çalışmasına ilgi duymasanız bile, yine de becerilerinizi geliştirecek, güçlü bir kullanıcı olacak ve sizden sonra gelen insanlara faydalı olabilecek birçok şey inşa edeceksiniz!",
+                    "updated": 1640002967511
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы решите участвовать в проекте и Сообществе (Community), вы сможете принять участие в коллективных усилиях по улучшению Superalgos. Но даже если вы не заинтересованы в командной работе, вы все равно будете развивать свои навыки, станете опытным пользователем и создадите много вещей, которые могут пригодиться тем, кто придет после вас!",
+                    "updated": 1640163762784
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "DE",
                     "text": " How to Contribute to Superalgos ist das Thema, das sich mit der Logistik von Handelssystemen, Data Mines, Icons, Dokumentation, Übersetzungen und so weiter beschäftigt. Denken Sie daran: alle Beiträge werden mit Superalgos-Token belohnt!",
                     "updated": 1635151785633
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a Nasıl Katkıda Bulunulur? ( How to Contribute to Superalgos ), ticaret sistemlerine, veri madenlerine, simgelere, belgelere, çevirilere vb. katkıda bulunmayı kapsayan bir konudur. Bu arada unutmayın: tüm katkılar Superalgos jetonlarıyla teşvik edilir!",
+                    "updated": 1640003058846
                 }
             ]
         }

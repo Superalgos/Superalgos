@@ -463,8 +463,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             Now that we have the value of the formula, we will check with the Porfolio Manager
             to see if we can use this value, or we need to use something else.
             */
-            let response = await portfolioManagerClient.askPortfolioFormulaManager(parentNode, value)
-            value = response.value
+            if (parentNode.askPortfolioFormulaManager !== undefined) {
+                let response = await portfolioManagerClient.askPortfolioFormulaManager(parentNode, value)
+                value = response.value
+            }
             /*
             Now we actually have the final value. We will check if we need to broadcast a signals
             with this value as context or not.

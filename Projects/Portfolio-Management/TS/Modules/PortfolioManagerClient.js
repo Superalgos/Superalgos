@@ -4,17 +4,20 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     questions to the Event and Formula Managers and receive their answers.
     */
     let thisObject = {
+        candleEntry: candleEntry,
+        candleExit: candleExit,
         askPortfolioEventsManager: askPortfolioEventsManager,
         askPortfolioFormulaManager: askPortfolioFormulaManager,
         initialize: initialize,
         finalize: finalize
     }
 
-    let portfolioManagerEventsClient = TS.projects.portfolioManagement.modules.portfolioManagerEventsClient.newPortfolioManagementModulesPortfolioManagerEventsClient(processIndex)
+    let portfolioManagerEventsClient
 
     return thisObject
 
     function initialize() {
+        portfolioManagerEventsClient = TS.projects.portfolioManagement.modules.portfolioManagerEventsClient.newPortfolioManagementModulesPortfolioManagerEventsClient(processIndex)
         portfolioManagerEventsClient.initialize()
     }
 
@@ -23,14 +26,47 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         portfolioManagerEventsClient = undefined
     }
 
+    function candleEntry(systemNode) {
+        let message = {
+            question: "Permission To Process Candle",
+            candle: {
+                begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
+                end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
+                open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
+                close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
+                min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
+                max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+            },
+            systemNodeId: systemNode.id
+        }
+        /*
+        Since the trading bot could start before the Portfolio Bot, we will
+        use a timeout in order to wait for Portfolio Manager.
+        */
+        return await portfolioManagerEventsClient.sendMessage(message, 5000)
+    }
+
+    function candleExit(systemNode) {
+        let message = {
+            question: "Report This Candle Was Processed",
+            candle: {
+                begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
+                end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
+                open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
+                close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
+                min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
+                max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+            },
+            systemNodeId: systemNode.id
+        }
+        return await portfolioManagerEventsClient.sendMessage(message)
+    }
+
     async function askPortfolioEventsManager(eventNode, eventStatus) {
+        
         let response = {
             raiseEvent: eventStatus,
             reason: "No need to ask Portfolio Manager"
-        }
-
-        if (eventNode.askPortfolioEventsManager === undefined) {
-            return response
         }
 
         if (eventStatus == true) {
@@ -64,14 +100,12 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     }
 
     async function askPortfolioFormulaManager(formulaParentNode, formulaValue) {
+        
         let response = {
             value: formulaValue,
             reason: "No need to ask Portfolio Manager"
         }
         if (formulaParentNode === undefined) {
-            return response
-        }
-        if (formulaParentNode.askPortfolioFormulaManager === undefined) {
             return response
         }
 

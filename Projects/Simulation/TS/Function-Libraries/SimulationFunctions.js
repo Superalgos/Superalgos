@@ -9,6 +9,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         checkIfWeNeedToStopTheSimulation: checkIfWeNeedToStopTheSimulation,
         checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
         setCurrentCandle: setCurrentCandle,
+        syncronizeLoopCandleEntryPortfolioManager: syncronizeLoopCandleEntryPortfolioManager,
+        syncronizeLoopCandleExitPortfolioManager: syncronizeLoopCandleExitPortfolioManager,
         syncronizeLoopIncomingSignals: syncronizeLoopIncomingSignals,
         syncronizeLoopOutgoingSignals: syncronizeLoopOutgoingSignals,
         setUpCandles: setUpCandles,
@@ -114,7 +116,59 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return candle
     }
 
-    async function syncronizeLoopIncomingSignals(system) {
+    async function syncronizeLoopCandleEntryPortfolioManager(
+        portfolioManagerClientModuleObject,
+        system
+    ) {
+        if (
+            system.portfolioManagedSystem !== undefined
+        ) {
+            /*
+            This means that the user that defined the Trading System, wants it to be
+            managed by a Portfolio Manager Bot and that means that both simulations 
+            needs to be syncronized.
+
+            We will loop here because the trading bot could start before the Portfolio
+            Bot, which means that we will request for permission over and over until
+            we get it.
+            */
+            while (true) {
+                let reponse = await portfolioManagerClientModuleObject.candleEntry(
+                    system
+                )
+                if (reponse.status !== 'Permission Granted') {
+                    /*
+                    This means that we need to wait for Portfolio Manager to be available and
+                    give us permission to continue.
+                    */
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                } else {
+                    break
+                }
+            }
+        }
+    }
+
+    async function syncronizeLoopCandleExitPortfolioManager(
+        portfolioManagerClientModuleObject,
+        system
+    ) {
+        if (
+            system.portfolioManagedSystem !== undefined
+        ) {
+            /*
+            Report to Portfolio Manager that we are exiting this candle.
+            */
+            await portfolioManagerClientModuleObject.candleExit(
+                system
+            )
+        }
+    }
+
+    async function syncronizeLoopIncomingSignals(
+        incomingTradingSignalsModuleObject,
+        system
+    ) {
         /*
         Incoming Signals
         */
@@ -148,7 +202,11 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         }
     }
 
-    async function syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, system, candle) {
+    async function syncronizeLoopOutgoingSignals(
+        outgoingTradingSignalsModuleObject,
+        system,
+        candle
+    ) {
         /*
         Outgoing Episode Syncronization Signal Sent before breaking the loop.
         */

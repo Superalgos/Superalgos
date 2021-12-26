@@ -21,6 +21,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
     let tradingEpisodeModuleObject
     let incomingTradingSignalsModuleObject
     let outgoingTradingSignalsModuleObject
+    let portfolioManagerClientModuleObject
     let tradingEngineModuleObject
 
     return thisObject
@@ -45,6 +46,9 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
         outgoingTradingSignalsModuleObject.initialize()
 
+        portfolioManagerClientModuleObject = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
+        portfolioManagerClientModuleObject.initialize()
+
         /* This object is already initialized */
         tradingEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT
     }
@@ -55,6 +59,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         tradingEpisodeModuleObject.finalize()
         incomingTradingSignalsModuleObject.finalize()
         outgoingTradingSignalsModuleObject.finalize()
+        portfolioManagerClientModuleObject.finalize()
 
         tradingSystem = undefined
         tradingEngine = undefined
@@ -65,6 +70,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
         tradingEpisodeModuleObject = undefined
         incomingTradingSignalsModuleObject = undefined
         outgoingTradingSignalsModuleObject = undefined
+        portfolioManagerClientModuleObject = undefined
     }
 
     async function runSimulation(
@@ -123,7 +129,15 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     processIndex
                 )
                 /* Signals */
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(tradingSystem)
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopIncomingSignals(
+                    incomingTradingSignalsModuleObject,
+                    tradingSystem
+                )
+                /* Portfolio Manager */
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(
+                    portfolioManagerClientModuleObject,
+                    tradingSystem
+                )
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(
                     sessionParameters,
@@ -196,7 +210,21 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 tradingRecordsModuleObject.appendRecords()
 
                 if (breakLoop === true) {
-                    await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, tradingSystem, candle)
+                    /*
+                    Outgoing Signals
+                    */
+                    await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(
+                        outgoingTradingSignalsModuleObject,
+                        tradingSystem,
+                        candle
+                    )
+                    /*
+                    Reporting to Portfolio Manager
+                    */
+                    await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
+                        portfolioManagerClientModuleObject,
+                        tradingSystem
+                    )
                     break
                 }
                 /*
@@ -208,7 +236,21 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 during the second cycle.
                 */
                 await runCycle('Second')
-                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, tradingSystem, candle)
+                /*
+                Outgoing Signals
+                */
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopOutgoingSignals(
+                    outgoingTradingSignalsModuleObject,
+                    tradingSystem,
+                    candle
+                )
+                /*
+                Reporting to Portfolio Manager
+                */
+                await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
+                    portfolioManagerClientModuleObject,
+                    tradingSystem
+                )
                 /*
                 Check if we need to stop.
                 */

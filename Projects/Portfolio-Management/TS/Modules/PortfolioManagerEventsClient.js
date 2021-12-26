@@ -22,7 +22,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
 
     }
 
-    async function sendMessage(message) {
+    async function sendMessage(message, timeout) {
 
         /* This function packages a communication transaction with Portfolio Bot:
          *  First listening for the response
@@ -31,6 +31,12 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
          */
 
         let promise = new Promise((resolve, reject) => {
+
+            let promiseStatus = 'Unresolved'
+            if (timeout !== undefined) {
+                setTimeout(onTimeout, timeout)
+            }
+
             // First, listen for response:
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
                 SESSION_KEY,
@@ -52,13 +58,33 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             function onResponse() {
                 if (arguments[0].event !== undefined) {
                     let response = {
-                        raiseEvent: arguments[0].event.raiseEvent,
+                        status: arguments[0].event.status,
                         reason: "Reply from Portfolio Manager"
                     }
-                    resolve(response)
-                } else { reject() }
+                    promiseStatus = 'Resolved'
+                    if (promiseStatus === 'Unresolved') {
+                        resolve(response)
+                    }
+                } else {
+                    promiseStatus = 'Rejected'
+                    if (promiseStatus === 'Unresolved') {
+                        reject()
+                    }
+                }
             }
-        });
+
+            function onTimeout() {
+                if (promiseStatus === 'Unresolved') {
+                    let response = {
+                        status: 'Timeout',
+                        value: 0,
+                        reason: "Portfolio Manager Not Responding"
+                    }
+                    promiseStatus = 'Resolved'
+                    resolve(response)
+                }
+            }
+        })
         return promise
     }
 }

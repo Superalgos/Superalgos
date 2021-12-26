@@ -27,7 +27,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
     let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
     let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
-    let portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
+    let portfolioManagerClientModuleObject = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
     let snapshotsModuleObject = TS.projects.algorithmicTrading.botModules.snapshots.newAlgorithmicTradingBotModulesSnapshots(processIndex)
     let tradingEpisodeModuleObject = TS.projects.algorithmicTrading.botModules.tradingEpisode.newAlgorithmicTradingBotModulesTradingEpisode(processIndex)
 
@@ -50,7 +50,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         tradingEpisodeModuleObject.initialize()
         outgoingTradingSignalsModuleObject.initialize()
         incomingTradingSignalsModuleObject.initialize()
-        portfolioManagerClient.initialize()
+        portfolioManagerClientModuleObject.initialize()
     }
 
     function finalize() {
@@ -82,8 +82,8 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
         incomingTradingSignalsModuleObject.finalize()
         incomingTradingSignalsModuleObject = undefined
 
-        portfolioManagerClient.finalize()
-        portfolioManagerClient = undefined
+        portfolioManagerClientModuleObject.finalize()
+        portfolioManagerClientModuleObject = undefined
     }
 
     function updateChart(pChart, pExchange, pMarket) {
@@ -156,9 +156,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 tradingSystem.values.push([situation.id, passed])
 
-                                let response = await portfolioManagerClient.askPortfolioEventsManager(triggerStage.triggerOn, passed)
-                                passed = response.raiseEvent
-
+                                if (triggerStage.triggerOn.askPortfolioEventsManager !== undefined) {
+                                    let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.triggerOn, passed)
+                                    passed = response.raiseEvent
+                                }
+                                
                                 if (passed) {
 
                                     tradingSystem.highlights.push(situation.id)
@@ -213,8 +215,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             tradingSystem.values.push([situation.id, passed])
 
-                            let response = await portfolioManagerClient.askPortfolioEventsManager(triggerStage.triggerOff, passed)
-                            passed = response.raiseEvent
+                            if (triggerStage.triggerOff.askPortfolioEventsManager !== undefined) {
+                                let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.triggerOff, passed)
+                                passed = response.raiseEvent
+                            }
 
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
@@ -258,8 +262,10 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             tradingSystem.values.push([situation.id, passed])
 
-                            let response = await portfolioManagerClient.askPortfolioEventsManager(triggerStage.takePosition, passed)
-                            passed = response.raiseEvent
+                            if (triggerStage.takePosition.askPortfolioEventsManager !== undefined) {
+                                let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.takePosition, passed)
+                                passed = response.raiseEvent
+                            }
 
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)

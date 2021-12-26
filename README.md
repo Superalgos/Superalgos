@@ -435,13 +435,20 @@ node platform
 Available Options:
 
 ```sh
-usage: node platform <options>
+usage: node platform [options] [project] [workspace]
 ```
 
 | Option | Description |
 | --- | --- |
 | `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with less than 8GB of ram, like a Raspberry Pi. |
 | `noBrowser` | Do not attempt to open the WebUI in a browser. This is useful on headless servers where a UI is not available. |
+
+To load a specific workspace on launch, include any options, then the project, then the workspace. For example, to load the Blank-Template workspace of the Foundations project with no options:
+
+```sh
+node platform Foundations Blank-Template
+```
+
 
 The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.
 

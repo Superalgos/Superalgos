@@ -2295,6 +2295,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Function-Libraries', 'UI')
                 }
                     break
+                case 'ListNodeActionFunctions': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Node-Action-Functions', 'UI')
+                }
+                    break
+                case 'ListSystemActionFunctions': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'System-Action-Functions', 'UI')
+                }
+                    break
                 case 'ListUtilitiesFiles': {
                     SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Utilities', 'UI')
                 }

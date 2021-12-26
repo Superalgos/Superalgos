@@ -24,7 +24,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')",
+            "text": "UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')",
             "updated": 1614943049167
         },
         {
@@ -62,7 +62,7 @@
         },
         {
             "style": "Javascript",
-            "text": "dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
+            "text": "dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
             "updated": 1614943544233
         },
         {
@@ -79,7 +79,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
+            "text": "UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
             "updated": 1614943594904
         },
         {
@@ -93,7 +93,7 @@
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
+            "text": "UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(timeMachine, session)",
             "updated": 1628258141256
         },
         {

@@ -32,13 +32,13 @@ const SuggestedUsers = () => {
     const [loading, setLoading] = useState(true);
     const [users, setUsers] = useState([]);
     const loadProfiles = async () => {
-        console.log('loading profiles')
         setLoading(true)
         let {data, result} = await getProfiles().then(response => response.json());
         if (result === STATUS_OK) {
             let mappedUsers = data.map((profile, index) => {
                 let callBack = () => console.log(`Clicked follow on user${profile.userProfileHandle}`);
                 return <UserCard key={index} id={index} name={`user${profile.userProfileHandle}`}
+                                 userId={profile.userProfileId}
                                  followCallback={callBack}/>
             });
             setUsers(mappedUsers);
@@ -62,7 +62,7 @@ const SuggestedUsers = () => {
             {
                 loading ? (skeletons) : (users)
             }
-            {/*<ShowMoreUsers  showMoreCallback={() => {console.log("need to show more users")}}/>*/}
+            {/*<ShowMoreUsers  showMoreCallback={() => {console.log("need to show more users")}}/> TODO hacer que vuelva a llamar al back con otro tamaño de paginacion*/}
         </Stack>
     );
 };

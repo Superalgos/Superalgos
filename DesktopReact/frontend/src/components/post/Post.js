@@ -31,7 +31,7 @@ const Post = ({postData}) => {
                 <Stack className="postBody">
                     {postBody}
                 </Stack>
-                <PostFooter  reactions={reactions} stateCallback={ToggleCollapseComment}/>
+                <PostFooter  postId={postId} reactions={reactions} stateCallback={ToggleCollapseComment}/>
                 <FooterReply show={collapse}
                 />
             </Card></div>

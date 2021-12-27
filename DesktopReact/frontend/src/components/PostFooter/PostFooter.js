@@ -26,7 +26,7 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-const PostFooter = ({reactions}) => { // props needed? review
+const PostFooter = ({postId,reactions}) => { // props needed? review
 
     // todo need proper style, and handle from css file
     const dialStyle = {
@@ -72,14 +72,16 @@ const PostFooter = ({reactions}) => { // props needed? review
         setReplyModal(!replyModal)
     }
 
-    const handleLikeReaction = (e, id, name) => {
+    const handleLikeReaction = (e, reactionId, name) => {
         e.stopPropagation()
 
-        console.log(`click on button ${name}, id ${id}`)
+// TODO
+        console.log(`click on button ${name}, id ${reactionId} of post ${postId}`)
     }
 
     const handleReactions = (e, id, name) => {
         e.stopPropagation()
+
         console.log(`click on button ${name}, id ${id}`)
     }
 

@@ -19,7 +19,13 @@
     <script src="externalScripts/jquery-ui.js"></script>
     <script>
         $(function() {
-            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: "code" });
+            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: ".tutorial-content-div",
+            start: function (event, ui) {
+                $(this).css("cursor", "grabbing");
+            },
+            stop: function (event, ui) {
+                $(this).css("cursor", "grab");
+            } });
         });
     </script> 
     <script type="text/javascript" src="WebServer/require.js"></script>

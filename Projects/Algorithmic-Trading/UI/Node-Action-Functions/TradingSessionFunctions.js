@@ -133,6 +133,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             /*
             Portfolio Management
             */
+            'Portfolio Managed System->' +
             'Ask Portfolio Events Manager->Confirm Event->Raise Event->Ask Portfolio Formula Manager->Set Formula->Confirm Forumula->'
 
         let tradingSystem = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node.tradingSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)

@@ -331,7 +331,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 let tradingEngineStage = tradingEngine.tradingCurrent.strategyOpenStage
 
                 /* Reset the Exchange Orders data structure to its initial value */
-                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.exchangeOrders)
+                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.exchangeOrders)
 
                 /* Entry Position size and rate */
                 await tradingSystem.evalFormulas(tradingSystemStage.initialTargets, 'Initial Targets')
@@ -1272,7 +1272,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
             resetStage(tradingEngine.tradingCurrent.strategyCloseStage)
         }
         function resetStage(stage) {
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(stage)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(stage)
         }
     }
 

@@ -5,10 +5,27 @@ exports.newAlgorithmicTradingFunctionLibrariesTradingFunctions = function () {
     const MODULE_NAME = "Trading Functions"
 
     let thisObject = {
-        checkMinimunAndMaximunBalance: checkMinimunAndMaximunBalance
+        checkIfWeNeedToStopTheSimulation: checkIfWeNeedToStopTheSimulation
     }
 
     return thisObject
+
+    function checkIfWeNeedToStopTheSimulation(
+        episodeModuleObject,
+        sessionParameters,
+        tradingSystem,
+        tradingEngine,
+        processIndex
+    ) {
+        if (checkMinimunAndMaximunBalance(sessionParameters, tradingSystem, tradingEngine, processIndex) === false) {
+            TS.projects.simulation.functionLibraries.simulationFunctions.closeEpisode(episodeModuleObject, 'Min or Max Balance Reached')
+            TS.projects.foundations.functionLibraries.sessionFunctions.stopSession(processIndex, 'Min or Max Balance Reached')
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                '[IMPORTANT] runSimulation -> Min or Max Balance Reached. Stopping the Session now. ')
+            return true
+        }
+        return false
+    }
 
     function checkMinimunAndMaximunBalance(sessionParameters, tradingSystem, tradingEngine, processIndex) {
         /* Checks for Minimum and Maximum Balance. We do the check while not inside any strategy only. */

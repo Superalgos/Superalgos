@@ -136,7 +136,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 /* Portfolio Manager */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleEntryPortfolioManager(
                     portfolioManagerClientModuleObject,
-                    tradingSystem
+                    tradingSystem,
+                    candle
                 )
                 /* We emit a heart beat so that the UI can now where we are at the overall process. */
                 TS.projects.simulation.functionLibraries.simulationFunctions.heartBeat(
@@ -223,7 +224,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     */
                     await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                         portfolioManagerClientModuleObject,
-                        tradingSystem
+                        tradingSystem,
+                        candle
                     )
                     break
                 }
@@ -249,7 +251,8 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 */
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                     portfolioManagerClientModuleObject,
-                    tradingSystem
+                    tradingSystem,
+                    candle
                 )
                 /*
                 Check if we need to stop.

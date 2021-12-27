@@ -26,18 +26,13 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         portfolioManagerEventsClient = undefined
     }
 
-    function candleEntry(systemNode) {
+    async function candleEntry(candle) {
         let message = {
             type: "Check In Candle",
             candle: {
-                begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
-                end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
-                open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
-                close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
-                min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
-                max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
-            },
-            systemNodeId: systemNode.id
+                begin:candle.begin,
+                end: candle.end
+            }
         }
         /*
         Since the trading bot could start before the Portfolio Bot, we will
@@ -46,18 +41,13 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         return await portfolioManagerEventsClient.sendMessage(message, 5000)
     }
 
-    function candleExit(systemNode) {
+    async function candleExit(candle) {
         let message = {
             type: "Check Out Candle",
             candle: {
-                begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
-                end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
-                open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
-                close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
-                min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
-                max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
-            },
-            systemNodeId: systemNode.id
+                begin:candle.begin,
+                end: candle.end
+            }
         }
         return await portfolioManagerEventsClient.sendMessage(message)
     }

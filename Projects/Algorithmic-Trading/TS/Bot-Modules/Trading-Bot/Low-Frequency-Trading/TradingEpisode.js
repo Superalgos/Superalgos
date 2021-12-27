@@ -82,7 +82,7 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
     }
 
     function resetEpisode() {
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.learningEpisode)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.learningEpisode)
     }
 
     function updateEnds() {

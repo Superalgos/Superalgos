@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu kılavuz, Superalgos'u mümkün olan en verimli şekilde öğrenmenize yardımcı olacak yolda size rehberlik edecektir. Etkileşimli öğreticiler, öğrenme sürecinin üstesinden gelmek için en iyi araçtır. Öğreticileri önerilen sırayla yapmak şiddetle tavsiye edilir.",
                 "updated": 1638914991277
+            },
+            {
+                "language": "ID",
+                "text": "Book ini menuntun kamu melalui jalan yang akan membantu kamu mempelajari Superalgos dengan cara yang seefisien mungkin. Tutorial interaktif adalah alat terbaik untuk mengatasi learning curve. Melakukan tutorial sesuai urutan yang diusulkan sangat dianjurkan.",
+                "updated": 1640594637960
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Bu Kılavuz Nasıl Kullanılır?",
                     "updated": 1638915016291
+                },
+                {
+                    "language": "ID",
+                    "text": "Cara Penggunaan Book ini",
+                    "updated": 1640594677771
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Öğreticiler, uygulamalı öğrenme deneyimi sağlar. Mevcut tüm eğitimleri yapmanın, öğrenme sürecinin üstesinden gelmenin en etkili yolu olduğu kanıtlanmıştır.",
                     "updated": 1638915173767
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial memberikan pengalaman belajar langsung yang luar biasa. Melakukan semua tutorial yang ada telah terbukti menjadi cara paling efektif untuk mengatasi learning curve.",
+                    "updated": 1640594758959
                 }
             ]
         },
@@ -79,6 +94,11 @@
                     "language": "TR",
                     "text": "Bir öğretici başlatmak için ilgili eklenti çalışma alanını yükleyin, tasarım alanının altındaki öğreticiyi bulun ve menüden Oynat'ı seçin.",
                     "updated": 1638915224839
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk melakukan tutorial, muat plugin workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
+                    "updated": 1640594831930
                 }
             ]
         },
@@ -100,6 +120,11 @@
                     "language": "TR",
                     "text": "Hızlı bir tekrara ihtiyacınız olduğunda, her zaman geri dönüp tüm öğreticiyi veya birkaç adımı tekrarlayabilirsiniz. Öğreticiler aranabilir sayfalardan oluştuğundan, öğreticiyi gerçekten yapmadan içeriği de tarayabilirsiniz.",
                     "updated": 1638915299829
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu membutuhkan penyegaran cepat, kamu selalu dapat kembali dan mengulang seluruh tutorial atau beberapa langkah. Karena tutorial dibuat dari halaman yang dapat dicari, kamu juga dapat memindai konten tanpa benar-benar melakukan tutorial.",
+                    "updated": 1640594900422
                 }
             ]
         },
@@ -122,6 +147,11 @@
                     "language": "TR",
                     "text": "Önerilen sıra aşağıdaki listede verilmiştir, ancak gerçek şu ki, sıra ne olursa olsun önemli olan tüm dersleri yapmaktır.",
                     "updated": 1638915318393
+                },
+                {
+                    "language": "ID",
+                    "text": "Urutan yang disarankan ada dalam daftar di bawah ini, adapun yang benar yaitu melakukan semua tutorial penting, terlepas dari semua urutan yang ada.",
+                    "updated": 1640595019762
                 }
             ]
         },
@@ -138,6 +168,11 @@
                     "language": "TR",
                     "text": "Eklenti Çalışma Alanları (Plugin Workspaces) ve Öğreticilerin (Tutorial) Listesi",
                     "updated": 1638915383541
+                },
+                {
+                    "language": "ID",
+                    "text": "Daftar Plugin Workspaces dan Tutorials",
+                    "updated": 1640595042286
                 }
             ]
         },
@@ -160,6 +195,11 @@
                     "language": "TR",
                     "text": "Size kolaylık sağlamak için, Eklenti Çalışma Alanları ile her birinin içerdiği öğreticilerin bir ilişkisini aşağıda listelenmiştir.",
                     "updated": 1638915455745
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk kenyamanan kamu, temukan hubungan Plugin Workspaces dan tutorial dari masing-masing fitur.",
+                    "updated": 1640595103045
                 }
             ]
         },

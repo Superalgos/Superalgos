@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ID",
-                "text": "Aku adalah tutorial yang interaktif, yang berkerja untuk memfasilitasi orientasi pemikiran kamu dan mengajari kamu semua dasar tentang Superalgos!",
-                "updated": 1614416780981,
+                "text": "Aku tutorial interaktif, yang pertama dalam seri yang dirancang untuk memfasilitasi pengenalan kamu dan mengajarkan kamu semua dasar-dasarnya!",
+                "updated": 1640567702446,
                 "style": "Definition"
             },
             {
@@ -65,8 +65,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Aku akan membantumu dalam memulai, dan menunjukkan alat yang akan membantumu bergerak dengan nyaman, dan menemukan semua hal keren yang akan dilakukan Superalgos untuk tradingmu.",
-                    "updated": 1614416877222,
+                    "text": "Aku akan membantu kamu memulai, menunjukkan kepada kamu alat yang akan membantu kamu bergerak dengan nyaman, dan membantu kamu menemukan semua hal keren yang dapat dilakukan Superalgos untuk kamu.",
+                    "updated": 1640567790510,
                     "style": "Text"
                 },
                 {
@@ -118,8 +118,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Memulai Superalgos dengan cara sendiri sangat tidak direkomendasikan, karena tidak ada sumber lain yang lebih paham selain aku. Aku akan membantumu dalam memahami Superalgos!",
-                    "updated": 1616696383875,
+                    "text": "Tutorial adalah alat pengenal Superalgos yang terbaik! Memulai Superalgos dengan cara yang lain adalah kesalahan, karena tidak ada sumber daya lain yang membuat kamu lebih cepat paham. kamu harus melakukan semua tutorial sebelum mencoba menerapkan ide-ide kamu sendiri!",
+                    "updated": 1640567959210,
                     "style": "Callout"
                 },
                 {

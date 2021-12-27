@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Tamam dostum... Zamanı geldi! Küçük bir Canlı İşlem Seansına hazır mısınız?",
                 "updated": 1636403624650
+            },
+            {
+                "language": "ID",
+                "text": "Ok teman-ku... Sudah waktunya untuk kesepakatan yang sebenarnya! Apakah kamu siap untuk Live Trading Session skala kecil?",
+                "updated": 1640574501752
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Size üç ana gereksinim konusunda yardımcı olacağım:",
                     "updated": 1636403650823
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan membantu kamu dengan tiga persyaratan utama :",
+                    "updated": 1640574534310
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Özellikle parametrelerinizi kontrol edin, seansa ne kadar sermaye atamak istediğinize karar verin.",
                     "updated": 1636403672375
+                },
+                {
+                    "language": "ID",
+                    "text": "Periksa parametermu, khususnya, putuskan berapa banyak modal yang ingin kamu tetapkan untuk sesi tersebut.",
+                    "updated": 1640574582598
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Uygulamanın borsadaki hesabınıza erişebilmesi için bir Borsa Hesap Anahtarı ( Exchange Account Key ) ayarlayın.",
                     "updated": 1636403721574
+                },
+                {
+                    "language": "ID",
+                    "text": "Siapkan Exchange Account Key sehingga aplikasi dapat mengakses akunmu di exchange.",
+                    "updated": 1640574621307
                 }
             ]
         },
@@ -144,6 +164,11 @@
                     "language": "TR",
                     "text": "Canlı bir veri akışı sağlayın, yani sisteminin gerektirdiği göstergelerle veri madenciliği operasyonunun çalışır durumda ve güncel olması gerekir.",
                     "updated": 1636403773416
+                },
+                {
+                    "language": "ID",
+                    "text": "Pastikan umpan data langsung, yaitu data mining operation dengan indikator yang diperlukan oleh Trading System harus berjalan dan up to date.",
+                    "updated": 1640574700178
                 }
             ]
         },
@@ -173,6 +198,11 @@
                     "language": "TR",
                     "text": "Herhangi bir nedenle canlı ticaret yapmaya hazır değilseniz, endişelenmeyin, devam edin. En azından işlerin nasıl yürüdüğünü öğreneceksin!",
                     "updated": 1636403901281
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu tidak siap untuk melakukan  live trading dengan alasan apa pun, jangan khawatir, teruskan saja. Kamu setidaknya akan belajar cara kerjanya!",
+                    "updated": 1640574747735
                 }
             ]
         }

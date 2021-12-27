@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Tamam dostum, bu son! Umarım gösteriyi beğenmişsinizdir ve sizi Superalgos'a bağlamayı başarmışımdır!",
                 "updated": 1636663926205
+            },
+            {
+                "language": "ID",
+                "text": "Ok, temanku, ini akhirnya! Aku harap kamu menikmati pertunjukan dan aku berhasil membuat kamu terhubung dengan Superalgos!",
+                "updated": 1640601086057
             }
         ]
     },
@@ -89,6 +94,11 @@
                     "language": "TR",
                     "text": "Devam etmeye hazırsanız, arkadaşım Temel Eğitim Öğreticisi, Ticaret Sistemlerini nasıl kuracağınızı öğrenmek için yola çıkmadan önce uzmanlaşmanız gereken sistemin bazı temel yönleri hakkındaki bilginizi tamamlayacaktır!",
                     "updated": 1636664006600
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu siap untuk terus berjalan, temanku Basic Education Tutorial akan melengkapi pemahaman kamu tentang beberapa aspek dasar dari sistem yang perlu kamu kuasai sebelum kamu mulai belajar bagaimana membangun Trading System pertamamu!",
+                    "updated": 1640601171460
                 }
             ]
         },
@@ -118,6 +128,11 @@
                     "language": "TR",
                     "text": "Benimle bitirmek için İleri'ye tıklayın ve hazır olduğunuzda sonraki eğitimde (Basic Education Tutorial) Oynat'a tıklayın!",
                     "updated": 1638914845336
+                },
+                {
+                    "language": "ID",
+                    "text": "Sudah selesai! Klik Next untuk menyelesaikan denganku dan klik Play tutorial berikutnya ketika kamu siap!",
+                    "updated": 1640601227039
                 }
             ]
         }

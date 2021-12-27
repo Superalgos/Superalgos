@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Alım Satım Motoru (Trading Engine ), Alım Satım Botu ( Trading Bot ) tarafından işlenen her türlü bilgiyi alım satım sistemlerine bu şekilde aktarır.",
                 "updated": 1636377270492
+            },
+            {
+                "language": "ID",
+                "text": "Bagian ini adalah bagaimana Trading Engine membuat setiap bit informasi yang diproses oleh Trading Bot tersedia untuk trading systems.",
+                "updated": 1640569049941
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Her veri parçasının bir yolu vardır ve bu yol ile bir Ticaret Stratejisindeki ( Trading Strategy ) herhangi bir Formül ( Formula ) veya Koşuldan ( Condition ) verilere erişebilirsiniz. Hızlı bir kontrol yapalım:",
                     "updated": 1639225101766
+                },
+                {
+                    "language": "ID",
+                    "text": "Ada jalur ke setiap bagian data, dan dengan mengetahui jalurnya, kamu dapat mengakses data dari dalam Formula atau Condition dalam Trading Strategy. Mari kita jalankan pemeriksaan cepat :",
+                    "updated": 1640569263982
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın. Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
                     "updated": 1639225333761
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses menu dari Exit Target Rate node ke kiri, dan klik \"Copy node path\". Sekarang, buka external text editor dan tempel apa yang kamu salin.",
+                    "updated": 1640569441360
                 }
             ],
             "updated": 1636911911813
@@ -116,6 +131,11 @@
                     "language": "TR",
                     "text": "Tamam! Formüller ve koşullar bilgiye böyle ulaşır... Peki ya insanlar?",
                     "updated": 1636377423892
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik! Beginilah Formula dan Condition mengakses informasi... Bagaimana dengan Humans?",
+                    "updated": 1640569563377
                 }
             ]
         }

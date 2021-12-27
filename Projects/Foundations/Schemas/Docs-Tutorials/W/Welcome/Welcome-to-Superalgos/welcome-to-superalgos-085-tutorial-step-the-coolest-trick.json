@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "İnsanlar, grafik alanını tasarım alanıyla etkileşime sokan harika bir numara kullanarak bu bilgilere erişebilir!",
                 "updated": 1636377604628
+            },
+            {
+                "language": "ID",
+                "text": "Humans dapat mengakses informasi ini dengan menggunakan trik keren yang membuat charting space berinteraksi dengan design space!",
+                "updated": 1640570748576
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Bunu yapabilmek için aşağıdakileri yaptım:",
                     "updated": 1636377635056
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk menggunakan trik ini, Aku hanya melakukan yang berikut :",
+                    "updated": 1640572916586
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "İki alanı aynı anda görebilmemiz için kaydırıcıyı aşağı çekerek ekranı ikiye bölün.",
                     "updated": 1636377658042
+                },
+                {
+                    "language": "ID",
+                    "text": "Split layar menjadi dua, tarik slider ke atas sehingga kita dapat melihat kedua spaces secara bersamaan.",
+                    "updated": 1640573003032
                 }
             ]
         },
@@ -116,6 +131,11 @@
                     "language": "TR",
                     "text": "Ticaret motoru katmanı yöneticisinde Mevcut Konum ( Position ) katmanını açın. Bu katmanı seçtim çünkü hiyerarşinin bu bölümüne karşılık geliyor... tradingEngine.tradingCurrent.position, hatırladın mı?",
                     "updated": 1636377701183
+                },
+                {
+                    "language": "ID",
+                    "text": "Nyalakan layer Current Position Ini pada  Trading engine layer manager. Aku memilih layer ini karena sesuai dengan bagian hierarki ini... tradingEngine.tradingCurrent.position, ingat?",
+                    "updated": 1640573077824
                 }
             ]
         },
@@ -144,6 +164,11 @@
                     "language": "TR",
                     "text": "Şimdi, fare işaretçisini konumun alındığı mumların üzerinde kaydırın ve soldaki düğümlerde ne olduğunu görün...",
                     "updated": 1636377731601
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang, geser mouse pointer melintasi candles tempat position diambil dan lihat apa yang terjadi pada nodes di sebelah kiri...",
+                    "updated": 1640573136142
                 }
             ]
         }

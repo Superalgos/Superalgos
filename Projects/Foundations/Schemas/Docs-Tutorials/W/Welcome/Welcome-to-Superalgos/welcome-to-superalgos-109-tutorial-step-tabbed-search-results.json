@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Sonuçlar birkaç kategoride düzenlenir ve her kategori, kategoriyle eşleşen sonuçları gruplayan bir sekme ile temsil edilir...",
                 "updated": 1636642465424
+            },
+            {
+                "language": "ID",
+                "text": "Hasil disusun dalam beberapa kategori, dan setiap kategori diwakili oleh hasil pengelompokan tab yang cocok dengan kategori tersebut...",
+                "updated": 1640599617096
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Her birini kısaca açıklayacağım ve etrafınıza bakmanız için sizi serbest bırakacağım:",
                     "updated": 1636642479116
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan menjelaskan masing-masing secara singkat dan membebaskan kamu untuk melihat-lihat :",
+                    "updated": 1640599649961
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Tümü (All): Tüm kategorilerden sonuçları içerir.",
                     "updated": 1636642639726
+                },
+                {
+                    "language": "ID",
+                    "text": "All: semua fitur dari all categories.",
+                    "updated": 1640599673560
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Düğümler (Nodes): Düğüm Türü ifadesi içeren  sözcüklerle eşleşir.",
                     "updated": 1636642633711
+                },
+                {
+                    "language": "ID",
+                    "text": "Nodes: Node Type mengandung frasa yang cocok.",
+                    "updated": 1640599774344
                 }
             ]
         },
@@ -147,6 +167,11 @@
                     "language": "TR",
                     "text": "Kavramlar (Concepts): Referanslar vb. gibi kavramları içerir.",
                     "updated": 1636642672030
+                },
+                {
+                    "language": "ID",
+                    "text": "Concepts: termasuk gagasan seperti References.",
+                    "updated": 1640599711150
                 }
             ]
         },
@@ -176,6 +201,11 @@
                     "language": "TR",
                     "text": "Konular (Topics): Birçok sayfadan oluşan konular.",
                     "updated": 1636642724279
+                },
+                {
+                    "language": "ID",
+                    "text": "Topics: tema besar tercakup dalam halaman berurutan.",
+                    "updated": 1640599802958
                 }
             ]
         },
@@ -205,6 +235,11 @@
                     "language": "TR",
                     "text": "Öğreticiler (Tutorials): Öğreticileri oluşturan sayfaları içerir.",
                     "updated": 1636642744211
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorials: fitur halaman yang membentuk tutorial.",
+                    "updated": 1640599821810
                 }
             ]
         },
@@ -234,6 +269,11 @@
                     "language": "TR",
                     "text": "İncelemeler (Reviews): Kullanıcıların eklentiler vb. hakkındaki incelemelerini içerir.",
                     "updated": 1636642782352
+                },
+                {
+                    "language": "ID",
+                    "text": "Reviews: fitur user review pada plugin, dll...",
+                    "updated": 1640599847355
                 }
             ]
         },
@@ -263,6 +303,11 @@
                     "language": "TR",
                     "text": "Kitaplar (Books): Düzenli bir okuma için tüm uygulama alanlarını kapsayan bölümleri içerir.",
                     "updated": 1636642824353
+                },
+                {
+                    "language": "ID",
+                    "text": "Books: koleksi topik yang disusun dalam bab-bab yang mencakup seluruh domain aplikasi, untuk dibaca dengan tertib.",
+                    "updated": 1640599872210
                 }
             ]
         },
@@ -292,6 +337,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanı (Workspace): Aktif çalışma alanında bulunan düğümleri döndürür... Onlara gitmek için tıklayın!",
                     "updated": 1636642870169
+                },
+                {
+                    "language": "ID",
+                    "text": "Workspace: mengembalikan node yang ada di ruang kerja aktif... klik untuk pergi ke mereka!",
+                    "updated": 1640599896894
                 }
             ]
         },

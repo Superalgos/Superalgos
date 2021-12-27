@@ -16,12 +16,10 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
 
     return thisObject
 
-    function initialize(portfolioSystemModuleObject) {
+    function initialize(portfolioSystem) {
         isRunning = false
-        portfolioSystemModuleObject = portfolioSystemModuleObject
+        portfolioSystemModuleObject = portfolioSystem
         portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
-
-        tradingBotsCheckInStatusMap = new Map()
     }
 
     function finalize() {
@@ -34,7 +32,8 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
         let promise = new Promise((resolve, reject) => {
             isRunning = true
 
-            let intervalId = setInterval(checkTradingBotsStatus, 1000)
+            tradingBotsCheckInStatusMap = new Map()
+            let intervalId = setInterval(checkTradingBotsStatus, 10)
 
             function checkTradingBotsStatus() {
 

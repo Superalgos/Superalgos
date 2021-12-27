@@ -237,14 +237,14 @@ function newWorkspace() {
                             html = html + '<il><a onclick="' + action + '">' + item.label + '</a></il>'
                         /* for a menu item that has an explicit submenu instead of an action */
                         } else if (item.subMenu !== undefined ) {
-                            label = item.label + ' →'
+                            let label = item.label + ' →'
                             html = html + '<il><a>' + label + '</a><ul>'
                             /* recurse into the submenu */
                             addMenuItem(item.subMenu)
                             html = html + '</ul></il>'
                         /* for a menu item that has a submenu constructor function instead of an action or an explicit submenu */
                         } else if (item.submenuConstructorFunction !== undefined) {
-                            label = item.label + ' →'
+                            let label = item.label + ' →'
                             html = html + '<il><a>' + label + '</a><ul>'
                             let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
                             addMenuItem(subMenu)

@@ -20,10 +20,13 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     const RECONNECT_DELAY = 10 * 1000
     let intervalIdConnectToPeers
 
+    let messagesToBeDelivered
+
     return thisObject
 
     function finalize() {
         thisObject.peers = undefined
+        messagesToBeDelivered = undefined
         clearInterval(intervalIdConnectToPeers)
     }
 
@@ -34,6 +37,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         maxOutgoingPeers
     ) {
 
+        messagesToBeDelivered = []
         thisObject.peers = []
 
         await connectToPeers()
@@ -55,14 +59,14 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                 if (isPeerConnected(peer) === true) { continue }
 
                 await isPeerOnline(peer)
-                .then(isOnline)
-                .catch(isOffline)
+                    .then(isOnline)
+                    .catch(isOffline)
 
                 function isOnline() {
                     thisObject.peers.push(peer)
                 }
                 function isOffline() {
-                    
+
                 }
             }
 
@@ -115,6 +119,36 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         */
         let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
         let peer = thisObject.peers[peerIndex]
-        return await peer.httpClient.sendMessage(message)
+        /*
+        Adding the message to the queue to be delivered
+        */
+        messagesToBeDelivered.push(message)
+
+        if (peer === undefined) {
+            return
+        }
+        /*
+        Iterate through all the Signals to be delivered, including the one that is being sent right now.
+        */
+        let notDeliveredMessages = []
+
+        for (let i = 0; i < messagesToBeDelivered.length; i++) {
+            let nextMessage = messagesToBeDelivered[i]
+
+            await peer.httpClient.sendMessage(nextMessage)
+                .then(messageSent)
+                .catch(messageNotSent)
+
+            function messageSent() {
+
+            }
+            function messageNotSent() {
+                /*
+                Store in memory all the signals that could not be delivered.
+                */
+                notDeliveredMessages.push(message)
+            }
+        }
+        messagesToBeDelivered = notDeliveredMessages
     }
 }

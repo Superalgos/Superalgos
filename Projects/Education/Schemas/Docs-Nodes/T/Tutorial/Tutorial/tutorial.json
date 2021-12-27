@@ -48,6 +48,11 @@
                     "language": "RU",
                     "text": "Узлы в иерархии могут быть расположены произвольно, что означает, что может быть столько обучающих тем и обучающих шагов, сколько необходимо. Темы учебного пособия могут содержать этапы обучения, а также другие разделы учебного пособия. Это позволяет использовать вложенные темы в качестве подтем.",
                     "updated": 1638340558172
+                },
+                {
+                    "language": "ES",
+                    "text": "Los nodos de la jerarquía se pueden organizar libremente, lo que significa que puede haber tantos temas de tutoriales y pasos de tutoriales como se desee. Los temas del tutorial pueden contener pasos del tutorial, pero también otros temas del tutorial. Esto permite que los temas anidados se utilicen como subtemas.",
+                    "updated": 1640105879962
                 }
             ]
         },
@@ -66,6 +71,11 @@
                     "language": "RU",
                     "text": "Система, как обычно, оценивает иерархию по часовой стрелке, начиная с узла справа от родительского узла Tutorial, и переходит к самому глубокому узлу каждой ветви перед переходом к следующему.",
                     "updated": 1638340581444
+                },
+                {
+                    "language": "ES",
+                    "text": "El sistema, como de costumbre, evalúa la jerarquía en el sentido de las agujas del reloj comenzando desde el nodo a la derecha del nodo Tutorial principal, y va al nodo más profundo de cada rama antes de pasar al siguiente.",
+                    "updated": 1640105915190
                 }
             ]
         },
@@ -84,6 +94,11 @@
                     "language": "RU",
                     "text": "В общих чертах, все типы узлов ведут себя одинаково в том смысле, что каждый узел, независимо от конкретного типа, представляет собой учебный шаг сам по себе. То есть все узлы, включая узел верхнего уровня Tutorial, узел Tutorial Topic и узел Tutorial Step, могут отображать страницу содержимого в качестве шага в руководстве. При необходимости следует указать на незначительные различия.",
                     "updated": 1638340613514
+                },
+                {
+                    "language": "ES",
+                    "text": "En términos generales, todos los tipos de nodos se comportan de manera similar en el sentido de que cada nodo, independientemente del tipo preciso, representa un paso tutorial en sí mismo. Es decir, todos los nodos, incluido el nodo Tutorial de nivel superior, el nodo Tutorial Topic ( tópico del tutorial) y el nodo Tutorial Step ( del paso del tutorial) puede mostrar una página de contenido como un paso del tutorial. Las diferencias sutiles se señalarán cuando sea apropiado.",
+                    "updated": 1640106060056
                 }
             ]
         },
@@ -102,6 +117,11 @@
                     "language": "RU",
                     "text": "Ключевое сходство между всеми типами узлов в иерархии заключается в том, что все они могут рисовать контент из коллекции страниц в Документах. То есть каждый узел в иерархии указывает на страницу Docs, и именно эта страница Docs Page содержит контент, отображаемый для данного шага. Указатель указывается в конфигурации каждого узла (см. Свойство docs).",
                     "updated": 1638340776119
+                },
+                {
+                    "language": "ES",
+                    "text": "La similitud clave entre todos los tipos de nodos en la jerarquía es que todos ellos pueden extraer contenido de la colección de páginas del tutorial en los Documentos. Es decir, cada nodo en la jerarquía apunta a una Página de Documentos, y es esa página en Documentos la que presenta el contenido que se muestra para el paso dado. El puntero se especifica en la configuración de cada nodo (ver la propiedad docs).",
+                    "updated": 1640106138431
                 }
             ]
         },
@@ -142,6 +162,11 @@
                     "language": "RU",
                     "text": "Конфигурация каждого узла в иерархии учебника определяет содержание и поведение каждого шага. Все типы узлов имеют одинаковую базовую конфигурацию. Однако узлы Tutorial Step имеют дополнительные свойства, описанные на странице узла Tutorial Step.",
                     "updated": 1638340869518
+                },
+                {
+                    "language": "ES",
+                    "text": "La configuración de cada nodo en la jerarquía del tutorial determina el contenido y el comportamiento de cada paso. Todos los tipos de nodos comparten la misma configuración básica. Sin embargo, los nodos de Tutorial Step ( paso del tutorial) tiene propiedades extra, descriptas en la página del nodo de Tutorial Step.",
+                    "updated": 1640106289444
                 }
             ]
         },
@@ -160,6 +185,11 @@
                     "language": "RU",
                     "text": "Свойства конфигурации, обсуждаемые на этой странице, применяются ко всем типам узлов в иерархии.",
                     "updated": 1638340885116
+                },
+                {
+                    "language": "ES",
+                    "text": "Las propiedades de configuración que se describen en esta página se aplican a todos los tipos de nodos de la jerarquía.",
+                    "updated": 1640106350486
                 }
             ]
         },
@@ -178,6 +208,11 @@
                     "language": "RU",
                     "text": "Макет HTML-страницы соответствует макету связанной страницы в Docs, хотя отображается в пределах окна учебника.",
                     "updated": 1638340917482
+                },
+                {
+                    "language": "ES",
+                    "text": "El diseño de la página HTML sigue el diseño de la página asociada en los Documentos, aunque se muestra dentro de los límites de la ventana del tutorial.",
+                    "updated": 1640106374526
                 }
             ]
         },
@@ -196,6 +231,11 @@
                     "language": "RU",
                     "text": "Другими словами, вы влияете на макет конкретного шага, записывая содержимое и применяя стили к отдельным абзацам на связанной странице Docs Page.",
                     "updated": 1638340975740
+                },
+                {
+                    "language": "ES",
+                    "text": "En otras palabras, puede afectar el diseño del paso en particular escribiendo contenido y aplicando estilos a párrafos individuales en la página de Documentos asociada.( Docs Page).",
+                    "updated": 1640106450003
                 }
             ]
         },
@@ -214,6 +254,11 @@
                     "language": "RU",
                     "text": "HTML-страница имеет ограниченное пространство и не поддерживает прокрутку. Если на связанной странице Docs Page определено слишком много информации, результирующий контент будет переполнять доступное пространство в окне руководства. Нет никакого системного контроля, чтобы справиться с такими переполнениями, так что вам решать, распределять информацию по нескольким шагам и держать каждую страницу в своих пределах.",
                     "updated": 1638341066695
+                },
+                {
+                    "language": "ES",
+                    "text": "La página HTML presenta un espacio limitado y no admite el desplazamiento. Si se define demasiada información en la página de documentos asociada, el contenido resultante desborda el espacio disponible en la ventana del tutorial. No existe un control del lado del sistema para hacer frente a tales desbordamientos, por lo que depende de usted distribuir la información en varios pasos y mantener cada página dentro de sus límites.",
+                    "updated": 1640106510895
                 }
             ]
         },
@@ -232,13 +277,25 @@
                     "language": "RU",
                     "text": "Свойства конфигурации",
                     "updated": 1638341097060
+                },
+                {
+                    "language": "ES",
+                    "text": "Configuration Properties  ( Configuración de las propiedades)",
+                    "updated": 1640106531310
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "icon",
-            "updated": 1617635214170
+            "updated": 1617635214170,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "icon   ( ïcono)",
+                    "updated": 1640106549094
+                }
+            ]
         },
         {
             "style": "Text",
@@ -255,6 +312,11 @@
                     "language": "RU",
                     "text": "Свойство \"icon\" требует двух определений:",
                     "updated": 1638341508736
+                },
+                {
+                    "language": "ES",
+                    "text": "El icono de propiedad requiere dos definiciones:",
+                    "updated": 1640106564209
                 }
             ]
         },
@@ -272,6 +334,11 @@
                     "language": "RU",
                     "text": "Название \"name\" значка без расширения;",
                     "updated": 1638341578178
+                },
+                {
+                    "language": "ES",
+                    "text": "El \"nombre\" del icono sin la extensión;",
+                    "updated": 1640106583078
                 }
             ]
         },
@@ -289,6 +356,11 @@
                     "language": "RU",
                     "text": "Название пректа \"Project\", которому принадлежит значок.",
                     "updated": 1638341642470
+                },
+                {
+                    "language": "ES",
+                    "text": "El \"proyecto\" al que pertenece el icono.",
+                    "updated": 1640106600070
                 }
             ]
         },
@@ -306,6 +378,11 @@
                     "language": "RU",
                     "text": "Для справки, значки хранятся по следующему пути:",
                     "updated": 1638341659063
+                },
+                {
+                    "language": "ES",
+                    "text": "Para su referencia, los iconos se almacenan en la siguiente ruta:",
+                    "updated": 1640106620221
                 }
             ]
         },
@@ -329,6 +406,11 @@
                     "language": "RU",
                     "text": "Используйте существующую коллекцию значков, чтобы проиллюстрировать каждый шаг учебного пособия. Эти иллюстрации помогают сделать общение более убедительным.",
                     "updated": 1638341684555
+                },
+                {
+                    "language": "ES",
+                    "text": "Utilice la colección de iconos existente para ilustrar cada paso del tutorial. Estas ilustraciones ayudan a lograr una comunicación más convincente.",
+                    "updated": 1640106640088
                 }
             ]
         },
@@ -347,6 +429,11 @@
                     "language": "RU",
                     "text": "Когда конфигурация существует, значок помещается в таблицу рядом с текстовым блоком, который составляет поле определения связанной страницы Docs Page. Когда нет значка, определение занимает всю ширину страницы.",
                     "updated": 1638341729479
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando existe la configuración, el icono se coloca dentro de una tabla, al lado del bloque de texto que forma el campo de definición de la página de documentos asociada.(Docs Page.) Cuando no hay icono, la definición ocupa todo el ancho de la página.",
+                    "updated": 1640106703771
                 }
             ]
         },
@@ -370,6 +457,11 @@
                     "language": "RU",
                     "text": "Приведенная выше конфигурация помещает значок balance.png проекта Superalgos в таблицу на соответствующей странице Docs (см. Свойство docs ниже).",
                     "updated": 1638341767468
+                },
+                {
+                    "language": "ES",
+                    "text": "La configuración anterior coloca el ícono balance.png del proyecto Superalgos en la tabla de la página de Documentos correspondiente (consulte la propiedad de documentos a continuación).",
+                    "updated": 1640106770457
                 }
             ]
         },
@@ -393,6 +485,11 @@
                     "language": "RU",
                     "text": "Свойство \"position\" определяет положение плавающего HTML. Есть три варианта: «Left», «Right» или оставьте поле пустым, чтобы разместить страницу в центре экрана.",
                     "updated": 1638341861917
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad de posición determina la posición del HTML flotante. Hay tres alternativas ... \"Izquierda\", \"Derecha\", o dejar el campo vacío para colocar la página en el centro de la pantalla.",
+                    "updated": 1640106805567
                 }
             ]
         },
@@ -416,6 +513,11 @@
                     "language": "RU",
                     "text": "Приведенная выше конфигурация помещает шаг обучения в левой части экрана.",
                     "updated": 1638341886907
+                },
+                {
+                    "language": "ES",
+                    "text": "La configuración anterior coloca el paso del tutorial en el lado izquierdo de la pantalla.",
+                    "updated": 1640106823840
                 }
             ]
         },
@@ -438,6 +540,11 @@
                     "language": "RU",
                     "text": "Свойство \"slider\" определяет положение горизонтального ползунка. Есть три альтернативы: toTop, toBottom, toMiddle.",
                     "updated": 1638342086859
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad del control deslizante determina la posición del control deslizante horizontal. Hay tres alternativas ... \"toTop\" (\"hacia arriba\"), \"toBottom\" (\"hacia abajo\"), \"toMiddle\"(\"hacia el centro\").",
+                    "updated": 1640106929138
                 }
             ]
         },
@@ -482,6 +589,11 @@
                     "language": "RU",
                     "text": "Свойство pressButton позволяет принудительно остановить учебник «Stop», перейти к следующему шагу «Next», перейти к предыдущему шагу «Previous» или пропустить шаг «Skip». Когда шаг загружен и в этом свойстве настроен один из этих параметров, действие применяется немедленно.",
                     "updated": 1638342503229
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad del  pressButton ( presione botón) le permite \"Detener\" forzosamente el tutorial, ir al paso \"Siguiente\", ir al paso \"Anterior\" o \"Saltar\" un paso. Cuando se carga un paso y se configura una de estas opciones en esta propiedad, la acción se aplica inmediatamente.",
+                    "updated": 1640106986609
                 }
             ]
         },
@@ -500,6 +612,11 @@
                     "language": "RU",
                     "text": "Обычно эта функция используется для пропуска шага, например, узла Tutorial Topic, который используется исключительно для организационных целей в иерархии и поэтому не содержит содержимого. Оставьте поле пустым, чтобы шаг играл обычным образом.",
                     "updated": 1638342559154
+                },
+                {
+                    "language": "ES",
+                    "text": "Un uso común de esta función es omitir un paso, por ejemplo, un nodo de Tema de Tutorial que se utiliza únicamente con fines organizativos dentro de la jerarquía, por lo que no presenta contenido. Deje el campo vacío para que el paso se reproduzca de la forma habitual.",
+                    "updated": 1640107024977
                 }
             ]
         },
@@ -523,6 +640,11 @@
                     "language": "RU",
                     "text": "Приведенная выше конфигурация переводит пользователя на следующий шаг в руководстве без отображения какого-либо содержимого для рассматриваемого узла.",
                     "updated": 1638342577730
+                },
+                {
+                    "language": "ES",
+                    "text": "La configuración anterior lleva al usuario al siguiente paso del tutorial sin mostrar ningún contenido para el nodo en cuestión.",
+                    "updated": 1640107050536
                 }
             ]
         },
@@ -541,6 +663,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать узлы Tutorial Topic только для организационных целей, например, чтобы упорядочить иерархию таким образом, чтобы ее было легко читать и поддерживать. С темами, в которых слишком много шагов, потом будет труднее разбираться. Другими словами, вы можете использовать узел Tutorial Topic, чтобы сгруппировать несколько шагов, даже если вы не собираетесь в узле Tutorial Topic отображать какой-либо контент. В таких случаях вы можете использовать это свойство, чтобы пропустить шаг, не предназначенный для отображения содержимого.",
                     "updated": 1638343008771
+                },
+                {
+                    "language": "ES",
+                    "text": "Puede utilizar el nodo Tutorial Topic solo con fines organizativos, por ejemplo, para organizar la jerarquía de manera que sea fácil de leer y mantener. Los temas con demasiados pasos son más difíciles de tratar más adelante. En otras palabras, puede utilizar un nodo Tutorial Topic  agrupar varios pasos, incluso si no tiene la intención de que el nodo Tutorial Topic muestre ningún contenido. En tales casos, puede utilizar esta propiedad para omitir el paso que no está destinado a la visualización de contenido.",
+                    "updated": 1640107174394
                 }
             ]
         },
@@ -564,6 +691,11 @@
                     "language": "RU",
                     "text": "Свойство \"docs\" используется для указания на страницу Docs Tutorial Page, которая передает контент на конкретный шаг учебного пособия. Для определения требуется имя проекта, категория страницы документов, которая всегда является «Tutorial», и полное имя страницы документов, то есть типа «type», как указано в файле JSON.",
                     "updated": 1638343213692
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad docs se utiliza para señalar la página de tutoriales de documentos que envía contenido al paso del tutorial en particular. La definición requiere el nombre del Proyecto (Project),la categoría de páginas de documento ( Docs Page Category) que siempre es \"Tutorial\" y el nombre completo de la pagina documentos (Docs Page), es decir, el \"tipo\" especificado en el archivo JSON.",
+                    "updated": 1640107322735
                 }
             ]
         },
@@ -591,6 +723,11 @@
                     "language": "RU",
                     "text": "Свойство используется для управления поведением панели Docs Panel. В controlDocs доступно несколько свойств, и все они являются необязательными. Рассмотрим подробно каждый.",
                     "updated": 1638343486932
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad se utiliza para controlar el comportamiento del panel de Documentos. Dentro de  controlDocs, Hay varias propiedades disponibles y todas son opcionales. Repasemos cada uno en detalle.",
+                    "updated": 1640107360789
                 }
             ]
         },
@@ -609,6 +746,11 @@
                     "language": "RU",
                     "text": "Свойство панели может быть установлено на «Open» или «Close». Это свойство управляет вкладкой, которая позволяет вам открыть панель документов за один шаг и закрыть ее на другом шаге, когда она больше не нужна.",
                     "updated": 1638343378776
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad del panel puede establecerse en \"Abrir\" o \"Cerrar\". Esta propiedad controla la pestaña que le permite abrir el Panel de Documentos en un paso y cerrarlo en un paso diferente cuando ya no sea necesario.",
+                    "updated": 1640107380640
                 }
             ]
         },
@@ -636,6 +778,11 @@
                     "language": "RU",
                     "text": "Если панель Docs Panel закрыта, остальные свойства не имеют значения. Однако, когда панель Docs Panel открыта, остальные свойства управляют тем, что отображается на панели Docs Panel.",
                     "updated": 1638343471175
+                },
+                {
+                    "language": "ES",
+                    "text": "Si el Panel de Documentos está cerrado, el resto de las propiedades son de alguna manera irrelevantes. Sin embargo, cuando el Panel de Documentos está abierto, el resto de las propiedades controlan lo que se muestra en el Panel de Documentos.",
+                    "updated": 1640107438366
                 }
             ]
         },
@@ -654,6 +801,11 @@
                     "language": "RU",
                     "text": "Свойство closeTutorialEditor может включать и выключать редактор документов. Если установлено значение false или нет определения и при условии, что не вызывается конкретная страница Docs Page (см. ControlDocs ниже), на панели Docs Panel отображается страница, связанная с текущим этапом обучения в режиме редактирования.",
                     "updated": 1638343628965
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad  cerrar Edicion deltutorial (closeTutorialEditor) puede activar y desactivar el editor de Documentos. Cuando se establece en falso o cuando no hay una definición, y siempre que no se llame a una página de Documentos específica (ver controlDocs a continuación), el panel de Documentos muestra la página asociada con el paso del tutorial actual en el modo de edición.",
+                    "updated": 1640107506201
                 }
             ]
         },
@@ -677,6 +829,11 @@
                     "language": "RU",
                     "text": "Поскольку для этого определения по умолчанию установлено значение false, это обычное поведение. То есть по умолчанию, когда панель Docs Panel открывается во время выполнения шага обучения, на панели Docs Panel отображается страница Docs Page, связанная с конкретным шагом, так что страницу можно редактировать прямо сейчас.",
                     "updated": 1638343747105
+                },
+                {
+                    "language": "ES",
+                    "text": "Debido a que esta definición se establece en falsa de forma predeterminada, este es el comportamiento habitual. Es decir, de forma predeterminada, cuando se abre el Panel de Documentos mientras se reproduce un paso del tutorial, el Panel de Documentos muestra la Página de Documentos asociada con el paso específico para que la página se pueda editar en ese mismo momento.",
+                    "updated": 1640107563456
                 }
             ]
         },
@@ -695,6 +852,11 @@
                     "language": "RU",
                     "text": "Если для свойства closeTutorialEditor установлено значение true и нет запроса на открытие страницы Docs (см. Свойство страницы ниже), тогда на панели Docs отображается любая страница Docs Page, отображаемая на предыдущем шаге.",
                     "updated": 1638343921788
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando la propiedad closeTutorialEditorse establece en verdadero y no hay ninguna solicitud para abrir una página de Documentos (consulte la propiedad de la página a continuación), el panel de Documentos muestra la página de Documentos que se estaba mostrando en el paso anterior.",
+                    "updated": 1640107625049
                 }
             ]
         },
@@ -718,6 +880,11 @@
                     "language": "RU",
                     "text": "Вы можете закрыть редактор учебника, когда пользователь должен взаимодействовать с Docs от одного шага к другому. Например, предположим, что учебник инструктирует пользователя выполнить поиск и обсуждает результаты поиска на следующем шаге. В этом случае вы захотите, чтобы редактор учебников оставался закрытым, иначе поиск, выполненный пользователем, будет потерян, и вместо этого будет загружена страница, соответствующая новому шагу руководства.",
                     "updated": 1638344026667
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que desee cerrar el editor de tutoriales cuando se supone que el usuario debe interactuar con los documentos de un paso al siguiente. Por ejemplo, digamos que el tutorial le indica al usuario que realice una búsqueda y analiza los resultados de la búsqueda en el siguiente paso. En ese caso, querrás que el editor de tutoriales permanezca cerrado, ya que de lo contrario se perdería la búsqueda realizada por el usuario y en su lugar se cargaría la página correspondiente al nuevo paso del tutorial.",
+                    "updated": 1640107655145
                 }
             ]
         },
@@ -736,6 +903,11 @@
                     "language": "RU",
                     "text": "Свойство searchPage выходит за пределы настроек редактора учебника и загружает домашнюю страницу поиска с полем поиска в центре.",
                     "updated": 1638344044257
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad buscarpágina ( searchPage)  satura la configuración del editor de tutoriales y carga la página de búsqueda de inicio con el cuadro de búsqueda en el centro.",
+                    "updated": 1640107724063
                 }
             ]
         },
@@ -759,6 +931,11 @@
                     "language": "RU",
                     "text": "Используйте указанную выше настройку, если хотите, чтобы пользователь получил чистое поле поиска для выполнения поиска или выполнения команды.",
                     "updated": 1638344074943
+                },
+                {
+                    "language": "ES",
+                    "text": "Utilice la configuración anterior cuando desee que el usuario obtenga el cuadro de búsqueda limpio para realizar una búsqueda o ejecutar un comando.",
+                    "updated": 1640107748895
                 }
             ]
         },
@@ -777,6 +954,11 @@
                     "language": "RU",
                     "text": "Свойство page - это то место, где вы определяете, какая страница Docs Page должна быть загружена. Вы должны указать проект Project, категорию страницы Docs Page Category и «type», который является полным именем страницы. Необязательная привязка свойства позволяет указать пользователю на определенный абзац на странице с помощью привязки Docs Anchor Style.",
                     "updated": 1638344326671
+                },
+                {
+                    "language": "ES",
+                    "text": "La propiedad de la página es donde se define qué Docs Page debe ser cargadoa Debe especificar el Project, La  categoría de páginas de documento (Docs Page Category), y el \"tipo\", que es el nombre completo de la página. El ancla de propiedad opcional le permite señalar al usuario un párrafo específico en la página con el estilo de ancla de Docs.",
+                    "updated": 1640107863999
                 }
             ]
         },
@@ -800,6 +982,11 @@
                     "language": "RU",
                     "text": "Используйте указанную выше конфигурацию, если хотите, чтобы пользователь читал определенную страницу в Docs.",
                     "updated": 1638344372113
+                },
+                {
+                    "language": "ES",
+                    "text": "Utilice la configuración anterior cuando desee que el usuario lea una página específica en los Documentos.",
+                    "updated": 1640107881154
                 }
             ]
         }

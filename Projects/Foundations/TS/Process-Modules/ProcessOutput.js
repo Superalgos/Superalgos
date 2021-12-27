@@ -28,7 +28,7 @@
                         botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                     }
                     if (botNode === undefined) {
-                        botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Portfolio Bot')
+                        botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Portfolio Bot')
                     }
                     if (botNode === undefined) { 
                         botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')
@@ -125,7 +125,7 @@
                     botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Trading Bot')
                 }
                 if (botNode === undefined) {
-                    botNode = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Portfolio Bot')
+                    botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Portfolio Bot')
                 }
                 if (botNode === undefined) { 
                     botNode = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(outputDataset, 'Sensor Bot')

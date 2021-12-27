@@ -84,6 +84,10 @@
     ],
     "alternativeIcons": [
         {
+            "codeName": "ascendex",
+            "iconName": "ascendex"
+        },
+        {
             "codeName": "binance",
             "iconName": "binance"
         },
@@ -176,6 +180,9 @@
             "iconName": "kucoin"
         },
         {
+            "codeName": "latoken",
+            "iconName": "latoken"
+        },{
             "codeName": "liquid",
             "iconName": "liquid"
         },

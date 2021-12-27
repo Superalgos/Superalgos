@@ -63,14 +63,14 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
                     let response = {
                         status: arguments[0].event.status,
                         reason: "Reply from Portfolio Manager"
-                    }
-                    promiseStatus = 'Resolved'
+                    }                    
                     if (promiseStatus === 'Unresolved') {
+                        promiseStatus = 'Resolved'
                         resolve(response)
                     }
                 } else {
-                    promiseStatus = 'Rejected'
                     if (promiseStatus === 'Unresolved') {
+                        promiseStatus = 'Rejected'
                         reject()
                     }
                 }

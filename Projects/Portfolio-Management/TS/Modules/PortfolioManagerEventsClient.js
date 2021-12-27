@@ -77,7 +77,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             }
 
             function onTimeout() {
-                if (promiseStatus === 'Unresolved') {
+                    if (promiseStatus === 'Unresolved') {
                     let response = {
                         status: 'Timeout',
                         value: 0,

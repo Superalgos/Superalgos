@@ -34,15 +34,6 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
         let promise = new Promise((resolve, reject) => {
             isRunning = true
 
-            for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
-
-                let SESSION_KEY = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.name +
-                    '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
-                    '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id
-
-                tradingBotsCheckInStatusMap.set(SESSION_KEY, undefined)
-            }
-
             let intervalId = setInterval(checkTradingBotsStatus, 1000)
 
             function checkTradingBotsStatus() {

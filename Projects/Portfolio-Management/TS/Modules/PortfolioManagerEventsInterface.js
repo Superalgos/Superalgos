@@ -38,9 +38,6 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                 function onRequest() {
                     let eventMessage = arguments[0]
 
-                    /* Run Validations on the Message Received. */
-                    // TODO
-
                     let response = tradingBotsInterfaceModuleObject.processMessage(
                         SESSION_KEY,
                         eventMessage.event

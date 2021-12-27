@@ -12,8 +12,8 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
 
     return thisObject
 
-    function initialize(managedTradingBotsModuleObject) {
-        managedTradingBotsModuleObject = managedTradingBotsModuleObject
+    function initialize(managedTradingBots) {
+        managedTradingBotsModuleObject = managedTradingBots
     }
 
     function finalize() {

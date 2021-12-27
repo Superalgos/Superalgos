@@ -1,20 +1,23 @@
 exports.newPortfolioManagementModulesPortfolioManagerClient = function (processIndex) {
     /*
     This object represents a proxy of the Profile Manager. It is used to send 
-    questions to the Event and Formula Managers and receive their answers.
+    requests to the Event and Formula Managers and receive their answers.
     */
     let thisObject = {
+        candleEntry: candleEntry,
+        candleExit: candleExit,
         askPortfolioEventsManager: askPortfolioEventsManager,
         askPortfolioFormulaManager: askPortfolioFormulaManager,
         initialize: initialize,
         finalize: finalize
     }
 
-    let portfolioManagerEventsClient = TS.projects.portfolioManagement.modules.portfolioManagerEventsClient.newPortfolioManagementModulesPortfolioManagerEventsClient(processIndex)
+    let portfolioManagerEventsClient
 
     return thisObject
 
     function initialize() {
+        portfolioManagerEventsClient = TS.projects.portfolioManagement.modules.portfolioManagerEventsClient.newPortfolioManagementModulesPortfolioManagerEventsClient(processIndex)
         portfolioManagerEventsClient.initialize()
     }
 
@@ -23,14 +26,38 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         portfolioManagerEventsClient = undefined
     }
 
+    async function candleEntry(candle) {
+        let message = {
+            type: "Check In Candle",
+            candle: {
+                begin:candle.begin,
+                end: candle.end
+            }
+        }
+        /*
+        Since the trading bot could start before the Portfolio Bot, we will
+        use a timeout in order to wait for Portfolio Manager.
+        */
+        return await portfolioManagerEventsClient.sendMessage(message, 5000)
+    }
+
+    async function candleExit(candle) {
+        let message = {
+            type: "Check Out Candle",
+            candle: {
+                begin:candle.begin,
+                end: candle.end
+            }
+        }
+        return await portfolioManagerEventsClient.sendMessage(message)
+    }
+
     async function askPortfolioEventsManager(eventNode, eventStatus) {
+        
         let response = {
+            status: 'Ok',
             raiseEvent: eventStatus,
             reason: "No need to ask Portfolio Manager"
-        }
-
-        if (eventNode.askPortfolioEventsManager === undefined) {
-            return response
         }
 
         if (eventStatus == true) {
@@ -40,7 +67,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             */
             if (eventNode.askPortfolioEventsManager.confirmEvent !== undefined) {
                 let message = {
-                    question: "Confirm This Event",
+                    type: "Confirm This Event",
                     event: eventNode.type,
                     eventNodeId: eventNode.id
                 }
@@ -53,7 +80,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             */
             if (eventNode.askPortfolioEventsManager.raiseEvent !== undefined) {
                 let message = {
-                    question: "Must This Event Be Raised",
+                    type: "Set This Event",
                     event: eventNode.type,
                     eventNodeId: eventNode.id
                 }
@@ -64,14 +91,13 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     }
 
     async function askPortfolioFormulaManager(formulaParentNode, formulaValue) {
+        
         let response = {
+            status: 'Ok',
             value: formulaValue,
             reason: "No need to ask Portfolio Manager"
         }
         if (formulaParentNode === undefined) {
-            return response
-        }
-        if (formulaParentNode.askPortfolioFormulaManager === undefined) {
             return response
         }
 
@@ -81,7 +107,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
          */
         if (formulaParentNode.askPortfolioFormulaManager.setFormula !== undefined) {
             let message = {
-                question: "Give Me A Value For This Formula",
+                type: "Set This Formula",
                 formula: formulaParentNode.type,
                 formulaParentNodeId: formulaParentNode.id
             }
@@ -93,7 +119,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
          */
         if (formulaParentNode.askPortfolioFormulaManager.confirmFormula !== undefined) {
             let message = {
-                question: "Confirm This Formula Value",
+                type: "Confirm This Formula",
                 formula: formulaParentNode.type,
                 formulaParentNodeId: formulaParentNode.id
             }

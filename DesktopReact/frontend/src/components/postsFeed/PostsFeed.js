@@ -17,8 +17,15 @@ const PostsFeed = () => {
         setLoading(true)
         let {data, result} = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
-            let mappedPosts = data.map((post, index) => <Post key={index} id={index}
-                                                              postData={post}/>
+            let mappedPosts = data.map((post, index) => {
+                    if (post.eventType !== 10) {
+                        /* TODO add other post types*/
+                        return;
+                    }
+                        return <Post key={index} id={index}
+                              postData={post}/>
+
+                }
             );
             setPosts(mappedPosts);
         }

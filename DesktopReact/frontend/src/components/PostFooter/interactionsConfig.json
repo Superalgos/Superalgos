@@ -2,39 +2,27 @@
     "actionsNav":[
         {
             "id": 1,
-            "name": "Love",
-            "icon": "FavoriteBorder",
-            "badgeCounter": 1
+            "name": "Love"
         },
         {
             "id": 2,
-            "name": "Haha",
-            "icon": "Mood",
-            "badgeCounter": 1
+            "name": "Haha"
         },
         {
             "id": 3,
-            "name": "Wow",
-            "icon": "OutletOutlined",
-            "badgeCounter": 1
+            "name": "Wow"
         },
         {
             "id": 4,
-            "name": "Sad",
-            "icon": "SentimentVeryDissatisfied",
-            "badgeCounter": 1
+            "name": "Sad"
         },
         {
             "id": 5,
-            "name": "Angry",
-            "icon": "SentimentVeryDissatisfiedOutlined",
-            "badgeCounter": 1
+            "name": "Angry"
         },
         {
             "id": 6,
-            "name": "Care",
-            "icon": "AccessibilityNewOutlined",
-            "badgeCounter": 1
+            "name": "Care"
         }
     ]
 }

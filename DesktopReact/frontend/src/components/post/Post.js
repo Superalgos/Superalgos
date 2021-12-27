@@ -4,17 +4,20 @@ import {Avatar, Card, Stack} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import PostFooter from "../PostFooter/PostFooter";
 import FooterReply from "../FooterReply/FooterReply";
+import {useNavigate} from "react-router-dom";
 
-const Post = ({userName, postBody}) => {
+const Post = ({postData}) => {
+    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId, emitterPost: {reactions: reactions} } = postData;
+    let navigate = useNavigate()
+    const [collapse, setCollapse] = useState(false)
+    const ToggleCollapseComment = () => setCollapse(!collapse)
 
-    const [collapse, setCollapse] = useState(true)
-    const Toggle = () => setCollapse(!collapse)
-
+    const handlePostClick = (e) => {
+      e.preventDefault()
+        // navigate(`/post/${postId}`) todo implement reply feed
+    }
     return (
-        <div className="postWrapper" onClick={(e) => {
-            e.stopPropagation()
-            //console.log("Hello from clicked post: ")
-        }}
+        <div className="postWrapper" onClick={handlePostClick}
         >
             <Card className="post">
                 <Stack direction="row">
@@ -28,16 +31,8 @@ const Post = ({userName, postBody}) => {
                 <Stack className="postBody">
                     {postBody}
                 </Stack>
-                <PostFooter/>
-                {/*<Collapse in={collapse}> /!*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js *!/*/}
-                {/*    <Divider />*/}
-                {/*    <FooterReply/>*/}
-                {/*</Collapse>*/}
-                {/*<Collapse in={true}> /!*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js *!/*/}
-                {/*    <Divider />*/}
-                {/*    <FooterReply/>*/}
-                {/*</Collapse>*/}
-                <FooterReply show={collapse}/>
+                <PostFooter  postId={postId} reactions={reactions} stateCallback={ToggleCollapseComment}/>
+                {/*<FooterReply show={collapse}/>*/}
             </Card></div>
     );
 };

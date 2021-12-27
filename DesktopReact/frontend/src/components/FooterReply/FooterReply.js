@@ -21,9 +21,8 @@ const FooterReply = ({show}) => {
     }
 
     return (
-        <Collapse in={show}> {/*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js */}
+        <Collapse in={show}>
             <Divider/>
-
             <div className="footerReply">
                 <Stack className="footerReplyStack" direction="row">
                     <Stack className="replyAvatarContainer">

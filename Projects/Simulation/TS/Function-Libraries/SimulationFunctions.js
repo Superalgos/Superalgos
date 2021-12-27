@@ -142,7 +142,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     This means that we need to wait for Portfolio Manager to be available and
                     give us permission to continue.
                     */
-                    await SA.projects.foundations.utilities.asyncFunctions.sleep(1000)
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(50)
                 } else {
                     break
                 }

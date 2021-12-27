@@ -9,6 +9,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         checkIfWeNeedToStopTheSimulation: checkIfWeNeedToStopTheSimulation,
         checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
         setCurrentCandle: setCurrentCandle,
+        syncronizeLoopCandleEntryPortfolioManager: syncronizeLoopCandleEntryPortfolioManager,
+        syncronizeLoopCandleExitPortfolioManager: syncronizeLoopCandleExitPortfolioManager,
         syncronizeLoopIncomingSignals: syncronizeLoopIncomingSignals,
         syncronizeLoopOutgoingSignals: syncronizeLoopOutgoingSignals,
         setUpCandles: setUpCandles,
@@ -114,7 +116,61 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return candle
     }
 
-    async function syncronizeLoopIncomingSignals(system) {
+    async function syncronizeLoopCandleEntryPortfolioManager(
+        portfolioManagerClientModuleObject,
+        system,
+        candle
+    ) {
+        if (
+            system.portfolioManagedSystem !== undefined
+        ) {
+            /*
+            This means that the user that defined the Trading System, wants it to be
+            managed by a Portfolio Manager Bot and that means that both simulations 
+            needs to be syncronized.
+
+            We will loop here because the trading bot could start before the Portfolio
+            Bot, which means that we will request for permission over and over until
+            we get it.
+            */
+            while (true) {
+                let reponse = await portfolioManagerClientModuleObject.candleEntry(
+                    candle
+                )
+                if (reponse.status !== 'Ok') {
+                    /*
+                    This means that we need to wait for Portfolio Manager to be available and
+                    give us permission to continue.
+                    */
+                    await SA.projects.foundations.utilities.asyncFunctions.sleep(50)
+                } else {
+                    break
+                }
+            }
+        }
+    }
+
+    async function syncronizeLoopCandleExitPortfolioManager(
+        portfolioManagerClientModuleObject,
+        system,
+        candle
+    ) {
+        if (
+            system.portfolioManagedSystem !== undefined
+        ) {
+            /*
+            Report to Portfolio Manager that we are exiting this candle.
+            */
+            await portfolioManagerClientModuleObject.candleExit(
+                candle
+            )
+        }
+    }
+
+    async function syncronizeLoopIncomingSignals(
+        incomingTradingSignalsModuleObject,
+        system
+    ) {
         /*
         Incoming Signals
         */
@@ -148,7 +204,11 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         }
     }
 
-    async function syncronizeLoopOutgoingSignals(outgoingTradingSignalsModuleObject, system, candle) {
+    async function syncronizeLoopOutgoingSignals(
+        outgoingTradingSignalsModuleObject,
+        system,
+        candle
+    ) {
         /*
         Outgoing Episode Syncronization Signal Sent before breaking the loop.
         */
@@ -315,7 +375,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     if (sessionParameters.heartbeats.config.date === true) {
                         hartbeatText = hartbeatText + currentDateString
                     }
-                    hartbeatText = hartbeatText + ' Candle # ' + episodeCandle.candle.index.value
+                    hartbeatText = hartbeatText + ' Candle # ' + episodeCandle.index.value
                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
                 }
             }

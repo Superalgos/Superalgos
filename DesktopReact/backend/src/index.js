@@ -4,6 +4,7 @@ const cors = require('cors');
 const routes = require('./routes');
 
 exports.DesktopBackend = (port, SA, DK) => {
+  try {
     
     let server;
 
@@ -37,5 +38,9 @@ exports.DesktopBackend = (port, SA, DK) => {
     server = app.listen(port, () => {
         console.log(`Listening to port ${port}`);
       });
+    
+  } catch (error) {
+      console.log(error);
+  }
 
 }

@@ -1,13 +1,18 @@
 const { postService } = require('../services');
 
 const getPosts = async (req, res) => {
-  const result = await postService.getPosts();
+  const result = await postService.getPosts(req.query.userId);
   res.send(result);
 };
 
 const createPost = async (req, res) => {
-  const result = await postService.createPost(req);
-  res.send(result);
+  try {
+    const result = await postService.createPost(req);
+    res.send(result);
+  } catch (error) {
+      console.log(error);
+  }
+
 };
 
 

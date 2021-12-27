@@ -1,21 +1,30 @@
 
-const getPosts = async (req, res) => {
-    let queryMessage = {
-        queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
-        emitterUserProfileId: undefined,
-        initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
-        amountRequested: 100,
-        direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
+const getPosts = async (userId, res) => {
+
+    
+    try {
+
+        let queryMessage = {
+            queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
+            emitterUserProfileId: userId,
+            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
+            amountRequested: 100,
+            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
+        }
+    
+        let query = {
+            requestType: 'Query',
+            queryMessage: JSON.stringify(queryMessage)
+        }
+    
+        return await webAppInterface.messageReceived(
+            JSON.stringify(query)
+        )
+        
+    } catch (error) {
+        console.log(error);
     }
 
-    let query = {
-        requestType: 'Query',
-        queryMessage: JSON.stringify(queryMessage)
-    }
-
-    return await webAppInterface.messageReceived(
-        JSON.stringify(query)
-    )
 }
 
 const createPost = async (postText, res) => {
@@ -42,7 +51,8 @@ const createPost = async (postText, res) => {
         console.log(e);
         return {status: 'Ko'};
     }
-}
+};
+
 
 
 module.exports = {

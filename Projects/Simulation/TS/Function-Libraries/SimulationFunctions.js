@@ -137,7 +137,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                 let reponse = await portfolioManagerClientModuleObject.candleEntry(
                     candle
                 )
-                if (reponse.status !== 'Permission Granted') {
+                if (reponse.status !== 'Ok') {
                     /*
                     This means that we need to wait for Portfolio Manager to be available and
                     give us permission to continue.
@@ -375,7 +375,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     if (sessionParameters.heartbeats.config.date === true) {
                         hartbeatText = hartbeatText + currentDateString
                     }
-                    hartbeatText = hartbeatText + ' Candle # ' + episodeCandle.candle.index.value
+                    hartbeatText = hartbeatText + ' Candle # ' + episodeCandle.index.value
                     TS.projects.foundations.functionLibraries.processFunctions.processHeartBeat(processIndex, hartbeatText, percentage)
                 }
             }

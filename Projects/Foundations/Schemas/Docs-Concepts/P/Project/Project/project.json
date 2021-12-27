@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Инфраструктура Superalgos объединяет разные проекты. Основная цель этих интеграций - автоматизировать межпроектные операции, извлекая ценную информацию из блокчейнов или конкретной области каждого проекта, которая будет использоваться в торговых системах.",
                 "updated": 1638287476258
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos altyapısı farklı projeleri entegre eder. Bu entegrasyonların temel amacı, Ticaret Sistemlerinde kullanılacak blok zincirlerinden veya her projenin belirli etki alanından değerli bilgiler çıkararak projeler arası işlemleri otomatikleştirmektir.",
+                "updated": 1640610320210
             }
         ]
     },

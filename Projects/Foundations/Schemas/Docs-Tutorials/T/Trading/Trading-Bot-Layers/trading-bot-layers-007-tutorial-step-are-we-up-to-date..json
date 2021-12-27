@@ -14,6 +14,11 @@
                 "text": "Jetzt müssen wir noch ein wenig warten! Wenn alle Prozesse die 100%-Marke erreicht haben, können wir fortfahren!",
                 "updated": 1623012126871,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь нам нужно немного подождать! Когда все процессы достигнут отметки 100%, мы сможем продолжить!",
+                "updated": 1640545470192
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Wie du wahrscheinlich weißt, hängt die Zeit, die für das Mining von Daten benötigt wird, von vielen Dingen ab. Wenn du bereits einige dieser Daten aus früheren Aktivitäten hast, kann es schneller gehen!",
                     "updated": 1623012139487,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Как вы, вероятно, знаете, время, необходимое для добычи данных, зависит от многих вещей. Если у вас уже есть некоторые из этих данных, полученные в результате предыдущей деятельности, это может быть быстрее!",
+                    "updated": 1640545491458
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Überwache die Prozesse für alle Indikatoren in den Datenminen von Sparta und Masters. Wenn alle 100% erreicht haben, dann stoppe die Data-Mining-Operation und klicke auf \"Weiter\", um fortzufahren.",
                     "updated": 1623012153240,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Проконтролируйте процессы для всех показателей в источниках данных Sparta и Masters. Когда все они достигнут 100%, остановите операцию добычи данных и нажмите кнопку Next для продолжения.",
+                    "updated": 1640545528222
                 }
             ]
         },

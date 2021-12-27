@@ -173,14 +173,6 @@
         },
         "SA": {},
         "TS": {
-            "globals": [
-                {
-                    "name": "Memory",
-                    "propertyName": "memory",
-                    "functionName": "newPortfolioManagementGlobalsMemory",
-                    "fileName": "Memory.js"
-                }
-            ],
             "modules": [
                 {
                     "name": "Portfolio Manager Client",
@@ -199,6 +191,12 @@
                     "propertyName": "portfolioManagerEventsInterface",
                     "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
                     "fileName": "PortfolioManagerEventsInterface.js"
+                },
+                {
+                    "name": "Trading Bots Interface",
+                    "propertyName": "tradingBotsInterface",
+                    "functionName": "newPortfolioManagementModulesTradingBotsInterface",
+                    "fileName": "TradingBotsInterface.js"
                 }
             ],
             "botModules": [
@@ -243,6 +241,13 @@
                     "propertyName": "portfolioSimulation",
                     "functionName": "newPortfolioManagementBotModulesPortfolioSimulation",
                     "fileName": "PortfolioSimulation.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Managed Trading Bots",
+                    "propertyName": "managedTradingBots",
+                    "functionName": "newPortfolioManagementBotModulesManagedTradingBots",
+                    "fileName": "ManagedTradingBots.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
@@ -2013,6 +2018,12 @@
                     "propertyName": "simulationFunctions",
                     "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
                     "fileName": "SimulationFunctions.js"
+                },
+                {
+                    "name": "Output Records Functions",
+                    "propertyName": "outputRecordsFunctions",
+                    "functionName": "newSimulationFunctionLibrariesOutputRecordsFunctions",
+                    "fileName": "OutputRecordsFunctions.js"
                 }
             ]
         },

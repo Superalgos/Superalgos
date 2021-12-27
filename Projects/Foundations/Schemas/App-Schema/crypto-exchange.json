@@ -180,6 +180,9 @@
             "iconName": "kucoin"
         },
         {
+            "codeName": "latoken",
+            "iconName": "latoken"
+        },{
             "codeName": "liquid",
             "iconName": "liquid"
         },

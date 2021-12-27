@@ -23,9 +23,9 @@ exports.newMachineLearningBotModulesLearningOutput = function (processIndex) {
             let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
 
             if (timeFrame > TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[0][0]) {
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = false
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES = false
             } else {
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES = true
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES = true
             }
 
             /* Preparing everything for the Simulation */

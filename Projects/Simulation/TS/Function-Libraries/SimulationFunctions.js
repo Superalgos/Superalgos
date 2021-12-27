@@ -118,7 +118,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     async function syncronizeLoopCandleEntryPortfolioManager(
         portfolioManagerClientModuleObject,
-        system
+        system,
+        candle
     ) {
         if (
             system.portfolioManagedSystem !== undefined
@@ -134,7 +135,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             */
             while (true) {
                 let reponse = await portfolioManagerClientModuleObject.candleEntry(
-                    system
+                    candle
                 )
                 if (reponse.status !== 'Permission Granted') {
                     /*
@@ -151,7 +152,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     async function syncronizeLoopCandleExitPortfolioManager(
         portfolioManagerClientModuleObject,
-        system
+        system,
+        candle
     ) {
         if (
             system.portfolioManagedSystem !== undefined
@@ -160,7 +162,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Report to Portfolio Manager that we are exiting this candle.
             */
             await portfolioManagerClientModuleObject.candleExit(
-                system
+                candle
             )
         }
     }

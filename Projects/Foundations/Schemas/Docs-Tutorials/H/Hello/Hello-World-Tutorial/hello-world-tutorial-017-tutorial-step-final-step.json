@@ -25,6 +25,11 @@
                 "language": "IT",
                 "text": "Guradiamo il grafico del backtest!",
                 "updated": 1640111014977
+            },
+            {
+                "language": "TR",
+                "text": "Grafiğe bakma zamanı!",
+                "updated": 1640591713599
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "IT",
                     "text": "Per risparmiare risorse quando il backtest finische fermo tutto il processo. Espandi un nodo e premi Stop.",
                     "updated": 1640111147458
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri test bittiğinde, Ticaret Görevlerini Test ( Testing Trading Tasks ) Etme düğümünden tüm hiyerarşiyi durduruyorum. Düğümü genişletin ve Tümünü Durdur'a tıklayın.",
+                    "updated": 1640591783134
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "IT",
                     "text": "SA è molto esoso di risorse! E' buona norma fermare i process non essenziali.",
                     "updated": 1640111143226
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kaynakları korumak için hiyerarşileri daraltmanın ve gereksiz görevleri durdurmanın iyi bir uygulama olduğunu unutmayın!",
+                    "updated": 1640591811344
                 }
             ]
         },

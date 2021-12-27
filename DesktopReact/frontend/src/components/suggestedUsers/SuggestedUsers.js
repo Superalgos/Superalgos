@@ -4,7 +4,7 @@ import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
 import {Skeleton, Stack} from "@mui/material";
 import {STATUS_OK} from "../../api/httpConfig";
 import {getProfiles} from "../../api/profile.httpService";
-import UserCard from "../User/UserCard";
+import UserCard from "../UserCard/UserCard";
 
 
 const SuggestedUsers = () => {
@@ -37,7 +37,7 @@ const SuggestedUsers = () => {
         if (result === STATUS_OK) {
             let mappedUsers = data.map((profile, index) => {
                 let callBack = () => console.log(`Clicked follow on user${profile.userProfileHandle}`);
-                return <UserCard key={index} id={index} name={`user${profile.userProfileHandle}`}
+                return <UserCard key={index} id={index} name={profile.userProfileHandle}
                                  userId={profile.userProfileId}
                                  followCallback={callBack}/>
             });

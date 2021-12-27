@@ -1,12 +1,10 @@
 import "./PostFooter.css"
 import React, {useEffect, useState} from 'react';
-import {IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
+import {SpeedDial, SpeedDialAction, Stack} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {
     AccessibilityNewOutlined,
-    Autorenew,
     FavoriteBorder,
-    MessageOutlined,
     Mood,
     OutletOutlined,
     SentimentVeryDissatisfied,
@@ -15,7 +13,6 @@ import {
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {actionsNav} from './interactionsConfig.json';
-import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
@@ -124,20 +121,21 @@ const PostFooter = ({postId,reactions}) => { // props needed? review
     }
 
     const FooterComponent = () => {
-        return <div className="footerCommentContainer">
-            <Stack className="postFooterComment" direction="row">
-                <IconButton className="commentIconButton" size="small"
-                    onClick={(e) => e.stopPropagation(HandleCommentContainer())} > {/* need review, correct way?*/}
-                        <MessageOutlined/>
-                    </IconButton>
-                    <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>
-                </Stack>
-                <Stack className="postFooterRepost" direction="row">
-                <IconButton className="repostIconButton" onClick={handleRepost} size="small">
-                    <Autorenew/>
-                </IconButton>
-            </Stack>
-        </div>
+        //     return <div className="footerCommentContainer">
+        //         <Stack className="postFooterComment" direction="row">
+        //             <IconButton className="commentIconButton" size="small"
+        //                 onClick={(e) => e.stopPropagation(HandleCommentContainer())} > {/* need review, correct way?*/}
+        //                     <MessageOutlined/>
+        //                 </IconButton>
+        //                 {/*<FooterReplyModal show={replyModal} close={HandleCommentContainer}/>*/}
+        //             </Stack>
+        //             <Stack className="postFooterRepost" direction="row">
+        //             <IconButton className="repostIconButton" onClick={handleRepost} size="small">
+        //                 <Autorenew/>
+        //             </IconButton>
+        //         </Stack>
+        //     </div>
+        return null;
     }
 
     return (

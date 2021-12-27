@@ -4,18 +4,55 @@
     "type": "Accessing Runtime Data",
     "definition": {
         "text": "The Trading Bot makes every piece of information processed available to Trading Systems in the data structure of the Trading Engine hierarchy.",
-        "updated": 1610216690404
+        "updated": 1610216690404,
+        "translations": [
+            {
+
+                "language": "RU",
+                "text": "Торговый бот делает каждый обработанный фрагмент информации доступным для торговых систем в структуре данных иерархии Trading Engine.",
+                "updated": 1640094205402
+            },
+            {
+                "language": "DE",
+                "text": "Der Trading Bot stellt den Trading Systemen alle verarbeiteten Informationen in der Datenstruktur der Trading Engine Hierarchie zur Verfügung.",
+                "updated": 1640037489787
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "To access the value of any of the nodes in the Trading Engine  from within conditions and formulas, the syntax follows the ramifications of the data structure, exactly as seen in the visual representation of the hierarchy on the Design Space.",
-            "updated": 1610216724389
+            "updated": 1610216724389,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы получить доступ к значению любого из узлов в Trading Engine из условий и формул, синтаксис следует за разветвлениями структуры данных, в точности как показано в визуальном представлении иерархии на Design Space.",
+                    "updated": 1640094282515
+                },
+                {
+                    "language": "DE",
+                    "text": "Um innerhalb von conditions (Bedingungen) und Formeln auf den Wert einer beliebigen Node in der Trading Engine zuzugreifen, folgt die Syntax den Verästelungen der Datenstruktur, genau wie in der visuellen Darstellung der Hierarchie im Design Space zu sehen.",
+                    "updated": 1640037704127
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example, let’s say you wish to access the value of the Begin node under Strategy Open Stage. The path to that node, as denoted by the structure of the hierarchy below, is:",
-            "updated": 1610216746961
+            "updated": 1610216746961,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, допустим, вы хотите получить доступ к значению узла Begin в разделе Strategy Open Stage. Путь к этому узлу, как обозначено в структуре иерархии ниже, таков:",
+                    "updated": 1640094305108
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir zum Beispiel an, Sie möchten auf den Wert der Node Beginn unter Strategy Open Stage zugreifen. Der Pfad zu dieser Node, wie er in der Struktur der Hierarchie unten dargestellt ist, lautet:",
+                    "updated": 1640037769230
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -24,7 +61,19 @@
         {
             "style": "Text",
             "text": "If you wish to go one step lower and access the value of the Target Size under the Stage Quoted Asset, then the path is:",
-            "updated": 1610216775084
+            "updated": 1610216775084,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите спуститься на ступень ниже и получить доступ к значению Target Size под Stage Quoted Asset, то путь будет следующим:",
+                    "updated": 1640094381268
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine Stufe tiefer gehen und auf den Wert der Zielgröße unter der Stufe Quoted Asset zugreifen möchten, lautet der Pfad:",
+                    "updated": 1640038167175
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -33,32 +82,111 @@
         {
             "style": "Note",
             "text": "As usual, make sure you follow the JavaScript camel case notation by which the first word is in lower case and the rest in uppercase.",
-            "updated": 1610216790819
+            "updated": 1610216790819,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как обычно, убедитесь, что вы следуете правилам  JavaScript, согласно которым первое слово пишется в нижнем регистре, а остальные - в верхнем.",
+                    "updated": 1640094467430
+                },
+                {
+                    "language": "DE",
+                    "text": "Achten Sie wie üblich auf die JavaScriptcamel case Schreibweise, bei der das erste Wort kleingeschrieben und der Rest großgeschrieben wird.",
+                    "updated": 1640038214600
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Copy Node Path"
+            "text": "Copy Node Path",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Node Pfad kopieren",
+                    "updated": 1640038235597
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For ease of use, you may copy the path of any node that holds a valid value directly from within the node’s menu. Simply use the Copy Node Path button."
+            "text": "For ease of use, you may copy the path of any node that holds a valid value directly from within the node’s menu. Simply use the Copy Node Path button.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для удобства использования вы можете скопировать путь любого узла, содержащего действительное значение, непосредственно из меню узла. Просто воспользуйтесь кнопкой Copy Node Path (Копировать путь узла).",
+                    "updated": 1640094635196
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Einfachheit halber können Sie den Pfad jeder Node, der einen gültigen Wert enthält, direkt aus dem Menü der Node kopieren. Verwenden Sie einfach die Schaltfläche Knotenpfad kopieren(Copy Node Path).",
+                    "updated": 1640038289355
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Formula Example"
+            "text": "Formula Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример формулы",
+                    "updated": 1640094665879
+                },
+                {
+                    "language": "DE",
+                    "text": "Formel Beispiel",
+                    "updated": 1640038301670
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let’s say you wish to set a take profit 3% above the initial target rate you defined in the open stage of your strategy."
+            "text": "Let’s say you wish to set a take profit 3% above the initial target rate you defined in the open stage of your strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы хотите установить тейк-профит на 3% выше начальной целевой ставки, которую вы определили на стадии открытия вашей стратегии.",
+                    "updated": 1640094710176
+                },
+                {
+                    "language": "DE",
+                    "text": "Angenommen, Sie möchten einen Take-Profit festlegen, der 3 % über dem anfänglichen Kursziel liegt, das Sie in der Eröffnungsphase(open stage) Ihrer Strategie festgelegt haben.",
+                    "updated": 1640038375062
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "That value is stored in the Entry Target Rate node under the Current Position.",
-            "updated": 1610216903247
+            "updated": 1610216903247,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это значение хранится в узле Entry Target Rate.",
+                    "updated": 1640094829783
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieser Wert wird in der Node Entry Target Rate (Eingabezielsatz) unter der aktuellen Position gespeichert.",
+                    "updated": 1640038404034
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "So, the formula for the take profit phase is:"
+            "text": "So, the formula for the take profit phase is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Итак, формула для фазы тейк-профита такова:",
+                    "updated": 1640094852867
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Formel für die Take Profit-Phase lautet also:",
+                    "updated": 1640038422732
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -68,7 +196,19 @@
         {
             "style": "Success",
             "text": "All of this will become clear when you study the Trading Engine hierarchy!",
-            "updated": 1610216962576
+            "updated": 1610216962576,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все это станет ясно, когда вы изучите иерархию Trading Engine!",
+                    "updated": 1640094876193
+                },
+                {
+                    "language": "DE",
+                    "text": "All dies wird Ihnen klar, wenn Sie die des Trading Engine Hierarchie studieren!",
+                    "updated": 1640038461303
+                }
+            ]
         }
     ]
 }

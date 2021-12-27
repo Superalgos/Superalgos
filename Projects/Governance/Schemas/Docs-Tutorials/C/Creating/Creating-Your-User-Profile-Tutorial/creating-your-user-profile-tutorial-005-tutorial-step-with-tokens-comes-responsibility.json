@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Хранение токенов это нечто большее, чем просто демонстрация обязательств. Токены SA также наделяют Token Power!",
                 "updated": 1639044921538
+            },
+            {
+                "language": "DE",
+                "text": "Der Besitz von Tokens ist mehr als nur ein Zeichen des Engagements. SA-Token verleihen auch Token Power!",
+                "updated": 1640072274888
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Чем больше у вас токенов, тем большее влияние вы можете иметь на направление проекта. Это означает, что, владея токенами SA, вы имеете право использовать эти токены для оказания влияния на то, какие части системы будут развиваться и как будет развиваться сообщество.",
                     "updated": 1639044961113
+                },
+                {
+                    "language": "DE",
+                    "text": "Je mehr Token Sie besitzen, desto mehr Einfluss können Sie auf die Richtung des Projekts haben. Das bedeutet, dass Sie durch den Besitz von SA-Token die Macht haben, diese Token zu nutzen, um Einfluss darauf zu nehmen, welche Teile des Systems entwickelt werden und wie sich die Gemeinschaft entwickelt.",
+                    "updated": 1640072334022
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "RU",
                     "text": "Это работает в цикле. Чем больше вы вносите, тем больше токенов вы зарабатываете, тем больше у вас репутации!",
                     "updated": 1639044978300
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies funktioniert in einem Kreislauf. Je mehr Sie beitragen, desto mehr Token verdienen Sie, desto mehr Mitspracherecht haben Sie!",
+                    "updated": 1640072340534
                 }
             ]
         }

@@ -1,6 +1,6 @@
 exports.newPortfolioManagementBotModulesPortfolioOutput = function (processIndex) {
     /*
-    This module will load if necesary all the data outputs so that they can be appended with new
+    This module will load if necessary all the data outputs so that they can be appended with new
     records if needed. After running the simulation, it will save all the data outputs.
     */
     const MODULE_NAME = 'Portfolio Output'
@@ -23,9 +23,9 @@ exports.newPortfolioManagementBotModulesPortfolioOutput = function (processIndex
             let fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex)
 
             if (timeFrame > TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[0][0]) {
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_PROCESSING_DAILY_FILES = false
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES = false
             } else {
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PORTFOLIO_PROCESSING_DAILY_FILES = true
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES = true
             }
 
             /* Preparing everything for the Simulation */
@@ -44,19 +44,19 @@ exports.newPortfolioManagementBotModulesPortfolioOutput = function (processIndex
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine.portfolioCurrent.portfolioEpisode.headOfTheMarket.value
             )
 
+            portfolioSimulationModuleObject.initialize(outputDatasetsMap)
             await portfolioSimulationModuleObject.runSimulation(
                 chart,
                 market,
-                exchange,
-                outputDatasetsMap,
-                writeOutputFiles
+                exchange
             )
-
             portfolioSimulationModuleObject.finalize()
+
+            await writeOutputFiles()
             return
 
-            function writeOutputFiles() {
-                TS.projects.foundations.functionLibraries.outputManagementFunctions.writeFiles(
+            async function writeOutputFiles() {
+                await TS.projects.foundations.functionLibraries.outputManagementFunctions.writeFiles(
                     processIndex,
                     outputDatasets,
                     outputDatasetsMap,

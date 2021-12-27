@@ -52,9 +52,9 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                     return
                                 }
 
-                                let signalMessage = JSON.parse(bodyString)
+                                let signal = JSON.parse(bodyString)
 
-                                let response = await thisObject.incomingSignals.newSignal(signalMessage)
+                                let response = await thisObject.incomingSignals.newSignal(signal)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
                             } catch (err) {

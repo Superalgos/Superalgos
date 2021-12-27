@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Eğitime devam edelim! Aşağıdaki komutu kopyalayın, arama/komut kutusuna yapıştırın ve Enter'a basın!",
                 "updated": 1640002139013
+            },
+            {
+                "language": "RU",
+                "text": "Давайте приступим к выполнению поставленной задачи! Скопируйте приведенную ниже команду, вставьте ее в поле поиска/команды и нажмите Enter!",
+                "updated": 1640163425317
             }
         ]
     },
@@ -66,6 +71,11 @@
                     "language": "TR",
                     "text": "Windows'ta, belirteciniz veya parolanızla kimlik doğrulaması yapmanızı sağlayan bir GitHub oturum açma iletişim kutusu açılır. Her ikiside işe yaramalıdır!Bu işlem için Git'in en son sürümünün gerekli olduğunu unutmayın! En son sürümle ilgili sorunlarınız varsa, bilgisayarı yeniden başlatmak yardımcı olabilir. Mac ve Linux'ta kimlik bilgilerini soran Terminal'dir. GitHub'da iki faktörlü kimlik doğrulamayı etkinleştirdiyseniz, şifre istense bile belirtecinizi kullanın!",
                     "updated": 1640002336323
+                },
+                {
+                    "language": "RU",
+                    "text": "В Windows появится диалоговое окно входа в GitHub, предлагающее пройти аутентификацию с помощью токена или пароля. Любой из этих вариантов должен сработать! Помните, что требуется последняя версия Git! Если у вас проблемы с последней версией, перезагрузка компьютера может помочь. На Mac и Linux учетные данные запрашивает Терминал. Если вы включили двухфакторную аутентификацию на GitHub, используйте токен, даже если вас попросят ввести пароль!",
+                    "updated": 1640163486555
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Record Property - это часть информации, которая может быть сохранена как часть набора данных или сделана доступной как вычисляемое свойство.",
                 "updated": 1639592498808
+            },
+            {
+                "language": "DE",
+                "text": "Eine record property (Datensatzeigenschaft) ist eine Information, die als Teil des Datasets (Datensatzes) gespeichert oder als berechnete property (Eigenschaft) verfügbar gemacht werden kann.",
+                "updated": 1640035168598
             }
         ]
     },

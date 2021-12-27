@@ -38,6 +38,11 @@
                     "language": "DE",
                     "text": "Sie werden in Kürze eine Meldung erhalten, die Ihnen mitteilt, ob eine neue Version gefunden wurde oder ob es sich bei der von Ihnen verwendeten Version um die letzte verfügbare handelt!",
                     "updated": 1638037245983
+                },
+                {
+                    "language": "RU",
+                    "text": "Вскоре вы получите уведомление, информирующее вас о том, была ли найдена новая версия, или о том, что версия, которую вы используете, является последней доступной!",
+                    "updated": 1640089290172
                 }
             ]
         }

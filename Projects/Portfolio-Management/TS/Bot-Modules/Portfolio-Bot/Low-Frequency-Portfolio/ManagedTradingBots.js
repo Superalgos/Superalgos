@@ -90,7 +90,7 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
 
         if (
             candle.begin === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value &&
-            candle.close === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.close
+            candle.end === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
         ) {
             response = {
                 status: 'Ok',
@@ -106,12 +106,8 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
                 status: 'Not Ok',
                 reason: "Portfolio Manager Is At This Candle",
                 candle: {
-                    begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
-                    end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
-                    open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
-                    close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
-                    min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
-                    max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+                    begin: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value,
+                    end: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
                 }
             }
         }
@@ -137,7 +133,7 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
 
         if (
             candle.begin === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value &&
-            candle.close === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.close
+            candle.end === portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
         ) {
             response = {
                 status: 'Ok',
@@ -153,12 +149,8 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
                 status: 'Not Ok',
                 reason: "Portfolio Manager Is At This Candle",
                 candle: {
-                    begin: tradingEngine.tradingCurrent.tradingEpisode.candle.begin.value,
-                    end: tradingEngine.tradingCurrent.tradingEpisode.candle.end.value,
-                    open: tradingEngine.tradingCurrent.tradingEpisode.candle.open.value,
-                    close: tradingEngine.tradingCurrent.tradingEpisode.candle.close.value,
-                    min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
-                    max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
+                    begin: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value,
+                    end: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
                 }
             }
         }

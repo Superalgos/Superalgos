@@ -46,9 +46,10 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     Return Response 
                     */
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-                        message.callerId,
+                        SESSION_KEY,
                         'Response From Portfolio Manager',
-                        response
+                        response,
+                        SESSION_KEY
                     )
                 }
             }

@@ -126,7 +126,7 @@ It is also possible to install the Superalgos Platfrom from source code. This is
 
 > **Note**: 
 > 
-> If you are just starting out and want to contribute, this is the recommended meathod of installation to follow.
+> If you are just starting out and want to contribute, this is the recommended method of installation to follow.
 
 All procedures (other than pre-requisites) are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 

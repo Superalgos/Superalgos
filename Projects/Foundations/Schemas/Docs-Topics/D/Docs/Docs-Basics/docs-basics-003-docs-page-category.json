@@ -28,6 +28,11 @@
                 "language": "RU",
                 "text": "Документы содержат шесть категорий страниц: Node, Concept, Topic, Tutorial, Review, and Book. Каждая категория представлена ​​вкладкой в ​​результатах поиска документов.",
                 "updated": 1638458497233
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar altı sayfa kategorisinde toplanmıştır: Düğüm ( Node ), Kavram ( Concept ), Konu ( Topic ), Eğitim ( Tutorial ), İnceleme ( Review ) ve Kitap ( Book ). Her kategori, Dokümanlar Arama Sonuçlarında bir sekme ile gösterilir.",
+                "updated": 1640610203305
             }
         ]
     },

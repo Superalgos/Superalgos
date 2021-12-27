@@ -15,7 +15,6 @@ import {
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {actionsNav} from './interactionsConfig.json';
-import {reactToPost} from "../../api/httpService";
 import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 
 // todo need proper style, and handle from css file
@@ -27,7 +26,7 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-const PostFooter = (props) => { // props needed? review
+const PostFooter = ({reactions}) => { // props needed? review
 
     // todo need proper style, and handle from css file
     const dialStyle = {
@@ -51,10 +50,8 @@ const PostFooter = (props) => { // props needed? review
     const [replyModal, setReplyModal] = useState(false)
 
     const BadgeCounterValue = () => {
-        let {data} = reactToPost();
-        //console.log(data);
-        setLikeValue(data[0][1]) // need an callback
-        let reactionsValue = data.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
+        setLikeValue(reactions[0][1]) // need an callback
+        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
         setBadgeValues(reactionsValue)
 
     }
@@ -77,6 +74,7 @@ const PostFooter = (props) => { // props needed? review
 
     const handleLikeReaction = (e, id, name) => {
         e.stopPropagation()
+
         console.log(`click on button ${name}, id ${id}`)
     }
 
@@ -163,7 +161,7 @@ const PostFooter = (props) => { // props needed? review
                     >
                         { actionsNav.map(e => {
                             const {id, name, badgeCounter, icon} = e
-                            return FooterButton(String(id), name, icon, badgeValues[badgeCounter]) /* todo need populate the reactions bar with the new array */
+                            return FooterButton(String(id), name, icon, badgeValues[badgeCounter])
                         })}
                     </SpeedDial>
                 </Stack>

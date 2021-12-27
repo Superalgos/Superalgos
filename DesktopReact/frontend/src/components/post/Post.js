@@ -7,7 +7,7 @@ import FooterReply from "../FooterReply/FooterReply";
 import {useNavigate} from "react-router-dom";
 
 const Post = ({postData}) => {
-    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId} = postData;
+    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId, emitterPost: {reactions: reactions} } = postData;
     let navigate = useNavigate()
     const [collapse, setCollapse] = useState(false)
     const ToggleCollapseComment = () => setCollapse(!collapse)
@@ -31,7 +31,7 @@ const Post = ({postData}) => {
                 <Stack className="postBody">
                     {postBody}
                 </Stack>
-                <PostFooter stateCallback={ToggleCollapseComment}/>
+                <PostFooter  reactions={reactions} stateCallback={ToggleCollapseComment}/>
                 <FooterReply show={collapse}
                 />
             </Card></div>

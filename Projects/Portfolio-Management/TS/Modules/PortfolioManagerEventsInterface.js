@@ -8,15 +8,20 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
         finalize: finalize
     }
 
+    let tradingBotsInterfaceModuleObject
+
     return thisObject
 
-    function initialize(portfolioSystemModuleObject) {
+    function initialize(managedTradingBotsModuleObject) {
+
+        tradingBotsInterfaceModuleObject = TS.projects.portfolioManagement.modules.tradingBotsInterface.newPortfolioManagementModulesTradingBotsInterface(processIndex)
+        tradingBotsInterfaceModuleObject.initialize(managedTradingBotsModuleObject)
 
         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
 
             let SESSION_KEY = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.name +
                 '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
-                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id;
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id
 
             waitForRequests()
 
@@ -31,18 +36,20 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     onRequest)
 
                 function onRequest() {
-                    let message = arguments[0]
+                    let eventMessage = arguments[0]
 
-                    /* Run Validations on the Message Received. */
-                    // TODO
-
-                    portfolioSystemModuleObject.processEvent(message.event)
-
-                    /* Return Response */
+                    let response = tradingBotsInterfaceModuleObject.processMessage(
+                        SESSION_KEY,
+                        eventMessage.event
+                    )
+                    /* 
+                    Return Response 
+                    */
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-                        message.callerId,
+                        SESSION_KEY,
                         'Response From Portfolio Manager',
-                        message.event
+                        response,
+                        SESSION_KEY
                     )
                 }
             }
@@ -50,6 +57,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
     }
 
     function finalize() {
-
+        tradingBotsInterfaceModuleObject.finalize()
+        tradingBotsInterfaceModuleObject = undefined
     }
 }

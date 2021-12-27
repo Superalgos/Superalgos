@@ -25,11 +25,6 @@
                 "language": "IT",
                 "text": "Sei arrivato alla fine di questo tutorial!",
                 "updated": 1640111747286
-            },
-            {
-                "language": "TR",
-                "text": "Bu eğitimdeki son adımdır, ancak sizin için ilk büyük adımdır!",
-                "updated": 1640593131271
             }
         ]
     },
@@ -54,11 +49,6 @@
                     "language": "IT",
                     "text": "Ora che hai visto quanto sia facile e veloce implementare strategie semplici in SA, ti lascio con alcuni suggerimenti che puoi esplorare.",
                     "updated": 1640111763816
-                },
-                {
-                    "language": "TR",
-                    "text": "Artık SA'da basit stratejileri uygulamanın ne kadar hızlı ve kolay olduğunu gördüğünüze göre, size keşfedebileceğiniz bazı ipuçları bırakıyorum.",
-                    "updated": 1640593160420
                 }
             ]
         },
@@ -81,11 +71,6 @@
                     "language": "IT",
                     "text": "Per esempio potresti aggiungere un nuovo indicatore e utilizzare le sue proprietà come un filtro aggiuntivo per il Trigger Stage.",
                     "updated": 1640111791051
-                },
-                {
-                    "language": "TR",
-                    "text": "Belki yeni bir gösterge ekleyebilir ve özelliklerini Tetik Aşaması ( Trigger Stage ) için ek bir filtre gibi kullanabilirsiniz.",
-                    "updated": 1640593247367
                 }
             ],
             "updated": 1622980962381
@@ -109,11 +94,6 @@
                     "language": "IT",
                     "text": "O potresti provare ad impostare un Trailer Stop Loss.",
                     "updated": 1640111815335
-                },
-                {
-                    "language": "TR",
-                    "text": "Ya da SL'yi, bir sonraki sabit bir isteme sahip olacak şekilde değiştirebilirsiniz.",
-                    "updated": 1640593499470
                 }
             ]
         },
@@ -137,11 +117,6 @@
                     "language": "IT",
                     "text": "Grazie per il tuo impegno. Se desideri qui puoi trovare un articolo riguardo questo tutorial: http://bit.ly/9808usHelloWorld",
                     "updated": 1640111869718
-                },
-                {
-                    "language": "TR",
-                    "text": "Not: Zaman ayırdığınız için teşekkür ederim. Daha ayrıntılı makaleyi buradan okuyabilirsiniz: http://bit.ly/9808usHelloWorld",
-                    "updated": 1640593622761
                 }
             ]
         }

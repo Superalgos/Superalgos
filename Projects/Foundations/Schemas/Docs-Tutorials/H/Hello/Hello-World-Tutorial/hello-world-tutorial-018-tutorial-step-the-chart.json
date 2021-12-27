@@ -25,11 +25,6 @@
                 "language": "IT",
                 "text": "Goditi il backtest!",
                 "updated": 1640111170974
-            },
-            {
-                "language": "TR",
-                "text": "Backtest'in tadını çıkarın!",
-                "updated": 1640592121713
             }
         ]
     },
@@ -54,49 +49,23 @@
                     "language": "IT",
                     "text": "Premi SHIFT + CTRL + FRECCIA GIU per far comparire la Chart e rendi visibili i seguenti pannelli:",
                     "updated": 1640111668328
-                },
-                {
-                    "language": "TR",
-                    "text": "Şimdi Grafik Alanı'na ( Charting Space ) geçme ve tüm hiyerarşiyi durdursanız harekete geçme zamanı:",
-                    "updated": 1640592334294
                 }
             ]
         },
         {
             "style": "List",
             "text": "Episodes",
-            "updated": 1614269968163,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Bölümler",
-                    "updated": 1640592362105
-                }
-            ]
+            "updated": 1614269968163
         },
         {
             "style": "List",
             "text": "Strategies",
-            "updated": 1614269964528,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Stratejiler ( Strategies )",
-                    "updated": 1640592397675
-                }
-            ]
+            "updated": 1614269964528
         },
         {
             "style": "List",
             "text": "Candles",
-            "updated": 1622386265635,
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Mumlar",
-                    "updated": 1640592412507
-                }
-            ]
+            "updated": 1622386265635
         },
         {
             "style": "List",
@@ -107,24 +76,12 @@
                     "language": "IT",
                     "text": "Buy e Sell Market Orders",
                     "updated": 1640111675322
-                },
-                {
-                    "language": "TR",
-                    "text": "Piyasa Emirleri ( Market Orders ) Al ve Sat",
-                    "updated": 1640592444493
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Position Quoted Asset",
-            "translations": [
-                {
-                    "language": "TR",
-                    "text": "Pozisyon Kote Edilen Varlık ( Position Quoted Asset )",
-                    "updated": 1640592499199
-                }
-            ]
+            "text": "Position Quoted Asset"
         },
         {
             "style": "Success",
@@ -146,11 +103,6 @@
                     "language": "IT",
                     "text": "Prenditi un pò di tempo per esplorare il backtest. Aggiungi la SMA al grafico e controlla se il bot ha eseguito le operazioni dove ti aspettavi venissero fatte.",
                     "updated": 1640111718571
-                },
-                {
-                    "language": "TR",
-                    "text": "İpucu: Zaman ayırın ve görsel sonuçları keşfedin. SMA göstergesini grafiğe uygulayın ve botun beklendiği zaman pozisyon aldığından emin olun.",
-                    "updated": 1640592550786
                 }
             ]
         }

@@ -13,10 +13,10 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Raise Event",
+            "label": "Add Set Event",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "raiseEvent",
-            "relatedUiObject": "Raise Event",
+            "propertyToCheckFor": "setEvent",
+            "relatedUiObject": "Set Event",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -44,9 +44,9 @@
             "childType": "Confirm Event"
         },
         {
-            "name": "raiseEvent",
+            "name": "setEvent",
             "type": "node",
-            "childType": "Raise Event"
+            "childType": "Set Event"
         }
     ],
     "propertyNameAtParent": "askPortfolioEventsManager"

@@ -1,12 +1,12 @@
 {
-    "type": "Raise Event Rules",
+    "type": "Set Event Reference",
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Raise Event Rules",
-            "relatedUiObject": "Raise Event Reference",
+            "label": "Add Situation",
+            "relatedUiObject": "Situation",
             "actionFunction": "payload.executeAction",
-            "relatedUiObjectProject": "Portfolio-Management",
+            "relatedUiObjectProject": "Foundations",
             "actionProject": "Visual-Scripting"
         },
         {
@@ -23,14 +23,17 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Events Manager->"
+        "compatibleTypes": "->Set Event Rules->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Trigger On Event->Trigger Off Event->Take Position Event->Create Order Event->Cancel Order Event->Close Stage Event->Next Phase Event->Move To Phase Event->"
     },
     "childrenNodesProperties": [
         {
-            "name": "raiseEventReference",
+            "name": "situations",
             "type": "array",
-            "childType": "Raise Event Reference"
+            "childType": "Situation"
         }
     ],
-    "propertyNameAtParent": "raiseEventRules"
+    "propertyNameAtParent": "setEventReference"
 }

@@ -7,7 +7,7 @@ const getPosts = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const result = await postService.createPost(req);
+    const result = await postService.createPost(req.body);
     res.send(result);
   } catch (error) {
       console.log(error);

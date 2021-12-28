@@ -5,10 +5,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     */
     const MODULE_NAME = 'Portfolio System'
     let thisObject = {
-        confirmThisEvent: confirmThisEvent, 
-        setThisEvent: setThisEvent, 
-        confirmThisFormula: confirmThisFormula, 
-        setThisFormula: setThisFormula, 
+        confirmThisEvent: confirmThisEvent,
+        setThisEvent: setThisEvent,
+        confirmThisFormula: confirmThisFormula,
+        setThisFormula: setThisFormula,
         mantain: mantain,
         reset: reset,
         run: run,
@@ -30,7 +30,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     let portfolioEngine
     let sessionParameters
 
-    let portfolioManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioManager(processIndex)
+    let portfolioEventsManagerModuleObject
+    let portfolioFormulasManagerModuleObject
 
     /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -47,7 +48,11 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem.conditions = new Map()
         portfolioSystem.formulas = new Map()
 
-        portfolioManagerModuleObject.initialize()
+        portfolioEventsManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioEventsManager(processIndex)
+        portfolioEventsManagerModuleObject.initialize()
+
+        portfolioFormulasManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioFormulasManager(processIndex)
+        portfolioFormulasManagerModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Portfolio System Definition */
         portfolioSystem.checkConditions = function (situation, passed) {
@@ -79,7 +84,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
 
         portfolioSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
-          evalNode(startingNode, 'User Codes', descendentOfNodeType);
+            evalNode(startingNode, 'User Codes', descendentOfNodeType);
         }
 
         portfolioSystem.addError = function (errorDataArray) {
@@ -131,8 +136,11 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function finalize() {
-        portfolioManagerModuleObject.finalize()
-        portfolioManagerModuleObject = undefined
+        portfolioEventsManagerModuleObject.finalize()
+        portfolioEventsManagerModuleObject = undefined
+
+        portfolioFormulasManagerModuleObject.finalize()
+        portfolioFormulasManagerModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -157,12 +165,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function mantain() {
-        portfolioManagerModuleObject.mantain()
+
     }
 
     function reset() {
-        portfolioManagerModuleObject.reset()
-
         portfolioSystem.highlights = []
         portfolioSystem.errors = []
         portfolioSystem.warnings = []
@@ -183,13 +189,12 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         exchange = pExchange
         market = pMarket
 
-        portfolioManagerModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     async function run() {
         try {
 
-            portfolioManagerModuleObject.cycleBasedStatistics()
+
 
         } catch (err) {
             /*
@@ -252,11 +257,11 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
         /* Here we check if there is a User Defined-Javascript Code to be evaluated: */
         if (node.type === 'Javascript Code' && evaluating === 'User Codes') {
-          if (node.code !== undefined) {
-            if (isDescendent === true) {
-              evalJSCode(node);
+            if (node.code !== undefined) {
+                if (isDescendent === true) {
+                    evalJSCode(node);
+                }
             }
-          }
         }
 
         /* Now we go down through all this node children */
@@ -411,29 +416,29 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function evalJSCode(node) {
-      let value
-      let errorMessage
-      let docs
+        let value
+        let errorMessage
+        let docs
 
-      try {
-        value = eval(node.code);
+        try {
+            value = eval(node.code);
 
-      } catch (err) {
-        value = 0
-        errorMessage = err.message
-        docs = {
-            project: 'Foundations',
-            category: 'Topic',
-            type: 'TS LF Portfolio Bot Error - Evaluating User Code Error',
-            placeholder: {}
+        } catch (err) {
+            value = 0
+            errorMessage = err.message
+            docs = {
+                project: 'Foundations',
+                category: 'Topic',
+                type: 'TS LF Portfolio Bot Error - Evaluating User Code Error',
+                placeholder: {}
+            }
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
-        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
-      }
 
-      if (errorMessage !== undefined) {
-          portfolioSystem.addError([node.id, errorMessage, docs])
-          TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
-          return
-      }
+        if (errorMessage !== undefined) {
+            portfolioSystem.addError([node.id, errorMessage, docs])
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
+            return
+        }
     }
 }

@@ -1,4 +1,4 @@
-exports.newPortfolioManagementModulesTradingBotsInterface = function (processIndex) {
+exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = function (processIndex) {
     /*
     This object represents a proxy of the Profile Manager. It is used to send 
     questions to the Event and Formula Managers and receive their answers.
@@ -8,19 +8,19 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
         initialize: initialize,
         finalize: finalize
     }
-    let managedTradingBotsModuleObject
+    let portfolioManagedTradingBotsModuleObject
     let portfolioSystemModuleObject
 
     return thisObject
 
     function initialize(managedTradingBots, portfolioSystem) {
-        managedTradingBotsModuleObject = managedTradingBots
+        portfolioManagedTradingBotsModuleObject = managedTradingBots
         portfolioSystemModuleObject = portfolioSystem
         portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
     }
 
     function finalize() {
-        managedTradingBotsModuleObject = undefined
+        portfolioManagedTradingBotsModuleObject = undefined
         portfolioSystemModuleObject = undefined
     }
 
@@ -32,14 +32,14 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
 
         switch (message.type) {
             case 'Check In Candle': {
-                response = managedTradingBotsModuleObject.checkInCandle(
+                response = portfolioManagedTradingBotsModuleObject.checkInCandle(
                     SESSION_KEY,
                     message.candle
                 )
                 break
             }
             case 'Check Out Candle': {
-                response = managedTradingBotsModuleObject.checkOutCandle(
+                response = portfolioManagedTradingBotsModuleObject.checkOutCandle(
                     SESSION_KEY,
                     message.candle
                 )

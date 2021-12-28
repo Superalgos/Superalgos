@@ -1,4 +1,4 @@
-exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIndex) {
+exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (processIndex) {
     /*
     This object represents the Trading Bots being managed and it solves
     the syncronization problem between the Portfolio Bot Simulation and the 

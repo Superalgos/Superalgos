@@ -4,17 +4,38 @@
     "type": "Superalgos Review - elcoder's Superalgos Review",
     "definition": {
         "text": "I've just started using Superalgos and so far I'm blown away. The way the design is structured and the fact that everything is visualized makes it very intuitive and easier to grasp than comparable systems that are lacking in these areas.",
-        "updated": 1621253734755
+        "updated": 1621253734755,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Я только что начал использовать Superalgos, и уже нахожусь в полном восторге. То, как структурирован дизайн и то, что все визуализировано, делает его очень интуитивным и более легким для восприятия, чем аналогичные системы, которым не хватает этих качеств.",
+                "updated": 1640412481470
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "On top of that, this makes every structure (trading strategy, data mining, backtesting, etc...) highly configurable without the need for programming experience. ",
-            "updated": 1621253740784
+            "updated": 1621253740784,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, это делает каждую структуру (торговую стратегию, анализ данных, бэктестинг и т.д.) легко настраиваемой без необходимости опыта программирования.",
+                    "updated": 1640412514960
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like I said, I'm very new to this project and for the short time I've used it I am falling in love with it. After delving into the first 3 tutorials it becomes quite obviouse that the potencial for both the Superalgos project and its'users are through the roof."
+            "text": "Like I said, I'm very new to this project and for the short time I've used it I am falling in love with it. After delving into the first 3 tutorials it becomes quite obviouse that the potencial for both the Superalgos project and its'users are through the roof.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как я уже сказал, я совсем новичок в этом проекте, и за то короткое время, что я им пользуюсь, я влюбился в него. После изучения первых трех руководств становится совершенно очевидно, что потенциал проекта Superalgos и его пользователей просто зашкаливает.",
+                    "updated": 1640412545157
+                }
+            ]
         },
         {
             "style": "Text",

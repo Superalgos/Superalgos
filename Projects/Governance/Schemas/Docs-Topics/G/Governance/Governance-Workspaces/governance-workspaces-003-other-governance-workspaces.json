@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Этот термин относится к рабочим пространствам Governance Workspaces для конкретного проекта, в отличие от основной рабочего пространства Token Distribution Superalgos Governance Workspace. Рабочие пространства для конкретных проектов имеют схожую компоновку, поскольку разные проекты обычно имеют одинаковые типы категорий Assets, Features, Positions и Pools.",
                 "updated": 1639028790397
+            },
+            {
+                "language": "ES",
+                "text": "El término se refiere a proyectos específicos del Governance Workspaces, a diferencia del principal Token Distribution Superalgos Governance Workspace. Los espacios de trabajo específicos del proyecto tienen un diseño similar, ya que diferentes proyectos suelen tener los mismos tipos de Categorías de Activos, Funciones, Posiciones y Grupos.",
+                "updated": 1640615144989
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "language": "RU",
                     "text": "Только для команды Core Team, чтобы рабочие места оставались легкими.",
                     "updated": 1639028955776
+                },
+                {
+                    "language": "ES",
+                    "text": "Solo miembros del Core Team, para mantener los espacios de trabajo ligeros.",
+                    "updated": 1640615022916
                 }
             ]
         },
@@ -60,6 +70,11 @@
                     "language": "RU",
                     "text": "Иерархия Superalgos Pools (присутствует во всех рабочих областях управления Governance Workspaces для удобства использования)",
                     "updated": 1639029067732
+                },
+                {
+                    "language": "ES",
+                    "text": "Jerarquía Superalgos Pools  (presente en todos los Governance Workspaces por razones de usabilidad).",
+                    "updated": 1640614984704
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "RU",
                     "text": "Иерархия Pools для конкретного проекта (например, Foundation-Project или Education-Project), определяющая пулы для основных областей программного обеспечения, включая пулы для активов, функций, должностей, исправлений ошибок и улучшений.",
                     "updated": 1639029368417
+                },
+                {
+                    "language": "ES",
+                    "text": "Un proyecto específico de jerarquía Pools (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) definiendo poolspara las principales áreas del software, incluyendo pools para activos , funciones, posiciones, correcciones de errores y mejoras.",
+                    "updated": 1640614918499
                 }
             ]
         },
@@ -84,6 +104,11 @@
                     "language": "RU",
                     "text": "Иерархия пулов для конкретных проектов для активов (например, Foundations-Project-Assets или Education-Project-Assets), обеспечивающая более детальное определение различных пулов для нескольких категорий активов, таких как пользовательский интерфейс, сервер задач, схемы приложений, собственный код, образование, мультимедиа и плагины.",
                     "updated": 1639029312209
+                },
+                {
+                    "language": "ES",
+                    "text": "Un proyecto específico de jerarquía Pools para activos (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) proporcionando una definición m��s granular de varios poolspara varias categorías de activos, como interfaz de usuario, servidor de tareas, esquemas de aplicaciones, código personalizado, educación, multimedia y complementos.",
+                    "updated": 1640614838539
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Иерархия должностей для конкретного проекта (например, Foundation-Project или Education-Project), определяющая такие должности, как ведущий разработчик проекта или специалисты по поиску ошибок.",
                     "updated": 1639029347531
+                },
+                {
+                    "language": "ES",
+                    "text": "Un proyecto específico de jerarquía Positions (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) definiendo posiciones como el desarrollador líder del proyecto o los cazadores de errores.",
+                    "updated": 1640614671742
                 }
             ]
         },
@@ -114,6 +144,11 @@
                     "language": "RU",
                     "text": "Иерархия функций для конкретного проекта (например, Foundation-Project или Education-Project), обычно определяющая функции для конкретного проекта.",
                     "updated": 1639029391736
+                },
+                {
+                    "language": "ES",
+                    "text": "Un proyecto específico de jerarquía Features (por ejemplo,Projecto-Fundamentos o Projecto-Educación ) generalmente definiendo características específicas del proyecto.",
+                    "updated": 1640614711617
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "RU",
                     "text": "Несколько иерархий ресурсов для конкретных проектов, определяющих несколько категорий ресурсов, например:",
                     "updated": 1639029440130
+                },
+                {
+                    "language": "ES",
+                    "text": "Varios proyectos específicos de jerarquías Assets  definiendo múltiples categorías de activos, como:",
+                    "updated": 1640614513545
                 }
             ]
         },

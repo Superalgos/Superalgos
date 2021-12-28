@@ -14,6 +14,11 @@
                 "text": "Aber bevor wir weitergehen, lasst uns sicherstellen, dass wir mit einem frischen Workspace beginnen!\n",
                 "updated": 1622984994787,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Но прежде чем мы продолжим, давайте убедимся, что мы начинаем со свежего рабочего пространства!",
+                "updated": 1640544060649
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Workspaces, die als Plugin Workspaces gekennzeichnet sind, werden mit der Software ausgeliefert. Die übrigen gehören dir. Wenn du einen Plugin Workspace öffnest, wird eine Kopie davon für dich erstellt. Plugins bleiben immer unverändert.",
                     "updated": 1622985089032,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Рабочие пространства, отмеченные как Plugin Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
+                    "updated": 1640544101842
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Dieses Tutorial erfordert den Start mit einem frischen Plugin Weak-hands Buster v2 Workspace. Wenn du also das Plugin Workspace nicht direkt vor dem Start geladen hast, wähle es bitte aus dem Workspace-Panel auf der linken Seite aus und komm zurück zu mir, nachdem der Workspace geladen wurde - klicke einfach auf Resume in meinem Menü!",
                     "updated": 1622985298857,
                     "style": "Important"
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот учебник необходимо начинать со свежего рабочего пространства Plugin Weak-hands Buster v2. Поэтому, если вы не загрузили рабочее пространство плагина прямо перед началом, пожалуйста, выберите его на панели рабочего пространства слева и вернитесь ко мне после загрузки рабочего пространства - просто нажмите Resume в моем меню!",
+                    "updated": 1640544149845
                 }
             ]
         }

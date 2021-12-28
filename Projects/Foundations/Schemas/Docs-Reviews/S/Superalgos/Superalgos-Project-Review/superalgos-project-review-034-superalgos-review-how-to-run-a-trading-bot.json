@@ -4,7 +4,14 @@
     "type": "Superalgos Review - How to Run a Trading Bot",
     "definition": {
         "text": "Thus far I have learned alot about how the different crypto trading platforms work and how to get information from them.  The tutorials are good for someone with at least some background in working with computer code.  Overall I am excited to keep working through the tutorials. I hope to see even more exchanges on superalgos. Great work so far everyone and I hope I can contribute something to the project.",
-        "updated": 1636063209051
+        "updated": 1636063209051,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "На данный момент я узнал много нового о том, как работают различные криптовалютные торговые платформы и как получать от них информацию. Учебники подходят для тех, кто хотя бы немного знаком с работой с компьютерным кодом. В целом, я с удовольствием продолжу работу над учебниками. Я надеюсь увидеть еще больше бирж на Superalgos. Пока что все отлично поработали, и я надеюсь, что смогу внести свой вклад в проект.",
+                "updated": 1640418560894
+            }
+        ]
     },
     "paragraphs": [
         {

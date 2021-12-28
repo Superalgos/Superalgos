@@ -2,7 +2,14 @@
     "type": "Weight",
     "definition": {
         "text": "The Weight of a node is a direct proportion of the Weight Power coming into the node divided by the total amount of Weight Power coming into the whole hierarchy, and multiplied by 100, to express it as a percentage.",
-        "updated": 1630510882454
+        "updated": 1630510882454,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Weight (Вес) узла - это прямая пропорция Weight Power, поступающей в узел, деленная на общее количество Weight Power, поступающей во всю иерархию, и умноженная на 100, чтобы выразить это в процентах.",
+                "updated": 1640324112971
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Callout",
             "text": "The Weight of a node is a direct proportion of the Weight Power coming into the node divided by the total amount of Weight Power coming into the whole hierarchy, and multiplied by 100, to express it as a percentage.",
-            "updated": 1630510887120
+            "updated": 1630510887120,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Weight (Вес) узла - это прямая пропорция Weight Power, поступающей в узел, деленная на общее количество Weight Power, поступающей во всю иерархию, и умноженная на 100, чтобы выразить это в процентах.",
+                    "updated": 1640324308772
+                }
+            ]
         }
     ]
 }

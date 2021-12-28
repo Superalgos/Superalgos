@@ -4,21 +4,49 @@
     "type": "Initial Setup - Superalgos Failed to Connect Via Websockets",
     "definition": {
         "text": "If you are accessing the backend from another computer in the network, you need to configure the Network Node with the appropriate IP Address.",
-        "updated": 1611513085643
+        "updated": 1611513085643,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Если вы получаете доступ к бэкенду с другого компьютера в сети, вам необходимо настроить сетевой узел с соответствующим IP-адресом.",
+                "updated": 1640457087250
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "When you create a trading farm set up by which you intend to access the backend services running on a machine from a remote computer in the network, you must configure the Network Node in the remote computer to use the IP Address of the machine where the backend services are running.",
-            "updated": 1611513097561
+            "updated": 1611513097561,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда вы создаете торговую ферму, с помощью которой вы собираетесь получить доступ к внутренним службам, запущенным на машине, с удаленного компьютера в сети, вы должны настроить сетевой узел на удаленном компьютере на использование IP-адреса машины, на которой запущены внутренние службы.",
+                    "updated": 1640457111548
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Configuring the Network Node"
+            "text": "Configuring the Network Node",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка узла Network",
+                    "updated": 1640457143008
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Select Configure on the menu to access the configuration."
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1640457157469
+                }
+            ]
         },
         {
             "style": "Json",
@@ -27,20 +55,48 @@
         },
         {
             "style": "Text",
-            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1."
+            "text": "host is the machine or hardware represented by the network node. The default parameter is localhost, but if you intend to access the backend services of this node from a remote computer, then you must change localhost for the IP Address of the machine on which the node is running, for example, to 147.0.0.1.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "host - это машина или оборудование, представленное сетевым узлом. Параметр по умолчанию - localhost, но если вы собираетесь получить доступ к внутренним службам этого узла с удаленного компьютера, то необходимо изменить localhost на IP-адрес машины, на которой работает узел, например, на 147.0.0.1.",
+                    "updated": 1640457182296
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "webPort is the port used by the Web Server, at this stage 34248."
+            "text": "webPort is the port used by the Web Server, at this stage 34248.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "webPort - это порт, используемый веб-сервером, на данном этапе 34248.",
+                    "updated": 1640457209783
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041."
+            "text": "webSocketsPort is the port used by the system to communicate over the local area network, by default set at 18041.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "webSocketsPort - порт, используемый системой для связи по локальной сети, по умолчанию установлен на 18041.",
+                    "updated": 1640457221926
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "After configuring the network node refresh the page with F5 and the GIU should connect with the backend.",
-            "updated": 1611513135633
+            "updated": 1611513135633,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После настройки сетевого узла обновите страницу с помощью F5, и графический интерфейс должен соединиться с бэкендом.",
+                    "updated": 1640457410897
+                }
+            ]
         }
     ]
 }

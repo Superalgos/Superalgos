@@ -24,6 +24,7 @@ function newAppPostLoader() {
                 function onResponse(err, file) {
                     UI.environment = JSON.parse(file)
                     setupProjectsSchema()
+                    setupProjectsMenu()
                 }
             }
 
@@ -33,6 +34,14 @@ function newAppPostLoader() {
                 function onResponse(err, file) {
                     PROJECTS_SCHEMA = JSON.parse(file)
                     setupSchemas()
+                }
+            }
+
+            function setupProjectsMenu() {
+                httpRequest(undefined, 'ProjectsMenu', onResponse)
+
+                function onResponse(err, file) {
+                    PROJECTS_MENU = JSON.parse(file)
                 }
             }
 

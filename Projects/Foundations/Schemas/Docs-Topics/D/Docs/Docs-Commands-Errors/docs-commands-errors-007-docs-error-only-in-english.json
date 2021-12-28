@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Вы можете использовать эту команду только в английской версии документов Docs.",
                 "updated": 1638529778402
+            },
+            {
+                "language": "TR",
+                "text": "Bu komutu yalnızca Dokümanlar'ın İngilizce sürümünde kullanabilirsiniz.",
+                "updated": 1640555598708
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Dieser Befehl ist nur verfügbar, wenn Sie die Docs in englischer Sprache durchsuchen.",
                     "updated": 1633897157011
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu komut yalnızca Dokümanlar'da İngilizce dilinde gezinirken kullanılabilir.",
+                    "updated": 1640555612611
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "RU",
                     "text": "Установите английский в качестве предпочитаемого языка в нижнем колонтитуле этой страницы и попробуйте еще раз.",
                     "updated": 1638529794602
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfanın alt kısmında İngilizce'yi tercih ettiğiniz dil olarak ayarlayın ve tekrar deneyin.",
+                    "updated": 1640555636559
                 }
             ]
         },

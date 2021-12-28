@@ -16,6 +16,47 @@
             "style": "Link",
             "text": "EMA - (Investopedia)->www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp"
         },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-EMA.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The length of the Exponential Moving Average indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019EMA\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-EMA-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Exponential Moving Average | EMA | ema |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The EMA indicator could be used to generate a buy signal when a candle closes above the EMA:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at30min.candle.close > chart.at30min.EMA.ema",
+            "updated": 1636853769
+        },
         {
             "style": "Title",
             "text": "Maintainer:",

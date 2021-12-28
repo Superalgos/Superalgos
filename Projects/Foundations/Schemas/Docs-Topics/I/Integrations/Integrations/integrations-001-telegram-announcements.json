@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Richten Sie einen Telegram-Bot ein, um die Aktivität von trading sessions an eine Telegram-Gruppe zu senden. Sie können bei jedem Ereignis in Ihrer trading session Ankündigungen im Klartext oder mit dynamischem Inhalt erstellen. Ins deutsche übersetzt von gitforkgit.",
                 "updated": 1634135285796
+            },
+            {
+                "language": "RU",
+                "text": "Настройте Telegram-бота для трансляции активности торговых сессий в группу Telegram. Вы можете создавать объявления в виде обычного текста или динамического контента при каждом событии в ваших торговых системах.",
+                "updated": 1640368937595
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "DE",
                     "text": "Übersicht:",
                     "updated": 1634135272764
+                },
+                {
+                    "language": "RU",
+                    "text": "Обзор",
+                    "updated": 1640368949943
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Die Ankündigungsfunktion ermöglicht es den Benutzern, an bestimmte Ereignisse gebundene Benachrichtigungen einzurichten, die ausgelöst werden, sobald ein bestimmtes Ereignis während der Ausführung einer der verfügbaren Arten von trading sessions aktiv wird.",
                     "updated": 1634135336601
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция оповещений позволяет пользователям настраивать уведомления, привязанные к определенным событиям, которые срабатывают, как только каждое конкретное событие становится активным во время проведения любого из доступных типов торговых сессий.",
+                    "updated": 1640368983977
                 }
             ]
         },
@@ -63,6 +78,11 @@
                     "language": "DE",
                     "text": "Sie können diese Funktion nutzen, um über die Aktionen Ihrer Strategien informiert zu bleiben, während Sie live traden, oder um Signale über eine Telegram-Gruppe zu senden, während Sie z.B. paper traden.",
                     "updated": 1634135938242
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать эту функцию для получения информации о действиях ваших стратегий во время торговли в реальном времени или, например, для трансляции сигналов через группу Telegram во время бумажной торговли.",
+                    "updated": 1640369008708
                 }
             ]
         },
@@ -80,24 +100,57 @@
                     "language": "DE",
                     "text": "Unterstützte Ereignisse sind:",
                     "updated": 1634135999559
+                },
+                {
+                    "language": "RU",
+                    "text": "Поддерживаются следующие события:",
+                    "updated": 1640369021549
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Trigger-on event"
+            "text": "Trigger-on event",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие включения триггера",
+                    "updated": 1640369301684
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Trigger-off event"
+            "text": "Trigger-off event",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие отключения триггера",
+                    "updated": 1640369258044
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Take position event"
+            "text": "Take position event",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие занятия позиции",
+                    "updated": 1640369407631
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Stop and take profit next-phase events"
+            "text": "Stop and take profit next-phase events",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "События стоп и тейк-профит следующей фазы",
+                    "updated": 1640369468305
+                }
+            ]
         },
         {
             "style": "Text",
@@ -113,6 +166,11 @@
                     "language": "DE",
                     "text": "Darüber hinaus können Sie Ankündigungen auf der Ebene der Stop and Take Profit-Phasen implementieren, ein Sonderfall, der ebenfalls diskutiert werden soll.",
                     "updated": 1634136066228
+                },
+                {
+                    "language": "RU",
+                    "text": "Кроме того, вы можете реализовать оповещения на уровне фаз стоп и тейк-профит - частный случай, о котором мы еще поговорим.",
+                    "updated": 1640369560088
                 }
             ]
         },
@@ -130,6 +188,11 @@
                     "language": "DE",
                     "text": "Die aktuelle Implementierung basiert auf der Verbreitung von Ankündigungen über Telegram-Bots. Das System verwendet die Bots-API von Telegram, um mit einem von Ihnen erstellten Telegram-Bot zu interagieren. Der Bot wird als Benutzer in der Telegram-Gruppe Ihrer Wahl hinzugefügt, in der er die Ankündigungen gemäß der von Ihnen im System eingerichteten Konfiguration übermittelt.",
                     "updated": 1634136109323
+                },
+                {
+                    "language": "RU",
+                    "text": "Текущая реализация основана на трансляции оповещений через ботов Telegram. Система использует API ботов Telegram для взаимодействия с созданным вами ботом Telegram. Бот будет добавлен в качестве пользователя в выбранную вами группу Telegram, в которой он будет доставлять объявления в соответствии с конфигурацией, которую вы установите в системе.",
+                    "updated": 1640369605419
                 }
             ]
         },
@@ -147,6 +210,11 @@
                     "language": "DE",
                     "text": "Einrichten eines Telegram-Bots und einer Telegram-Gruppe:",
                     "updated": 1634136130771
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройка Telegram-бота и группы Telegram",
+                    "updated": 1640369622837
                 }
             ]
         },
@@ -165,6 +233,11 @@
                     "language": "DE",
                     "text": "Die Dokumentation von Telegram erklärt die Details zur Verwendung von Telegram-Bots:",
                     "updated": 1634136144109
+                },
+                {
+                    "language": "RU",
+                    "text": "В документации Telegram подробно объясняется, как использовать ботов Telegram:",
+                    "updated": 1640369635963
                 }
             ]
         },
@@ -187,6 +260,11 @@
                     "language": "DE",
                     "text": "Sie können entweder die Dokumentation von Telegram lesen oder einfach die folgenden Schritte befolgen, die wir hier für Sie extrahiert haben:",
                     "updated": 1634136212355
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете прочитать документацию Telegram или просто выполнить следующие несколько шагов, которые были извлечены для вашего удобства:",
+                    "updated": 1640369655144
                 }
             ]
         },
@@ -205,6 +283,11 @@
                     "language": "DE",
                     "text": "1. Gehen Sie zu Telegram und suchen Sie den Benutzer @BotFather: Du kannst den Link verwenden oder einfach nach dem Benutzer suchen.",
                     "updated": 1634136636781
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Зайдите в Telegram и найдите пользователя @BotFather: Вы можете воспользоваться ссылкой или просто найти пользователя в поиске.",
+                    "updated": 1640369672116
                 }
             ]
         },
@@ -223,6 +306,11 @@
                     "language": "DE",
                     "text": "Tippen und senden Sie /newbot: BotFather fordert Sie auf, einen Namen für Ihren Bot zu wählen. Sobald der Name festgelegt ist, antwortet er mit dem Token (einer Textzeichenfolge) für den Zugriff auf die HTTP-API.",
                     "updated": 1634136805349
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Введите и отправьте /newbot: BotFather попросит вас выбрать имя для вашего бота. Как только имя будет задано, он ответит токеном (текстовой строкой) для доступа к HTTP API.",
+                    "updated": 1640369701206
                 }
             ]
         },
@@ -240,6 +328,11 @@
                     "language": "DE",
                     "text": "Sie benötigen diesen Token später noch.",
                     "updated": 1634136830601
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот токен вам понадобится позже.",
+                    "updated": 1640369730092
                 }
             ]
         },
@@ -253,6 +346,11 @@
                     "text": "3. Buat Telegram Grup: Bot-mu akan membroadcast pengumuman disini nantinya.",
                     "updated": 1616928100241,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Создайте Telegram: Ваш бот будет транслировать объявления здесь.",
+                    "updated": 1640369753929
                 }
             ]
         },
@@ -271,6 +369,11 @@
                     "language": "DE",
                     "text": "4. Füge deinen Bot in die Gruppe ein: Und fügen Sie @myidbot auch als Benutzer in der Gruppe hinzu.",
                     "updated": 1634137115127
+                },
+                {
+                    "language": "RU",
+                    "text": "4. Добавьте своего бота в группу: И добавьте @myidbot как пользователя в группу тоже.",
+                    "updated": 1640369780909
                 }
             ]
         },
@@ -289,6 +392,11 @@
                     "language": "DE",
                     "text": "Tippen und senden Sie /getgroupid in die Gruppe: Der IDBot wird mit der ID der Gruppe antworten.",
                     "updated": 1634137139192
+                },
+                {
+                    "language": "RU",
+                    "text": "5. Введите и отправьте /getgroupid в группе: IDBot ответит идентификатором группы.",
+                    "updated": 1640369799710
                 }
             ]
         },
@@ -306,6 +414,11 @@
                     "language": "DE",
                     "text": "Sie benötigen diese ID später noch.",
                     "updated": 1634137252418
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот ID позже вам понадобится.",
+                    "updated": 1640369844813
                 }
             ]
         },
@@ -323,6 +436,11 @@
                     "language": "DE",
                     "text": "Einrichten des Telegram-Bots in Superalgos:",
                     "updated": 1634137346218
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройка Telegram-бота в Superalgos",
+                    "updated": 1640419944040
                 }
             ]
         },
@@ -340,6 +458,11 @@
                     "language": "DE",
                     "text": "Sie werden Ihren Bot in einer Backtesting-Session einrichten, so dass Sie die Ankündigungen leicht testen können.",
                     "updated": 1634137383775
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы настроите своего бота в сессии бэктестинга, чтобы можно было легко протестировать его оповещения.",
+                    "updated": 1640419981074
                 }
             ]
         },
@@ -358,6 +481,11 @@
                     "language": "DE",
                     "text": "1. Gehen Sie zu einer Ihrer Backtesting-Sessions und fügen Sie über das Menü der Session eine Social Bot-node hinzu: Ein Social Bot wird zusammen mit einem Telegram-Bot hinzugefügt.",
                     "updated": 1634137642393
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Перейдите в любую из ваших сессий бэктестинга и добавьте узел Social Bot, используя меню сессии: Social Bot будет добавлен вместе с ботом Telegram.",
+                    "updated": 1640420020338
                 }
             ]
         },
@@ -376,6 +504,11 @@
                     "language": "DE",
                     "text": "Wählen Sie Edit Telegram Bot im Telegram-Bot-Menü: Ersetzen Sie den Platzhaltertext durch den tatsächlichen botToken und die chatId, die Sie zuvor erhalten haben.",
                     "updated": 1634137756639
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Выберите Edit Telegram Bot в меню бота Telegram: Замените текст заполнителя на реальные botToken и chatId, которые вы получили ранее.",
+                    "updated": 1640420076331
                 }
             ]
         },
@@ -393,6 +526,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1634137878962
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640420088668
                 }
             ]
         },
@@ -415,6 +553,11 @@
                     "language": "DE",
                     "text": "Das System hat nun alles, was es braucht, um mit Ihrem Telegram Bot zu kommunizieren.",
                     "updated": 1634137902314
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь у системы есть все необходимое для связи с вашим Telegram-ботом.",
+                    "updated": 1640420106799
                 }
             ]
         },
@@ -432,6 +575,11 @@
                     "language": "DE",
                     "text": "Erstellen Sie Ihre Ankündigungen:",
                     "updated": 1634138052389
+                },
+                {
+                    "language": "RU",
+                    "text": "Создавайте свои оповещения",
+                    "updated": 1640420128168
                 }
             ]
         },
@@ -449,6 +597,11 @@
                     "language": "DE",
                     "text": "Sie können beliebig viele Ankündigungen zu den oben im Abschnitt Übersicht aufgeführten Ereignissen erstellen, indem Sie im Menü der entsprechenden Ereignis Node auf Add Announcement klicken.",
                     "updated": 1634138203849
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете создать сколько угодно оповещений по любому из событий, перечисленных в разделе \"Обзор\" выше, нажав Add Announcement в меню соответствующего узла события.",
+                    "updated": 1640420373437
                 }
             ]
         },
@@ -466,6 +619,11 @@
                     "language": "DE",
                     "text": "Es gibt zwei verschiedene Möglichkeiten, wie Sie Announcememts (Ankündigungen) anpassen können:",
                     "updated": 1634138277445
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует два различных способа настройки уведомлений:",
+                    "updated": 1640420389974
                 }
             ]
         },
@@ -477,6 +635,11 @@
                     "language": "DE",
                     "text": "Klartext (Klarer Text)",
                     "updated": 1634138443719
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычный текст",
+                    "updated": 1640420403726
                 }
             ]
         },
@@ -488,6 +651,11 @@
                     "language": "DE",
                     "text": "Dynamischer Inhalt",
                     "updated": 1634138310912
+                },
+                {
+                    "language": "RU",
+                    "text": "Динамическое содержимое",
+                    "updated": 1640420419291
                 }
             ]
         },
@@ -506,6 +674,11 @@
                     "language": "DE",
                     "text": "Die mit Superalgos ausgelieferte Weak-hands-Buster-Strategie enthält ein komplettes Set von announcements. Sieh sie dir an und nutze sie in deinem Setup.",
                     "updated": 1634138392687
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия Weak-hands buster, поставляемая вместе с Superalgos, содержит полный набор уведомлений. Проверьте их и используйте в своих настройках!",
+                    "updated": 1640420499913
                 }
             ]
         },
@@ -517,6 +690,11 @@
                     "language": "DE",
                     "text": "Klartext (Klarer Text):",
                     "updated": 1634138453511
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычный текст",
+                    "updated": 1640420508663
                 }
             ]
         },
@@ -534,6 +712,11 @@
                     "language": "DE",
                     "text": "Um eine Klartext-Ansage zu erstellen, klicken Sie im Menü der Announcement Node auf Edit Announcement und geben Sie eine Nachricht in das Feld Text ein.",
                     "updated": 1634138630132
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы задать обычное текстовое уведомление, нажмите Edit Announcement в меню узла уведомлений и задайте сообщение в тексте поля.",
+                    "updated": 1640420536383
                 }
             ]
         },
@@ -551,6 +734,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1634138698640
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640420544201
                 }
             ]
         },
@@ -567,6 +755,11 @@
                     "language": "DE",
                     "text": "Dynamischer Inhalt:",
                     "updated": 1634138806038
+                },
+                {
+                    "language": "RU",
+                    "text": "Динамическое содержимое",
+                    "updated": 1640420559479
                 }
             ]
         },
@@ -584,6 +777,11 @@
                     "language": "DE",
                     "text": "Um umfangreichere Nachrichten zu senden, die dynamische Werte der aktuellen Indikatoren oder internen Variablen enthalten können, legen Sie die Nachricht stattdessen in der Formel fest, die der Ankündigung beigefügt ist.",
                     "updated": 1634138901663
+                },
+                {
+                    "language": "RU",
+                    "text": "Для трансляции более сложных сообщений, которые могут включать динамические значения любого из текущих индикаторов или внутренних переменных, задайте сообщение в формуле, прикрепленной к уведомлению.",
+                    "updated": 1640420614008
                 }
             ]
         },
@@ -601,6 +799,11 @@
                     "language": "DE",
                     "text": "Der typische Aufbau einer dynamischen Nachricht besteht darin, dass eine Zeichenkette abwechselnd aus \"Text in Anführungszeichen\" und Variablen besteht, die durch Pluszeichen (+) voneinander getrennt sind.",
                     "updated": 1634139436330
+                },
+                {
+                    "language": "RU",
+                    "text": "Типичная установка для динамического сообщения состоит в построении строки путем чередования \"текста в двойных кавычках\" с переменными, разделяя их знаками плюс (+).",
+                    "updated": 1640420637971
                 }
             ]
         },
@@ -618,6 +821,11 @@
                     "language": "DE",
                     "text": "Eine typische announcement-Formel für das Ereignis \"take position\" könnte zum Beispiel so aussehen:",
                     "updated": 1634139522688
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, типичная формула оповещения для события \" take position\" может выглядеть следующим образом:",
+                    "updated": 1640420680708
                 }
             ]
         },
@@ -639,12 +847,24 @@
                     "language": "DE",
                     "text": ".toFixed(0) rundet die Zahl auf null Dezimalstellen. Die obige Formel würde etwa Folgendes ergeben:",
                     "updated": 1634139757535
+                },
+                {
+                    "language": "RU",
+                    "text": ".toFixed(0) округляет число до нуля после запятой. Приведенная выше формула даст в результате что-то вроде:",
+                    "updated": 1640420695703
                 }
             ]
         },
         {
             "style": "Json",
-            "text": "Selling BTC at $9703, with stop at $9896 and TP target at $9115"
+            "text": "Selling BTC at $9703, with stop at $9896 and TP target at $9115",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продажа BTC за $9703, с параметрами SL на $9896 и TP на $9115",
+                    "updated": 1640420903222
+                }
+            ]
         },
         {
             "style": "Note",
@@ -661,6 +881,11 @@
                     "language": "DE",
                     "text": "Wenn Ihre Formel gültig ist, ignoriert das System die Klartextversion, die Sie möglicherweise in der announcement configuration (Ankündigungskonfiguration) eingerichtet haben. Sollte die Formel aus irgendeinem Grund zu einem Fehler führen, wird die Klartextversion verwendet.",
                     "updated": 1634140201126
+                },
+                {
+                    "language": "RU",
+                    "text": "Если ваша формула верна, система проигнорирует версию обычного текста, которую вы могли установить в конфигурации объявления. Если по какой-либо причине формула приведет к ошибке, то будет использована обычная текстовая версия.",
+                    "updated": 1640420935860
                 }
             ]
         },
@@ -672,6 +897,11 @@
                     "language": "DE",
                     "text": "Ankündigungen zu Stop und Take Profit Phases:",
                     "updated": 1634140248939
+                },
+                {
+                    "language": "RU",
+                    "text": "Объявления о фазах Stop и Take Profit",
+                    "updated": 1640420964593
                 }
             ]
         },
@@ -689,6 +919,11 @@
                     "language": "DE",
                     "text": "Wir haben bereits erwähnt, dass Sie nicht nur Ankündigungen zu Ereignissen einstellen können, sondern auch Ankündigungen auf der Ebene einer Stop- oder Take-Profit-Phase implementieren können. Diese sind nützlich, um die Verwaltung von dynamischen Stop- und Take-Profit-targets zu übertragen.",
                     "updated": 1634140571230
+                },
+                {
+                    "language": "RU",
+                    "text": "Ранее мы упоминали, что, помимо установки уведомлений о событиях, вы также можете реализовать уведомления на уровне стопа или тейк-профита. Они полезны для трансляции управления динамическими целями стопа и тейк-профита.",
+                    "updated": 1640421001890
                 }
             ]
         },
@@ -706,6 +941,11 @@
                     "language": "DE",
                     "text": "Bei der Implementierung auf Phasenebene wird die announcement (Ankündigung) jedes Mal ausgelöst, wenn sich der Wert der zugrundeliegenden Variable (das Stop- oder Take-Profit-Ziel) ändert. Dies ist ein wichtiger Unterschied, da sich der Wert bei jeder candle (Kerze) ändern kann (wenn Sie Formeln verwenden, die Variablen nutzen).",
                     "updated": 1634141019584
+                },
+                {
+                    "language": "RU",
+                    "text": "При реализации на уровне фазы уведомление срабатывает каждый раз, когда изменяется значение базовой переменной (цель стопа или тейк-профита). Это важное отличие, поскольку значение может меняться на каждой свече (если вы используете формулы, в которых используются переменные).",
+                    "updated": 1640421032325
                 }
             ]
         },
@@ -723,6 +963,11 @@
                     "language": "DE",
                     "text": "Dies könnte dazu führen, dass in relativ kurzen Abständen zu viele  announcements (Ankündigungen) gemacht werden.",
                     "updated": 1634141068598
+                },
+                {
+                    "language": "RU",
+                    "text": "Это может привести к появлению слишком большого количества уведомлений за относительно короткие промежутки времени.",
+                    "updated": 1640421057372
                 }
             ]
         },
@@ -740,6 +985,11 @@
                     "language": "DE",
                     "text": "Der in der (announcement configuration) Ansagekonfiguration eingeführte Parameter \"valueVariation\" kann verwendet werden, um Ansagen herauszufiltern, bis ein bestimmter Schwellenwert erreicht ist. Der von Ihnen eingegebene Wert legt den Prozentsatz der Abweichung fest, der auftreten muss, bevor eine neue Ansage gesendet wird.",
                     "updated": 1634141303521
+                },
+                {
+                    "language": "RU",
+                    "text": "Параметр valueVariation, введенный в конфигурацию уведомления, можно использовать для фильтрации уведомлений до достижения определенного порога. Введенное вами значение будет задавать процент отклонения, который должен произойти, прежде чем новое уведомление будет транслироваться.",
+                    "updated": 1640421131555
                 }
             ]
         },
@@ -757,6 +1007,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel bedeutet \"valueVariation\": 0,5  dass jedes Mal, wenn sich der Wert der zugrunde liegenden Variablen um 0,5 % ändert, eine neue Meldung gesendet wird.",
                     "updated": 1634141412852
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, \"valueVariation\": 0.5 означает, что новое объявление будет транслироваться каждый раз, когда значение базовой переменной изменится на 0.5%.",
+                    "updated": 1640421146222
                 }
             ]
         },
@@ -779,6 +1034,11 @@
                     "language": "DE",
                     "text": "Fertigstellung der Einrichtung:",
                     "updated": 1634141441661
+                },
+                {
+                    "language": "RU",
+                    "text": "Завершение настройки",
+                    "updated": 1640421156173
                 }
             ]
         },
@@ -796,6 +1056,11 @@
                     "language": "DE",
                     "text": "Es ist unwahrscheinlich, dass Sie die Ankündigungsfunktion im Rahmen einer Backtesting-Sitzung verwenden möchten. Wahrscheinlicher ist es, dass Sie die Funktion in einer paper trading session (zur Generierung von Signalen) oder in einer Live-trading-session verwenden möchten, um die Aktivitäten Ihres Live-Handels zu überwachen.",
                     "updated": 1634141656071
+                },
+                {
+                    "language": "RU",
+                    "text": "Маловероятно, что вы захотите использовать функцию уведомлений в рамках сессии бэктестинга. Более вероятно, что вы захотите использовать ее в бумажной торговой сессии (для генерации сигналов) или в реальной торговой сессии, чтобы отслеживать активность вашей реальной торговли.",
+                    "updated": 1640421191287
                 }
             ]
         },
@@ -813,6 +1078,11 @@
                     "language": "DE",
                     "text": "Um die Einrichtung abzuschließen, müssen Sie nur noch die Social Bot Node von der Backtesting-Sitzung trennen und sie an die Sitzung anhängen, in der Sie sie verwenden möchten. Vergewissern Sie sich, dass die dazugehörigen Aufgaben gestoppt sind, bevor Sie den Social Bot abnehmen und anhängen.",
                     "updated": 1634141864376
+                },
+                {
+                    "language": "RU",
+                    "text": "Для завершения настройки достаточно отсоединить узел Social Bot от сессии бэктестинга и присоединить его к сессии, в которой вы хотите его использовать. Убедитесь, что соответствующие задачи остановлены перед отсоединением и присоединением бота Social Bot.",
+                    "updated": 1640421271954
                 }
             ]
         },
@@ -830,6 +1100,11 @@
                     "language": "DE",
                     "text": "Kommerzielle Einrichtungen:",
                     "updated": 1634141888154
+                },
+                {
+                    "language": "RU",
+                    "text": "Коммерческие настройки",
+                    "updated": 1640421303408
                 }
             ]
         },
@@ -847,6 +1122,11 @@
                     "language": "DE",
                     "text": "Wenn Sie ein Signal-business einrichten oder eine komplexere Einrichtung benötigen, um Ankündigungen von mehreren Sitzungen, mehreren Strategien zu empfangen oder sogar an mehrere Gruppen zu senden, können Ihnen die folgenden Überlegungen bei der Entscheidung helfen, wie Sie vorgehen wollen.",
                     "updated": 1634142140213
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы создаете бизнес по сигналам или вам требуется более сложная настройка для трансляции уведомлений из нескольких сессий, нескольких стратегий или даже для нескольких групп, следующие соображения могут помочь вам решить, как двигаться дальше.",
+                    "updated": 1640421356486
                 }
             ]
         },
@@ -860,7 +1140,12 @@
                     "text": "Telegram tidak mengizinkan menjalankan banyak instance dari bot yang sama. Melakukan hal tersebut dapat menghasilkan peringatan, menyebabkan kesalahan, keterlambatan pengiriman pesan, pesan hilang, dan perilaku tidak menentu secara umum dari malfungsi bot.",
                     "updated": 1616931335441,
                     "style": "Important"
-                                   }
+                },
+                {
+                    "language": "RU",
+                    "text": "Telegram не позволяет запускать несколько экземпляров одного и того же бота. Это может вызвать предупреждения, ошибки, задержки в доставке сообщений, потерю сообщений и нестабильное поведение в целом.",
+                    "updated": 1640421374136
+                }
             ]
         },
         {
@@ -878,6 +1163,11 @@
                     "text": "Telegram erlaubt es nicht, mehrere Instanzen desselben Bots zu betreiben. Dies kann zu Warnungen, Fehlern, Verzögerungen bei der Nachrichtenzustellung, verlorenen Nachrichten und allgemeinem unregelmäßigem Verhalten führen.",
                     "updated": 1634142192077,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Решение довольно простое. Установите несколько ботов. По эмпирическому правилу, вы должны использовать одного бота для каждой торговой сессии. Помните, что вы можете включать в свои группы Telegram столько ботов, сколько захотите. То есть в одной группе могут быть разные боты, вещающие с разных сессий.",
+                    "updated": 1640421401034
                 }
             ]
         },
@@ -896,6 +1186,11 @@
                     "language": "DE",
                     "text": "Die Lösung ist ganz einfach. Richten Sie mehrere Bots ein. Als Faustregel gilt, dass Sie für jede Trading-Session einen Bot verwenden sollten. Denken Sie daran, dass Sie so viele Bots in Ihre Telegram-Gruppen aufnehmen können, wie Sie möchten. Das heißt, Sie können verschiedene Bots von verschiedenen Sitzungen in derselben Gruppe senden lassen.",
                     "updated": 1634142359920
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите транслировать сигналы из нескольких сессий в одну группу Telegram, вы можете назвать каждого бота таким образом, чтобы каждый из них ссылался на свою конкретную сессию, чтобы члены группы точно знали, к чему относится каждое сообщение.",
+                    "updated": 1640421422341
                 }
             ]
         },
@@ -913,6 +1208,11 @@
                     "language": "DE",
                     "text": "Nehmen wir zum Beispiel an, Sie senden Signale von verschiedenen Märkten... Sie können Ihre Bots BTC/USDT, ETH/USDT und XMR/BTC nennen.",
                     "updated": 1634142490405
+                },
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы транслируете сигналы с разных рынков... вы можете назвать своих ботов BTC/USDT, ETH/USDT и XMR/BTC.",
+                    "updated": 1640421440246
                 }
             ]
         },
@@ -930,6 +1230,11 @@
                     "language": "DE",
                     "text": "Oder vielleicht haben Sie verschiedene Strategien, dann benennen Sie die Bots einfach nach jeder Strategie.",
                     "updated": 1634142528664
+                },
+                {
+                    "language": "RU",
+                    "text": "Или, может быть, у вас есть разные стратегии, тогда просто назовите ботов в честь каждой стратегии.",
+                    "updated": 1640421452375
                 }
             ]
         },
@@ -947,6 +1252,11 @@
                     "language": "DE",
                     "text": "So können die Gruppenmitglieder leicht erkennen, auf welchen Markt oder welche Strategie sich der Bot, der das Signal sendet, bezieht.",
                     "updated": 1634142549897
+                },
+                {
+                    "language": "RU",
+                    "text": "Это позволяет членам группы легко понять, к какому рынку или стратегии относится бот, передающий сигнал.",
+                    "updated": 1640421465853
                 }
             ]
         },
@@ -964,6 +1274,11 @@
                     "language": "DE",
                     "text": "Ein anderes Beispiel... nehmen wir an, Sie betreiben eine trading operation für Freunde und Familie. Jede Person arbeitet mit einem anderen Anfangskapital, anderen Vermögenswerten oder anderen exchanges. In diesem Fall können Sie mehrere Telegram-Gruppen und mehrere Bots einrichten, so dass jede Person genaue Informationen darüber erhält, was die Bots tun.",
                     "updated": 1634142831015
+                },
+                {
+                    "language": "RU",
+                    "text": "Другой пример... Допустим, вы ведете торговые операции для друзей и членов семьи. Каждый человек работает с разным начальным капиталом, разными активами или разными биржами. В таком случае вы можете создать несколько групп Telegram и несколько ботов, чтобы каждый человек мог получать точную информацию о том, что делают боты.",
+                    "updated": 1640421492655
                 }
             ]
         }

@@ -56,7 +56,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
 
         let response = {
             status: 'Ok',
-            raiseEvent: eventStatus,
+            setEvent: eventStatus,
             reason: "No need to ask Portfolio Manager"
         }
 
@@ -83,7 +83,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             In this case, we will check if the Porfolio Manager would like to 
             raise this event anyways.
             */
-            if (eventNode.askPortfolioEventsManager.raiseEvent !== undefined) {
+            if (eventNode.askPortfolioEventsManager.setEvent !== undefined) {
                 let message = {
                     type: "Set This Event",
                     event: {

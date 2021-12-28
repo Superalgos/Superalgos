@@ -11,15 +11,16 @@ exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = functi
         finalize: finalize
     }
 
+    let portfolioSystem
+
     return thisObject
 
     function initialize() {
-        isRunning = false
+        portfolioSystem = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioSystem
     }
 
     function finalize() {
-        portfolioEngine = undefined
-        tradingBotsCheckInStatusMap = undefined
+        portfolioSystem = undefined
     }
 
     function confirmThisFormula(SESSION_KEY, formula) {

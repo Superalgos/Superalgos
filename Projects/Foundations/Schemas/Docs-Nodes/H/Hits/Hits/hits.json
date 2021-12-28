@@ -39,7 +39,14 @@
         },
         {
             "style": "Note",
-            "text": "The consolidated calculations are explained thoroughly in the profit loss node."
+            "text": "The consolidated calculations are explained thoroughly in the profit loss node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объединенные расчеты подробно объясняются в узле Profit Loss.",
+                    "updated": 1640347905998
+                }
+            ]
         },
         {
             "style": "Block",

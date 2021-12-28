@@ -1,7 +1,14 @@
 {
     "type": "Serial Number",
     "definition": {
-        "text": "Serial number is a sequential number assigned to the object represented by the parent node at the moment it is opened."
+        "text": "Serial number is a sequential number assigned to the object represented by the parent node at the moment it is opened.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Serial Number - это последовательный номер, присвоенный объекту, представленному родительским узлом, в момент его открытия.",
+                "updated": 1640350953358
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Serial numbers start at 1 and increment by 1 with each instance of the object that is opened."
+            "text": "Serial numbers start at 1 and increment by 1 with each instance of the object that is opened.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Серийные номера начинаются с 1 и увеличиваются на 1 с каждым открытым экземпляром объекта.",
+                    "updated": 1640350965916
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Serial Number Configuration",
-            "updated": 1609873971454
+            "updated": 1609873971454,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Serial Number",
+                    "updated": 1640350980981
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640350987322
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640351000790
+                }
+            ]
         }
     ]
 }

@@ -4,12 +4,26 @@
     "type": "Node Type",
     "definition": {
         "text": "Each Node is of a certain type. It's type defines what the Node can be used for, the Node Menu, to which other nodes it can attach to, and may other properties that are dependent on the Node Type At the Design Space, the type of the node is displayed below the Node Icon.    ",
-        "updated": 1609236288974
+        "updated": 1609236288974,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Каждый узел Node имеет определенный тип. Тип определяет, для чего узел может быть использован, меню узла Node Menu, к каким другим узлам он может присоединяться, а также другие свойства, которые зависят от типа узла. В пространстве дизайна Design Space тип узла отображается под значком узла Node Icon.",
+                "updated": 1640356097257
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1640356106143
+                }
+            ]
         }
     ]
 }

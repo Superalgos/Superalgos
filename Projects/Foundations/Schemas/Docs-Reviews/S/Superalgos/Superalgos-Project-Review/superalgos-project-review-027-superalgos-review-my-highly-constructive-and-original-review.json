@@ -1,6 +1,6 @@
 {
     "review": "Superalgos Project Review",
-    "pageNumber": 27,
+    "pageNumber": 25,
     "type": "Superalgos Review - My highly constructive and original review",
     "definition": {
         "text": "Write a summary for this review page."
@@ -9,11 +9,25 @@
         {
             "style": "Text",
             "text": "The project looks nice.",
-            "updated": 1631145094399
+            "updated": 1631145094399,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проект выглядит красиво.",
+                    "updated": 1640414650709
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This was my highly constructive and original review."
+            "text": "This was my highly constructive and original review.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это была моя весьма конструктивная и оригинальная оценка.",
+                    "updated": 1640414710476
+                }
+            ]
         },
         {
             "style": "Text",

@@ -4,17 +4,38 @@
     "type": "Perception Issues - Market Data or Indicators Seem to be Outdated",
     "definition": {
         "text": "For data to be up to date, the Masters and Sparta task managers need to be running.",
-        "updated": 1611514061066
+        "updated": 1611514061066,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Для того чтобы данные были актуальными, необходимо, чтобы были запущены менеджеры задач Masters и Sparta.",
+                "updated": 1640460435041
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "If you are running the system for the first time or you stopped running the system for some time, data will not be up to date. Every time you start the system, it will take some time for data to catch up with the present time.",
-            "updated": 1611514064800
+            "updated": 1611514064800,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы запускаете систему впервые или на некоторое время прекратили ее работу, данные будут неактуальны. Каждый раз, когда вы запускаете систему, потребуется некоторое время, чтобы данные соответствовали текущему времени.",
+                    "updated": 1640460453589
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To update your datasets until the present time you need to Run All Tasks in your Masters and Sparta task managers for the exchanges and markets you wish to work with, and allow enough time for the processes to go through the missing data."
+            "text": "To update your datasets until the present time you need to Run All Tasks in your Masters and Sparta task managers for the exchanges and markets you wish to work with, and allow enough time for the processes to go through the missing data.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы обновить свои наборы данных до настоящего времени, вам необходимо в менеджерах задач Masters и Sparta запустить все задачи для бирж и рынков, с которыми вы хотите работать, и предоставить процессам достаточно времени, чтобы обработать недостающие данные.",
+                    "updated": 1640460596079
+                }
+            ]
         }
     ]
 }

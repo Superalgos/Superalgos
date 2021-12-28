@@ -1,7 +1,14 @@
 {
     "type": "Periods",
     "definition": {
-        "text": "Periods counts the number of candles that have been evaluated, in the context of the parent node."
+        "text": "Periods counts the number of candles that have been evaluated, in the context of the parent node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Periods подсчитывает количество свечей, которые были оценены, в контексте родительского узла.",
+                "updated": 1640346235592
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1640346245464
+                }
+            ]
         },
         {
             "style": "Block",
@@ -20,17 +34,38 @@
         {
             "style": "Title",
             "text": "Periods Configuration",
-            "updated": 1609924882493
+            "updated": 1609924882493,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Periods",
+                    "updated": 1640346261705
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609873980538
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640346273880
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609875415147
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640346281784
+                }
+            ]
         }
     ]
 }

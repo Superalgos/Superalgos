@@ -373,15 +373,15 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                     secrets.push(secret)
                     /*
-                    Save Secrets File
+                    Save Signing Accounts Secrets File
                     */
-                    httpRequest(JSON.stringify(secretsFile, undefined, 4), 'Secrets/Save-Secrets-File', onResponse)
+                    httpRequest(JSON.stringify(secretsFile, undefined, 4), 'Secrets/Save-Singing-Accounts-Secrets-File', onResponse)
                     function onResponse(err, data) {
                         /* Lets check the result of the call through the http interface */
                         data = JSON.parse(data)
                         if (err.result != GLOBAL.DEFAULT_OK_RESPONSE.result || data.result != GLOBAL.DEFAULT_OK_RESPONSE.result) {
                             node.payload.uiObject.setErrorMessage(
-                                "Secrets file could not be created.",
+                                "Signing Accounts Secrets File could not be created.",
                                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                             )
                         } else {
@@ -389,7 +389,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                             Show nice message.
                             */
                             node.payload.uiObject.setInfoMessage(
-                                "Secrets file have been sucessfully created.",
+                                "Signing Accounts Secrets File have been sucessfully created.",
                                 UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
                             )
                         }

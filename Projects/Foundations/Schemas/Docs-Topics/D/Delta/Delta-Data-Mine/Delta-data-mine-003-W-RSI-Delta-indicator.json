@@ -1,0 +1,65 @@
+{
+    "topic": "Delta Data Mine",
+    "pageNumber": 3,
+    "type": "Relative Strength Index - Wilder's Method - Delta Indicator",
+    "definition": {
+        "text": "Produces the relative strength index using Wilder's smoothing method.",
+        "updated": 1636853769
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "RSI-W On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The Wilder's method of calculating RSI uses a form of exponential averaging, versus the traditional RSI calculation of simple averaging. Wilder's method results in fewer wild swings than traditional RSI, but can also filter out some important signals. This signal uses 14 candle periods to perform its calculations."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Delta-RSIW-on-the-chart.png",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "The oversold and overbought regions can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under “RSI-W14” Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Delta-RSIW-params.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Title",
+            "text": "RSI-W Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The properties available are:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| RSI Wilder Method | RSI-W14 | value, oversold, overbought |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "A basic strategy can be built by looking at the oversold/overbought areas of the RSI:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.RSI-W14.mvwap3 > chart.at01hs.RSI-W14.overbought",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

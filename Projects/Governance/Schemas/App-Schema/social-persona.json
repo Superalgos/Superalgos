@@ -19,6 +19,16 @@
             "relatedUiObjectProject": "Governance"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableStorage",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Available Storage",
+            "relatedUiObject": "Available Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },   
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -52,6 +62,13 @@
             "name": "signingAccount",
             "type": "node",
             "childType": "Signing Account",
+            "autoAdd": false
+        },
+        {
+            "name": "availableStorage",
+            "type": "node",
+            "childType": "Available Storage",
+            "actionProject": "Foundations",
             "autoAdd": false
         }
     ]

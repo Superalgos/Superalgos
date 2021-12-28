@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Теперь давайте настроим конструктор профиля Profile Constructor, чтобы позже мы могли создать профиль!",
                 "updated": 1639047103215
+            },
+            {
+                "language": "DE",
+                "text": "Lassen Sie uns nun den Profile Constructor konfigurieren, damit wir später das Profil erstellen können!",
+                "updated": 1640073101123
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Щелкните параметр configure и введите свое имя пользователя GitHub следующим образом:",
                     "updated": 1639067323180
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Konfigurationsoption und geben Sie Ihren GitHub-Benutzernamen wie folgt ein:",
+                    "updated": 1640073114049
                 }
             ]
         },
@@ -77,6 +87,11 @@
                     "language": "RU",
                     "text": "Если вы хотите связать существующий адрес, введите его мнемонику из двенадцати слов в свойстве mnemonic. Оставьте поле пустым, чтобы сгенерировать новый адрес! Позже вы удалите эту конфиденциальную информацию. Информация не уйдет с вашего компьютера и не будет сохранена на диске.",
                     "updated": 1639047208191
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie eine bestehende Adresse verknüpfen möchten, geben Sie die zwölf Wörter der Mnemonik in die Eigenschaft mnemonic ein. Lassen Sie die Eigenschaft leer, um eine neue Adresse zu erzeugen! Sie werden diese sensiblen Daten später löschen. Die Daten verlassen Ihren Computer nicht und werden nicht auf der Festplatte gespeichert.",
+                    "updated": 1640073154326
                 }
             ]
         },

@@ -9,64 +9,82 @@
             "iconPathOff": "configuration"
         },
         {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokenPowerSwitch",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Token Power Switch",
-            "relatedUiObject": "Token Power Switch",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tokensMined",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Tokens Mined",
-            "relatedUiObject": "Tokens Mined",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "userApps",
-            "actionFunction": "payload.executeAction",
-            "label": "Add User Apps",
-            "relatedUiObject": "User Apps",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "userBots",
-            "actionFunction": "payload.executeAction",
-            "label": "Add User Bots",
-            "relatedUiObject": "User Bots",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialPersonas",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Social Personas",
-            "relatedUiObject": "Social Personas",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "p2pNetworkNodes",
-            "actionFunction": "payload.executeAction",
-            "label": "Add P2P Network Nodes",
-            "relatedUiObject": "P2P Network Nodes",
-            "relatedUiObjectProject": "Governance"
+            "action": "Open Menu",
+            "label": "Add Child",
+            "iconPathOn": "expand-structure-of-nodes",
+            "iconPathOff": "expand-structure-of-nodes",
+            "menuItems": [
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "tokenPowerSwitch",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add Token Power Switch",
+                    "relatedUiObject": "Token Power Switch",
+                    "relatedUiObjectProject": "Governance"
+                },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "tokensMined",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add Tokens Mined",
+                    "relatedUiObject": "Tokens Mined",
+                    "relatedUiObjectProject": "Governance"
+                },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "userApps",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add User Apps",
+                    "relatedUiObject": "User Apps",
+                    "relatedUiObjectProject": "Governance"
+                },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "userBots",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add User Bots",
+                    "relatedUiObject": "User Bots",
+                    "relatedUiObjectProject": "Governance"
+                },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "socialPersonas",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add Social Personas",
+                    "relatedUiObject": "Social Personas",
+                    "relatedUiObjectProject": "Governance"
+                },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "p2pNetworkNodes",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add P2P Network Nodes",
+                    "relatedUiObject": "P2P Network Nodes",
+                    "relatedUiObjectProject": "Governance"
+                },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "userStorage",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add User Storage",
+                    "relatedUiObject": "User Storage",
+                    "relatedUiObjectProject": "Open-Storage"
+                }
+            ]
         },
         {
             "action": "Install as Plugin",
@@ -128,7 +146,7 @@
             "type": "node",
             "childType": "User Apps",
             "autoAdd": false
-        },        
+        },
         {
             "name": "userBots",
             "type": "node",
@@ -145,6 +163,13 @@
             "name": "p2pNetworkNodes",
             "type": "node",
             "childType": "P2P Network Nodes",
+            "autoAdd": false
+        },
+        {
+            "name": "userStorage",
+            "type": "node",
+            "childType": "User Storage",
+            "project": "Open-Storage",
             "autoAdd": false
         }
     ],

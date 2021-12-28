@@ -1,4 +1,4 @@
-    function newFoundationsFunctionLibraryTaskFunctions() {
+function newFoundationsFunctionLibraryTaskFunctions() {
     let thisObject = {
         synchronizeTaskWithBackEnd: synchronizeTaskWithBackEnd,
 
@@ -139,9 +139,7 @@
             'Indicator Bot Instance->' +
             'Trading Bot Instance->' +
             'Learning Bot Instance->' +
-            'Social Trading Bot Reference->Signing Account->' +
             'Sensor Process Instance->Time Frames Filter->API Data Fetcher Process Instance->Indicator Process Instance->Trading Process Instance->Portfolio Process Instance->Learning Process Instance->' +
-            'Social Trading Bot Reference->Social Trading Bot->Signing Account->' +
             'Execution Started Event->' +
             'Key Reference->Exchange Account Key->' +
             'Task Manager->' +
@@ -186,7 +184,15 @@
             'Data Mine->Trading Mine->Portfolio Mine->Learning Mine->' +
             'API Map Reference->' +
             'API Map->API Version->API Endpoint->API Query Parameters->API Query Parameter->API Path Parameters->API Path Parameter->API Query Responses->API Query Response->API Response Schema->' +
-            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->'
+            'API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->API Response Field->' +
+            /*
+            Social Trading Nodes
+            */
+            'Social Trading Bot Reference->Social Trading Bot->Signing Account->' +
+            /*
+            Open Storage Nodes
+            */
+            'Available Storage->Storage Container Reference->Storage Container->Github Storage->Superalgos Storage->'
 
         let taskDefinition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -223,7 +229,7 @@
             'Task Manager->' +
             'Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->Portfolio Mine Tasks->' +
             'Market Trading Tasks->Market Data Tasks->Market Learning Tasks->Market Portfolio Tasks->' +
-            'Market->Exchange Markets->Crypto Exchange->Crypto Exchanges->exchange Markets->Market->' 
+            'Market->Exchange Markets->Crypto Exchange->Crypto Exchanges->exchange Markets->Market->'
 
         let managedTasksDefinition =
             UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, true, true, false, false, managedTasksLightingPath);

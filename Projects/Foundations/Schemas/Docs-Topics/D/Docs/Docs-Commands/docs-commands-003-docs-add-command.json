@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Используйте эту команду, чтобы добавить новую страницу в документы Docs.",
                 "updated": 1638527740195
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar'a yeni bir sayfa eklemek için bu komutu kullanın.",
+                "updated": 1640610061953
             }
         ]
     },

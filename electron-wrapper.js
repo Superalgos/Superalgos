@@ -10,7 +10,7 @@ process.env.SA_MODE = 'gitDisable'
 process.env.PACKAGED_PATH = app.getAppPath()
 process.env.DATA_PATH = app.getPath('documents')
 
-const WINDOW_WIDTH = 1280
+const WINDOW_WIDTH = 1580
 const WINDOW_HEIGHT = 768
 
 let mainWindow, consoleWindow, selectWindow, platform
@@ -39,6 +39,25 @@ function firstRun() {
   return true;
 };
 
+// iterate in the workspaces folder and get all *Onboarding ones to present in the selection page
+function getWorkspaces() {
+  const workspacePath = path.join(process.env.PACKAGED_PATH, 'Projects/Foundations/Plugins/Workspaces')
+  const workspaces = []
+  try {
+    const files = fs.readdirSync(workspacePath)
+    for(const file of files) {
+      if (file.includes('-Onboarding-')) {
+        workspaces.push(file)
+      }
+    }
+  } catch (error) {
+    if (error) {
+      console.log(error)
+    }
+  }
+  return workspaces
+}
+
 // Create a selection window for first run
 function selectionWindow() {
   let bw_options = {
@@ -56,21 +75,16 @@ function selectionWindow() {
     bw_options
   )
   selectWindow.loadFile('./selection.html')
-  selectWindow.on('focus', function () {
-    // Something
-  })
 }
-
-//run()
 
 function run(workspace) {
   const { fork } = require('child_process')
   var options = ["noBrowser"]
-  if (workspace) {options.push(workspace)}
+  //if (workspace) {options.push('Foundations ' + workspace)}
   platform = fork(path.join(__dirname, '/PlatformRoot.js'), options, {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
 
   platform.on('message', _ => {
-    openMain()
+    openMain(workspace)
     openConsoleWindow()
     if (selectWindow) {selectWindow.close()}
   })
@@ -84,13 +98,16 @@ ipcMain.on("toMain", (event, args) => {
         consoleWindow.webContents.send("fromMain", data);
       }
     })
-  } else if (args.includes("workspace-")) {
-    var exchange = args.split('workspace-')[1]
-    run(exchange)
+  } else if (args === "getExchanges") {
+    const workspaces = getWorkspaces()
+    selectWindow.webContents.send("fromMain", workspaces); //send to the renderer
+  } else if (args.includes(".json")) {
+    var workspace = args.split('.')[0]
+    run(workspace)
   }
 })
 
-function openMain () {
+function openMain(workspace) {
   let bw_options = {
     width: WINDOW_WIDTH,
     height: WINDOW_HEIGHT,
@@ -108,8 +125,14 @@ function openMain () {
   )
 
   createMainMenus()
+  
+  if (workspace) {
+    var queryString = '/?initialWorkspaceName=' + workspace + '&initialWorkspaceProject=Foundations&initialWorkspaceType=Plugin'
+    mainWindow.loadURL("http://localhost:" + port + queryString)
+  } else {
+    mainWindow.loadURL("http://localhost:" + port)
+  }
 
-  mainWindow.loadURL("http://localhost:" + port)
 
   mainWindow.on('close', function (e) {
     if (consoleWindow.isVisible()) {
@@ -211,7 +234,6 @@ app.on('ready', function () {
   } else {
     run()
   }
-  //createMainMenus()
 })
 
 app.on('window-all-closed', function () {
@@ -222,15 +244,7 @@ app.on('activate', function () {
   if (BrowserWindow.getAllWindows().length === 0) createWindow()
 })
 
-function createMainMenus() {
-  /* function logsActive() {
-    if(consoleWindow) {
-      return true
-    } else {
-      return false
-    }
-  } */ 
-
+function createMainMenus() { 
   const mainTemplate = [
     {
       label: 'File',
@@ -297,8 +311,6 @@ function createMainMenus() {
           click: async() => {
             data = {newUser: ["Governance", "Plugin → Token-Distribution-Superalgos"]}
             mainWindow.webContents.send("fromMaster", data)
-            //data
-            //mainWindow.loadURL('http://localhost:34248/LoadPlugin/Governance/Workspaces/Token-Distribution-Superalgos.json')
           }
         },
         {
@@ -378,7 +390,6 @@ function createConsoleMenus () {
     {
       label: 'Show UI',
       id: 'ui',
-      //enabled: uiActive(),
       click () {mainWindow.isVisible() ? true : mainWindow.show()}
     }
   ]

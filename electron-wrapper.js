@@ -342,15 +342,6 @@ function createMainMenus() {
 }
 
 function createConsoleMenus () {
-
-  function uiActive() {
-    if(mainWindow.isVisible()) {
-      return false
-    } else {
-      return true
-    }
-  }
-
   const consoleTemplate = [
     {
       label: 'File',
@@ -390,7 +381,7 @@ function createConsoleMenus () {
     {
       label: 'Show UI',
       id: 'ui',
-      click () {mainWindow.isVisible() ? true : mainWindow.show()}
+      click () {mainWindow.isVisible() ? mainWindow.focus() : mainWindow.show()}
     }
   ]
 

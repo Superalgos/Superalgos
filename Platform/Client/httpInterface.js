@@ -980,7 +980,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     let message
                                     try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        // TODO isysd testing URL
+                                        message = await git.pull('https://github.com/itestd/Superalgos', currentBranch)
                                         return { message: message }
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
@@ -1060,7 +1061,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         // If upstream has not been set. Set it now
                                         if (isUpstreamSet === false) {
-                                            await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
+                                            // TODO isysd testing URL
+                                            await git.addRemote('upstream', 'https://github.com/itestd/Superalgos');
                                         }
                                         // Pull branch from main repo
                                         await git.pull('upstream', currentBranch);
@@ -1413,6 +1415,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
 
+                                    // TODO isysd: Why is this here? Seems unsafe to have it repeat forever... what happens if this is called twice?
                                     setInterval(
                                         PL.servers.GITHUB_SERVER.mergePullRequests,
                                         60000,

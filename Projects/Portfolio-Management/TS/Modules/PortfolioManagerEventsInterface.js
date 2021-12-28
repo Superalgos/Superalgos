@@ -4,30 +4,25 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
     It is an events based interface because the communication happens via the Events Server.
     */
     let thisObject = {
-        run: run,
         initialize: initialize,
         finalize: finalize
     }
 
-    var MANAGERS_KEY;
+    let tradingBotsInterfaceModuleObject
 
     return thisObject
 
-    function initialize() {
-        MANAGERS_KEY = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY;
-    }
+    function initialize(managedTradingBotsModuleObject) {
 
-    function finalize() {
+        tradingBotsInterfaceModuleObject = TS.projects.portfolioManagement.modules.tradingBotsInterface.newPortfolioManagementModulesTradingBotsInterface(processIndex)
+        tradingBotsInterfaceModuleObject.initialize(managedTradingBotsModuleObject)
 
-    }
-
-    function run() {
         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
-            
+
             let SESSION_KEY = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.name +
-            '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
-            '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id;
-            
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id
+
             waitForRequests()
 
             function waitForRequests() {
@@ -39,30 +34,30 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
                     SESSION_KEY,
                     undefined,
                     onRequest)
-        
-                function onRequest() {
-                    let message  = arguments[0];
-                    SA.projects.portfolioManagement.globals.memory.modules.PORTFOLIO_MANAGER.processEvent(message.event)
 
-                    // Return response:
+                function onRequest() {
+                    let eventMessage = arguments[0]
+
+                    let response = tradingBotsInterfaceModuleObject.processMessage(
+                        SESSION_KEY,
+                        eventMessage.event
+                    )
+                    /* 
+                    Return Response 
+                    */
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-                        message.callerId,
+                        SESSION_KEY,
                         'Response From Portfolio Manager',
-                        message.event
+                        response,
+                        SESSION_KEY
                     )
                 }
-            }            
+            }
         }
     }
 
-    function outbound() {
-        let message = arguments[0];
-
-
-        TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-            message.event.returnToCallerId,
-            'Response From Portfolio Manager',
-            message.event
-        )
+    function finalize() {
+        tradingBotsInterfaceModuleObject.finalize()
+        tradingBotsInterfaceModuleObject = undefined
     }
 }

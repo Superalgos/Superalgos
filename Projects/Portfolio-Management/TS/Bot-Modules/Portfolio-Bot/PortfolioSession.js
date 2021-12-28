@@ -3,15 +3,18 @@
     const MODULE_NAME = "Portfolio Session"
 
     let thisObject = {
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
-
-    TS.projects.foundations.globals.processVariables.PORTFOLIO_MANAGER_EVENTS_INTERFACE = TS.projects.portfolioManagement.modules.portfolioManagerEventsInterface.newPortfolioManagementModulesPortfolioManagerEventsInterface(processIndex);
 
     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE =
         TS.projects.socialBots.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
 
-    return thisObject;
+    return thisObject
+
+    function finalize() {
+
+    }
 
     function initialize(callBackFunction) {
         try {
@@ -33,11 +36,6 @@
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type +
                 '-' +
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id;
-            
-            /*
-             *  Initialize the Events Interface.
-             */
-            TS.projects.foundations.globals.processVariables.PORTFOLIO_MANAGER_EVENTS_INTERFACE.initialize();
 
             /*
             We will also store the session folder name, to be used for debug logging and session output.
@@ -107,11 +105,6 @@
 
             function onSessionRun(message) {
                 try {
-                    /*
-                    Run the Events Interface.
-                    */
-                    TS.projects.foundations.globals.processVariables.PORTFOLIO_MANAGER_EVENTS_INTERFACE.run();
-
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
                     if (
                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS === 'Idle' ||
@@ -652,4 +645,4 @@
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
-};
+}

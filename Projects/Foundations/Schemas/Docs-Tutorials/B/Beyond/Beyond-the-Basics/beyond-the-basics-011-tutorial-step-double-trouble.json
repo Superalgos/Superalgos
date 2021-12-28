@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Viele Benutzer entscheiden sich dafür, die beiden Zweige in getrennten Ordnern laufen zu lassen! Dies scheint eine vernünftige Lösung für aktive Mitwirkende zu sein!",
                 "updated": 1635147698376
+            },
+            {
+                "language": "RU",
+                "text": "Многие пользователи предпочитают запускать эти две ветки из разных папок! Это кажется разумным решением для активных участников!",
+                "updated": 1640158377376
+            },
+            {
+                "language": "TR",
+                "text": "Birçok kullanıcı, iki dalı ayrı klasörlerden çalıştırmayı seçer! Bu, aktif katkıda bulunanlar için mantıklı bir çözüm gibi görünüyor!",
+                "updated": 1640417991435
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Sie können zwei Klone Ihres Forks aus verschiedenen Verzeichnissen laufen lassen, jeder auf einem anderen Zweig.",
                     "updated": 1635147704965
+                },
+                {
+                    "language": "RU",
+                    "text": "У вас может быть два клона вашего форка, запущенных из отдельных папок, каждый из которых находится на разных ветках.",
+                    "updated": 1640158400160
+                },
+                {
+                    "language": "TR",
+                    "text": "Her biri farklı dallarda bulunan ayrı klasörlerden çalışan çatalınızın iki klonu olabilir.",
+                    "updated": 1640418013944
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Zwei Instanzen von Superalgos, die in verschiedenen Verzeichnissen laufen, sind völlig unabhängig. Sie führen unterschiedliche Workspaces aus und geben eindeutige Daten aus.",
                     "updated": 1635147722794
+                },
+                {
+                    "language": "RU",
+                    "text": "Два экземпляра Superalgos, запущенные из разных папок, полностью независимы. Они запускают разные рабочие пространства и выводят отдельные данные.",
+                    "updated": 1640158425678
+                },
+                {
+                    "language": "TR",
+                    "text": "Farklı klasörlerden çalışan iki Superalgos örneği tamamen bağımsızdır. Farklı çalışma alanları çalıştırırlar ve benzersiz veriler üretirler.",
+                    "updated": 1640418034665
                 }
             ]
         },
@@ -99,6 +129,16 @@
                     "language": "DE",
                     "text": "Ein solches Setup erlaubt es Ihnen, die stabile Version für Ihre Produktionsaufgaben zu verwenden und die Version in einem anderen Zweig, um neue Funktionen zu testen! Aber Sie können nicht zwei Versionen gleichzeitig laufen lassen, es sei denn, Sie ändern die Ports! Wir werden jetzt nicht darauf eingehen!",
                     "updated": 1635147735085
+                },
+                {
+                    "language": "RU",
+                    "text": "Такая настройка позволяет вам запускать стабильную версию для производственных задач, а также версию в другой ветке для внесения вклада и тестирования новых возможностей! Но вы не можете запускать две версии одновременно, если не измените порты!",
+                    "updated": 1640158538808
+                },
+                {
+                    "language": "TR",
+                    "text": "Böyle bir kurulum, diğer işleriniz için kararlı sürümü kullanırken, katkıda bulunmak ve test etmek için başka bir daldaki sürümü çalıştırmanıza olanak tanır! Ancak bağlantı noktalarını (Ports) değiştirmediğiniz sürece iki sürümü aynı anda çalıştıramazsınız!",
+                    "updated": 1640418405614
                 }
             ]
         }

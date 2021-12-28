@@ -40,7 +40,7 @@
         },
         {
             "style": "Note",
-            "text": "I told you! You may have as many strategies as you wish under the same trading system! Well... there your are!",
+            "text": "I told you! You may have as many strategies as you wish under the same trading system! Well... there you are!",
             "translations": [
                 {
                     "language": "ES",
@@ -52,7 +52,8 @@
                     "text": "Ich habe es Ihnen gesagt! Sie können so viele Strategien unter demselben Trading System haben, wie Sie wollen! Nun... da haben Sie es!",
                     "updated": 1639147910142
                 }
-            ]
+            ],
+            "updated": 1640641009638
         }
     ]
 }

@@ -63,7 +63,7 @@ exports.newAlgorithmicTradingBotModulesTradingStrategy = function (processIndex)
         /*
         Now that the strategy is closed, it is the right time to move this strategy from current to last at the Trading Engine data structure.
         */
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.strategy, tradingEngine.tradingLast.strategy)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.strategy, tradingEngine.tradingLast.strategy)
     }
 
     function updateEnds() {
@@ -75,7 +75,7 @@ exports.newAlgorithmicTradingBotModulesTradingStrategy = function (processIndex)
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.tradingCurrent.strategy.status.value === 'Closed') {
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.strategy)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.strategy)
         }
     }
 

@@ -4,21 +4,49 @@
     "type": "Balances",
     "definition": {
         "text": "Keep track of the balances of each asset, at different points in time. On this page: Balance, Begin Balance, and End Balance.",
-        "updated": 1611331647405
+        "updated": 1611331647405,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Следите за балансом каждого актива в разные моменты времени. На этой странице: Balance (Баланс), Begin Balance (Начальный баланс) и End Balance (Конечный баланс).",
+                "updated": 1640347468642
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Balances are the basis of the account-keeping features, by which you may know exactly how much of each asset there is on the account at any given point in time.",
-            "updated": 1611331659066
+            "updated": 1611331659066,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Балансы являются основой функций ведения счета, благодаря которым вы можете точно знать, сколько каждого актива находится на счете в любой момент времени.",
+                    "updated": 1640347567684
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The system keeps track of balances in multiple contexts, but also saves snapshots of what the balance was at key moments in time, so that such information may be available both to study the results of operations, and so that it may be used form within trading strategies."
+            "text": "The system keeps track of balances in multiple contexts, but also saves snapshots of what the balance was at key moments in time, so that such information may be available both to study the results of operations, and so that it may be used form within trading strategies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система отслеживает баланс в различных контекстах, а также сохраняет снимки баланса в ключевые моменты времени, чтобы эта информация была доступна как для изучения результатов операций, так и для использования в торговых стратегиях.",
+                    "updated": 1640347635177
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "It is important to understand that balances are an internal concept managed by the trading engine, and are calculated based on the information processed by the trading bot. Balances do not necessarily reflect the actual amount of assets at the exchange."
+            "text": "It is important to understand that balances are an internal concept managed by the trading engine, and are calculated based on the information processed by the trading bot. Balances do not necessarily reflect the actual amount of assets at the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Важно понимать, что балансы - это внутренняя концепция, управляемая торговым движком, и рассчитываются на основе информации, обрабатываемой торговым ботом. Балансы не обязательно отражают фактическое количество активов на бирже.",
+                    "updated": 1640347706152
+                }
+            ]
         },
         {
             "style": "Title",

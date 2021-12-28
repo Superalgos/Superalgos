@@ -1,7 +1,14 @@
 {
     "type": "Trading Episode Counters",
     "definition": {
-        "text": "The episode counters node features counters of instances of objects that come to exist during the duration of the episode."
+        "text": "The episode counters node features counters of instances of objects that come to exist during the duration of the episode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Trading Episode Counters содержит счетчики экземпляров объектов, которые появляются в течение всего эпизода.",
+                "updated": 1640346430378
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1640346437962
+                }
+            ]
         }
     ]
 }

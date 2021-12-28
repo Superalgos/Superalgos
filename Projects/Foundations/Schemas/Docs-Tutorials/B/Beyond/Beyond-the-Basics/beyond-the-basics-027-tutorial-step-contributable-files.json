@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Die meisten Dateien im Superalgos-Ordner können geändert und zum Projekt beigetragen werden! Das schließt Code, Bilder, Dokumentation usw. ein.",
                 "updated": 1635150547303
+            },
+            {
+                "language": "RU",
+                "text": "Большинство файлов в папке Superalgos могут быть изменены и внесены в проект! Это включает в себя код, изображения, документацию и т.д.",
+                "updated": 1640163201716
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos klasöründeki çoğu dosya değiştirilmeye ve projeye katkıda bulunmaya tabidir! Buna kod, resimler, belgeler vb. de dahildir.",
+                "updated": 1640628796387
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Diese Ordner sind von der Mitwirkung ausgenommen: My-Workspaces, Data-Storage, und Log-Files.",
                     "updated": 1635150581717
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти папки не участвуют во вкладе: My-Workspaces, My-Data-Storage и My-Log-Files в папке Platform.",
+                    "updated": 1640163321875
+                },
+                {
+                    "language": "TR",
+                    "text": "Şu klasörler bu durumdan muaftır: Platform klasörü içindeki My-Workspaces, My-Data-Storage ve My-log-File. ",
+                    "updated": 1640628968160
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Wichtig! Verwenden Sie den Superalgos-Ordner nicht, um persönliche Dinge oder Dateien zu speichern, die nicht Teil der Superalgos-Software sein sollen! Alles, was Sie in den Superalgos-Ordner einfügen (mit Ausnahme der erwähnten, ausgenommenen Ordner), wird als Änderung übertragen, an Ihren Fork auf GitHub.com gesendet und in einen Pull Request aufgenommen, beides öffentlich zugänglich!",
                     "updated": 1635150572557
+                },
+                {
+                    "language": "RU",
+                    "text": "Не используйте папку Superalgos для хранения личных данных или файлов, которые не являются частью программного обеспечения Superalgos! Все, что вы включите в папку Superalgos (за исключением папок, исключенных из правил), будет зафиксировано как изменение, отправлено в ваш форк на GitHub.com и включено в Pull Request, оба публично доступные!",
+                    "updated": 1640163406044
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos klasörünü, Superalgos yazılımının parçası olması amaçlanmayan kişisel şeyleri veya dosyaları depolamak için kullanmayın! Superalgos klasörüne eklediğiniz her şey (belirtilen muaf tutulan klasörler için kaydedin) bir değişiklik olarak taahhüt edilmeye tabidir, GitHub.com'daki çatalınıza gönderilir ve her ikisi de herkesin erişebileceği bir Çekme İsteğine dahil edilir!",
+                    "updated": 1640629051301
                 }
             ]
         }

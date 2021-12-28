@@ -16,6 +16,67 @@
             "style": "Text",
             "text": "Merges the Bollinger Bands and MACD together in a special way. This allows it to identify the start of the price explosion situations with very high accuracy. These explosions happen every day and sometimes multiple times a day. By using the Waddah Attar Explosion indicator you can know when this explosion begins and when they end with a high degree of success."
         },
+		{
+            "style": "Text",
+            "text": "There are three elements of the Waddah Attar explosion indicator:"
+        },		
+		{
+            "style": "List",
+            "text": "1. Explosion line: Price explosion begins when the explosion line is at its lowest value and starts to increase with price action."
+        },		
+		{
+            "style": "List",
+            "text": "2. Uptrend/Downtrend: Specifies a strong trend in up direction (green) or down direction (red). A buy signal could be generated when the trend is higher than the explosion line."
+        },		
+		{
+            "style": "List",
+            "text": "3. Deadzone: Attempts to filter out weak signals. It is recommended only to enter a trade when the explosion and/or trend values are above the deadzone."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Waddah.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The parameters of the Waddah Attar indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019Waddah Attar\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Waddah-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Waddah Attar | Waddah | trendUp, trendDown, explosion, deadZone |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The Waddah Attar indicator could be used to generate a buy signal when the explosion line is above the deadzone, and the up trend is above the explosion line:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.Waddah.trendUp > chart.at01hs.Waddah.explosion && chart.at01hs.Waddah.explosion > chart.at01hs.Waddah.deadZone",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "To increase confirmation confidence, this indicator can be paired with other indicators such as the Supertrend or Average True Range (ATR) indicators."
+        },
         {
             "style": "Title",
             "text": "Maintainer:",

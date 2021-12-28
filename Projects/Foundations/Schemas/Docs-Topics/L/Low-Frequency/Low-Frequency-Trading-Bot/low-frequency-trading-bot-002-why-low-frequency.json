@@ -4,36 +4,85 @@
     "type": "Why Low-Frequency",
     "definition": {
         "text": "The first Trading Bot implementation is optimized for low-frequency trading.",
-        "updated": 1610218584729
+        "updated": 1610218584729,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Первая реализация Trading Bot оптимизирована для низкочастотной торговли.",
+                "updated": 1640096841896
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Low-Frequency trading bot makes decisions upon the closing of the current candle.",
-            "updated": 1610218597361
+            "updated": 1610218597361,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Низкочастотный торговый бот принимает решения после закрытия текущей свечи.",
+                    "updated": 1640096865341
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "No matter what property of what indicator you may use, always remember that the trading bot works with the last closed candle by default. What Superalgos refers to as the current candle is effectively the latest closed candle. The trading bot never works with the candle that hasn’t yet closed, as its parameters are not defined. For example, candle.max refers to the maximum price of the last closed candle, and bollingerBand.movingAverage refers to the moving average of the last closed candle.",
-            "updated": 1610218610371
+            "updated": 1610218610371,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Независимо от того, какое свойство какого индикатора вы можете использовать, всегда помните, что торговый бот по умолчанию работает с последней закрытой свечой. То, что Superalgos называет текущей свечой, на самом деле является последней закрытой свечой. Торговый бот никогда не работает со свечой, которая еще не закрылась, так как ее параметры не определены. Например, candle.max обозначает максимальную цену последней закрытой свечи, а bollingerBand.movingAverage обозначает скользящую среднюю последней закрытой свечи.",
+                    "updated": 1640096907894
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos manages time frames as low as one minute. That is, one minute, is the highest frequency handled by the trading bot."
+            "text": "Superalgos manages time frames as low as one minute. That is, one minute, is the highest frequency handled by the trading bot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos управляет таймфреймами вплоть до одной минуты. То есть, одна минута - это самая высокая частота, с которой работает торговый бот.",
+                    "updated": 1640096932419
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When a trading session is run on the 01-min time frame, this is what you should expect to happen in terms of the time it takes to do all the required processing for the trading bot to make a decision and place an order at the exchange:"
+            "text": "When a trading session is run on the 01-min time frame, this is what you should expect to happen in terms of the time it takes to do all the required processing for the trading bot to make a decision and place an order at the exchange:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда торговая сессия запускается на таймфрейме 01 минута, это то, что вы должны ожидать с точки зрения времени, необходимого для выполнения всей необходимой обработки, чтобы торговый бот принял решение и разместил ордер на бирже. :",
+                    "updated": 1640097104960
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Process | Estimated Time [s] | Comments |\n| Sensor bot | 0 - 65 | The sensor bot runs (by default) every 60 seconds. Upon each execution, anything between 0 to 60 seconds may have passed since the last one-minute candle closed. On top of this the sensor execution time may range from 1 to 5 seconds, depending on several factors (i.e.: your hardware, internet bandwidth, distance to the exchange, exchange response time, and so on...) |\n| Candles - Volumes indicator | 1 - 5 | This indicator is required most of the time, as it is the one processing the one-minute candles extracted from the exchange to turn it into candles for the rest of the time frames available. In this case, the processing time depends entirely on your hardware. | \n| Other indicators | 1 - 5 | Indicators that depend exclusively on the data products produced by Candles - Volumes may process their products as soon as Candles - Volumes finishes. Indicators with nested dependencies need to wait for their dependencies to finish, thus they are not processed in parallel but in series. |\n| Trading bot | 1 - 5 | Depending on the complexity of your trading system, the number of dependencies that must be loaded, your hardware, and the same connectivity considerations discussed for the sensor bot, the trading bot may take several seconds to do the processing and place the order at the exchange. |",
-            "updated": 1610219071449
+            "updated": 1610219071449,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Process | Estimated Time [s] | Comments |\n| Sensor bot | 0 - 65 | Сенсорный бот запускается (по умолчанию) каждые 60 секунд. При каждом выполнении может пройти от 0 до 60 секунд с момента закрытия последней одноминутной свечи. Кроме того, время выполнения датчика может составлять от 1 до 5 секунд, в зависимости от нескольких факторов (например: ваше оборудование, пропускная способность интернета, расстояние до биржи, время отклика биржи и т.д.). |\n| Candles - Volumes indicator | 1 - 5 | Этот индикатор требуется большую часть времени, поскольку именно он обрабатывает одноминутные свечи, извлекаемые с биржи, чтобы превратить их в свечи для остальных доступных таймфреймов. В этом случае время обработки полностью зависит от вашего оборудования. |\n| Другие индикаторы | 1 - 5 | Индикаторы, которые зависят исключительно от продуктов данных, созданных Candles - Volumes, могут обрабатывать свои продукты сразу после завершения работы Candles - Volumes. Индикаторы с вложенными зависимостями должны дождаться завершения своих зависимостей, поэтому они обрабатываются не параллельно, а последовательно. |\n| Trading bot | 1 - 5 | В зависимости от сложности вашей торговой системы, количества зависимостей, которые должны быть загружены, вашего оборудования и тех же соображений подключения, которые обсуждались для сенсорного бота, торговому боту может потребоваться несколько секунд, чтобы выполнить обработку и разместить ордер на бирже. |",
+                    "updated": 1640097274990
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "In conclusion, depending on how many indicators the trading system uses, and what the dependencies may be, you should expect anything between 15 to 75 seconds or more of lag from the instant the candle closed at the exchange until the order is placed, with the default settings.",
-            "updated": 1610219109819
+            "updated": 1610219109819,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В заключение, в зависимости от того, сколько индикаторов использует торговая система, и каковы могут быть зависимости, вы должны ожидать от 15 до 75 секунд или более задержки с момента закрытия свечи на бирже до размещения ордера, с настройками по умолчанию.",
+                    "updated": 1640097318347
+                }
+            ]
         },
         {
             "style": "Text",

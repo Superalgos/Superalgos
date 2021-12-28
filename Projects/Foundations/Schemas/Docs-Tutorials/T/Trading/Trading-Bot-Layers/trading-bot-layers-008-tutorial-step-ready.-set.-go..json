@@ -15,6 +15,11 @@
                 "text": "Machen wir einen Backtest! Dies sollte ziemlich schnell gehen, da wir historische Daten aus sechs Monaten auf täglicher Basis testen.",
                 "updated": 1623012202527,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Давайте проведем бэктестинг! Это должно быть довольно быстро, поскольку мы тестируем исторические данные за шесть месяцев на дневных файлах.",
+                "updated": 1640545585904
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Das Ausführen einer „Trading Task“ ist dem Ausführen einer Data-Mining-Aufgabe sehr ähnlich. Der Unterschied besteht darin, dass man, nachdem man die Aufgabe ausgeführt hat, auch die Trading Session ausführen muss.",
                     "updated": 1623012215524,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выполнение торговой задачи очень похоже на выполнение задачи по добыче данных. Разница заключается в том, что после выполнения задачи необходимо также запустить торговую сессию.",
+                    "updated": 1640545614495
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Wähle zunächst im Task Menü die Option Run und anschließend im Menü Backtesting Session die Option Run.",
                     "updated": 1623012312585,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Run в меню Task, а затем выберите Run в меню Backtesting Session.",
+                    "updated": 1640545626836
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Wenn die Backtesting Session meldet, dass sie beendet ist, dann stoppe die Task und klicke auf \"Weiter\", um fortzufahren.",
                     "updated": 1623012332680,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда сессия Backtesting Session сообщит о завершении, остановите задачу и нажмите кнопку Next для продолжения.",
+                    "updated": 1640545646166
                 }
             ]
         }

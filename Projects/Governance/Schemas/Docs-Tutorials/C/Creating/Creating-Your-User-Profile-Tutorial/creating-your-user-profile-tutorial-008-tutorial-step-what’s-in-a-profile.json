@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Так чего же мы ждем? Давайте начнем! Для участия в управлении вам потребуется профиль пользователя User Profile.",
                 "updated": 1639045468025
+            },
+            {
+                "language": "DE",
+                "text": "Worauf warten wir also noch? Fangen wir an! Um an der Governance teilnehmen zu können, benötigen Sie ein Benutzerprofil ( User Profile ).",
+                "updated": 1640072652939
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Ваш профиль настроен так же, как и остальная часть системы Superalgos. Это иерархия узлов. Только эта иерархия определяет, как вы собираетесь использовать свой Token Power, который вы заработали или делегировали вам другие пользователи.",
                     "updated": 1639045524305
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Profil ist genauso aufgebaut wie der Rest des Superalgos-Systems. Es ist eine Hierarchie von Knotenpunkten. Nur diese Hierarchie legt fest, wie Sie die Token Power, die Sie verdient haben oder die Ihnen von anderen Nutzern übertragen wurde, zu verwenden gedenken.",
+                    "updated": 1640072680734
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Направляя свои токены, вы помогаете решить, какие части системы будут стимулироваться для дальнейшего развития, а кто будет вознагражден за роль в сообществе, которую они сыграли.",
                     "updated": 1639045540003
+                },
+                {
+                    "language": "DE",
+                    "text": "Indem Sie Ihre Token-Power kanalisieren, entscheiden Sie mit, welche Teile des Systems Anreize für die Weiterentwicklung erhalten und wer für die von ihm übernommenen Gemeinschaftsaufgaben belohnt wird.",
+                    "updated": 1640072691002
                 }
             ]
         }

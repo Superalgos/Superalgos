@@ -35,7 +35,7 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Session Base Asset: no capital is assigned in BTC.",
+            "text": "Session Base Asset : no capital is assigned in BTC.",
             "translations": [
                 {
                     "language": "IT",
@@ -56,15 +56,16 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'ye sermaye tahsis edilmez.",
-                    "updated": 1636121181916
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'de sermaye belirlenmez.",
+                    "updated": 1640627828558
                 },
                 {
                     "language": "RU",
                     "text": "Базовый Asset сессии: капитал в BTC не присваивается.",
                     "updated": 1636929551268
                 }
-            ]
+            ],
+            "updated": 1640288657193
         },
         {
             "style": "List",
@@ -201,7 +202,7 @@
         },
         {
             "style": "List",
-            "text": "Fee Structure: 0.1% is the lower Binance tier.",
+            "text": "Fee Structure: 0.1% is just an example.",
             "translations": [
                 {
                     "language": "IT",
@@ -222,15 +223,16 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fee Structure (Komisyon): Binance için %0,1 olduğunu varsayalım.",
-                    "updated": 1636121571785
+                    "text": "Fee Structure (Komisyon): Borsa için %0,1 olduğunu varsayalım.",
+                    "updated": 1640627850968
                 },
                 {
                     "language": "RU",
                     "text": "Структура оплаты:  0.1%  - это нижний уровень на Binance.",
                     "updated": 1636930145101
                 }
-            ]
+            ],
+            "updated": 1640359705451
         },
         {
             "style": "Text",

@@ -5,6 +5,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     */
     const MODULE_NAME = 'Portfolio System'
     let thisObject = {
+        processEvent: processEvent, 
         mantain: mantain,
         reset: reset,
         run: run,
@@ -20,19 +21,19 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     let chart
     let exchange
     let market
+    var count = 0;
 
     let portfolioSystem
     let portfolioEngine
     let sessionParameters
-    let dynamicIndicators
 
-    let portfolioStagesModuleObject = TS.projects.portfolioManagement.botModules.portfolioStages.newPortfolioManagementBotModulesPortfolioStages(processIndex)
+    let portfolioManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioManager(processIndex)
 
-    let taskParameters = {
+    /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
             '/' +
             TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.quotedAsset.referenceParent.config.codeName
-    }
+    }*/
     return thisObject
 
     function initialize() {
@@ -43,7 +44,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem.conditions = new Map()
         portfolioSystem.formulas = new Map()
 
-        portfolioStagesModuleObject.initialize()
+        portfolioManagerModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Portfolio System Definition */
         portfolioSystem.checkConditions = function (situation, passed) {
@@ -127,8 +128,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function finalize() {
-        portfolioStagesModuleObject.finalize()
-        portfolioStagesModuleObject = undefined
+        portfolioManagerModuleObject.finalize()
+        portfolioManagerModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -149,15 +150,15 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem = undefined
         portfolioEngine = undefined
         sessionParameters = undefined
-        taskParameters = undefined
+        //taskParameters = undefined
     }
 
     function mantain() {
-        portfolioStagesModuleObject.mantain()
+        portfolioManagerModuleObject.mantain()
     }
 
     function reset() {
-        portfolioStagesModuleObject.reset()
+        portfolioManagerModuleObject.reset()
 
         portfolioSystem.highlights = []
         portfolioSystem.errors = []
@@ -179,45 +180,13 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         exchange = pExchange
         market = pMarket
 
-        portfolioStagesModuleObject.updateChart(pChart, pExchange, pMarket)
-    }
-
-    function buildDynamicIndicators() {
-        if (portfolioSystem.dynamicIndicators !== undefined) {
-            dynamicIndicators = {}
-            /* Eval Dynamic Indicators */
-            portfolioSystem.evalFormulas(portfolioSystem.dynamicIndicators, 'Indicator Function')
-
-            for (let i = 0; i < portfolioSystem.dynamicIndicators.indicatorFunctions.length; i++) {
-                let indicatorFunction = portfolioSystem.dynamicIndicators.indicatorFunctions[i]
-                if (indicatorFunction.formula === undefined) { return }
-                if (indicatorFunction.config.codeName === undefined) { return }
-                dynamicIndicators[indicatorFunction.config.codeName] = portfolioSystem.formulas.get(indicatorFunction.formula.id)
-            }
-        }
+        portfolioManagerModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     async function run() {
         try {
-            /* Dynamic Indicators */
-            buildDynamicIndicators()
 
-            /* Run the Trigger Stage */
-            portfolioStagesModuleObject.runTriggerStage()
-
-            /* Run the Open Stage */
-            await portfolioStagesModuleObject.runOpenStage()
-
-            /* Run the Manage Stage */
-            portfolioStagesModuleObject.runManageStage()
-
-            /* Run the Close Stage */
-            await portfolioStagesModuleObject.runCloseStage()
-
-            /* Validation if we need to exit the position */
-            portfolioStagesModuleObject.exitPositionValidation()
-
-            portfolioStagesModuleObject.cycleBasedStatistics()
+            portfolioManagerModuleObject.cycleBasedStatistics()
 
         } catch (err) {
             /*
@@ -232,6 +201,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
+    }
+
+    function processEvent(event) {
+
     }
 
     function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {

@@ -20,7 +20,14 @@
         {
             "style": "Title",
             "text": "Note for Hierarchy Tables",
-            "updated": 1610049150289
+            "updated": 1610049150289,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примечание для иерархических таблиц",
+                    "updated": 1640259376688
+                }
+            ]
         },
         {
             "style": "Block",
@@ -51,7 +58,14 @@
         {
             "style": "Title",
             "text": "Note for Hierarchy Tables No Discussion",
-            "updated": 1611254828783
+            "updated": 1611254828783,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примечание для иерархических таблиц без обсуждения",
+                    "updated": 1640259362637
+                }
+            ]
         },
         {
             "style": "Block",
@@ -82,7 +96,14 @@
         },
         {
             "style": "Title",
-            "text": "Important for Live Sessions"
+            "text": "Important for Live Sessions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Важно для реальных сеансов",
+                    "updated": 1640259314178
+                }
+            ]
         },
         {
             "style": "Block",
@@ -112,7 +133,14 @@
         {
             "style": "Title",
             "text": "Deleting Node Warning",
-            "updated": 1610122599631
+            "updated": 1610122599631,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предупреждение об удалении узла",
+                    "updated": 1640259289773
+                }
+            ]
         },
         {
             "style": "Text",
@@ -148,7 +176,14 @@
         {
             "style": "Title",
             "text": "Read Whole Page Warning",
-            "updated": 1611675615893
+            "updated": 1611675615893,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предупреждение о прочтении всей страницы",
+                    "updated": 1640259264359
+                }
+            ]
         },
         {
             "style": "Block",
@@ -180,7 +215,14 @@
         {
             "style": "Title",
             "text": "Live Trading Warning",
-            "updated": 1611675667792
+            "updated": 1611675667792,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Предупреждение о торговле в реальном времени",
+                    "updated": 1640259201685
+                }
+            ]
         },
         {
             "style": "Block",
@@ -212,7 +254,14 @@
         {
             "style": "Title",
             "text": "Trading System Disclaimer",
-            "updated": 1611675873043
+            "updated": 1611675873043,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отказ от ответственности за торговую систему",
+                    "updated": 1640259174580
+                }
+            ]
         },
         {
             "style": "Block",
@@ -243,7 +292,14 @@
         },
         {
             "style": "Title",
-            "text": "Contributions Reminder"
+            "text": "Contributions Reminder",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Напоминание относительно вкладов",
+                    "updated": 1640259487348
+                }
+            ]
         },
         {
             "style": "Block",
@@ -252,7 +308,14 @@
         {
             "style": "Title",
             "text": "Switch Branches and Update Before You Start",
-            "updated": 1620501837377
+            "updated": 1620501837377,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переключение ветки и обновление перед началом работы",
+                    "updated": 1640258741017
+                }
+            ]
         },
         {
             "style": "Title",
@@ -278,7 +341,14 @@
         {
             "style": "Warning",
             "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups.",
-            "updated": 1638831064656
+            "updated": 1638831064656,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ветка Plugins-Docs является УСТАРЕВШЕЙ. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram.",
+                    "updated": 1640258801426
+                }
+            ]
         },
         {
             "style": "Text",
@@ -291,8 +361,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Переключение веток",
-                    "updated": 1638294933739
+                    "text": "Переключение ветки",
+                    "updated": 1640258766048
                 }
             ]
         },
@@ -387,7 +457,7 @@
                 {
                     "language": "RU",
                     "text": "Обновление до последней версии",
-                    "updated": 1638295108523
+                    "updated": 1640259506132
                 }
             ]
         },
@@ -434,8 +504,8 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "За пределами учебного пособия",
-                    "updated": 1638295260739
+                    "text": "За пределами учебника по основам",
+                    "updated": 1640259660134
                 }
             ]
         },
@@ -451,8 +521,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Прежде чем идти дальше, ознакомьтесь с учебником Beyond the Basics в рабочей области плагина Getting Started, чтобы изучить основы работы с вкладом из приложения. Учебное пособие поможет вам правильно настроить вашу работу, чтобы ваши вклады были безупречными.",
-                    "updated": 1638295369933
+                    "text": "Прежде чем идти дальше, ознакомьтесь с учебником Beyond the Basics в рабочем пространстве плагина Getting Started, чтобы изучить основы работы с вкладом из приложения. Учебное пособие поможет вам правильно настроить вашу работу, чтобы ваши вклады были безупречными.",
+                    "updated": 1640249646861
                 }
             ]
         },

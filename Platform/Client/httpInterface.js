@@ -788,6 +788,24 @@ exports.newHttpInterface = function newHttpInterface() {
                     switch (requestPath[2]) { // switch by command
 
                         case 'Contribute': {
+                            function throwError(err) {
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
+                                console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
+
+                                let error = {
+                                    result: 'Fail Because',
+                                    message: err.message,
+                                    stack: err.stack
+                                }
+                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                            }
+
                             try {
                                 let commitMessage = unescape(requestPath[3])
                                 const username = unescape(requestPath[4])
@@ -802,7 +820,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     commitMessage = commitMessage.replace('_HASHTAG_', '#')
                                 }
 
-                                contribute()
+                                contribute().catch(throwError)
 
                                 async function contribute() {
                                     const { lookpath } = SA.nodeModules.lookpath
@@ -810,6 +828,21 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
+                                        await doGit(SA.nodeModules.path.join(process.cwd(), 'Projects/Governance/Plugins'))
+                                        if (error !== undefined) {
+
+                                            let docs = {
+                                                project: 'Foundations',
+                                                category: 'Topic',
+                                                type: 'App Error - Contribution Not Sent',
+                                                anchor: undefined,
+                                                placeholder: {}
+                                            }
+
+                                            respondWithDocsObject(docs, error)
+                                            return
+                                        }
+
                                         await doGit()
                                         if (error !== undefined) {
 
@@ -825,7 +858,13 @@ exports.newHttpInterface = function newHttpInterface() {
                                             return
                                         }
 
-                                        await doGithub()
+                                        await doGithub('Superalgos-Governance-Plugins')
+
+                                        // Creating a PR to the main repo should be done as a batch operation... Currently only matters once a month.
+                                        // Will leave this note here, in case any devs actually use the app.contribute command for pushing contributions.
+                                        // If so, we need to implement a check to see which files were modified then uncomment the following line. - isysd
+                                        // await doGithub()
+
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -844,10 +883,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
-                                async function doGit() {
+                                async function doGit(repo) {
+                                    repo = repo || process.cwd()
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
-                                        baseDir: process.cwd(),
+                                        baseDir: repo,
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
@@ -874,8 +914,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
-                                async function doGithub() {
-
+                                async function doGithub(repo='Superalgos') {
                                     const { Octokit } = SA.nodeModules.octokit
 
                                     const octokit = new Octokit({
@@ -883,7 +922,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    const repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
@@ -915,21 +953,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 }
 
                             } catch (err) {
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> Method call produced an error.')
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> err.stack = ' + err.stack)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> commitMessage = ' + commitMessage)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> username = ' + username)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> token starts with = ' + token.substring(0, 10) + '...')
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> currentBranch = ' + currentBranch)
-                                console.log('[ERROR] httpInterface -> App -> Contribute -> contributionsBranch = ' + contributionsBranch)
-
-                                let error = {
-                                    result: 'Fail Because',
-                                    message: err.message,
-                                    stack: err.stack
-                                }
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(error), httpResponse)
+                                throwError(err)
                             }
                             break
                         }
@@ -945,16 +969,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        let result = await doGit()
-
-                                        if (result.error === undefined) {
-                                            let customResponse = {
-                                                result: global.CUSTOM_OK_RESPONSE.result,
-                                                message: result.message
-                                            }
-                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
-                                        } else {
-
+                                        function throwError(result) {
                                             let docs = {
                                                 project: 'Foundations',
                                                 category: 'Topic',
@@ -964,15 +979,27 @@ exports.newHttpInterface = function newHttpInterface() {
                                             }
 
                                             respondWithDocsObject(docs, result.error)
-
                                         }
+
+                                        let result = await doGit(SA.nodeModules.path.join(process.cwd(), 'Projects/Governance/Plugins'), 'https://github.com/Superalgos/Superalgos-Governance-Plugins.git')
+                                        if (result.error === undefined) {
+                                          result = await doGit()
+                                          if (result.error === undefined) {
+                                              let customResponse = {
+                                                  result: global.CUSTOM_OK_RESPONSE.result,
+                                                  message: result.message
+                                              }
+                                              SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(customResponse), httpResponse)
+                                          } else throwError(result)
+                                        } else throwError(result)
                                     }
                                 }
 
-                                async function doGit() {
+                                async function doGit(repo, url='https://github.com/Superalgos/Superalgos') {
+                                    repo = repo || process.cwd()
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
-                                        baseDir: process.cwd(),
+                                        baseDir: repo,
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
@@ -980,7 +1007,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     let message
                                     try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        message = await git.pull(url, currentBranch)
                                         return { message: message }
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
@@ -1013,34 +1040,40 @@ exports.newHttpInterface = function newHttpInterface() {
                                 async function checkout() {
                                     const { lookpath } = SA.nodeModules.lookpath
                                     const gitpath = await lookpath('git');
+
+                                    function throwError(error) {
+                                        let docs = {
+                                            project: 'Foundations',
+                                            category: 'Topic',
+                                            type: 'Switching Branches - Current Branch Not Changed',
+                                            anchor: undefined,
+                                            placeholder: {}
+                                        }
+
+                                        respondWithDocsObject(docs, error)
+                                    }
+
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
                                         await doGit()
-
                                         if (error === undefined) {
-                                            // Run node setup to prepare instance for branch change
-                                            await runNodeSetup()
-                                            // Return to UI that Branch is successfully changed
-                                            SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
-                                        } else {
-                                            let docs = {
-                                                project: 'Foundations',
-                                                category: 'Topic',
-                                                type: 'Switching Branches - Current Branch Not Changed',
-                                                anchor: undefined,
-                                                placeholder: {}
-                                            }
-
-                                            respondWithDocsObject(docs, error)
-                                        }
+                                            await doGit(SA.nodeModules.path.join(process.cwd(), 'Projects/Governance/Plugins'), 'https://github.com/Superalgos/Superalgos-Governance-Plugins.git')
+                                            if (error === undefined) {
+                                                // Run node setup to prepare instance for branch change
+                                                await runNodeSetup()
+                                                // Return to UI that Branch is successfully changed
+                                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_OK_RESPONSE), httpResponse)
+                                            } else throwError(error)
+                                        } else throwError(error)
                                     }
                                 }
 
-                                async function doGit() {
+                                async function doGit(repo, url='https://github.com/Superalgos/Superalgos') {
+                                    repo = repo || process.cwd()
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
-                                        baseDir: process.cwd(),
+                                        baseDir: repo,
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
@@ -1060,7 +1093,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         // If upstream has not been set. Set it now
                                         if (isUpstreamSet === false) {
-                                            await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
+                                            await git.addRemote('upstream', url);
                                         }
                                         // Pull branch from main repo
                                         await git.pull('upstream', currentBranch);

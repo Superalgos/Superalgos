@@ -1,0 +1,3 @@
+[submodule "Projects/Governance/Plugins"]
+	path = Projects/Governance/Plugins
+	url = https://github.com/Superalgos/Superalgos-Governance-Plugins.git

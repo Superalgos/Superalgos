@@ -27,7 +27,7 @@ const getPosts = async (userId, res) => {
 
 }
 
-const createPost = async (postText, res) => {
+const createPost = async (body, res) => {
     try {
         let eventMessage;
         let event;
@@ -35,7 +35,7 @@ const createPost = async (postText, res) => {
         eventMessage = {
             eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            postText: postText.body,
+            postText: body.postText,
             timestamp: (new Date()).valueOf()
         }
 

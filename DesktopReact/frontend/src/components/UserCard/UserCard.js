@@ -10,13 +10,8 @@ const UserCard = ({name, userId}) => {
     const [followed, setFollowed] = useState(false);
 
     const followCallback = () => {
-        if (followed) {
-            let {result} = unfollowUser(userId).then(response => response.json());
-            setFollowed(!(result === STATUS_OK));
-        } else {
-            let {result} = followUser(userId).then(response => response.json());
+            let {result} = followUser(userId, followed ? (16):(15)).then(response => response); /* TODO use constant */
             setFollowed(result === STATUS_OK);
-        }
     }
     return (
         <Card className="userCard" variant="outlined">

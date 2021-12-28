@@ -3,15 +3,11 @@ import {
     httpRequest
 } from './httpConfig'
 
-const followUser = (userProfileId) =>{
-   return httpRequest('/users/follow', POST, { userProfileId: userProfileId })
-}
 
-function unfollowUser(userProfileId) {
-    return httpRequest('/users/unFollow', POST, { userProfileId: userProfileId })
+function followUser(userProfileId, eventType) {
+    return httpRequest('/users/follow', POST, { userProfileId: userProfileId, eventType: eventType})
 }
 
 export {
-    followUser,
-    unfollowUser
+    followUser
 }

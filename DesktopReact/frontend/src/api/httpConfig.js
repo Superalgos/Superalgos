@@ -6,8 +6,10 @@ const   GET = 'GET',
         UPDATE = 'UPDATE',
         STATUS_OK = 'Ok';
 
-function httpRequest(endpoint, method, body) {
-    return fetch(baseURL + endpoint, {method: method, body: JSON.stringify(body), headers: headers})
+function httpRequest(endpoint, method, body, queryParams) {
+    const url = new URL(baseURL + endpoint);
+    if (queryParams) Object.keys(queryParams).forEach(key => url.searchParams.append(key, queryParams[key]));
+    return fetch(url.toString(), {method: method, body: JSON.stringify(body), headers: headers})
         .then(response => response)
         .catch(error => error)
 }

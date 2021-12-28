@@ -5,14 +5,26 @@
     "definition": {
         "text": "The pull requests at the main Superalgos repository have been successfully processed.",
         "updated": 1628336677481,
-        "translations": []
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Pull Requests im Superalgos Main-repository wurden erfolgreich bearbeitet.",
+                "updated": 1640448073259
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "No further action from you is required. The PRs Processing Rules have been applied and all PRs that could be merged were merged.",
             "updated": 1611002626154,
-            "translations": []
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Die PRs-Bearbeitungsregeln wurden angewendet und alle PRs (Pull requests), die zusammengeführt werden konnten, wurden zusammengeführt. Es sind keine weiteren Maßnahmen von Ihnen erforderlich. Die PRs-Bearbeitungsregeln wurden angewendet und alle PRs, die zusammengeführt werden konnten, wurden zusammengeführt.",
+                    "updated": 1640448124374
+                }
+            ]
         }
     ]
 }

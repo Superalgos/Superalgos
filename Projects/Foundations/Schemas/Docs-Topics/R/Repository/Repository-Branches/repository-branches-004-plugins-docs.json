@@ -12,6 +12,11 @@
                 "updated": 1628203486790
             },
             {
+                "language": "DE",
+                "text": "Zusammenfassung: Der Plugins-Docs-Branch ist OUTDATED(Nicht mehr aktuell/in Verwendung). Alle Beiträge gehen jetzt in den develop branch. Wenn Sie Fragen dazu haben, können Sie diese gerne in den Telegramm-Gruppen stellen. Veraltet: \"Der Branch Plugins-Docs wird von Entwicklern von Plugins, Dokumentationen oder Tutorials verwendet. Dieser Zweig wird jedes Mal mit Develop und Master synchronisiert, wenn eine neue Version veröffentlicht wird, und sein Zweck ist es, den Fluss von Doku-Seiten, Plugins und Tutorials in den Master-Zweig mit einer höheren Rate zu ermöglichen als Änderungen an der Codebasis, die im Develop-Zweig vorgenommen werden. Das bedeutet, dass der Master-Zweig zwischen den Veröffentlichungen viele Aktualisierungen haben kann.\"",
+                "updated": 1640303848195
+            },
+            {
                 "language": "RU",
                 "text": "Ветка Plugins-Docs является УСТАРЕВШЕЙ. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram. Устарело: \"Ветка Plugins-Docs используется авторами плагинов, документации или учебников. Эта ветка синхронизируется с ветками Develop и Master каждый раз, когда выходит новая версия, и ее цель - позволить потоку страниц документации, плагинов и учебников в ветку Master с большей скоростью, чем изменения в кодовой базе, сделанные в ветке Develop. Это означает, что ветка Master может иметь много обновлений между релизами\".",
                 "updated": 1640353247287
@@ -24,6 +29,11 @@
             "text": "Contributors working at this branch coordinate their here:",
             "updated": 1622468204165,
             "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Contributors dieser Branch koordinieren ihre Arbeit hier:",
+                    "updated": 1640303926997
+                },
                 {
                     "language": "RU",
                     "text": "Сотрудники, работающие в этой ветке, согласовывают свои действия здесь:",

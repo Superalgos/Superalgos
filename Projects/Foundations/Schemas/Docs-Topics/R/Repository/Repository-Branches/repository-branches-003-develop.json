@@ -4,13 +4,27 @@
     "type": "Develop",
     "definition": {
         "text": "The Develop branch is the branch developers use to contribute to the codebase. Changes at this branch are merged into the Master branch upon each release or service pack. The purpose of the Develop branch is to accumulate changes at the codebase until the release date when changes are ready for merging.",
-        "updated": 1630657066558
+        "updated": 1630657066558,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ветка Develop - это ветка, которую разработчики используют для внесения вклада в кодовую базу. Изменения в этой ветке сливаются в ветку Master после каждого выпуска или пакета обновления. Цель ветки Develop - накапливать изменения в кодовой базе до даты релиза, когда изменения будут готовы к слиянию.",
+                "updated": 1640353124124
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Contributors working at this branch Hang out in the Telegram Develop Group.",
-            "updated": 1630657099841
+            "updated": 1630657099841,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сотрудники, работающие в этой ветке, зависают в группе Telegram Develop Group.",
+                    "updated": 1640353193626
+                }
+            ]
         },
         {
             "style": "Link",

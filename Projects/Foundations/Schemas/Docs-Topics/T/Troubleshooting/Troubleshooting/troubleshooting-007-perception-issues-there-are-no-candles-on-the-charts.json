@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "\nSu operación de minería de datos necesita tiempo para descargar datos del exchange \ny procesar los datos sin procesar para construir velas. Verifique el progreso de su operación de minería de datos en la jerarquía de la red.",
                 "updated": 1636726546715
+            },
+            {
+                "language": "RU",
+                "text": "Операции по поиску данных требуется время для загрузки данных с биржи и обработки исходных данных для построения свечей. Проверьте ход выполнения операции по поиску данных в сетевой иерархии.",
+                "updated": 1640458784246
             }
         ]
     },
@@ -23,16 +28,35 @@
                     "language": "ES",
                     "text": "Hay algunas razones por las que puede tener problemas para encontrar velas en los gráficos. Por favor, considere lo siguiente ...",
                     "updated": 1636726572622
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть несколько причин, по которым у вас могут возникнуть проблемы с выводом свечей на графики. Пожалуйста, рассмотрите следующие...",
+                    "updated": 1640458865231
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Check the Progress of the Data Mining Operation"
+            "text": "Check the Progress of the Data Mining Operation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка хода выполнения операции по сбору данных",
+                    "updated": 1640458892502
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you are just getting started with Superalgos, still following the getting started guide, bear in mind it takes time for data to be downloaded from the exchange. Depending on the power of your hardware and the speed of your internet connection, it may take anything from half an hour to several hours to see the first few candles, particularly those of the Binance exchange, as the market spans back to September 2017."
+            "text": "If you are just getting started with Superalgos, still following the getting started guide, bear in mind it takes time for data to be downloaded from the exchange. Depending on the power of your hardware and the speed of your internet connection, it may take anything from half an hour to several hours to see the first few candles, particularly those of the Binance exchange, as the market spans back to September 2017.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы только начинаете работать с Superalgos, продолжая следовать руководству по началу работы, имейте в виду, что для загрузки данных с биржи требуется время. В зависимости от мощности вашего оборудования и скорости вашего интернет-соединения может потребоваться от получаса до нескольких часов, чтобы увидеть несколько первых свечей, особенно на бирже Binance, поскольку рынок охватывает период с сентября 2017 года.",
+                    "updated": 1640458949104
+                }
+            ]
         },
         {
             "style": "Text",
@@ -42,6 +66,11 @@
                     "language": "ES",
                     "text": "Verifique la operación de minería de datos en la jerarquía de la red. Podrá ver velas en la pantalla solo después del OHLCV Sensor Bot y el indicador de Volúmenes de Velas en el administrador de tareas del Masters del exhange correspondiente del nodo de intercambio de datos y el mercado han alcanzado un avance del 100%..",
                     "updated": 1636726918060
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте работу добычи данных на сетевой иерархии. Вы сможете увидеть свечи на экране только после того, как бот датчика OHLCV и индикатор Candles Volumes в менеджере задач Masters соответствующего узла задач биржевых данных и рынка достигнут 100% прогресса.",
+                    "updated": 1640459034546
                 }
             ]
         },
@@ -54,12 +83,24 @@
                     "language": "ES",
                     "text": "Si no está seguro de a qué se refiere el párrafo anterior, vuelva al Welcome tutorial como recordatorio.",
                     "updated": 1636726967868
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не знаете, о чем идет речь в приведенном выше абзаце, вернитесь к учебнику Welcome (\"Добро пожаловать\") в качестве справочного материала.",
+                    "updated": 1640459122047
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Switch Candles Layer Off and Back On and Refresh the Page"
+            "text": "Switch Candles Layer Off and Back On and Refresh the Page",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выключите и снова включите слой свечей и обновите страницу",
+                    "updated": 1640459138567
+                }
+            ]
         },
         {
             "style": "Text",
@@ -69,12 +110,24 @@
                     "language": "ES",
                     "text": "Amplíe el gráfico hasta que vea el administrador de capas con la capa de velas. Apaga la capa de velas y vuelve a encenderla. Esto obliga a la capa de velas a recargarse.",
                     "updated": 1636726991858
+                },
+                {
+                    "language": "RU",
+                    "text": "Увеличьте масштаб графика, пока не увидите в менеджере слоев слой со свечами. Выключите слой свечей и включите его снова. Это заставит слой свечей перезагрузиться.",
+                    "updated": 1640459184769
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Check the Time, Rate and Time Frame Scales"
+            "text": "Check the Time, Rate and Time Frame Scales",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте Time Scale, Rate Scale и Time Frame Scale",
+                    "updated": 1640459484899
+                }
+            ]
         },
         {
             "style": "Text",
@@ -84,6 +137,11 @@
                     "language": "ES",
                     "text": "Puede suceder que haya intentado manipular los gráficos y algo salió mal en el proceso.",
                     "updated": 1636727008862
+                },
+                {
+                    "language": "RU",
+                    "text": "Может случиться так, что вы пытались манипулировать графиками и в процессе что-то пошло не так.",
+                    "updated": 1640459411529
                 }
             ]
         },
@@ -95,12 +153,24 @@
                     "language": "ES",
                     "text": "Intente establecer la escala del marco de tiempo en 24 horas, y tanto la escala de tiempo como la escala de tasa en modo automático. Al establecer la escala de tiempo en modo automático, todo el mercado se enfoca en el gráfico. Al establecer la escala de tarifas en modo automático, la escala se ajusta a toda la gama de precios del mercado. El objetivo es asegurarse de que todas las escalas estén configuradas de manera que, si hay algún dato que mostrar, se muestre.",
                     "updated": 1636727044497
+                },
+                {
+                    "language": "RU",
+                    "text": "Попробуйте установить масштаб таймфрейма на 24 часа, а шкалу времени и шкалу курса - в автоматический режим. При установке шкалы времени в автоматический режим в фокус графика попадает весь диапазон рынка. Установив шкалу курса в автоматический режим, установите шкалу так, чтобы она соответствовала всему диапазону цен на рынке. Цель состоит в том, чтобы убедиться, что все шкалы установлены таким образом, что если есть данные, которые нужно показать, то они будут показаны.",
+                    "updated": 1640459465739
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Check the Integrity of Your Data"
+            "text": "Check the Integrity of Your Data",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте целостность ваших данных",
+                    "updated": 1640459524367
+                }
+            ]
         },
         {
             "style": "Text",
@@ -110,12 +180,24 @@
                     "language": "ES",
                     "text": "Es posible que su PC se haya apagado a la fuerza o que haya cerrado la consola que ejecuta el backend de Superalgos mientras se ejecuta una operación de extracción de datos. Tales situaciones pueden hacer que algunos datos se corrompan.",
                     "updated": 1636727077473
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, ваш компьютер был принудительно выключен или вы закрыли консоль, на которой был запущен бэкэнд Superalgos, во время выполнения операции по добыче данных. Такие ситуации могут привести к повреждению некоторых данных.",
+                    "updated": 1640459632599
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "1. Check the integrity of the sensor bot data"
+            "text": "1. Check the integrity of the sensor bot data",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Проверьте целостность данных бота датчика",
+                    "updated": 1640459675766
+                }
+            ]
         },
         {
             "style": "Text",
@@ -125,6 +207,11 @@
                     "language": "ES",
                     "text": "vaya a la carpeta de Exchange-Raw-Data debajo de Data-Storage > Exchange > Market > Masters y siga abriendo las subcarpetas para llegar al último día disponible, y abra el rchivo Data.json. Si el archivo se abre bien, esto puede significar que los datos que descargó del intercambio están seguros.",
                     "updated": 1636727202383
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в папку Exchange-Raw-Data в разделе Data-Storage > Exchange > Market > Masters и продолжайте открывать вложенные папки, чтобы добраться до последнего доступного дня, и откройте файл Data.json. Если файл открывается нормально, это может означать, что данные, которые вы загрузили с биржи, безопасны.",
+                    "updated": 1640459706827
                 }
             ]
         },
@@ -136,6 +223,11 @@
                     "language": "ES",
                     "text": "Si el último archivo en Exchange-Raw-Data no se abre correctamente, luego borre todo Data-Storage > Exchange > Market y ejecutar la operación de minería de datos. Esto hará que el robot sensor OHLCV descargue todos los datos del exchange de nuevo y todos los indicadores calculados desde cero.",
                     "updated": 1636727332248
+                },
+                {
+                    "language": "RU",
+                    "text": "Если последний файл в Exchange-Raw-Data не открывается должным образом, удалите весь Data-Storage > Exchange > Market и запустите операцию добычи данных. В результате бот датчик OHLCV снова загрузит все данные с биржи, и все индикаторы будут рассчитаны заново.",
+                    "updated": 1640459788929
                 }
             ]
         },
@@ -147,12 +239,24 @@
                     "language": "ES",
                     "text": "Si los datos del sensor parecen correctos, continúe con el siguiente paso.",
                     "updated": 1636727349782
+                },
+                {
+                    "language": "RU",
+                    "text": "Если данные датчика в порядке, перейдите к следующему шагу.",
+                    "updated": 1640459807036
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "2. Check the integrity of indicator’s data"
+            "text": "2. Check the integrity of indicator’s data",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Проверьте целостность данных индикатора",
+                    "updated": 1640459824783
+                }
+            ]
         },
         {
             "style": "Text",
@@ -162,6 +266,11 @@
                     "language": "ES",
                     "text": "Si tiene problemas con las velas, debe verificar los datos del indicador de Volúmenes de velas del Masters Data Mine ubicado en lo profundo de Multi-Time-Frame-Daily y archivos  Multi-Time-Frame-Market debajo de Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
                     "updated": 1636727469722
+                },
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникли проблемы со свечами, вам необходимо проверить данные индикатора Candles Volumes инструмента Masters Data Mine, расположенного глубоко в папках Multi-Time-Frame-Daily и Multi-Time-Frame-Market в разделе Data-Storage > Exchange > Market > Masters > Candles-Volumes > Output > Candles.",
+                    "updated": 1640459879218
                 }
             ]
         },
@@ -173,6 +282,11 @@
                     "language": "ES",
                     "text": "Si encuentra archivos .tmp o no puede abrir algunos de los archivos Data.json más recientes en un editor de texto normal, o si algunos archivos están vacíos, es probable que los archivos estén dañados.",
                     "updated": 1636727490907
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы обнаружили какие-либо файлы типа \".tmp\" или не можете открыть некоторые из последних файлов Data.json в обычном текстовом редакторе, или некоторые файлы пусты, есть вероятность, что файлы были повреждены.",
+                    "updated": 1640459931494
                 }
             ]
         },
@@ -185,6 +299,11 @@
                     "language": "ES",
                     "text": "Algo similar también puede haber sucedido con otros indicadores, así que asegúrese de revisar las carpetas de almacenamiento de datos de los indicadores que pueden no estar funcionando o con los que puede estar experimentando problemas.",
                     "updated": 1636727534325
+                },
+                {
+                    "language": "RU",
+                    "text": "Нечто подобное могло произойти и с другими индикаторами, поэтому обязательно проверьте папки хранения данных индикаторов, которые могут не работать или с которыми у вас возникли проблемы.",
+                    "updated": 1640459953146
                 }
             ]
         },
@@ -196,6 +315,11 @@
                     "language": "ES",
                     "text": "Si ese es el caso, eliminará la carpeta de cada mina de datos dentro de Data-Storage > Exchange > Market, pero dejará Exchange-Raw-Data intacto, ay conseguir que la operación de minería de datos se ejecute después. Esto regenerará todos los productos de datos de indicadores, incluidos los volúmenes de velas.",
                     "updated": 1636727614377
+                },
+                {
+                    "language": "RU",
+                    "text": "Если это так, то удалите папку для каждого источника данных в Data-Storage > Exchange > Market, но оставьте Exchange-Raw-Data нетронутой, и затем запустите операцию по сбору данных. Это приведет к регенерации всех продуктов данных индикаторов, включая Candles Volumes.",
+                    "updated": 1640460118299
                 }
             ]
         },
@@ -207,12 +331,24 @@
                     "language": "ES",
                     "text": "3. Remember that there is a proper way to close the system! ( ¡Recuerde que existe una forma adecuada de cerrar el sistema!)",
                     "updated": 1636727644457
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Помните, что существует правильный способ закрытия системы!",
+                    "updated": 1640460154536
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Check for Errors at the Browser"
+            "text": "Check for Errors at the Browser",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверка наличия ошибок в браузере",
+                    "updated": 1640460319785
+                }
+            ]
         },
         {
             "style": "Text",
@@ -222,6 +358,11 @@
                     "language": "ES",
                     "text": "Open Chrome’s DevTools con la tecla F12  (cuando el navegador está en foco) y clickee el tab de la consola. Luego regrese a Superalgos y reproduzca el problema. La consola puede mostrar errores de red y advertencias de diferentes tipos. Esos no son importantes y puede ignorarlos con seguridad.",
                     "updated": 1636727744906
+                },
+                {
+                    "language": "RU",
+                    "text": "Откройте DevTools в Chrome с помощью клавиши F12 (когда браузер находится в фокусе) и перейдите на вкладку Console. Затем вернитесь в Superalgos и воспроизведите проблему. В консоли могут отображаться сетевые ошибки и предупреждения различного рода. Они не важны, и вы можете смело игнорировать их.",
+                    "updated": 1640460354719
                 }
             ]
         },
@@ -233,6 +374,11 @@
                     "language": "ES",
                     "text": "Preste atención a otros tipos de errores, como archivos que no se pueden cargar o errores en componentes específicos del sistema.",
                     "updated": 1636727766726
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на другие виды ошибок, такие как файлы, которые не могут быть загружены, или ошибки в определенных компонентах системы.",
+                    "updated": 1640460372526
                 }
             ]
         }

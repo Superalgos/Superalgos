@@ -4,17 +4,38 @@
     "type": "Statistics",
     "definition": {
         "text": "Track popular statistics consolidating both the base asset and the quoted asset. On this page: Episode Statistics, Position Statistics, and Order Statistics.",
-        "updated": 1611260196449
+        "updated": 1611260196449,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отслеживайте популярную статистику, объединяющую как базовый, так и котируемый актив. На этой странице: Episode Statistics, Position Statistics и Order Statistics.",
+                "updated": 1640346971272
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Statistics are accounts and performance metrics calculated by consolidating the base asset and the quoted asset, that is, taking both assets into account.",
-            "updated": 1611260210428
+            "updated": 1611260210428,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Статистика - это счета и показатели эффективности, рассчитанные путем объединения базового актива и котируемого актива, то есть с учетом обоих активов.",
+                    "updated": 1640347026059
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The mechanics of how both assets are consolidated and how the consolidation affects the calculations are explained in the definitions of each of the concepts."
+            "text": "The mechanics of how both assets are consolidated and how the consolidation affects the calculations are explained in the definitions of each of the concepts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Механика того, как объединяются оба актива и как это влияет на расчеты, объясняется в определениях каждого из понятий.",
+                    "updated": 1640347052190
+                }
+            ]
         },
         {
             "style": "Title",

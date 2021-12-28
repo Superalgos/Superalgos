@@ -1,7 +1,14 @@
 {
     "type": "Strategy Manage Stage",
     "definition": {
-        "text": "Strategy manage stage is the section of the data structure that keeps track of information specific to the scope of the manage stage during the period the stage is open."
+        "text": "Strategy manage stage is the section of the data structure that keeps track of information specific to the scope of the manage stage during the period the stage is open.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Strategy Manage Stage - это раздел структуры данных, который отслеживает информацию, специфичную для области действия этапа управления, в течение периода, когда этап остается открытым.",
+                "updated": 1640343956227
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The manage stage is active from the instant the take position event is triggered until the instant either the stop or take profit targets are hit."
+            "text": "The manage stage is active from the instant the take position event is triggered until the instant either the stop or take profit targets are hit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этап управления активен с момента срабатывания события взятия позиции до момента достижения целей стоп или тейк-профит.",
+                    "updated": 1640343975941
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Therefore, this section of the data structure features information spanning those periods only."
+            "text": "Therefore, this section of the data structure features information spanning those periods only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому в данном разделе структуры данных представлена информация только за эти периоды.",
+                    "updated": 1640343992456
+                }
+            ]
         }
     ]
 }

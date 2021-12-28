@@ -2,7 +2,14 @@
     "type": "Size Filled",
     "definition": {
         "text": "Size filled is the amount of the order that has been filled at the exchange. It can also represent the cumulative Size Filled of the Open or Close Stages.",
-        "updated": 1615100388371
+        "updated": 1615100388371,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Size Filled - это размер ордера, который был заполнен на бирже. Он также может представлять собой суммарный размер заполненного ордера на этапах открытия или закрытия.",
+                "updated": 1640349417107
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,19 +18,47 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a strategy stage, the size filled refers to the sum of the size filled for all orders placed on the corresponding stage."
+            "text": "In the context of a strategy stage, the size filled refers to the sum of the size filled for all orders placed on the corresponding stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте этапа стратегии, заполненный размер относится к сумме заполненных размеров для всех ордеров, размещенных на соответствующем этапе.",
+                    "updated": 1640349443343
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of an order, it refers to the size filled for the particular order."
+            "text": "In the context of an order, it refers to the size filled for the particular order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте ордера он обозначает размер, заполненный для конкретного ордера.",
+                    "updated": 1640349460508
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Upon each execution of the trading bot, the system asks the exchange about the status of the orders placed, and the exchange reports back with the size filled and the actual rate at which orders are filled."
+            "text": "Upon each execution of the trading bot, the system asks the exchange about the status of the orders placed, and the exchange reports back with the size filled and the actual rate at which orders are filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После каждого выполнения торгового бота система запрашивает биржу о состоянии размещенных ордеров, а биржа сообщает о размере заполненных ордеров и фактической ставке, по которой они были заполнены.",
+                    "updated": 1640349550655
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In liquid markets, market orders should usually fill immediately. However, limit orders may fill incrementally. Size filled keeps track of how much of the size placed has been filled on every execution."
+            "text": "In liquid markets, market orders should usually fill immediately. However, limit orders may fill incrementally. Size filled keeps track of how much of the size placed has been filled on every execution.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На ликвидных рынках рыночные ордера обычно исполняются немедленно. Однако лимитные ордера могут исполняться постепенно. Size filled отслеживает, какая часть выставленного размера была заполнена при каждом исполнении.",
+                    "updated": 1640349576969
+                }
+            ]
         },
         {
             "style": "Block",
@@ -32,15 +67,36 @@
         {
             "style": "Title",
             "text": "Size Filled Configuration",
-            "updated": 1609926785857
+            "updated": 1609926785857,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Size Filled",
+                    "updated": 1640349592153
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640349603549
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640349612434
+                }
+            ]
         }
     ]
 }

@@ -4,21 +4,49 @@
     "type": "Counters",
     "definition": {
         "text": "Keep track of how many instances of certain objects have existed in a given context. On this page: Periods, Strategies, Positions, Orders, and Days.",
-        "updated": 1611259332958
+        "updated": 1611259332958,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отслеживайте, сколько экземпляров определенных объектов существовало в данном контексте. На этой странице: Periods, Strategy, Positions, Orders и Days.",
+                "updated": 1640345970767
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "A counter keeps track of how many instances of certain objects have come to exist—or have taken a certain value—during the duration of a certain context.",
-            "updated": 1611259349617
+            "updated": 1611259349617,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Счетчик отслеживает, сколько экземпляров определенных объектов появилось или приняло определенное значение за время действия определенного контекста.",
+                    "updated": 1640346086817
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, how many positions have been open during an episode, or how many of those positions have been hits."
+            "text": "For example, how many positions have been open during an episode, or how many of those positions have been hits.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, сколько позиций было открыто в течение эпизода, или сколько из этих позиций было закрыто.",
+                    "updated": 1640346179212
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Counters are kept in multiple contexts simultaneously. In particular, you will find episode counters, strategy counters, position counters, and order counters."
+            "text": "Counters are kept in multiple contexts simultaneously. In particular, you will find episode counters, strategy counters, position counters, and order counters.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Счетчики ведутся одновременно в нескольких контекстах. В частности, вы найдете счетчики эпизодов, счетчики стратегий, счетчики позиций и счетчики ордеров.",
+                    "updated": 1640346196289
+                }
+            ]
         },
         {
             "style": "Text",
@@ -90,7 +118,14 @@
         {
             "style": "Note",
             "text": "Other properties typical to counters are defined elsewhere, as they are not specific to counters. Find below the different contexts in which counters are found.",
-            "updated": 1611259860203
+            "updated": 1611259860203,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другие свойства, характерные для счетчиков, определены в других местах, поскольку они не являются специфическими для счетчиков. Ниже приведены различные контексты, в которых встречаются счетчики.",
+                    "updated": 1640346391905
+                }
+            ]
         },
         {
             "style": "Title",

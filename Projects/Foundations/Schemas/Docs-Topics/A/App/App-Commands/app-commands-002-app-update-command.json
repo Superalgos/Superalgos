@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Verwenden Sie diesen Befehl, um Ihre lokale Installation von Superalgos auf die neueste verfügbare Version zu aktualisieren.",
                 "updated": 1638038182879
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду для обновления локальной установки Superalgos до последней доступной версии.",
+                "updated": 1640235456216
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1610449451990
+            "updated": 1610449451990,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1640235466825
+                }
+            ]
         },
         {
             "style": "Json",
@@ -32,6 +44,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1638038191514
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640235474571
                 }
             ]
         },

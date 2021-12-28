@@ -4,37 +4,93 @@
     "type": "Exchange Raw Data - Fix The Problem",
     "definition": {
         "text": "At this point you will probably know if it is possible or not to extract historical information from your Favorite Exchange or not.",
-        "updated": 1614593270288
+        "updated": 1614593270288,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "На данном этапе вы, вероятно, знаете, можно ли или нет извлечь историческую информацию из вашей любимой биржи.",
+                "updated": 1640362646101
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "If you managed to make it work, the rest of the community will be happy to learn how to do it too.",
-            "updated": 1614593581507
+            "updated": 1614593581507,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вам удалось заставить его работать, остальные члены сообщества будут рады узнать, как это делается.",
+                    "updated": 1640362664743
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "New Config"
+            "text": "New Config",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Новая конфигурация",
+                    "updated": 1640362789989
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you found that your Favorite Exchange works with some special config, please contact the Team so that is can include that config in the next release and move the exchange to the branch of Tested exchanges."
+            "text": "If you found that your Favorite Exchange works with some special config, please contact the Team so that is can include that config in the next release and move the exchange to the branch of Tested exchanges.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы обнаружили, что ваш любимая биржа работает с какой-то особой конфигурацией, пожалуйста, свяжитесь с командой, чтобы мы могли включить эту конфигурацию в следующий релиз и переместить биржу в ветку Tested exchanges.",
+                    "updated": 1640362853803
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Changes In Code"
+            "text": "Changes In Code",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Изменения в коде",
+                    "updated": 1640362882494
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you managed to make it work by modifying the Sensor Bot's code, please submit a PR with your changes."
+            "text": "If you managed to make it work by modifying the Sensor Bot's code, please submit a PR with your changes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вам удалось заставить его работать, изменив код Sensor Bot, пожалуйста, отправьте PR (Pull Request) с вашими изменениями.",
+                    "updated": 1640362925374
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Changes in Docs"
+            "text": "Changes in Docs",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Изменения в документах",
+                    "updated": 1640362959284
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you found that this guide is incomplete or needed more info, please update the docs and send it as a contribution with the app.contribute command. That will help others follow this process with less pain. "
+            "text": "If you found that this guide is incomplete or needed more info, please update the docs and send it as a contribution with the app.contribute command. That will help others follow this process with less pain. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы обнаружили, что это руководство неполное или требует дополнительной информации, пожалуйста, обновите документацию и отправьте ее в качестве вклада с помощью команды app.contribute. Это поможет другим пройти этот курс с меньшими страданиями.",
+                    "updated": 1640362990927
+                }
+            ]
         }
     ]
 }

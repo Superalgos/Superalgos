@@ -57,6 +57,11 @@
                     "language": "DE",
                     "text": "Maintainer(Betreuer)",
                     "updated": 1639496029983
+                },
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1640236929712
                 }
             ]
         },

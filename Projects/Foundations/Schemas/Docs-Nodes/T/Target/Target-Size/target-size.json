@@ -1,7 +1,14 @@
 {
     "type": "Target Size",
     "definition": {
-        "text": "Target size is the target set on the initial targets definition which, in the context of a strategy stage, acts as a limit."
+        "text": "Target size is the target set on the initial targets definition which, in the context of a strategy stage, acts as a limit.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Target Size - это цель, установленная на начальном этапе определения целей, которая в контексте этапа стратегии действует как предельное значение.",
+                "updated": 1640350200945
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "Both the close and open stages may have multiple execution algorithms, each with multiple orders defined. In this context, the target size acts as a limit, as it is defined by the user as the maximum size allowed for any given position."
+            "text": "Both the close and open stages may have multiple execution algorithms, each with multiple orders defined. In this context, the target size acts as a limit, as it is defined by the user as the maximum size allowed for any given position.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этапы закрытия и открытия могут иметь несколько алгоритмов исполнения, каждый из которых определяет несколько ордеров. В данном контексте целевой размер выступает в качестве ограничения, поскольку он определяется пользователем как максимальный размер, допустимый для любой данной позиции.",
+                    "updated": 1640350227280
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before placing an order, the system makes sure that the size limit embodied in the target size would not be breached by opening a new order."
+            "text": "Before placing an order, the system makes sure that the size limit embodied in the target size would not be breached by opening a new order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед размещением ордера система убеждается, что лимит размера, заложенный в целевом размере, не будет нарушен при открытии нового ордера.",
+                    "updated": 1640350266214
+                }
+            ]
         }
     ]
 }

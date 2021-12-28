@@ -4,7 +4,14 @@
     "type": "Superalgos Review - Vast software with great tutorials",
     "definition": {
         "text": "It's awesome how nice the getting started is...",
-        "updated": 1629309124632
+        "updated": 1629309124632,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Потрясающе, как приятно начинать...",
+                "updated": 1640414253183
+            }
+        ]
     },
     "paragraphs": [
         {

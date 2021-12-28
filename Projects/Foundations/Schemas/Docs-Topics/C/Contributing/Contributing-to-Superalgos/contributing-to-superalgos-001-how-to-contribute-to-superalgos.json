@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Este tema cubre la logística y los detalles de cómo contribuir con diferentes tipos de activos al proyecto, incluido un Trading System, un Data Mine, íconos, documentación, tranducciones, tutoriales, etcetera.",
                 "updated": 1636726366195
+            },
+            {
+                "language": "RU",
+                "text": "Эта тема охватывает логистику и детали того, как вносить различные виды ресурсов в проект, включая Trading System, Data Mine, иконки, документацию, переводы, учебники и так далее.",
+                "updated": 1640258487287
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "Escanee la tabla de contenido a continuación para encontrar la documentación sobre cómo contribuir con el tipo de activo que pueda tener en mente.",
                     "updated": 1636726389032
+                },
+                {
+                    "language": "RU",
+                    "text": "Просмотрите приведенное ниже оглавление, чтобы найти документацию о том, как внести тот вид ценностей, который у вас на примете.",
+                    "updated": 1640258583992
                 }
             ]
         },

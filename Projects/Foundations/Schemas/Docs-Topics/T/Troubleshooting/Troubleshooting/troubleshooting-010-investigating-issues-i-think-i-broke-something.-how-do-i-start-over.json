@@ -4,17 +4,38 @@
     "type": "Investigating Issues - I Think I Broke Something... How Do I Start Over?",
     "definition": {
         "text": "If you think you may have accidentally broken something within the workspace, you may easily go back to the original release settings.",
-        "updated": 1611515018864
+        "updated": 1611515018864,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Если вам кажется, что вы могли случайно сломать что-то в рабочем пространстве, вы можете легко вернуться к исходным настройкам программы.",
+                "updated": 1640538069099
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Superalgos is a large system and the learning curve may be a little steep. In the beginning, you may feel a bit lost, and in an attempt to make something work, you may accidentally detach nodes from their hierarchies, remove references, delete nodes, or even entire data structures.",
-            "updated": 1611515027037
+            "updated": 1611515027037,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это большая система, и кривая обучения может быть достаточно крутой. Вначале вы можете почувствовать себя немного потерянным, и в попытке заставить что-то работать вы можете случайно отсоединить узлы от их иерархии, удалить ссылки, удалить узлы или даже целые структуры данных.",
+                    "updated": 1640538115904
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started plugin workspace by selecting it from the Workspaces Tab on the left-hand side of the screen."
+            "text": "If basic things are not working for you as expected and you think the issue may be that you accidentally broke something, do not panic! You can always go back to the original release settings by restoring a workspace the Getting Started plugin workspace by selecting it from the Workspaces Tab on the left-hand side of the screen.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если основные компоненты работают не так, как ожидалось, и вы думаете, что проблема может заключаться в том, что вы случайно что-то сломали, не паникуйте! Вы всегда можете вернуться к исходным настройкам релиза, восстановив рабочее пространство Getting Started Plugin Workspace, выбрав его на вкладке Workspaces в левой части экрана.",
+                    "updated": 1640538248209
+                }
+            ]
         }
     ]
 }

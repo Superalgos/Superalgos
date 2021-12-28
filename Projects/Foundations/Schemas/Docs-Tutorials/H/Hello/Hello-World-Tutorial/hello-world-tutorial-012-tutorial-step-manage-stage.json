@@ -26,6 +26,11 @@
                 "language": "IT",
                 "text": "Nel Manage Stage il bot controlla se deve prendere un Take Profit o uno Stop Loss",
                 "updated": 1639079064197
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim Aşaması ( The Manage Stage ), botun Kâr Almak ( Take Profit ) veya Zarar Durdurmak ( Stop Loss ) zorunda olup olmadığını kontrol ettiği yerdir.",
+                "updated": 1640617427959
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "IT",
                     "text": "In questa fase, il bot controlla se il prezzo ha raggiunto Take Profit (TP) o Stop Loss (SL). Le condizioni iniziali per la mia strategia erano di impostare uno SL al 20% dall'ingresso e un TP al 100% o quando MA50 incrocia sotto MA200.",
                     "updated": 1639079105717
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu aşamada, fiyatın Kâr Al (TP) ( Take Profit ) veya Zarar Durdur (SL) ( Stop Loss ) olup olmadığını bot kontrol eder. Stratejim için başlangıç koşulları, girişten itibaren bir SL'yi %20'ye ve bir TP'yi %100'e veya MA50, MA200'ün altında kesiştiğinde ayarlamaktı.",
+                    "updated": 1640617449497
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "text": "Stop Loss Formel:",
                     "updated": 1622979677028,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Zararı Durdur ( Stop Loss ) formülü:",
+                    "updated": 1640617464902
                 }
             ]
         },
@@ -92,6 +107,11 @@
                     "language": "IT",
                     "text": "La formula Take Profit è un pò più elaborata:",
                     "updated": 1639079168572
+                },
+                {
+                    "language": "TR",
+                    "text": "Kâr Al ( Take Profit ) formülü biraz daha ayrıntılıdır:",
+                    "updated": 1640617476503
                 }
             ]
         },

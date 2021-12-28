@@ -4,13 +4,27 @@
     "type": "Superalgos Review - A Vast, Simple Framework",
     "definition": {
         "text": "Superalgos: A First Look",
-        "updated": 1630608844967
+        "updated": 1630608844967,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos: Первый взгляд",
+                "updated": 1640414268877
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "From the get-go, Superalgos hits you with walls of text, all of them useful. The user interface itself is quite intuitive as well as easy to use, but the dragging of items to establish relations is somewhat clumsy. I'm looking forward to contributing something beyond what I hope is constructive criticism, and I hope to see some personal benefit from the use of and participation with this project.",
-            "updated": 1630609544502
+            "updated": 1630609544502,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С самого начала Superalgos обрушивает на вас стены текста, и все они полезны. Сам пользовательский интерфейс довольно интуитивно понятен и прост в использовании, но перетаскивание элементов для установления связей несколько неуклюже. Я с нетерпением жду возможности внести свой вклад, помимо, как я надеюсь, конструктивной критики, и надеюсь увидеть некоторую личную пользу от использования и участия в этом проекте.",
+                    "updated": 1640414306683
+                }
+            ]
         },
         {
             "style": "Text",

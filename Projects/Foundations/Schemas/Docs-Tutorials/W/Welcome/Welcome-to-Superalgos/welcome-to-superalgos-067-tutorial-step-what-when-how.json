@@ -56,8 +56,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'ye sermaye tahsis edilmez.",
-                    "updated": 1636121181916
+                    "text": "Session Base Asset (Oturum Temel Varlığı:): BTC'de sermaye belirlenmez.",
+                    "updated": 1640627828558
                 },
                 {
                     "language": "RU",
@@ -223,8 +223,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fee Structure (Komisyon): Binance için %0,1 olduğunu varsayalım.",
-                    "updated": 1636121571785
+                    "text": "Fee Structure (Komisyon): Borsa için %0,1 olduğunu varsayalım.",
+                    "updated": 1640627850968
                 },
                 {
                     "language": "RU",

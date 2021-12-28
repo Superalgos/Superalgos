@@ -4,26 +4,61 @@
     "type": "Debugging a Task",
     "definition": {
         "text": "Run the TaskManager project in your preferred IDE and use the Debug button on the task's menu.",
-        "updated": 1611648881024
+        "updated": 1611648881024,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Запустите проект TaskServer в предпочитаемой вами IDE и используйте кнопку Debug в меню задачи.",
+                "updated": 1640539883923
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You may debug any task, either a data mining task or a trading task by following these steps.",
-            "updated": 1611648894746
+            "updated": 1611648894746,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете выполнить отладку любой задачи, будь то задача добычи данных или торговая задача, выполнив следующие шаги.",
+                    "updated": 1640539797777
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "1. Run the Superalgos Client In the usual manner.",
-            "updated": 1611648991679
+            "updated": 1611648991679,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Запустите Superalgos Client обычным способом.",
+                    "updated": 1640539809338
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "2. Open the TaskServer project in your preferred IDE, place a breakpoint in the part of the code you wish to debug, and run the TaskServer."
+            "text": "2. Open the TaskServer project in your preferred IDE, place a breakpoint in the part of the code you wish to debug, and run the TaskServer.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Откройте проект TaskServer в предпочитаемой вами IDE, установите точку останова в той части кода, которую вы хотите отладить, и запустите TaskServer.",
+                    "updated": 1640539840914
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "3. Click the Debug button on the menu of the task you wish to debug. The request will be routed to the TaskServer running in your IDE."
+            "text": "3. Click the Debug button on the menu of the task you wish to debug. The request will be routed to the TaskServer running in your IDE.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Нажмите кнопку Debug (Отладка) в меню задачи, которую вы хотите отладить. Запрос будет направлен на TaskServer, запущенный в вашей IDE.",
+                    "updated": 1640539872415
+                }
+            ]
         },
         {
             "style": "Png",
@@ -32,11 +67,25 @@
         },
         {
             "style": "Text",
-            "text": "4. Run the trading session in case it is a trading task."
+            "text": "4. Run the trading session in case it is a trading task.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "4. Запустите торговую сессию в случае, если это торговая задача.",
+                    "updated": 1640539906857
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "After a few seconds, execution should pause in the line where you put the breakpoint. Bear in mind the system runs slower in debug mode, thus, it may take a little while for the session to start processing, after loading all dependencies."
+            "text": "After a few seconds, execution should pause in the line where you put the breakpoint. Bear in mind the system runs slower in debug mode, thus, it may take a little while for the session to start processing, after loading all dependencies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Через несколько секунд выполнение должно приостановиться в той строке, где вы поставили точку останова. Помните, что в режиме отладки система работает медленнее, поэтому после загрузки всех зависимостей может потребоваться некоторое время для начала обработки сессии.",
+                    "updated": 1640539931599
+                }
+            ]
         },
         {
             "style": "Text",

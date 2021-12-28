@@ -16,6 +16,59 @@
             "style": "Link",
             "text": "MACD - (investopedia)->www.investopedia.com/terms/m/macd.asp"
         },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-MACD.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The parameters of the Pluvtech MACD indicator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019Pluvtech MACD\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-MACD-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Pluvtech MACD | PLUVTECH_MACD | macd, signalLine, histogram, reverseMacd, macdEmaCross, macdZeroLine |",
+            "updated": 1636853769
+        },
+		{
+            "style": "List",
+            "text": "reverseMacd: Price action closing above this value will cause an increase of the MACD and Vice Versa."
+        },			
+		{
+            "style": "List",
+            "text": "macdEmaCross: Price action closing above this value will cause the MACD to cross above the EMA signal line and Vice Versa."
+        },		
+		{
+            "style": "List",
+            "text": "macdZeroLine: The predicted closing price value which would make MACD = 0"
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built using the MACD crossing when below the zero line:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at30min.PLUVTECH_MACD.previous.macd < chart.at30min.PLUVTECH_MACD.previous.signalLine && chart.at30min.PLUVTECH_MACD.macd > chart.at30min.PLUVTECH_MACD.signalLine && chart.at30min.PLUVTECH_MACD.macd < 0",
+            "updated": 1636853769
+        },
         {
             "style": "Title",
             "text": "Maintainer:",

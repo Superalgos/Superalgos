@@ -48,10 +48,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem.conditions = new Map()
         portfolioSystem.formulas = new Map()
 
-        portfolioEventsManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioEventsManager(processIndex)
+        portfolioEventsManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioEventsManager.newPortfolioManagementBotModulesPortfolioEventsManager(processIndex)
         portfolioEventsManagerModuleObject.initialize()
 
-        portfolioFormulasManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioFormulasManager(processIndex)
+        portfolioFormulasManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioFormulasManager.newPortfolioManagementBotModulesPortfolioFormulasManager(processIndex)
         portfolioFormulasManagerModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Portfolio System Definition */

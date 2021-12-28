@@ -276,17 +276,17 @@
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
-                    "name": "Portfolio Manager Events Manager",
-                    "propertyName": "portfolioManagerEventsManager",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioManagerEventsManager",
-                    "fileName": "PortfolioManagerEventsManager.js",
+                    "name": "Portfolio Events Manager",
+                    "propertyName": "portfolioEventsManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEventsManager",
+                    "fileName": "PortfolioEventsManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
-                    "name": "Portfolio Manager Formulas Manager",
-                    "propertyName": "portfolioManagerFormulasManager",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioManagerFormulasManager",
-                    "fileName": "PortfolioManagerFormulasManager.js",
+                    "name": "Portfolio Formulas Manager",
+                    "propertyName": "portfolioFormulasManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioFormulasManager",
+                    "fileName": "PortfolioFormulasManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },                
                 {

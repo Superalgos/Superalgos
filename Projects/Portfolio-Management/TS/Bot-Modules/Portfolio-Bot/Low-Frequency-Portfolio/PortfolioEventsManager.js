@@ -45,7 +45,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = functi
             if (confirmEventReference.referenceParent === undefined) { continue }
             if (confirmEventReference.referenceParent.id !== event.node.id) { continue }
 
-            await portfolioSystem.evalConditions(confirmEventReference, 'Confirm Event Reference')
+            portfolioSystem.evalConditions(confirmEventReference, 'Confirm Event Reference')
 
             for (let k = 0; k < confirmEventReference.situations.length; k++) {
                 let situation = confirmEventReference.situations[k]
@@ -102,7 +102,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = functi
             if (setEventReference.referenceParent === undefined) { continue }
             if (setEventReference.referenceParent.id !== event.node.id) { continue }
 
-            await portfolioSystem.evalConditions(setEventReference, 'Set Event Reference')
+            portfolioSystem.evalConditions(setEventReference, 'Set Event Reference')
 
             for (let k = 0; k < setEventReference.situations.length; k++) {
                 let situation = setEventReference.situations[k]

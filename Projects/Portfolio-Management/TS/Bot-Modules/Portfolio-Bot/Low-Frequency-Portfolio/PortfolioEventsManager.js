@@ -38,6 +38,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = functi
             }
             return response
         }
+
         for (let i = 0; i < portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences.lenght; i++) {
             let confirmEventReference = portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences[i]
 
@@ -91,6 +92,46 @@ exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = functi
             let response = {
                 status: 'Not Ok',
                 reason: "No Set Events Rules found at Portfolio Events Manager"
+            }
+            return response
+        }
+
+        for (let i = 0; i < portfolioSystem.eventsManager.setEventRules.setEventReferences.lenght; i++) {
+            let setEventReference = portfolioSystem.eventsManager.setEventRules.setEventReferences[i]
+
+            if (setEventReference.referenceParent === undefined) { continue }
+            if (setEventReference.referenceParent.id !== event.node.id) { continue }
+
+            await portfolioSystem.evalConditions(setEventReference, 'Set Event Reference')
+
+            for (let k = 0; k < setEventReference.situations.length; k++) {
+                let situation = setEventReference.situations[k]
+                let passed
+                if (situation.conditions.length > 0) {
+                    passed = true
+                }
+
+                passed = portfolioSystem.checkConditions(situation, passed)
+
+                portfolioSystem.values.push([situation.id, passed])
+
+                if (passed) {
+
+                    portfolioSystem.highlights.push(situation.id)
+                    portfolioSystem.highlights.push(setEventReference.id)
+                    portfolioSystem.highlights.push(setEventReference.id)
+
+                    let response = {
+                        status: 'Ok',
+                        passed: true
+                    }
+                    return response
+                }
+            }
+
+            let response = {
+                status: 'Ok',
+                passed: false
             }
             return response
         }

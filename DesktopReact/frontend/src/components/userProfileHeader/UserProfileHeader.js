@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
-import banner from "../../images/banner.jpg";
+import banner from "../../images/superalgos.png";
 import pfp from "../../images/superalgos.png";
 import "./UserProfileHeader.css"
 import UserProfileModal from "./UserProfileModal";

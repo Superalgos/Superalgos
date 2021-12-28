@@ -2,22 +2,20 @@ import "./UserCard.css"
 import React, {useState} from 'react';
 import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
-import {followUser, unfollowUser} from "../../api/follow.httpService";
+import {followUser} from "../../api/follow.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 
 const UserCard = ({name, userId}) => {
 
     const [followed, setFollowed] = useState(false);
 
-    const followCallback = () => {
-        if (followed) {
-            let {result} = unfollowUser(userId).then(response => response.json());
-            setFollowed(!(result === STATUS_OK));
-        } else {
-            let {result} = followUser(userId).then(response => response.json());
-            setFollowed(result === STATUS_OK);
-        }
+    const followCallback = async () => {
+        let eventType = followed ? 16 : 15;/* TODO use constant */
+        let {result} = await followUser(userId, eventType).then(response => response.json());
+        console.log({userId, followed, result, eventType})
+        setFollowed(value => ((result === STATUS_OK) ? (!value) : (value)));
     }
+
     return (
         <Card className="userCard" variant="outlined">
             <CardMedia className="avatar"

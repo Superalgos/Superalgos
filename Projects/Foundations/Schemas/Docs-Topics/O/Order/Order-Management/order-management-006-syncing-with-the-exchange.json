@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "La sincronización con el intercambio implica calcular el tamaño real, la tasa real, el porcentaje cumplimentado, las tarifas pagadas y el tamaño llenado, para actualizar la estructura de datos del motor de trading de modo que coincida con la situación real de la orden en el intercambio.",
                 "updated": 1636385740651
+            },
+            {
+                "language": "RU",
+                "text": "Синхронизация с биржей включает вычисление фактического размера, фактического курса, процента заполнения, уплаченных комиссий и размера заполнения, чтобы обновить структуру данных торгового движка таким образом, чтобы она соответствовала фактической ситуации с ордером на бирже.",
+                "updated": 1640327174165
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "El proceso de sincronizar los datos en el motor de trading con lo que realmente sucede en el intercambio es crucial para monitorear y controlar una operación comercial en vivo desde Superalgos. Es este proceso el que permite a los usuarios acceder a la información en el intercambio a lo largo del ciclo de vida de cada pedido, sobre la marcha.",
                     "updated": 1636385801690
+                },
+                {
+                    "language": "RU",
+                    "text": "Процесс синхронизации данных в торговом движке с тем, что фактически происходит на бирже, имеет решающее значение для мониторинга и управления операциями в реальной торговле из Superalgos. Именно этот процесс позволяет пользователям получать доступ к информации на бирже на протяжении всего жизненного цикла каждого ордера \"на лету\".",
+                    "updated": 1640327262864
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "Aquí es cuando se realizan todos los cálculos relacionados con el tamaño real, la tasa real, las tarifas reales, etc. Examinaremos de cerca cada uno de los cálculos.",
                     "updated": 1636385835284
+                },
+                {
+                    "language": "RU",
+                    "text": "Именно в этот момент производятся все расчеты, связанные с фактическим размером, фактической ставкой, фактическими комиссионными и так далее. Мы подробно рассмотрим каждый из этих расчетов.",
+                    "updated": 1640327280573
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "ES",
                     "text": "Una vez que se realiza la sincronización, el bot hace la contabilidad (see Accounting), para mantener el resto de variables —como los saldos y el tamaño del escenario— al día con la realidad de los pedidos.",
                     "updated": 1636385933973
+                },
+                {
+                    "language": "RU",
+                    "text": "После синхронизации бот выполняет учет (см. Accounting), чтобы остальные переменные - остатки и размер этапа - соответствовали реальным ордерам.",
+                    "updated": 1640327338734
                 }
             ]
         },
@@ -54,7 +74,14 @@
         },
         {
             "style": "Title",
-            "text": "Actual Size Calculation"
+            "text": "Actual Size Calculation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет фактического размера",
+                    "updated": 1640327376354
+                }
+            ]
         },
         {
             "style": "Text",
@@ -64,6 +91,11 @@
                     "language": "ES",
                     "text": "Si bien los usuarios pueden definir el tamaño objetivo de la etapa en el activo base o en el activo cotizado, el tamaño de las órdenes siempre se denomina en el activo base, según la blibioteca CCXT API, y, probablemente, la mayoría de los APIs de los  exchanges.",
                     "updated": 1636386024768
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя пользователи могут определять целевой размер этапа либо в базовом активе, либо в котируемом активе, размер ордеров всегда выражается в базовом активе, согласно API библиотеки CCXT и, вероятно, API большинства бирж.",
+                    "updated": 1640327402855
                 }
             ]
         },
@@ -76,6 +108,11 @@
                     "language": "ES",
                     "text": "Es una ocurrencia común que los intercambios cambian ligeramente el tamaño, por cualquier motivo, incluidos problemas con la precisión de los lugares decimales, por ejemplo. Es por eso que el tamaño del pedido definido por el usuario puede necesitar ser actualizado, sincronizándolo con el tamaño real determinado por el intercambio.",
                     "updated": 1636386104243
+                },
+                {
+                    "language": "RU",
+                    "text": "Часто случается, что биржи незначительно изменяют размер по каким-либо причинам, включая, например, проблемы с точностью десятичных знаков. Поэтому размер ордера, определенный пользователем, может потребовать обновления, синхронизируя его с фактическим размером, указанным биржей.",
+                    "updated": 1640327432396
                 }
             ]
         },
@@ -87,16 +124,35 @@
                     "language": "ES",
                     "text": "Cuando el tamaño real de la orden según lo informado por el iexchange es diferente al tamaño definido por el usuario, el robot comercial realiza los ajustes que se describen a continuación.",
                     "updated": 1636386148631
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда фактический размер ордера, сообщенный биржей, отличается от размера, определенного пользователем, торговый бот производит корректировку, описанную ниже.",
+                    "updated": 1640327448964
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "Recalculate Actual Size"
+            "text": "Recalculate Actual Size",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересчет фактического размера",
+                    "updated": 1640327464477
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The actual size of the base asset is updated with the size reported by the exchange:"
+            "text": "The actual size of the base asset is updated with the size reported by the exchange:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Фактический размер базового актива обновляется до размера, сообщенного биржей:",
+                    "updated": 1640327479569
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -104,7 +160,14 @@
         },
         {
             "style": "Text",
-            "text": "Then it’s time to calculate the actual size in the quoted asset. At this stage, the actual rate of the order hasn’t been established yet, so the existing rate is used temporarily."
+            "text": "Then it’s time to calculate the actual size in the quoted asset. At this stage, the actual rate of the order hasn’t been established yet, so the existing rate is used temporarily.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Затем наступает время рассчитать фактический размер в котируемом активе. На этом этапе фактический курс ордера еще не установлен, поэтому временно используется существующий курс.",
+                    "updated": 1640327502997
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -113,28 +176,70 @@
         },
         {
             "style": "Subtitle",
-            "text": "Recalculate Size Placed"
+            "text": "Recalculate Size Placed",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересчет размещенного размера",
+                    "updated": 1640327520274
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The open stage and close stage sections of the trading engine hierarchy keep track of the accumulated size of the orders that have been placed so that the stage size may be compared to the target size defined in the trading system."
+            "text": "The open stage and close stage sections of the trading engine hierarchy keep track of the accumulated size of the orders that have been placed so that the stage size may be compared to the target size defined in the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разделы Open Stage и Close Stage иерархии Trading Engine отслеживают накопленный размер размещенных ордеров, чтобы можно было сравнить размер стадии с целевым размером, определенным в торговой системе.",
+                    "updated": 1640327744232
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that the target size defined acts as a size cap, thus, the system must not place orders in excess of the defined target size.",
-            "updated": 1610221313060
+            "updated": 1610221313060,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что установленный целевой размер действует как ограничение по размеру, поэтому система не должна размещать ордера, превышающие установленный целевой размер (Target Size).",
+                    "updated": 1640327782058
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the size of the order as determined by the exchange is different from the original size of the order, the current stage size must be recalculated."
+            "text": "If the size of the order as determined by the exchange is different from the original size of the order, the current stage size must be recalculated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если размер ордера, определенный биржей, отличается от первоначального размера ордера, то размер текущего этапа должен быть пересчитан.",
+                    "updated": 1640327811367
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "What the trading bot does in this case is subtracting the original size from the stage size placed, and then add the actual size, as obtained from the exchange. As usual, this is done both for the base asset and the quoted asset."
+            "text": "What the trading bot does in this case is subtracting the original size from the stage size placed, and then add the actual size, as obtained from the exchange. As usual, this is done both for the base asset and the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что делает торговый бот в этом случае, так это вычитает исходный размер из размещенного размера этапа, а затем добавляет фактический размер, полученный от биржи. Как обычно, это делается как для базового актива, так и для котируемого актива.",
+                    "updated": 1640330182837
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For clarity, each operation is done in two steps."
+            "text": "For clarity, each operation is done in two steps.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для наглядности каждая операция выполняется двумя действиями.",
+                    "updated": 1640330262746
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -147,24 +252,59 @@
         },
         {
             "style": "Title",
-            "text": "Actual Rate Calculation"
+            "text": "Actual Rate Calculation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет фактической ставки",
+                    "updated": 1640330274683
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Market orders are placed without a definition in terms of the rate they will be executed at, as, by definition, a market rate is filled at whatever rate the order book allows.",
-            "updated": 1610221400343
+            "updated": 1610221400343,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рыночные ордера размещаются без определения курса, по которому они будут исполнены, поскольку, по определению, рыночный курс исполняется по любой ставке, которую может позволить книга ордеров.",
+                    "updated": 1640330313111
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the case of limit orders—although the user defines a rate—the exchange may change it slightly, for multiple reasons. For example, due to issues related to decimals precision, or because the order may match existing orders in the order book with a better rate."
+            "text": "In the case of limit orders—although the user defines a rate—the exchange may change it slightly, for multiple reasons. For example, due to issues related to decimals precision, or because the order may match existing orders in the order book with a better rate.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае с лимитными ордерами - несмотря на то, что пользователь определяет курс, биржа может немного изменить его по разным причинам. Например, из-за проблем, связанных с точностью десятичных дробей, или потому, что ордер может соответствовать существующим ордерам в книге заявок с более выгодной ставкой.",
+                    "updated": 1640330340681
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For those reasons, the trading bot gets the actual rate from the exchange and —in case it differs from the defined rate—makes the updates described below."
+            "text": "For those reasons, the trading bot gets the actual rate from the exchange and —in case it differs from the defined rate—makes the updates described below.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По этим причинам торговый бот получает фактический курс от биржи и - в случае, если он отличается от установленного курса - производит обновление, которое описано ниже.",
+                    "updated": 1640330390856
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "First of all, the actual rate under the order statistics node is updated with the actual rate provided by the exchange:"
+            "text": "First of all, the actual rate under the order statistics node is updated with the actual rate provided by the exchange:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде всего, фактический курс в узле статистики ордеров обновляется до фактического курса, предоставляемого биржей:",
+                    "updated": 1640330411639
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -172,19 +312,47 @@
         },
         {
             "style": "Text",
-            "text": "If the actual rate is the same as the rate of the order as originally defined, then that’s all. Otherwise, the bot goes back and recalculates the size of the order for the quoted asset and the size placed in the quoted asset for the corresponding stage—again."
+            "text": "If the actual rate is the same as the rate of the order as originally defined, then that’s all. Otherwise, the bot goes back and recalculates the size of the order for the quoted asset and the size placed in the quoted asset for the corresponding stage—again.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если фактическая ставка совпадает с первоначально определенной ставкой ордера, то это все. В противном случае бот возвращается назад и пересчитывает размер ордера для котируемого актива и размер, размещенный в котируемом активе для соответствующего этапа - снова.",
+                    "updated": 1640330444573
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Let’s do a little recap in case the above is not crystal clear. When the order size in the quoted asset was calculated earlier, the calculation was made by multiplying the actual size in the base asset as reported by the exchange, by the rate as was originally defined. However, if the rate used earlier is not the actual rate at which the order was filled at the exchange, the trading bot needs to go back and calculate the size in the quoted asset again. The same goes for the size placed in the quoted asset."
+            "text": "Let’s do a little recap in case the above is not crystal clear. When the order size in the quoted asset was calculated earlier, the calculation was made by multiplying the actual size in the base asset as reported by the exchange, by the rate as was originally defined. However, if the rate used earlier is not the actual rate at which the order was filled at the exchange, the trading bot needs to go back and calculate the size in the quoted asset again. The same goes for the size placed in the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давайте сделаем небольшой обзор на случай, если сказанное выше не совсем понятно. Когда ранее рассчитывался размер ордера в котируемом активе, расчет производился путем умножения фактического размера в базовом активе, о котором сообщала биржа, на курс, который был определен изначально. Однако если курс, использованный ранее, не является фактическим курсом, по которому ордер был исполнен на бирже, торговому боту необходимо вернуться назад и снова рассчитать размер в котируемом активе. То же самое относится и к размеру, размещенному в котируемом активе.",
+                    "updated": 1640330485886
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Both calculations are virtually the same as described earlier, so we are not going to go over the details again. Suffice to say that the only difference is that the actual rate is used instead of the original rate as defined in the trading system."
+            "text": "Both calculations are virtually the same as described earlier, so we are not going to go over the details again. Suffice to say that the only difference is that the actual rate is used instead of the original rate as defined in the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Оба расчета практически ничем не отличаются от описанных ранее, поэтому мы не будем подробно останавливаться на них. Достаточно сказать, что единственное различие заключается в том, что используется фактический курс, а не первоначальный курс, определенный в торговой системе.",
+                    "updated": 1640330510610
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "And remember, the size in the base asset does not need to be recalculated, as it is not affected by the differences in rates."
+            "text": "And remember, the size in the base asset does not need to be recalculated, as it is not affected by the differences in rates.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "И помните, что размер в базовом активе не нужно пересчитывать, так как на него не влияет разница в ставках.",
+                    "updated": 1640330523804
+                }
+            ]
         },
         {
             "style": "Block",
@@ -192,11 +360,25 @@
         },
         {
             "style": "Title",
-            "text": "Percentage Filled Calculation"
+            "text": "Percentage Filled Calculation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет процента заполнения",
+                    "updated": 1640330534070
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is a simple calculation to determine what percentage of the order has been filled, which is relevant later on to calculate fees and balances:"
+            "text": "This is a simple calculation to determine what percentage of the order has been filled, which is relevant later on to calculate fees and balances:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это простой расчет, позволяющий определить, какой процент ордера был выполнен, что в дальнейшем необходимо для расчета комиссий и балансов:",
+                    "updated": 1640330563996
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -206,7 +388,14 @@
         {
             "style": "Note",
             "text": "As you can see, the actual size in the base asset is used, as the size is always denominated in the base asset according to the exchange.",
-            "updated": 1610221445535
+            "updated": 1610221445535,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как видите, используется фактический размер в базовом активе, поскольку размер всегда выражен в базовом активе в соответствии с биржей.",
+                    "updated": 1640330589695
+                }
+            ]
         },
         {
             "style": "Block",
@@ -214,56 +403,147 @@
         },
         {
             "style": "Title",
-            "text": "Fees Paid Calculation"
+            "text": "Fees Paid Calculation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Fees Расчет уплаченных комиссионныхCalculation",
+                    "updated": 1640330601042
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Exchange fees are a crucial aspect of trading, as they may greatly affect the profitability of strategies."
+            "text": "Exchange fees are a crucial aspect of trading, as they may greatly affect the profitability of strategies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржевые комиссии являются важнейшим компонентом торговли, поскольку они могут значительно повлиять на прибыльность стратегий.",
+                    "updated": 1640330635373
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Surprisingly, the exchange does not explicitly report how much is charged in fees on each order. This apparent contradiction must be resolved by Superalgos, so let’s dive into the details."
+            "text": "Surprisingly, the exchange does not explicitly report how much is charged in fees on each order. This apparent contradiction must be resolved by Superalgos, so let’s dive into the details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удивительно, но биржа не сообщает в явном виде, сколько комиссионных взимается с каждого ордера. Это очевидное противоречие должно быть разрешено Superalgos, поэтому давайте погрузимся в детали.",
+                    "updated": 1640330657886
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are a few fundamental workings that affect the calculations:"
+            "text": "There are a few fundamental workings that affect the calculations:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует несколько основных принципов работы, которые влияют на расчеты:",
+                    "updated": 1640330672978
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The fees are not explicitly reported by the exchange, hence the need to calculate them."
+            "text": "The fees are not explicitly reported by the exchange, hence the need to calculate them.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти комиссии не сообщаются биржей в явном виде, поэтому возникает необходимость их подсчета.",
+                    "updated": 1640330696433
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "To calculate fees, the user bears the ultimate responsibility in supplying the trading bot with the correct parameters defined in the fee structure session parameters. It is these values of maker and taker fees that the system uses to calculate fees. If the parameters are wrong, the calculated fees will be wrong as well.",
-            "updated": 1610221483105
+            "updated": 1610221483105,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для расчета комиссий пользователь несет полную ответственность за предоставление торговому боту правильных параметров, определенных в параметрах сессии структуры комиссий. Именно эти значения комиссий maker и taker используются системой для расчета комиссий. Если параметры неверны, то и рассчитанные комиссионные будут неверны.",
+                    "updated": 1640330726215
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The taker fee parameter is used to calculate the fees on market orders, while the maker fee parameter is used to calculate fees for limit orders."
+            "text": "The taker fee parameter is used to calculate the fees on market orders, while the maker fee parameter is used to calculate fees for limit orders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметр taker fee используется для расчета комиссий по рыночным ордерам, а параметр maker fee - для расчета комиссий по лимитным ордерам.",
+                    "updated": 1640330741015
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The exchange charges fees denominated in the asset that the user is acquiring in the transaction. For example, in the BTC/USDT market, a sell order exchanges BTC for USDT, and the exchange charges fees in USDT, because that is the asset you are acquiring. On the contrary, a buy order in the BTC/USDT market exchanges USDT for BTC, thus fees are charged in BTC."
+            "text": "The exchange charges fees denominated in the asset that the user is acquiring in the transaction. For example, in the BTC/USDT market, a sell order exchanges BTC for USDT, and the exchange charges fees in USDT, because that is the asset you are acquiring. On the contrary, a buy order in the BTC/USDT market exchanges USDT for BTC, thus fees are charged in BTC.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Биржа взимает комиссию, выраженную в активе, который пользователь приобретает в ходе сделки. Например, на рынке BTC/USDT ордер на продажу обменивает BTC на USDT, и биржа взимает комиссию в USDT, поскольку именно этот актив вы приобретаете. Напротив, ордер на покупку на рынке BTC/USDT обменивает USDT на BTC, поэтому комиссия взимается в BTC.",
+                    "updated": 1640330773368
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Properly calculating fees is crucial to keeping an accurate accounting system, as they directly affect balances. This is why: The actual size reported by the exchange is not representative of the actual amount of the asset acquired in the transaction. This is because the exchange fills the order, determines the size filled, and then subtracts the fees from the size filled. That is, the size filled reported by the exchange is greater than the amount you receive. In fact, the amount you receive is the actual size filled minus the fees. That calculation is the one used to estimate the balances for both assets in Superalgos so that they match the balances at the exchange."
+            "text": "Properly calculating fees is crucial to keeping an accurate accounting system, as they directly affect balances. This is why: The actual size reported by the exchange is not representative of the actual amount of the asset acquired in the transaction. This is because the exchange fills the order, determines the size filled, and then subtracts the fees from the size filled. That is, the size filled reported by the exchange is greater than the amount you receive. In fact, the amount you receive is the actual size filled minus the fees. That calculation is the one used to estimate the balances for both assets in Superalgos so that they match the balances at the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Правильный расчет комиссионных имеет решающее значение для ведения точной системы учета, поскольку они непосредственно влияют на балансы. Вот почему: фактический размер, сообщаемый биржей, не отражает фактическую сумму актива, приобретенного в ходе сделки. Это происходит потому, что биржа заполняет ордер, определяет его размер, а затем вычитает комиссионные из заполненного размера. Таким образом, размер исполненного ордера, о котором сообщает биржа, больше, чем сумма, которую вы получаете. На самом деле, сумма, которую вы получаете, - это фактический исполненный размер за вычетом комиссионных. Именно этот расчет используется для оценки балансов обоих активов в Superalgos, чтобы они совпадали с балансами на бирже.",
+                    "updated": 1640330857504
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Because orders (in particular limit orders) may be partially filled, the system uses the percentage filled calculated earlier to determine the fees to be paid for the portion filled, as the exchange charges fees for the amount filled only."
+            "text": "Because orders (in particular limit orders) may be partially filled, the system uses the percentage filled calculated earlier to determine the fees to be paid for the portion filled, as the exchange charges fees for the amount filled only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку ордера (в частности, лимитные) могут быть частично исполнены, система использует рассчитанный ранее процент заполнения для определения комиссии, которая должна быть уплачена за заполненную часть, поскольку биржа взимает комиссию только за заполненную сумму.",
+                    "updated": 1640330903391
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All of the above considerations are captured in the following calculations."
+            "text": "All of the above considerations are captured in the following calculations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все вышеперечисленные соображения отражены в следующих расчетах.",
+                    "updated": 1640330914899
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Market buy orders"
+            "text": "Market buy orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рыночные ордера на покупку",
+                    "updated": 1640330924412
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Because you are acquiring the base asset, fees paid are calculated using the base asset actual size. Because it’s a market order, the taker fees parameter is used."
+            "text": "Because you are acquiring the base asset, fees paid are calculated using the base asset actual size. Because it’s a market order, the taker fees parameter is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку вы приобретаете базовый актив, уплаченные комиссии рассчитываются с использованием фактического размера базового актива. Поскольку это рыночный ордер, используется параметр taker.",
+                    "updated": 1640330994377
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -272,11 +552,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Limit buy orders"
+            "text": "Limit buy orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Лимитные ордера на покупку",
+                    "updated": 1640331003448
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like with market buy orders, because you are acquiring the base asset, fees paid are calculated using the base asset actual size. Because it’s a limit order, the maker fees parameter is used."
+            "text": "Like with market buy orders, because you are acquiring the base asset, fees paid are calculated using the base asset actual size. Because it’s a limit order, the maker fees parameter is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с рыночными ордерами на покупку, поскольку вы приобретаете базовый актив, уплаченные комиссии рассчитываются с использованием фактического размера базового актива. Поскольку это лимитный ордер, используется параметр maker.",
+                    "updated": 1640331031388
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -285,11 +579,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Market sell orders"
+            "text": "Market sell orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рыночные ордера на продажу",
+                    "updated": 1640331040494
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Because you are acquiring the quoted asset, fees paid are calculated using the base asset actual size. Because it’s a market order, the taker fees parameter is used."
+            "text": "Because you are acquiring the quoted asset, fees paid are calculated using the base asset actual size. Because it’s a market order, the taker fees parameter is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку вы приобретаете котируемый актив, уплаченные комиссии рассчитываются с использованием фактического размера базового актива. Поскольку это рыночный ордер, используется параметр taker.",
+                    "updated": 1640331057631
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -298,11 +606,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Limit sell orders"
+            "text": "Limit sell orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Лимитные ордера на продажу",
+                    "updated": 1640331066811
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like with market sell orders, because you are acquiring the quoted asset, fees paid are calculated using the quoted asset actual size. Because it’s a limit order, the maker fees parameter is used."
+            "text": "Like with market sell orders, because you are acquiring the quoted asset, fees paid are calculated using the quoted asset actual size. Because it’s a limit order, the maker fees parameter is used.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с рыночными ордерами на продажу, поскольку вы приобретаете котируемый актив, уплаченные комиссионные рассчитываются на основе фактического размера котируемого актива. Поскольку это лимитный ордер, используется параметр maker.",
+                    "updated": 1640331085295
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -315,11 +637,25 @@
         },
         {
             "style": "Title",
-            "text": "Size Filled Calculation"
+            "text": "Size Filled Calculation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет заполненного размера",
+                    "updated": 1640331094395
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As mentioned earlier, and as may be inferred from the example orders presented earlier, the size filled is always reported by the exchange denominated in the base asset. That is:"
+            "text": "As mentioned earlier, and as may be inferred from the example orders presented earlier, the size filled is always reported by the exchange denominated in the base asset. That is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как уже упоминалось ранее, и как можно понять из примеров ордеров, представленных ранее, размер заполненного ордера всегда сообщается биржей, выраженной в базовом активе. То есть:",
+                    "updated": 1640331115111
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -327,7 +663,14 @@
         },
         {
             "style": "Text",
-            "text": "Therefore, the trading bot needs to calculate the size filled in the quoted asset:"
+            "text": "Therefore, the trading bot needs to calculate the size filled in the quoted asset:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому торговому боту необходимо рассчитать размер, заполненный в котируемом активе:",
+                    "updated": 1640331129098
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -340,19 +683,47 @@
         },
         {
             "style": "Title",
-            "text": "Amount Received Calculation"
+            "text": "Amount Received Calculation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расчет полученной суммы",
+                    "updated": 1640331146389
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The amount received is a simple calculation to facilitate the comprehension of the trade, given that the exchange does not provide that basic information. Remember that only the size filled is reported and that fees are subtracted from the size filled."
+            "text": "The amount received is a simple calculation to facilitate the comprehension of the trade, given that the exchange does not provide that basic information. Remember that only the size filled is reported and that fees are subtracted from the size filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Полученная сумма - это простой вычисление для облегчения понимания сделки, учитывая, что биржа не предоставляет эту основную информацию. Помните, что сообщается только размер заполненного объема, а комиссионные вычитаются из размера заполненного объема.",
+                    "updated": 1640331193030
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Market and limit buy orders"
+            "text": "Market and limit buy orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рыночные и лимитные ордера на покупку",
+                    "updated": 1640331201950
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In these cases, the user receives the amount in the base asset."
+            "text": "In these cases, the user receives the amount in the base asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этих случаях пользователь получает сумму в базовом активе.",
+                    "updated": 1640331211102
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -361,11 +732,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Market and limit sell orders"
+            "text": "Market and limit sell orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рыночные и лимитные ордера на продажу",
+                    "updated": 1640331221181
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In these cases, the user receives the amount in the quoted asset."
+            "text": "In these cases, the user receives the amount in the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этих случаях пользователь получает сумму в котируемом активе.",
+                    "updated": 1640331230897
+                }
+            ]
         },
         {
             "style": "Javascript",

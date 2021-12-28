@@ -4,7 +4,14 @@
     "type": "Superalgos Review - My review of SuperAlgos",
     "definition": {
         "text": "I love the software so far! There are a lot of stuff that has to be learned. Also the freedom to do what you like with the software it's ... unique.",
-        "updated": 1618354560435
+        "updated": 1618354560435,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пока что мне нравится программное обеспечение! Есть много вещей, которые нужно изучить. Кроме того, возможность делать с программой то, что вам нравится, это... уникально.",
+                "updated": 1640411825887
+            }
+        ]
     },
     "paragraphs": [
         {

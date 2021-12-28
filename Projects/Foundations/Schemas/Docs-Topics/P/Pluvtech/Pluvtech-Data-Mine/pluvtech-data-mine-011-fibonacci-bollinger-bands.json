@@ -3,7 +3,7 @@
     "pageNumber": "11",
     "type": "Fibonacci Bollinger Bands",
     "definition": {
-        "text": "These Bollinger bands feature Fibonacci retracements to very clearly show areas of support and resistance. The basis is calculate off of the Volume Weighted Moving Average. The Bands are 3 standard deviations away from the mean. 99.73% of observations should be in this range.",
+        "text": "These Bollinger bands feature Fibonacci retracements to very clearly show areas of support and resistance. The basis is calculated from the Volume Weighted Moving Average. The Bands are 3 standard deviations away from the mean. 99.73% of observations should be in this range.",
         "updated": 1622686933380
     },
     "paragraphs": [
@@ -19,6 +19,52 @@
         {
             "style": "Link",
             "text": "About Bollinger Bands - (Investopedia)->www.investopedia.com/trading/using-bollinger-bands-to-gauge-trends/"
+        },
+		{
+            "style": "Text",
+            "text": "The following fibonacci values are used to calculate the resistance/retracement levels: 0.236, 0.382, 0.5, 0.618, 0.764, 1.0"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-FibBoll.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The periods and multiplier variables can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019Fibonacci-Bollinger\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-FibBoll-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Fibonacci-Bollinger | fibBB | basis, up1...up6, low1...low6 |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.fibBB.up2",
+            "updated": 1636853769
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close < chart.at01hs.fibBB.low4",
+            "updated": 1636853769
         },
         {
             "style": "Title",

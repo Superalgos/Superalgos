@@ -1,7 +1,14 @@
 {
     "type": "ROI",
     "definition": {
-        "text": "ROI is a ratio that compares the profit loss with the cost of the investment, expressed as a percentage."
+        "text": "ROI is a ratio that compares the profit loss with the cost of the investment, expressed as a percentage.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "ROI - это соотношение, которое сравнивает полученную прибыль с затратами на инвестиции, выраженное в процентах.",
+                "updated": 1640348273404
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,15 +18,36 @@
         },
         {
             "style": "Text",
-            "text": "In general financial terms, ROI is equal to the Net Return on Investment divided by the Cost of Investment, expressed as a percentage."
+            "text": "In general financial terms, ROI is equal to the Net Return on Investment divided by the Cost of Investment, expressed as a percentage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В общих финансовых терминах ROI (рентабельность инвестиций) равна чистой прибыли от инвестиций, деленной на стоимость инвестиций, выраженную в процентах.",
+                    "updated": 1640348317745
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In Superalgos, the Net Return on Investment is the profit loss, as defined elsewhere. The Cost of Investment is solely the begin balance, as the fees are subtracted from the balance to calculate the profit loss, so we don’t need to account for them in the divisor side of the ratio."
+            "text": "In Superalgos, the Net Return on Investment is the profit loss, as defined elsewhere. The Cost of Investment is solely the begin balance, as the fees are subtracted from the balance to calculate the profit loss, so we don’t need to account for them in the divisor side of the ratio.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Superalgos понятие Net Return on Investment - это убыток от прибыли, как определено в другом месте. Стоимость инвестиций - это исключительно начальный баланс, так как комиссии вычитаются из баланса для расчета убытка от прибыли, поэтому нам не нужно учитывать их в делителе коэффициента.",
+                    "updated": 1640348488608
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "That is:"
+            "text": "That is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "То есть:",
+                    "updated": 1640348510253
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -27,11 +55,25 @@
         },
         {
             "style": "Text",
-            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context."
+            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте базового актива эпизода и котируемого актива эпизода расчет производится относительно соответствующих активов и общего контекста.",
+                    "updated": 1640348526986
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The formula:"
+            "text": "The formula:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула:",
+                    "updated": 1640348540151
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -45,11 +87,25 @@
         {
             "style": "Text",
             "text": "In the context of the position base asset and position quoted asset, the size filled is used instead of the balance, so that ROI may be properly calculated for complex execution algorithms.",
-            "updated": 1611332787435
+            "updated": 1611332787435,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте базового актива позиции и котируемого актива позиции, заполненный размер используется вместо баланса, чтобы можно было правильно рассчитать ROI для сложных алгоритмов исполнения.",
+                    "updated": 1640349109109
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The formula:"
+            "text": "The formula:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула:",
+                    "updated": 1640349121845
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -59,15 +115,36 @@
         {
             "style": "Text",
             "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition.",
-            "updated": 1611332810457
+            "updated": 1611332810457,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте статистики по эпизодам расчет производится с использованием объединенного баланса, как объясняется в определении Profit Loss.",
+                    "updated": 1640349167643
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": " Note: When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset."
+            "text": " Note: When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примечание: Если в контексте не упоминается ни один из активов в частности, то балансы обоих активов объединяются и выражаются в котируемом активе.",
+                    "updated": 1640349202376
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The formula:"
+            "text": "The formula:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула:",
+                    "updated": 1640349214112
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -82,17 +159,38 @@
         {
             "style": "Title",
             "text": "ROI Configuration",
-            "updated": 1609880909911
+            "updated": 1609880909911,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация ROI",
+                    "updated": 1640349229652
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609880921940
+            "updated": 1609880921940,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640349236567
+                }
+            ]
         },
         {
             "style": "List",
             "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
-            "updated": 1609880928583
+            "updated": 1609880928583,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640349245007
+                }
+            ]
         }
     ]
 }

@@ -4,25 +4,60 @@
     "type": "Trailing Stop Loss - Initial Stop Loss, Risk and Targets Combo",
     "definition": {
         "text": "Setting an initial Risk Percentage of your Total Quoted Balance, after reaching the first Profit Target your first Trailing Stop Loss takes place. After reaching second Profit Target, we'll set the Trailing Stop Loss to a fixed percentage.",
-        "updated": 1615298179984
+        "updated": 1615298179984,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Установив начальный процент риска от вашего общего котируемого баланса, после достижения первой цели по профиту происходит первый Trailing Stop Loss. После достижения второй цели по прибыли мы установим Trailing Stop Loss на фиксированный процент.",
+                "updated": 1640358889392
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Initial Stop Loss, Risk and Target Combo",
-            "updated": 1615297964577
+            "updated": 1615297964577,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первоначальный Stop Loss, риск и целевая комбинация",
+                    "updated": 1640358922821
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The idea of this is to initially give the position some space to move."
+            "text": "The idea of this is to initially give the position some space to move.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идея этого заключается в том, чтобы изначально дать позиции пространство для движения.",
+                    "updated": 1640358939752
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When ever the position reaches the first Profit Target, it will use a Trailing Stop Loss set to the Profit divided by your Profit Divider. After reaching the second Profit Target, the Trailing Stop Loss will use a fixed percentage."
+            "text": "When ever the position reaches the first Profit Target, it will use a Trailing Stop Loss set to the Profit divided by your Profit Divider. After reaching the second Profit Target, the Trailing Stop Loss will use a fixed percentage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда позиция достигнет первой цели прибыли, она будет использовать Trailing Stop Loss, установленный на прибыль, разделенную на ваш делитель прибыли (Profit Divider). После достижения второй цели по прибыли Trailing Stop Loss будет использовать фиксированный процент.",
+                    "updated": 1640358993073
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Example for a Long Position"
+            "text": "Example for a Long Position",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример для длинной позиции",
+                    "updated": 1640359003752
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -32,7 +67,14 @@
         {
             "style": "Subtitle",
             "text": "Example for a Short Position",
-            "updated": 1615298191803
+            "updated": 1615298191803,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример для короткой позиции",
+                    "updated": 1640359019538
+                }
+            ]
         },
         {
             "style": "Javascript",

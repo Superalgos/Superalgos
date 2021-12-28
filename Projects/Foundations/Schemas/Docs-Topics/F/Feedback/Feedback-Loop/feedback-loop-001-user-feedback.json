@@ -4,47 +4,110 @@
     "type": "User Feedback",
     "definition": {
         "text": "Superalgos is a Community project! We make the software available to everyone free-of-charge, but we do ask for something in return... your help!",
-        "updated": 1610660537960
+        "updated": 1610660537960,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos - это проект сообщества! Мы предоставляем программное обеспечение всем желающим бесплатно, но мы просим кое-что взамен... вашу помощь!",
+                "updated": 1640282142246
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "How Can Superalgos Be Free For Everyone?",
-            "updated": 1610658497040
+            "updated": 1610658497040,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как Superalgos может быть бесплатным для всех?",
+                    "updated": 1640282159847
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "That is a question we get all the time."
+            "text": "That is a question we get all the time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот вопрос нам задают постоянно.",
+                    "updated": 1640282170257
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The project started with a group of friends joining forces to automate their crypto trading. They realized early on that—for trading intelligence to emerge—a huge software infrastructure was required. They knew that to compete with top market players on a level field, the system needed to be on par or better than commercial and proprietary software available to firms. Such requirements could not be fulfilled by a small team in a reasonable timeframe.",
-            "updated": 1610661121217
+            "updated": 1610661121217,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проект начался с того, что группа друзей объединила усилия для автоматизации торговли криптовалютами. Они сразу поняли, что для появления торгового интеллекта необходима огромная программная инфраструктура. Они знали, что для того, чтобы конкурировать с ведущими игроками рынка на равных, система должна быть на уровне или даже лучше, чем коммерческое и собственное программное обеспечение, доступное фирмам. Такие требования не могли быть выполнены небольшой командой в разумные сроки.",
+                    "updated": 1640282231981
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Superalgos is free for everyone because we want your help. We want to attract the best minds in the space, so that—together—we may build the ultimate trading automation platform.",
-            "updated": 1610660913324
+            "updated": 1610660913324,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos бесплатен для всех, потому что нам нужна ваша помощь. Мы хотим привлечь лучшие умы в этой области, чтобы вместе создать совершенную платформу для автоматизации торговли.",
+                    "updated": 1640282251556
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Your First Contribution Is Your Feedback!",
-            "updated": 1610660067417
+            "updated": 1610660067417,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваш первый вклад - это ваш отзыв!",
+                    "updated": 1640282265740
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You just spent an hour or two discovering Superalgos. We want to have your first impression. We want to know what you think! And we want your initial feedback to be the first of many contributions to the project.",
-            "updated": 1610660053317
+            "updated": 1610660053317,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы только что потратили час или два на знакомство с Superalgos. Мы хотим получить ваше первое впечатление. Мы хотим знать, что вы думаете! И мы хотим, чтобы ваш первый отзыв стал первым из многих вкладов в проект.",
+                    "updated": 1640282289784
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "You don't need to be a star programmer or professional trader to contribute. Superalgos is about fostering global collaboration and every user is expected to give back. Feedback is valuable. Fixing a typo is valuable. Translating a tutorial is valuable. Producing educational, reporting and removing bugs, contributing an indicator or a trading system, integrating a crypto project... everything is of great value!",
-            "updated": 1610662378411
+            "updated": 1610662378411,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вам не нужно быть выдающимся программистом или профессиональным трейдером, чтобы внести свой вклад. Superalgos способствует глобальному сотрудничеству, и от каждого пользователя ожидается отдача. Обратная связь ценна. Исправление опечатки - это ценно. Перевести учебник - это ценно. Создание образовательных программ, сообщение об ошибках и их устранение, создание индикатора или торговой системы, интеграция криптовалютного проекта... все имеет огромное значение!",
+                    "updated": 1640282337471
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "To get started with your first contribution, keep going with the tutorial until the end. You will learn a few tricks that will make contributing a breeze!",
-            "updated": 1610660489943
+            "updated": 1610660489943,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы начать свой первый вклад, дочитайте учебник до конца. Вы узнаете несколько хитростей, которые помогут вам сделать вклад с легкостью!",
+                    "updated": 1640282359559
+                }
+            ]
         },
         {
             "style": "Text",

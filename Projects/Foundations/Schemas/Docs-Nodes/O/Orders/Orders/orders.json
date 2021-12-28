@@ -1,7 +1,14 @@
 {
     "type": "Orders",
     "definition": {
-        "text": "Orders counts the number of times orders have been placed, in the context of the parent node."
+        "text": "Orders counts the number of times orders have been placed, in the context of the parent node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Orders подсчитывает сколько было размещено ордеров (ордера, заявки, заказы и приказы – это одно и то же), в контексте родительского узла.",
+                "updated": 1640177339435
+            }
+        ]
     },
     "paragraphs": [
         {

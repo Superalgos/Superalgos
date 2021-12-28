@@ -1,7 +1,14 @@
 {
     "type": "Order Quoted Asset",
     "definition": {
-        "text": "The order quoted asset node keeps track of the evolution of certain properties of orders, denominated in the quoted asset."
+        "text": "The order quoted asset node keeps track of the evolution of certain properties of orders, denominated in the quoted asset.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Order Quoted Asset отслеживает эволюцию определенных свойств ордеров, выраженных в котируемом активе.",
+                "updated": 1640345799809
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Note",
-            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation."
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
+                    "updated": 1640345816338
+                }
+            ]
         }
     ]
 }

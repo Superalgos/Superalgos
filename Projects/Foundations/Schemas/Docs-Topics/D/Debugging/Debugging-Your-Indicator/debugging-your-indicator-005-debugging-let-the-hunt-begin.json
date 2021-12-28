@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie F11, um in den Code zu zoomen, sobald er am breaking point anhält, und verwenden Sie F5, um ihn Schritt für Schritt weiterzuverfolgen.",
                 "updated": 1637875078405
+            },
+            {
+                "language": "RU",
+                "text": "Используйте F11, чтобы увеличить масштаб кода, когда он остановится на точке прерывания, и используйте F5, чтобы шаг за шагом продвигать его вперед.",
+                "updated": 1640281667094
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "DE",
                     "text": "Pssst, sei still... warte ...",
                     "updated": 1637875098578
+                },
+                {
+                    "language": "RU",
+                    "text": "Тише, тише... подожди...",
+                    "updated": 1640281684238
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "DE",
                     "text": "Sobald die Daten für Ihren Indikator verarbeitet werden, hält Ihre IDE den Prozess an dem zuvor festgelegten break point an...",
                     "updated": 1637875140804
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только данные для вашего индикатора будут обработаны, ваша IDE приостановит процесс в точке прерывания, которую мы установили ранее...",
+                    "updated": 1640281700584
                 }
             ]
         },
@@ -56,6 +71,11 @@
                     "language": "DE",
                     "text": "...so dass Sie in die Details zoomen können, um zu sehen was wirklich vor sich geht.",
                     "updated": 1637875228203
+                },
+                {
+                    "language": "RU",
+                    "text": "... позволяя вам рассмотреть в деталях то, что происходит на самом деле.",
+                    "updated": 1640281756110
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "language": "DE",
                     "text": "Achten Sie darauf, wann Ihr Breaking Point von einem Punkt zu einem Pfeil wird.",
                     "updated": 1637875252248
+                },
+                {
+                    "language": "RU",
+                    "text": "Следите за тем, когда точка прерывания превратится из точки в стрелку.",
+                    "updated": 1640281775723
                 }
             ]
         },
@@ -89,6 +114,11 @@
                     "language": "DE",
                     "text": "Benutze F11 um in den code zu zoomen und F5 um einen Schritt weiterzugehen.",
                     "updated": 1637875286767
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте F11 для увеличения кода и F5 для шага вперед.",
+                    "updated": 1640281798757
                 }
             ]
         },
@@ -100,6 +130,11 @@
                     "language": "DE",
                     "text": "Treten Sie weiter vor, um dem Datenfluss zu folgen.",
                     "updated": 1637875300199
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте шагать вперед, чтобы следовать за потоком данных.",
+                    "updated": 1640281813119
                 }
             ]
         },
@@ -111,6 +146,11 @@
                     "language": "DE",
                     "text": "Beobachten Sie, was im Code vor sich geht, und schweben sie mit ihrer Maus über Ihre Variablen, um zu sehen, welche Werte sie erhalten.",
                     "updated": 1637875367673
+                },
+                {
+                    "language": "RU",
+                    "text": "Следите за тем, что происходит в коде, и наведите курсор на ваши переменные, чтобы проверить, какие значения они получают.",
+                    "updated": 1640281827636
                 }
             ]
         },
@@ -128,6 +168,11 @@
                     "language": "DE",
                     "text": "In Fällen, in denen die Werte ohne logischen Grund zu \"NaN\" werden oder \"undefiniert\" bleiben, ist es angebracht, Zweifel zu äußern.",
                     "updated": 1637875568347
+                },
+                {
+                    "language": "RU",
+                    "text": "В случаях, когда значения превращаются в \"NaN\" или остаются \"undefined\" без логической причины - есть повод задуматься.",
+                    "updated": 1640281855196
                 }
             ]
         }

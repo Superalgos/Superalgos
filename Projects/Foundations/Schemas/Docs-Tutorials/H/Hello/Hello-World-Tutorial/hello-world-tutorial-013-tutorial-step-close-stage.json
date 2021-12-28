@@ -25,6 +25,11 @@
                 "language": "IT",
                 "text": "Il Close Stage si occupa di chiudere il nostro trade",
                 "updated": 1640110137453
+            },
+            {
+                "language": "TR",
+                "text": "Kapanış Aşaması ( The Close Stage ) , işlemin kapatılmasından sorumludur",
+                "updated": 1640617586608
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "IT",
                     "text": "Nella fase precedente (la fase Manage Stage) il bot controlla se il prezzo ha raggiunto lo Stop Loss o il Take Profit. Una volta che uno di questi due eventi è stato raggiunto, la fase di chiusura (la Close Stage) si occupa della chiusura dell'operazione. Il modo in cui funziona è molto simile all'Open Stage.",
                     "updated": 1640109965173
+                },
+                {
+                    "language": "TR",
+                    "text": "Önceki aşamada yönetim aşamasında ( Manage Stage ) bot, mevcut fiyatın SL'ye mi yoksa TP'ye mi ulaştığını kontrol ediyordu. Bu iki olaydan biri olduğunda, Kapatma Aşaması ( Close Stage ) işlemin kapatılmasından sorumlu olur. Çalışma şekli Açık Aşamaya ( Open Stage ) çok benzer. Bot, mumun nasıl görünmesi gerektiğini bilmelidir",
+                    "updated": 1640617605549
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "IT",
                     "text": "E ovviamente a differenza della Open Stage, qui vendiamo l'asset, quindi qui inseriamo di un ordine di vendita (in questo caso è impostato a mercato ma potremmo anche mettere un limit!). Non dobbiamo scrivere sell o altro, semplicemente indichiamo al bot quale candela (o fase) controllare per eseguire l'ordine. ",
                     "updated": 1640110113018
+                },
+                {
+                    "language": "TR",
+                    "text": "Açık Aşamanın ( Open Stage ) aksine, burada varlığı Satıyoruz, bu nedenle bir Piyasa Satış Emrine ( Market Sell Order ) ihtiyacımız var ve botun sattığı şey Kota edilmiş varlıktır.",
+                    "updated": 1640617621195
                 }
             ]
         },

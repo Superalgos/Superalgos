@@ -14,22 +14,50 @@
         },
         {
             "style": "Title",
-            "text": "Requirements"
+            "text": "Requirements",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Необходимые требования",
+                    "updated": 1640259784664
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Trading System File",
-            "updated": 1613586209394
+            "updated": 1613586209394,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файл торговой системы",
+                    "updated": 1640260160064
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Prepare a clean and tidy Trading System. Organize and name strategies, situations, conditions, orders, etc. so that it's easier to read.",
-            "updated": 1613586689994
+            "updated": 1613586689994,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подготовьте чистую и аккуратную торговую систему. Организуйте и назовите стратегии, ситуации, условия, ордера и т.д. так, чтобы их было легче читать.",
+                    "updated": 1640259864770
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Add the Trading System file as a plugin in the proper folder.",
-            "updated": 1613586830612
+            "updated": 1613586830612,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте файл торговой системы (Trading System) в качестве плагина в соответствующую папку.",
+                    "updated": 1640259900999
+                }
+            ]
         },
         {
             "style": "Json",
@@ -42,22 +70,50 @@
         {
             "style": "Subtitle",
             "text": "Workspace File",
-            "updated": 1613586227342
+            "updated": 1613586227342,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файл рабочего пространства",
+                    "updated": 1640260172983
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Prepare a clean Workspace featuring your Trading System and the required data mines only.",
-            "updated": 1613586969193
+            "updated": 1613586969193,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подготовьте чистое рабочее пространство (Workspace), содержащее только вашу торговую систему и необходимые источники данных.",
+                    "updated": 1640259970805
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Install the Market and remove the unnecessary Data Tasks so that users know what indicators are required. Make sure you remove the unnecessary Data Storage nodes too.",
-            "updated": 1613586983832
+            "updated": 1613586983832,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установите Market и удалите ненужные Data Tasks, чтобы пользователи знали, какие индикаторы необходимы. Убедитесь, что вы также удалили ненужные узлы Data Storage.",
+                    "updated": 1640260055041
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Add a Workspace file as a workspace plugin in the appropriate folder.",
-            "updated": 1613587034029
+            "updated": 1613587034029,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте файл рабочего пространства в качестве плагина в соответствующую папку.",
+                    "updated": 1640260121098
+                }
+            ]
         },
         {
             "style": "Json",
@@ -67,17 +123,38 @@
         {
             "style": "Subtitle",
             "text": "Documentation",
-            "updated": 1613587174588
+            "updated": 1613587174588,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Документацию",
+                    "updated": 1640260187066
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Take the BB Top Bounce (BBTB) page as an example of the content you should provide as documentation for the trading system.",
-            "updated": 1613588848793
+            "updated": 1613588848793,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте страницу BB Top Bounce (BBTB) в качестве примера контента, который вы должны предоставить в качестве документации для торговой системы.",
+                    "updated": 1640260236467
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The name of the page you create must follow the following format...",
-            "updated": 1613587567753
+            "updated": 1613587567753,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Название создаваемой страницы должно соответствовать следующему формату...",
+                    "updated": 1640260257547
+                }
+            ]
         },
         {
             "style": "Json",
@@ -86,7 +163,14 @@
         {
             "style": "Text",
             "text": "For example:",
-            "updated": 1613587598566
+            "updated": 1613587598566,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640260269285
+                }
+            ]
         },
         {
             "style": "Json",
@@ -95,7 +179,14 @@
         {
             "style": "List",
             "text": "The above assumes that the Trading System is optimized for a specific Market. Even if that is not the case, specify the market the is installed in the Workspace file.",
-            "updated": 1613587803249
+            "updated": 1613587803249,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вышеизложенное предполагает, что торговая система оптимизирована для определенного рынка. Даже если это не так, укажите рынок, который установлен в файле рабочего пространства.",
+                    "updated": 1640260295972
+                }
+            ]
         },
         {
             "style": "List",
@@ -110,12 +201,26 @@
         {
             "style": "Title",
             "text": "Optional Content",
-            "updated": 1613588691827
+            "updated": 1613588691827,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Необязательный контент",
+                    "updated": 1640263507623
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Consider creating an interactive Tutorial that goes through the implementation of the Trading System and shows how it works in a simulation (backtest). This adds significant value and is certainly incentivized!",
-            "updated": 1613588894036
+            "updated": 1613588894036,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рассмотрите возможность создания интерактивного учебного пособия (Tutorial), в котором рассматривается реализация торговой системы и показывается, как она работает в симуляции (backtest). Это добавляет значительную ценность и, безусловно, стимулирует!",
+                    "updated": 1640263605470
+                }
+            ]
         }
     ]
 }

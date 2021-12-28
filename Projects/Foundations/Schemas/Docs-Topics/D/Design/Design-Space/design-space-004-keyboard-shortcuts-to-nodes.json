@@ -15,6 +15,11 @@
                 "language": "EL",
                 "text": "Ο καθορισμός συντομεύσεων σε συγκεκριμένους κόμβους μπορεί να είναι χρήσιμος σε συχνή αλληλεπίδραση με τον εν λόγω κόμβο.",
                 "updated": 1639396489643
+            },
+            {
+                "language": "DE",
+                "text": "Die Definition von \nShortcuts (Tastenkombinationen) zu bestimmten Nodes kann nützlich sein, wenn man regelmäßig mit der besagten Node interagiert.",
+                "updated": 1640559600123
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "EL",
                     "text": "Είναι επίσης δυνατό να ορίσετε μια προσαρμοσμένη συντόμευση σε οποιονδήποτε κόμβο θέλετε. Αυτό είναι χρήσιμο για την πρόσβαση σε κόμβους που χρησιμοποιούνται συχνά.",
                     "updated": 1639396527012
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist auch möglich, einen benutzerdefinierten Shortcut zu einer beliebigen Node zu setzen, die Sie wünschen. Dies ist nützlich für den Zugriff auf häufig verwendete Nodes.",
+                    "updated": 1640559696109
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "EL",
                     "text": "Μπορείτε να ορίσετε αυτόν τον τύπο συντόμευσης χρησιμοποιώντας την ακόλουθη διαδικασία:",
                     "updated": 1639396545073
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können diese Art von shortcuts nach folgendem Verfahren definieren:",
+                    "updated": 1640559716356
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "EL",
                     "text": "Τοποθετήστε το δείκτη του ποντικιού πάνω από τον κόμβο προορισμού μέχρι να ανοίξει το μενού. Αυτό θέτει τον κόμβο στο επίκεντρο.",
                     "updated": 1639396572317
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über die Ziel-Node, bis sich das Menü öffnet. Dadurch wird die Node in den Fokus gesetzt.",
+                    "updated": 1640559754763
                 }
             ]
         },
@@ -104,6 +124,11 @@
                     "language": "EL",
                     "text": "Κάτω από τον κόμβο θα εμφανιστεί ένα σημάδι που επιβεβαιώνει την εκχώρηση της συντόμευσης.",
                     "updated": 1639396624881
+                },
+                {
+                    "language": "DE",
+                    "text": "Unter der Node erscheint ein Zeichen, das die Zuweisung des Shortcuts bestätigt.",
+                    "updated": 1640559837145
                 }
             ]
         },
@@ -125,6 +150,11 @@
                     "language": "EL",
                     "text": "Επαναλάβετε την ίδια διαδικασία για να αφαιρέσετε μια συντόμευση.",
                     "updated": 1639396644928
+                },
+                {
+                    "language": "DE",
+                    "text": "Wiederholen Sie den gleichen Vorgang, um einen Shortcut zu entfernen.",
+                    "updated": 1640559856548
                 }
             ]
         },
@@ -142,6 +172,11 @@
                     "language": "EL",
                     "text": "Όταν επιχειρείτε να αντιστοιχίσετε μια συντόμευση με έναν συνδυασμό πληκτρολογίου που χρησιμοποιείται ήδη, το σύστημα θα ειδοποιήσει για το πρόβλημα. Εάν επιμείνετε πατώντας τον ίδιο συνδυασμό πληκτρολογίου άλλες δύο φορές, το σύστημα θα εκχωρήσει τη συντόμευση όπως αναμένεται.",
                     "updated": 1639396675007
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie versuchen, einen Shortcut mit einem bereits verwendeten Shortcut zuzuweisen, meldet das System das Problem. Wenn Sie darauf bestehen, indem Sie dieselbe Tastenkombination zwei weitere Male drücken, weist das System das Kürzel wie erwartet zu.",
+                    "updated": 1640559908645
                 }
             ]
         }

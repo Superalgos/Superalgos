@@ -9,15 +9,19 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
         finalize: finalize
     }
     let managedTradingBotsModuleObject
+    let portfolioSystemModuleObject
 
     return thisObject
 
-    function initialize(managedTradingBots) {
+    function initialize(managedTradingBots, portfolioSystem) {
         managedTradingBotsModuleObject = managedTradingBots
+        portfolioSystemModuleObject = portfolioSystem
+        portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
     }
 
     function finalize() {
         managedTradingBotsModuleObject = undefined
+        portfolioSystemModuleObject = undefined
     }
 
     function processMessage(
@@ -42,15 +46,31 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
                 break
             }
             case 'Confirm This Event': {
+                response = portfolioSystemModuleObject.confirmThisEvent(
+                    SESSION_KEY,
+                    message.event
+                )
                 break
             }
             case 'Set This Event': {
+                response = portfolioSystemModuleObject.setThisEvent(
+                    SESSION_KEY,
+                    message.event
+                )
                 break
             }
             case 'Confirm This Formula': {
+                response = portfolioSystemModuleObject.confirmThisFormula(
+                    SESSION_KEY,
+                    message.formula
+                )
                 break
             }
             case 'Set This Formula': {
+                response = portfolioSystemModuleObject.setThisFormula(
+                    SESSION_KEY,
+                    message.formula
+                )
                 break
             }
             default: {

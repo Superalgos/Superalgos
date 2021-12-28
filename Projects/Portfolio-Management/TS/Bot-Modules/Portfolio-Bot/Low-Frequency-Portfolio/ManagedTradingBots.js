@@ -1,6 +1,8 @@
 exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIndex) {
     /*
-    This object represents the Trading Bots being managed.
+    This object represents the Trading Bots being managed and it solves
+    the syncronization problem between the Portfolio Bot Simulation and the 
+    Trading Bot Simulation.
     */
     let thisObject = {
         run: run,
@@ -9,21 +11,17 @@ exports.newPortfolioManagementBotModulesManagedTradingBots = function (processIn
         initialize: initialize,
         finalize: finalize
     }
-    let portfolioSystemModuleObject
     let portfolioEngine
     let isRunning
     let tradingBotsCheckInStatusMap
 
     return thisObject
 
-    function initialize(portfolioSystem) {
+    function initialize() {
         isRunning = false
-        portfolioSystemModuleObject = portfolioSystem
-        portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
     }
 
     function finalize() {
-        portfolioSystemModuleObject = undefined
         portfolioEngine = undefined
         tradingBotsCheckInStatusMap = undefined
     }

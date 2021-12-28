@@ -30,7 +30,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         let message = {
             type: "Check In Candle",
             candle: {
-                begin:candle.begin,
+                begin: candle.begin,
                 end: candle.end
             }
         }
@@ -45,7 +45,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         let message = {
             type: "Check Out Candle",
             candle: {
-                begin:candle.begin,
+                begin: candle.begin,
                 end: candle.end
             }
         }
@@ -53,7 +53,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     }
 
     async function askPortfolioEventsManager(eventNode, eventStatus) {
-        
+
         let response = {
             status: 'Ok',
             raiseEvent: eventStatus,
@@ -68,8 +68,13 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             if (eventNode.askPortfolioEventsManager.confirmEvent !== undefined) {
                 let message = {
                     type: "Confirm This Event",
-                    event: eventNode.type,
-                    eventNodeId: eventNode.id
+                    event: {
+                        node: {
+                            name: eventNode.name,
+                            id: eventNode.id,
+                            type: eventNode.type
+                        }
+                    }
                 }
                 response = await portfolioManagerEventsClient.sendMessage(message)
             }
@@ -81,8 +86,13 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
             if (eventNode.askPortfolioEventsManager.raiseEvent !== undefined) {
                 let message = {
                     type: "Set This Event",
-                    event: eventNode.type,
-                    eventNodeId: eventNode.id
+                    event: {
+                        node: {
+                            name: eventNode.name,
+                            id: eventNode.id,
+                            type: eventNode.type
+                        }
+                    }
                 }
                 response = await portfolioManagerEventsClient.sendMessage(message)
             }
@@ -91,7 +101,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
     }
 
     async function askPortfolioFormulaManager(formulaParentNode, formulaValue) {
-        
+
         let response = {
             status: 'Ok',
             value: formulaValue,
@@ -100,28 +110,47 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         if (formulaParentNode === undefined) {
             return response
         }
-
         /*
-         *  First we will check if the Porfolio Manager would like to 
-         *  replace this formula value for something else.
-         */
+        First we will check if the Porfolio Manager would like to 
+        replace this formula value for something else.
+        */
         if (formulaParentNode.askPortfolioFormulaManager.setFormula !== undefined) {
             let message = {
                 type: "Set This Formula",
-                formula: formulaParentNode.type,
-                formulaParentNodeId: formulaParentNode.id
+                formula: {
+                    node: {
+                        name: eventNode.name,
+                        id: eventNode.id,
+                        type: eventNode.type,
+                        parentNode: {
+                            name: formulaParentNode.name,
+                            id: formulaParentNode.id,
+                            type: formulaParentNode.type,
+                        }
+                    }
+                }
             }
             response = await portfolioManagerEventsClient.sendMessage(message)
         }
         /*
-         *  Second we will check if the Portfolio Manager confirms this formula
-         *  value.
-         */
+         Second we will check if the Portfolio Manager confirms this formula
+         value.
+        */
         if (formulaParentNode.askPortfolioFormulaManager.confirmFormula !== undefined) {
             let message = {
                 type: "Confirm This Formula",
-                formula: formulaParentNode.type,
-                formulaParentNodeId: formulaParentNode.id
+                formula: {
+                    node: {
+                        name: eventNode.name,
+                        id: eventNode.id,
+                        type: eventNode.type,
+                        parentNode: {
+                            name: formulaParentNode.name,
+                            id: formulaParentNode.id,
+                            type: formulaParentNode.type,
+                        }
+                    }
+                }
             }
             response = await portfolioManagerEventsClient.sendMessage(message)
         }

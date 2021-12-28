@@ -5,7 +5,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     */
     const MODULE_NAME = 'Portfolio System'
     let thisObject = {
-        processEvent: processEvent, 
+        confirmThisEvent: confirmThisEvent, 
+        setThisEvent: setThisEvent, 
+        confirmThisFormula: confirmThisFormula, 
+        setThisFormula: setThisFormula, 
         mantain: mantain,
         reset: reset,
         run: run,
@@ -203,7 +206,19 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
     }
 
-    function processEvent(event) {
+    function confirmThisEvent(SESSION_KEY, event) {
+
+    }
+
+    function setThisEvent(SESSION_KEY, event) {
+
+    }
+
+    function confirmThisFormula(SESSION_KEY, formula) {
+
+    }
+
+    function setThisFormula(SESSION_KEY, formula) {
 
     }
 

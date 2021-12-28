@@ -42,14 +42,14 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioEpisodeModuleObject.initialize()
 
         managedTradingBotsModuleObject = TS.projects.portfolioManagement.botModules.managedTradingBots.newPortfolioManagementBotModulesManagedTradingBots(processIndex)
-        managedTradingBotsModuleObject.initialize(portfolioSystemModuleObject)
+        managedTradingBotsModuleObject.initialize()
 
         /* This object is already initialized */
         portfolioEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT
 
         /* Event Interface */
         eventsInterfaceModuleObject = TS.projects.portfolioManagement.modules.portfolioManagerEventsInterface.newPortfolioManagementModulesPortfolioManagerEventsInterface(processIndex)
-        eventsInterfaceModuleObject.initialize(managedTradingBotsModuleObject)
+        eventsInterfaceModuleObject.initialize(managedTradingBotsModuleObject, portfolioSystemModuleObject)
     }
 
     function finalize() {

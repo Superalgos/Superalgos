@@ -12,10 +12,10 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsInterface = function 
 
     return thisObject
 
-    function initialize(managedTradingBotsModuleObject) {
+    function initialize(managedTradingBotsModuleObject, portfolioSystemModuleObject) {
 
         tradingBotsInterfaceModuleObject = TS.projects.portfolioManagement.modules.tradingBotsInterface.newPortfolioManagementModulesTradingBotsInterface(processIndex)
-        tradingBotsInterfaceModuleObject.initialize(managedTradingBotsModuleObject)
+        tradingBotsInterfaceModuleObject.initialize(managedTradingBotsModuleObject, portfolioSystemModuleObject)
 
         for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
 

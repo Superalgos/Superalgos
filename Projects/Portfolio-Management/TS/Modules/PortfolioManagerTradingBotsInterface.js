@@ -47,28 +47,24 @@ exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = func
             }
             case 'Confirm This Event': {
                 response = portfolioSystemModuleObject.confirmThisEvent(
-                    SESSION_KEY,
                     message.event
                 )
                 break
             }
             case 'Set This Event': {
                 response = portfolioSystemModuleObject.setThisEvent(
-                    SESSION_KEY,
                     message.event
                 )
                 break
             }
             case 'Confirm This Formula': {
                 response = portfolioSystemModuleObject.confirmThisFormula(
-                    SESSION_KEY,
                     message.formula
                 )
                 break
             }
             case 'Set This Formula': {
                 response = portfolioSystemModuleObject.setThisFormula(
-                    SESSION_KEY,
                     message.formula
                 )
                 break

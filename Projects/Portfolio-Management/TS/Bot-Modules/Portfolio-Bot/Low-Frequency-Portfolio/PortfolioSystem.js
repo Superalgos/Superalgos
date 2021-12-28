@@ -211,20 +211,20 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
     }
 
-    function confirmThisEvent(SESSION_KEY, event) {
-
+    function confirmThisEvent(event) {
+        portfolioEventsManagerModuleObject.confirmThisEvent(event) 
     }
 
-    function setThisEvent(SESSION_KEY, event) {
-
+    function setThisEvent(event) {
+        portfolioEventsManagerModuleObject.setThisEvent(event) 
     }
 
-    function confirmThisFormula(SESSION_KEY, formula) {
-
+    function confirmThisFormula(formula) {
+        portfolioFormulasManagerModuleObject.confirmThisFormula(formula) 
     }
 
-    function setThisFormula(SESSION_KEY, formula) {
-
+    function setThisFormula(formula) {
+        portfolioFormulasManagerModuleObject.setThisFormula(formula) 
     }
 
     function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {

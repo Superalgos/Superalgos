@@ -9,6 +9,10 @@ router
 
 router
   .route('/follow')
-  .get(userController.follow);
+  .post(userController.follow);
+
+router
+  .route('/test')
+  .post(userController.profile);
 
 module.exports = router;

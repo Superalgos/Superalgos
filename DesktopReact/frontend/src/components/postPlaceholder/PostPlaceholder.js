@@ -10,9 +10,7 @@ const PostPlaceholder = () => {
     const [open, setOpen] = useState(false);
 
     const onButtonClick = async () => {
-        console.log(postText)
-        let status = await createPost({body: postText}).then(response => response.json());
-        console.log(status)
+        let status = await createPost({postText: postText}).then(response => response.json());
         if (status === STATUS_OK) return;
         setOpen(true);
 

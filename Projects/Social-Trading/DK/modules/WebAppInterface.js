@@ -30,7 +30,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         } catch (err) {
             let response = {
                 result: 'Error',
-                message: 'messageHeader Not Coorrect JSON Format.'
+                message: 'messageHeader Not Correct JSON Format.'
             }
             return JSON.stringify(response)
         }
@@ -43,7 +43,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 } catch (err) {
                     let response = {
                         result: 'Error',
-                        message: 'queryMessage Not Coorrect JSON Format.'
+                        message: 'queryMessage Not Correct JSON Format.'
                     }
                     return JSON.stringify(response)
                 }

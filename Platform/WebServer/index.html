@@ -13,12 +13,19 @@
     <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="font-awasome.css" type="text/css"/>
     <link rel="stylesheet" href="prism.css" type="text/css"/>
+    <link rel="stylesheet" href="menu.css" type="text/css"/>
     <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico"/>
     <script src="externalScripts/jquery-3.6.0.js"></script>
     <script src="externalScripts/jquery-ui.js"></script>
     <script>
         $(function() {
-            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: "code" });
+            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: ".tutorial-content-div",
+            start: function (event, ui) {
+                $(this).css("cursor", "grabbing");
+            },
+            stop: function (event, ui) {
+                $(this).css("cursor", "grab");
+            } });
         });
     </script> 
     <script type="text/javascript" src="WebServer/require.js"></script>
@@ -305,7 +312,6 @@
         </div>
     </div>
 </div>
-
+<div id="topMenu"></div>
 </body>
-
 </html>

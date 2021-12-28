@@ -2227,6 +2227,11 @@ exports.newHttpInterface = function newHttpInterface() {
                     SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
                 }
                     break
+                case 'ProjectsMenu': {
+                    let path = global.env.PATH_TO_PROJECTS + '/' + 'ProjectsMenu.json'
+                    SA.projects.foundations.utilities.httpResponses.respondWithFile(path, httpResponse)
+                }
+                    break
                 case 'ListSpaceFiles': {
                     let fs = SA.nodeModules.fs
                     let allFiles = []
@@ -2288,6 +2293,14 @@ exports.newHttpInterface = function newHttpInterface() {
                     break
                 case 'ListFunctionLibraries': {
                     SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Function-Libraries', 'UI')
+                }
+                    break
+                case 'ListNodeActionFunctions': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'Node-Action-Functions', 'UI')
+                }
+                    break
+                case 'ListSystemActionFunctions': {
+                    SA.projects.foundations.utilities.httpResponses.respondWithProjectFolderFileList(httpResponse, 'System-Action-Functions', 'UI')
                 }
                     break
                 case 'ListUtilitiesFiles': {

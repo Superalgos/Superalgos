@@ -9,7 +9,7 @@ import React, {useEffect, useState} from "react";
 const Feed = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+   
     const loadPosts = async () => {
         setLoading(true)
         getPosts().then(promiseResponse => {

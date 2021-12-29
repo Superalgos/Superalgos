@@ -31,6 +31,11 @@
                 "language": "RU",
                 "text": "Если все прошло успешно, вы должны были получить подтверждение, что ветка вкладов ( Contributions Branch) была изменена! Потрясающе!",
                 "updated": 1640155599764
+            },
+            {
+                "language": "TR",
+                "text": "Her şey yolunda gittiyse, Katkılar dalının ( Contributions Branch ) değiştirildiğine dair bir onay almış olmalısınız! Mükemmel!",
+                "updated": 1640417179001
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "RU",
                     "text": "Следующим на очереди будет переключение текущей ветви Current Branch, но сначала нам нужно выполнить несколько проверок!",
                     "updated": 1640155640902
+                },
+                {
+                    "language": "TR",
+                    "text": "Sırada Current Branch'ı değiştirmek var, ancak önce bazı kontrolleri yapmamız gerekiyor!",
+                    "updated": 1640417207945
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "RU",
                     "text": "Когда вы переключаете ветку, приложение выполнит серию команд Git, которые загрузят программное обеспечение из ветки Develop вашего форка! Текущее программное обеспечение будет заменено на вашем диске! По этой причине вам нужно будет закрыть приложение после переключения. Но давайте обсудим еще несколько моментов, прежде чем вы продолжите!",
                     "updated": 1640155669606
+                },
+                {
+                    "language": "TR",
+                    "text": "Dalları değiştirdiğinizde, uygulama yazılımı çatalınızın Geliştirme ( Develop ) dalından indirecek bir dizi Git komutu çalıştıracaktır! Mevcut yazılım diskinizde değiştirilecektir! Bu nedenle, geçiş yaptıktan sonra uygulamayı kapatmanız gerekecektir. Ama devam etmeden önce birkaç şey daha tartışalım!",
+                    "updated": 1640417255328
                 }
             ]
         }

@@ -25,6 +25,11 @@
                 "language": "IT",
                 "text": "Il Trigger Stage è il nostro Talent Scout",
                 "updated": 1639077137307
+            },
+            {
+                "language": "TR",
+                "text": "Tetik Aşaması ( Trigger Stage ) Yetenek Avcımızdır",
+                "updated": 1640616679711
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "IT",
                     "text": "La nostra strategia si basa sull'incrocio di 2 medie. Ed è in questo nodo che inseriamo le informazioni da dare al nostro bot per decidere quando entrare nel mercato.",
                     "updated": 1639076778420
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejimiz SMA çaprazına dayalıdır ve bu düğümde bota bir ticaret yapmak için karşılanması gereken koşulları aramasını söyleyebiliriz.",
+                    "updated": 1640616693744
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "IT",
                     "text": "In questa fase il mercato viene studiato per verificare se e quando le nostre condizioni iniziali vengano soddisfatte.",
                     "updated": 1639077044786
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu aşama tamamen piyasayı kontrol etmek ve bazı koşulların ticarete değip değmeyeceğine karar vermekle ilgilidir!",
+                    "updated": 1640616728982
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "IT",
                     "text": "Diamo un'occhiata ai 3 figli del Trigger Stage, vi mostrerò alcuni piccoli trucchi per implementare la strategia nel modo più veloce possibile!",
                     "updated": 1639077107348
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi 3 ürüne bir göz atalım ve size stratejiyi mümkün olan en hızlı şekilde uygulayabilmeniz için bazı küçük püf noktaları göstereceğim!",
+                    "updated": 1640616739975
                 }
             ]
         }

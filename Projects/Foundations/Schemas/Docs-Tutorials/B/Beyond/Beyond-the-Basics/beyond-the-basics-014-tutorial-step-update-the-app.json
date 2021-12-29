@@ -31,6 +31,11 @@
                 "language": "RU",
                 "text": "Перед внесением вклада, а также при устранении неполадок или сообщении об ошибках любого рода рекомендуется обновлять данные!",
                 "updated": 1640158960617
+            },
+            {
+                "language": "TR",
+                "text": "Katkıda bulunmadan önce veya herhangi bir türdeki hatayı giderirken yada bildirirken superalgos'un güncel olması gerekir!",
+                "updated": 1640554335251
             }
         ]
     },
@@ -93,6 +98,11 @@
                     "language": "RU",
                     "text": "Скопируйте и запустите команду в окне поиска/команды в самом верху вкладки Docs.",
                     "updated": 1640159069819
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
+                    "updated": 1640554566255
                 }
             ],
             "updated": 1635148665427
@@ -123,6 +133,11 @@
                     "language": "RU",
                     "text": "Поскольку вы только что сменили ветку, вы уже должны быть в курсе последних изменений!",
                     "updated": 1640159174947
+                },
+                {
+                    "language": "TR",
+                    "text": "Şube değiştirdiğiniz için zaten güncel olmalısınız!",
+                    "updated": 1640554583592
                 }
             ]
         }

@@ -4,18 +4,39 @@
     "type": "Simulating Check of Events",
     "definition": {
         "text": "Instead of checking what happened with the order at the exchange, the bot launches the synchronization simulation and updates the trading engine with the results of the calculations.",
-        "updated": 1610222347712
+        "updated": 1610222347712,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вместо того чтобы проверять, что произошло с ордером на бирже, бот запускает симуляцию синхронизации и обновляет торговый движок результатами расчетов.",
+                "updated": 1640331954595
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The process is the same for all orders and involves a simulated synchronization with the exchange (see Simulating Sync With the Exchange), which performs all the checks and calculations, and updates the associated nodes in the trading engine hierarchy.",
-            "updated": 1610222491422
+            "updated": 1610222491422,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот процесс одинаков для всех ордеров и включает в себя имитацию синхронизации с биржей (см. Simulating Sync With the Exchange), которая выполняет все проверки и вычисления, а также обновляет связанные узлы в иерархии торгового механизма.",
+                    "updated": 1640332061884
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Once the simulated synchronization is done, the bot checks if the order was completely filled during the simulation... ",
-            "updated": 1610222413583
+            "updated": 1610222413583,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После имитации синхронизации бот проверяет, был ли ордер полностью заполнен во время имитации...",
+                    "updated": 1640332076304
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -23,7 +44,14 @@
         },
         {
             "style": "Text",
-            "text": "... and updates the corresponding trading engine nodes accordingly:"
+            "text": "... and updates the corresponding trading engine nodes accordingly:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "... и соответствующим образом обновляет соответствующие узлы торгового движка:",
+                    "updated": 1640332092540
+                }
+            ]
         },
         {
             "style": "Javascript",

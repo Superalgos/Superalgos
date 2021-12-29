@@ -112,6 +112,8 @@ function newCanvas() {
                 projectInstance.utilities = {}
                 projectInstance.globals = {}
                 projectInstance.functionLibraries = {}
+                projectInstance.nodeActionFunctions = {}
+                projectInstance.systemActionFunctions = {}
 
                 projectInstance.events.onMouseWheelMap = new Map()
                 projectInstance.events.onMouseOverMap = new Map()
@@ -150,6 +152,24 @@ function newCanvas() {
                         let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
 
                         projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Node Action Functions of this Project */
+                if (projectDefinition.UI.nodeActionFunctions !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.nodeActionFunctions.length; j++) {
+                        let nodeActionFunctionsDefinition = projectDefinition.UI.nodeActionFunctions[j]
+
+                        projectInstance.nodeActionFunctions[nodeActionFunctionsDefinition.propertyName] = eval(nodeActionFunctionsDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up System Action Functions of this Project */
+                if (projectDefinition.UI.systemActionFunctions !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.systemActionFunctions.length; j++) {
+                        let systemActionFunctionsDefinition = projectDefinition.UI.systemActionFunctions[j]
+
+                        projectInstance.systemActionFunctions[systemActionFunctionsDefinition.propertyName] = eval(systemActionFunctionsDefinition.functionName + '()')
                     }
                 }
 

@@ -4,30 +4,72 @@
     "type": "Conceptual Context - Episode, Strategy, Position, Strategy Stages",
     "definition": {
         "text": "Track the properties within each of the major concepts handled by the trading bot, such as episodes, strategies, positions, strategy stages, and exchange orders.",
-        "updated": 1611256914210
+        "updated": 1611256914210,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отслеживайте свойства в рамках каждой из основных концепций, обрабатываемых торговым ботом, таких как эпизоды, стратегии, позиции, этап стратегии и биржевые ордера.",
+                "updated": 1640342186144
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Episodes, strategies, positions, strategy stages, exchange orders, and other concepts may be seen as different contexts too, although not of the temporal kind.",
-            "updated": 1611256927199
+            "updated": 1611256927199,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эпизоды, стратегии, позиции, этапы стратегии, порядок обмена и другие понятия тоже можно рассматривать как различные контексты, хотя и не временного типа.",
+                    "updated": 1640342217283
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For instance, you may want to know what the ROI is in the context of the episode—that is, the ROI after several positions have passed—or the ROI of the current position only."
+            "text": "For instance, you may want to know what the ROI is in the context of the episode—that is, the ROI after several positions have passed—or the ROI of the current position only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, вы можете захотеть узнать, что такое ROI в контексте эпизода, то есть ROI после того, как прошло несколько позиций, или ROI только текущей позиции.",
+                    "updated": 1640342236077
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In other words, many properties such as performance metrics—like ROI, or profit loss—or market data—like the begin and end datetimes or any of these concepts—exist in more than one conceptual context."
+            "text": "In other words, many properties such as performance metrics—like ROI, or profit loss—or market data—like the begin and end datetimes or any of these concepts—exist in more than one conceptual context.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, многие свойства, такие как показатели эффективности, например, ROI, или потери прибыли, или рыночные данные, например, время начала и окончания или любое из этих понятий, существуют более чем в одном концептуальном контексте.",
+                    "updated": 1640342292590
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following pages describe each of these major conceptual contexts, which, in turn, may exist in more than one temporal context."
+            "text": "The following pages describe each of these major conceptual contexts, which, in turn, may exist in more than one temporal context.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На следующих страницах описывается каждый из этих основных концептуальных контекстов, которые, в свою очередь, могут существовать более чем в одном временном контексте.",
+                    "updated": 1640342318497
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "From the perspective of systems design, each of these concepts is handled as an object that may be open or closed, thus has a lifespan. The same object may be open more than once, but only after the previous instance has been closed.",
-            "updated": 1611256963378
+            "updated": 1611256963378,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С точки зрения проектирования систем, каждая из этих концепций рассматривается как объект, который может быть открыт или закрыт и, таким образом, имеет срок жизни. Один и тот же объект может быть открыт несколько раз, но только после закрытия предыдущего экземпляра.",
+                    "updated": 1640342398215
+                }
+            ]
         },
         {
             "style": "Title",
@@ -112,24 +154,59 @@
         {
             "style": "Title",
             "text": "Strategy Stages",
-            "updated": 1611257433526
+            "updated": 1611257433526,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этапы стратегии",
+                    "updated": 1640343032614
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Superalgos Protocol implements a trading framework by which strategies within a trading system are described in stages. The trading bot uses these definitions during runtime.",
-            "updated": 1611257532139
+            "updated": 1611257532139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Протокол Superalgos реализует торговую структуру, с помощью которой стратегии в рамках торговой системы описываются поэтапно. Торговый бот использует эти определения во время выполнения.",
+                    "updated": 1640343076326
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The concept of strategy stages in the context of the trading engine is an extension of the original concept, useful to keep track of the activity of the trading bot and organize the information processed during runtime."
+            "text": "The concept of strategy stages in the context of the trading engine is an extension of the original concept, useful to keep track of the activity of the trading bot and organize the information processed during runtime.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концепция этапов стратегии в контексте торгового движка является расширением первоначальной концепции, полезной для отслеживания активности торгового бота и организации информации, обрабатываемой во время выполнения.",
+                    "updated": 1640343098501
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Use these sections of the trading engine if you wish to track exactly what is going on, at a granular level, step by step, from the instant a strategy is triggered until it is closed, with the information segregated by strategy stage."
+            "text": "Use these sections of the trading engine if you wish to track exactly what is going on, at a granular level, step by step, from the instant a strategy is triggered until it is closed, with the information segregated by strategy stage.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используйте эти разделы торгового движка, если вы хотите точно отслеживать происходящее на детальном уровне, шаг за шагом, с момента запуска стратегии до ее закрытия, с разделением информации по этапам стратегии.",
+                    "updated": 1640343127446
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The exercise may be particularly useful to grasp the intricacies of the workings of the trading bot or to research particular behaviors."
+            "text": "The exercise may be particularly useful to grasp the intricacies of the workings of the trading bot or to research particular behaviors.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Практика может быть особенно полезна для понимания тонкостей работы торгового бота или для исследования определенных моделей поведения.",
+                    "updated": 1640343255181
+                }
+            ]
         },
         {
             "style": "Subtitle",

@@ -4,13 +4,27 @@
     "type": "Exchange Raw Data - Get VS Code",
     "definition": {
         "text": "In fact you can use any IDE you like, but if you don't have a favorite yet, we recommend you to use VS Code, which is free and open source.",
-        "updated": 1614591577862
+        "updated": 1614591577862,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "На самом деле вы можете использовать любую IDE, которая вам нравится, но если у вас еще нет любимой, мы рекомендуем вам использовать VS Code, которая является бесплатной и с открытым исходным кодом.\n",
+                "updated": 1640361804078
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Go ahead an install VS Code.",
-            "updated": 1614591630235
+            "updated": 1614591630235,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перейдите к установке VS Code.",
+                    "updated": 1640361820231
+                }
+            ]
         }
     ]
 }

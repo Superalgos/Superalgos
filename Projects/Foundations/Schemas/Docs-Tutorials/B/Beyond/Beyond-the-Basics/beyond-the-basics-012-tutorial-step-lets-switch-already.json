@@ -31,6 +31,11 @@
                 "language": "RU",
                 "text": "Теперь, когда все ясно, давайте сделаем переключение и подготовимся к тому, что будет дальше!",
                 "updated": 1640158571387
+            },
+            {
+                "language": "TR",
+                "text": "Artık her şeyi hallettiğimize göre, geçiş yapalım ve bundan sonra olacaklara hazırlanalım!",
+                "updated": 1640419466455
             }
         ]
     },
@@ -90,6 +95,11 @@
                     "language": "RU",
                     "text": "Вернитесь в нижний колонтитул и выберите Develop в качестве текущей ветки (Current Branch).",
                     "updated": 1640158641234
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu syafanın en altına gidin ve Current Branch dalını \"Develop\" olarak değiştirin.",
+                    "updated": 1640419547094
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "RU",
                     "text": "Вы получите страницу с описанием того, что происходит. Затем вы получите еще одну страницу с информацией о результате, на которой будет сказано, что вы должны перезапустить приложение.",
                     "updated": 1640158696037
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne yapıldığını açıklayan bir sayfa göreceksiniz. Ardından, uygulamayı yeniden başlatmanız gerektiğini bildiren başka bir sayfa daha göreceksiniz..",
+                    "updated": 1640419607946
                 }
             ]
         },
@@ -148,6 +163,11 @@
                     "language": "RU",
                     "text": "Закройте приложение и перезапустите его (браузер и консоль).",
                     "updated": 1640158714923
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamayı kapatın ve yeniden başlatın (tarayıcıda ve konsolda).",
+                    "updated": 1640419636012
                 }
             ]
         },
@@ -177,6 +197,11 @@
                     "language": "RU",
                     "text": "Найдите учебник Beyond the Basics в правом нижнем углу рабочего пространства и выберите \"Resume\" в меню! Если \"Resume\" не работает, найдите шаг \"Welcome Back!\" в разделе Branches Topic и нажмите \"Play\" в меню!",
                     "updated": 1640158754087
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanının sağ alt köşesinde Beyond The Basics Tutorial Eğitimini bulun ve menüden Resune'u (Devam Et) seçin! Resum (Devam Et) çalışmıyorsa, \"Welcome Back!\" Butonunu bulun. Branches Konusu'nun altına girin ve menüden \"Oynat\"a tıklayın!",
+                    "updated": 1640424871004
                 }
             ]
         }

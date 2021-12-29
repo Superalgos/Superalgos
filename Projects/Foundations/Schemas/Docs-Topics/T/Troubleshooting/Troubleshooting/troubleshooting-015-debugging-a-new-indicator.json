@@ -4,58 +4,149 @@
     "type": "Debugging a New Indicator",
     "definition": {
         "text": "A case study for developers on how to debug an indicator-in-the-making. These are a few notes taken during a real issue when building the RSI indicator.",
-        "updated": 1611649401081
+        "updated": 1611649401081,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Пример для разработчиков на тему отладки создаваемого индикатора. Вот несколько заметок, сделанных во время реальной проблемы при создании индикатора RSI.",
+                "updated": 1640540061424
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "My Indicator Is Not Running!",
-            "updated": 1611649414736
+            "updated": 1611649414736,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мой индикатор не запускается!",
+                    "updated": 1640540076815
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the logical checklist in such scenario:"
+            "text": "This is the logical checklist in such scenario:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это основной контрольный список в таком случае:",
+                    "updated": 1640540212577
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Make sure all dependencies are running."
+            "text": "Make sure all dependencies are running.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что все зависимости запущены.",
+                    "updated": 1640540120689
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Determine which process is not running (Multi-Time-Frame-Daily or Multi-Time-Frame-Market)."
+            "text": "Determine which process is not running (Multi-Time-Frame-Daily or Multi-Time-Frame-Market).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определите, какой процесс не запущен (Multi-Time-Frame-Daily или Multi-Time-Frame-Market).",
+                    "updated": 1640540133284
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Check if the corresponding execution started event is referencing the proper process. Make sure the referenced process is running without error, at 100%."
+            "text": "Check if the corresponding execution started event is referencing the proper process. Make sure the referenced process is running without error, at 100%.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте, ссылается ли соответствующее событие начала выполнения на нужный процесс. Убедитесь, что связанный процесс выполняется без ошибок, на 100%.",
+                    "updated": 1640540155802
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Check if data dependency references are in place. Make sure these dependencies are running without error, at 100%."
+            "text": "Check if data dependency references are in place. Make sure these dependencies are running without error, at 100%.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте наличие ссылок на зависимые данные. Убедитесь, что эти зависимости работают без ошибок, на 100%.",
+                    "updated": 1640540242152
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Stop all bots and delete the Log-Files folder so that you may easily identify current logs."
+            "text": "Stop all bots and delete the Log-Files folder so that you may easily identify current logs.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Остановите всех ботов и удалите папку Log-Files, чтобы вы могли легко определить текущие логи.",
+                    "updated": 1640540273294
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Run your indicator’s dependencies."
+            "text": "Run your indicator’s dependencies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запустите зависимости вашего индикатора.",
+                    "updated": 1640540282992
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Make sure they are running properly, without errors. Check the logs if in doubt."
+            "text": "Make sure they are running properly, without errors. Check the logs if in doubt.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что они работают правильно, без ошибок. Проверьте логи, если сомневаетесь.",
+                    "updated": 1640540298584
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Run your indicator. Check your indicator’s log files."
+            "text": "Run your indicator. Check your indicator’s log files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запустите свой индикатор. Проверьте файлы логов вашего индикатора.",
+                    "updated": 1640540313233
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "My Indicator Runs With Errors"
+            "text": "My Indicator Runs With Errors",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мой индикатор работает с ошибками",
+                    "updated": 1640540325909
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may debug an indicator by Debugging a Task, that is, the Data Task that controls the indicator.",
-            "updated": 1611649534218
+            "updated": 1611649534218,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете отлаживать индикатор, отлаживая задачу, то есть Data Task, который управляет индикатором.",
+                    "updated": 1640540389928
+                }
+            ]
         }
     ]
 }

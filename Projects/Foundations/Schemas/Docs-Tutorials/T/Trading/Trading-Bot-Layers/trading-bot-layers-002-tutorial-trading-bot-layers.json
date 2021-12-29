@@ -15,6 +15,11 @@
                 "text": "In diesem Tutorial zeige ich dir, wie die Layer des Trading Bot funktionieren! Ich meine die, die in den Charts zu sehen sind und mit allen Arten von Trading Sessions verbunden sind!",
                 "updated": 1622984863588,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "В этом уроке я покажу вам, как работают слои торгового бота! Я имею в виду те, которые изображены на графиках, связанные со всеми типами торговых сессий!",
+                "updated": 1640543199664
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Legen wir los! Der Trading Bot gibt Dutzende von Produkten aus, die alle in drei separaten Layer Managers (\"Ebenenmanagern\") dargestellt werden:",
                     "updated": 1622984878617,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте приступим! Торговый бот выводит десятки продуктов, и все они представлены в трех отдельных менеджерах слоев Layer Manager:",
+                    "updated": 1640543249899
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "text": "Trading Engine: Verfügt über Ebenen, die das Reporting der Werte von Knoten in der Trading Engine-Hierarchie ein- und ausschalten.",
                     "updated": 1622984891979,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Engine: содержит слои, которые включают и выключают информирование о значениях узлов в иерархии Trading Engine.",
+                    "updated": 1640543968756
                 }
             ]
         },
@@ -55,6 +70,11 @@
                     "text": "Trading System: Enthält Ebenen, die mehrere Arten von Berichten auf der Ebene des Handelssystems ein- und ausschalten.",
                     "updated": 1622984907055,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading System: имеет уровни, которые включают и выключают несколько типов отчетов на уровне торговой системы.",
+                    "updated": 1640544042964
                 }
             ]
         },
@@ -68,6 +88,11 @@
                     "text": "Simulationsobjekte: Enthält Ebenen, die das Rendern von visuellen Informationen über die Diagramme beeinflussen.",
                     "updated": 1622984919431,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Simulation Objects: слои характеристик, которые влияют на отрисовку визуальной информации на графиках.",
+                    "updated": 1640544028710
                 }
             ]
         }

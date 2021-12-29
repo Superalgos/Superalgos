@@ -444,7 +444,7 @@ If you ran `node setup` with no options above, then you should see a desktop ico
 To launch the platform with one of the Partner Exchanges custom workspaces, go to the Superalgos directory and run the command as per the following table. You will learn about other options further down this page.
 
 | Partner Exchange | Launch Command |
-|--- |--- |-- |
+|--- |--- |
 | AscendEX | `node platform Foundations 01-Onboarding-AscendEX` |
 
 To run Superalgos with the fallback workspace, go to the Superalgos directory/folder and run this command:

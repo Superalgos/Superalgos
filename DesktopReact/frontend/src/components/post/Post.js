@@ -18,10 +18,10 @@ const Post = ({postData}) => {
         // navigate(`/post/${postId}`) todo implement reply feed
     }
     return (
-        <div className="postWrapper" onClick={handlePostClick}
+        <div className="postWrapper"
         >
             <Card className="post">
-                <Stack direction="row">
+                <Stack direction="row" onClick={handlePostClick}>
                     <Stack className="postAvatarContainer">
                         <Avatar src={pic}/>
                     </Stack>

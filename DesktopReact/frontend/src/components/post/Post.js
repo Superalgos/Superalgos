@@ -25,9 +25,9 @@ const Post = ({postData}) => {
             if(selectedPost){
                 dispatch( setSelectedPost({}) );
             }
-        } else { 
-            if (selectedPost) 
-                setPost(selectedPost); 
+        } else {
+            if (selectedPost)
+                setPost(selectedPost);
         };
     }, [])
 
@@ -35,7 +35,7 @@ const Post = ({postData}) => {
         return <></>
     }
 
-    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId, emitterPost: {reactions: reactions} } = post;  
+    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId, emitterPost: {reactions: reactions} } = post;
 
     const handlePostClick = (e) => {
         if(postIdParameter !== postId) {
@@ -44,12 +44,12 @@ const Post = ({postData}) => {
             navigate(`/post/${postId}`) //todo implement reply feed
         }
     }
-    
+
     return (
-        <div className="postWrapper" onClick={handlePostClick}
+        <div className="postWrapper"
         >
             <Card className="post">
-                <Stack direction="row">
+                <Stack direction="row" onClick={handlePostClick}>
                     <Stack className="postAvatarContainer">
                         <Avatar src={pic}/>
                     </Stack>

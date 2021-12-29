@@ -11,7 +11,8 @@
 /*}*/
 
 .postWrapper{
-    /*z-index: 1;*/
+    /* z-index: 1; */
+    width: 40rem;
 }
 
 .postWrapper:hover {

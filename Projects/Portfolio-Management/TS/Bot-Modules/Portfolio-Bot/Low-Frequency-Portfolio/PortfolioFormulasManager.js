@@ -23,11 +23,73 @@ exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = functi
         portfolioSystem = undefined
     }
 
-    function confirmThisFormula(SESSION_KEY, formula) {
+    function confirmThisFormula(formula) {
+        if (portfolioSystem.formulasManager === undefined) {
+            let response = {
+                status: 'Not Ok',
+                reason: "No Portfolio Formulas Manager found at Portfolio System"
+            }
+            return response
+        }
+        if (portfolioSystem.formulasManager.confirmFormulaRules === undefined) {
+            let response = {
+                status: 'Not Ok',
+                reason: "No Confirm Formulas Rules found at Portfolio Formulas Manager"
+            }
+            return response
+        }
 
+        for (let i = 0; i < portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences.lenght; i++) {
+            let confirmFormulaReference = portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences[i]
+
+            if (confirmFormulaReference.formula === undefined) { continue }
+            if (confirmFormulaReference.referenceParent === undefined) { continue }
+            if (confirmFormulaReference.referenceParent.id !== formula.node.id) { continue }
+
+            portfolioSystem.evalFormulas(confirmFormulaReference, 'Confirm Formula Reference', formula.value)
+
+            let value = tradingSystem.formulas.get(confirmFormulaReference.formula.id)
+
+            let response = {
+                status: 'Ok',
+                value: value
+            }
+            return response
+        }
     }
 
-    function setThisFormula(SESSION_KEY, formula) {
+    function setThisFormula(formula) {
+        if (portfolioSystem.formulasManager === undefined) {
+            let response = {
+                status: 'Not Ok',
+                reason: "No Portfolio Formulas Manager found at Portfolio System"
+            }
+            return response
+        }
+        if (portfolioSystem.formulasManager.setFormulaRules === undefined) {
+            let response = {
+                status: 'Not Ok',
+                reason: "No Set Formulas Rules found at Portfolio Formulas Manager"
+            }
+            return response
+        }
 
+        for (let i = 0; i < portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences.lenght; i++) {
+            let setFormulaReference = portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences[i]
+
+            if (confirmFormulaReference.formula === undefined) { continue }
+            if (setFormulaReference.referenceParent === undefined) { continue }
+            if (setFormulaReference.referenceParent.id !== formula.node.id) { continue }
+
+            portfolioSystem.evalFormulas(setFormulaReference, 'Set Formula Reference')
+
+            let value = tradingSystem.formulas.get(confirmFormulaReference.formula.id)
+
+            let response = {
+                status: 'Ok',
+                value: value
+            }
+            return response
+        }
     }
 }

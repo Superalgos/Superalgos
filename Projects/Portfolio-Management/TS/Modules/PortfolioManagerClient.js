@@ -153,7 +153,8 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
                             id: formulaParentNode.id,
                             type: formulaParentNode.type,
                         }
-                    }
+                    },
+                    value: formulaValue
                 }
             }
             response = await portfolioManagerEventsClient.sendMessage(message)

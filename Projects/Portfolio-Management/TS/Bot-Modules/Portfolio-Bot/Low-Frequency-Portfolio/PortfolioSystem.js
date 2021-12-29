@@ -79,8 +79,14 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
             evalNode(startingNode, 'Conditions', descendentOfNodeType)
         }
 
-        portfolioSystem.evalFormulas = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'Formulas', descendentOfNodeType)
+        portfolioSystem.evalFormulas = function (startingNode, descendentOfNodeType, currentValue) {
+            evalNode(
+                startingNode,
+                'Formulas',
+                descendentOfNodeType,
+                undefined,
+                currentValue
+            )
         }
 
         portfolioSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
@@ -212,22 +218,28 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function confirmThisEvent(event) {
-        portfolioEventsManagerModuleObject.confirmThisEvent(event) 
+        portfolioEventsManagerModuleObject.confirmThisEvent(event)
     }
 
     function setThisEvent(event) {
-        portfolioEventsManagerModuleObject.setThisEvent(event) 
+        portfolioEventsManagerModuleObject.setThisEvent(event)
     }
 
     function confirmThisFormula(formula) {
-        portfolioFormulasManagerModuleObject.confirmThisFormula(formula) 
+        portfolioFormulasManagerModuleObject.confirmThisFormula(formula)
     }
 
     function setThisFormula(formula) {
-        portfolioFormulasManagerModuleObject.setThisFormula(formula) 
+        portfolioFormulasManagerModuleObject.setThisFormula(formula)
     }
 
-    function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
+    function evalNode(
+        node,
+        evaluating,
+        descendentOfNodeType,
+        isDescendent,
+        currentValue
+    ) {
         if (node === undefined) { return }
 
         /* Verify if this node is decendent of the specified node type */
@@ -250,7 +262,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
-                    evalFormula(node)
+                    evalFormula(
+                        node,
+                        currentValue
+                    )
                 }
             }
         }
@@ -277,7 +292,13 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent)
+                                evalNode(
+                                    node[property.name],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    currentValue
+                                )
                             }
                             previousPropertyName = property.name
                         }
@@ -287,7 +308,13 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent)
+                                evalNode(
+                                    nodePropertyArray[m],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    currentValue
+                                )
                             }
                         }
                         break
@@ -350,7 +377,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
     }
 
-    function evalFormula(node) {
+    function evalFormula(
+        node,
+        currentValue // This is value of the Formula at the Trading Bot, that can be used at code to be evaluated.
+        ) {
         let value
         let errorMessage
         let docs

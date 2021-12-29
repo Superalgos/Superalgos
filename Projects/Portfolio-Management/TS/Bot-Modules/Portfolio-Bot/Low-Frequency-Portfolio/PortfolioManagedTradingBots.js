@@ -18,6 +18,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
     return thisObject
 
     function initialize() {
+        portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
         isRunning = false
     }
 

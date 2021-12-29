@@ -13,6 +13,7 @@ function httpRequest(endpoint, method, body) {
 }
 
 export {
+    baseURL,
     GET,
     POST,
     DELETE,

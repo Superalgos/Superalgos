@@ -15,7 +15,6 @@ import {
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {actionsNav} from './interactionsConfig.json';
-import {reactToPost} from "../../api/httpService";
 import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 import {dialStyle} from "./reactionsStyle";
 
@@ -28,7 +27,7 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-const PostFooter = (props) => { // props needed? review
+const PostFooter = ({postId,reactions}) => { // props needed? review
 
     // gets values from httpService.js array reactToPost function
     const [badgeValues, setBadgeValues] = useState([])
@@ -36,10 +35,8 @@ const PostFooter = (props) => { // props needed? review
     const [replyModal, setReplyModal] = useState(false)
 
     const BadgeCounterValue = () => {
-        let {data} = reactToPost();
-        // console.log(data);
-        setLikeValue(data[0][1]) // need a callback
-        let reactionsValue = data.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
+        setLikeValue(reactions[0][1]) // need an callback
+        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
         setBadgeValues(reactionsValue)
         //console.log(reactionsValue)
 
@@ -61,14 +58,16 @@ const PostFooter = (props) => { // props needed? review
         setReplyModal(!replyModal)
     }
 
-    const handleLikeReaction = (e, id, name) => {
+    const handleLikeReaction = (e, reactionId, name) => {
         e.stopPropagation()
-        console.log(`click on button ${name}, id ${id}`)
+
+// TODO
+        console.log(`click on button ${name}, id ${reactionId} of post ${postId}`)
     }
 
     const handleReactions = (e, id, name) => {
         e.stopPropagation()
-        // pass index of the array to locate the correct value of reaction
+
         console.log(`click on button ${name}, id ${id}`)
     }
 
@@ -149,7 +148,7 @@ const PostFooter = (props) => { // props needed? review
                                direction="right"
                     >
                         {actionsNav.map(e => {
-                            const {id, name, badgeCounter, icon} = e
+                            const {id, name, badgeCounter, icon} = e;
                             return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */
                         })}
                     </SpeedDial>

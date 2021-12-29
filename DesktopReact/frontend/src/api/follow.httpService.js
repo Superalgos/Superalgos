@@ -1,8 +1,6 @@
 import {
-    baseURL,
-    GET, 
     POST,
-    DELETE
+    httpRequest
 } from './httpConfig'
 
 const followUser = (userProfileId) =>{

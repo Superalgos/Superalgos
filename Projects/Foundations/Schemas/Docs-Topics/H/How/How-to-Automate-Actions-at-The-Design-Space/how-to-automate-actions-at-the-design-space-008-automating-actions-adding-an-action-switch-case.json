@@ -4,31 +4,73 @@
     "type": "Automating Actions - Adding an Action Switch Case",
     "definition": {
         "text": "This step creates the mapping between the actionFunction name you defined at the Menu Item of the node to can trigger your Action, and the function you coded inside a Function Library that will execute the code for the new Action.",
-        "updated": 1628258863939
+        "updated": 1628258863939,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот шаг создает соответствие между именем функции actionFunction, которое вы определили в пункте меню узла для запуска вашего действия, и функцией, которую вы запрограммировали в библиотеке функций и которая будет выполнять код нового действия (Action).",
+                "updated": 1640764982098
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Action Switch File",
-            "updated": 1614937860642
+            "updated": 1614937860642,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файл переключения действий",
+                    "updated": 1640764992712
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Locate the ActionSwitch.js file inside the Function-Libraries folder. There you will find a gigantic switch instruction with a case for each Action available at the current Project."
+            "text": "Locate the ActionSwitch.js file inside the Function-Libraries folder. There you will find a gigantic switch instruction with a case for each Action available at the current Project.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите файл ActionSwitch.js в папке Function-Libraries. В нем вы найдете гигантскую конструкцию \"switch\" с блоками \"case\" для каждого Action, доступного в текущем проекте.",
+                    "updated": 1640765971284
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Find within the list of cases some of the cases pointing to the same Function Library your new Action is hosted at, so that you can add a new case together with the rest.",
-            "updated": 1628258889849
+            "updated": 1628258889849,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите в списке блоков \"case\" те блоки, которые указывают на ту же функциональную библиотеку, в которой размещено ваше новое действие, чтобы вы могли добавить новый блок вместе с остальными.",
+                    "updated": 1640766078865
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Add a New Case",
-            "updated": 1614938281975
+            "updated": 1614938281975,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавить новый блок \"case\"",
+                    "updated": 1640766139515
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The case string must match the actionFunction you defined at the Menu Item. Your function call should be something like this:"
+            "text": "The case string must match the actionFunction you defined at the Menu Item. Your function call should be something like this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Строка case должна соответствовать функции actionFunction, которую вы определили в пункте меню. Ваш вызов функции должен быть примерно таким:",
+                    "updated": 1640766160135
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -38,15 +80,36 @@
         {
             "style": "Success",
             "text": "As you can see you will most likely be sending the node and rootNodes parameters into your Action function. However, you might want to also send other parameters with data you find available within the system at this point into the action object.  ",
-            "updated": 1628259076042
+            "updated": 1628259076042,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как вы видите, скорее всего, вы будете отправлять параметры node и rootNodes в функцию Action. Однако, возможно, вы захотите отправить в объект действия и другие параметры с данными, которые вы найдете доступными в системе на данный момент.",
+                    "updated": 1640766203515
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Setting a breakpoint here within Chrome's devTools is a convenient way to check the system for available data. "
+            "text": "Setting a breakpoint here within Chrome's devTools is a convenient way to check the system for available data. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установка здесь точки останова в devTools Chrome - удобный способ проверить систему на наличие доступных данных.",
+                    "updated": 1640766239078
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The property name needed to get to the reference of your Function Library object at runtime can be found at the definition of that Function Library located at the Project Schema File. The one corresponding to the example above is this one, for instance:"
+            "text": "The property name needed to get to the reference of your Function Library object at runtime can be found at the definition of that Function Library located at the Project Schema File. The one corresponding to the example above is this one, for instance:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имя свойства, необходимое для получения ссылки на объект библиотеки функций во время работы, можно найти в определении этой библиотеки функций, расположенном в файле схемы проекта. Для примера, приведенного выше, подходит, например, вот это:",
+                    "updated": 1640766269648
+                }
+            ]
         },
         {
             "style": "Json",
@@ -56,7 +119,14 @@
         {
             "style": "Text",
             "text": "You can use whatever you find at propertyName to get to the Function Library object at runtime. With this, the mapping is complete.",
-            "updated": 1614938237127
+            "updated": 1614938237127,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать все, что вы найдете в propertyName, чтобы добраться до объекта библиотеки функций во время работы. На этом сопоставление завершено.",
+                    "updated": 1640766330098
+                }
+            ]
         }
     ]
 }

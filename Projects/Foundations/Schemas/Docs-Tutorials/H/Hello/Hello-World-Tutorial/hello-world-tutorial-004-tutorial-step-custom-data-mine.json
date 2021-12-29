@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Yalnızca Çalışma Alanları ( Workspaces ) değiştirilemez",
                 "updated": 1640616138230
+            },
+            {
+                "language": "RU",
+                "text": "Изменять можно не только рабочие пространства",
+                "updated": 1640633292137
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "SA çok modülerdir ve ihtiyaçlarımız için tercih ettiğimiz şekilde düzenlenebilir.",
                     "updated": 1640616150087
+                },
+                {
+                    "language": "RU",
+                    "text": "У Superalgos модульная система, которая может быть организована так, как мы хотим для наших нужд.",
+                    "updated": 1640633435587
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "TR",
                     "text": "Yeni bir Veri Madeni ( Data Mine ) ile sizin için çok basit bir Çalışma Alanı ( Workspace ) hazırladım ve bu eğitim için ihtiyacım olmayan her şeyi silerek düğümleri düzenledim.",
                     "updated": 1640616164929
+                },
+                {
+                    "language": "RU",
+                    "text": "Я подготовил для вас базовое рабочее пространство с новым Data Mine и расположил узлы, удалив все, что мне не нужно для этого урока.",
+                    "updated": 1640633473041
                 }
             ]
         },
@@ -113,6 +128,11 @@
                     "language": "TR",
                     "text": "İpucu: Sa veri madenleri eklenebilir ve kaldırılabilir, ancak bir göstergeyi kaldırırsanız sabit diskinize kaydedilen veriler silinmez!",
                     "updated": 1640616179214
+                },
+                {
+                    "language": "RU",
+                    "text": "В Superalgos источники данных можно добавлять и удалять, но данные, сохраненные на жестком диске, не будут удалены, если вы удалите индикатор!",
+                    "updated": 1640633531680
                 }
             ]
         },

@@ -38,6 +38,7 @@ exports.newSocialTradingGlobalsEventTypes = function () {
         REMOVE_REACTION_SAD: 204,
         REMOVE_REACTION_ANGRY: 205,
         REMOVE_REACTION_CARE: 206
+        /* Add user profile events */
     }
 
     return thisObject

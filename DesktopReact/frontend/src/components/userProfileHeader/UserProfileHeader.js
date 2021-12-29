@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
-import banner from "../../images/superalgos.png";
-import pfp from "../../images/superalgos.png";
 import "./UserProfileHeader.css"
 import UserProfileModal from "./UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 
-const UserProfileHeader = ({actualUser}) => {
+const UserProfileHeader = ({user}) => {
 
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px",
@@ -24,14 +22,14 @@ const UserProfileHeader = ({actualUser}) => {
         <Card className="profileSection">
             <CardMedia className="banner"
                        component="img"
-                       image={banner}
+                       src={`data:image/png;base64,${user.bannerPic}`}
                        alt="PP"
             />
             <div className="profileCard">
                 <div className="profilePicBG">
                     <CardMedia className="profileAvatar"
                                component="img"
-                               image={pfp}
+                               src={`data:image/png;base64,${user.profilePic}`}
                                alt="ProfilePic"
                     />
                 </div>
@@ -44,23 +42,23 @@ const UserProfileHeader = ({actualUser}) => {
             </div>
             <div>
                 <CardContent className="userSection">
-                    <Typography className="username" variant="h5">{actualUser}</Typography>
+                    <Typography className="username" variant="h5">{user.name}</Typography>
                     <Typography className="userHandle" variant="subtitle2">
-                        @username
+                        @{user.username}
                     </Typography>
                     <Typography className="bio">
-                        This is my bio
+                        {user.bio}
                     </Typography>
                     <Typography className="joinDate" variant="subtitle2">
-                        <DateRangeOutlined sx={{...profileIcons}} />
-                        Joined MM/YYYY
+                        <DateRangeOutlined sx={{...profileIcons}}/>
+                        {user.joined}
                     </Typography>
                     <Typography className="location" variant="subtitle2">
                         <LocationOnOutlined sx={{...profileIcons}}/>
-                        City, Country
+                        {user.location}
                     </Typography>
                     <Typography className="stats" variant="subtitle2">
-                        # Following - # Followers
+                        {user.stats}
                     </Typography>
 
                 </CardContent>

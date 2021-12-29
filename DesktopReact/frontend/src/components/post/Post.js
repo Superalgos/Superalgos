@@ -12,15 +12,16 @@ const Post = ({postData}) => {
     const [collapse, setCollapse] = useState(false)
     const ToggleCollapseComment = () => setCollapse(!collapse)
 
-    const handlePostClick = (e) => {
+    const handlePostClick = (e) => { // todo on click modal away, activates the event. review
       e.preventDefault()
+        console.log("Hello from clicked post: ")
         // navigate(`/post/${postId}`) todo implement reply feed
     }
     return (
-        <div className="postWrapper" onClick={handlePostClick}
+        <div className="postWrapper"
         >
             <Card className="post">
-                <Stack direction="row">
+                <Stack direction="row" onClick={handlePostClick}>
                     <Stack className="postAvatarContainer">
                         <Avatar src={pic}/>
                     </Stack>

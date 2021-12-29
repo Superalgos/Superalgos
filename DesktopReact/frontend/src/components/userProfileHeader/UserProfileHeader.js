@@ -14,9 +14,6 @@ const UserProfileHeader = ({actualUser}) => {
         verticalAlign: "text-top"
     }
 
-    const buttonStyle = { // todo need proper style, and handle from css file
-
-    }
     const [modal, setModal] = useState(false);
     const handleClick = () => setModal(!modal);
 
@@ -62,7 +59,9 @@ const UserProfileHeader = ({actualUser}) => {
                     <Typography className="stats" variant="subtitle2">
                         # Following - # Followers
                     </Typography>
-
+                    <Typography className="stats" variant="subtitle2">
+                        http://yourwebsite
+                    </Typography>
                 </CardContent>
             </div>
         </Card>

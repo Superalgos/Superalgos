@@ -1,17 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import Badge from "@mui/material/Badge";
-import {Collapse, createTheme, Divider, IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
-import {
-    AccessibilityNewOutlined,
-    Autorenew,
-    FavoriteBorder, MessageOutlined,
-    Mood,
-    OutletOutlined,
-    SentimentVeryDissatisfied,
-    SentimentVeryDissatisfiedOutlined,
-    ThumbUp
-} from "@mui/icons-material";
+import {SpeedDialAction} from "@mui/material";
+import {FavoriteBorder} from "@mui/icons-material";
 import styled from "@emotion/styled";
+
 const StyledBadge = styled(Badge)(({theme}) => ({
     '& .MuiBadge-badge': {
         right: -3,
@@ -20,7 +12,7 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-
+    // todo entire complement not implemented yet, destructuring needed from PostFooter.js
 const FooterButton = () => 
     <SpeedDialAction
         FabProps={{

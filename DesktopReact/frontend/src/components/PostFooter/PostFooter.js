@@ -16,6 +16,7 @@ import {
 import styled from "@emotion/styled";
 import {actionsNav} from './interactionsConfig.json';
 import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
+import {dialStyle} from "./reactionsStyle";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
@@ -28,22 +29,6 @@ const StyledBadge = styled(Badge)(({theme}) => ({
 
 const PostFooter = ({postId,reactions}) => { // props needed? review
 
-    // todo need proper style, and handle from css file
-    const dialStyle = {
-        backgroundColor: "white", 
-        minHeight: "2rem", 
-        height: "2rem",
-        width: "2rem",
-        position: "relative",
-        boxShadow: "none",
-        margin: "2px",
-    }
-    const footerButtonStyle = {
-        ...dialStyle,
-        minWidth: "2rem",
-        backgroundColor:'transparent'
-    }
-
     // gets values from httpService.js array reactToPost function
     const [badgeValues, setBadgeValues] = useState([])
     const [likeValue, setLikeValue] = useState()
@@ -53,6 +38,7 @@ const PostFooter = ({postId,reactions}) => { // props needed? review
         setLikeValue(reactions[0][1]) // need an callback
         let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
         setBadgeValues(reactionsValue)
+        //console.log(reactionsValue)
 
     }
 
@@ -60,7 +46,7 @@ const PostFooter = ({postId,reactions}) => { // props needed? review
         return BadgeCounterValue();
     }, []);
 
-    const handleRepost = (e) => {
+    const handleRepost = (e) => { // not implemented yet
         e.stopPropagation();
         console.log('clicked repost')
     }
@@ -85,41 +71,41 @@ const PostFooter = ({postId,reactions}) => { // props needed? review
         console.log(`click on button ${name}, id ${id}`)
     }
 
-    const getIcon = (icon) =>{
-        switch(icon){
+    const getIcon = (icon) => {
+        switch (icon) {
             case "FavoriteBorder":
                 return <FavoriteBorder/>
             case "Mood":
-                return <Mood/> 
+                return <Mood/>
             case "OutletOutlined":
                 return <OutletOutlined/>
             case "SentimentVeryDissatisfied":
                 return <SentimentVeryDissatisfied/>
             case "SentimentVeryDissatisfiedOutlined":
-                return <SentimentVeryDissatisfiedOutlined/> 
+                return <SentimentVeryDissatisfiedOutlined/>
             case "AccessibilityNewOutlined":
                 return <AccessibilityNewOutlined/>
             default:
                 return null
         }
     }
-    
+
     const FooterButton = (id, name, icon, badgeCounter) => {
-        return <SpeedDialAction
-            key={id}
-            id={id}
-            FabProps={{ style:{...footerButtonStyle} }} // Changes the position of the reactions icons, but not the div container
-            icon={
-                <StyledBadge
-                    badgeContent={badgeCounter}
-                    color="primary"
-                    max={99}>
-                        { getIcon(icon) }
-                </StyledBadge>
-            }
-            onClick={ ev => handleReactions(ev, id, name) }
-            tooltipPlacement="bottom"
-            tooltipTitle={name}
+        return <SpeedDialAction className=""
+                                key={id}
+                                id={id}
+                                FabProps={{style: {...dialStyle}}} /*Changes the position of the reactions icons, but not the div container*/
+                                icon={
+                                    <StyledBadge
+                                        badgeContent={badgeCounter} /*need pass the index of the id reaction*/
+                                        color="primary"
+                                        max={99}>
+                                        {getIcon(icon)}
+                                    </StyledBadge>
+                                }
+                                onClick={ev => handleReactions(ev, id, name)}
+                                tooltipPlacement="bottom"
+                                tooltipTitle={name}
         />
     }
 
@@ -127,16 +113,16 @@ const PostFooter = ({postId,reactions}) => { // props needed? review
         return <div className="footerCommentContainer">
             <Stack className="postFooterComment" direction="row">
                 <IconButton className="commentIconButton" size="small"
-                    onClick={(e) => e.stopPropagation(HandleCommentContainer())} > {/* need review, correct way?*/}
-                        <MessageOutlined/>
-                    </IconButton>
-                    <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>
-                </Stack>
-                <Stack className="postFooterRepost" direction="row">
+                            onClick={(e) => e.stopPropagation(HandleCommentContainer())}> {/* need review, correct way?*/}
+                    <MessageOutlined/>
+                </IconButton>
+                <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>
+            </Stack>
+            {/*<Stack className="postFooterRepost" direction="row"> todo not implemented yet
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">
                     <Autorenew/>
                 </IconButton>
-            </Stack>
+            </Stack>*/}
         </div>
     }
 
@@ -144,26 +130,26 @@ const PostFooter = ({postId,reactions}) => { // props needed? review
         <div className="postFooterContainer">
             <Stack className="postFooterContainerStack" direction="row">
                 <Stack className="postFooterContainerSpeedDial" direction="row">
-                    <SpeedDial className="speedDialContainer"
-                        FabProps={{
-                            style: {...dialStyle}
-                        }} // Access to props of SpeedDial
-                        color="secondary"
-                        ariaLabel="SpeedDial"
-                        icon={<StyledBadge
-                            color="primary"
-                            badgeContent={likeValue}>
-                            <ThumbUp // sx={{width: "15px", height: "15px"}}  review if removed
-                                color="action"
-                                fontSize="small"
-                                onClick={handleLikeReaction}>
-                            </ThumbUp>
-                        </StyledBadge>}
-                        direction="right"
+                    <SpeedDial className="speedDialContainer" // like button style
+                               FabProps={{ /*Access to props of SpeedDial*/
+                                   style: {...dialStyle}
+                               }}
+                               color="secondary"
+                               ariaLabel="SpeedDial"
+                               icon={<StyledBadge
+                                   color="primary"
+                                   badgeContent={likeValue}>
+                                   <ThumbUp // sx={{width: "15px", height: "15px"}}  review if removed
+                                       color="action"
+                                       fontSize="small"
+                                       onClick={handleLikeReaction}>
+                                   </ThumbUp>
+                               </StyledBadge>}
+                               direction="right"
                     >
-                        { actionsNav.map(e => {
-                            const {id, name, badgeCounter, icon} = e
-                            return FooterButton(String(id), name, icon, badgeValues[badgeCounter])
+                        {actionsNav.map(e => {
+                            const {id, name, badgeCounter, icon} = e;
+                            return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */
                         })}
                     </SpeedDial>
                 </Stack>

@@ -44,11 +44,11 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
 
             if (confirmFormulaReference.formula === undefined) { continue }
             if (confirmFormulaReference.referenceParent === undefined) { continue }
-            if (confirmFormulaReference.referenceParent.id !== formula.node.id) { continue }
+            if (confirmFormulaReference.referenceParent.id !== formula.node.parentNode.id) { continue }
 
             portfolioSystem.evalFormulas(confirmFormulaReference, 'Confirm Formula Reference', formula.value)
 
-            let value = tradingSystem.formulas.get(confirmFormulaReference.formula.id)
+            let value = portfolioSystem.formulas.get(confirmFormulaReference.formula.id)
 
             let response = {
                 status: 'Ok',
@@ -77,13 +77,13 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
         for (let i = 0; i < portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences.length; i++) {
             let setFormulaReference = portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences[i]
 
-            if (confirmFormulaReference.formula === undefined) { continue }
+            if (setFormulaReference.formula === undefined) { continue }
             if (setFormulaReference.referenceParent === undefined) { continue }
-            if (setFormulaReference.referenceParent.id !== formula.node.id) { continue }
+            if (setFormulaReference.referenceParent.id !== formula.node.parentNode.id) { continue }
 
             portfolioSystem.evalFormulas(setFormulaReference, 'Set Formula Reference')
 
-            let value = tradingSystem.formulas.get(confirmFormulaReference.formula.id)
+            let value = portfolioSystem.formulas.get(setFormulaReference.formula.id)
 
             let response = {
                 status: 'Ok',

@@ -104,7 +104,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         return response
     }
 
-    async function askPortfolioFormulaManager(formulaParentNode, formulaValue) {
+    async function askPortfolioFormulaManager(formulaNode, formulaParentNode, formulaValue) {
 
         let response = {
             status: 'Ok',
@@ -118,14 +118,17 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         First we will check if the Porfolio Manager would like to 
         replace this formula value for something else.
         */
-        if (formulaParentNode.askPortfolioFormulaManager.setFormula !== undefined) {
+        if (
+            formulaParentNode.askPortfolioFormulaManager.request !== undefined &&
+            formulaParentNode.askPortfolioFormulaManager.request.type === 'Set Formula'
+        ) {
             let message = {
                 type: "Set This Formula",
                 formula: {
                     node: {
-                        name: eventNode.name,
-                        id: eventNode.id,
-                        type: eventNode.type,
+                        name: formulaNode.name,
+                        id: formulaNode.id,
+                        type: formulaNode.type,
                         parentNode: {
                             name: formulaParentNode.name,
                             id: formulaParentNode.id,
@@ -140,14 +143,17 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
          Second we will check if the Portfolio Manager confirms this formula
          value.
         */
-        if (formulaParentNode.askPortfolioFormulaManager.confirmFormula !== undefined) {
+        if (
+            formulaParentNode.askPortfolioFormulaManager.request !== undefined &&
+            formulaParentNode.askPortfolioFormulaManager.request.type === 'Confirm Formula'
+        ) {
             let message = {
                 type: "Confirm This Formula",
                 formula: {
                     node: {
-                        name: eventNode.name,
-                        id: eventNode.id,
-                        type: eventNode.type,
+                        name: formulaNode.name,
+                        id: formulaNode.id,
+                        type: formulaNode.type,
                         parentNode: {
                             name: formulaParentNode.name,
                             id: formulaParentNode.id,

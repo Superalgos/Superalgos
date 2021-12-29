@@ -12,8 +12,9 @@ const Post = ({postData}) => {
     const [collapse, setCollapse] = useState(false)
     const ToggleCollapseComment = () => setCollapse(!collapse)
 
-    const handlePostClick = (e) => {
+    const handlePostClick = (e) => { // todo on click modal away, activates the event. review
       e.preventDefault()
+        console.log("Hello from clicked post: ")
         // navigate(`/post/${postId}`) todo implement reply feed
     }
     return (
@@ -32,9 +33,9 @@ const Post = ({postData}) => {
                     {postBody}
                 </Stack>
                 <PostFooter stateCallback={ToggleCollapseComment}/>
-                <FooterReply show={collapse}
-                />
-            </Card></div>
+                {/*<FooterReply show={collapse}/>*/}
+            </Card>
+        </div>
     );
 };
 

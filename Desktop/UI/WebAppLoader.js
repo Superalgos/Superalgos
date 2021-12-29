@@ -25,6 +25,20 @@ function newWebAppLoader() {
                             modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Function-Libraries' + '/' + fileName)
                         }
                     }
+                    if (project.UI.nodeActionFunctions !== undefined) {
+                        for (let j = 0; j < project.UI.nodeActionFunctions.length; j++) {
+                            let fileName = project.UI.nodeActionFunctions[j].fileName   
+                            if (fileName === undefined) {fileName = project.UI.nodeActionFunctions[j].name.replaceAll(' ', '') + '.js'}                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'Node-Action-Functions' + '/' + fileName)
+                        }
+                    }
+                    if (project.UI.systemActionFunctions !== undefined) {
+                        for (let j = 0; j < project.UI.systemActionFunctions.length; j++) {
+                            let fileName = project.UI.systemActionFunctions[j].fileName   
+                            if (fileName === undefined) {fileName = project.UI.systemActionFunctions[j].name.replaceAll(' ', '') + '.js'}                     
+                            modulesArray.push('Projects' + '/' + project.name + '/' + 'UI' + '/' + 'System-Action-Functions' + '/' + fileName)
+                        }
+                    }
                     if (project.UI.utilities !== undefined) {
                         for (let j = 0; j < project.UI.utilities.length; j++) {
                             let fileName = project.UI.utilities[j].fileName        

@@ -4,30 +4,72 @@
     "type": "Screen Capture and Sharing",
     "definition": {
         "text": "Share you screen with friends and colleagues capturing still images or videos directly from within the frontend.",
-        "updated": 1611490773902
+        "updated": 1611490773902,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Поделитесь своим экраном с друзьями и коллегами, делая снимки или видео прямо из приложения.",
+                "updated": 1640436928430
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Hit Ctrl + F8 to capture a static PNG image.",
-            "updated": 1611490790992
+            "updated": 1611490790992,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F8, чтобы захватить статическое изображение PNG.",
+                    "updated": 1640436939694
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file."
+            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F9, чтобы начать захват GIF-видео, и нажмите ту же комбинацию клавиш еще раз, чтобы завершить захват. После завершения захвата потребуется некоторое время для его обработки и создания готового файла.",
+                    "updated": 1640436964911
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly."
+            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F10, чтобы начать захват WEBM-видео, и нажмите ту же комбинацию клавиш еще раз, чтобы завершить захват. WEBM-видео обрабатываются мгновенно.",
+                    "updated": 1640436977699
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder."
+            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во всех трех случаях браузер загружает полученный файл и делает его доступным в папке загрузок.",
+                    "updated": 1640436991575
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "GIF files tend to grow a lot in long captures, but are more universal, thus more devices can display them properly. WEBM files are a lot more efficient, but do not work in Apple and, potentially, other platforms or devices.",
-            "updated": 1611490891864
+            "updated": 1611490891864,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файлы GIF имеют тенденцию сильно увеличиваться при длительном захвате, но они более универсальны, поэтому больше устройств могут их правильно отображать. Файлы WEBM намного эффективнее, но не работают в Apple и, возможно, в других платформах или устройствах.",
+                    "updated": 1640437024575
+                }
+            ]
         },
         {
             "style": "Text",

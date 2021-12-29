@@ -4,26 +4,61 @@
     "type": "Switching Branches - Current Branch Not Changed",
     "definition": {
         "text": "It was not possible to change the current branch. The most likely cause is that you have changes that you have not contribute yet. Run the App Contribute Command to send those changes to the main repository and try this command again.",
-        "updated": 1610543788194
+        "updated": 1610543788194,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Не удалось изменить текущую ветку. Наиболее вероятная причина заключается в том, что у вас есть изменения, которые вы еще не внесли. Выполните команду App Contribute Command, чтобы отправить эти изменения в основной репозиторий, и попробуйте выполнить эту команду снова.",
+                "updated": 1640236545893
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "More detailed info of what caused this failure to switch can be found below.",
-            "updated": 1611155878425
+            "updated": 1611155878425,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Более подробную информацию о том, что вызвало этот сбой в переключении, можно найти ниже.",
+                    "updated": 1640236559939
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Error Info"
+            "text": "Error Info",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1640236567782
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1640236577722
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611155956953
+            "updated": 1611155956953,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактического возникновения ошибки.",
+                    "updated": 1640236589261
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -31,7 +66,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Message of the Exception that occurred at the Client:"
+            "text": "The following is the Error Message of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведено сообщение об ошибке исключения, возникшего на клиенте:",
+                    "updated": 1640236618321
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -43,7 +85,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Stack of the Exception that occurred at the Client:"
+            "text": "The following is the Error Stack of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен стек ошибок исключения, возникшего на клиенте:",
+                    "updated": 1640236637427
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -55,7 +104,14 @@
         },
         {
             "style": "Text",
-            "text": "The following is the Error Code of the Exception that occurred at the Client:"
+            "text": "The following is the Error Code of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, возникшего на клиенте:",
+                    "updated": 1640236650484
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -67,7 +123,14 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occurred at the Client:"
+            "text": "The following are all the Error details of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены все детали ошибки исключения, возникшего на клиенте:",
+                    "updated": 1640236672925
+                }
+            ]
         },
         {
             "style": "Placeholder",

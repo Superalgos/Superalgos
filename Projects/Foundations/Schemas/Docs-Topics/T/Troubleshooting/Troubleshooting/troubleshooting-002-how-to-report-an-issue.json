@@ -4,105 +4,266 @@
     "type": "How to Report an Issue",
     "definition": {
         "text": "Reporting an issue is a process that entails doing some basic research, carefully describing how to reproduce the issue, and gathering crucial information.",
-        "updated": 1611510213732
+        "updated": 1611510213732,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Освещение проблемы - это процесс, который подразумевает проведение базового исследования, тщательное описание способа воспроизведения проблемы и сбор важной информации.",
+                "updated": 1640441131334
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Before you consider reporting an issue, make sure you do everything within your reach to investigate the problem. In most cases, you will find that there is no issue at all and that you were making a mistake, skipping a step in the process, or not fulfilling a requirement.",
-            "updated": 1611510227112
+            "updated": 1611510227112,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем сообщать о проблеме, убедитесь, что вы сделали все возможное для ее изучения. В большинстве случаев вы обнаружите, что проблемы вообще нет, а вы допустили ошибку, пропустили шаг в процессе или не выполнили требование.",
+                    "updated": 1640441151323
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "The How to Troubleshoot an Issue guide takes you through a step-by-step process to investigate your issue and gather all relevant information. Carefully following the guide is a requirement for reporting an issue. If the very act of going through the troubleshooting steps does not solve your issue, then come back here once you have finished gathering the required information, as instructed in the guide. Remember, reporting an issue requires understanding what the issue is about, being able to explain how to reproduce it, and providing all relevant information.",
-            "updated": 1611510328837
+            "updated": 1611510328837,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Руководство How to Troubleshoot an Issue (''Как устранить неполадки'') представляет собой пошаговый процесс изучения проблемы и сбора всей необходимой информации. Четкое следование этому руководству является обязательным условием для сообщения о проблеме. Если само прохождение шагов по устранению неполадок не решит вашу проблему, вернитесь сюда, когда закончите сбор необходимой информации, как указано в руководстве. Помните, что для сообщения о проблеме необходимо понимать, в чем она заключается, уметь объяснить, как ее воспроизвести, и предоставить всю необходимую информацию.",
+                    "updated": 1640443316402
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "1. Search for Similar Issues",
-            "updated": 1611511273179
+            "updated": 1611511273179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Поиск похожих вопросов",
+                    "updated": 1640443325327
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Go to the Issues page in the Superalgos repository and use the search box to find issues that may be similar to yours."
+            "text": "Go to the Issues page in the Superalgos repository and use the search box to find issues that may be similar to yours.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перейдите на страницу Issues в репозитории Superalgos в GitHub.com и используйте поле поиска, чтобы найти проблемы, которые могут быть похожи на вашу.",
+                    "updated": 1640443410845
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Search for open and closed issues (remove the is open tag).",
-            "updated": 1611510615215
+            "updated": 1611510615215,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поиск открытых и закрытых вопросов (удалите тег is open).",
+                    "updated": 1640443381134
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Try different keywords you would use to describe the issue."
+            "text": "Try different keywords you would use to describe the issue.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Попробуйте использовать различные ключевые слова, которые вы бы использовали для описания проблемы.",
+                    "updated": 1640443440728
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you find an issue that is similar to yours, read the whole thread. You may find information conducive to solving the issue, proposed workarounds, or reports on the status of the solution to the issue."
+            "text": "If you find an issue that is similar to yours, read the whole thread. You may find information conducive to solving the issue, proposed workarounds, or reports on the status of the solution to the issue.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы нашли проблему, похожую на вашу, прочитайте всю тему. Вы можете найти информацию, способствующую решению проблемы, предлагаемые обходные пути или отчеты о состоянии решения проблемы.",
+                    "updated": 1640443468500
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you believe you have information relevant to the issue that has not yet been offered by other users, then go ahead and reply to the issue with everything you know about your case."
+            "text": "If you believe you have information relevant to the issue that has not yet been offered by other users, then go ahead and reply to the issue with everything you know about your case.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы считаете, что у вас есть информация, относящаяся к данному вопросу, которая еще не была предложена другими пользователями, тогда продолжайте отвечать на вопрос, указав все, что вы знаете о вашем случае.",
+                    "updated": 1640443486318
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If there are no issues similar to yours, or your issue happens in a different context not addressed in the issues you’ve found, then go on with the next few steps."
+            "text": "If there are no issues similar to yours, or your issue happens in a different context not addressed in the issues you’ve found, then go on with the next few steps.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблем, похожих на вашу, нет, или ваша проблема возникает в другом контексте, который не рассматривается в найденных вами проблемах, переходите к следующим шагам.",
+                    "updated": 1640443505524
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "2. Are you Ready to Report an Issue?",
-            "updated": 1611511264814
+            "updated": 1611511264814,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Готовы ли вы сообщить о проблеме?",
+                    "updated": 1640443512376
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Please, make an honest assessment of the following questions:"
+            "text": "Please, make an honest assessment of the following questions:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, честно ответьте на следующие вопросы:",
+                    "updated": 1640443520702
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Have you followed the How to Troubleshoot an Issue guide to the best of your abilities?",
-            "updated": 1611510652729
+            "updated": 1611510652729,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выполнили ли вы руководство How to Troubleshoot an Issue в меру своих возможностей?",
+                    "updated": 1640443572626
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Have you tested your issue with today’s version of the software?"
+            "text": "Have you tested your issue with today’s version of the software?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверили ли вы свою проблему с текущей версией программного обеспечения?",
+                    "updated": 1640443692791
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Have you verified that none of the troubleshooting pages in the documentation addresses and solves your issue?"
+            "text": "Have you verified that none of the troubleshooting pages in the documentation addresses and solves your issue?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедились ли вы, что ни одна из страниц документации по устранению неполадок не рассматривает и не решает вашу проблему?",
+                    "updated": 1640443706463
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Have you captured and saved the associated errors in the browser console or the Log-Files folder?"
+            "text": "Have you captured and saved the associated errors in the browser console or the Log-Files folder?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отлавливали ли вы и сохраняли ли соответствующие ошибки в консоли браузера или в папке Log-Files?",
+                    "updated": 1640443796568
+                }
+            ]
         },
         {
             "style": "List",
             "text": "In case your issue is related to the frontend… are you using Chrome or Safari to test the issue?",
-            "updated": 1611510679400
+            "updated": 1611510679400,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае, если ваша проблема связана с фронтендом... вы используете Chrome или Safari для проверки проблемы?",
+                    "updated": 1640443819348
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you answer no to any of the above, then you are not ready to open an issue. If you may confidently answer yes to all questions, then please proceed."
+            "text": "If you answer no to any of the above, then you are not ready to open an issue. If you may confidently answer yes to all questions, then please proceed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы ответили \"нет\" на любой из вышеперечисленных вопросов, значит, вы не готовы к открытию проблемы. Если вы можете с уверенностью ответить \"да\" на все вопросы, то, пожалуйста, продолжайте.",
+                    "updated": 1640443835611
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "3. Consider the Following",
-            "updated": 1611511254512
+            "updated": 1611511254512,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Рассмотрите следующие вопросы",
+                    "updated": 1640443847141
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the issue may be reproduced on one of the official workspaces, then report the issue as such. Issues occurring on custom workspaces have a lower priority."
+            "text": "If the issue may be reproduced on one of the official workspaces, then report the issue as such. Issues occurring on custom workspaces have a lower priority.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблема может быть воспроизведена на одном из официальных рабочих пространств, сообщите об этом. Проблемы, возникающие на пользовательских рабочих пространствах, имеют более низкий приоритет.",
+                    "updated": 1640443865326
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Issues that may not be reproduced have lower priority than those that may be reproduced."
+            "text": "Issues that may not be reproduced have lower priority than those that may be reproduced.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вопросы, которые не могут быть воспроизведены, имеют более низкий приоритет, чем те, которые могут быть воспроизведены.",
+                    "updated": 1640443883412
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "4. Open a New Issue",
-            "updated": 1611511249720
+            "updated": 1611511249720,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "4. Откройте новую проблему",
+                    "updated": 1640444097759
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Click the New Issue button and select Get Started on the Bug report item. The following form will open:"
+            "text": "Click the New Issue button and select Get Started on the Bug report item. The following form will open:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку New Issue и выберите Get Started в пункте Bug report. Откроется следующая форма:",
+                    "updated": 1640444108801
+                }
+            ]
         },
         {
             "style": "Png",
@@ -112,152 +273,397 @@
         {
             "style": "Text",
             "text": "Carefully complete the form following the below guidelines:",
-            "updated": 1611510902570
+            "updated": 1611510902570,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Внимательно заполните форму, следуя приведенным ниже указаниям:",
+                    "updated": 1640444119940
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Title"
+            "text": "Title",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заголовок",
+                    "updated": 1640444147011
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Do your best to describe the issue in a single, short sentence. Take your time. A good practice is describing what happens and in which context. For example: “WHB backtest stops short of finalDatetime”."
+            "text": "Do your best to describe the issue in a single, short sentence. Take your time. A good practice is describing what happens and in which context. For example: “WHB backtest stops short of finalDatetime”.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сделайте все возможное, чтобы описать проблему в одном коротком предложении. Не торопитесь. Хорошей практикой является описание того, что происходит и в каком контексте. Например: \"Бэктест WHB останавливается перед finalDatetime\".",
+                    "updated": 1640444187811
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Context"
+            "text": "Context",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Содержание",
+                    "updated": 1640444212972
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Complete and adjust the contents leaving the information that fits your case and deleting the information that doesn’t."
+            "text": "Complete and adjust the contents leaving the information that fits your case and deleting the information that doesn’t.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Заполните и скорректируйте содержание, оставив информацию, которая подходит к вашей ситуации, и удалив ту, которая не подходит.",
+                    "updated": 1640444280420
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Operating System: Windows / MacOs / Linux / Other (include the version on either case)"
+            "text": "Operating System: Windows / MacOs / Linux / Other (include the version on either case)",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Operating System (Операционная система): Windows / MacOs / Linux / Другая (укажите версию в любом случае)",
+                    "updated": 1640444423027
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Software version: today’s master branch / today’s develop branch"
+            "text": "Software version: today’s master branch / today’s develop branch",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Software version (Версия программного обеспечения): сегодняшняя ветвь master / сегодняшняя ветвь develop",
+                    "updated": 1640444368539
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Workspace version: default Workspace.json (Getting Started Guide) / Simple Workspace.json / Workspace - Binance - WHB - BBTB.json / My custom workspace"
+            "text": "Workspace version: default Workspace.json (Getting Started Guide) / Simple Workspace.json / Workspace - Binance - WHB - BBTB.json / My custom workspace",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Workspace version (Версия рабочего пространства): Workspace.json по умолчанию (Getting Started Guide) / Simple Workspace.json / Workspace - Binance - WHB - BBTB.json / My custom workspace (Мое пользовательское рабочее пространство)",
+                    "updated": 1640444480961
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Reproducible: the issue may / may not be reproduced."
+            "text": "Reproducible: the issue may / may not be reproduced.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Reproducible (Воспроизводимая): проблема может / не может быть воспроизведена.",
+                    "updated": 1640444525920
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Explain Your Issue",
-            "updated": 1611511238751
+            "updated": 1611511238751,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объясните свою проблему",
+                    "updated": 1640444535046
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Explain what the problem seems to be."
+            "text": "Explain what the problem seems to be.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объясните, в чем, на первый взгляд, заключается проблема.",
+                    "updated": 1640444555557
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Clearly explain what you wish to accomplish."
+            "text": "Clearly explain what you wish to accomplish.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Четко объясните, чего вы хотите добиться.",
+                    "updated": 1640444565412
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Explain, step by step, what you’ve done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise."
+            "text": "Explain, step by step, what you’ve done to achieve the goal. The Team will follow these steps to reproduce the issue, so be precise.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объясните, шаг за шагом, что вы сделали для достижения цели. Команда будет следовать этим шагам, чтобы воспроизвести проблему, поэтому будьте точны.",
+                    "updated": 1640444578963
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Explain what is the result you expect from your actions."
+            "text": "Explain what is the result you expect from your actions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объясните, какого результата вы ожидаете от своих действий.",
+                    "updated": 1640444588360
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Explain what happens instead of the expected results."
+            "text": "Explain what happens instead of the expected results.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объясните, что происходит вместо ожидаемых результатов.",
+                    "updated": 1640444597078
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Explain what errors you have found on-screen, on the browser console application, or in the Log-Files folder."
+            "text": "Explain what errors you have found on-screen, on the browser console application, or in the Log-Files folder.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объясните, какие ошибки вы обнаружили на экране, в консольном приложении браузера или в папке Log-Files.",
+                    "updated": 1640444607693
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Reproduce the Issue on Video",
-            "updated": 1611511228776
+            "updated": 1611511228776,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Воспроизведите проблему на видео",
+                    "updated": 1640444628473
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The most important aspect of investigating an issue is being able to reproduce it. Capturing a video showing the steps that lead to the issue would be of great help."
+            "text": "The most important aspect of investigating an issue is being able to reproduce it. Capturing a video showing the steps that lead to the issue would be of great help.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Самый важный аспект исследования проблемы - это возможность воспроизвести ее. Запись видеоролика, показывающего шаги, которые привели к возникновению проблемы, будет очень полезна.",
+                    "updated": 1640444656309
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the issue happens within the browser, you may use the systems’ video capture feature:"
+            "text": "If the issue happens within the browser, you may use the systems’ video capture feature:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблема возникает в браузере, вы можете воспользоваться функцией захвата видео в системе:",
+                    "updated": 1640444675912
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F8 to capture a static PNG image."
+            "text": "Hit Ctrl + F8 to capture a static PNG image.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F8, чтобы захватить статическое изображение PNG.",
+                    "updated": 1640444684230
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file."
+            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F9, чтобы начать захват GIF-видео, и нажмите ту же комбинацию клавиш еще раз, чтобы завершить захват. После завершения захвата потребуется некоторое время для его обработки и создания конечного файла.",
+                    "updated": 1640444711080
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly."
+            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + F10, чтобы начать захват WEBM-видео, и нажмите ту же комбинацию клавиш еще раз, чтобы завершить захват. WEBM-видео обрабатываются мгновенно.",
+                    "updated": 1640444721869
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder."
+            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во всех трех случаях браузер загружает полученный файл и делает его доступным в папке загрузок.",
+                    "updated": 1640444735250
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "GIF files tend to grow a lot in long captures, but are more universal, thus more devices can display them properly. WEBM files are a lot more efficient, but do not work in Apple and, potentially, other platforms or devices.",
-            "updated": 1611511119973
+            "updated": 1611511119973,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файлы GIF имеют тенденцию сильно увеличиваться при длительном захвате, но они более универсальны, поэтому больше устройств могут их правильно отображать. Файлы WEBM намного эффективнее, но не работают в Apple и, вероятно, на других платформах и устройствах.",
+                    "updated": 1640444765471
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In case the issue does not happen at the browser, for example, if it happens at the console, LICEcap is a lightweight, simple system that can help you capture GIF videos outside of Superalgos."
+            "text": "In case the issue does not happen at the browser, for example, if it happens at the console, LICEcap is a lightweight, simple system that can help you capture GIF videos outside of Superalgos.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В случае если проблема возникает не в браузере, а, например, в консоли, LICEcap - это легкая и простая система, которая поможет вам захватить GIF-видео вне Superalgos.",
+                    "updated": 1640444797164
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Bear in mind that GitHub issues accept files 10MB and lighter only.",
-            "updated": 1611511131091
+            "updated": 1611511131091,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имейте в виду, что GitHub Issues принимает только файлы размером 10 МБ и меньше.",
+                    "updated": 1640445473515
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Attach Relevant Log Files",
-            "updated": 1611511219274
+            "updated": 1611511219274,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прикрепите соответствующие файлы логов",
+                    "updated": 1640445271601
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you have on-screen errors or errors at the browser console, screen captures are fine."
+            "text": "If you have on-screen errors or errors at the browser console, screen captures are fine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас есть отображаемые на экране ошибки или ошибки в консоли браузера, скриншоты - они тоже подойдут.",
+                    "updated": 1640445344672
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you have errors in the backend, attach the logs you have collected while following the troubleshooting guide."
+            "text": "If you have errors in the backend, attach the logs you have collected while following the troubleshooting guide.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникли ошибки в бэкенде, приложите журналы, которые вы собрали, следуя руководству по устранению неполадок.",
+                    "updated": 1640445370144
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "GitHub issues do not allow uploading JSON files. Make a ZIP file with all relevant logs instead.",
-            "updated": 1611511170225
+            "updated": 1611511170225,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "GitHub Issues не позволяет загружать JSON-файлы. Вместо этого создайте ZIP-файл со всеми соответствующими журналами.",
+                    "updated": 1640445464394
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Custom Workspace?",
-            "updated": 1611511208878
+            "updated": 1611511208878,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользовательское рабочее пространство?",
+                    "updated": 1640445505525
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the issue happens under specific conditions on a custom workspace, attach a share of the workspace. Do not attach backups as those may contain personal information such as API Keys."
+            "text": "If the issue happens under specific conditions on a custom workspace, attach a share of the workspace. Do not attach backups as those may contain personal information such as API Keys.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблема возникает при определенных условиях на пользовательском рабочем пространстве, прикрепите общий ресурс рабочего пространства. Не прикрепляйте резервные копии, так как они могут содержать личную информацию, например ключи API.",
+                    "updated": 1640445522021
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Upload your workspace to the issue only if you feel comfortable with sharing it openly. If there are data structures that you prefer not to share, consider removing them so that you may share the non-sensitive bits only. If the issue happens precisely with the sensitive data structures in your workspace, then clearly explain the matter and wait for further instructions.",
-            "updated": 1611511186403
+            "updated": 1611511186403,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Загружайте свое рабочее пространство в GitHub Issue, только если вам не страшно открыто поделиться им. Если есть структуры данных, которыми вы предпочитаете не делиться, подумайте об их удалении, чтобы вы могли поделиться только несекретной частью. Если проблема возникает именно с конфиденциальными структурами данных в вашем рабочем пространстве, то четко объясните суть вопроса и ждите дальнейших инструкций.",
+                    "updated": 1640445656462
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "5. Enable Github Notifications",
-            "updated": 1611511204195
+            "updated": 1611511204195,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "5. Включите уведомления Github",
+                    "updated": 1640445669916
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Make sure you enable GitHub notifications when someone responds to the issue, as developers may want to ask for more information."
+            "text": "Make sure you enable GitHub notifications when someone responds to the issue, as developers may want to ask for more information.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обязательно включите уведомления GitHub, чтобы узнать, кто отвечает на проблему, поскольку разработчики могут захотеть запросить дополнительную информацию.",
+                    "updated": 1640445763352
+                }
+            ]
         },
         {
             "style": "Text",

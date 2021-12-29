@@ -4,17 +4,38 @@
     "type": "Trailing Stop Loss - Percentage of Rate",
     "definition": {
         "text": "A Trailing Stop Loss tracks the rate and sets the Stop Loss a given distance away from it",
-        "updated": 1615285882641
+        "updated": 1615285882641,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Trailing Stop Loss отслеживает курс и устанавливает Stop Loss на заданном расстоянии от него",
+                "updated": 1640358483696
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "Change the \"trailingStopLoss\" value to what you see fit.",
-            "updated": 1615286541864
+            "updated": 1615286541864,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените значение \"trailingStopLoss\" на то, которое вы считаете нужным.",
+                    "updated": 1640358499793
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trailing Stop Loss for a Long Position"
+            "text": "Trailing Stop Loss for a Long Position",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Trailing Stop Loss для длинной позиции",
+                    "updated": 1640358524914
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -24,11 +45,25 @@
         {
             "style": "Important",
             "text": "For a Long Position we want our Stop Loss below the actual rate",
-            "updated": 1615286643236
+            "updated": 1615286643236,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для длинной позиции мы хотим, чтобы наш Stop Loss был ниже фактической цены.",
+                    "updated": 1640358553699
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trailing Stop Loss for a Short Position"
+            "text": "Trailing Stop Loss for a Short Position",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Trailing Stop Loss для короткой позиции",
+                    "updated": 1640358573088
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -38,7 +73,14 @@
         {
             "style": "Important",
             "text": "For a Short Position we want our Stop Loss above the actual rate",
-            "updated": 1615286643236
+            "updated": 1615286643236,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для короткой позиции мы хотим, чтобы наш Stop Loss был выше фактической цены.",
+                    "updated": 1640358596488
+                }
+            ]
         }
     ]
 }

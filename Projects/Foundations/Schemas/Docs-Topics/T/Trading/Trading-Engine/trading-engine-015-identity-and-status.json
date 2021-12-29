@@ -4,13 +4,27 @@
     "type": "Identity and Status",
     "definition": {
         "text": "Keep track of information related to the identity or status of the particular object, in the corresponding context. On this page: Index, Serial Number, Identifier, Exchange Id, Status, Exit Type, Situation Name, Situation Name, Algorithm Name, and Algorithm Name.",
-        "updated": 1611337690744
+        "updated": 1611337690744,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отслеживайте информацию, связанную с идентичностью или статусом конкретного объекта, в соответствующем контексте. На этой странице: Index, Serial Number, Identifier, Exchange Id, Status, Exit Type, Situation Name, Situation Name, Algorithm Name и Algorithm Name.",
+                "updated": 1640350859014
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This page compiles nodes common to many different contexts and which have a relationship with the identity, status, or similar properties of the object.",
-            "updated": 1611337706400
+            "updated": 1611337706400,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На этой странице собраны узлы, общие для многих различных контекстов и имеющие связь со свойствами: identity, status или аналогичными свойствами объекта.",
+                    "updated": 1640350916856
+                }
+            ]
         },
         {
             "style": "Title",

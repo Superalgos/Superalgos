@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "La misión del Token Task Force es realizar el máximo potencial del Superalgos SA Token.",
                 "updated": 1637160957992
+            },
+            {
+                "language": "RU",
+                "text": "Миссия Token Task Force заключается в реализации максимального потенциала токена Superalgos SA Token.",
+                "updated": 1640353983781
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "ES",
                     "text": "El Superalgos SA Token es la columna vertebral del proyecto y el principal recurso disponible para incentivar las contribuciones. Como tal, es de suma importancia que se asignen recursos suficientes para desarrollar el ecosistema del token.",
                     "updated": 1637161052701
+                },
+                {
+                    "language": "RU",
+                    "text": "Токен Superalgos SA является основой проекта и основным ресурсом, доступным для стимулирования вкладов. Поэтому крайне важно, чтобы на развитие экосистемы токенов выделялось достаточно ресурсов.",
+                    "updated": 1640354014694
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "ES",
                     "text": "Join the Task Force  ( Únase al grupo de trabajo)",
                     "updated": 1637161081095
+                },
+                {
+                    "language": "RU",
+                    "text": "Присоединяйтесь к рабочей группе",
+                    "updated": 1640354027717
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "ES",
                     "text": "El grupo de trabajo se reúne en el Token Group. Para unirse a la fuerza de trabajo, unirse al grupo!",
                     "updated": 1637161155470
+                },
+                {
+                    "language": "RU",
+                    "text": "Целевая группа собирается в группе Token Group. Чтобы влиться в состав рабочей группы, присоединяйтесь к группе!",
+                    "updated": 1640354107980
                 }
             ]
         },
@@ -58,13 +78,25 @@
                     "language": "ES",
                     "text": "El foco actual del Token Task Force es lograr listar Superalgos SA Token en tantos exchanges como sea posible.",
                     "updated": 1637161225370
+                },
+                {
+                    "language": "RU",
+                    "text": "В настоящее время Token Task Force сосредоточена на том, чтобы Superalgos SA Token был зарегистрирован на как можно большем количестве бирж.",
+                    "updated": 1640354177311
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Current Tasks",
-            "updated": 1618852117253
+            "updated": 1618852117253,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущие задачи",
+                    "updated": 1640354187872
+                }
+            ]
         },
         {
             "style": "List",

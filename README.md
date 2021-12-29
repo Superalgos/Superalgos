@@ -16,6 +16,7 @@
     - [Installation Notes](#installation-notes)
   - [Uninstall](#uninstall)
 - [Usage](#usage)
+  - [Partner Exchanges](#partner-exchanges)
   - [Run the Client and GUI](#run-the-client-and-gui)
     - [Using the shortcuts](#using-the-shortcuts)
     - [Using the Command Line](#using-the-command-line)

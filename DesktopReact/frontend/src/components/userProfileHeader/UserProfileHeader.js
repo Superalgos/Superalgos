@@ -38,7 +38,7 @@ const UserProfileHeader = ({user}) => {
                         onClick={handleClick}>
                     Edit profile
                 </Button>
-                <UserProfileModal show={modal} close={handleClick}/>
+                <UserProfileModal user={user} show={modal} close={handleClick}/>
             </div>
             <div>
                 <CardContent className="userSection">

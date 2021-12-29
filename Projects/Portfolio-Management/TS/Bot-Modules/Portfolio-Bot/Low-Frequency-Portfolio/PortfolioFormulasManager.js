@@ -39,7 +39,7 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences.lenght; i++) {
+        for (let i = 0; i < portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences.length; i++) {
             let confirmFormulaReference = portfolioSystem.formulasManager.confirmFormulaRules.confirmFormulaReferences[i]
 
             if (confirmFormulaReference.formula === undefined) { continue }
@@ -74,7 +74,7 @@ exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (pro
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences.lenght; i++) {
+        for (let i = 0; i < portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences.length; i++) {
             let setFormulaReference = portfolioSystem.formulasManager.setFormulaRules.setFormulaReferences[i]
 
             if (confirmFormulaReference.formula === undefined) { continue }

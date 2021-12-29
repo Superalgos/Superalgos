@@ -35,7 +35,7 @@
             "childType": "Situation"
         }
     ],
-    "propertyNameAtParent": "confirmEventReference",
+    "propertyNameAtParent": "confirmEventReferences",
     "title": [
         "Use Reference Parent Type",
         "Reference Parent Find In Parents Node Type->Trading Strategy"

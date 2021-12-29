@@ -39,7 +39,7 @@ exports.newPortfolioManagementBotModulesPortfolioEventsManager = function (proce
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences.lenght; i++) {
+        for (let i = 0; i < portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences.length; i++) {
             let confirmEventReference = portfolioSystem.eventsManager.confirmEventRules.confirmEventReferences[i]
 
             if (confirmEventReference.referenceParent === undefined) { continue }
@@ -96,7 +96,7 @@ exports.newPortfolioManagementBotModulesPortfolioEventsManager = function (proce
             return response
         }
 
-        for (let i = 0; i < portfolioSystem.eventsManager.setEventRules.setEventReferences.lenght; i++) {
+        for (let i = 0; i < portfolioSystem.eventsManager.setEventRules.setEventReferences.length; i++) {
             let setEventReference = portfolioSystem.eventsManager.setEventRules.setEventReferences[i]
 
             if (setEventReference.referenceParent === undefined) { continue }

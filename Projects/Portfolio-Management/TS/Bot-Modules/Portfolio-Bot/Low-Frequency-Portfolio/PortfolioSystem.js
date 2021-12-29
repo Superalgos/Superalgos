@@ -218,19 +218,19 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function confirmThisEvent(event) {
-        portfolioEventsManagerModuleObject.confirmThisEvent(event)
+        return portfolioEventsManagerModuleObject.confirmThisEvent(event)
     }
 
     function setThisEvent(event) {
-        portfolioEventsManagerModuleObject.setThisEvent(event)
+        return portfolioEventsManagerModuleObject.setThisEvent(event)
     }
 
     function confirmThisFormula(formula) {
-        portfolioFormulasManagerModuleObject.confirmThisFormula(formula)
+        return portfolioFormulasManagerModuleObject.confirmThisFormula(formula)
     }
 
     function setThisFormula(formula) {
-        portfolioFormulasManagerModuleObject.setThisFormula(formula)
+        return portfolioFormulasManagerModuleObject.setThisFormula(formula)
     }
 
     function evalNode(
@@ -380,7 +380,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     function evalFormula(
         node,
         currentValue // This is value of the Formula at the Trading Bot, that can be used at code to be evaluated.
-        ) {
+    ) {
         let value
         let errorMessage
         let docs

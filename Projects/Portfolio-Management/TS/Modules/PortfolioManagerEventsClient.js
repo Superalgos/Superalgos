@@ -59,11 +59,12 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
             Third, events Callback
             */
             function onResponse() {
-                if (arguments[0].event !== undefined) {
-                    let response = {
-                        status: arguments[0].event.status,
-                        reason: "Reply from Portfolio Manager"
-                    }                    
+                let response = arguments[0].event
+
+                if (response !== undefined) {
+                    if (response.reason === undefined) {
+                        response.reason = "Reply from Portfolio Manager"
+                    }                
                     if (promiseStatus === 'Unresolved') {
                         promiseStatus = 'Resolved'
                         resolve(response)

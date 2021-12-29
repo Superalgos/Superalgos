@@ -158,7 +158,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 if (triggerStage.triggerOn.askPortfolioEventsManager !== undefined) {
                                     let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.triggerOn, passed)
-                                    passed = response.raiseEvent
+                                    passed = response.passed
                                 }
                                 
                                 if (passed) {
@@ -183,6 +183,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                         }
                                     }
                                     changeStageStatus('Trigger Stage', 'Open')
+                                    break 
                                 }
                             }
                         }
@@ -217,7 +218,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             if (triggerStage.triggerOff.askPortfolioEventsManager !== undefined) {
                                 let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.triggerOff, passed)
-                                passed = response.raiseEvent
+                                passed = response.passed
                             }
 
                             if (passed) {
@@ -231,6 +232,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
+                                break 
                             }
                         }
                     }
@@ -264,7 +266,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             if (triggerStage.takePosition.askPortfolioEventsManager !== undefined) {
                                 let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.takePosition, passed)
-                                passed = response.raiseEvent
+                                passed = response.passed
                             }
 
                             if (passed) {
@@ -288,6 +290,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')
+                                break 
                             } else {
                                 checkUserDefinedCode('Trigger Stage', 'Running', 'last')
                             }

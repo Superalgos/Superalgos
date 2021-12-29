@@ -256,6 +256,14 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 response.push(eventResponse)
 
                 function addPost(post) {
+
+                    let profileId
+                    if (thisObject.profile.botProfileId !== undefined) {
+                        profileId = thisObject.profile.botProfileId
+                    } else {
+                        profileId = thisObject.profile.userProfileId
+                    }
+
                     let postResponse = {
                         emitterUserProfileId: post.emitterUserProfileId,
                         targetUserProfileId: post.targetUserProfileId,
@@ -266,7 +274,8 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                         postType: post.postType,
                         timestamp: post.timestamp,
                         repliesCount: post.replies.size,
-                        reactions: Array.from(post.reactions)
+                        reactions: Array.from(post.reactions),
+                        reaction: post.reactionsByProfile.get(profileId)
                     }
                     return postResponse
                 }

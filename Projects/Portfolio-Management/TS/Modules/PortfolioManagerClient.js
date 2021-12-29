@@ -64,7 +64,7 @@ exports.newPortfolioManagementModulesPortfolioManagerClient = function (processI
         can be raised.
         */
         if (
-            eventStatus === true &&
+            passed === true &&
             eventNode.askPortfolioEventsManager.request !== undefined &&
             eventNode.askPortfolioEventsManager.request.type === 'Confirm Event'
         ) {

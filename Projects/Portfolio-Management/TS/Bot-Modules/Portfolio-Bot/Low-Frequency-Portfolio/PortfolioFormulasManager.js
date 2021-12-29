@@ -1,4 +1,4 @@
-exports.newPortfolioManagementBotModulesPortfolioManagerFormulasManager = function (processIndex) {
+exports.newPortfolioManagementBotModulesPortfolioFormulasManager = function (processIndex) {
     /*
     This object represents the Formulas Manager at the Portfolio System.
     Here we will process requests comming from Trading Bots to

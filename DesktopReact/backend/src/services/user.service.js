@@ -48,14 +48,10 @@ const followProfile = async (userProfileId, eventType, res) => {
 };
 
 
-const profile = async (id, type, res) => {
+const getProfile = async (userProfileId, res) => {
     try {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
-            emitterUserProfileId: undefined,
-            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
-            amountRequested: 3,
-            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
+            /* TODO Gonza GG boi*/
         }
 
         let query = {
@@ -76,6 +72,6 @@ const profile = async (id, type, res) => {
 module.exports = {
     getProfiles,
     followProfile,
-    profile
+    getProfile
 };
 

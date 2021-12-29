@@ -65,6 +65,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
+                        /* TODO GONZA add new case for when we get another or our own user profile*/
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {
                             event.postText = await getPostText(event.emitterUserProfile.userProfileHandle, event.emitterPost.emitterPostHash, event.timestamp)
                         }
@@ -146,6 +147,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         }
     }
 
+    /* TODO GONZA DO THE THING WITH THE PROFILE, U KNOW BRO THE THING  */
     async function savePostAtStorage(postText, commitMessage, timestamp) {
         /*
         Each user, has a git repository that acts as his publicly accessible

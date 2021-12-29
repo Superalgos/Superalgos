@@ -13,7 +13,8 @@ const FooterReply = ({show}) => {
         setPostText(event.target.value);
     }
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.stopPropagation()
         handleOpen()
         console.log("Hello from reply")
     }

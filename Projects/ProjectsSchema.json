@@ -197,10 +197,10 @@
                     "fileName": "PortfolioManagerEventsInterface.js"
                 },
                 {
-                    "name": "Trading Bots Interface",
-                    "propertyName": "tradingBotsInterface",
-                    "functionName": "newPortfolioManagementModulesTradingBotsInterface",
-                    "fileName": "TradingBotsInterface.js"
+                    "name": "Portfolio Manager Trading Bots Interface",
+                    "propertyName": "portfolioManagerTradingBotsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerTradingBotsInterface",
+                    "fileName": "PortfolioManagerTradingBotsInterface.js"
                 }
             ],
             "botModules": [
@@ -248,10 +248,10 @@
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
-                    "name": "Managed Trading Bots",
-                    "propertyName": "managedTradingBots",
-                    "functionName": "newPortfolioManagementBotModulesManagedTradingBots",
-                    "fileName": "ManagedTradingBots.js",
+                    "name": "Portfolio Managed Trading Bots",
+                    "propertyName": "portfolioManagedTradingBots",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioManagedTradingBots",
+                    "fileName": "PortfolioManagedTradingBots.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
@@ -276,12 +276,19 @@
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
                 {
-                    "name": "Portfolio Manager",
-                    "propertyName": "portfolioManager",
-                    "functionName": "newPortfolioManagementBotModulesPortfolioManager",
-                    "fileName": "PortfolioManager.js",
+                    "name": "Portfolio Events Manager",
+                    "propertyName": "portfolioEventsManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEventsManager",
+                    "fileName": "PortfolioEventsManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
                 },
+                {
+                    "name": "Portfolio Formulas Manager",
+                    "propertyName": "portfolioFormulasManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioFormulasManager",
+                    "fileName": "PortfolioFormulasManager.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },                
                 {
                     "name": "Exchange API",
                     "propertyName": "exchangeAPI",

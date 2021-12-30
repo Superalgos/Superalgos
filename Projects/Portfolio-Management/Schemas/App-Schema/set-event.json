@@ -1,5 +1,5 @@
 {
-    "type": "Raise Event",
+    "type": "Set Event",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -19,5 +19,5 @@
     },
     "childrenNodesProperties": [
     ],
-    "propertyNameAtParent": "raiseEvent"
+    "propertyNameAtParent": "request"
 }

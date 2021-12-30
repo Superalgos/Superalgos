@@ -66,6 +66,11 @@
                     "text": "Beachte, dass die Daten im Plotter Panel nur dann sichtbar werden, wenn der Mauszeiger innerhalb der vom Objekt umschlossenen Kerzen liegt.",
                     "updated": 1623014615169,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что данные на панели становятся видимыми только тогда, когда указатель мыши находится в пределах свечи, охваченной объектом.",
+                    "updated": 1640628266138
                 }
             ]
         }

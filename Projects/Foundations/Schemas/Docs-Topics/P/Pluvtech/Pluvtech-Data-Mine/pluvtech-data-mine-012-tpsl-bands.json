@@ -14,22 +14,37 @@
         },
         {
             "style": "Text",
-            "text": "The primary usage of this indicator is for the data found in the panel and to reference from your Trading System although it does come with a plotter in case you'd like to view the levels on your chart. You set the parameters at the data mining task => indicator bot instance as the default values (below) are arbitrary and based on relativeMovingAverage(trueRange).",
+            "text": "The primary usage of this indicator is to use the calculated data (shown in the panel) for take profit and stop loss signal when a trase has already been entered.",
             "updated": 1622695020858
         },
         {
+            "style": "Text",
+            "text": "There is a plotter shown on the chart in case you'd like to view the levels on your chart.",
+            "updated": 1622695020858
+        },
+        {
+            "style": "Text",
+            "text": "The default values (below) are arbitrary and based on relativeMovingAverage(trueRange).",
+            "updated": 1622695020858
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-TPSL.png",
+            "updated": 1611661370646
+        },
+        {
             "style": "Title",
-            "text": "Default Values:",
+            "text": "Parameters for Indicator Bot Instance:",
             "updated": 1622481793076
         },
         {
             "style": "Text",
-            "text": "periods = 15;  (for calculation of the ATR)",
+            "text": "Periods = 15;  (for calculation of the ATR)",
             "updated": 1622694577540
         },
         {
             "style": "Text",
-            "text": "take profit multiplier (of ATR) = 1;     (i.e.- 100% of ATR.)",
+            "text": "Take profit multiplier (of ATR) = 1;     (i.e.- 100% of ATR.)",
             "updated": 1622694767558
         },
         {
@@ -42,36 +57,46 @@
             "text": "*Note* TP1 = 100% ; TP2 = 200% ; TP3 = 300%",
             "updated": 1622695096382
         },
+		{
+            "style": "Text",
+            "text": "The length of the TPSL bands calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019TPSL\u2019 Product Definition."
+        },
         {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-TPSL-params.png",
+            "updated": 1611673329568
+        },
+		{
             "style": "Title",
-            "text": "Parameters for Indicator Bot Instance:",
-            "updated": 1622481793076
+            "text": "Products & Properties"
         },
         {
             "style": "Text",
-            "text": "parameters at Indicator Bot Instance should look like this:",
-            "updated": 1622694828029
+            "text": "The following properties are available to access:"
         },
         {
-            "style": "Text",
-            "text": "{"
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| TPSL Bands | TPSL | tp1Up...tp3Up, |\n| | | tp1Down...tp3Down, |\n| | | slUp, |\n| | | slDown |",
+            "updated": 1636853769
         },
-        {
+		{
             "style": "Text",
-            "text": "<b>\"periods\": value,",
-            "updated": 1622694892884
+            "text": "Examples:",
+            "updated": 1611661674316
         },
-        {
+		{
             "style": "Text",
-            "text": "\"tpMult\": value,"
+            "text": "The following examples would normally be used in the Manage Stage node of the Trading System for Managed Take Profit and Managed Stop Loss, but can be used anywhere you see fit:"
         },
-        {
-            "style": "Text",
-            "text": "\"slMult\": value"
+		{
+            "style": "Javascript",
+            "text": "\\\\take profit\nchart.at01hs.candle.close > chart.at01hs.TPSL.tp2Up",
+            "updated": 1636853769
         },
-        {
-            "style": "Text",
-            "text": "</b>}"
+		{
+            "style": "Javascript",
+            "text": "\\\\stop loss\nchart.at01hs.candle.close < chart.at01hs.TPSL.sl3Down",
+            "updated": 1636853769
         },
         {
             "style": "Title",

@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Bu eğitimdeki son adımdır, ancak sizin için ilk büyük adımdır!",
                 "updated": 1640618657018
+            },
+            {
+                "language": "RU",
+                "text": "Это последний шаг в данном руководстве, но для вас это первый большой шаг!",
+                "updated": 1640857775385
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Artık SA'da basit stratejileri uygulamanın ne kadar hızlı ve kolay olduğunu gördüğünüze göre, size keşfedebileceğiniz bazı ipuçları bırakıyorum.",
                     "updated": 1640618668873
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь, когда вы увидели, как быстро и легко можно развернуть простые стратегии в Superalgos, я оставляю вам несколько подсказок, которые вы можете проверить.",
+                    "updated": 1640857826726
                 }
             ]
         },
@@ -86,6 +96,11 @@
                     "language": "TR",
                     "text": "Belki yeni bir gösterge ekleyebilir ve özelliklerini Tetik Aşaması ( Trigger Stage ) için ek bir filtre gibi kullanabilirsiniz.",
                     "updated": 1640618680246
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы захотите добавить новый индикатор и использовать его свойства как дополнительный фильтр для этапа Trigger Stage.",
+                    "updated": 1640857883663
                 }
             ],
             "updated": 1622980962381
@@ -114,6 +129,11 @@
                     "language": "TR",
                     "text": "Ya da SL'yi, bir sonraki sabit bir isteme sahip olacak şekilde değiştirebilirsiniz.",
                     "updated": 1640618693371
+                },
+                {
+                    "language": "RU",
+                    "text": "Или вы можете модифицировать SL таким образом, чтобы трейлинг был не фиксированным, а скользящим.",
+                    "updated": 1640857938812
                 }
             ]
         },
@@ -142,6 +162,11 @@
                     "language": "TR",
                     "text": "Not: Zaman ayırdığınız için teşekkür ederim. Daha ayrıntılı makaleyi buradan okuyabilirsiniz: http://bit.ly/9808usHelloWorld",
                     "updated": 1640618710445
+                },
+                {
+                    "language": "RU",
+                    "text": "Спасибо за уделенное время. Более подробную статью вы можете прочитать здесь: http://bit.ly/9808usHelloWorld.",
+                    "updated": 1640857954646
                 }
             ]
         }

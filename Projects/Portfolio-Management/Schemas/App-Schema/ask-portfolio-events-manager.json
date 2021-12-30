@@ -5,7 +5,7 @@
             "action": "Add UI Object",
             "label": "Add Confirm Event",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "confirmEvent",
+            "propertyToCheckFor": "request",
             "relatedUiObject": "Confirm Event",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
@@ -13,10 +13,10 @@
         },
         {
             "action": "Add UI Object",
-            "label": "Add Raise Event",
+            "label": "Add Set Event",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "raiseEvent",
-            "relatedUiObject": "Raise Event",
+            "propertyToCheckFor": "request",
+            "relatedUiObject": "Set Event",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
             "actionProject": "Visual-Scripting"
@@ -39,14 +39,14 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "confirmEvent",
+            "name": "request",
             "type": "node",
             "childType": "Confirm Event"
         },
         {
-            "name": "raiseEvent",
+            "name": "request",
             "type": "node",
-            "childType": "Raise Event"
+            "childType": "Set Event"
         }
     ],
     "propertyNameAtParent": "askPortfolioEventsManager"

@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Bir miktar para ayırın!",
                 "updated": 1640616811367
+            },
+            {
+                "language": "RU",
+                "text": "Запаситесь некоторыми средствами!",
+                "updated": 1640854887853
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Tetikleyici olayı ( Trigger On ), paranızı rezerve etmek (kilitlemek) ve onları bot için kullanılabilir hale getirmekle ilgilidir.",
                     "updated": 1640616858375
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие Trigger On - это резервирование (блокировка) ваших средств и предоставление их боту.",
+                    "updated": 1640854905659
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Yapman gereken şey:",
                     "updated": 1640616873600
+                },
+                {
+                    "language": "RU",
+                    "text": "Что мне нужно сделать:",
+                    "updated": 1640854931116
                 }
             ]
         },
@@ -117,6 +132,11 @@
                     "language": "TR",
                     "text": "TF'yi tanımla",
                     "updated": 1640616888622
+                },
+                {
+                    "language": "RU",
+                    "text": "Определить TF (таймфрейм)",
+                    "updated": 1640854990278
                 }
             ]
         },
@@ -144,6 +164,11 @@
                     "language": "TR",
                     "text": "SMA50/200 çaprazını tanımla",
                     "updated": 1640616976538
+                },
+                {
+                    "language": "RU",
+                    "text": "Определить пересечение SMA50/200",
+                    "updated": 1640855013457
                 }
             ]
         },
@@ -171,6 +196,11 @@
                     "language": "TR",
                     "text": "Bir çarpaz tanımlamak için 2 koşul kullanıyorum:",
                     "updated": 1640616988668
+                },
+                {
+                    "language": "RU",
+                    "text": "Для определения пересечения я использую 2 условия:",
+                    "updated": 1640855927266
                 }
             ]
         },

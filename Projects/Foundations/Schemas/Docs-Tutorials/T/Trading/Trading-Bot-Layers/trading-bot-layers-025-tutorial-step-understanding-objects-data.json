@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die in den Simulationsobjekten verfügbaren Daten stellen den Stand der Dinge in dem Moment dar, in dem das Objekt geschlossen wird, oder zum aktuellen Zeitpunkt, wenn es noch nicht geschlossen wurde!",
                 "updated": 1639144936223
+            },
+            {
+                "language": "RU",
+                "text": "Данные, доступные в объектах Simulation Objects, представляют собой состояние дел на момент закрытия объекта или в текущий момент времени, если он еще не закрылся!",
+                "updated": 1640630285533
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Im Gegensatz dazu stellen die Ebenen in den Ebenenmanagern der Trading Engine und des Trading Systems den Wert der Knoten zum Zeitpunkt der vom Mauszeiger signalisierten Kerze dar.",
                     "updated": 1639144978881
+                },
+                {
+                    "language": "RU",
+                    "text": "В отличие от этого, слои в менеджерах слоев Trading Engine и Trading System представляют значение узлов на свече, о которой сигнализирует указатель мыши.",
+                    "updated": 1640630315927
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Dies ist ein grundlegender Unterschied, den Sie verstehen müssen, da Sie sonst die von den Simulationsobjekten dargestellten Informationen falsch interpretieren könnten. Die wichtigsten Auswirkungen werde ich in den nächsten Schritten erläutern!",
                     "updated": 1639144983366
+                },
+                {
+                    "language": "RU",
+                    "text": "Это фундаментальное различие, которое вы должны понимать, поскольку в противном случае вы можете неправильно интерпретировать информацию, представленную объектами Simulation Objects. Я объясню наиболее важные последствия в следующих нескольких шагах!",
+                    "updated": 1640630343420
                 }
             ]
         }

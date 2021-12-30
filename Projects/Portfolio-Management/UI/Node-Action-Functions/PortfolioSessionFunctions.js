@@ -100,7 +100,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         let lightingPath = '' +
         'Portfolio System->' +
         'Events Manager->' +
-        'Raise Event Rules->Raise Event Reference->Confirm Event Rules->Confirm Event Reference->' +
+        'Set Event Rules->Set Event Reference->Confirm Event Rules->Confirm Event Reference->' +
         'Formulas Manager->Confirm Formula Rules->Confirm Formula Reference->' +
         'Set Formula Rules->Set Formula Reference->' +
         'Situation->Condition->' +

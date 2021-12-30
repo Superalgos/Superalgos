@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "In der vorangegangenen Lektüre haben wir einige wichtige Dinge gelernt: mehrere Strategien, einzelne Positionen und Vorrang.",
                 "updated": 1639147424807
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki okumada bazı temel dersler vardı: çoklu stratejiler, tek pozisyonlar ve öncelik.",
+                "updated": 1640695041498
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Machen wir uns ein paar Notizen für das, was jetzt kommt:",
                     "updated": 1639147454816
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan sonra ne olacağına dair bazı zihinsel notlar alalım:",
+                    "updated": 1640695075073
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "In einem Trading System können mehrere Strategien nebeneinander bestehen - so viele, wie Sie möchten.",
                     "updated": 1639147465524
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sisteminde birden fazla strateji bir arada bulunabilir - istediğiniz kadar.",
+                    "updated": 1640695353160
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Es ist jedoch nur eine aktive Strategie mit einer offenen Position zu einem bestimmten Zeitpunkt erlaubt.",
                     "updated": 1639147472356
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir anda bir açık pozisyona sahip yalnızca bir aktif stratejiye izin verilir.",
+                    "updated": 1640695386636
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "DE",
                     "text": "Der Vorrang ergibt sich aus der Reihenfolge, in der die Strategien um den Knoten Trading System herum definiert sind. Sie können die Reihenfolge natürlich ändern!",
                     "updated": 1639147480926
+                },
+                {
+                    "language": "TR",
+                    "text": "Öncelik, Ticaret Sistemi ( Trading System ) düğümü etrafında stratejilerin tanımlandığı sırayla verilir. Elbette sırayı değiştirebilirsin!",
+                    "updated": 1640695499601
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "DE",
                     "text": "Sie fragen sich wahrscheinlich, warum? Klingen diese Regeln willkürlich? Das sind sie, und zwar aus gutem Grund!",
                     "updated": 1639147490934
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Muhtemelen nedenini soruyorsundur? Bu kurallar, keyfi mi? İyi bir sebepten dolayı öyle!",
+                    "updated": 1640695584520
                 }
             ]
         }

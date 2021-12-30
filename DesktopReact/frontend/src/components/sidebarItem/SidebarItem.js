@@ -1,43 +1,29 @@
 import './SidebarItem.css';
-import {DialogContent, Modal, Stack} from "@mui/material";
+import {Stack} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import PostModal from "../postModal/PostModal";
-import useModal from '../postModal/useModal';
 
 const SidebarItem = ({value, Icon}) => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    //const handleClose = () => setOpen(false);
-    const handleClose = () => setOpen(false);
-
     const [modal, setModal] = useState(false)
-    const Toggle = () => setModal(!modal)
 
     let navigate = useNavigate();
     const handleClick = () => {
         if (value === "Post") {
-            modalHandler()
-            // console.log(value)
-            // console.log(open)
-
+            setModal(!modal)
         } else {
             navigate(`/${value}`)
+            setModal(false)
         }
     }
 
-    const modalHandler = () => {
-        Toggle()
-    }
-
     return (
-        <div className="sidebarItem" onClick={handleClick}>
+        <div className="sidebarItem" >
             <Stack direction="row">
                 <Icon className="sidebarIcon"/>
-                <div className="sidebarText"> {value} </div>
+                <div className="sidebarText" onClick={handleClick}> {value} </div>
             </Stack>
-            <PostModal show={modal}/>
-
+            <PostModal show={modal} close={handleClick}/>
         </div>
     );
 }

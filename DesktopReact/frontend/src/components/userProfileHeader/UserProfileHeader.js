@@ -12,9 +12,6 @@ const UserProfileHeader = ({user}) => {
         verticalAlign: "text-top"
     }
 
-    const buttonStyle = { // todo need proper style, and handle from css file
-
-    }
     const [modal, setModal] = useState(false);
     const handleClick = () => setModal(!modal);
 
@@ -38,7 +35,7 @@ const UserProfileHeader = ({user}) => {
                         onClick={handleClick}>
                     Edit profile
                 </Button>
-                <UserProfileModal show={modal} close={handleClick}/>
+                <UserProfileModal user={user} show={modal} close={handleClick}/>
             </div>
             <div>
                 <CardContent className="userSection">
@@ -60,7 +57,9 @@ const UserProfileHeader = ({user}) => {
                     <Typography className="stats" variant="subtitle2">
                         {user.stats}
                     </Typography>
-
+                    <Typography className="stats" variant="subtitle2">
+                        http://yourwebsite
+                    </Typography>
                 </CardContent>
             </div>
         </Card>

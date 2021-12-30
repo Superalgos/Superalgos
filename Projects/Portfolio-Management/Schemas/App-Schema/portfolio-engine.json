@@ -37,13 +37,6 @@
             "childType": "Portfolio Last",
             "autoAdd": false,
             "project": "Foundations"
-        },
-        {
-            "name": "exchangeOrders",
-            "type": "node",
-            "childType": "Exchange Orders",
-            "autoAdd": false,
-            "project": "Foundations"
         }
     ]
 }

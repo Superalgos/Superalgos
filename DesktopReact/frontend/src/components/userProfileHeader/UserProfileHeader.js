@@ -4,7 +4,7 @@ import "./UserProfileHeader.css"
 import UserProfileModal from "./UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 
-const UserProfileHeader = ({user}) => {
+const UserProfileHeader = ({user, updateProfileCallback}) => {
 
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px",
@@ -13,7 +13,7 @@ const UserProfileHeader = ({user}) => {
     }
 
     const [modal, setModal] = useState(false);
-    const handleClick = () => setModal(!modal);
+    const handleClickCallback = () => setModal(!modal);
 
     return (
         <Card className="profileSection">
@@ -32,10 +32,11 @@ const UserProfileHeader = ({user}) => {
                 </div>
                 <Button className="editProfileButton"
                         variant="outlined"
-                        onClick={handleClick}>
+                        onClick={handleClickCallback}>
                     Edit profile
                 </Button>
-                <UserProfileModal user={user} show={modal} close={handleClick}/>
+                <UserProfileModal user={user} show={modal} close={handleClickCallback}
+                                  updateProfileCallback={updateProfileCallback}/>
             </div>
             <div>
                 <CardContent className="userSection">
@@ -57,9 +58,11 @@ const UserProfileHeader = ({user}) => {
                         <LocationOnOutlined sx={{...profileIcons}}/>
                         {user.location}
                     </Typography>
-                    <Typography className="stats" variant="subtitle2">
-                        {user.stats}
-                    </Typography>
+                    {user.stats ?
+                        (<Typography className="stats" variant="subtitle2">
+                            {user.stats}
+                        </Typography>) :
+                        null}
                 </CardContent>
             </div>
         </Card>

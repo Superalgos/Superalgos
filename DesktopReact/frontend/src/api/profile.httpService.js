@@ -9,7 +9,7 @@ function getProfile(queryParams) {
 }
 
 function updateProfile(profileData) {
-    return httpRequest('/users/profile', POST, {profileData})
+    return httpRequest('/users/profile', POST, profileData)
 }
 
 export {

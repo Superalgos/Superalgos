@@ -1,17 +1,37 @@
-import React, {useState} from 'react';
-import {Box, Button, CardContent, CardMedia, Modal, TextField, Typography} from "@mui/material";
+import React, {useEffect, useState} from 'react';
+import {
+    Box,
+    Button,
+    CardContent,
+    CardMedia,
+    FormControl,
+    FormHelperText,
+    InputLabel,
+    Modal,
+    OutlinedInput,
+    Typography
+} from "@mui/material";
 import "./UserProfileModal.css"
 import {CloseOutlined, Input} from "@mui/icons-material";
 import styled from "@emotion/styled";
+import {updateProfile} from "../../api/profile.httpService";
+import {STATUS_OK} from "../../api/httpConfig";
 
 
-const UserProfileModal = ({user, show, close}) => {
+const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
+    useEffect(() => {
+        return () => {
+            setUserInfo(user);
+        };
+    }, []);
+
     const Input = styled('input')({
         display: 'none',
     });
-    const [errorText, setErrorText] = useState('');
+
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
+    const [changed, setChanged] = useState(false);
 
     const toBase64 = file => new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -20,47 +40,54 @@ const UserProfileModal = ({user, show, close}) => {
         reader.onerror = error => reject(error);
     });
 
-    const selectProfilePic = (e) => {
+    const selectProfilePic = async (e) => {
         let profilePic = e.target.files[0];
-
-        console.log(userInfo.profilePic)
-        setUserInfo(async oldInfo => {
-            let newInfo = {...oldInfo};
+        if (profilePic) {
+            let newInfo = {...userInfo};
             newInfo.profilePic = await toBase64(profilePic);
-            console.log( newInfo.profilePic)
-            return newInfo;
-        })
-    }
-
-    const selectBannerPic = (e) => {
-        let bannerPic = e.target.files[0];
-
-        setUserInfo(async oldInfo => {
-            let newInfo = {...oldInfo};
-            newInfo.bannerPic = await toBase64(bannerPic);
-            return newInfo;
-        })
-    }
-
-    const handleChange = (event) => {
-        if (!event.target.value) {
-            setErrorState(true)
-            setErrorText("Name can't be blank")
-        } else {
-            setErrorState(false)
-            setErrorText("")
+            setUserInfo(newInfo)
         }
     }
 
-    const saveProfile = () => {
-        console.log(userInfo)
+    const selectBannerPic = async (e) => {
+        let bannerPic = e.target.files[0];
+        if (bannerPic) {
+            let newInfo = {...userInfo};
+            newInfo.bannerPic = await toBase64(bannerPic);
+            setUserInfo(newInfo)
+        }
+    }
 
+    const handleChange = (event) => {
+        if (userInfo[name]) {
+            setErrorState(true);
+        } else {
+            setErrorState(false);
+            setUserInfo({
+                ...userInfo,
+                [event.target.id]: event.target.value
+            });
+        }
+        setChanged(user === userInfo)
+    }
+
+    const saveProfile = async () => {
+        console.log(userInfo)
+        let {result} = await updateProfile(userInfo).then(response => response.json());
+        if (result === STATUS_OK) {
+            setTimeout(() => {
+                updateProfileCallback();
+                close();
+            }, 5000)
+            console.log('profile should be updated')
+            //todo show a toast that the profile saved
+        }
     }
 
     return (<>
         {show ? <Modal open={show}
                        onClose={close}>
-            <Box className="editUserBox">
+            <Box className="editUserBox" component="form" noValidate autoComplete="off">
                 <CardContent className="userSection">
                     <div className="editProfileHeader">
                         <div className="editProfileCloseBtn">
@@ -105,42 +132,48 @@ const UserProfileModal = ({user, show, close}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="editProfile">
-                            <TextField className="editProfileInputBoxes"
-                                       id="outlined-helperText"
-                                       label="Name"
-                                       error={errorState}
-                                       value={userInfo.name}
-                                       helperText={errorText} // only show when input is empty
-                                       onChange={e => handleChange(e, 'name')}
-                            />
-                        </div>
-                        <div className="editProfile">
-                            <TextField className="editProfileInputBoxes"
-                                       id="outlined-helperText"
-                                       label="Bio"
-                                       value={userInfo.bio} // show the actual value, hardcoded ftm
-                                       onChange={e => handleChange(e, 'name')}
-                            />
-                        </div>
-                        <div className="editProfile">
-                            <TextField className="editProfileInputBoxes"
-                                       id="outlined-helperText"
-                                       label="Location"
-                                       value={userInfo.location} // show the actual value, hardcoded ftm
-                                       onChange={e => handleChange(e, 'name')}
-                            />
-                        </div>
-                        <div className="editProfile">
-                            <TextField className="editProfileInputBoxes"
-                                       id="outlined-helperText"
-                                       label="Web"
-                                       value={userInfo.web} // show the actual value
-                                       onChange={e => handleChange(e, 'name')}
-                            />
-                        </div>
+                        <div className="editProfileInputBoxes">
+                            <FormControl className="editProfile" required error={errorState}>
+                                <InputLabel htmlFor="name">Name</InputLabel>
+                                <OutlinedInput
+                                    id="name"
+                                    value={userInfo.name}
+                                    onChange={handleChange}
+                                    label="Name"
+                                />
+                                {errorState ? (
+                                    <FormHelperText id="name-error">Name can't be blank</FormHelperText>
+                                ) : null}
+                            </FormControl>
+                            <FormControl className="editProfile">
+                                <InputLabel htmlFor="bio">bio</InputLabel>
+                                <OutlinedInput
+                                    id="bio"
+                                    value={userInfo.bio}
+                                    onChange={handleChange}
+                                    label="bio"
+                                />
+                            </FormControl>
+                            <FormControl className="editProfile">
+                                <InputLabel htmlFor="location">location</InputLabel>
+                                <OutlinedInput
+                                    id="location"
+                                    value={userInfo.location}
+                                    onChange={handleChange}
+                                    label="location"
+                                />
+                            </FormControl>
+                            <FormControl className="editProfile">
+                                <InputLabel htmlFor="web">Web</InputLabel>
+                                <OutlinedInput
+                                    id="web"
+                                    value={userInfo.web}
+                                    onChange={handleChange}
+                                    label="web"
+                                />
+                            </FormControl></div>
                         <div className="editProfileFooter">
-                            <Button onClick={saveProfile} variant="outlined">Save</Button>
+                            <Button disabled={changed} onClick={saveProfile} variant="outlined">Save</Button>
                         </div>
                     </div>
                 </CardContent>

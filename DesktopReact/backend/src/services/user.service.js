@@ -87,10 +87,11 @@ const getProfile = async (userProfileId, username,res) => {
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
-    
-        return await webAppInterface.messageReceived(
+
+        const result = await webAppInterface.messageReceived(
             JSON.stringify(query)
         )
+        return result
         
     } catch (error) {
         console.log(error);

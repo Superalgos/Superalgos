@@ -1,3 +1,5 @@
+const createError = require('http-errors');
+
 exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModulesWebAppInterface() {
     /*
     This module handles the incoming messages from the Web App.
@@ -253,8 +255,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 .then((response) => {
 
                     if (response.status != 200) {
-                        reject('Github.com responded with status ' + response.status)
-                        return
+                        console.log("getUserProfileData", 'Github.com responded with status ' , response.status, 'url',url )
+                        throw new createError.NotFound();
                     }
 
                     response.text().then(body => {
@@ -296,8 +298,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 .then((response) => {
 
                     if (response.status != 200) {
-                        reject('Github.com responded with status ' + response.status)
-                        return
+                        console.log("getUserProfileData", 'Github.com responded with status ' , response.status, 'url',url )
+                        throw new createError.NotFound();
                     }
 
                     response.text().then(body => {

@@ -68,6 +68,7 @@
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "4.5.0",
     "http": "0.0.1-security",
+    "http-errors": "^2.0.0",
     "http-status": "^1.5.0",
     "https": "^1.0.0",
     "identity-obj-proxy": "3.0.0",

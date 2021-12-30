@@ -2,13 +2,27 @@
     "type": "Treasury Account",
     "definition": {
         "text": "The Treasury Account is the address or addresses the Superalgos Project uses to hold the tokens that are yet to be distributed.",
-        "updated": 1630065643067
+        "updated": 1630065643067,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Казначейский счет - это адрес или адреса, которые проект Superalgos использует для хранения токенов, которые еще предстоит распределить.",
+                "updated": 1640321694621
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In the current deployment of the Superalgos SA Token in the Binance Smart Chain (BSC) the Treasury Account is:",
-            "updated": 1630065743586
+            "updated": 1630065743586,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В текущем развертывании токена Superalgos SA Token в Binance Smart Chain (BSC) казначейским счетом является:",
+                    "updated": 1640321766001
+                }
+            ]
         },
         {
             "style": "Json",

@@ -4,65 +4,156 @@
     "type": "Monitoring Runtime Data",
     "definition": {
         "text": "Use the trading engine hierarchy to track every piece of information processed by the trading bot, candle by candle.",
-        "updated": 1611253725593
+        "updated": 1611253725593,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте иерархию торгового движка для отслеживания каждой части информации, обрабатываемой торговым ботом, свеча за свечой.",
+                "updated": 1640338990575
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The trading engine hierarchy is a portal into the trading bot’s machine room—the brain. Think of the trading engine as a terminal connected to each of the brain’s neurons, taking a snapshot for every candle, and registering with precision every piece of data handled by the trading bot during the trading session.",
-            "updated": 1611253749127
+            "updated": 1611253749127,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархия торгового движка - это портал в машинное отделение торгового бота - мозг. Представьте торговый движок как терминал, подключенный к каждому нейрону мозга, делающий снимок каждой свечи и точно регистрирующий каждый фрагмент данных, обработанных торговым ботом в течение торговой сессии.",
+                    "updated": 1640339024222
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos combines the time navigation features of the charts with the visual environment representing data structures of the design space, to create an immersive user experience."
+            "text": "Superalgos combines the time navigation features of the charts with the visual environment representing data structures of the design space, to create an immersive user experience.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos объединяет возможности временной навигации графиков с визуальной средой, представляющей структуры данных пространства дизайна, для создания впечатляющего пользовательского опыта.",
+                    "updated": 1640339093999
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Each of the nodes in the hierarchy may display its value on the design space, right below the icon representing the node, for each candle."
+            "text": "Each of the nodes in the hierarchy may display its value on the design space, right below the icon representing the node, for each candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый из узлов иерархии может отображать свое значение на пространстве дизайна, прямо под иконкой, представляющей узел, для каждой свечи.",
+                    "updated": 1640339112725
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "How users may monitor the information featured in the Trading Engine hierarchy is explained and demonstrated on the Trading Bot Layers tutorial available on the Weak-hands Buster V2.0 plugin workspace.",
-            "updated": 1611253775463
+            "updated": 1611253775463,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как пользователи могут отслеживать информацию, представленную в иерархии Trading Engine, объясняется и демонстрируется в учебнике Trading Bot Layers, доступном на рабочем пространстве плагина Weak-hands Buster V2.0.",
+                    "updated": 1640339162752
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a quick refresher, the process is more or less as follows:"
+            "text": "As a quick refresher, the process is more or less as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В качестве краткой справки, процесс выглядит примерно следующим образом:",
+                    "updated": 1640339178381
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Run a trading session. Start with a backtest, so that you may get a quick feel of how the Trading Engine hierarchy displays data spanning any period.",
-            "updated": 1611253817389
+            "updated": 1611253817389,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запустите торговую сессию. Начните с бэктеста, чтобы вы могли быстро понять, как иерархия Trading Engine отображает данные за любой период.",
+                    "updated": 1640339278549
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Go to the chart displaying the simulation and find one of the positions.",
-            "updated": 1611253824254
+            "updated": 1611253824254,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перейдите на график, отображающий симуляцию, и найдите одну из позиций.",
+                    "updated": 1640339291291
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Turn on the Current Position layer in the Trading Engine layer manager. This layer monitors the position structure of nodes under the current node, that is, the information regarding current positions.",
-            "updated": 1611253835635
+            "updated": 1611253835635,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Включите слой Current Position в менеджере слоев Trading Engine. Этот слой отслеживает структуру позиций узлов под текущим узлом, то есть информацию о текущих позициях.",
+                    "updated": 1640339324088
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Split the screen to make room for both the design space and the charting space.",
-            "updated": 1611253840769
+            "updated": 1611253840769,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разделите экран, чтобы освободить место как для пространства проектирования, так и для пространства построения графиков.",
+                    "updated": 1640339363579
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Position the view on the design space so that you may see the corresponding structure of nodes.",
-            "updated": 1611253852074
+            "updated": 1611253852074,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расположите вид на пространстве дизайна так, чтобы вы могли видеть соответствующую структуру узлов.",
+                    "updated": 1640339386892
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Slide the pointer of the mouse over the charts, across the position, and notice how the values for each node displayed on the design space change. Each node displays the corresponding value for each candle.",
-            "updated": 1611253859589
+            "updated": 1611253859589,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проведите указателем мыши по графикам, по позиции, и обратите внимание, как меняются значения для каждого узла, отображаемые на пространстве дизайна. Каждый узел отображает соответствующее значение для каждой свечи.",
+                    "updated": 1640339453102
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Much of the data handled by the trading engine may also be visualized over the charts through the layers and panels in the Trading Charts layer manager. If any of the above is not clear, please refer to the Trading Bot Layers Tutorial available on the Weak-hands Buster V2.0 plugin workspace.",
-            "updated": 1611253891479
+            "updated": 1611253891479,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большая часть данных, обрабатываемых торговым ботом, также может быть визуализирована на графиках с помощью слоев и панелей в менеджере слоев торговых графиков. Если что-то из вышесказанного непонятно, пожалуйста, обратитесь к учебнику Trading Bot Layers Tutorial, доступному на рабочем пространстве плагина Weak-hands Buster V2.0.",
+                    "updated": 1640339615157
+                }
+            ]
         }
     ]
 }

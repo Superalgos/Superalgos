@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Beim Schreiben von Bedingungen und Formeln können Ihnen Fehler unterlaufen. Erinnern Sie sich daran, dass Bedingungen als wahr oder falsch und Formeln als Zahl ausgewertet werden müssen?",
                 "updated": 1639145384055
+            },
+            {
+                "language": "RU",
+                "text": "При написании условий и формул вы можете допустить ошибки. Помните, что условия должны оцениваться как true или false, а формулы - как число?",
+                "updated": 1640631034056
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Wenn das nicht der Fall ist, erhalten Sie eine Fehlermeldung! Es ist ein Muss, diese Ebene einzuschalten, wenn Sie eine Strategie entwickeln und testen!",
                     "updated": 1639145425324
+                },
+                {
+                    "language": "RU",
+                    "text": "Если это не так, вы получите ошибку! Включение этого слоя при создании и тестировании стратегии просто необходимо!",
+                    "updated": 1640631063987
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Es gibt keine Fehler in diesem Trading System, aber ich habe gerade einen gefälschten eingefügt, damit Sie sehen können, wie sie gemeldet werden! Sehen Sie sich die Formel auf der linken Seite an!",
                     "updated": 1639145438062
+                },
+                {
+                    "language": "RU",
+                    "text": "В этой торговой системе нет ошибок, но я просто подбросил фальшивую, чтобы вы могли увидеть, как они появляются! Посмотрите на формулу слева!",
+                    "updated": 1640631088375
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?Let's run a quick test! Collapse the Initial Targets node!",
                     "updated": 1639145512639
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь, что если секция иерархии была свернута? Сможете ли вы по-прежнему видеть сообщения об ошибках? Давайте проведем быстрый тест! Сверните узел Initial Targets!",
+                    "updated": 1640631111246
                 }
             ]
         }

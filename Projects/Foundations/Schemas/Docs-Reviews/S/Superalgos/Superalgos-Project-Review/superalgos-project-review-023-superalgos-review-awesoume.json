@@ -4,13 +4,27 @@
     "type": "Superalgos Review - Awesoume",
     "definition": {
         "text": "This app is awesome",
-        "updated": 1630679798352
+        "updated": 1630679798352,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это приложение потрясающее",
+                "updated": 1640414317915
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Like Homer S. said after years in trying to do money easily with an app without success, i will do money with this app and easely",
-            "updated": 1630679991179
+            "updated": 1630679991179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как сказал Гомер С., после многих лет безуспешных попыток легко делать деньги с помощью приложения, я буду делать деньги с помощью этого приложения и легко.",
+                    "updated": 1640414342645
+                }
+            ]
         },
         {
             "style": "Text",

@@ -4,13 +4,27 @@
     "type": "Exchange Raw Data - Locate The Sensor Bot Code",
     "definition": {
         "text": "Open with VS Code the Task Server Folder and immediately after that, add the Projects Folder to the VS Code workspace.",
-        "updated": 1614591834868
+        "updated": 1614591834868,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Откройте в VS Code папку Task Server и сразу после этого добавьте папку Projects в рабочую область VS Code.",
+                "updated": 1640361848603
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Locate within VS Code the file ",
-            "updated": 1614592018514
+            "updated": 1614592018514,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите в VS Code файл",
+                    "updated": 1640361860355
+                }
+            ]
         },
         {
             "style": "Json",
@@ -18,7 +32,14 @@
         },
         {
             "style": "Text",
-            "text": "which can be found at this path:"
+            "text": "which can be found at this path:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "который можно найти по этому пути:",
+                    "updated": 1640361871362
+                }
+            ]
         },
         {
             "style": "Json",
@@ -26,23 +47,58 @@
         },
         {
             "style": "Success",
-            "text": "This is the single code that is executed to extract candles and volume in 1 minute time frame from any exchange via the CCXT library. Now you can set a breakpoint anywhere in the code to start debugging from there."
+            "text": "This is the single code that is executed to extract candles and volume in 1 minute time frame from any exchange via the CCXT library. Now you can set a breakpoint anywhere in the code to start debugging from there.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это единственный код, который выполняется для извлечения свечей и объема на 1-минутном таймфрейме с любой биржи с помощью библиотеки CCXT. Теперь вы можете установить точку останова в любом месте кода, чтобы начать отладку оттуда.",
+                    "updated": 1640361898109
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Setup Crypto Exchange Node"
+            "text": "Setup Crypto Exchange Node",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка узла криптовалютной биржи",
+                    "updated": 1640361911192
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "At this point it is a good idea to rename your workspace with something like Exchange XXX Test, so that you can come back later. You do this by changing the name of the Workspace Node."
+            "text": "At this point it is a good idea to rename your workspace with something like Exchange XXX Test, so that you can come back later. You do this by changing the name of the Workspace Node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На этом этапе хорошо бы переименовать рабочее пространство во что-то вроде Exchange XXX Test, чтобы вы могли вернуться к нему позже. Для этого нужно изменить название узла рабочего пространства.",
+                    "updated": 1640361988755
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Now you can rename the currently Binance Crypto Exchange Node with the name of your Favorite Exchange, without forgetting to edit it's config with the correct Exchange ID at the codeName property. "
+            "text": "Now you can rename the currently Binance Crypto Exchange Node with the name of your Favorite Exchange, without forgetting to edit it's config with the correct Exchange ID at the codeName property. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь вы можете переименовать текущий узел криптобиржи Binance в название вашей любимой биржи, не забыв отредактировать его конфигурацию с правильным идентификатором биржи в свойстве codeName.",
+                    "updated": 1640361978750
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Exchange Id is the Id assigned to this exchange at the CCXT Library. Check their docs for that."
+            "text": "The Exchange Id is the Id assigned to this exchange at the CCXT Library. Check their docs for that.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Exchange Id - это Id, присвоенный этому обмену в библиотеке CCXT. Проверьте их документацию.",
+                    "updated": 1640362006825
+                }
+            ]
         },
         {
             "style": "Text",

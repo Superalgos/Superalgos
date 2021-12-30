@@ -4,21 +4,49 @@
     "type": "Trading Bot Output",
     "definition": {
         "text": "The trading bot stores every piece of information processed in files, making all data accessible to others, both online and offline.",
-        "updated": 1611254037722
+        "updated": 1611254037722,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот хранит каждую обработанную информацию в файлах, делая все данные доступными для других, как онлайн, так и офлайн.",
+                "updated": 1640341032465
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "As explained elsewhere, the trading bot makes the information it processes available to users through the hierarchy of the trading engine, which may be visualized both on the design space and over the charts. It also makes it available to trading systems.",
-            "updated": 1611254053601
+            "updated": 1611254053601,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как объясняется в другом месте, торговый бот делает обрабатываемую им информацию доступной для пользователей через иерархию Trading Engine, которая может быть визуализирована как на пространстве дизайна, так и над графиками. Он также делает ее доступной для торговых систем.",
+                    "updated": 1640341127697
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On top of that, the information is also stored in files, sorted by concept. These makes the runtime information available to other processes and external systems, to be accessed both online, that is, at runtime, of offline."
+            "text": "On top of that, the information is also stored in files, sorted by concept. These makes the runtime information available to other processes and external systems, to be accessed both online, that is, at runtime, of offline.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, информация также хранится в файлах, отсортированных по категориям. Это делает информацию о среде выполнения доступной для других процессов и внешних систем, причем доступ к ней можно получить как в режиме онлайн, то есть во время выполнения, так и в режиме офлайн.",
+                    "updated": 1640341265695
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading bot outputs files on the node it runs on, particularly, in the following location:"
+            "text": "The trading bot outputs files on the node it runs on, particularly, in the following location:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый бот выводит файлы на узел, на котором он работает, в частности, в следующее место:",
+                    "updated": 1640341282965
+                }
+            ]
         },
         {
             "style": "Json",

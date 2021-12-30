@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Claim Support Power ( el poder de soporte de a solicitud) es el Voting Power (poder del voto) que va a un Claim Votes Switch (interruptor de voto de solcitud) o Claim Votes (votos de la solicitud) en general y es una medida de cuanto desea apoyar las Contribution Claims ( solicitu de contribución) que está votando.",
                 "updated": 1636107974372
+            },
+            {
+                "language": "RU",
+                "text": "Claim Support Power (Сила поддержки претензий) - это сила голоса (Voting Power), которая используется в переключателе голосов претензий (Claim Votes Switch) или в голосовании за претензии в целом, и является мерой того, насколько вы хотите поддержать претензии по вкладу (Contribution Claims), за которые вы голосуете.",
+                "updated": 1640326841526
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "ES",
                     "text": "Click derecho y Editar para entrar al modo edición y cambiar este texto. ENTER para ingresar nuevos párrafos . ESC para salir del modo edición. Entonces puede usar docs.save para gardar los cambios y app.contribute para enviarlos al repositorio principal.",
                     "updated": 1636108181276
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки в основной репозиторий.",
+                    "updated": 1640326854025
                 }
             ]
         }

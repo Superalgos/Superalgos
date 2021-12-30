@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Sie müssen die Trading Session (Handelssitzung) und manchmal auch die Task neu starten, damit der Bot die neuen Definitionen erhält.",
                 "updated": 1640212896177
+            },
+            {
+                "language": "RU",
+                "text": "Вам необходимо перезапустить торговую сессию (Trading Session), а иногда и задачу (Task), чтобы бот получил новые определения.",
+                "updated": 1640282447773
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Benutzer können die Definitionen nicht ändern und sie in Echtzeit an einen laufenden Bot weiterleiten. Wenn sich die Definitionen auf der Ebene des Trading System oder der Session Parameters (Sitzungsparameter) befinden, können Sie sie ändern und sie werden an die laufende Aufgabe gesendet, wenn Sie die Trading Session das nächste Mal anhalten und erneut starten.",
                     "updated": 1640213014971
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользователи не могут изменять определения и передавать их работающему боту в режиме реального времени. Если определения находятся на уровне торговой системы (Trading System) или на уровне параметров сессии (Session Parameters), вы можете изменить их, и они будут отправлены в запущенную задачу (Task) в следующий раз, когда вы остановите и снова запустите торговую сессию.",
+                    "updated": 1640282542998
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Wenn die Definitionen auf der Task Ebene oder höher liegen, z. B. bei einem Marktwechsel (change of market), müssen Sie die Task anhalten und erneut ausführen, damit er erkannt wird.",
                     "updated": 1640213189966
+                },
+                {
+                    "language": "RU",
+                    "text": "Если определения находятся на уровне задачи или выше, например, смена рынка, вам нужно будет остановить задачу и запустить ее снова, чтобы она была обнаружена.",
+                    "updated": 1640282628385
                 }
             ]
         }

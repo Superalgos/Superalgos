@@ -20,6 +20,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
     let portfolioSystemModuleObject
     let portfolioEpisodeModuleObject
     let portfolioEngineModuleObject
+    let portfolioManagedTradingBotsModuleObject    
 
     /* Events Interface */
     let eventsInterfaceModuleObject
@@ -40,18 +41,22 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioEpisodeModuleObject = TS.projects.portfolioManagement.botModules.portfolioEpisode.newPortfolioManagementBotModulesPortfolioEpisode(processIndex)
         portfolioEpisodeModuleObject.initialize()
 
+        portfolioManagedTradingBotsModuleObject = TS.projects.portfolioManagement.botModules.portfolioManagedTradingBots.newPortfolioManagementBotModulesPortfolioManagedTradingBots(processIndex)
+        portfolioManagedTradingBotsModuleObject.initialize()
+
         /* This object is already initialized */
         portfolioEngineModuleObject = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT
 
         /* Event Interface */
         eventsInterfaceModuleObject = TS.projects.portfolioManagement.modules.portfolioManagerEventsInterface.newPortfolioManagementModulesPortfolioManagerEventsInterface(processIndex)
-        eventsInterfaceModuleObject.initialize(portfolioSystemModuleObject)
+        eventsInterfaceModuleObject.initialize(portfolioManagedTradingBotsModuleObject, portfolioSystemModuleObject)
     }
 
     function finalize() {
         portfolioSystemModuleObject.finalize()
         portfolioRecordsModuleObject.finalize()
         portfolioEpisodeModuleObject.finalize()
+        portfolioManagedTradingBotsModuleObject.finalize()
         eventsInterfaceModuleObject.finalize()
 
         portfolioSystem = undefined
@@ -62,6 +67,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
         portfolioSystemModuleObject = undefined
         portfolioEpisodeModuleObject = undefined
         eventsInterfaceModuleObject = undefined
+        portfolioManagedTradingBotsModuleObject = undefined
     }
 
     async function runSimulation(
@@ -167,8 +173,14 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     portfolioEngine.portfolioCurrent.portfolioEpisode.cycle.value,
                     processIndex
                 )
-
+                /*
+                Run the Trading System logic.
+                */
                 await portfolioSystemModuleObject.run()
+                /*
+                Managed Trading Bots
+                */
+                await portfolioManagedTradingBotsModuleObject.run()
                 /*
                 We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. 

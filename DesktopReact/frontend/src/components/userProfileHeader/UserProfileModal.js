@@ -75,10 +75,8 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
         console.log(userInfo)
         let {result} = await updateProfile(userInfo).then(response => response.json());
         if (result === STATUS_OK) {
-            setTimeout(() => {
-                updateProfileCallback();
-                close();
-            }, 5000)
+            updateProfileCallback();
+            close();
             console.log('profile should be updated')
             //todo show a toast that the profile saved
         }

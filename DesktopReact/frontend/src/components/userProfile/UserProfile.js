@@ -40,7 +40,6 @@ const UserProfile = () => {
     }
 
     const loadUser = async () => {
-        console.log('load user profile')
         setProfileLoading(true);
         let queryParams /*= {userProfileId: undefined}*/; /* TODO set query params as undefined if own profile*/
         let {
@@ -69,8 +68,11 @@ const UserProfile = () => {
                alignItems="center"
                spacing={1}
                className="middleSection">
-            {profileLoading ? <Skeleton variant="rectangular" width="100%" height="23rem"/> :
-                <UserProfileHeader user={user} updateProfileCallback={updateProfileCallback}/>}
+            {
+                profileLoading ?
+                    (<Skeleton variant="rectangular" width="100%" height="23rem"/>) :
+                    (<UserProfileHeader user={user} updateProfileCallback={updateProfileCallback}/>)
+            }
             <PostsFeed posts={posts} loading={postLoading}/>
         </Stack>
     );

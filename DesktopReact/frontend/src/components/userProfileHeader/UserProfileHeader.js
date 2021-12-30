@@ -3,6 +3,7 @@ import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
 import "./UserProfileHeader.css"
 import UserProfileModal from "./UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
+import pfp from "../../images/superalgos.png";
 
 const UserProfileHeader = ({user, updateProfileCallback}) => {
 

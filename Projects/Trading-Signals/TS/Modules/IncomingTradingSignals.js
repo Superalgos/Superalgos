@@ -40,12 +40,11 @@ exports.newTradingSignalsModulesIncomingTradingSignals = function (processIndex)
                 min: tradingEngine.tradingCurrent.tradingEpisode.candle.min.value,
                 max: tradingEngine.tradingCurrent.tradingEpisode.candle.max.value
             }
-            let signals = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.getSignals(candle, signalDefinition.id)
+            let signals = TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.getSignals(candle, signalDefinition.id)
             if (signals !== undefined) {
                 allSignals = allSignals.concat(signals)
             }
         }
-
         return allSignals
     }
 }

@@ -5,7 +5,7 @@
     "definition": {
         "text": "I know I'm ready to customize some charts. Are you? Let's walk through how to add the foundational nodes we need to start our chart.",
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "updated": 1628353223855,

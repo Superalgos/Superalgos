@@ -4,12 +4,26 @@
     "type": "Node Name",
     "definition": {
         "text": "Each instance of a Node might have a user-assigned name, or a default name assigned to it by the system at the moment the Node was created. At the Design Space the name of a Node appears above the Node Icon. ",
-        "updated": 1609236312410
+        "updated": 1609236312410,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Каждый экземпляр узла может иметь имя, назначенное пользователем, или имя по умолчанию, присвоенное ему системой в момент создания узла. В пространстве дизайна имя узла отображается над значком узла.",
+                "updated": 1640356152681
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER для написания новых абзацев. ESC для выхода из режима редактирования.",
+                    "updated": 1640356167622
+                }
+            ]
         }
     ]
 }

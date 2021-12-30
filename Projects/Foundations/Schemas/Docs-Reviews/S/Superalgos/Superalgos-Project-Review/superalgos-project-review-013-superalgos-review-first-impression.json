@@ -4,34 +4,83 @@
     "type": "Superalgos Review - First Impression",
     "definition": {
         "text": "WOW! I like what I see!",
-        "updated": 1621290234633
+        "updated": 1621290234633,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "ОГО! Мне нравится то, что я вижу!",
+                "updated": 1640412573255
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "My first impression is just: WOW!",
-            "updated": 1621372762668
+            "updated": 1621372762668,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мое первое впечатление просто: ОГО!",
+                    "updated": 1640412599527
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Someone really wanted to develop something completely unique."
+            "text": "Someone really wanted to develop something completely unique.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кто-то действительно хотел разработать нечто совершенно уникальное.",
+                    "updated": 1640412612442
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Impressive Tutorials: They must have been a ton of work."
+            "text": "Impressive Tutorials: They must have been a ton of work.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Впечатляющие учебники: Наверное, над ними пришлось изрядно потрудиться.",
+                    "updated": 1640412634273
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Playfull User Interface: I can see the interest to bring gamification to trading"
+            "text": "Playfull User Interface: I can see the interest to bring gamification to trading",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Игровой пользовательский интерфейс: Я вижу интерес к привнесению игровых технологий в торговлю",
+                    "updated": 1640412661828
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "I am basically a visual person and therefore hope that the great visiualization of the bots trading actions will help me to develop working and profitable trading strategies. Because till now I am a more or less novice to trading and the crypto world.",
-            "updated": 1621290581690
+            "updated": 1621290581690,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я в основном визуальный человек и поэтому надеюсь, что большая визуализация торговых действий бота поможет мне разработать рабочие и прибыльные торговые стратегии. Потому что до сих пор я являюсь начинающим трейдером и новичком в мире криптовалют.",
+                    "updated": 1640412704569
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I will stay tuned."
+            "text": "I will stay tuned.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я буду следить за развитием событий.",
+                    "updated": 1640412714606
+                }
+            ]
         },
         {
             "style": "Text",

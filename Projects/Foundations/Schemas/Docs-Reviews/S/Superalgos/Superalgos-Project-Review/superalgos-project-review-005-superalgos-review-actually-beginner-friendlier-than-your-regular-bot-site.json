@@ -9,11 +9,25 @@
         {
             "style": "Text",
             "text": "I'm new to bots and I'm neither a seasoned trader nor a coder. Trying to get some commercial bot to run, I soon gave up because I didn't understand what I was doing. Sure, Superalgos looks intimidating at first, and it will certainly take me a lot of effort to get my head around it, but then again, everything is laid out there to study - while all the over-complicated stuff has been mercifully hidden from me. And with its beautiful design, it sort of feels like you're playing a game ;)",
-            "updated": 1616262546510
+            "updated": 1616262546510,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я новичок в ботах и не являюсь ни опытным трейдером, ни кодером. Пытаясь запустить какого-нибудь коммерческого бота, я вскоре сдавался, потому что не понимал, что делаю. Конечно, Superalgos поначалу выглядит пугающе, и мне, безусловно, потребуется много усилий, чтобы разобраться в нем, но, опять же, здесь все разложено по полочкам для изучения - а все слишком сложные вещи были любезно скрыты от меня. А благодаря красивому дизайну создается ощущение, что ты играешь в игру ;)",
+                    "updated": 1640409745244
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is just a stub. Looking forward to contribute more to this brilliant project!"
+            "text": "This is just a stub. Looking forward to contribute more to this brilliant project!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это всего лишь набросок. С нетерпением жду возможности внести свой вклад в этот блестящий проект!",
+                    "updated": 1640409889320
+                }
+            ]
         },
         {
             "style": "Text",

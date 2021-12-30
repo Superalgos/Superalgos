@@ -1,0 +1,25 @@
+{
+    "topic": "Delta Data Mine",
+    "pageNumber": 1,
+    "type": "Delta By frysee",
+    "definition": {
+        "text": "This data mine includes trend indicators such as Money Flow Index (MFI) and Wilder's Relative Strength Index (W-RSI) ",
+        "updated": 1611685345604
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Delta data mine is brought to you by...",
+            "updated": 1611685372883
+        },
+        {
+            "style": "Link",
+            "text": "@frysee->github.com/frysee/",
+            "updated": 1611685413223
+        },
+        {
+            "style": "Success",
+            "text": "Collaborate with this data mine and report issues directly at the Superalgos repository."
+        }
+    ]
+}

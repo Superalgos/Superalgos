@@ -71,7 +71,7 @@ exports.newDesktopApp = function newDesktopApp() {
             console.log('express Interface ................................................ Listening at port ' );
 
             let react = require('./frontend/scripts/start')
-            //react.start(+DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort + 1);
+            react.start(+DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort + 1);
             console.log('react Interface ................................................ Listening at port ' );
         }
     }

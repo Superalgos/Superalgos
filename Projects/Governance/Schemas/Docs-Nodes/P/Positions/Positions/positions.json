@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Las jerarquías de Posición se usan para definir diferentes posiciones o roles que los contribuyentes pueden asumir en el organigrama del proyecto. Los Contribuyentes pueden solicitar haber trabajado en una determinada posición o rol. Cuando una Position Contribution Claim es apoyada por un Position Claim Vote ( voto de solicitud de posición), El Contribuyente recibe tokens acorde al peso relativo de la positción.",
                 "updated": 1636283470834
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия Positions используется для определения различных должностей или ролей, которые вкладчики могут занимать в организационной структуре проекта. Участники могут утверждать, что они работали на определенной должности или роли. Когда утверждение о вкладе в должность (Position Contribution Claim) поддерживается голосованием за утверждение о должности (Position Claim Vote), вкладчик получает токены в соответствии с относительным весом должности.",
+                "updated": 1640284122100
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "ES",
                     "text": "Las jerarquías de Posición adquieren Token Rewards (tokens de recompensa) de un nodo de Pool refenciando la jerarquía mencionada. Estos tokens están disponibles para distribución entre las diferentes posiciones en la jerarquía.",
                     "updated": 1636282963104
+                },
+                {
+                    "language": "RU",
+                    "text": "Иерархии должностей получают Token Rewards от узлов Pool, ссылающихся на данную иерархию. Это токены, доступные для распределения между различными должностями в иерархии.",
+                    "updated": 1640284186267
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "ES",
                     "text": "Cada Position ( posición) y nodo de Position Class (clase de posición) dentro de la jerarquía puede recibir Weight Votes ( votos de peso) para determinar como son distibuídos en la jerarquía los Token Rewards ( los token de recompensa). Con cuantos tokens cada Position es recompensada depende del peso relativo en la posición  determinado por el número de Weight Votes cada posición recibe de los usuarios.",
                     "updated": 1636283277095
+                },
+                {
+                    "language": "RU",
+                    "text": "Любая должность и узел Position Class в иерархии может получать Weight Votes, чтобы определить, как распределяются Token Rewards в иерархии. Количество токенов, присуждаемых каждой должности, зависит от относительного веса должности, определяемого количеством Weight Votes, которые получает каждая должность от пользователей.",
+                    "updated": 1640284269143
                 }
             ]
         }

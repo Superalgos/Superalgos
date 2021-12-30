@@ -49,7 +49,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-                queryMessage.emitterUserProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
+                queryMessage.emitterUserProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
@@ -59,8 +59,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA){
 
                     if(!queryMessage.userProfileId & !queryMessage.username){
-                        queryMessage.userProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
-                        queryMessage.username =SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
+                        queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
+                        queryMessage.username =SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
                     }
 
                     response = {
@@ -142,10 +142,10 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                  else if(eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE)
                  {
                     let commitMessage = "Edit User Profile";
-                    eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
+                    eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
             }
 
-                eventMessage.emitterUserProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
+                eventMessage.emitterUserProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {
@@ -202,7 +202,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
         return fileHash
     }
-        
+
     async function saveUserAtStorage(userProfileId, profileData, commitMessage) {
         /*
         Each user, has a git repository that acts as his publicly accessible

@@ -5,17 +5,19 @@
     transform: translate(-50%, -50%);
     width: 40rem;
     height: 100%;
-    max-height: 30rem;
+    max-height: 39rem;
     border: 1px solid #000;
     background-color: white;
     box-shadow: 24px 24px 100px black;
     overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 16px !important;
 }
 
 .editProfile {
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: 0.5rem 0 !important;
 }
 
 .editProfileHeader {
@@ -66,4 +68,5 @@
 
 .editProfileInputBoxes{
     width: 100%;
+    padding: 1rem 0;
 }

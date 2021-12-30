@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let's get into the nitty gritty of layer managment.",
         "icon": {
-            "name": "Layer/layer-manager",
+            "name": "layer-manager",
             "project": "Foundations"
         },
         "updated": 1617640657348,

@@ -14,6 +14,11 @@
                 "text": "Ich habe dir noch etwas zu sagen, bevor wir weitermachen, aber ich finde nicht die richtigen Worte... Ich möchte einfach nicht wie ein Kontrollfreak rüberkommen!",
                 "updated": 1622985341980,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Я хочу кое-что сказать тебе, прежде чем мы продолжим, но я с трудом подбираю слова... Я просто не хочу показаться помешанным на контроле!",
+                "updated": 1640544202541
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Es ist nicht so, dass du etwas kaputt machen könntest oder so... überhaupt nichts zu befürchten... es ist nur so... Ich verlasse mich auf den frischen Zustand des Workspaces, um vorherzusagen, was du sehen wirst, wenn ich dich an Orte bringe. Ich kommentiere vielleicht, was du auf der Reise erleben wirst, und nutze meine Vorhersagen, um die Tour saftiger und interessanter zu machen! Also …",
                     "updated": 1622985357489,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Не то чтобы вы могли что-то сломать или что-то в этом роде... бояться нечего... просто... Я полагаюсь на свежее состояние рабочего пространства, чтобы предсказать, что вы увидите, когда я поведу вас куда-то. Я могу комментировать то, что вы испытаете во время путешествия, и использовать свои предсказания, чтобы сделать экскурсию более сочной и интересной! Итак...",
+                    "updated": 1640544313672
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Na schön! Mach, was du willst! Wenn du jemals das Gefühl hast, dass ich dich abgehängt habe, fang einfach mit einem neuen Workspace an!",
                     "updated": 1622985372686,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Не шалите слишком много, пока я вам не скажу! То есть, ты можешь осмотреться, но не устраивай беспорядок! Ладно! Делай, что хочешь! Если вдруг почувствуешь, что я тебя потерял, просто начни заново, с чистого рабочего пространства!",
+                    "updated": 1640544532040
                 }
             ]
         }

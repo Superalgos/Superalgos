@@ -4,7 +4,7 @@ import "./UserProfileHeader.css"
 import UserProfileModal from "./UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 
-const UserProfileHeader = ({user}) => {
+const UserProfileHeader = ({user, updateProfileCallback}) => {
 
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px",
@@ -13,53 +13,82 @@ const UserProfileHeader = ({user}) => {
     }
 
     const [modal, setModal] = useState(false);
-    const handleClick = () => setModal(!modal);
+    const handleClickCallback = () => setModal(!modal);
 
     return (
         <Card className="profileSection">
-            <CardMedia className="banner"
-                       component="img"
-                       src={`data:image/png;base64,${user.bannerPic}`}
-                       alt="PP"
-            />
+            {user.bannerPic ?
+                (<CardMedia className="banner"
+                            component="img"
+                            src={`${user.bannerPic}`}
+                            alt="PP"
+                />) :
+                (<CardMedia className="banner"
+                            component="img"
+                            image={pfp}
+                            alt="PP"
+                />)}
             <div className="profileCard">
                 <div className="profilePicBG">
-                    <CardMedia className="profileAvatar"
-                               component="img"
-                               src={`data:image/png;base64,${user.profilePic}`}
-                               alt="ProfilePic"
-                    />
+                    {user.profilePic ?
+                        (<CardMedia className="profileAvatar"
+                                    component="img"
+                                    src={`${user.profilePic}`}
+                                    alt="ProfilePic"
+                        />) :
+                        (<CardMedia className="profileAvatar"
+                                    component="img"
+                                    image={pfp}
+                                    alt="ProfilePic"
+                        />)
+                    }
                 </div>
                 <Button className="editProfileButton"
                         variant="outlined"
-                        onClick={handleClick}>
+                        onClick={handleClickCallback}>
                     Edit profile
                 </Button>
-                <UserProfileModal user={user} show={modal} close={handleClick}/>
+                <UserProfileModal user={user} show={modal} close={handleClickCallback}
+                                  updateProfileCallback={updateProfileCallback}/>
             </div>
             <div>
                 <CardContent className="userSection">
-                    <Typography className="username" variant="h5">{user.name}</Typography>
-                    <Typography className="userHandle" variant="subtitle2">
-                        @{user.username}
-                    </Typography>
-                    <Typography className="bio">
-                        {user.bio}
-                    </Typography>
-                    <Typography className="joinDate" variant="subtitle2">
-                        <DateRangeOutlined sx={{...profileIcons}}/>
-                        {user.joined}
-                    </Typography>
-                    <Typography className="location" variant="subtitle2">
-                        <LocationOnOutlined sx={{...profileIcons}}/>
-                        {user.location}
-                    </Typography>
-                    <Typography className="stats" variant="subtitle2">
-                        {user.stats}
-                    </Typography>
-                    <Typography className="stats" variant="subtitle2">
-                        http://yourwebsite
-                    </Typography>
+                    {user.name ? (
+                        <Typography className="username" variant="h5">{user.name}</Typography>
+                    ) : null}
+                    {user.username ? (
+                        <Typography className="userHandle" variant="subtitle2">
+                            @{user.username}
+                        </Typography>
+                    ) : null}
+                    {user.web ? (
+                        <Typography className="stats" variant="subtitle2">
+                            {user.web}
+                        </Typography>
+                    ) : null}
+                    {user.bio ? (
+                        <Typography className="bio">
+                            {user.bio}
+                        </Typography>
+                    ) : null}
+                    {user.joined ? (
+                        <Typography className="joinDate" variant="subtitle2">
+                            <DateRangeOutlined sx={{...profileIcons}}/>
+                            {user.joined}
+                        </Typography>
+                    ) : null}
+                    {user.location ? (
+                        <Typography className="location" variant="subtitle2">
+                            <LocationOnOutlined sx={{...profileIcons}}/>
+                            {user.location}
+                        </Typography>
+                    ) : null}
+                    {user.stats ?
+                        (
+                            <Typography className="stats" variant="subtitle2">
+                                {user.stats}
+                            </Typography>
+                        ) : null}
                 </CardContent>
             </div>
         </Card>

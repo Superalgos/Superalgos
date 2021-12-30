@@ -9,14 +9,11 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     let thisObject = {
         p2pNetworkInterface: undefined,
         userApp: undefined,
-        getSignals: getSignals,
         eventReceived: eventReceived,
         signalReceived: signalReceived,
         initialize: initialize,
         finalize: finalize
     }
-
-    let signalsByCandleAndSignalDefinitionId = new Map()
 
     return thisObject
 
@@ -32,44 +29,12 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     }
 
     async function eventReceived(event) {
-        thisObject.userApp.signalReceived()
+        thisObject.userApp.eventReceived()
 
         // DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
     }
 
-    async function signalReceived(signalMessage) {
-        /*
-        We will run some valiadtions to be sure the signal received is legit.
-        */
-        if (SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signalMessage) !== undefined) {
-            console.log('[WARN] Signal received could not be accepted -> cause = ' + response.message)
-            return
-        }
-        /*
-        Next, we will add the signal to an array of signals received from the same Social Trading Bot / Signal Definition.
-        */
-        let key =
-            signalMessage.signal.source.tradingSystem.node.candle.begin + '-' +
-            signalMessage.signal.source.tradingSystem.node.candle.end + '-' +
-            signalMessage.signal.broadcaster.socialTradingBot.signalDefinition.id
-
-        let signals = signalsByCandleAndSignalDefinitionId.get(key)
-        if (signals === undefined) { signals = [] }
-        signals.push(signalMessage.signal)
-        signalsByCandleAndSignalDefinitionId.set(key, signals)
-    }
-
-    function getSignals(candle, signalDefinitionId) {
-        /*
-        Here we will allow the User App to request the signals of a certain 
-        type, by providing the id of the Signal Definition Node at the User Profile.
-        */
-        let key =
-            candle.begin + '-' +
-            candle.end + '-' +
-            signalDefinitionId
-
-        let signals = signalsByCandleAndSignalDefinitionId.get(key)
-        return signals
+    async function signalReceived(signal) {
+        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived(signal)
     }
 }

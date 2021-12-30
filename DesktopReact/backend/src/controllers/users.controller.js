@@ -6,19 +6,25 @@ const getProfiles = async (req, res) => {
 };
 
 const follow = async (req, res) => {
-  const result = await userService.followProfile(req.body.userProfileId, req.body.eventType);
+  const result = await userService.followProfile(req.body.userProfileId);
   res.send(result);
 };
 
-const profile = async (req, res) => {
-  const result = await userService.profile(req.body.id, req.body.type);
+const editProfile = async (req, res) => {
+  const result = await userService.editProfile(req.body);
+  res.send(result);
+};
+
+const getProfile = async (req, res) => {
+  const result = await userService.getProfile(req.query.userProfileId,req.query.username);
   res.send(result);
 };
 
 module.exports = {
   getProfiles,
   follow,
-  profile
+  editProfile,
+  getProfile
 };
 
 

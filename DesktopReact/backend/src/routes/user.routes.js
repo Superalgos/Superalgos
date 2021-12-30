@@ -11,8 +11,12 @@ router
   .route('/follow')
   .post(userController.follow);
 
+  router
+  .route('/profile')
+  .get(userController.getProfile);
+
 router
-  .route('/test')
-  .post(userController.profile);
+  .route('/profile')
+  .post(userController.editProfile);
 
 module.exports = router;

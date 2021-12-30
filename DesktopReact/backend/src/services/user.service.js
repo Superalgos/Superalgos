@@ -48,23 +48,52 @@ const followProfile = async (userProfileId, eventType, res) => {
 };
 
 
-const getProfile = async (userProfileId, res) => {
+const editProfile = async (body, res) => {
+
+    try {
+        let eventMessage = {
+            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE,
+            emitterUserProfileId: undefined,
+            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+            body:body,
+            timestamp: (new Date()).valueOf()
+        }
+    
+        let query = {
+            requestType: 'Event',
+            eventMessage: JSON.stringify(eventMessage)
+        }
+    
+        return await webAppInterface.messageReceived(
+            JSON.stringify(query)
+        )
+        
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+const getProfile = async (userProfileId, username,res) => {
+
     try {
         let queryMessage = {
-            /* TODO Gonza GG boi*/
+            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA,
+            emitterUserProfileId: undefined,
+            userProfileId: userProfileId,
+            username:username
         }
-
+    
         let query = {
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
-
+    
         return await webAppInterface.messageReceived(
             JSON.stringify(query)
-        );
-    } catch (e) {
-        console.log(e);
-        return {};
+        )
+        
+    } catch (error) {
+        console.log(error);
     }
 };
 
@@ -72,6 +101,7 @@ const getProfile = async (userProfileId, res) => {
 module.exports = {
     getProfiles,
     followProfile,
+    editProfile,
     getProfile
 };
 

@@ -6,7 +6,7 @@
         "text": "Setting up a Time Machine will allow you to keep your data synchronized and accessible.",
         "updated": 1628357175235,
         "icon": {
-            "name": "Time/time-machine",
+            "name": "time-machine",
             "project": "Foundations"
         },
         "translations": [

@@ -6,7 +6,7 @@
         "text": "One thing to keep in mind when adding Time Machines is that they may spawn on top of other charts within the Charting Space.",
         "updated": 1620554644805,
         "icon": {
-            "name": "Mouse/mouse-left-click",
+            "name": "mouse-left-click",
             "project": "Foundations"
         },
         "translations": [

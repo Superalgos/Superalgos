@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Spezialisierung ist ein sehr interessantes Konzept, das zur Entwicklung effizienterer Handelssysteme führen kann!",
                 "updated": 1639148192010
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Uzmanlık, daha verimli ticaret sistemleri tasarlamaya yol açabilecek çok ilginç bir kavramdır!",
+                "updated": 1640782402866
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Es ist eine bekannte Tatsache, dass die meisten Strategien unter bestimmten Marktbedingungen besser funktionieren.",
                     "updated": 1639148200807
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu stratejinin belirli piyasa koşullarında daha iyi performans gösterdiği bilinen bir gerçektir.",
+                    "updated": 1640782429429
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Wie bei BB Top Bounce kann ein einziges Handelssystem mehrere Strategien enthalten, die jeweils auf bestimmte Trends, Volatilitätsbereiche oder andere Marktparameter spezialisiert sind.",
                     "updated": 1639148210238
+                },
+                {
+                    "language": "TR",
+                    "text": "BB Top Bounce'da olduğu gibi, tek bir ticaret sistemi, her biri belirli eğilimler, oynaklık aralıkları veya başka herhangi bir piyasa parametresi konusunda uzmanlaşmış birden fazla stratejiye sahip olabilir.",
+                    "updated": 1640782461681
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Entwickeln Sie eine Strategie nicht, um eine Reihe von Marktbedingungen zu bewerten, sondern konzentrieren Sie sich auf diese!",
                     "updated": 1639148217709
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bir dizi piyasa koşulunu değerlendirmek için bir strateji tasarlamak yerine, odaklanmalarını sağlayın!",
+                    "updated": 1640782482786
                 }
             ]
         }

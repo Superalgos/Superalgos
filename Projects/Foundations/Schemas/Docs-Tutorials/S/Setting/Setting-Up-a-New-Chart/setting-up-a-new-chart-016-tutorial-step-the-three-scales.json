@@ -6,7 +6,7 @@
         "text": "Did you notice the three nodes automatically added to your Time Machine?",
         "updated": 1620262899688,
         "icon": {
-            "name": "Time/time-scale",
+            "name": "time-scale",
             "project": "Foundations"
         },
         "translations": [

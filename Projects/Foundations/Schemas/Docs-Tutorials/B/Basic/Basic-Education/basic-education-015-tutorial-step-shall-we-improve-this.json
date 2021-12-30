@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bu özelliği denerseniz, her bir ayarın davranışının net veya tahmin edilebilir olmadığını fark edeceksiniz.",
                 "updated": 1636752597353
+            },
+            {
+                "language": "RU",
+                "text": "Если вы поэкспериментируете с этой функцией, вы заметите, что поведение каждого из параметров не является четким или предсказуемым.",
+                "updated": 1640867163097
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu özelliğin mevcut uygulaması optimal değildir ve bazı seçeneklerin davranışını tahmin etmek zordur. Bir geliştiriciyseniz, mevcut kodu tekrarlamak ve bu özelliği daha kullanılabilir bir duruma getirmek için bu harika bir fırsat olabilir!",
                     "updated": 1636752636392
+                },
+                {
+                    "language": "RU",
+                    "text": "Текущая реализация этой функции не является оптимальной, и поведение некоторых опций трудно предсказать. Если вы являетесь разработчиком, это может быть отличной возможностью поправить существующий код и довести эту функцию до более пригодного для использования состояния!",
+                    "updated": 1640867222434
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Bu özelliği denemekten çekinmeyin, ancak büyük olasılıkla varsayılan ayara geri dönmek isteyeceksiniz!",
                     "updated": 1636752653398
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь опробовать эту функцию, но, скорее всего, вы захотите вернуться к настройкам по умолчанию!",
+                    "updated": 1640867244021
                 }
             ]
         }

@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Arkadaşım Hoş Geldiniz dersinin size etrafı gösterdiğini ve birkaç ucuz numarayla sizi büyülediğini duydum... Ne gösteriş! :-)",
                 "updated": 1636698021188
+            },
+            {
+                "language": "RU",
+                "text": "Я слышал, мой друг, что учебник Welcome to Superalgos показал вам все необходимое и заворожил вас несколькими простыми трюками... Вот это показуха!",
+                "updated": 1640858585433
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Şimdi çalışma zamanı!",
                     "updated": 1636698045347
+                },
+                {
+                    "language": "RU",
+                    "text": "Что ж, теперь пора работать!",
+                    "updated": 1640858607562
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Superalgos'u öğrenmek oldukça zahmetli bir iştir! Zor olduğu için değil, sistem çok geniş, son derece esnek ve yeni bir paradigma üzerine kurulu olduğu için...",
                     "updated": 1636698298697
+                },
+                {
+                    "language": "RU",
+                    "text": "Изучение Superalgos - довольно сложное занятие! Не потому, что это сложно, а потому, что система обширна, чрезвычайно гибка и построена на новой парадигме, которая не очевидна в начале...",
+                    "updated": 1640858657887
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır!",
                     "updated": 1636698446384
+                },
+                {
+                    "language": "RU",
+                    "text": "Но не волнуйтесь! Если вы будете внимательны и пройдете все доступные уроки, вы сможете справиться с кривой обучения как чемпион! Тем не менее, имейте в виду... большинство людей проходят учебники не один раз!",
+                    "updated": 1640858678160
                 }
             ]
         }

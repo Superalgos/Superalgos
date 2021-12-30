@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Şimdi İşlem Parametreleri ( Trading Parameters ) düğümünün yedeğini Geri Test Oturumuna ( Backtesting Session ) eklememiz gerekiyor. Bunu nasıl yaparız?",
                 "updated": 1636791281138
+            },
+            {
+                "language": "RU",
+                "text": "Теперь нам нужно прикрепить резервную копию узла Trading Parameters к сессии бэктестинга. Как это сделать?",
+                "updated": 1640867967343
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "İşlem Parametreleri düğümüne ( Trading Parameters ) sağ tıklayın ve Geriye Dönük Test oturumu (Backtesting Session Node ) düğümüne yaklaştırın! Geriye Dönük Test Oturumu düğümünü çevreleyen turuncu bir halka gördüğünüzde bırakın!",
                     "updated": 1636791340589
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши на узле Trading Parameters и подтяните его ближе к узлу Backtesting Session! Отпустите, когда увидите оранжевое кольцо вокруг узла Backtesting Session!",
+                    "updated": 1640868014417
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Bu kadar! İşlem Parametreleri düğümünün ( Trading Parameters ) yedeği geri yüklenir ve tekrar kullanıma açılır.",
                     "updated": 1636791375829
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот и все! Резервная копия узла Trading Parameters восстановлена и снова используется.",
+                    "updated": 1640868043620
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Dilerseniz ikinci İşlem Parametreleri düğümünü ( Trading Parameters ) silebileceğinizi veya daha sonra kullanmak üzere bir tarafta tutabileceğinizi unutmayın.",
                     "updated": 1636791408211
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что вы можете удалить второй узел Trading Parameters, если хотите, или оставить его сбоку для последующего использования.",
+                    "updated": 1640868060462
                 }
             ]
         }

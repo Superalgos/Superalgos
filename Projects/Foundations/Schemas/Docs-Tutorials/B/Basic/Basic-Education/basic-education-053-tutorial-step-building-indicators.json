@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bir geliştiriciyseniz veya en azından temel bir JavaScript bilgisine sahipseniz, kendi göstergelerinizi oluşturabilirsiniz!",
                 "updated": 1639834040491
+            },
+            {
+                "language": "RU",
+                "text": "Если вы являетесь разработчиком или имеете хотя бы базовое понимание JavaScript, вы сможете создавать свои собственные индикаторы!",
+                "updated": 1640875917049
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu, Superalgos'un çok önemli bir özelliğidir, çünkü ticaret zekası, piyasa verilerini analiz etme yeteneği olmadan ortaya çıkamaz! Yine, bu noktada göstergelerin nasıl oluşturulacağına değinmeyeceğim.",
                     "updated": 1639834127231
+                },
+                {
+                    "language": "RU",
+                    "text": "Это важнейшая особенность Superalgos, поскольку торговый интеллект не может появиться без возможности анализировать рыночные данные! Опять же, я не буду сейчас подробно описывать, как строить индикаторы, но хочу сообщить вам, что мы позаботились об этом!",
+                    "updated": 1640875946020
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Tüm süreci açıklayan kapsamlı bir dizi video eğitimi var! Dokümanlar'daki bu sayfaya hızlıca bir göz atın!",
                     "updated": 1639834143931
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует обширная серия видеоуроков, объясняющих весь процесс! Взгляните на эти страницы во кладке Docs!",
+                    "updated": 1640875987555
                 }
             ]
         }

@@ -470,7 +470,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             to see if we can use this value, or we need to use something else.
             */
             if (parentNode.askPortfolioFormulaManager !== undefined) {
-                let response = await portfolioManagerClient.askPortfolioFormulaManager(parentNode, value)
+                let response = await portfolioManagerClient.askPortfolioFormulaManager(node, parentNode, value)
                 value = response.value
             }
             /*

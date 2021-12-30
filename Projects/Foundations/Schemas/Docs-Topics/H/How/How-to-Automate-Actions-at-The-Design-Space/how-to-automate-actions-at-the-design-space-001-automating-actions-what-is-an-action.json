@@ -4,47 +4,110 @@
     "type": "Automating Actions - What is an Action?",
     "definition": {
         "text": "An Action is what is executed when users picks something from the menu of a Node. ",
-        "updated": 1614941717428
+        "updated": 1614941717428,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Действие Action - это то, что выполняется, когда пользователь выбирает что-то из меню узла.",
+                "updated": 1640759149585
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Why a New Action",
-            "updated": 1614939785554
+            "updated": 1614939785554,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для чего нужно новое действие (New Action)",
+                    "updated": 1640760751555
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Maybe you realized that you are doing repetitive actions at the Design Space and you can benefit from automating them. If your actions are constrained to manipulating the nodes at the workspace, by either creating new nodes, deleting existing ones, changing nodes configs, establishing references or something similar, then you might be able to create an Action function that can automate all this. This will allow you to complete the action with the click of a button and stop doing those repetitive tasks yourself. Not to mention help make Superalgos easier to use for everyone once you contribute your action!",
-            "updated": 1628255167092
+            "updated": 1628255167092,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы поняли, что выполняете повторяющиеся действия в Design Space и можете извлечь выгоду из их автоматизации. Если ваши действия сводятся к манипулированию узлами в рабочем пространстве: созданию новых узлов, удалению существующих, изменению конфигурации узлов, созданию ссылок или чему-то подобному, то вы можете создать функцию Action, которая все это автоматизирует. Это позволит вам завершить действие одним нажатием кнопки и перестать выполнять эти повторяющиеся задачи самостоятельно. Не говоря уже о том, что это поможет сделать Superalgos проще в использовании для всех, когда вы создадите свое действие!",
+                    "updated": 1640759234231
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Workflow"
+            "text": "Workflow",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Порядок работы",
+                    "updated": 1640760559767
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "New Actions are implemented as functions inside a Function Library. So the basic workflow to implement a new Action is as follows:",
-            "updated": 1628255279553
+            "updated": 1628255279553,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Новые действия реализуются как функции внутри библиотеки функций. Таким образом, основной порядок работы для реализации нового действия выглядит следующим образом:",
+                    "updated": 1640760538660
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Add a Menu Item: First you need to add a Menu Item to the node type that will allow the user to execute your action.",
-            "updated": 1614940496055
+            "updated": 1614940496055,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте элемент меню: Сначала нужно добавить элемент меню к типу узла, который позволит пользователю выполнить ваше действие.",
+                    "updated": 1640760599052
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Locate a Function Library: Then you will need to locate the Function Library that is better suited to host the function that is going to be executed once the action is triggered.",
-            "updated": 1614926393154
+            "updated": 1614926393154,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите библиотеку функций (Function Library): Затем вам нужно найти библиотеку функций, которая лучше всего подходит для размещения функции, которая будет выполняться после запуска действия.",
+                    "updated": 1640760640645
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Add your Code: Then you will need to write the code for that function.",
-            "updated": 1614940528253
+            "updated": 1614940528253,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавьте свой код: Далее вам нужно будет написать код для этой функции.",
+                    "updated": 1640760661706
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Connect Menu Item to your Code: Finally you will connect the Menu Item to the function you wrote.",
-            "updated": 1628255317721
+            "updated": 1628255317721,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Подключите пункт меню к вашему коду: Наконец, вы подключите пункт меню к написанной вами функции.Подключите пункт меню к вашему коду: В завершение подключите пункт меню к написанной вами функции.",
+                    "updated": 1640760701355
+                }
+            ]
         }
     ]
 }

@@ -9,18 +9,18 @@ import React, {useEffect, useState} from "react";
 const Feed = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
-   
+
     const loadPosts = async () => {
         setLoading(true)
         getPosts().then(promiseResponse => {
             const mappedPosts = [];
             let parsedPromiseResponse = promiseResponse.json();
-            parsedPromiseResponse.then(response =>{
+            parsedPromiseResponse.then(response => {
                 const {data, result} = response
-                if(result === STATUS_OK) {
-                    data.map( (post, index) => {
-                        if(post.eventType === 10) {
-                            mappedPosts.push( <Post key={Math.random()} id={index} postData={post}/>)
+                if (result === STATUS_OK) {
+                    data.map((post, index) => {
+                        if (post.eventType === 10) {
+                            mappedPosts.push(<Post key={Math.random()} id={index} postData={post}/>)
                         }
                     })
                     setPosts(mappedPosts);
@@ -36,9 +36,8 @@ const Feed = () => {
 
     return (
         <div className="feed">
-            <PostPlaceholder/>
+            <PostPlaceholder reloadPostCallback={loadPosts}/>
             <PostsFeed posts={posts} loading={loading}/>
-           
         </div>
     );
 }

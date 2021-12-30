@@ -1,0 +1,28 @@
+{
+    "actionsNav":[
+        {
+            "id": 1,
+            "name": "Love"
+        },
+        {
+            "id": 2,
+            "name": "Haha"
+        },
+        {
+            "id": 3,
+            "name": "Wow"
+        },
+        {
+            "id": 4,
+            "name": "Sad"
+        },
+        {
+            "id": 5,
+            "name": "Angry"
+        },
+        {
+            "id": 6,
+            "name": "Care"
+        }
+    ]
+}

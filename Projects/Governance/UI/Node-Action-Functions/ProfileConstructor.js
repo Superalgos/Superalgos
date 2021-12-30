@@ -460,10 +460,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     const web3 = new window.Web3()
                     try {
                         const message = [
-                            web3.utils.fromUtf8("Github username: " + githubUsername),
-                            connector.accounts[0]
+                            connector.accounts[0],
+                            web3.utils.keccak256("\u0019Ethereum Signed Message:\n" + githubUsername.length + githubUsername)
                         ]
-                        signedMessage = await connector.signPersonalMessage(message)
+                        signedMessage = await connector.signMessage(message)
                         setupProfile(signedMessage, connector.accounts[0], githubUsername)
                     } catch (e) {
                         console.log(e)

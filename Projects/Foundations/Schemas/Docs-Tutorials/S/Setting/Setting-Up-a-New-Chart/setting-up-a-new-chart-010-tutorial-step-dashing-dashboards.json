@@ -5,7 +5,7 @@
     "definition": {
         "text": "The first node we will learn about today is the Dashboard. A Dashboard helps us stay organized.",
         "icon": {
-            "name": "Charting-Space/dashboard",
+            "name": "dashboard",
             "project": "Foundations"
         },
         "updated": 1628360485670,

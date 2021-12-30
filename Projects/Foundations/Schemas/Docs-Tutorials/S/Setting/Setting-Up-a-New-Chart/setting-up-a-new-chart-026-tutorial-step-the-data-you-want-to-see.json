@@ -6,7 +6,7 @@
         "text": "In Superalgos, you control the flow of data. Talk about control!",
         "updated": 1619024163418,
         "icon": {
-            "name": "Data/data-storage",
+            "name": "data-storage",
             "project": "Foundations"
         },
         "translations": [

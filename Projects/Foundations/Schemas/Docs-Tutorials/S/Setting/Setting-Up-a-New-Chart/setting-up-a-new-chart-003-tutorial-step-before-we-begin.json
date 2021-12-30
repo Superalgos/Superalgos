@@ -5,7 +5,7 @@
     "definition": {
         "text": "Before you start creating custom charts you should make sure you know the basics of getting around within Superalgos.",
         "icon": {
-            "name": "Tutorial/tutorial",
+            "name": "tutorial",
             "project": "Foundations"
         },
         "updated": 1628362591021,

@@ -55,6 +55,12 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
                 if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA){
+
+                    if(!queryMessage.userProfileId & !queryMessage.username){
+                        queryMessage.userProfileId = SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
+                        queryMessage.username =SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
+                    }
+
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
@@ -295,7 +301,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
 
                     response.text().then(body => {
-                        userProfile = JSON.parse(body)
+                        userProfile = JSON.parse(body);
+                        userProfile.userProfileId = userProfileId;
                         resolve(userProfile)
                     })
                 })

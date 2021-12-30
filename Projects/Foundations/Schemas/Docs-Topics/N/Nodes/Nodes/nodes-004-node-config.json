@@ -4,13 +4,27 @@
     "type": "Node Config",
     "definition": {
         "text": "Nodes might have a config -only when needed- that it is used to store information related to that node. When they do, they usually allow users to access it via one of the Node Menu items.  A Node Config is later used by Tasks or Bots during their processing.",
-        "updated": 1609236556444
+        "updated": 1609236556444,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узлы могут иметь конфигурацию - только при необходимости - которая используется для хранения информации, связанной с этим узлом. Когда это так, они обычно позволяют пользователям получить к нему доступ через один из пунктов меню узла. Конфигурация узла позже используется задачами или ботами во время их работы.",
+                "updated": 1640356225848
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Each type of node, might have a definition with the initial values for it's configuration. The Initial Values are set at the node when the Node is first created. ",
-            "updated": 1609244634949
+            "updated": 1609244634949,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый тип узла может иметь определение с начальными значениями для его конфигурации. Начальные значения устанавливаются на узле при первом создании узла.",
+                    "updated": 1640356249680
+                }
+            ]
         }
     ]
 }

@@ -68,7 +68,7 @@ function newListSelector() {
     }
 
     function initialize() {
-        icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Governance', 'user-profile')
+        icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Governance', 'user-profile')
         onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
         selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
     }
@@ -179,7 +179,7 @@ function newListSelector() {
 
         tableStartPosition = thisObject.container.frame.frameThisPoint(tableStartPosition)
 
-        let offset = thisObject.container.frame.radius / ( 8 / 5 )
+        let offset = thisObject.container.frame.radius / (8 / 5)
         let listSquare = offset * 2
         let rowHeight = listSquare / VISIBLE_LABELS
 
@@ -265,7 +265,7 @@ function newListSelector() {
                 browserCanvasContext.fill()
 
                 browserCanvasContext.beginPath()
-                browserCanvasContext.arc(position.x + thisObject.container.frame.radius, position.y + thisObject.container.frame.radius, radius , 0, Math.PI * 2, true)
+                browserCanvasContext.arc(position.x + thisObject.container.frame.radius, position.y + thisObject.container.frame.radius, radius, 0, Math.PI * 2, true)
                 browserCanvasContext.closePath()
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.MIDNIGHT_GREEN + ', ' + 1 + ')'
                 browserCanvasContext.fill()
@@ -280,7 +280,7 @@ function newListSelector() {
             let fontSize
             let fontColor
             let opacity
-            let offset = thisObject.container.frame.radius / ( 8 / 5 )
+            let offset = thisObject.container.frame.radius / (8 / 5)
 
             for (let i = 0; i < VISIBLE_LABELS; i++) {
 
@@ -288,7 +288,7 @@ function newListSelector() {
                 let label = ''
                 let subLabel = ''
                 if (index >= 0 && index < optionsList.length) {
-                    if (typeof(optionsList[index]) !== "string") {
+                    if (typeof (optionsList[index]) !== "string") {
 
                         let path = UI.projects.visualScripting.utilities.hierarchy.getNodeNameTypePath(optionsList[index].payload.parentNode)
 
@@ -309,15 +309,16 @@ function newListSelector() {
                 }
 
                 // Reduce Labels if too long
-                if (label.length > 35) { label = label.substring(0,35) + " (cont...)" }
-                if (subLabel.length > 60) { subLabel = subLabel.substring(0,60) + " (cont...)" }
+                if (label === undefined) { continue }
+                if (label.length > 35) { label = label.substring(0, 35) + " (cont...)" }
+                if (subLabel.length > 60) { subLabel = subLabel.substring(0, 60) + " (cont...)" }
 
                 fontColor = UI_COLOR.BLACK
                 fontSize = FONT_SIZE
                 opacity = 1
 
                 let listSquare = offset * 2
-                let rowOffset = listSquare * ( i / VISIBLE_LABELS )
+                let rowOffset = listSquare * (i / VISIBLE_LABELS)
                 let rowHeight = listSquare / VISIBLE_LABELS
 
                 let rowPosition = {

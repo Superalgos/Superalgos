@@ -4,37 +4,86 @@
     "type": "Superalgos Review - The Most Powerful Trading System To Date (But Also the Most Complex)",
     "definition": {
         "text": "Superalgos is by far the most powerful, intuitive, and flexible trading system available today. It's so much more than a traditional trading bot. The power and extensibility of this open-source marvel is mind-blowing. However, it's often said that nothing in life worth having is easy, and that's certainly true of Superalgos. You'll have to invest a lot of time and patience to learn a system that has more features than the newest Tesla. Is it worth it? Absolutely!",
-        "updated": 1616413671040
+        "updated": 1616413671040,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos - это, безусловно, самая мощная, интуитивно понятная и гибкая торговая система на сегодняшний день. Это гораздо больше, чем традиционный торговый бот. Мощь и расширяемость этого чуда с открытым исходным кодом просто поражает воображение. Однако часто говорят, что в жизни ничего не дается легко, и это, безусловно, относится к Superalgos. Вам придется потратить много времени и терпения, чтобы освоить систему, которая имеет больше возможностей, чем новейшая Tesla. Стоит ли оно того? Безусловно!",
+                "updated": 1640410085157
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "I stumbled across Superalgos a few month ago when I was researching free trading bots for cryptocurrency and saw a post about a new open-source trading system available through Github. It was the best find of my life. Although this system is very early in its development, it is already developed enough to allow complicated trading strategies to be implemented, and it has undergone massive improvement in just the short time I've been using it.",
-            "updated": 1616414254789
+            "updated": 1616414254789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я наткнулся на Superalgos несколько месяцев назад, когда исследовал бесплатные торговые боты для криптовалют и увидел сообщение о новой торговой системе с открытым исходным кодом, доступной через Github. Это была лучшая находка в моей жизни. Хотя эта система находится на ранней стадии разработки, она уже достаточно развита, чтобы позволить реализовать сложные торговые стратегии, и за то короткое время, что я ее использую, она претерпела значительные улучшения.",
+                    "updated": 1640410120863
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is a visual, layered system. It taked object-oreineted technology to a new level never before seen in a user environment. Until now, you had to work for a multi-national finance enterprise to find this kind of sophistication in a software system. Put the time and effort into learning it, and you'll have unbelievable trading power at your fingertips. This system definitely give you the tools to implement profitable trading strategies in multiple markets and exchanges simultaneously, whether you use existing strategies (which are soon to come to this primordial system) or develop your own complex trading algorithms. Yet, you don't have to know programming to use it, but learming simple javascript commands, functions, and operators will help."
+            "text": "Superalgos is a visual, layered system. It taked object-oreineted technology to a new level never before seen in a user environment. Until now, you had to work for a multi-national finance enterprise to find this kind of sophistication in a software system. Put the time and effort into learning it, and you'll have unbelievable trading power at your fingertips. This system definitely give you the tools to implement profitable trading strategies in multiple markets and exchanges simultaneously, whether you use existing strategies (which are soon to come to this primordial system) or develop your own complex trading algorithms. Yet, you don't have to know programming to use it, but learming simple javascript commands, functions, and operators will help.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это визуальная многоуровневая система. Она подняла объектно-ориентированную технологию на новый уровень, невиданный ранее в пользовательской среде. До сих пор, чтобы найти такую сложную программную систему, нужно было работать на многонациональное финансовое предприятие. Потратьте время и усилия на ее изучение, и вы получите невероятную торговую мощь под рукой. Эта система определенно даст вам инструменты для реализации прибыльных торговых стратегий на нескольких рынках и биржах одновременно, независимо от того, используете ли вы существующие стратегии (которые скоро появятся в этой оригинальной системе) или разработаете свои собственные сложные торговые алгоритмы. При этом вам не обязательно знать программирование, чтобы использовать эту систему, но владение простыми командами, функциями и операторами javascript вам поможет.",
+                    "updated": 1640410346622
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The most important thing to make Superalgos work for you is to take the time to learn as much about it as possible. First, do the 'Welcome to Superalgos!' tutorial, and do it multiple times to catch the nuances you missed in previous reviews of the tutorial. Then do the 'Install a New Market' tutorial and the trading system design tutorials (in a separate plug-in) multiple times. Finally go through the Users Manual in the documentation to learn about all the important features in this comprehensive software package.",
-            "updated": 1616418160500
+            "updated": 1616418160500,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Самое главное, чтобы Superalgos работал на вас, - это потратить время на то, чтобы узнать о нем как можно больше. Сначала пройдите учебник \"Welcome to Superalgos!\", причем пройдите его несколько раз, чтобы уловить нюансы, которые вы упустили в предыдущих просмотрах этого учебника. Затем пройдите несколько раз учебник \" Install a New Market\" и учебники по проектированию торговой системы (в отдельном плагине). Наконец, изучите \"Руководство пользователя\" в документации, чтобы узнать обо всех важных функциях этого комплексного программного пакета.",
+                    "updated": 1640410502629
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This program is supported by a vibrant user and developer community on Telegram. Join it and ask any questions you might have to help you understand and progress through the system. Superalgos is a dynamic development system. If you see something missing or would like an enhancement, just ask, and if it makes sense, you may be surprised by how quickly it gets implemented.",
-            "updated": 1616422495138
+            "updated": 1616422495138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта программа поддерживается активным сообществом пользователей и разработчиков в Telegram. Присоединяйтесь к нему и задавайте любые вопросы, которые помогут вам понять и продвинуться в системе. Superalgos - это динамично развивающаяся система. Если вы видите, что чего-то не хватает, или хотите что-то улучшить, просто попросите, и если это имеет смысл, вы можете быть удивлены тем, как быстро это будет реализовано.",
+                    "updated": 1640410555112
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Before you know it, you'll be able to develop custom trading indicators and sophisticated strategies that you can thoroughly test on untold markets and then share these profit-making tools with the rest of the Superalgos partnership.",
-            "updated": 1616421994567
+            "updated": 1616421994567,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы не успеете оглянуться, как сможете разрабатывать собственные торговые индикаторы и сложные стратегии, которые вы сможете тщательно протестировать на бесчисленных рынках, а затем поделиться этими инструментами для получения прибыли с остальными членами команды Superalgos.",
+                    "updated": 1640410593956
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Superalgos is a goldmine, and it can pay off like one if you put in the time and effort upfront, and colloborate with the community. Happy Trading!",
-            "updated": 1616422536155
+            "updated": 1616422536155,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это золотая жила, и она может окупиться, если вы потратите время и усилия заранее, и будете сотрудничать с сообществом. Удачной торговли!",
+                    "updated": 1640410631090
+                }
+            ]
         },
         {
             "style": "Text",

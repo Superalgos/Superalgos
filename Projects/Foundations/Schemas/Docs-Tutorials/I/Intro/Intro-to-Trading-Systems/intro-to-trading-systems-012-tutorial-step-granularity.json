@@ -19,14 +19,15 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Granularity is a device the helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units.",
+            "text": "Granularity is a device that helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units.",
             "translations": [
                 {
                     "language": "DE",
                     "text": "Granularität ist ein Mittel, das hilft, Komplexität zu bewältigen. Anstatt Strategien zu einem komplexen Geflecht von Regeln und Definitionen anwachsen zu lassen, ist es immer besser, komplexe Logik in Stücke zu zerlegen und mit kleineren Einheiten zu arbeiten.",
                     "updated": 1639148158865
                 }
-            ]
+            ],
+            "updated": 1640641303063
         },
         {
             "style": "Callout",

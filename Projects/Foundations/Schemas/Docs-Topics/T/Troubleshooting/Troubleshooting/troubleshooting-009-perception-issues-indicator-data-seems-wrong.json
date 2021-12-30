@@ -4,41 +4,104 @@
     "type": "Perception Issues - Indicator Data Seems Wrong",
     "definition": {
         "text": "Make sure you compare with the actual source of the raw data and research the raw data before reporting an issue.",
-        "updated": 1611514878598
+        "updated": 1611514878598,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Убедитесь, что вы сравниваете с фактическим источником исходных данных и изучили исходные данные, прежде чем сообщать о проблеме.",
+                "updated": 1640537215694
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You may be comparing one of Superalgos’ indicators with indicators produced by other sources like TradingView, Sierra Chart, or any other provider. You may have found some differences, probably minor, in some of the indicator properties for certain candles, or maybe even throughout the data set.",
-            "updated": 1611514888972
+            "updated": 1611514888972,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы сравниваете один из индикаторов Superalgos с индикаторами из других источников, таких как TradingView, Sierra Chart или любого другого поставщика. Возможно, вы обнаружили некоторые различия, возможно, незначительные, в свойствах индикатора для определенных свечей, а может быть, и во всем наборе данных.",
+                    "updated": 1640537279053
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "One of the most likely reasons for these mostly minor discrepancies is that the raw data exchanges provide is not always consistent. For example, occasionally a one-minute candle may be missing in the data set. Or some candles may not start exactly at the zero-seconds mark."
+            "text": "One of the most likely reasons for these mostly minor discrepancies is that the raw data exchanges provide is not always consistent. For example, occasionally a one-minute candle may be missing in the data set. Or some candles may not start exactly at the zero-seconds mark.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одна из наиболее вероятных причин этих, в основном, незначительных расхождений связана с тем, что исходные данные, предоставляемые биржами, не всегда соответствуют друг другу. Например, иногда в наборе данных может отсутствовать минутная свеча. Или некоторые свечи могут начинаться не строго с отметки ноль секунд.",
+                    "updated": 1640537446069
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Our OHLCVs sensor bot fetching data from exchanges works recursively to ensure no data is missed, however, we have no control over the data the exchange delivers at any point."
+            "text": "Our OHLCVs sensor bot fetching data from exchanges works recursively to ensure no data is missed, however, we have no control over the data the exchange delivers at any point.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наш сенсорный бот OHLCV, получающий данные с бирж, работает рекурсивно, чтобы не пропустить ни одной информации, однако мы не контролируем данные, которые предоставляет биржа в каждый момент времени.",
+                    "updated": 1640537526859
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Furthermore, there is no information as to how third-parties obtain the data they serve, or what measures they may be taking when they detect inconsistencies in the datasets."
+            "text": "Furthermore, there is no information as to how third-parties obtain the data they serve, or what measures they may be taking when they detect inconsistencies in the datasets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, нет информации о том, как третьи стороны получают данные, которые они обслуживают, и какие меры они могут принимать при обнаружении несоответствий в наборах данных.",
+                    "updated": 1640537624852
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It is reasonable to conclude that minor differences with third-party providers are to be expected."
+            "text": "It is reasonable to conclude that minor differences with third-party providers are to be expected.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому стоит сделать вывод, что незначительные различия со сторонними провайдерами вполне ожидаемы.",
+                    "updated": 1640537712531
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you worry about the quality of the data of any of the indicators running on Superalgos, the first thing to do is to compare the data with the source, not a third-party—that is, the actual exchange."
+            "text": "If you worry about the quality of the data of any of the indicators running on Superalgos, the first thing to do is to compare the data with the source, not a third-party—that is, the actual exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы беспокоитесь о качестве данных любого из индикаторов, работающих на Superalgos, первое, что нужно сделать, это сравнить данные с источником, а не со сторонним поставщиком - то есть с реальной биржей.",
+                    "updated": 1640537762843
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you find inconsistencies in some of our data with the data provided by the exchange, then, the second step to investigate what the issue may be is to compare the raw data, that is, one-minute candles. If you find differences in the one-minute candles provided by Superalgos and the one-minute candles provided by the exchange, then we may have a case in which the sensor bot requires some debugging to find out what the problem may be. In such a case, please open an issue pointing us to the specific candles that you found to be wrong."
+            "text": "If you find inconsistencies in some of our data with the data provided by the exchange, then, the second step to investigate what the issue may be is to compare the raw data, that is, one-minute candles. If you find differences in the one-minute candles provided by Superalgos and the one-minute candles provided by the exchange, then we may have a case in which the sensor bot requires some debugging to find out what the problem may be. In such a case, please open an issue pointing us to the specific candles that you found to be wrong.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы обнаружили несоответствия в некоторых наших данных с данными, предоставленными биржей, то вторым шагом для изучения того, в чем может быть проблема, является сравнение необработанных данных, то есть одноминутных свечей. Если вы обнаружите различия в одноминутных свечах, предоставленных Superalgos, и одноминутных свечах, предоставленных биржей, то, возможно, у нас есть случай, когда сенсорный бот требует отладки, чтобы выяснить, в чем может быть проблема. В таком случае, пожалуйста, откройте проблему, указав нам на конкретные свечи, которые вы сочли неправильными.",
+                    "updated": 1640537811697
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If one-minute candles seem to be correct and there is an inconsistency in the data provided by a Superalgos indicator, first, make sure that candles are correct throughout the period required to calculate the indicator. For example, in the case of a 50-periods moving average, you need to check the last 50 candles from the point in which you find a discrepancy in the indicator. If such is the case, please open an issue indicating the process you went through to determine that there is something wrong with the said indicator and point us to the specific point in time where the indicator is wrong."
+            "text": "If one-minute candles seem to be correct and there is an inconsistency in the data provided by a Superalgos indicator, first, make sure that candles are correct throughout the period required to calculate the indicator. For example, in the case of a 50-periods moving average, you need to check the last 50 candles from the point in which you find a discrepancy in the indicator. If such is the case, please open an issue indicating the process you went through to determine that there is something wrong with the said indicator and point us to the specific point in time where the indicator is wrong.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если минутные свечи выглядят правильными, а в данных, предоставляемых индикатором Superalgos, есть несоответствие, сначала убедитесь, что свечи правильные на протяжении всего периода, необходимого для расчета индикатора. Например, в случае 50-периодной скользящей средней необходимо проверить последние 50 свечей от точки, в которой вы обнаружили несоответствие в индикаторе. Если это так, пожалуйста, откройте проблему, указав процесс, через который вы прошли, чтобы определить, что с указанным индикатором что-то не так, и укажите нам на конкретный момент времени, когда индикатор показывает неверные показания.",
+                    "updated": 1640537986183
+                }
+            ]
         },
         {
             "style": "Text",

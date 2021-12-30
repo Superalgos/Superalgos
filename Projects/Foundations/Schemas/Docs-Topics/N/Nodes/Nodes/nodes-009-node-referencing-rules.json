@@ -10,13 +10,25 @@
                 "language": "ES",
                 "text": "Cada Node Type puede tener un conjunto de reglas que defina con qué Node Type puede establecer una referencia.",
                 "updated": 1628036524256
+            },
+            {
+                "language": "RU",
+                "text": "Каждый тип узла может иметь набор правил, определяющих, с каким типом узла он может установить ссылку.",
+                "updated": 1640356616144
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1640356624548
+                }
+            ]
         }
     ]
 }

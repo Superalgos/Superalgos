@@ -1,7 +1,14 @@
 {
     "type": "Trading Current",
     "definition": {
-        "text": "The current object refers to the context in which instances of several other objects exist&mdash;like episode, strategy, position, strategy stages, and so on&mdash;in particular, the instances that are open at the time of evaluation, hence the adjective current."
+        "text": "The current object refers to the context in which instances of several other objects exist&mdash;like episode, strategy, position, strategy stages, and so on&mdash;in particular, the instances that are open at the time of evaluation, hence the adjective current.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Объект current относится к контексту, в котором существуют экземпляры нескольких других объектов - эпизода, стратегии, позиции, стадии стратегии и так далее - в частности, экземпляры, которые открыты на момент оценки, отсюда прилагательное текущий (current).",
+                "updated": 1640341945983
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "Conceptually, current is used as an adjective applied to different concepts, such as the current episode, the current strategy, the current position, or the current strategy stage, to indicate the instance that is passing at the moment."
+            "text": "Conceptually, current is used as an adjective applied to different concepts, such as the current episode, the current strategy, the current position, or the current strategy stage, to indicate the instance that is passing at the moment.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концептуально, current используется как прилагательное, применяемое к различным понятиям, таким как текущий эпизод, текущая стратегия, текущая позиция или текущая стадия стратегии, для обозначения случая, который проходит в данный момент.",
+                    "updated": 1640341969161
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The generation of offspring nodes under the current section of the hierarchy keeps track of information within the scope of the embodied concept: episode, strategy, position, and so on."
+            "text": "The generation of offspring nodes under the current section of the hierarchy keeps track of information within the scope of the embodied concept: episode, strategy, position, and so on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Генерация узлов-потомков в текущей секции иерархии отслеживает информацию в рамках воплощенной концепции: эпизод, стратегия, позиция и так далее.",
+                    "updated": 1640341615967
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In other words, the episode, strategy and position nodes within the current section of the hierarchy feature information relative to the instances of the episode, strategy, and position that are currently passing, at any point in time."
+            "text": "In other words, the episode, strategy and position nodes within the current section of the hierarchy feature information relative to the instances of the episode, strategy, and position that are currently passing, at any point in time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, узлы эпизода, стратегии и позиции в текущей секции иерархии содержат информацию относительно экземпляров эпизода, стратегии и позиции, которые проходят в данный момент, в любом промежутке времени.",
+                    "updated": 1640341679501
+                }
+            ]
         }
     ]
 }

@@ -4,102 +4,263 @@
     "type": "Perception Issues - My System Gets Slow",
     "definition": {
         "text": "Understand how the system uses the available hardware so that you may implement workarounds and best practices.",
-        "updated": 1611513348468
+        "updated": 1611513348468,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Поймите, как система использует имеющееся оборудование, чтобы вы могли реализовать обходные пути и применить оптимальные решения.",
+                "updated": 1640457727438
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Dynamically rendering all the visual features in the system puts a significant load on the machine’s graphics processing unit (GPU). Running multiple tasks at the same time is demanding on the central processing unit (CPU). Depending on your machine’s capacity, this may result in the system getting slow and sometimes even unresponsive.",
-            "updated": 1611513372759
+            "updated": 1611513372759,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Динамический рендеринг всех визуальных функций в системе создает значительную нагрузку на графический процессор (GPU) машины. Одновременное выполнение нескольких задач предъявляет высокие требования к центральному процессору (CPU). В зависимости от мощности вашего компьютера это может привести к тому, что система будет работать медленно, а иногда даже не реагировать на запросы.",
+                    "updated": 1640457764216
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you experience such symptoms, there are several actions you may take to mitigate them."
+            "text": "If you experience such symptoms, there are several actions you may take to mitigate them.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы испытываете такие симптомы, есть несколько действий, которые вы можете предпринять для их смягчения.",
+                    "updated": 1640457780655
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Learn about the system requirements to better understand what to expect in terms of the performance of your hardware.",
-            "updated": 1611513387104
+            "updated": 1611513387104,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ознакомьтесь с системными требованиями, чтобы лучше понять, чего ожидать от производительности вашего оборудования.",
+                    "updated": 1640457792798
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Close The Browser’s Developer Tools"
+            "text": "Close The Browser’s Developer Tools",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Закройте инструменты разработчика браузера",
+                    "updated": 1640457804406
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may have opened Developer Tools at some point. Developer Tools may slow animation renderings to a crawl, as slow as one frame per second. In case it is open, make sure you close Developer Tools."
+            "text": "You may have opened Developer Tools at some point. Developer Tools may slow animation renderings to a crawl, as slow as one frame per second. In case it is open, make sure you close Developer Tools.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, в какой-то момент вы открывали Developer Tools (\"Инструменты разработчика\"). Инструменты разработчика могут замедлить рендеринг анимации до одного кадра в секунду. Если он открыт, убедитесь, что вы закрыли Developer Tools.",
+                    "updated": 1640457867837
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Stop Data Mining Tasks That You May Not Need Running"
+            "text": "Stop Data Mining Tasks That You May Not Need Running",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прекратите выполнение задач по добыче данных, которые вам, возможно, не нужны",
+                    "updated": 1640457885701
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Data mining is a CPU-intensive activity. If you are designing a strategy, you probably don’t need to have a live stream of information being processed in realtime. Learn to segment your activities and only start the tasks that you need for the work you are doing."
+            "text": "Data mining is a CPU-intensive activity. If you are designing a strategy, you probably don’t need to have a live stream of information being processed in realtime. Learn to segment your activities and only start the tasks that you need for the work you are doing.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добыча данных является процессороемкой деятельностью. Если вы разрабатываете стратегию, вам, вероятно, не нужен живой поток информации, обрабатываемой в режиме реального времени. Научитесь сегментировать свою деятельность и запускать только те задачи, которые необходимы для выполняемой работы.",
+                    "updated": 1640457937453
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may also consider applying a Time Frames Filter to process the ones you require only.",
-            "updated": 1611513521057
+            "updated": 1611513521057,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете рассмотреть возможность применения фильтра таймфреймов для обработки только тех, которые вам нужны.",
+                    "updated": 1640457959818
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Open Either the Design Space or the Charting Space"
+            "text": "Open Either the Design Space or the Charting Space",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Откройте либо пространство проектирования (Design Space), либо пространство построения диаграмм (Charting Space).",
+                    "updated": 1640458004186
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Leaving the slider halfway up or down the screen causes both the design space and the charting space to consume resources. Make sure the slider is either fully up or down."
+            "text": "Leaving the slider halfway up or down the screen causes both the design space and the charting space to consume resources. Make sure the slider is either fully up or down.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если оставить ползунок на полпути вверх или вниз по экрану, это приведет к расходованию ресурсов как пространства проектирования, так и пространства построения диаграмм. Убедитесь, что ползунок полностью поднят или опущен.",
+                    "updated": 1640458035435
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Display Less Data on the Charts"
+            "text": "Display Less Data on the Charts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отображение меньшего количества данных на графиках",
+                    "updated": 1640458050493
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Make sure you set the Time Scale to manual mode and adjust it so that fewer candles are displayed on the screen. Try switching the time frame box to the higher time frames so that candle density decreases.",
-            "updated": 1615810255059
+            "updated": 1615810255059,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что вы установили шкалу времени Time Scale в ручной режим и настроили ее так, чтобы на экране отображалось меньше свечей. Попробуйте переключить блок таймфреймов на более высокие таймфреймы, чтобы плотность свечей уменьшилась.",
+                    "updated": 1640458142695
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also want to switch off the layers you may not be using. Remember, every piece of graphical information you see on the screen represents data your system is reading from your disk and processing to display in a graphical form."
+            "text": "You may also want to switch off the layers you may not be using. Remember, every piece of graphical information you see on the screen represents data your system is reading from your disk and processing to display in a graphical form.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете отключить слои, которые вы, возможно, не используете. Помните, что каждый фрагмент графической информации, который вы видите на экране, представляет собой данные, которые ваша система считывает с диска и обрабатывает для отображения в графической форме.",
+                    "updated": 1640458200380
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also turn off the layers in the Trading Engine and Trading System layer managers. Those layers interact with the design space to show information in realtime over the trading engine and trading system hierarchies."
+            "text": "Also turn off the layers in the Trading Engine and Trading System layer managers. Those layers interact with the design space to show information in realtime over the trading engine and trading system hierarchies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Также отключите слои в менеджерах слоев торгового движка и торговой системы. Эти слои взаимодействуют с пространством проектирования для отображения информации в реальном времени об иерархиях торгового движка и торговой системы.",
+                    "updated": 1640458255908
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Collapse Unused Hierarchies",
-            "updated": 1611513572645
+            "updated": 1611513572645,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сворачивание неиспользуемых иерархий",
+                    "updated": 1640458369982
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The physics that govern nodes in the design space help structures of nodes to self-organize. This comes at a cost in terms of GPU processing power."
+            "text": "The physics that govern nodes in the design space help structures of nodes to self-organize. This comes at a cost in terms of GPU processing power.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Физика, управляющая узлами в пространстве проектирования, помогает структурам узлов самоорганизовываться. За это приходится расплачиваться вычислительной мощностью GPU.",
+                    "updated": 1640458420081
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Make sure all hierarchies you are not using are collapsed."
+            "text": "Make sure all hierarchies you are not using are collapsed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что все иерархии, которые вы не используете, свернуты.",
+                    "updated": 1640458431029
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also want to close any of the structures of nodes that you may not be using within the hierarchy that you may need to expand."
+            "text": "You may also want to close any of the structures of nodes that you may not be using within the hierarchy that you may need to expand.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете закрыть все структуры узлов, которые вы, возможно, не используете в иерархии, которую вам, возможно, придется расширять.",
+                    "updated": 1640458521682
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "If these workarounds do not solve your problem and you often experience slowness or unresponsiveness when using your computer, you may want to consider upgrading your equipment. You shouldn’t risk your capital with an insufficient trading infrastructure.",
-            "updated": 1611513583937
+            "updated": 1611513583937,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если эти обходные пути не решили вашу проблему и вы часто сталкиваетесь с медлительностью или неотзывчивостью при работе с компьютером, возможно, вам стоит подумать о модернизации оборудования. Не стоит рисковать своим капиталом, используя недостаточно мощную торговую инфраструктуру.",
+                    "updated": 1640458562032
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "See the Effects of Your Actions"
+            "text": "See the Effects of Your Actions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наблюдайте за эффективностью своих действий",
+                    "updated": 1640458594809
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There’s a handy built-in tool to measure the performance of the animation that you may use to see the effects of turning off layers, lowering the density of information and so on."
+            "text": "There’s a handy built-in tool to measure the performance of the animation that you may use to see the effects of turning off layers, lowering the density of information and so on.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имеется удобный встроенный инструмент для измерения производительности анимации, который можно использовать, чтобы увидеть эффект от отключения слоев, снижения плотности информации и так далее.",
+                    "updated": 1640458616372
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Click Ctrl + Shift + Alt + F11 and the following performance readings will show up on your screen:"
+            "text": "Click Ctrl + Shift + Alt + F11 and the following performance readings will show up on your screen:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + Shift + Alt + F11, и на экране появятся следующие показания производительности:",
+                    "updated": 1640458631180
+                }
+            ]
         },
         {
             "style": "Png",
@@ -108,7 +269,14 @@
         },
         {
             "style": "Text",
-            "text": "The frame rate displayed at the bottom should increase the more of the actions suggested here you implement."
+            "text": "The frame rate displayed at the bottom should increase the more of the actions suggested here you implement.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Частота кадров, отображаемая внизу, должна увеличиваться по мере выполнения предложенных здесь действий.",
+                    "updated": 1640458738903
+                }
+            ]
         }
     ]
 }

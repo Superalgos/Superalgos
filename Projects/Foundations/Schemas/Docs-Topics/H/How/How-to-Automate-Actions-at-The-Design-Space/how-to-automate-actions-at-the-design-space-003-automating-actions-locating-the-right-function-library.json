@@ -4,32 +4,74 @@
     "type": "Automating Actions - Locating the Right Function Library",
     "definition": {
         "text": "Actions are packed inside Function Libraries. Most likely there is a Function Library already created that is related to the Action you want to create. ",
-        "updated": 1614941736977
+        "updated": 1614941736977,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Действия упакованы внутри библиотек функций (Function Libraries). Скорее всего, уже существует библиотека функций, связанная с действием Action, которое вы хотите создать.",
+                "updated": 1640761474984
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The procedure to locate a suitable Function Library is very easy. Open the Projects folder, then open the Project associated with the Node you are attaching your action to. Inside that project Folder open the UI folder and then you will see the Function-Libraries folder.",
-            "updated": 1628256668116
+            "updated": 1628256668116,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процедура поиска подходящей библиотеки функций очень проста. Откройте папку Projects, затем откройте проект, связанный с узлом, к которому вы прикрепляете свое действие. Внутри папки проекта откройте папку UI, а затем папку Function-Libraries.",
+                    "updated": 1640761498932
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Each file within the Function Library folder is a set of functions.  The only exception to this is ActionSwitch.js. This file is the place where you will connect the Action Function name you defined at the App Schema with the function that will host the code for the new Action.",
-            "updated": 1628256808055
+            "updated": 1628256808055,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый файл в папке Function Library представляет собой набор функций. Единственным исключением является ActionSwitch.js. Этот файл - место, где вы соедините имя функции Action Function, определенное в App Schema, с функцией, в которой будет размещен код нового Action.",
+                    "updated": 1640761550693
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Inspect each of these files and see at their header the functions they already implement. After a quick scan over all of them you can decide which one fits best with your new action. If you believe that your Action should be placed at a new Function Library, then you can try to add a new one and set it up at the Project Schema file, but that is out of the scope of this guide.",
-            "updated": 1628256858024
+            "updated": 1628256858024,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Просмотрите каждый из этих файлов и посмотрите в их заголовке, какие функции они уже реализуют. После беглого просмотра всех файлов вы сможете решить, какой из них лучше всего подходит для вашего нового действия. Если вы считаете, что ваше действие должно быть размещено в новой библиотеке функций, то вы можете попробовать добавить новую библиотеку и установить ее в файл схемы проекта, но это выходит за рамки данного руководства.",
+                    "updated": 1640761600434
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Good Examples",
-            "updated": 1614929743894
+            "updated": 1614929743894,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наглядные примеры",
+                    "updated": 1640761618514
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Take a look at these Function Libraries that represent Hierarchies, because most likely your node belongs to a Hierarchy that already has a Function Library associated with it."
+            "text": "Take a look at these Function Libraries that represent Hierarchies, because most likely your node belongs to a Hierarchy that already has a Function Library associated with it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на эти библиотеки функций, которые представляют иерархии, потому что, скорее всего, ваш узел принадлежит к иерархии, с которой уже связана библиотека функций.",
+                    "updated": 1640761647842
+                }
+            ]
         },
         {
             "style": "List",

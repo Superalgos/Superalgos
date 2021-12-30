@@ -70,6 +70,46 @@ function newAppLoader() {
                     }
 
                     modulesArray = modulesArray.concat(urlArray)
+                    nodeActionFunctions()
+                }
+            }
+
+            function nodeActionFunctions() {
+                let url = 'ListNodeActionFunctions'
+                httpRequest(undefined, url, onResponse)
+                
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let item = fileArray[i]
+
+                        let project = item[0]
+                        let fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'Node-Action-Functions' + '/' + fileName)
+                    }
+
+                    modulesArray = modulesArray.concat(urlArray)
+                    systemActionFunctions()
+                }
+            }
+
+            function systemActionFunctions() {
+                let url = 'ListSystemActionFunctions'
+                httpRequest(undefined, url, onResponse)
+
+                function onResponse(err, fileList) {
+                    let urlArray = []
+                    let fileArray = JSON.parse(fileList)
+                    for (let i = 0; i < fileArray.length; i++) {
+                        let item = fileArray[i]
+
+                        let project = item[0]
+                        let fileName = item[1]
+                        urlArray.push('Projects' + '/' + project + '/' + 'UI' + '/' + 'System-Action-Functions' + '/' + fileName)
+                    }
+
+                    modulesArray = modulesArray.concat(urlArray)
                     utilities()
                 }
             }

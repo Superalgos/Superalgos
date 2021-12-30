@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Es ist nicht so, dass wir versuchen, die Zukunft vorherzusagen und nach unserer Genauigkeit benotet werden! Die Vorhersage ist eher eine Erwartung!",
                 "updated": 1639253706435
+            },
+            {
+                "language": "RU",
+                "text": "Мы же не пытаемся предсказать будущее и получить оценку за точность! Предсказание - это скорее ожидание!",
+                "updated": 1640892325979
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Wir erwarten, dass eine dieser Ideen mindestens zweimal pro Monat gehandelt wird, mit einer Trefferquote von 50%.",
                     "updated": 1639253716157
+                },
+                {
+                    "language": "RU",
+                    "text": "Прогноз: Мы ожидаем, что любая из этих идей будет торговаться не менее двух раз в месяц с коэффициентом попадания 50%.",
+                    "updated": 1640892348514
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Testen: Für Aufwärtstrends setzen wir folgende Ziele: Stop Loss bei 3% und Take Profit bei 5%. Bei Abwärtstrends sollten wir optimistischer sein, da die Strategie darauf abzielt, große Marktbewegungen zu erfassen: Wir setzen einen Stop Loss von 3 % und einen Take Profit von 10 % an.",
                     "updated": 1639253730091
+                },
+                {
+                    "language": "RU",
+                    "text": "Тестирование: Для восходящих трендов мы установим следующие цели: стоп-лосс на уровне 3% и тейк-профит на уровне 5%. Для нисходящих трендов мы должны быть более оптимистичны, так как стратегия нацелена на захват больших движений рынка: мы установим стоп-лосс на уровне 3% и тейк-профит на уровне 10%.",
+                    "updated": 1640892369795
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran! Das bedeutet nicht, dass wir die Positionen so verwalten würden! Es geht nur darum, die Einstiegspunkte zu bewerten!",
                     "updated": 1639253736278
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните! Это не значит, что именно так мы будем управлять позициями! Это просто для оценки точек входа!",
+                    "updated": 1640892390592
                 }
             ]
         }

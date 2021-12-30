@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Inzwischen sollten alle Prozesse auf 100 % stehen. Die Daten müssen fertig sein, damit wir mit den Diagrammen arbeiten können!",
                 "updated": 1639252044935
+            },
+            {
+                "language": "RU",
+                "text": "К этому моменту все процессы должны быть на 100%. Нам нужно, чтобы данные были готовы, чтобы мы могли пойти и немного поработать с графиками!",
+                "updated": 1640890202922
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Schauen Sie sich um und prüfen Sie, ob alle Prozesse bei 100 % sind. Wenn das der Fall ist, beenden Sie das Data Mining!",
                     "updated": 1639252053189
+                },
+                {
+                    "language": "RU",
+                    "text": "Оглянитесь вокруг и посмотрите, все ли процессы работают на 100%. Если все, то прекратите добычу данных!",
+                    "updated": 1640890220124
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Warten Sie, bis alle Prozesse die 100%-Marke erreicht haben, bevor Sie fortfahren!",
                     "updated": 1639252062570
+                },
+                {
+                    "language": "RU",
+                    "text": "Подождите, пока все процессы достигнут отметки 100%, прежде чем продолжить!",
+                    "updated": 1640890233571
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Im nächsten Schritt gehen wir zu den Charts, um die Bollinger Bands zu überprüfen, damit wir die Handelsidee diskutieren können, die wir testen werden!",
                     "updated": 1639252083855
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующем этапе мы переходим к графикам для проверки полос Боллинджера, чтобы мы могли обсудить торговую идею, которую мы будем тестировать!",
+                    "updated": 1640890248262
                 }
             ]
         }

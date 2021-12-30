@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir haben eine Vorstellung davon, was im 1-Stunden-Zeitrahmen vor sich geht. Zoomen wir ein wenig heraus und werfen einen Blick auf den mittelfristigen Bereich.",
                 "updated": 1639252880126
+            },
+            {
+                "language": "RU",
+                "text": "Мы имеем представление о том, что происходит на часовом графике. Давайте немного увеличим масштаб и посмотрим на промежуточную перспективу.",
+                "updated": 1640890947841
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Ich habe Sie soeben zum 4H-Chart mit denselben Daten gebracht. Beachten Sie das Folgende:",
                     "updated": 1639252893103
+                },
+                {
+                    "language": "RU",
+                    "text": "Я только что привел вам 4-часовой график, на те же даты. Обратите внимание на следующее:",
+                    "updated": 1640890979297
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Zusammenbruch: Der Zusammenbruch, den wir auf dem 1-Stunden-Chart gesehen haben, ist auch auf dem 4-Stunden-Chart zu erkennen.",
                     "updated": 1639252904620
+                },
+                {
+                    "language": "RU",
+                    "text": "Пробой: Пробой, который мы видели на графике 1H, также очевиден и на графике 4H.",
+                    "updated": 1640891000194
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Unmittelbare Vergangenheit: Vor dem Zusammenbruch am 10. April bewegte sich der Markt schon eine Weile.",
                     "updated": 1639252911166
+                },
+                {
+                    "language": "RU",
+                    "text": "Недалекое прошлое: До пробоя 10 апреля рынок некоторое время колебался.",
+                    "updated": 1640891016578
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Davor: Der Markt befand sich in einem Aufwärtstrend, d. h. der mittelfristige Trend war aufwärts gerichtet.",
                     "updated": 1639252918205
+                },
+                {
+                    "language": "RU",
+                    "text": "До этого: Рынок имел тенденцию к росту - то есть промежуточный краткосрочный тренд был восходящим.",
+                    "updated": 1640891031767
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Abwärtstrend: Der Zusammenbruch am 10. April markierte den Beginn eines Abwärtstrends im mittelfristigen Bereich.",
                     "updated": 1639252924187
+                },
+                {
+                    "language": "RU",
+                    "text": "Нисходящий тренд: Пробой 10 апреля ознаменовал начало нисходящего тренда в среднесрочной перспективе.",
+                    "updated": 1640891045651
                 }
             ]
         }

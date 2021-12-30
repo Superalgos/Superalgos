@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Nun, da Sie die Bänder auf den Charts gesehen haben, lassen Sie uns die Regeln durchgehen, die uns lehren, wie man sie interpretiert und verwendet!",
                 "updated": 1639252227486
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы увидели полосы на графиках, давайте рассмотрим правила, которые учат нас интерпретировать и использовать их!",
+                "updated": 1640890363138
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Wenn Sie mit diesem Indikator nicht vertraut sind, lohnt es sich auf jeden Fall, ein paar Minuten mit den Regeln zu verbringen,",
                     "updated": 1639252237240
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не знакомы с этим индикатором, стоит потратить несколько минут на ознакомление с этими правилами",
+                    "updated": 1640890438811
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "DE",
                     "text": "Bitte lesen Sie, was John Bollinger über die Interpretation dieses beliebten Indikators zu sagen hat!",
                     "updated": 1639252249929
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте, что говорит Джон Боллинджер о том, как интерпретировать этот популярный индикатор!",
+                    "updated": 1640890459663
                 }
             ]
         },
@@ -60,6 +75,11 @@
                     "language": "DE",
                     "text": "Die Regeln 6 bis 8 sind für das, was wir später versuchen werden, von besonderer Bedeutung!",
                     "updated": 1639252258018
+                },
+                {
+                    "language": "RU",
+                    "text": "Правила 6-8 имеют особое значение для того, что мы будем делать в дальнейшем!",
+                    "updated": 1640890476983
                 }
             ]
         }

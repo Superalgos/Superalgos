@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der vierte Aspekt, den es zu berücksichtigen gilt, ist die Frage, was wir von dieser Idee erwarten, und dies hängt stark von der Art der Strategie ab.",
                 "updated": 1639251850952
+            },
+            {
+                "language": "RU",
+                "text": "Четвертый аспект, который необходимо рассмотреть, - это то, чего мы ожидаем от этой идеи, и это сильно зависит от типа стратегии.",
+                "updated": 1640889209782
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Bei einer Swing-Strategie kann es zum Beispiel akzeptabel sein, zweimal pro Monat eine Position mit einer Trefferquote von 50 % einzugehen, bei einer Scalping-Strategie hingegen nicht.",
                     "updated": 1639251862202
+                },
+                {
+                    "language": "RU",
+                    "text": "Например, для свинг-стратегии открытие позиции дважды в месяц с коэффициентом попадания 50% может быть приемлемым, но не для скальпинг-стратегии.",
+                    "updated": 1640889920852
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Festlegung der Erwartungen an die Strategie in Bezug auf die Handelshäufigkeit und die Trefferquote hilft bei der Entscheidung, ob es sich lohnt, die Strategie zu verfolgen oder nicht.",
                     "updated": 1639251880642
+                },
+                {
+                    "language": "RU",
+                    "text": "Определение того, что мы ожидаем от стратегии с точки зрения частоты торговли и коэффициента попадания, помогает определить, стоит ли придерживаться этой стратегии или нет.",
+                    "updated": 1640889937255
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Wenn die Tests zeigen, dass die Idee nicht so viele Geschäfte oder so viele gute Einstiege produziert, wie es wünschenswert wäre, sollten Sie sich eine neue Idee ausdenken.",
                     "updated": 1639251901086
+                },
+                {
+                    "language": "RU",
+                    "text": "Если тесты покажут, что идея не дает столько сделок или столько хороших входов, сколько хотелось бы, возможно, вам стоит придумать новую идею.",
+                    "updated": 1640889956897
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der dritte zu definierende Aspekt sind die Regeln für das Auslösen der Strategie und das Einnehmen einer Position.",
                 "updated": 1639251779956
+            },
+            {
+                "language": "RU",
+                "text": "В третьих, необходимо определить правила срабатывания стратегии и принятия позиции.",
+                "updated": 1640889088637
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "In vielen Fällen ergeben sich die Regeln für die Auslösung der Strategie aus der Analyse des Kontextes. Sie möchten zum Beispiel, dass die Strategie aktiv wird, wenn ein bestimmter Trend durch eine bestimmte Methode erkannt wird.",
                     "updated": 1639251789768
+                },
+                {
+                    "language": "RU",
+                    "text": "Во многих случаях правила срабатывания стратегии вытекают из анализа контекста. Например, вы хотите, чтобы стратегия была активна, когда определенный тренд обнаруживается каким-то конкретным методом.",
+                    "updated": 1640889115239
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Regeln zum Eingehen einer Position werden gewöhnlich als Signal und Signalbestätigung bezeichnet.",
                     "updated": 1639251797598
+                },
+                {
+                    "language": "RU",
+                    "text": "Правила принятия позиции обычно называют сигналом и подтверждением сигнала.",
+                    "updated": 1640889161440
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Diese Regeln sind die Beschreibung des spezifischen Ereignisses, das bestimmt, wann eine Position eingegangen werden soll. Zum Beispiel das Kreuzen zweier bestimmter Linien oder ein bestimmter Wert bei einem bestimmten Indikator.",
                     "updated": 1639251804151
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти правила представляют собой описание конкретного события, определяющего момент входа в позицию. Например, пересечение двух определенных линий или определенное значение на конкретном индикаторе.",
+                    "updated": 1640889183022
                 }
             ]
         }

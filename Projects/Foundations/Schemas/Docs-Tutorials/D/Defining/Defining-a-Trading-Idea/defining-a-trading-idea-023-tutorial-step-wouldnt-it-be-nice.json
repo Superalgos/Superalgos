@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wie cool wäre es, die Fortsetzung eines Abschwungs vorhersagen zu können, wenn der Trend bereits etabliert ist?",
                 "updated": 1639253233680
+            },
+            {
+                "language": "RU",
+                "text": "Как здорово было бы уметь предсказывать продолжение спада, когда тренд уже установился?",
+                "updated": 1640891568625
             }
         ]
     },
@@ -25,12 +30,24 @@
                     "language": "DE",
                     "text": "Die Vorhersage der Umkehrung eines gut etablierten Trends ist eine sehr schwierige Aufgabe. Die Analyse, die wir gerade für den 10. April durchgeführt haben, ist ein gutes Beispiel: Während der Zusammenbruch im 1H- und 4H-Zeitrahmen eine mittelfristige Trendumkehr markierte, blieb der langfristige Trend intakt.",
                     "updated": 1639253247472
+                },
+                {
+                    "language": "RU",
+                    "text": "Предсказать разворот устоявшегося тренда - очень сложная задача. Анализ, который мы только что провели для 10 апреля, является хорошим примером: хотя пробой на часовом и 4-х часовом таймфреймах ознаменовал разворот тренда в среднесрочной перспективе, долгосрочный тренд остался нетронутым.",
+                    "updated": 1640891705535
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!"
+            "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Более безопасный подход к торговле - это прогнозирование продолжения уже установившегося тренда! Помните 8-е правило? Закрытия за пределами полос Боллинджера изначально являются сигналами продолжения!",
+                    "updated": 1640891768184
+                }
+            ]
         }
     ]
 }

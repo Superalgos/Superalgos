@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Im weiteren Verlauf dieses Tutorials geht es darum, das eben Besprochene in die Praxis umzusetzen!",
                 "updated": 1639252008668
+            },
+            {
+                "language": "RU",
+                "text": "Остальная часть этого урока посвящена применению на практике того, что мы только что обсудили!",
+                "updated": 1640890087042
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Wir werden tief in die Charts eintauchen, ein oder zwei Dinge über einen bestimmten Indikator lernen und versuchen, eine richtige Handelsidee zu entwickeln, die wir im nächsten Tutorial testen können!",
                     "updated": 1639252018026
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы глубоко погрузимся в графики, узнаем кое-что о конкретном индикаторе и попытаемся придумать правильную торговую идею, которую сможем протестировать в следующем уроке!",
+                    "updated": 1640890104809
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Schnallen Sie sich an! Ich sehe ein paar scharfe Kurven voraus!",
                     "updated": 1639252025934
+                },
+                {
+                    "language": "RU",
+                    "text": "Пристегнитесь! Я предвижу несколько крутых поворотов впереди!",
+                    "updated": 1640890123486
                 }
             ]
         }

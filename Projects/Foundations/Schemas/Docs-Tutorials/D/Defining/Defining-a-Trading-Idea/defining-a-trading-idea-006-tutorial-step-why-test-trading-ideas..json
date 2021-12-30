@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Das Einrichten, Testen und Umsetzen einer Handelsstrategie erfordert Zeit und Mühe. Wir testen Handelsideen, um die Verschwendung von Ressourcen zu vermeiden.",
                 "updated": 1639251612335
+            },
+            {
+                "language": "RU",
+                "text": "Настройка, тестирование и внедрение торговой стратегии требует времени и усилий. Мы тестируем торговые идеи, чтобы избежать напрасной траты ресурсов.",
+                "updated": 1640888227872
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Um eine Handelsidee zu testen, müssen wir sie zu einer Hypothese formulieren, die:",
                     "updated": 1639251621101
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы протестировать торговую идею, нам необходимо сформулировать ее в виде гипотезы:",
+                    "updated": 1640888260376
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "einen Handelsprozess vorschlägt,",
                     "updated": 1639251630170
+                },
+                {
+                    "language": "RU",
+                    "text": "предложить торговый процесс,",
+                    "updated": 1640888705187
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "den geeigneten Kontext auswählt;",
                     "updated": 1639251636822
+                },
+                {
+                    "language": "RU",
+                    "text": "подобрать соответствующий контекст;",
+                    "updated": 1640888714670
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "DE",
                     "text": "die wichtigsten Einstiegsregeln definiert;",
                     "updated": 1639251643224
+                },
+                {
+                    "language": "RU",
+                    "text": "определить основные правила входа;",
+                    "updated": 1640888728489
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "DE",
                     "text": "ein bestimmtes Ergebnis vorhersagt;",
                     "updated": 1639251649474
+                },
+                {
+                    "language": "RU",
+                    "text": "прогнозировать конкретный результат;",
+                    "updated": 1640888744973
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "DE",
                     "text": "einen spezifischen Testmechanismus bietet.",
                     "updated": 1639251656458
+                },
+                {
+                    "language": "RU",
+                    "text": "предложить конкретный механизм тестирования.",
+                    "updated": 1640888756434
                 }
             ]
         },
@@ -131,6 +166,11 @@
                     "language": "DE",
                     "text": "Lassen Sie uns auf jedes dieser Themen eingehen, damit wir uns klare Ziele für die Definition einer Handelsidee setzen können.",
                     "updated": 1639251662428
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте подробнее остановимся на каждой из этих тем, чтобы мы могли поставить четкие цели для определения торговой идеи.",
+                    "updated": 1640888679796
                 }
             ]
         }

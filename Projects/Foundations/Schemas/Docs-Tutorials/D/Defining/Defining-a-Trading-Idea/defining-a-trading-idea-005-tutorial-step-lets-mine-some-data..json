@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Nachdem Sie nun verstanden haben, was es bedeutet, diese Data-Mining-Operation auszuführen, lassen Sie uns loslegen!",
                 "updated": 1639251547741
+            },
+            {
+                "language": "TR",
+                "text": "Artık bu veri madenciliği operasyonunu yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
+                "updated": 1640863987889
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "DE",
                     "text": "Wählen Sie \"Run All Project Data Tasks\" im Menü des Knotens Data Tasks!",
                     "updated": 1639251562329
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Görevleri ( Data Tasks ) düğüm menüsünde \"Tüm Proje Veri Görevlerini ( Project Data Tasks ) Çalıştır\"ı seçin!",
+                    "updated": 1640864070221
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "DE",
                     "text": "Wenn Sie dieses Tutorial nach anderen Tutorials machen, haben Sie vielleicht schon einen Teil der benötigten Daten, was die Sache beschleunigen kann! In jedem Fall brauchen Sie nicht zu warten, bis die Datenerfassung zum jetzigen Zeitpunkt abgeschlossen ist... Sie können mit dem Lernprogramm fortfahren!",
                     "updated": 1639251571526
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğreticiye devam edebilirsiniz!",
+                    "updated": 1640864703636
                 }
             ]
         }

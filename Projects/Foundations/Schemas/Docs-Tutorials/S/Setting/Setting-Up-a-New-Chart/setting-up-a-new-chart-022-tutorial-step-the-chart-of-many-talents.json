@@ -5,7 +5,7 @@
     "definition": {
         "text": "The Timeline Chart gives you total control over the layers available  in your chart.",
         "icon": {
-            "name": "Time/timeline-chart",
+            "name": "timeline-chart",
             "project": "Foundations"
         },
         "updated": 1619023145084,

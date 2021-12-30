@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Pendiente de revisión y requisitos de cotización.",
                 "updated": 1637228234106
+            },
+            {
+                "language": "RU",
+                "text": "Ожидание требований к листингу и пересмотр.",
+                "updated": 1640786681595
             }
         ]
     },
@@ -377,7 +382,14 @@
         {
             "style": "List",
             "text": "Observations: A quick look on August 9th, 2021. Light and decent conversation. Some shilling of coins. Some support requests from users redirected to the website's chat by admins. Many admins present. ",
-            "updated": 1628539131853
+            "updated": 1628539131853,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Observations: A quick look on August 9th, 2021. Light and decent conversation. Some shilling of coins. Some support requests from users redirected to the website's chat by admins. Many admins present.",
+                    "updated": 1640787037167
+                }
+            ]
         },
         {
             "style": "Subtitle",

@@ -6,7 +6,7 @@
         "text": "Did you find the Time Machine you added? Don't forget to move around the Charting Space, I know it's here!",
         "updated": 1620264964599,
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "translations": [

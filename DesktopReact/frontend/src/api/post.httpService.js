@@ -1,15 +1,11 @@
-import {
-    httpRequest,
-    GET,
-    POST
-} from './httpConfig'
+import {GET, httpRequest, POST} from './httpConfig'
 
 function createPost(postBody) {
-    return httpRequest('/createPost', POST, postBody);
+    return httpRequest('/posts', POST, postBody);
 }
 
-function getPosts(postBody) {
-    return httpRequest('/getPosts', GET, postBody);
+function getPosts(queryParams) {
+    return httpRequest('/posts', GET, undefined, queryParams);
 }
 
 export {

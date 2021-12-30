@@ -13,7 +13,7 @@
 }
 
 .postFooterContainerSpeedDial { /* size of the reaction div */
-    width: 50%;
+    width: 45%;
 }
 
 .footerCommentContainer {
@@ -45,12 +45,22 @@
 }
 
 .repostIconButton{
-    /*box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*/
-    /*width: 15px;
-    height: 15px;
-    min-height: 25px;*/
 }
-/*
-.postFooterRepostIconButton {
-    height: 40px;
-}*/
+
+.reactionsButtons{
+    position: relative !important;
+    min-height: 0.5rem;
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    box-shadow: none !important;
+    margin: 0.20rem !important;
+}
+
+.speedDialContainer{ /*remove if not needed*/
+    /*width: 17rem !important;
+    height: 17rem !important;*/
+}
+
+.MuiSpeedDial-actions{
+    margin-left: -45px !important;
+}

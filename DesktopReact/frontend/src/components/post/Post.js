@@ -1,23 +1,55 @@
 import "./Post.css"
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Avatar, Card, Stack} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import PostFooter from "../PostFooter/PostFooter";
 import FooterReply from "../FooterReply/FooterReply";
+import {useNavigate, useParams} from "react-router-dom";
+import Store from '../../store/index';
+import {useDispatch, useSelector} from 'react-redux'
+import {setSelectedPost} from '../../store/slices/post.slice'
 
-const Post = ({userName, postBody}) => {
 
-    const [collapse, setCollapse] = useState(true)
-    const Toggle = () => setCollapse(!collapse)
+const Post = ({postData}) => {
+    const {postId:postIdParameter} = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const selectedPost = useSelector( state => state.post.selectedPost );
+    const [post, setPost] = useState({});
+    const [collapse, setCollapse] = useState(false);
+    const ToggleCollapseComment = () => setCollapse(!collapse);
+
+    useEffect( () => {
+        if (postData){
+            setPost(postData);
+            if(selectedPost){
+                dispatch( setSelectedPost({}) );
+            }
+        } else {
+            if (selectedPost)
+                setPost(selectedPost);
+        };
+    }, [])
+
+    if(!post.emitterUserProfile) {
+        return <></>
+    }
+
+    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId, emitterPost: {reactions: reactions} } = post;
+
+    const handlePostClick = (e) => {
+        if(postIdParameter !== postId) {
+            e.preventDefault()
+            dispatch(setSelectedPost(postData))
+            navigate(`/post/${postId}`) //todo implement reply feed
+        }
+    }
 
     return (
-        <div className="postWrapper" onClick={(e) => {
-            e.stopPropagation()
-            //console.log("Hello from clicked post: ")
-        }}
+        <div className="postWrapper"
         >
             <Card className="post">
-                <Stack direction="row">
+                <Stack direction="row" onClick={handlePostClick}>
                     <Stack className="postAvatarContainer">
                         <Avatar src={pic}/>
                     </Stack>
@@ -26,18 +58,10 @@ const Post = ({userName, postBody}) => {
                     </Stack>
                 </Stack>
                 <Stack className="postBody">
-                    {postBody}
+                    {postBody ? postBody.toString() : ''}
                 </Stack>
-                <PostFooter/>
-                {/*<Collapse in={collapse}> /!*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js *!/*/}
-                {/*    <Divider />*/}
-                {/*    <FooterReply/>*/}
-                {/*</Collapse>*/}
-                {/*<Collapse in={true}> /!*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js *!/*/}
-                {/*    <Divider />*/}
-                {/*    <FooterReply/>*/}
-                {/*</Collapse>*/}
-                <FooterReply show={collapse}/>
+                <PostFooter  postId={postId} reactions={reactions} stateCallback={ToggleCollapseComment}/>
+                {/*<FooterReply show={collapse}/>*/}
             </Card></div>
     );
 };

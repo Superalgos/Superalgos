@@ -1,34 +1,20 @@
 import './PostsFeed.css';
-import React, {useEffect, useState} from 'react';
-import {Stack} from "@mui/material";
-import Post from "../post/Post";
-import { STATUS_OK } from "../../api/httpConfig";
-import { getPosts } from "../../api/post.httpService";
+import React from 'react';
+import {Skeleton, Stack} from "@mui/material";
 
-const PostsFeed = () => {
-    const [posts, setPosts] = useState([]);
-
-    const loadProfiles = async () => {
-        let {data, result} = await getPosts().then(response => response.json());
-        if (result === STATUS_OK) {
-            let mappedPosts = data.map((post, index) => <Post key={index} id={index}
-                                                              userName={post.emitterUserProfile.userProfileHandle}
-                                                              postBody={post.postText}/>
-            );
-            setPosts(mappedPosts);
-        }
-    }
-
-    useEffect(() => {
-        return loadProfiles();
-    }, []);
-
+const PostsFeed = ({posts, loading}) => {
+    const skeletons = [
+        <Skeleton variant="rectangular" width="100%" height="12rem"/>,
+        <Skeleton variant="rectangular" width="100%" height="12rem"/>
+    ]
 
     return (
         <div className="postFeedContainer">
             <Stack direction="column"
                    spacing={2}>
-                {posts}
+                {
+                    loading ? (skeletons) : (posts)
+                }
             </Stack>
         </div>
     );

@@ -1,29 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./FooterReply.css"
 import {Avatar, Button, Collapse, Divider, Stack, TextField, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png";
 
 const FooterReply = ({show}) => {
+    // review, some states may not needed
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [postText, setPostText] = useState(undefined);
+    const handleChange = (event) => {
+        setPostText(event.target.value);
+    }
 
-    // TODO add functionality. If the inputbox of the reply is empty, open the modal, otherwise just post the reply
-    let inputValue = undefined
-    const handleClick = () => {
-        console.log("Click comment button: ")
-        if (inputValue === "") {
-            handleOpen()
-            console.log("Hello from reply modal")
-        } else {
-            console.log("Hello from reply")
-        }
+    const handleClick = (e) => {
+        e.stopPropagation()
+        handleOpen()
+        console.log("Hello from reply")
     }
 
     return (
-        <Collapse in={show}> {/*TODO needs to listen to HandleCommentContainer function's state in PostFooter.js */}
+        <Collapse in={show}>
             <Divider/>
-
             <div className="footerReply">
                 <Stack className="footerReplyStack" direction="row">
                     <Stack className="replyAvatarContainer">
@@ -31,23 +29,26 @@ const FooterReply = ({show}) => {
                     </Stack>
                     <Stack className="replyBody">
                         <Typography gutterBottom variant="subtitle1" component="div">
-                            <TextField value={inputValue}
+                            <TextField value={postText}
                                        id="outlined-multiline-flexible"
                                        label="Post your reply"
                                        fullWidth
                                        multiline
                                        maxRows={6}
+                                       onChange={handleChange}
                             />
                         </Typography>
                     </Stack>
                 </Stack>
                 <Stack className="replyButton" direction="row">
                     <Button onClick={handleClick}
+                            onChange={handleChange}
+                            value={postText}
+                            disabled={!postText}
                             className="replyButtonStyle" variant="outlined"
                     >
                         Reply
                     </Button>
-                    {/* todo need modal to handle the reply if the input is empty */}
                 </Stack>
             </div>
         </Collapse>

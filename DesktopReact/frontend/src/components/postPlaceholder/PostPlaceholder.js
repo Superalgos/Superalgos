@@ -2,20 +2,20 @@ import "./PostPlaceholder.css"
 import React, {useState} from 'react';
 import {Alert, Avatar, Button, Card, Snackbar, Stack, TextField, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
-import { STATUS_OK }  from "../../api/httpConfig";
-import { createPost } from "../../api/post.httpService"
+import {STATUS_OK} from "../../api/httpConfig";
+import {createPost} from "../../api/post.httpService"
 
-const PostPlaceholder = () => {
+const PostPlaceholder = ({reloadPostCallback}) => {
     const [postText, setPostText] = useState(undefined);
     const [open, setOpen] = useState(false);
 
     const onButtonClick = async () => {
-        console.log(postText)
-        let status = await createPost({body: postText}).then(response => response.json());
-        console.log(status)
-        if (status === STATUS_OK) return;
+        let status = await createPost({postText: postText}).then(response => response.json());
+        if (status === STATUS_OK) {
+            reloadPostCallback();
+            return;
+        }
         setOpen(true);
-
     }
 
     const handleChange = (event) => {

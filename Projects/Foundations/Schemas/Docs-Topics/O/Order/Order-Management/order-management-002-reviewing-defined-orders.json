@@ -4,22 +4,50 @@
     "type": "Reviewing Defined Orders",
     "definition": {
         "text": "The trading bot checks all existing orders upon each execution to determine what needs to be done with each of them.",
-        "updated": 1610219637945
+        "updated": 1610219637945,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот проверяет все существующие ордера при каждом исполнении, чтобы определить, что нужно сделать с каждым из них.",
+                "updated": 1640176737166
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Each order has a create order event, and limit orders may have a cancel order event. This means that orders may be created and, in the case of limit orders, canceled.",
-            "updated": 1610219649118
+            "updated": 1610219649118,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый ордер имеет событие создания ордера, а лимитные ордера могут иметь событие отмены ордера. Это означает, что ордера могут быть созданы и, в случае лимитных ордеров, отменены.",
+                    "updated": 1640175422196
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For each order defined, the bot performs multiple checks which may result in different actions. Two particular cases are analyzed separately: when the order is Not Open and when the order is Open."
+            "text": "For each order defined, the bot performs multiple checks which may result in different actions. Two particular cases are analyzed separately: when the order is Not Open and when the order is Open.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для каждого определенного ордера бот выполняет несколько проверок, которые могут привести к различным действиям. Отдельно анализируются два конкретных случая: когда ордер не открыт и когда ордер открыт.",
+                    "updated": 1640175446709
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "The Order is Not Open",
-            "updated": 1610219666758
+            "updated": 1610219666758,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордер не открыт",
+                    "updated": 1640175462560
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -27,12 +55,26 @@
         },
         {
             "style": "Text",
-            "text": "If the order is Not Open it means that it may need to be created. However, a few checks are in order."
+            "text": "If the order is Not Open it means that it may need to be created. However, a few checks are in order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ордер не открыт (\"Not Open\"), это означает, что его, возможно, необходимо создать. Однако необходимо провести несколько проверок.",
+                    "updated": 1640175510185
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Orders are not created in the first Cycle.",
-            "updated": 1610219707546
+            "updated": 1610219707546,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордеры не создаются в первом цикле (Cycle).",
+                    "updated": 1640175675658
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -40,7 +82,14 @@
         },
         {
             "style": "List",
-            "text": "Orders are not created when the stage is closing."
+            "text": "Orders are not created when the stage is closing.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера не создаются на стадии закрытия.",
+                    "updated": 1640175977838
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -48,7 +97,14 @@
         },
         {
             "style": "List",
-            "text": "For order definitions that do not allow spawning multiple orders, orders are not created when the lock is closed."
+            "text": "For order definitions that do not allow spawning multiple orders, orders are not created when the lock is closed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для определений ордеров, которые не позволяют порождать несколько ордеров, ордера не создаются в случае когда замок закрыт.",
+                    "updated": 1640176169445
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -57,12 +113,26 @@
         {
             "style": "Text",
             "text": "If previous checks pass and one of the situations in the create order event validates true, then the order is created (see Opening Orders).",
-            "updated": 1610219773322
+            "updated": 1610219773322,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если предыдущие проверки пройдены и одна из ситуаций в событии создания ордера установлена как true, то ордер создается (см. раздел Opening Orders).",
+                    "updated": 1640176278050
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "The Order is Open",
-            "updated": 1610219785473
+            "updated": 1610219785473,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордер открыт",
+                    "updated": 1640176299028
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -70,11 +140,25 @@
         },
         {
             "style": "Text",
-            "text": "If the order is Open and it is a limit order, it may need to be canceled (market orders may not be canceled as they are supposed to fill almost instantaneously). Also, several other system actions may be required. A few checks are in order."
+            "text": "If the order is Open and it is a limit order, it may need to be canceled (market orders may not be canceled as they are supposed to fill almost instantaneously). Also, several other system actions may be required. A few checks are in order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ордер открыт и является лимитным, его, возможно, придется отменить (рыночные ордера не могут быть отменены, поскольку они должны исполняться почти мгновенно). Также могут потребоваться некоторые другие действия системы. Необходимо провести несколько проверок.",
+                    "updated": 1640176405764
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Orders are not canceled in the second cycle, only the first."
+            "text": "Orders are not canceled in the second cycle, only the first.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера не отменяются во втором цикле, только в первом.",
+                    "updated": 1640176427633
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -82,15 +166,36 @@
         },
         {
             "style": "List",
-            "text": "If it’s a forward testing or live trading session, the events that take place at the exchange must be checked (see Checking exchange events). If the checking of the events at the exchange fails for whatever reason, the order may not be canceled and will need to wait for the next execution."
+            "text": "If it’s a forward testing or live trading session, the events that take place at the exchange must be checked (see Checking exchange events). If the checking of the events at the exchange fails for whatever reason, the order may not be canceled and will need to wait for the next execution.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если это форвардное тестирование или реальная торговая сессия, необходимо проверить события, происходящие на бирже (см. Checking exchange events). Если проверка событий на бирже по какой-либо причине не удалась, ордер не может быть отменен и должен ждать следующего исполнения (execution).",
+                    "updated": 1640176514849
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If it’s a backtesting or paper trading session, the events that take place at the exchange must be simulated (see Simulating check of events)."
+            "text": "If it’s a backtesting or paper trading session, the events that take place at the exchange must be simulated (see Simulating check of events).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если речь идет о бэктестинге или бумажной торговой сессии, необходимо смоделировать события, происходящие на бирже (см. раздел Simulating check of events).",
+                    "updated": 1640176615535
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If previous checks pass and one of the situations in the cancel order event validates true, then the order is canceled (see Canceling orders). If the order is indeed closed, the order is cloned to update the corresponding data structure of the tradingEngine.tradingLast node."
+            "text": "If previous checks pass and one of the situations in the cancel order event validates true, then the order is canceled (see Canceling orders). If the order is indeed closed, the order is cloned to update the corresponding data structure of the tradingEngine.tradingLast node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если предыдущие проверки пройдены и одна из ситуаций в событии отмены ордера принимает значение true, то ордер отменяется (см. раздел Canceling orders). Если ордер действительно закрыт, то ордер клонируется для обновления соответствующей структуры данных узла tradingEngine.tradingLast.",
+                    "updated": 1640176669558
+                }
+            ]
         },
         {
             "style": "Text",

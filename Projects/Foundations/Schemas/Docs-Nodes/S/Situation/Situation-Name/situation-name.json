@@ -1,7 +1,14 @@
 {
     "type": "Situation Name",
     "definition": {
-        "text": "Situation name features the name of the situation that triggered a certain event, which is dependent on the context."
+        "text": "Situation name features the name of the situation that triggered a certain event, which is dependent on the context.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Situation Name - название ситуации, вызвавшей определенное событие, которое зависит от контекста.",
+                "updated": 1640351060151
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "In the context of a strategy, it is the name of the situation that triggered-on the strategy."
+            "text": "In the context of a strategy, it is the name of the situation that triggered-on the strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте стратегии это название ситуации, которая привела в действие стратегию.",
+                    "updated": 1640351076897
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of a position, it's the name of the situation that triggered the take position event."
+            "text": "In the context of a position, it's the name of the situation that triggered the take position event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте позиции это название ситуации, которая вызвала событие взятия позиции.",
+                    "updated": 1640351088783
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of an order, it's the situation that triggered the create order event."
+            "text": "In the context of an order, it's the situation that triggered the create order event.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте ордера это ситуация, которая вызвала событие создания ордера.",
+                    "updated": 1640351102564
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,15 +55,36 @@
         {
             "style": "Title",
             "text": "Situation Name Configuration",
-            "updated": 1609926290356
+            "updated": 1609926290356,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Situation Name",
+                    "updated": 1640351117516
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1640351123185
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialValue allows resetting the initial state of the node to an arbitrary value."
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1640351129792
+                }
+            ]
         }
     ]
 }

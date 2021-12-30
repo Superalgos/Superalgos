@@ -13,7 +13,21 @@
     <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="font-awasome.css" type="text/css"/>
     <link rel="stylesheet" href="prism.css" type="text/css"/>
+    <link rel="stylesheet" href="menu.css" type="text/css"/>
     <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico"/>
+    <script src="externalScripts/jquery-3.6.0.js"></script>
+    <script src="externalScripts/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: ".tutorial-content-div",
+            start: function (event, ui) {
+                $(this).css("cursor", "grabbing");
+            },
+            stop: function (event, ui) {
+                $(this).css("cursor", "grab");
+            } });
+        });
+    </script> 
     <script type="text/javascript" src="WebServer/require.js"></script>
     <script type="text/javascript" src="AppPreLoader.js"></script>
     <script src="externalScripts/CCapture.all.min.js"></script>
@@ -174,33 +188,34 @@
 <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
 
 <!-- Tutorial Template Divs -->
-<div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
-<div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
-    <form>
-        <table class="tutorial-buttonsTable">
-            <tr>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-stop-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.stop()"
-                           value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
-                </td>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-skip-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.skip()"
-                           value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
-                </td>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-previous-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
-                </td>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-next-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.next()"
-                           value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
-                </td>
-            </tr>
-        </table>
-    </form>
+<div id="tutorialDiv" class="tutorial-step" style="width:400; height:675; z-index:1; display:none">
+    <div id="tutorialFormDiv" class="tutorial-form">
+        <form>
+            <table class="tutorial-buttonsTable">
+                <tr>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-stop-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.stop()"
+                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-skip-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.skip()"
+                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-previous-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-next-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.next()"
+                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
 
 <div id="menu" class="docs-menu-table">
@@ -297,7 +312,6 @@
         </div>
     </div>
 </div>
-
+<div id="topMenu"></div>
 </body>
-
 </html>

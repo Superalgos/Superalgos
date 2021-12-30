@@ -1,0 +1,94 @@
+#topMenu {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    z-index: 1;
+    font-family: 'Saira Condensed';
+    font-weight: bold;
+    letter-spacing: 0.2px;
+}
+
+nav il {
+    position: relative;
+    display: block;
+    opacity: 1;
+    cursor: pointer;
+}
+
+nav > ul > il > a{
+    background:rgb(0, 0, 0, 0);
+}
+
+nav > ul > il > ul > il a{
+    background:rgb(0, 0, 0, 0.5);
+}
+
+nav il > ul {
+    padding: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+nav > ul {
+    margin: 0;
+    display:flex;
+}
+
+nav > ul > il {
+    pointer-events: all;
+    opacity: 1;
+    text-decoration: underline;
+}
+
+ul il a {
+    white-space: nowrap;
+    display: block;
+}
+   
+il:hover > ul {
+    pointer-events: initial;
+}
+
+il:hover > ul > il,
+ul:hover > il {
+    opacity: 1;
+}
+
+nav > ul > il il ul {
+    transform: translateX(100%);
+    top: 0;
+    right: 0;
+}
+
+nav {
+    width: 80%;
+    margin: auto;
+}
+
+nav a {
+    background:rgb(0, 0, 0, 0.5);
+    color:#FFF;
+    height: 38px;
+    margin: 0px 3px 3px 0px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    transition: 0.1s;
+}
+
+nav a:hover {
+    background:rgb(2 149 170);
+    transition: 0.1s;
+}
+
+nav > ul > il > ul > il {
+    transition: opacity 0.1s;
+    opacity: 0;
+}
+
+il > ul > il > ul > il {
+    transition: opacity 0.1s;
+    opacity: 0;
+}

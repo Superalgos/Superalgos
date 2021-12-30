@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Der App Update Command holt die neueste Version der Software aus dem Upstream Repository im aktuellen Zweig!",
                 "updated": 1635148204351
+            },
+            {
+                "language": "RU",
+                "text": "Перед внесением вклада, а также при устранении неполадок или сообщении об ошибках любого рода рекомендуется обновлять данные!",
+                "updated": 1640158960617
+            },
+            {
+                "language": "TR",
+                "text": "Katkıda bulunmadan önce veya herhangi bir türdeki hatayı giderirken yada bildirirken superalgos'un güncel olması gerekir!",
+                "updated": 1640554335251
             }
         ]
     },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass Sie diesen Befehl in jedem der Zweige verwenden können! Das ist es:",
                     "updated": 1635148211414
+                },
+                {
+                    "language": "RU",
+                    "text": "Команда App Update Command извлекает последнюю версию программного обеспечения из репозитория upstream в текущей ветке Current Branch!",
+                    "updated": 1640158999138
                 }
             ]
         },
@@ -78,6 +93,16 @@
                     "language": "DE",
                     "text": "Kopieren Sie den Befehl und führen Sie ihn aus indem sie Ihn in den Docs ganz oben im Such- und Befehlsfeld eingeben. ",
                     "updated": 1635148726927
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте и запустите команду в окне поиска/команды в самом верху вкладки Docs.",
+                    "updated": 1640159069819
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
+                    "updated": 1640554566255
                 }
             ],
             "updated": 1635148665427
@@ -103,6 +128,16 @@
                     "language": "DE",
                     "text": "Sobald die Aktualisierung abgeschlossen ist, müssen Sie die App wieder schließen, neu starten, das Tutorial finden und auf Fortsetzen klicken, genau wie Sie es zuvor getan haben!",
                     "updated": 1635148282859
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку вы только что сменили ветку, вы уже должны быть в курсе последних изменений!",
+                    "updated": 1640159174947
+                },
+                {
+                    "language": "TR",
+                    "text": "Şube değiştirdiğiniz için zaten güncel olmalısınız!",
+                    "updated": 1640554583592
                 }
             ]
         }

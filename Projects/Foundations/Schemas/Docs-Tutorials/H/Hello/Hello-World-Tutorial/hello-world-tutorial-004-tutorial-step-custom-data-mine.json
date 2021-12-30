@@ -25,6 +25,16 @@
                 "language": "IT",
                 "text": "Non solo i Workspaces possono essere modificati",
                 "updated": 1639073159902
+            },
+            {
+                "language": "TR",
+                "text": "Yalnızca Çalışma Alanları ( Workspaces ) değiştirilemez",
+                "updated": 1640616138230
+            },
+            {
+                "language": "RU",
+                "text": "Изменять можно не только рабочие пространства",
+                "updated": 1640633292137
             }
         ]
     },
@@ -49,6 +59,16 @@
                     "language": "IT",
                     "text": "SA è modulare e può essere organizzato nel modo che preferiamo per le nostre esigenze.",
                     "updated": 1639073670338
+                },
+                {
+                    "language": "TR",
+                    "text": "SA çok modülerdir ve ihtiyaçlarımız için tercih ettiğimiz şekilde düzenlenebilir.",
+                    "updated": 1640616150087
+                },
+                {
+                    "language": "RU",
+                    "text": "У Superalgos модульная система, которая может быть организована так, как мы хотим для наших нужд.",
+                    "updated": 1640633435587
                 }
             ]
         },
@@ -71,6 +91,16 @@
                     "language": "IT",
                     "text": "Ho preparato per te un workspace molto semplice con un nuovo  Data Mine e ho organizzato i nodi eliminando tutto ciò che non mi serviva per questo tutorial.",
                     "updated": 1639073239124
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni bir Veri Madeni ( Data Mine ) ile sizin için çok basit bir Çalışma Alanı ( Workspace ) hazırladım ve bu eğitim için ihtiyacım olmayan her şeyi silerek düğümleri düzenledim.",
+                    "updated": 1640616164929
+                },
+                {
+                    "language": "RU",
+                    "text": "Я подготовил для вас базовое рабочее пространство с новым Data Mine и расположил узлы, удалив все, что мне не нужно для этого урока.",
+                    "updated": 1640633473041
                 }
             ]
         },
@@ -93,6 +123,16 @@
                     "language": "IT",
                     "text": "In SA anche i Data Mine possono essere aggiunti o rimossi ma ricorda che i dati salvati sul disco rigido non verranno eliminati se si rimuove un indicatore!",
                     "updated": 1639073315071
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Sa veri madenleri eklenebilir ve kaldırılabilir, ancak bir göstergeyi kaldırırsanız sabit diskinize kaydedilen veriler silinmez!",
+                    "updated": 1640616179214
+                },
+                {
+                    "language": "RU",
+                    "text": "В Superalgos источники данных можно добавлять и удалять, но данные, сохраненные на жестком диске, не будут удалены, если вы удалите индикатор!",
+                    "updated": 1640633531680
                 }
             ]
         },

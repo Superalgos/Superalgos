@@ -4,7 +4,14 @@
     "type": "Distance-To-Trading-Events",
     "definition": {
         "text": "Track the number of periods that have passed since the last occurrence of each type of event. On this page: Trigger On, Trigger Off, Take Position, Close Position, Next Phase, Move to Phase, Create Order, Cancel Order, Close Order.",
-        "updated": 1611327154424
+        "updated": 1611327154424,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Отслеживайте количество периодов, прошедших с момента последнего появления каждого типа события. На этой странице: Trigger On, Trigger Off, Take Position, Close Position, Next Phase, Move to Phase, Create Order, Cancel Order, Close Order.",
+                "updated": 1640347416232
+            }
+        ]
     },
     "paragraphs": [
         {

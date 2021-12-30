@@ -4,22 +4,50 @@
     "type": "Switching Branches - Current Branch Changed",
     "definition": {
         "text": "You are now standing at the new Current Branch, but the App is still running the code of the previous branch. To finish this process you need to restart the Superalgos Client and reload the UI.  ",
-        "updated": 1610543555871
+        "updated": 1610543555871,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Теперь вы находитесь в новой текущей ветке (Current Branch), но приложение все еще выполняет код предыдущей ветки. Чтобы завершить этот процесс, необходимо перезапустить Superalgos Client и перезагрузить пользовательский интерфейс UI.",
+                "updated": 1640236393288
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Also remember that if you have tasks running at the same machine where the Superalgos Client is, they are still running the previous branch code. You need to restart them too after you restart the client.",
-            "updated": 1610543634663
+            "updated": 1610543634663,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Также помните, что если на той же машине, где находится клиент Superalgos, запущены задачи, они все еще выполняют код предыдущей ветки. Их тоже нужно перезапустить после перезапуска клиента.",
+                    "updated": 1640236412812
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Even though you are standing in a different branch now, that does not mean that this branch is up-to-date with the latest changes made by other contributors. To update it, please run the App Update Command."
+            "text": "Even though you are standing in a different branch now, that does not mean that this branch is up-to-date with the latest changes made by other contributors. To update it, please run the App Update Command.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Даже если вы сейчас находитесь в другой ветке, это не означает, что эта ветка обновлена последними изменениями, внесенными другими участниками. Чтобы обновить ее, выполните команду App Update Command.",
+                    "updated": 1640236431902
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This change does not affet other nodes running Superalgos. The only one affected is the one you are connecting to the UI.",
-            "updated": 1621288204638
+            "updated": 1621288204638,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это изменение не затрагивает другие узлы, на которых работает Superalgos. Затронут только тот узел, который вы подключаете к пользовательскому интерфейсу.",
+                    "updated": 1640236455833
+                }
+            ]
         }
     ]
 }

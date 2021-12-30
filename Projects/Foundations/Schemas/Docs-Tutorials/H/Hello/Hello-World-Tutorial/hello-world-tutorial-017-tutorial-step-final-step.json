@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "¡Es hora de mirar el gráfico!",
                 "updated": 1629578259488
+            },
+            {
+                "language": "IT",
+                "text": "Guradiamo il grafico del backtest!",
+                "updated": 1640111014977
+            },
+            {
+                "language": "TR",
+                "text": "Grafiğe bakma zamanı!",
+                "updated": 1640618450540
+            },
+            {
+                "language": "RU",
+                "text": "Пора взглянуть на график!",
+                "updated": 1640857538682
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "Cuando finaliza el backtest, detengo toda la jerarquía del nodo Testing Trading Tasks. Expande el nodo y has clic en Stop All.",
                     "updated": 1629578317859
+                },
+                {
+                    "language": "IT",
+                    "text": "Per risparmiare risorse quando il backtest finische fermo tutto il processo. Espandi un nodo e premi Stop.",
+                    "updated": 1640111147458
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri test bittiğinde, Ticaret Görevlerini Test ( Testing Trading Tasks ) Etme düğümünden tüm hiyerarşiyi durduruyorum. Düğümü genişletin ve Tümünü Durdur'a tıklayın.",
+                    "updated": 1640618465976
+                },
+                {
+                    "language": "RU",
+                    "text": "По завершении бэктеста я останавливаю всю иерархию в узле Testing Trading Tasks. Разверните узел и нажмите кнопку Stop All.",
+                    "updated": 1640857559517
                 }
             ]
         },
@@ -56,6 +86,21 @@
                     "language": "ES",
                     "text": "Recuerda que es una buena práctica mantener las jerarquías colapsadas y detener las tareas inútiles para ahorrar recursos.",
                     "updated": 1629578351656
+                },
+                {
+                    "language": "IT",
+                    "text": "SA è molto esoso di risorse! E' buona norma fermare i process non essenziali.",
+                    "updated": 1640111143226
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kaynakları korumak için hiyerarşileri daraltmanın ve gereksiz görevleri durdurmanın iyi bir uygulama olduğunu unutmayın",
+                    "updated": 1640618476743
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что хорошей практикой является сохранение иерархий в свернутом виде и завершение неиспользуемых задач для экономии ресурсов!",
+                    "updated": 1640857602673
                 }
             ]
         },

@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "network"
         },
-        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the Network.",
+        "text": "Before I show you the rest of the menu, let's take a look at another hierarchy: the LAN Network.",
         "translations": [
             {
                 "language": "ID",
@@ -56,12 +56,13 @@
                 "text": "Прежде, чем я покажу Вам остальную часть меню, давайте посмотрим на другую иерархию - Network.\n",
                 "updated": 1635510334014
             }
-        ]
+        ],
+        "updated": 1640343243633
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
+            "text": "The LAN Network hierarchy is the control room of the system. This is where you control your Data Tasks, Testing Trading Tasks, and Production Trading Tasks.",
             "translations": [
                 {
                     "language": "ID",
@@ -110,7 +111,8 @@
                     "text": "Сетевая иерархия - это управленческая комната системы. Именно здесь Вы управляете своими Data Tasks, Testing Trading Tasks, and Production Trading Tasks операциями.",
                     "updated": 1635510485010
                 }
-            ]
+            ],
+            "updated": 1640343257331
         },
         {
             "style": "Callout",

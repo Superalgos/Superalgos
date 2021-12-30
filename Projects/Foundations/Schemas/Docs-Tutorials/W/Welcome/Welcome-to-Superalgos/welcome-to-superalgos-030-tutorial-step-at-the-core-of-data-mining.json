@@ -53,8 +53,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "By now you've learned about six different devices that you may use to control each bot in your data mining operation. At the highest level, the Data Tasks node controls all data mining bots in the Network Node.",
-            "updated": 1610614923203,
+            "text": "By now you've learned about six different devices that you may use to control each bot in your data mining operation. At the highest level, the Data Tasks node controls all data mining bots in the LAN Network Node.",
+            "updated": 1640358469790,
             "translations": [
                 {
                     "language": "IT",

@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Wenn Sie den Befehl richtig ausgeführt haben, sollten Sie eine neue Seite mit dem von Ihnen festgelegten Titel, einer Aufforderung zum Schreiben einer Zusammenfassung und weiteren Anweisungen unten erhalten!",
                 "updated": 1635148788232
+            },
+            {
+                "language": "RU",
+                "text": "Если вы не перепутали команду, вы должны получить новую страницу с заданным вами заголовком, приглашением написать краткое изложение и дальнейшими инструкциями ниже!",
+                "updated": 1640159615603
+            },
+            {
+                "language": "TR",
+                "text": "Komutu yanlış yazmadıysanız, belirlediğiniz başlığı, bir özet yazma daveti ve aşağıda daha fazla talimat içeren yeni bir sayfa görmelisiniz!",
+                "updated": 1640555422367
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Wenn Sie eine Fehlermeldung erhalten haben, lesen Sie sie und beheben Sie das Problem! Es handelt sich wahrscheinlich um einen Fehler in der Syntax des Befehls. Sie können jederzeit einen Schritt zurückgehen, um den ursprünglichen Befehl wiederherzustellen!",
                     "updated": 1635148795437
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы получили сообщение об ошибке, прочитайте его и устраните проблему! Скорее всего, дело в синтаксисе команды. Вы всегда можете вернуться на шаг назад, чтобы восстановить исходную команду!",
+                    "updated": 1640159633942
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir hata mesajı aldıysanız, okumalı ve sorunu çözmelisiniz! Komuttaki sözdizimi ile ilgili olabilir. Orijinal komutu tekrar bulabilmek için her zaman bir adım geri gidebilirsiniz! (Previous tuşunu kullanarak)",
+                    "updated": 1640555518049
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Im nächsten Schritt werden wir analysieren, wie der Befehl funktioniert!",
                     "updated": 1635148801960
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем шаге мы проанализируем, как работает эта команда!",
+                    "updated": 1640159648023
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz!",
+                    "updated": 1640555531810
                 }
             ]
         }

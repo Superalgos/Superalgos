@@ -34,7 +34,7 @@ function newPluginsUtilitiesPlugins() {
 
     function addMissingPluginFile(node, fileName, pluginFolder, nodeType, project, saveWithWorkspace) {
         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenByName(node, fileName) === true) {
-            let child = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
+            let child = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Plugin File', undefined, 'Community-Plugins')
             child.name = fileName
             child.config = JSON.stringify({
                 project: project,
@@ -145,7 +145,7 @@ function newPluginsUtilitiesPlugins() {
             return
         }
         let fileContent = JSON.stringify(
-            UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
+            UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(pluginToSave, false, false, true, true, true),
             undefined,
             4)
 

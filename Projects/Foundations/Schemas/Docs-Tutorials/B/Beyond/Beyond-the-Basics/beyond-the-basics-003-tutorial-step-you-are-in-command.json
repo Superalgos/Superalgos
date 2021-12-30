@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Dokümanlar'daki arama kutusu olan arkadaşım hakkında konuşalım. Biraz çifte hayatı var: hem araştırıyor hem de emrediyor!",
                 "updated": 1639861462859
+            },
+            {
+                "language": "RU",
+                "text": "Давайте поговорим о моем друге, поисковой строке в документах (Docs). У нее немного двойная жизнь: она не только ищет, но и командует!",
+                "updated": 1640154340830
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Yani arama kutusu aynı zamanda bir komut satırı arayüzüdür! Geçerli komut listesi şunlarla ilgilidir:",
                     "updated": 1639861481713
+                },
+                {
+                    "language": "RU",
+                    "text": "То есть, окно поиска - это еще и интерфейс командной строки! Текущий список команд включает в себя:",
+                    "updated": 1640154364407
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Dokümanların üretilmesi ve düzenlenmesi.",
                     "updated": 1639861494950
+                },
+                {
+                    "language": "RU",
+                    "text": "Производство и редактирование документов.",
+                    "updated": 1640154376361
                 }
             ]
         },
@@ -112,6 +127,11 @@
                     "language": "TR",
                     "text": "Güncellemelerin alınması.",
                     "updated": 1639861514290
+                },
+                {
+                    "language": "RU",
+                    "text": "Получение обновлений.",
+                    "updated": 1640154387384
                 }
             ]
         },
@@ -141,6 +161,11 @@
                     "language": "TR",
                     "text": "Projeye katkı sağlamak.",
                     "updated": 1639861525708
+                },
+                {
+                    "language": "RU",
+                    "text": "Внесение вклада в проект.",
+                    "updated": 1640154397107
                 }
             ]
         },
@@ -170,6 +195,11 @@
                     "language": "TR",
                     "text": "İkisini içeren pratik bir örnek üzerinde çalışalım! Size dokümanları nasıl düzenleyeceğinizi ve birkaç komut kullanarak nasıl katkıda bulunacağınızı öğreteceğim!",
                     "updated": 1639861545268
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поработаем над практическим примером, в котором задействованы эти два аспекта! Я научу вас, как редактировать документы и как вносить вклад, используя пару команд!",
+                    "updated": 1640154428249
                 }
             ]
         },
@@ -199,6 +229,11 @@
                     "language": "TR",
                     "text": "Sonraki birkaç adımı küçük bir hikayeyle hazırlayacağım... Umarım fikri beğenirsiniz!",
                     "updated": 1639861563729
+                },
+                {
+                    "language": "RU",
+                    "text": "Я изложу следующие несколько шагов с помощью небольшой истории... Надеюсь, вам понравится идея!",
+                    "updated": 1640154447255
                 }
             ]
         }

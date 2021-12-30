@@ -4,74 +4,179 @@
     "type": "How to Troubleshoot an Issue",
     "definition": {
         "text": "This Troubleshooting Guide teaches you the logical steps that will help you better understand the system and find solutions to most of the issues you may run into.",
-        "updated": 1612874252158
+        "updated": 1612874252158,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это руководство по устранению неполадок научит вас логическим шагам, которые помогут вам лучше понять систему и найти решение большинства проблем, с которыми вы можете столкнуться.",
+                "updated": 1640438728271
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "There are several reasons why you may experience issues while using Superalgos. It may be due to a lack of understanding of how the system works, because you may be skipping a step or two in the process you are trying to engage with, or because something may not be working as it should.",
-            "updated": 1611509396717
+            "updated": 1611509396717,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует несколько причин, по которым вы можете столкнуться с проблемами при использовании Superalgos. Это может быть связано с непониманием того, как работает система, с тем, что вы пропускаете пару шагов в процессе, который вы пытаетесь осуществить, или с тем, что что-то может работать не так, как должно.",
+                    "updated": 1640438814988
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Whatever the reason may be, this page provides a step-by-step process that will help you understand what is going on so that your issue may be resolved in the most efficient possible way."
+            "text": "Whatever the reason may be, this page provides a step-by-step process that will help you understand what is going on so that your issue may be resolved in the most efficient possible way.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Какой бы ни была причина, на этой странице представлен пошаговый процесс, который поможет вам понять, что происходит, и решить вашу проблему наиболее эффективным способом.",
+                    "updated": 1640438846074
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In other words, following this step-by-step troubleshooting guide will either lead you to discovering what you may be doing wrong so that you may fix your issue and move on, or to gathering all the relevant information required for the Team to investigate the issue."
+            "text": "In other words, following this step-by-step troubleshooting guide will either lead you to discovering what you may be doing wrong so that you may fix your issue and move on, or to gathering all the relevant information required for the Team to investigate the issue.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, следуя этому руководству по устранению неисправностей, вы либо узнаете, что вы делаете неправильно, чтобы устранить проблему и двигаться дальше, либо соберете всю необходимую информацию, необходимую команде для изучения проблемы.",
+                    "updated": 1640438880663
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Thoroughly following this troubleshooting guide—step by step—is a requirement for reporting an issue or asking for help in the Support Group. We can not afford to investigate issues that you may solve on your own, or without the appropriate information. Doing so would rob the project of valuable resources.",
-            "updated": 1612875019106
+            "updated": 1612875019106,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тщательное следование этому руководству по устранению неполадок - шаг за шагом - является обязательным условием для сообщения о проблеме или обращения за помощью в группу поддержки. Мы не можем позволить себе изучать проблемы, которые вы можете решить самостоятельно или без соответствующей информации. Это лишит проект полезных ресурсов.",
+                    "updated": 1640438963788
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Before you even start troubleshooting, you should do all the tutorials available. This is the single best piece of advice you may get, as tutorials will teach you all the basic operations and will clarify most of the questions that derive from a lack of understanding of how the system works. Please, go to the First Steps Tutorials book and do some learning! Please do not ask for help before you do all tutorials!",
-            "updated": 1612874358930
+            "updated": 1612874358930,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Прежде чем приступать к устранению неполадок, необходимо изучить все доступные учебники. Это самый лучший совет, который вы можете получить, поскольку учебники научат вас всем основным операциям и прояснят большинство вопросов, которые возникают из-за непонимания того, как работает система. Пожалуйста, обратитесь к книге First Steps Tutorials и немного поучитесь! Пожалуйста, не обращайтесь за помощью до того, как вы изучите все учебники!",
+                    "updated": 1640439035460
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Start Here"
+            "text": "Start Here",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начните здесь",
+                    "updated": 1640439051077
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "1. Understand what you are doing and how the feature works"
+            "text": "1. Understand what you are doing and how the feature works",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Разберитесь в том, что вы делаете и как работает функция",
+                    "updated": 1640439094931
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you are following the Welcome tutorial, read carefully and make sure you haven’t skipped any steps. Go back a few steps and try again.",
-            "updated": 1612876297808
+            "updated": 1612876297808,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы следуете руководству Welcome, прочитайте внимательно и убедитесь, что вы не пропустили ни одного шага. Вернитесь на несколько шагов назад и попробуйте еще раз.",
+                    "updated": 1640439121889
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you are already using the system, take some time to search the Docs and read the topics related to the matters you are working with. Use the search box to search for the specific matter (backtesting, data mining, etc.)",
-            "updated": 1612875081868
+            "updated": 1612875081868,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы уже пользуетесь системой, уделите время поиску в документации и прочтите темы, относящиеся к вопросам, с которыми вы работаете. Используйте поисковую строку для поиска конкретного вопроса (бэктестинг, добыча данных и т.д.)",
+                    "updated": 1640439152939
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you are having trouble with a specific node on the Design Space, open the menu and click the help button. The Docs will open with a description of what the node is and how it works. Read about the node, its parent node, and its offspring.",
-            "updated": 1612876337693
+            "updated": 1612876337693,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникли проблемы с определенным узлом в Design Space, откройте меню и нажмите кнопку помощи. Откроются документы с описанием того, что это за узел и как он работает. Прочитайте об узле, его родительском узле и его потомках.",
+                    "updated": 1640439179685
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you are having trouble operating the charts, make sure you revisit the Welcome tutorial and the pages on Time Machines and Timeline Charts, and Scales.",
-            "updated": 1612874724546
+            "updated": 1612874724546,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "If you are having trouble operating the charts, make sure you revisit the Welcome tutorial and the pages on Если у вас возникли трудности в работе с диаграммами, обязательно просмотрите учебник Welcome и страницы, посвященные Time Machines и Timeline Charts, а также Scales. and Timeline Charts, and Scales.",
+                    "updated": 1640439270500
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If you are not sure what you should search for, go to the User Manual book and scan the topics covered there. If you are serious about learning Superalgos, reading the whole User Manual will put you at the top of the food chain.",
-            "updated": 1612874813098
+            "updated": 1612874813098,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы не уверены в том, что вам следует искать, обратитесь к книге User Manual и просмотрите темы, затронутые в ней. Если вы серьезно относитесь к изучению Superalgos, прочтение всего руководства пользователя поставит вас на вершину пищевой цепочки.",
+                    "updated": 1640439429836
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "There is no substitute for knowledge. The more you understand, the less time and effort you will waste with issues related to a lack of understanding, and the more focused your questions will be when asking for help. You may be inclined to take a shortcut and ask the community before doing your research. This may save you some time occasionally and may be appropriate in cases in which you need a little guidance or need to clear a quick doubt. However, the problem with lack of understanding is that it is a persistent condition until you deal with the root cause. The way to deal with the root cause is to take the time to do all the First Steps Tutorials and read the User Manual. Otherwise, you will find yourself dealing with the same constraints over and over again. Acquiring knowledge while being mindful of the Team’s time is the first step towards becoming a valuable member of the community.",
-            "updated": 1612876358894
+            "updated": 1612876358894,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Знания ничем не заменить. Чем больше вы понимаете, тем меньше времени и усилий вы потратите на решение проблем, связанных с непониманием, и тем более целенаправленными будут ваши вопросы при обращении за помощью. Вы можете быть склонны пойти коротким путем и спросить у сообщества, прежде чем проводить свои исследования. Это может сэкономить вам время и может быть уместно в случаях, когда вам нужно небольшое руководство или нужно быстро развеять сомнения. Однако проблема отсутствия понимания заключается в том, что это состояние сохраняется до тех пор, пока вы не разберетесь с его первопричиной. Способ устранения первопричины заключается в том, чтобы потратить время на прохождение всех уроков \"Первых шагов\" и чтение руководства пользователя. В противном случае вы будете сталкиваться с одними и теми же проблемами снова и снова. Приобретение знаний и бережное отношение к времени команды - это первый шаг к тому, чтобы стать ценным членом сообщества.",
+                    "updated": 1640439496090
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "2. Scan the Troubleshooting topic",
-            "updated": 1612875503760
+            "updated": 1612875503760,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Просмотрите тему Troubleshooting (Устранение неполадок)",
+                    "updated": 1640439551179
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -80,173 +185,439 @@
         {
             "style": "Text",
             "text": "Chances are someone else has experienced a similar issue as you may be experiencing now. We do our best to compile common issues into specific troubleshooting pages, so make sure you take a look there before moving on. This page is the first on the Troubleshooting topic. Find the rest in the TOC at the bottom of this page.",
-            "updated": 1612876381614
+            "updated": 1612876381614,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Возможно, кто-то уже сталкивался с подобной проблемой, с которой вы столкнулись сейчас. Мы делаем все возможное, чтобы собрать общие проблемы на специальных страницах по устранению неполадок, поэтому обязательно загляните туда, прежде чем двигаться дальше. Эта страница - первая в теме \"Устранение неполадок\". Остальные страницы находятся в TOC внизу этой страницы.",
+                    "updated": 1640439585683
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "3. Is your processor stuck at 100%?"
+            "text": "3. Is your processor stuck at 100%?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Ваш процессор завис на 100%?",
+                    "updated": 1640439729565
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Open your operating system’s task manager application and verify the CPU load while you reproduce the issue you are experiencing. If your CPU is running at 100% for more than 30 to 60 seconds, all sorts of problems may arise, as your hardware may not able to cope with what you may be trying to do.",
-            "updated": 1612875430945
+            "updated": 1612875430945,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Откройте приложение диспетчера задач вашей операционной системы и проверьте загрузку процессора, пока вы воспроизводите проблему, с которой вы столкнулись. Если ваш процессор работает на 100% в течение более 30-60 секунд, могут возникнуть всевозможные проблемы, так как ваше оборудование может не справиться с тем, что вы пытаетесь сделать.",
+                    "updated": 1640439809065
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If this is the case, try closing other applications that may be demanding CPU time, and follow the guidelines proposed in the Perception Issues - My System Gets Slow page to lower the demands on the processor.",
-            "updated": 1612875476873
+            "updated": 1612875476873,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В этом случае попробуйте закрыть другие приложения, которые могут требовать процессорного времени, и следуйте рекомендациям, предложенным на странице Perception Issues - My System Gets Slow, чтобы снизить нагрузку на процессор.",
+                    "updated": 1640439836188
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you may not reproduce the issue while your CPU is working at less than 100%, then that may have been the cause of the problem."
+            "text": "If you may not reproduce the issue while your CPU is working at less than 100%, then that may have been the cause of the problem.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы не можете воспроизвести проблему, пока ваш процессор работает менее чем на 100%, то, возможно, причина проблемы в этом.",
+                    "updated": 1640439891951
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "4. Does the issue persist when using the latest version of the software?"
+            "text": "4. Does the issue persist when using the latest version of the software?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "4. Сохраняется ли проблема при использовании последней версии программного обеспечения?",
+                    "updated": 1640439901423
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Running the latest version of the software is virtually mandatory, as bugs affecting you may have already been solved. Make sure you are running the latest stable software version in the master branch of the Superalgos repository, or the latest software in the develop branch."
+            "text": "Running the latest version of the software is virtually mandatory, as bugs affecting you may have already been solved. Make sure you are running the latest stable software version in the master branch of the Superalgos repository, or the latest software in the develop branch.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск последней версии программного обеспечения практически обязателен, так как ошибки, затрагивающие вас, могут быть уже решены. Убедитесь, что вы используете последнюю стабильную версию ПО в ветке master репозитория Superalgos или последнюю версию ПО в ветке develop.",
+                    "updated": 1640439927102
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Making sure means installing the latest version, right now. You may run the App Update Command.",
-            "updated": 1612875559806
+            "updated": 1612875559806,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедиться в этом означает установить последнюю версию прямо сейчас. Вы можете запустить команду обновления приложения App Update Command.",
+                    "updated": 1640439957268
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "5. Does the issue persist when using one of the plugin workspaces?",
-            "updated": 1612875632190
+            "updated": 1612875632190,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "5. Сохраняется ли проблема при использовании одного из рабочих пространств плагина?",
+                    "updated": 1640439969486
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If the issue may not be reproduced using one of the plugin workspaces, that likely means that modifications you may have introduced may be playing a role in the issue. In and of itself, this is a crucial piece of information that helps start the process of isolating the issue.",
-            "updated": 1612875627341
+            "updated": 1612875627341,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблема не воспроизводится с помощью одного из рабочих пространств плагина, это, скорее всего, означает, что модификации, которые вы ввели, могут играть роль в проблеме. Сама по себе это важная информация, которая поможет начать процесс выявления проблемы.",
+                    "updated": 1640440082099
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If the issue happens in a modified workspace only, take some time going through the modifications you introduced."
+            "text": "If the issue happens in a modified workspace only, take some time going through the modifications you introduced.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблема возникает только в измененном рабочем пространстве, потратьте некоторое время на то, чтобы просмотреть внесенные изменения.",
+                    "updated": 1640440096152
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Start over and reproduce the modifications on the plugin workspace, one at a time, and make a quick test after each mod is applied. This process done right should lead you to the exact node, structure of nodes, configuration, parameter, or—in general—the modification that may be involved in the cause of the issue.",
-            "updated": 1612875667631
+            "updated": 1612875667631,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начните сначала и воспроизведите модификации на рабочем пространстве плагина, по одной за раз, и проведите быстрый тест после применения каждой модификации. Этот процесс, выполненный правильно, должен привести вас к тому, что вы найдете точный узел, структуру узлов, конфигурацию, параметр или - в общем - модификацию, которая может быть связана с причиной проблемы.",
+                    "updated": 1640440158926
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "This doesn’t necessarily mean that you made a mistake when modifying the official workspace. It simply pinpoints where the problem may be, and it’s a crucial part of the investigation that you should conduct before going any further.",
-            "updated": 1611509652152
+            "updated": 1611509652152,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не обязательно означает, что вы допустили ошибку при модификации официального рабочего пространства. Это просто указывает на то, где может быть проблема, и является важной частью расследования, которое вы должны провести, прежде чем двигаться дальше.",
+                    "updated": 1640440189688
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "6. Simplify the context and isolate the issue"
+            "text": "6. Simplify the context and isolate the issue",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "6. Упростите контекст и изолируйте проблему",
+                    "updated": 1640440202305
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When you are doing several things at the same time and something goes wrong, it is sometimes hard to identify what is it that may be causing the issue. The next logical step to take is to further isolate the issue. You do this by removing pieces from the context so that you may focus on the core of the matter."
+            "text": "When you are doing several things at the same time and something goes wrong, it is sometimes hard to identify what is it that may be causing the issue. The next logical step to take is to further isolate the issue. You do this by removing pieces from the context so that you may focus on the core of the matter.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда вы делаете несколько дел одновременно и что-то идет не так, иногда трудно определить, что именно может быть причиной проблемы. Следующим логичным шагом будет дальнейшая изоляция проблемы. Для этого нужно удалить части из контекста, чтобы сосредоточиться на сути вопроса.",
+                    "updated": 1640440222900
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640440230662
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you are having an issue while backtesting a strategy, you do not need your data mining operation to be running. In such a case, stop the data mining operation and everything else you may be doing, and run the backtest only."
+            "text": "If you are having an issue while backtesting a strategy, you do not need your data mining operation to be running. In such a case, stop the data mining operation and everything else you may be doing, and run the backtest only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникла проблема во время бэктестирования стратегии, вам не нужно, чтобы операция по добыче данных была запущена. В этом случае остановите операцию добычи данных и все остальное, что вы можете делать, и запустите только бэктест.",
+                    "updated": 1640440269656
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If you are having an issue running one of the Masters indicators, you do not need all indicators to be running at the same time. Make sure the said indicator dependencies are running, and stop the rest of the indicators."
+            "text": "If you are having an issue running one of the Masters indicators, you do not need all indicators to be running at the same time. Make sure the said indicator dependencies are running, and stop the rest of the indicators.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникла проблема с запуском одного из индикаторов Masters, вам не нужно, чтобы все индикаторы были запущены одновременно. Убедитесь, что указанные зависимости индикатора запущены, и остановите остальные индикаторы.",
+                    "updated": 1640440295959
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If you are having an issue with a chart and you have three other charts on the screen at the same time, try zooming-in the chart and see if you still experience the issue. Or turn all layers off and leave on only the layer you may be having difficulties with."
+            "text": "If you are having an issue with a chart and you have three other charts on the screen at the same time, try zooming-in the chart and see if you still experience the issue. Or turn all layers off and leave on only the layer you may be having difficulties with.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникла проблема с графиком, а на экране одновременно находятся три других графика, попробуйте приблизить график и посмотреть, сохранится ли проблема. Или отключите все слои и оставьте только тот слой, с которым у вас возникли проблемы.",
+                    "updated": 1640440325573
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "If you are running multiple live trading sessions and experience an issue with one of them, stop the rest of the sessions and try to reproduce the issue with the first one."
+            "text": "If you are running multiple live trading sessions and experience an issue with one of them, stop the rest of the sessions and try to reproduce the issue with the first one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы проводите несколько торговых сессий в реальном времени и столкнулись с проблемой в одной из них, остановите остальные сессии и попытайтесь воспроизвести проблему в первой сессии.",
+                    "updated": 1640440344166
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The point to take home is that the narrower the scope of the investigation, the easier it is to find the cause of the problem.",
-            "updated": 1611509672765
+            "updated": 1611509672765,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Главное, что следует уяснить: чем меньше масштаб расследования, тем легче найти причину проблемы.",
+                    "updated": 1640440356085
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "7. May this be an issue with data?"
+            "text": "7. May this be an issue with data?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "7. Может ли это быть проблемой с данными?",
+                    "updated": 1640440367797
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If your machine shut down unexpectedly or you closed the backend servers running in the console application without first stopping your data mining tasks, chances are some of your data may have been corrupted. If you suspect this may have something to do with your issue, then you should read Investigating Issues - Check the Integrity of Your Data.",
-            "updated": 1612875847548
+            "updated": 1612875847548,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ваша машина неожиданно выключилась или вы закрыли внутренние серверы, запущенные в консольном приложении, не остановив предварительно задачи по добыче данных, есть вероятность, что некоторые из ваших данных были повреждены. Если вы подозреваете, что это может иметь отношение к вашей проблеме, то вам следует прочитать статью Investigating Issues - Check the Integrity of Your Data.",
+                    "updated": 1640440501511
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "8. May this be an issue with the GUI?",
-            "updated": 1612875863222
+            "updated": 1612875863222,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "8. Может ли это быть проблемой с графическим интерфейсом?",
+                    "updated": 1640440513629
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If your issue happens within the GUI, then you should either be getting an on-screen error or an error on your browser console application.",
-            "updated": 1612875875780
+            "updated": 1612875875780,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если проблема возникает в графическом интерфейсе, то вы должны получить либо ошибку на экране, либо ошибку в консольном приложении браузера.",
+                    "updated": 1640440530738
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The error on-screen or logged at the browser console may give you a hint of what may be going on. If you are a technical person, this may help solve your issue on your own."
+            "text": "The error on-screen or logged at the browser console may give you a hint of what may be going on. If you are a technical person, this may help solve your issue on your own.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ошибка на экране или в журнале консоли браузера может дать вам подсказку о том, что может происходить. Если вы технический специалист, это может помочь решить проблему самостоятельно.",
+                    "updated": 1640440552891
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Make sure you grab the screen showing these errors so that you may report them later.",
-            "updated": 1611509685850
+            "updated": 1611509685850,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обязательно захватите экран с этими ошибками, чтобы потом сообщить о них.",
+                    "updated": 1640440588809
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "Remember that Chrome and Safari on Mac are the only supported browsers. If you are using any other browsers and have GUI issues, we may not be able to reproduce them. Do not report an issue with the GUI unless you are using Chrome or Safari.",
-            "updated": 1612876423477
+            "updated": 1612876423477,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что Chrome и Safari на Mac являются единственными поддерживаемыми браузерами. Если вы используете другие браузеры и у вас возникли проблемы с графическим интерфейсом, мы не сможем их воспроизвести. Не сообщайте о проблемах с графическим интерфейсом, если вы не используете Chrome или Safari.",
+                    "updated": 1640440693840
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "9. May this be an issue with the Client application?",
-            "updated": 1612875983271
+            "updated": 1612875983271,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "9. Может ли это быть проблемой клиентского приложения?",
+                    "updated": 1640440717814
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "If there are issues with the Client application, then errors must be logged at the console where you are running the backend. The same errors are logged in the Log-Files folder and the specific sub-folders corresponding to the processes involved in the matter.",
-            "updated": 1612875992279
+            "updated": 1612875992279,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если возникают проблемы с приложением Client, то ошибки должны регистрироваться на консоли, на которой запущен бэкэнд. Эти же ошибки регистрируются в папке Log-Files и в конкретных подпапках, соответствующих процессам, вовлеченным в это дело.",
+                    "updated": 1640440746785
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Make sure you check the logs for the specific processes involved in the mater, and save the corresponding log files with these errors so that you may report them later.",
-            "updated": 1612876447343
+            "updated": 1612876447343,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обязательно проверьте журналы регистрации конкретных процессов, связанных с этим вопросом, и сохраните соответствующие файлы журналов с этими ошибками, чтобы впоследствии сообщить о них.",
+                    "updated": 1640440882329
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you are a developer, remember that you may easily debug a task to find the root cause of the issue. Read Debugging a Task.",
-            "updated": 1612876057032
+            "updated": 1612876057032,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы разработчик, помните, что вы можете легко провести отладку задачи, чтобы найти первопричину проблемы. Читайте статью Debugging a Task.",
+                    "updated": 1640440945042
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "10. May this be an issue related to your particular setup?"
+            "text": "10. May this be an issue related to your particular setup?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "10. Может ли это быть проблемой, связанной с вашей конкретной установкой?",
+                    "updated": 1640440957598
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Deploying and running Superalgos in complex or very particular setups augments the probability of issues related to the setup itself, which may be very hard or even impossible for the Team to reproduce. The team will investigate issues that happen while running Superalgos in your local machine, or while running in a classic trading farm setup as described in the documentation. We can not investigate issues unrelated to the software itself."
+            "text": "Deploying and running Superalgos in complex or very particular setups augments the probability of issues related to the setup itself, which may be very hard or even impossible for the Team to reproduce. The team will investigate issues that happen while running Superalgos in your local machine, or while running in a classic trading farm setup as described in the documentation. We can not investigate issues unrelated to the software itself.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Развертывание и запуск Superalgos в сложных или очень специфических установках увеличивает вероятность возникновения проблем, связанных с самой установкой, которые команде может быть очень сложно или даже невозможно воспроизвести. Команда будет исследовать проблемы, возникающие при запуске Superalgos на вашей локальной машине или при работе в классической конфигурации торговой фермы, как описано в документации. Мы не можем исследовать проблемы, не связанные с самим программным обеспечением.",
+                    "updated": 1640440994472
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you have issues with a particular setup, feel free to ask for help from other users in the community, but do not open an issue for the Team to look into."
+            "text": "If you have issues with a particular setup, feel free to ask for help from other users in the community, but do not open an issue for the Team to look into.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у вас возникли проблемы с конкретной настройкой, не стесняйтесь просить помощи у других пользователей сообщества, но не открывайте проблему для рассмотрения командой.",
+                    "updated": 1640441017785
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Has Your Issue Not Been Resolved?"
+            "text": "Has Your Issue Not Been Resolved?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваш вопрос не был решен?",
+                    "updated": 1640441027788
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If following this guide didn’t solve your issue, do not worry… your efforts shall not go in vain!"
+            "text": "If following this guide didn’t solve your issue, do not worry… your efforts shall not go in vain!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если это руководство не помогло решить вашу проблему, не волнуйтесь... ваши усилия не пропадут даром!",
+                    "updated": 1640441039564
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Investigating your issue must have taught you a lot about how the system works, and it’s a requisite for reporting an issue so that the Team may investigate it. So, please, go ahead and do just that. Make sure you follow the instructions on How to Report an Issue and provide all the valuable information you have gathered while following this guide.",
-            "updated": 1611509744676
+            "updated": 1611509744676,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Изучение вашей проблемы должно было многому научить вас о том, как работает система, а это обязательное условие для сообщения о проблеме, чтобы команда могла ее изучить. Поэтому, пожалуйста, сделайте это. Обязательно следуйте инструкциям раздела How to Report an Issue (\"Как сообщить о проблеме\") и предоставьте всю полезную информацию, которую вы собрали, следуя этому руководству.",
+                    "updated": 1640441099531
+                }
+            ]
         },
         {
             "style": "Text",

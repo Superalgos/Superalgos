@@ -2,7 +2,14 @@
     "type": "Feature",
     "definition": {
         "text": "A Feature is the capacity of the software to perform tasks required by a specific use case. We describe features so that users may direct Weight Votes to express which of them are the most valuable. This is how users may decide which features to incentivize, both in terms of maintenance and development.",
-        "updated": 1624708747036
+        "updated": 1624708747036,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Feature - это способность программного обеспечения выполнять задачи, необходимые для конкретного случая использования. Мы описываем функции, чтобы пользователи могли направить Weight Votes, чтобы выразить, какие из них являются наиболее ценными. Таким образом, пользователи могут решить, какие функции следует стимулировать, как в плане обслуживания, так и в плане развития.",
+                "updated": 1640284938822
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,12 +19,26 @@
         },
         {
             "style": "Text",
-            "text": "You may cast Weight Votes on individual Feature nodes to incentivize the improvement, development, and maintenance of the said feature."
+            "text": "You may cast Weight Votes on individual Feature nodes to incentivize the improvement, development, and maintenance of the said feature.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете отдавать Weight Votes за отдельные узлы Feature, чтобы стимулировать улучшение, развитие и поддержание указанной функции.",
+                    "updated": 1640284973812
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "If you are involved in the development or maintenance of a feature, you may place a Feature Contribution Claim and rally the Community to support your claim with Feature Claim Vote nodes so that you may be rewarded for your work.",
-            "updated": 1630428072285
+            "updated": 1630428072285,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы участвуете в разработке или поддержке функции, вы можете разместить заявку на вклад в функцию (Feature Contribution Claim) и призвать сообщество поддержать вашу заявку с помощью узлов Feature Claim Vote, чтобы вы могли получить вознаграждение за свою работу.",
+                    "updated": 1640285022533
+                }
+            ]
         },
         {
             "style": "Block",
@@ -25,7 +46,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1640285031783
+                }
+            ]
         }
     ]
 }

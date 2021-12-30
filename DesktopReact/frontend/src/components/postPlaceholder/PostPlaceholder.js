@@ -10,12 +10,13 @@ const PostPlaceholder = ({reloadPostCallback}) => {
     const [open, setOpen] = useState(false);
 
     const onButtonClick = async () => {
-        let status = await createPost({postText: postText}).then(response => response.json());
-        if (status === STATUS_OK) {
+        let {result} = await createPost({postText: postText}).then(response => response.json());
+        console.log({status})
+        if (result === STATUS_OK) {
             reloadPostCallback();
-            return;
+        } else {
+            setOpen(true);
         }
-        setOpen(true);
     }
 
     const handleChange = (event) => {

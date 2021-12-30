@@ -4,26 +4,61 @@
     "type": "Exchange Raw Data - Start Debugging",
     "definition": {
         "text": "The procedure to debug this sensor bot is fairly simple. Just run VS Code with your breakpoint set, go to the UI and start the Sensor Bot Task with the menu option DEBUG.",
-        "updated": 1614592297685
+        "updated": 1614592297685,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Процедура отладки сенсорного бота довольно проста. Просто запустите VS Code с установленной точкой останова, перейдите в пользовательский интерфейс и запустите задачу сенсорного бота с помощью пункта меню DEBUG.",
+                "updated": 1640362043742
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Almost instantaneously you will see that VS Code stops at the breakpoint you set. From there you can go step by step checking any of the variable values. If you let the code to run, you will notice that a single execution will try to fetch all the missing objects since the last time it ran until present time. ",
-            "updated": 1614592493363
+            "updated": 1614592493363,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Почти мгновенно вы увидите, что VS Code останавливается на установленной вами точке останова. Отсюда вы можете двигаться шаг за шагом, проверяя любое из значений переменных. Если вы дадите коду выполниться, то заметите, что за одно выполнение он попытается получить все отсутствующие объекты с момента последнего запуска до текущего момента.",
+                    "updated": 1640362075694
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When it finishes, the Sensor Bot will go to sleep for 60 seconds and them it will try to do the same stuff again, and again.",
-            "updated": 1614596623591
+            "updated": 1614596623591,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После завершения работы Sensor Bot перейдет в спящий режим на 60 секунд, а затем попытается сделать то же самое снова и снова.",
+                    "updated": 1640362091750
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Not Working?"
+            "text": "Not Working?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не работает?",
+                    "updated": 1640362101282
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It might happen that the procedure did not work as expected. Check the VS Code console if you have an output similar to this one:"
+            "text": "It might happen that the procedure did not work as expected. Check the VS Code console if you have an output similar to this one:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может случиться так, что процедура сработала не так, как ожидалось. Проверьте консоль VS Code, есть ли у вас есть вывод, подобный этому:",
+                    "updated": 1640362150158
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -33,44 +68,107 @@
         {
             "style": "Text",
             "text": "If not, you will need to do some troubleshooting. stat with this:",
-            "updated": 1614597449912
+            "updated": 1614597449912,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если нет, вам нужно будет провести поиск неполадок:",
+                    "updated": 1640362172613
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "1. Run Superalgos client",
-            "updated": 1614596880175
+            "updated": 1614596880175,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Запустите клиент Superalgos",
+                    "updated": 1640362184554
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "2. Close VS CODE"
+            "text": "2. Close VS CODE",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Закройте VS Code",
+                    "updated": 1640362207793
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "3. Locate the Task Server folder",
-            "updated": 1614596886736
+            "updated": 1614596886736,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "3. Найдите папку Task Server",
+                    "updated": 1640362217585
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "4. Right click there and OPEN with VS CODE",
-            "updated": 1614596891216
+            "updated": 1614596891216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "4. Щелкните там правой кнопкой мыши и откройте с помощью VS Code",
+                    "updated": 1640362242614
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "5. Without adding yet the Projects folder, run VS CODE",
-            "updated": 1614596895555
+            "updated": 1614596895555,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "5. Не добавляя пока папку Projects, запустите VS Code",
+                    "updated": 1640362266009
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "6. See if the VS CODE console shows something similar to what I sent you",
-            "updated": 1614596901462
+            "updated": 1614596901462,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "6. Посмотрите, отображается ли в консоли VS Code что-то похожее на то, что я вам отправил",
+                    "updated": 1640362288317
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Superalgos Client is not Running"
+            "text": "Superalgos Client is not Running",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Клиент Superalgos не запущен",
+                    "updated": 1640362340798
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you see a message like this at the VS Code console, that means that the Superalgos Client is not currently running."
+            "text": "If you see a message like this at the VS Code console, that means that the Superalgos Client is not currently running.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если в консоли VS Code вы видите сообщение, подобное этому, это означает, что Superalgos Client в настоящее время не запущен.",
+                    "updated": 1640362331336
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -79,11 +177,25 @@
         },
         {
             "style": "Subtitle",
-            "text": "Check Launch.json"
+            "text": "Check Launch.json",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте файл launch.json",
+                    "updated": 1640362436212
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you still can not see the debugger listening on ws port, then you should check that the launch.json file you have at the .vscode folder is similar to this one."
+            "text": "If you still can not see the debugger listening on ws port, then you should check that the launch.json file you have at the .vscode folder is similar to this one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы все еще не видите отладчик, прослушивающий порт ws, то проверьте, что файл launch.json, находящийся в папке \".vscode\", похож на этот.",
+                    "updated": 1640362429722
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -92,15 +204,36 @@
         },
         {
             "style": "Text",
-            "text": "That might be the reason why it is not starting the debugging session."
+            "text": "That might be the reason why it is not starting the debugging session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это может быть причиной того, что не запускается сеанс отладки.",
+                    "updated": 1640362454256
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "On Linux?"
+            "text": "On Linux?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Linux?",
+                    "updated": 1640362466434
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users reported that on Linux, you need to adjust the Launch.json file to have this line:"
+            "text": "Users reported that on Linux, you need to adjust the Launch.json file to have this line:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи сообщили, что в Linux необходимо скорректировать файл launch.json, чтобы в нем появилась эта строка:",
+                    "updated": 1640362489664
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -109,7 +242,14 @@
         },
         {
             "style": "Text",
-            "text": "Feel free to try it out."
+            "text": "Feel free to try it out.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь попробовать.",
+                    "updated": 1640362503261
+                }
+            ]
         },
         {
             "style": "Text",

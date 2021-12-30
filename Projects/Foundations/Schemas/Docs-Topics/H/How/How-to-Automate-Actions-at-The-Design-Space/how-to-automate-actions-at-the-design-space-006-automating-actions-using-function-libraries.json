@@ -4,33 +4,68 @@
     "type": "Automating Actions - Using Function Libraries",
     "definition": {
         "text": "You can also utilize other functions located within the Function Libraries to help build your Action Function. In order to do this, you just need to locate the instance of the Function Library Object and call any of it's functions.",
-        "updated": 1628257841959
+        "updated": 1628257841959,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы также можете использовать другие функции, расположенные в библиотеках функций, для создания функции действия (Action Function). Для этого достаточно найти экземпляр объекта библиотеки функций и вызвать любую из его функций.",
+                "updated": 1640762706045
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "It is a very good idea to invest some time at the Function-Libraries folder, scanning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on functions defined at one of the files within the Function-Libraries folder.",
-            "updated": 1628257873103
+            "updated": 1628257873103,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Очень хорошей идеей будет потратить некоторое время на папку Function-Libraries, просмотреть файлы в ней, чтобы увидеть, что уже доступно для использования в ваших действиях. Вы увидите, что другие действия в Function Libraries в значительной степени зависят от функций, определенных в одном из файлов в папке Function-Libraries.",
+                    "updated": 1640764321619
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "How to Call an Function Library Function?",
-            "updated": 1614942916741
+            "updated": 1614942916741,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как вызвать функцию из библиотеки функций?",
+                    "updated": 1640764352696
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "At runtime, all Function Library objects will be already instantiated by the time your Action function code runs. You just need to get to the object that host the Function Library function you want to execute via the UI Global Object that is available to you. For example:",
-            "updated": 1628257884243
+            "updated": 1628257884243,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во время работы все объекты библиотеки функций будут уже созданы к моменту выполнения кода вашей функции Action. Вам просто нужно добраться до объекта, в котором находится функция библиотеки функций, которую вы хотите выполнить, через доступный вам глобальный объект пользовательского интерфейса (UI Global Object). Например:",
+                    "updated": 1640764418162
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.functionLibraries.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')",
+            "text": "UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.createSessionReference(marketLearningProducts, session, 'Learning Session Reference')",
             "updated": 1614943049167
         },
         {
             "style": "Text",
             "text": "The way to find out which is the property name of a certain Function Library object is by reading the definitions at the Project Schema File. The Function Library object hosting the createSessionReference function used in the example above, is defined at the Project Schema File in this way:",
-            "updated": 1614943202556
+            "updated": 1614943202556,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выяснить, какое имя является именем свойства определенного объекта функциональной библиотеки, можно, прочитав определения в файле схемы проекта. Объект библиотеки функций, содержащий функцию createSessionReference, использованную в приведенном выше примере, определен в файле схемы проекта таким образом:",
+                    "updated": 1640764465614
+                }
+            ]
         },
         {
             "style": "Json",
@@ -40,29 +75,64 @@
         {
             "style": "Text",
             "text": "The propertyName is what you need to know in order to get to the runtime reference of the Function Library object and execute it's functions.",
-            "updated": 1614943257490
+            "updated": 1614943257490,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "СвойствоName - это то, что вам нужно знать, чтобы получить ссылку на объект библиотеки функций во время его выполнения и использовать его функции.",
+                    "updated": 1640764576174
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Popular Functions"
+            "text": "Popular Functions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Популярные функции",
+                    "updated": 1640764582875
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "At your own Action Function you will likely need to execute these or similar functions, belonging to popular actions defined within other Action Functions:",
-            "updated": 1628257991399
+            "updated": 1628257991399,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В своем собственном Action Function вам, скорее всего, потребуется реализовать эти или подобные функции, относящиеся к популярным действиям, определенным в других Action Functions:",
+                    "updated": 1640764651360
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Add a New Node"
+            "text": "Add a New Node",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Добавить новый узел",
+                    "updated": 1640764658365
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following is an example on how to add a new child to an existing Node:",
-            "updated": 1628258008587
+            "updated": 1628258008587,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен пример того, как добавить нового дочернего элемента к существующему узлу:",
+                    "updated": 1640764673369
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "dataStorage = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
+            "text": "dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')",
             "updated": 1614943544233
         },
         {
@@ -71,29 +141,57 @@
         },
         {
             "style": "Subtitle",
-            "text": "Delete an Existing Node"
+            "text": "Delete an Existing Node",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удаление существующего узла",
+                    "updated": 1640764681217
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is an example on how to Delete an existing Node:"
+            "text": "This is an example on how to Delete an existing Node:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это пример того, как удалить существующий узел:",
+                    "updated": 1640764694322
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.visualScripting.functionLibraries.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
+            "text": "UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(projectReference, rootNodes)",
             "updated": 1614943594904
         },
         {
             "style": "Subtitle",
-            "text": "Establish a Reference Parent"
+            "text": "Establish a Reference Parent",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установить ссылку на родительский узел ",
+                    "updated": 1640764768261
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Example of how to set the Reference Parent of a Node:",
-            "updated": 1628258163153
+            "updated": 1628258163153,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример установки ссылки на родительский узел (Reference Parent):",
+                    "updated": 1640764845814
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(timeMachine, session)",
+            "text": "UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(timeMachine, session)",
             "updated": 1628258141256
         },
         {

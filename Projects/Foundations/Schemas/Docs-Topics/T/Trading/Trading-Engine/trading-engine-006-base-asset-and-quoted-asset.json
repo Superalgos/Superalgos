@@ -4,43 +4,106 @@
     "type": "Base Asset and Quoted Asset",
     "definition": {
         "text": "Keep track of accounts denominated in the base asset and the quoted asset, in multiple contexts. On this page: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
-        "updated": 1611258310236
+        "updated": 1611258310236,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ведите учет счетов, выраженных в базовом активе и котируемом активе, в различных контекстах. На этой странице: Episode Base Asset, Episode Quoted Asset, Position Base Asset, Position Quoted Asset, Stage Base Asset, Stage Quoted Asset, Order Base Asset, Order Quoted Asset.",
+                "updated": 1640344134647
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Because the system aims to be as flexible as possible, the trading engine keeps the accounts relative to both the base asset and the quoted asset. This allows the user to set up the trading system with whatever logic is required and decide which set of accounts suits the intent—the goal—of the trading strategy.",
-            "updated": 1611258333516
+            "updated": 1611258333516,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку система стремится быть максимально гибкой, торговый движок сохраняет счета относительно базового актива и котируемого актива. Это позволяет пользователю настроить торговую систему с любой логикой и решить, какой набор счетов соответствует замыслу - цели торговой стратегии.",
+                    "updated": 1640344161431
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Notice that—usually—the accounts denominated in one asset will be valid, while the accounts denominated in the other asset will likely make no sense."
+            "text": "Notice that—usually—the accounts denominated in one asset will be valid, while the accounts denominated in the other asset will likely make no sense.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что обычно счета, выраженные в одном активе, будут действительными, а счета, выраженные в другом активе, скорее всего, не будут иметь смысла.",
+                    "updated": 1640344189307
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Which set of accounts you will monitor to track the performance of the episode depends on how you define your trading system."
+            "text": "Which set of accounts you will monitor to track the performance of the episode depends on how you define your trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Какой набор счетов вы будете контролировать для отслеживания результативности эпизода, зависит от того, как вы определите свою торговую систему.",
+                    "updated": 1640344206252
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, If you are trading the BTC/USDT market and developed a trading system to accumulate USDT, then the set of accounts that will make sense for you is the one denominated in the quoted asset, that is, in USDT. This is why:"
+            "text": "For example, If you are trading the BTC/USDT market and developed a trading system to accumulate USDT, then the set of accounts that will make sense for you is the one denominated in the quoted asset, that is, in USDT. This is why:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, если вы торгуете на рынке BTC/USDT и разработали торговую систему для накопления USDT, то набор счетов, который будет иметь смысл для вас, это тот, который выражен в котируемом активе, то есть в USDT. Вот почему:",
+                    "updated": 1640344232941
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Your strategy will likely buy BTC (the base asset) expecting the price to go up while the position is open, in order to sell BTC at a higher rate and end up with more USDT (the quoted asset) than you started with."
+            "text": "Your strategy will likely buy BTC (the base asset) expecting the price to go up while the position is open, in order to sell BTC at a higher rate and end up with more USDT (the quoted asset) than you started with.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваша стратегия, скорее всего, будет покупать BTC (базовый актив), ожидая, что цена будет расти, пока позиция открыта, чтобы продать BTC по более высокому курсу и в итоге получить больше USDT (котируемый актив), чем в начале.",
+                    "updated": 1640344298195
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Example",
-            "updated": 1611258412121
+            "updated": 1611258412121,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1640344308052
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let’s say you buy 10,000 USDT worth of BTC. BTC price increases by 10%, so you sell the whole amount of BTC to close the position and end up with 10,900 USDT (exchange fees are deducted from the balance)."
+            "text": "Let’s say you buy 10,000 USDT worth of BTC. BTC price increases by 10%, so you sell the whole amount of BTC to close the position and end up with 10,900 USDT (exchange fees are deducted from the balance).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы купили BTC на сумму 10 000 USDT. Цена BTC увеличивается на 10%, поэтому вы продаете всю сумму BTC, чтобы закрыть позицию, и в итоге получаете 10 900 USDT (комиссия за обмен вычитается из баланса).",
+                    "updated": 1640344338695
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In terms of the base asset, your begin balance is 0 BTC and your end balance is 0.00000012 BTC, as the exchange left some BTC dust in the account due to rate conversion limitations. Also in terms of the base asset, your profit loss for the position is...",
-            "updated": 1611258453118
+            "updated": 1611258453118,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что касается базового актива, ваш начальный баланс составляет 0 BTC, а конечный баланс - 0.00000012 BTC, так как обмен оставил на счете немного BTC из-за ограничений на конвертацию валют. Также с точки зрения базового актива, ваша прибыль-убыток по позиции составляет...",
+                    "updated": 1640344376081
+                }
+            ]
         },
         {
             "style": "Text",
@@ -53,12 +116,26 @@
         },
         {
             "style": "Text",
-            "text": "ROI and other metrics may be derived from these initial observations as well. Needless to say, such metrics are irrelevant to the intent of the strategy, which is to accumulate USDT."
+            "text": "ROI and other metrics may be derived from these initial observations as well. Needless to say, such metrics are irrelevant to the intent of the strategy, which is to accumulate USDT.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ROI и другие показатели также могут быть получены из этих первоначальных наблюдений. Само собой разумеется, такие показатели не имеют отношения к замыслу стратегии, который заключается в накоплении USDT.",
+                    "updated": 1640344395959
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now, in terms of the quoted asset, your begin balance is 10,000 USDT and your end balance is 10,900 USDT (exchange fees are deducted from the balance). Also in terms of the quoted asset, your profit loss for the position is...",
-            "updated": 1619116331161
+            "updated": 1619116331161,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь, с точки зрения котируемого актива, ваш начальный баланс составляет 10 000 USDT, а конечный баланс - 10 900 USDT (из баланса вычитается комиссия за обмен). Также с точки зрения котируемого актива, ваша прибыль-убыток по данной позиции составляет...",
+                    "updated": 1640344416123
+                }
+            ]
         },
         {
             "style": "Json",
@@ -66,20 +143,48 @@
         },
         {
             "style": "Text",
-            "text": "It should be clear by now that these are the metrics relevant to the intent of the strategy."
+            "text": "It should be clear by now that these are the metrics relevant to the intent of the strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь должно быть понятно, что это показатели, соответствующие замыслу стратегии.",
+                    "updated": 1640344432146
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "With other types of strategies, for example, those in which the intent is to accumulate both assets, both sets of metrics may be relevant. Also, the consolidated metrics provided in the context of statistics may be relevant too.",
-            "updated": 1611258499505
+            "updated": 1611258499505,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для других типов стратегий, например, тех, в которых целью является накопление обоих активов, оба набора показателей могут быть уместны. Также могут быть уместны сводные показатели, представленные в контексте статистики.",
+                    "updated": 1640344462006
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The concepts relative to base and quoted asset, such as the balance of each asset and the performance metrics computed from the perspective of each asset, are tracked in multiple contexts simultaneously."
+            "text": "The concepts relative to base and quoted asset, such as the balance of each asset and the performance metrics computed from the perspective of each asset, are tracked in multiple contexts simultaneously.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концепции относительно базового и котируемого актива, такие как баланс каждого актива и показатели эффективности, рассчитанные с точки зрения каждого актива, отслеживаются в нескольких контекстах одновременно.",
+                    "updated": 1640344480314
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "What follows are the definitions of the base and quoted asset in each of the contexts that the concepts are tracked."
+            "text": "What follows are the definitions of the base and quoted asset in each of the contexts that the concepts are tracked.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Далее следуют определения базового и котируемого актива в каждом из контекстов, в которых отслеживаются эти понятия.",
+                    "updated": 1640344495376
+                }
+            ]
         },
         {
             "style": "Title",

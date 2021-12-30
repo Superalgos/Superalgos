@@ -1,7 +1,14 @@
 {
     "type": "Trading Episode Statistics",
     "definition": {
-        "text": "Episode statistics keeps track of several metrics in the context of the episode."
+        "text": "Episode statistics keeps track of several metrics in the context of the episode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Trading Episode Statistics отслеживает несколько показателей в контексте эпизода.",
+                "updated": 1640347294145
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,7 +17,14 @@
         },
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text."
+            "text": "Right click and Edit to enter edit mode and change this text.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст.",
+                    "updated": 1640347304365
+                }
+            ]
         }
     ]
 }

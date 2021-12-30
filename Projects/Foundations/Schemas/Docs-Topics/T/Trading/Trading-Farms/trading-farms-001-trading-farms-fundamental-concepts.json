@@ -4,17 +4,38 @@
     "type": "Trading Farms - Fundamental Concepts",
     "definition": {
         "text": "How to set up a flexible and scalable crypto-trading farm running Superalgos distributed on multiple machines. ",
-        "updated": 1614352880564
+        "updated": 1614352880564,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Как создать гибкую и масштабируемую ферму криптотрейдинга под управлением Superalgos, распределенную на нескольких машинах.",
+                "updated": 1640351665465
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Introduction",
-            "updated": 1614353180566
+            "updated": 1614353180566,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введение",
+                    "updated": 1640351675777
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is designed for coordinated, flexible, and scalable trading operations."
+            "text": "Superalgos is designed for coordinated, flexible, and scalable trading operations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos предназначен для скоординированных, гибких и масштабируемых торговых операций.",
+                    "updated": 1640351691594
+                }
+            ]
         },
         {
             "style": "Title",
@@ -24,81 +45,200 @@
         {
             "style": "Text",
             "text": "A Network, represented by the LAN Network Hierarchy, is just a definition that allows the system to know where Tasks need to be run, and where data is hosted. At any workspace you might define one, or even more than one, LAN Network Hierarchy. For simplicity, we will continue the explanation assuming only one Network is defined.",
-            "updated": 1617263502648
+            "updated": 1617263502648,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сеть Network, представленная иерархией LAN Network Hierarchy, - это просто определение, которое позволяет системе знать, где должны выполняться задачи и где размещаются данные. На любом рабочем пространстве вы можете определить одну или даже несколько иерархий LAN Network Hierarchy. Для простоты мы продолжим объяснение, предполагая, что определена только одна сеть.",
+                    "updated": 1640351833339
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In its current version, the system may be deployed in multiple machines—as many as desired—and each machine may constitute a node in a network of nodes. In fact, different networks of nodes may live within the same computer network, because they are just an abstractions, not something physical.",
-            "updated": 1614353448225
+            "updated": 1614353448225,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В своей нынешней версии система может быть развернута на нескольких машинах - сколько угодно - и каждая машина может представлять собой узел в сети узлов. На самом деле, в одной компьютерной сети могут существовать различные сети узлов, поскольку они являются лишь абстракцией, а не чем-то физическим.",
+                    "updated": 1640351862940
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Purpose"
+            "text": "Purpose",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Назначение",
+                    "updated": 1640351877820
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The whole purpose of the Network definition is to let the system know where each task must run and where the data is located. ",
-            "updated": 1614353600414
+            "updated": 1614353600414,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вся цель определения сети заключается в том, чтобы система знала, где должна выполняться каждая задача и где находятся данные.",
+                    "updated": 1640363459771
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "A Superalgos Client can become a node in a Network definition if you configure a Network Node with the IP and ports of a certain Superalgos Client."
+            "text": "A Superalgos Client can become a node in a Network definition if you configure a Network Node with the IP and ports of a certain Superalgos Client.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Клиент Superalgos может стать узлом в определении сети, если вы настроите узел сети с IP и портами определенного клиента Superalgos.",
+                    "updated": 1640363480436
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Organization",
-            "updated": 1614353624048
+            "updated": 1614353624048,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Организация",
+                    "updated": 1640363495830
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There are many different way you might want to organize the Tasks across several Clients. It is really up to you. The system doesn't care or have any preferred way for you to do so. It just need to know where each Task runs, and where the Data is located. That's it.",
-            "updated": 1617263562866
+            "updated": 1617263562866,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете по-разному организовать задачи для нескольких клиентов. Это действительно зависит от вас. Систему это не волнует, и у нее нет предпочтительного для вас способа сделать это. Ей просто нужно знать, где выполняется каждая задача и где находятся данные. Вот и все.",
+                    "updated": 1640363523276
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Each node on a Network may specialize in a single type of process or handle multiple processes of different types."
+            "text": "Each node on a Network may specialize in a single type of process or handle multiple processes of different types.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый узел в сети может специализироваться на одном типе процессов или обрабатывать несколько процессов разных типов.",
+                    "updated": 1640363541202
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example, you may have a set of nodes running data mining operations extracting data from multiple markets and multiple exchanges. You may have a set of nodes specializing in processing indicators and technical studies. And you may have a set of nodes specializing in running trading sessions."
+            "text": "For example, you may have a set of nodes running data mining operations extracting data from multiple markets and multiple exchanges. You may have a set of nodes specializing in processing indicators and technical studies. And you may have a set of nodes specializing in running trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, у вас может быть набор узлов, выполняющих операции по поиску данных, извлекающих данные с нескольких рынков и нескольких бирж. У вас может быть набор узлов, специализирующихся на обработке индикаторов и технических исследований. И у вас может быть набор узлов, специализирующихся на проведении торговых сессий.",
+                    "updated": 1640363564886
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may also use different criteria to arrange the network. For example, you may have a node running combined data mining, data processing, and trading operations on a single exchange or market, and other nodes running similar combined operations on other exchanges or markets."
+            "text": "You may also use different criteria to arrange the network. For example, you may have a node running combined data mining, data processing, and trading operations on a single exchange or market, and other nodes running similar combined operations on other exchanges or markets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете использовать различные критерии для организации сети. Например, у вас может быть узел, выполняющий комбинированные операции по поиску данных, обработке данных и торговле на одной бирже или рынке, и другие узлы, выполняющие аналогичные комбинированные операции на других биржах или рынках.",
+                    "updated": 1640363590580
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Or you may have a network of nodes for your testing environment and another network of nodes for your production environment."
+            "text": "Or you may have a network of nodes for your testing environment and another network of nodes for your production environment.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Или у вас может быть сеть узлов для тестовой среды и другая сеть узлов для производственной среды.",
+                    "updated": 1640363607362
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "In other words, the system allows building any arrangement of networks of nodes corresponding to the organizational logic of your preference.",
-            "updated": 1617263606632
+            "updated": 1617263606632,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, система позволяет построить любое расположение сетей узлов, соответствующее организационной логике вашего предпочтения.",
+                    "updated": 1640363628972
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Auto Tracking of Dependencies",
-            "updated": 1614353913256
+            "updated": 1614353913256,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Автоматическое отслеживание зависимостей",
+                    "updated": 1640363641892
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When you define a Task, inside of it you are referencing a Process Definition, which has in turn a definition specifying which other processes it depends on (for example to start after some other process finished) and it also has Data Dependencies, which means that in order to run, it needs to read the data output from other processes.",
-            "updated": 1617263665349
+            "updated": 1617263665349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда вы определяете задачу, внутри нее вы ссылаетесь на определение процесса Process Definition, которое в свою очередь содержит определение, указывающее, от каких других процессов она зависит (например, запуск после завершения какого-либо другого процесса), а также имеет зависимости от данных, что означает, что для запуска ей необходимо считывать данные, выводимые другими процессами.",
+                    "updated": 1640363717260
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "All these definitions are built-in inside Data Mines, Trading Mines and Learning mines at a conceptual level. This means that a Data Mine does not really know where the data a process depends on actually is, or where a process that it depends on, is actually running. That problem is solved at runtime once a Task is executed.",
-            "updated": 1617263712801
+            "updated": 1617263712801,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все эти определения встроены в Data Mine, Trading Mine и Learning Mine на концептуальном уровне. Это означает, что Data Mine не знает, где на самом деле находятся данные, от которых зависит процесс, или где на самом деле запущен процесс, от которого он зависит. Эта проблема решается во время выполнения задачи.",
+                    "updated": 1640363848836
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "What is unique about Superalgos is that the system keeps track of the network arrangements you create and makes sure that all processes in the system can seamlessly track dependencies across the network. This means, for example, that trading sessions running on Node X may access data in Node Y and Node Z without requiring any sort of configuration.",
-            "updated": 1614354242360
+            "updated": 1614354242360,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Уникальность Superalgos заключается в том, что система отслеживает созданные вами сетевые схемы и гарантирует, что все процессы в системе могут легко отслеживать зависимости в сети. Это означает, например, что торговые сессии, запущенные на узле X, могут получить доступ к данным на узлах Y и Z без необходимости какой-либо настройки.",
+                    "updated": 1640363879025
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is achieved by sending to a newly executed Task a snapshot of the Network Map at the instant when the Task is being run. From the Mine definition the Task can know which processes and data it depends on, and by looking into the snapshot of the Network, it can guess which Client is hosting the Data or the Tasks that the process depends on, allowing it to communicate with those Clients, and fetch the data from them, or wait for the right events signaling that the dependent process has finished.",
-            "updated": 1617263799269
+            "updated": 1617263799269,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это достигается путем отправки только что выполненной Задаче (Task) снимка карты Сети в тот момент, когда Задача выполняется. Из определения Mine задача может знать, от каких процессов и данных она зависит, и, глядя на снимок сети, она может предположить, какой клиент размещает данные или задачи, от которых зависит процесс, что позволяет ей общаться с этими клиентами и получать от них данные или ждать нужных событий, сигнализирующих о завершении зависимого процесса.",
+                    "updated": 1640364378870
+                }
+            ]
         },
         {
             "style": "Title",
@@ -108,25 +248,60 @@
         {
             "style": "Text",
             "text": "There is no preferred node where to manage the rest of the Client s.",
-            "updated": 1614354328656
+            "updated": 1614354328656,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нет предпочтительного узла, где можно управлять остальными клиентами.",
+                    "updated": 1640364402758
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "The operation may be managed entirely from any node on the network. In fact, it may be managed from a computer in the network not running Superalgos, by pointing the browser to any of the nodes in the network to run the UI.",
-            "updated": 1614354336816
+            "updated": 1614354336816,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Управление операцией может осуществляться полностью с любого узла сети. Фактически, управление может осуществляться с компьютера в сети, на котором не запущен Superalgos, путем указания браузера на любой из узлов в сети для запуска пользовательского интерфейса UI.",
+                    "updated": 1640364540658
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The following explanations assume that you are familiar with the basic workings of Superalgos, and in particular, of the Network hierarchy. If that is not the case, then please read the Network pages before diving into building a trading farm."
+            "text": "The following explanations assume that you are familiar with the basic workings of Superalgos, and in particular, of the Network hierarchy. If that is not the case, then please read the Network pages before diving into building a trading farm.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следующие объяснения предполагают, что вы знакомы с основными принципами работы Superalgos, и в частности с иерархией Network. Если это не так, то, пожалуйста, прочитайте страницы, посвященные Network, прежде чем приступать к созданию торговой фермы.",
+                    "updated": 1640364591170
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Security"
+            "text": "Security",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Безопасность",
+                    "updated": 1640364607061
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "At this stage, Superalgos does not implement any form of security measures, therefore, the system is to be used in the context of a restricted Local Area Network only.",
-            "updated": 1611343257268
+            "updated": 1611343257268,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На данном этапе Superalgos не реализует никаких мер безопасности, поэтому система должна использоваться только в условиях ограниченной локальной сети.",
+                    "updated": 1640364622974
+                }
+            ]
         }
     ]
 }

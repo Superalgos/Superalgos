@@ -13,8 +13,57 @@
             "updated": 1622481793076
         },
         {
+            "style": "Text",
+            "text": "In his research, McGinley found moving averages had many problems. In the first place, they were inappropriately applied. Moving averages in different periods operate with varying degrees in different markets. For example, how can one know when to use a 10-day, 20-day, or 50-day moving average in a fast or slow market? In order to solve the problem of choosing the right length of the moving average, the McGinley Dynamic was built to automatically adjust to the current speed of the market."
+        },
+        {
             "style": "Link",
             "text": "McGinley - (Investopedia)->www.investopedia.com/terms/m/mcginley-dynamic.asp"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-McGinley.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The length of the McGinley indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019McGinley\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-McGinley-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+       {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| McGinley | MD | md |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The McGinley indicator could be used to generate a buy signal when a candle closes above the indicator value:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.MD.md",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "It is suggested that the McGinley indicator could be used in conjunction with completmentary indicators such as MACD, RSI or TDI"
         },
         {
             "style": "Title",

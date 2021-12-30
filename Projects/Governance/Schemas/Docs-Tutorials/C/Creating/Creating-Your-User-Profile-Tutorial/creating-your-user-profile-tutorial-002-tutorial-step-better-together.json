@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Сегодня я помогу вам создать профиль пользователя и присоединиться к нескольким первым программам управления Governance Programs!",
                 "updated": 1639043293115
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist das Governance Project ! Heute werde ich Ihnen helfen, ein Benutzerprofil ( User Profile ) zu erstellen und an den ersten Governance Programmen teilzunehmen!",
+                "updated": 1640071828303
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "\"Но прежде чем начать, вы должны знать, что вы можете отправить свой профиль только в ветку Develop, так что пора переключиться!\"",
                     "updated": 1639043338337
+                },
+                {
+                    "language": "DE",
+                    "text": "\"Aber bevor Sie beginnen, sollten Sie wissen, dass Sie Ihr Profil nur im Zweig \"Develop\" einreichen können, also ist es Zeit zu wechseln!",
+                    "updated": 1640071907480
                 }
             ]
         },

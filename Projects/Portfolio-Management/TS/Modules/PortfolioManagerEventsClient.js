@@ -1,6 +1,6 @@
 exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (processIndex) {
     /*
-    This object represents the client to access the Portfolio Manager from a Trading Bot.
+    This object represents the client to access the Portfolio Manager Interface from a Trading Bot.
     It is an events client because the communication with the Portfolio Manager happens 
     at the events layer, provided by the Events Server.
     */
@@ -22,7 +22,7 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
 
     }
 
-    async function sendMessage(message) {
+    async function sendMessage(message, timeout) {
 
         /* This function packages a communication transaction with Portfolio Bot:
          *  First listening for the response
@@ -31,31 +31,64 @@ exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (pr
          */
 
         let promise = new Promise((resolve, reject) => {
-            // First, listen for response:
+
+            let promiseStatus = 'Unresolved'
+            if (timeout !== undefined) {
+                setTimeout(onTimeout, timeout)
+            }
+            /* 
+            First, listen for response
+            */
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent(
                 SESSION_KEY,
-                'Response From Profile Manager',
+                'Response From Portfolio Manager',
                 undefined,
                 SESSION_KEY,
                 undefined,
-                triggerOnEventsCallback
-            );
-
-            // Second, Raise Event:
+                onResponse
+            )
+            /* 
+            Second, Raise Event 
+            */
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
                 SESSION_KEY,
                 'Request From Trading Bot',
                 message
-            );
+            )
+            /* 
+            Third, events Callback
+            */
+            function onResponse() {
+                let response = arguments[0].event
 
-            // Third, events Callback:
-            function triggerOnEventsCallback() {
-                console.log("-----HERE @ triggerOnResponse callback received----- arguments[0].event=>" + arguments[0].event);
-                if (arguments[0].event !== undefined) {
-                    resolve(arguments[0]);
-                } else { reject(); }
+                if (response !== undefined) {
+                    if (response.reason === undefined) {
+                        response.reason = "Reply from Portfolio Manager"
+                    }                
+                    if (promiseStatus === 'Unresolved') {
+                        promiseStatus = 'Resolved'
+                        resolve(response)
+                    }
+                } else {
+                    if (promiseStatus === 'Unresolved') {
+                        promiseStatus = 'Rejected'
+                        reject()
+                    }
+                }
             }
-        });
-        return promise;
+
+            function onTimeout() {
+                    if (promiseStatus === 'Unresolved') {
+                    let response = {
+                        status: 'Timeout',
+                        value: 0,
+                        reason: "Portfolio Manager Not Responding"
+                    }
+                    promiseStatus = 'Resolved'
+                    resolve(response)
+                }
+            }
+        })
+        return promise
     }
 }

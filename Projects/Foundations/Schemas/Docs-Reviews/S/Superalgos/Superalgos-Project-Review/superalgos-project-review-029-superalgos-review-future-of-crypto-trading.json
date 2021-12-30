@@ -1,138 +1,362 @@
 {
     "review": "Superalgos Project Review",
-    "pageNumber": 29,
+    "pageNumber": 27,
     "type": "Superalgos Review - Future of Crypto Trading?",
     "definition": {
         "text": "Superalgos is an automation platform built for conducting trades and performing market research. The aim behind its creation was to integrate all those essential elements needed for reliable trading intelligence into a single platform. This can be downloaded and run locally. Users can build cryptocurrency trading bots with Superalgos. However, the system’s sheer size means it may take some time to master, for newcomers and more experienced traders. Users can build their own And the best part that IT'S FREE!",
-        "updated": 1632652017067
+        "updated": 1632652017067,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos - это платформа автоматизации, созданная для ведения торгов и проведения рыночных исследований. Целью ее создания была интеграция всех основных элементов, необходимых для надежной торговой аналитики, в единую платформу. Ее можно загрузить и запустить локально. Пользователи могут создавать криптовалютных торговых ботов с помощью Superalgos. Однако из-за огромного размера системы ее освоение может занять некоторое время как у новичков, так и у более опытных трейдеров. Пользователи могут создавать свои собственные боты, и самое лучшее, что это БЕСПЛАТНО!",
+                "updated": 1640415106044
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": " Discover what features are available, what security measures are implemented, and more.",
-            "updated": 1632652104860
+            "updated": 1632652104860,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте, какие функции доступны, какие меры безопасности применяются и многое другое.",
+                    "updated": 1640415121344
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "    Features"
+            "text": "    Features",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Особенности",
+                    "updated": 1640415141918
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "    How Does it Work?"
+            "text": "    How Does it Work?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как это работает?",
+                    "updated": 1640415465465
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "    Security"
+            "text": "    Security",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Безопасность",
+                    "updated": 1640415476091
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "    How Much Does it Cost?"
+            "text": "    How Much Does it Cost?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сколько это стоит?",
+                    "updated": 1640415486718
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos is an automation platform built for conducting trades and performing market research. The aim behind its creation was to integrate all those essential elements needed for reliable trading intelligence into a single platform. This can be downloaded and run locally."
+            "text": "Superalgos is an automation platform built for conducting trades and performing market research. The aim behind its creation was to integrate all those essential elements needed for reliable trading intelligence into a single platform. This can be downloaded and run locally.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это платформа автоматизации, созданная для ведения торгов и проведения рыночных исследований. Целью ее создания была интеграция всех основных элементов, необходимых для надежной торговой аналитики, в единую платформу. Ее можно загрузить и запустить локально.",
+                    "updated": 1640415566978
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users can build cryptocurrency trading bots with Superalgos. However, the system’s sheer size means it may take some time to master, for newcomers and more experienced traders."
+            "text": "Users can build cryptocurrency trading bots with Superalgos. However, the system’s sheer size means it may take some time to master, for newcomers and more experienced traders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи могут создавать криптовалютных торговых ботов с помощью Superalgos. Однако из-за огромного размера системы ее освоение может занять некоторое время как у новичков, так и у более опытных трейдеров.",
+                    "updated": 1640415590429
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "But what can traders expect if they decide to use Superalgos?"
+            "text": "But what can traders expect if they decide to use Superalgos?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Но чего могут ожидать трейдеры, если они решат использовать Superalgos?",
+                    "updated": 1640415633215
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Features"
+            "text": "Features",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Характеристики",
+                    "updated": 1640415643063
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos provides users with a highly visual interface, designed to help traders make sense of the relationships between the various concepts at play in cryptocurrency trading."
+            "text": "Superalgos provides users with a highly visual interface, designed to help traders make sense of the relationships between the various concepts at play in cryptocurrency trading.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos предоставляет пользователям очень наглядный интерфейс, призванный помочь трейдерам понять взаимосвязь между различными понятиями в криптовалютной торговле.",
+                    "updated": 1640415660049
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Average workflows will involve downloading data from multiple cryptocurrency exchanges and processing it to gather information. Traders may utilize these details for building and deploying automated bots."
+            "text": "Average workflows will involve downloading data from multiple cryptocurrency exchanges and processing it to gather information. Traders may utilize these details for building and deploying automated bots.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Средние рабочие процессы включают загрузку данных с нескольких криптовалютных бирж и их обработку для сбора информации. Трейдеры могут использовать эти данные для создания и развертывания автоматизированных ботов.",
+                    "updated": 1640415677533
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "OHLCV (Open, High, Low, Close, Volume) data may be downloaded from different exchanges and markets at the same time. Superalgos implements the CCXT library, supporting more than 120 exchanges.",
-            "updated": 1632652213100
+            "updated": 1632652213100,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Данные OHLCV (Open, High, Low, Close, Volume) могут загружаться одновременно с разных бирж и рынков. Superalgos реализует библиотеку CCXT, поддерживающую более 120 бирж.",
+                    "updated": 1640415694047
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users can define date ranges and additional parameters. They may also convert OHLCV data into candles for any time frame supported, and transform raw market data into standard indicators."
+            "text": "Users can define date ranges and additional parameters. They may also convert OHLCV data into candles for any time frame supported, and transform raw market data into standard indicators.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи могут задавать диапазоны дат и дополнительные параметры. Они также могут преобразовывать данные OHLCV в свечи для любого поддерживаемого временного интервала и преобразовывать необработанные рыночные данные в стандартные индикаторы.",
+                    "updated": 1640415714408
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The visual scripting solution facilitates the creation of custom indicators, with little coding knowledge required. Plotters can also be constructed without coding, and make graphics for custom data sets (including custom indicators). These can then be plotted over the charts."
+            "text": "The visual scripting solution facilitates the creation of custom indicators, with little coding knowledge required. Plotters can also be constructed without coding, and make graphics for custom data sets (including custom indicators). These can then be plotted over the charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Визуальное решение для создания сценариев облегчает создание пользовательских индикаторов, при этом не требуется особых знаний кодирования. Плоттеры также могут быть построены без кодирования и создавать графики для пользовательских наборов данных (включая пользовательские индикаторы). Затем они могут быть нанесены на графики.",
+                    "updated": 1640415777848
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In Superalgos, traders will have access to capabilities for training TensorFlow algorithms. Training data sets may be created with in-built capabilities for processing data, and resulting models could be utilized in trading strategies.",
-            "updated": 1632652235389
+            "updated": 1632652235389,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Superalgos трейдеры получат доступ к возможностям обучения алгоритмов TensorFlow. Наборы обучающих данных могут быть созданы с помощью встроенных возможностей для обработки данных, а полученные модели могут быть использованы в торговых стратегиях.",
+                    "updated": 1640415800310
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Users can build trading systems according to a professional framework and organize strategies in stages. The framework is based on rules, which may be written to trigger strategies, adopt and manage positions, and ultimately close them."
+            "text": "Users can build trading systems according to a professional framework and organize strategies in stages. The framework is based on rules, which may be written to trigger strategies, adopt and manage positions, and ultimately close them.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи могут строить торговые системы в соответствии с профессиональной структурой и организовывать стратегии поэтапно. В основе структуры лежат правила, которые могут быть написаны для запуска стратегий, принятия и управления позициями и, в конечном итоге, их закрытия.",
+                    "updated": 1640415823754
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Traders may also utilize market and limit orders for configuring execution algorithms. Profit and stop-loss targets can be handled in phases, with rules to control how switching between formulas that describe targets occurs. Analysis can also be combined on various indicators and time frames."
+            "text": "Traders may also utilize market and limit orders for configuring execution algorithms. Profit and stop-loss targets can be handled in phases, with rules to control how switching between formulas that describe targets occurs. Analysis can also be combined on various indicators and time frames.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Трейдеры также могут использовать рыночные и лимитные ордера для настройки алгоритмов исполнения. Цели прибыли и стоп-лосса могут обрабатываться поэтапно, при этом правила контролируют, как происходит переключение между формулами, описывающими цели. Анализ также может быть объединен по различным индикаторам и таймфреймам.",
+                    "updated": 1640415859790
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trading Farms are also implemented into Superalgos, and coordinated tasks can be deployed across numerous machines (virtual and physical). Traders can use different deployments as per their needs."
+            "text": "Trading Farms are also implemented into Superalgos, and coordinated tasks can be deployed across numerous machines (virtual and physical). Traders can use different deployments as per their needs.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые фермы также реализованы в Superalgos, и скоординированные задачи могут быть развернуты на многочисленных машинах (виртуальных и физических). Трейдеры могут использовать различные развертывания в соответствии со своими потребностями.",
+                    "updated": 1640415879070
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "How Does it Work?"
+            "text": "How Does it Work?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как это работает?",
+                    "updated": 1640415889362
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To install Superalgos, Node.js needs to be installed first (as the Superalgos Client is a Node.js application). The installation process is fairly simple. Users should fork/clone the Superalgos repository, and they will then be able to utilize it."
+            "text": "To install Superalgos, Node.js needs to be installed first (as the Superalgos Client is a Node.js application). The installation process is fairly simple. Users should fork/clone the Superalgos repository, and they will then be able to utilize it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы установить Superalgos, сначала необходимо установить Node.js (поскольку клиент Superalgos - это приложение Node.js). Процесс установки довольно прост. Пользователи должны создать/клонировать репозиторий Superalgos, после чего они смогут его использовать.",
+                    "updated": 1640415912872
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the app has been launched, an introductory tutorial will guide you through the system to learn how it functions. This includes downloading Binance data, processing it into indicators, backtesting, and running a live trading session if required. Other tutorials are available too."
+            "text": "Once the app has been launched, an introductory tutorial will guide you through the system to learn how it functions. This includes downloading Binance data, processing it into indicators, backtesting, and running a live trading session if required. Other tutorials are available too.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После запуска приложения вы получите вводное руководство по работе с системой, чтобы узнать, как она функционирует. Это включает загрузку данных Binance, их обработку в индикаторы, бэктестирование и, при необходимости, проведение реальной торговой сессии. Доступны и другие учебные пособия.",
+                    "updated": 1640415936746
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As mentioned above, traders considering trying Superalgos will be required to invest time into it at the beginning. Particularly as it places no constraints on what a user may or may not do with it. The range of tutorials is designed to ease newcomers into the platform."
+            "text": "As mentioned above, traders considering trying Superalgos will be required to invest time into it at the beginning. Particularly as it places no constraints on what a user may or may not do with it. The range of tutorials is designed to ease newcomers into the platform.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как уже упоминалось выше, трейдеры, рассматривающие возможность попробовать Superalgos, должны будут вложить в него время на начальном этапе. Тем более, что она не накладывает никаких ограничений на то, что пользователь может или не может делать с ней. Набор учебных пособий призван облегчить новичкам освоение платформы.",
+                    "updated": 1640415960312
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "No restrictions are imposed on what you choose to do or not to do with Superalgos. Any limits come into effect as a result of the user’s hardware, based on what it’s technically capable of."
+            "text": "No restrictions are imposed on what you choose to do or not to do with Superalgos. Any limits come into effect as a result of the user’s hardware, based on what it’s technically capable of.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Никакие ограничения не накладываются на то, что вы решаете делать или не делать с Superalgos. Любые ограничения вступают в силу в результате работы аппаратного обеспечения пользователя, исходя из его технических возможностей.",
+                    "updated": 1640415978323
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For instance, traders can load an endless amount of candles and visualize an unlimited number of indicators simultaneously. But their system will dictate the amount of information that can be presented and the frame rate at which the screen will be refreshed. Infinite data and trading tasks can be deployed too."
+            "text": "For instance, traders can load an endless amount of candles and visualize an unlimited number of indicators simultaneously. But their system will dictate the amount of information that can be presented and the frame rate at which the screen will be refreshed. Infinite data and trading tasks can be deployed too.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, трейдеры могут загружать бесконечное количество свечей и визуализировать неограниченное количество индикаторов одновременно. Но их система будет диктовать количество информации, которая может быть представлена, и частоту кадров, с которой будет обновляться экран. Также можно развернуть бесконечное количество данных и торговых задач.",
+                    "updated": 1640416003247
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Security"
+            "text": "Security",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Безопасность",
+                    "updated": 1640416011890
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "No specific security measures are implemented in Superalgos as it runs on the user’s premises only, and remains under their control."
+            "text": "No specific security measures are implemented in Superalgos as it runs on the user’s premises only, and remains under their control.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Никаких специальных мер безопасности в Superalgos не применяется, поскольку он работает только на территории пользователя и остается под его контролем.",
+                    "updated": 1640416025846
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "No registration or login is required to start the download and installation process. This means that the platform is, essentially, as secure as the user’s machine is (or isn’t)."
+            "text": "No registration or login is required to start the download and installation process. This means that the platform is, essentially, as secure as the user’s machine is (or isn’t).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для начала процесса загрузки и установки не требуется регистрация или вход в систему. Это означает, что платформа, по сути, настолько безопасна, насколько безопасна (или не безопасна) машина пользователя.",
+                    "updated": 1640416040832
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As Superalgos is open-source, developers work on the code base frequently. This is maintained in a public Github repository, and any changes to the code will stay auditable for the foreseeable future."
+            "text": "As Superalgos is open-source, developers work on the code base frequently. This is maintained in a public Github repository, and any changes to the code will stay auditable for the foreseeable future.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку Superalgos имеет открытый исходный код, разработчики часто работают над кодовой базой. Она поддерживается в публичном репозитории Github, и любые изменения в коде будут оставаться проверяемыми в обозримом будущем.",
+                    "updated": 1640416061798
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Zero third parties are required for Superalgos’ network communications: a user’s bots deal with an exchange’s API directly, while traders conduct trades from inside their account on the relevant exchange."
+            "text": "Zero third parties are required for Superalgos’ network communications: a user’s bots deal with an exchange’s API directly, while traders conduct trades from inside their account on the relevant exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для сетевых коммуникаций Superalgos не требуются третьи стороны: боты пользователя работают с API биржи напрямую, а трейдеры проводят сделки из своего аккаунта на соответствующей бирже.",
+                    "updated": 1640416092759
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "How Much Does it Cost?"
+            "text": "How Much Does it Cost?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сколько это стоит?",
+                    "updated": 1640416102229
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Traders can install and utilize Superalgos for free. They can also modify it and distribute it without charge. There is no restriction on accessing features."
+            "text": "Traders can install and utilize Superalgos for free. They can also modify it and distribute it without charge. There is no restriction on accessing features.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Трейдеры могут устанавливать и использовать Superalgos бесплатно. Они также могут модифицировать и распространять его бесплатно. Доступ к функциям не ограничен.",
+                    "updated": 1640416116284
+                }
+            ]
         },
         {
             "style": "Text",

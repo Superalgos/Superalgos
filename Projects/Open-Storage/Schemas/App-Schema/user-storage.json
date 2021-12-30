@@ -1,0 +1,68 @@
+{
+    "type": "User Storage",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "githubStorage",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Github Storage",
+            "relatedUiObject": "Github Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "superalgosStorage",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Superalgos Storage",
+            "relatedUiObject": "Superalgos Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },        
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "userStorage",
+    "childrenNodesProperties": [
+        {
+            "name": "githubStorage",
+            "type": "node",
+            "childType": "Github Storage",
+            "autoAdd": false
+        },
+        {
+            "name": "superalgosStorage",
+            "type": "node",
+            "childType": "Superalgos Storage",
+            "autoAdd": false
+        }
+    ]
+}

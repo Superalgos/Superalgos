@@ -54,7 +54,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "... you may easily start over with the original Getting Started Tutorials Plugin Workspace!",
+            "text": "... you may easily start over with the original Getting Started Tutorials Plugin Workspace or the Partner Exchange workspace you may be using!",
             "translations": [
                 {
                     "language": "IT",
@@ -88,8 +88,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "... orijinal Getting Started Tutorials Plugin Workspace! ile kolayca baştan başlayabilirsiniz!...",
-                    "updated": 1636013152834
+                    "text": "...orijinal Başlangıç Eğitimleri Eklentisi (Getting Started Tutorials ) Çalışma Alanı veya tercih ettiğiniz Borsa  çalışma alanı ile kolayca yeniden başlayabilirsiniz! ",
+                    "updated": 1640627544260
                 },
                 {
                     "language": "NL",
@@ -97,11 +97,11 @@
                     "updated": 1636978022861
                 }
             ],
-            "updated": 1622196973760
+            "updated": 1640358082476
         },
         {
             "style": "Text",
-            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the Getting Started Tutorials plugin, and click it! The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
+            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the workspace, and click it! The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
             "translations": [
                 {
                     "language": "IT",
@@ -135,8 +135,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böyle bir durumda, sol taraftaki sekmeyi çekin, kaydırın, Getting Started Tutorials Plugin'i bulun ve tıklayın! Orijinal Eklenti Çalışma Alanı ( Plugin Workspace ) yüklenecek ve öğretici, baştan yeni bir şekilde yeniden görünecek!",
-                    "updated": 1636013239148
+                    "text": "Böyle bir durumda, sol taraftaki sekmeyi çekip kaydırmanız, çalışma alanını ( Plugin Workspace ) bulmanız ve tıklamanız yeterlidir!",
+                    "updated": 1640627614538
                 },
                 {
                     "language": "NL",
@@ -144,12 +144,12 @@
                     "updated": 1636978208217
                 }
             ],
-            "updated": 1622634394712
+            "updated": 1640358203586
         },
         {
             "style": "Success",
-            "text": "Plugin Workspaces ship with the system. Let's see how you can make them your own, or create new workspaces!",
-            "updated": 1629802595052,
+            "text": "Plugin Workspaces ship with the system. You will later learn to create your own too!",
+            "updated": 1640358298486,
             "translations": [
                 {
                     "language": "ES",
@@ -171,8 +171,8 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Şimdi bunları nasıl kendinize ait hale getirebileceğinizi veya yeni çalışma alanları oluşturabileceğinizi görelim!",
-                    "updated": 1636013279897
+                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz!",
+                    "updated": 1640627696169
                 },
                 {
                     "language": "NL",

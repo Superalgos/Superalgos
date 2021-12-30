@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Superalgos verarbeitet Zeitrahmen unter einer Stunde in \"Daily Files\", d.h. die Daten für einen Tag werden in einer Datei gespeichert.",
                 "updated": 1639145020061
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos обрабатывает таймфреймы менее одного часа в \"Daily Files\", что означает, что данные, соответствующие одному дню, хранятся в одном файле.",
+                "updated": 1640630423274
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "DE",
                     "text": "Im Gegensatz dazu werden Daten für Zeitrahmen von einer Stunde und mehr in \"Market Files\" gespeichert, was bedeutet, dass die Daten für den gesamten Markt in einer Datei gespeichert werden.",
                     "updated": 1639145063929
+                },
+                {
+                    "language": "RU",
+                    "text": "В отличие от этого, данные для таймфреймов от одного часа и выше хранятся в \"Market Files\", что означает, что данные, соответствующие всему рынку, хранятся в одном файле.",
+                    "updated": 1640630451137
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Dies hat zur Folge, dass bei der Arbeit in Zeitrahmen unter einer Stunde Ereignisse, die sich über mehrere Tage erstrecken, mehrere Objekte erzeugen: eines pro Tag!",
                     "updated": 1639145079480
+                },
+                {
+                    "language": "RU",
+                    "text": "В результате, при работе с таймфреймами менее одного часа, события, охватывающие несколько дней, генерируют несколько таких объектов: по одному на день!",
+                    "updated": 1640630525432
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "DE",
                     "text": "Dies bedeutet, dass Sie bei der Arbeit in niedrigen Zeitrahmen auf mehrere Objekte pro Konzept oder Ereignis stoßen können, die jeweils die Daten des Tagesschlusses anzeigen!",
                     "updated": 1639145082140
+                },
+                {
+                    "language": "RU",
+                    "text": "Это означает, что при работе с небольшими таймфреймами вы можете столкнуться с несколькими объектами для каждого понятия или события, каждый из которых показывает данные, соответствующие закрытию дня!",
+                    "updated": 1640630608144
                 }
             ]
         }

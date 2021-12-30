@@ -2,7 +2,14 @@
     "type": "Pool",
     "definition": {
         "text": "A Pool represents a high-level container of Token Rewards. The node may receive Weight Votes and route Token Rewards to other hierarchies via references. Contributors may direct Weight Votes to Pool nodes to affect how many tokens will be routed to and distributed at the referenced hierarchy.",
-        "updated": 1630426946700
+        "updated": 1630426946700,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Pool представляет собой высокоуровневый контейнер вознаграждений за токены (Token Rewards). Узел может получать весовые голоса (Weight Votes) и направлять Token Rewards в другие иерархии через ссылки. Вкладчики могут направлять весовые голоса на узлы пула, чтобы повлиять на то, сколько токенов будет направлено и распределено в иерархии, на которую ссылаются.",
+                "updated": 1640283628150
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -12,36 +19,92 @@
         },
         {
             "style": "Text",
-            "text": "Pool nodes may be nested in arbitrary levels and may be arranged under Pool Class nodes or directly under other Pool nodes. When they reference another hierarchy, the definition of the organization of the Project continues in the said hierarchy."
+            "text": "Pool nodes may be nested in arbitrary levels and may be arranged under Pool Class nodes or directly under other Pool nodes. When they reference another hierarchy, the definition of the organization of the Project continues in the said hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы пула могут быть вложены на произвольных уровнях и могут быть расположены под узлами Pool Class или непосредственно под другими узлами пула. Когда они ссылаются на другую иерархию, определение организации проекта продолжается в указанной иерархии.",
+                    "updated": 1640283676988
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When you direct Weight Votes into a Pool node, you are effectively increasing the weight of the pool in the eventual distribution of tokens by the number of votes you are directing to it. The Pool will get a portion of the tokens assigned to the Pools hierarchy in proportion to the total number of incoming Weight Votes. If a Pool has no incoming Weight Votes, it gets zero tokens."
+            "text": "When you direct Weight Votes into a Pool node, you are effectively increasing the weight of the pool in the eventual distribution of tokens by the number of votes you are directing to it. The Pool will get a portion of the tokens assigned to the Pools hierarchy in proportion to the total number of incoming Weight Votes. If a Pool has no incoming Weight Votes, it gets zero tokens.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда вы направляете весовые голоса на узел пула, вы фактически увеличиваете вес пула в конечном распределении токенов на количество голосов, которые вы направляете на него. Пул получит часть токенов, назначенных иерархии пулов, пропорционально общему количеству входящих весовых голосов. Если у пула нет входящих весовых голосов, он получает ноль токенов.",
+                    "updated": 1640283731616
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Pool nodes with incoming Weight Votes display the following pieces of information:"
+            "text": "Pool nodes with incoming Weight Votes display the following pieces of information:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы пула с входящими весовыми голосами отображают следующую информацию:",
+                    "updated": 1640283759126
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Number of Votes: the total number of Weight Votes directed at the node."
+            "text": "Number of Votes: the total number of Weight Votes directed at the node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Number of Votes: общее количество весовых голосов, направленных на узел.",
+                    "updated": 1640283780907
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Number of Tokens Awarded: the total number of tokens the Pool gets for the votes it has."
+            "text": "Number of Tokens Awarded: the total number of tokens the Pool gets for the votes it has.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Number of Tokens Awarded: общее количество токенов, которые пул получает за голоса, которые у него есть.",
+                    "updated": 1640283801204
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Weight: The total weight of the Pool is expressed as a percentage of the total Weight Votes directed at the whole hierarchy."
+            "text": "Weight: The total weight of the Pool is expressed as a percentage of the total Weight Votes directed at the whole hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Weight: общий вес пула выражается в процентах от общего веса голосов, направленных на всю иерархию.",
+                    "updated": 1640283847440
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Notice that a Pool node gets Token Rewards allocated to the hierarchy it belongs to. The aforementioned Weight value is in relation to the said hierarchy, and not necessarily to the top-level Superalgos Pools hierarchy.",
-            "updated": 1630427153739
+            "updated": 1630427153739,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что узел Pool получает Token Rewards, распределенные по иерархии, к которой он принадлежит. Вышеупомянутое значение Weight относится к указанной иерархии, а не обязательно к иерархии верхнего уровня Superalgos Pools.",
+                    "updated": 1640283899498
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "We mentioned that Pool nodes may pass on Token Rewards to other hierarchies which, in turn, further break up the definitions of where tokens go to. We’ll explore those hierarchies in the next few pages."
+            "text": "We mentioned that Pool nodes may pass on Token Rewards to other hierarchies which, in turn, further break up the definitions of where tokens go to. We’ll explore those hierarchies in the next few pages.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мы упоминали, что узлы Pool могут передавать Token Rewards другим иерархиям, которые, в свою очередь, еще больше разбивают определения того, куда идут токены. Мы рассмотрим эти иерархии на следующих нескольких страницах.",
+                    "updated": 1640283933300
+                }
+            ]
         },
         {
             "style": "Block",
@@ -49,7 +112,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1640283944121
+                }
+            ]
         }
     ]
 }

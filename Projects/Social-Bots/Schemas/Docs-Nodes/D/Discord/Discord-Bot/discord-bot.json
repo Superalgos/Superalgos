@@ -7,7 +7,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In order to use the Discord Bot, you will need to create a new Webhook Integration in Discord. The only configuration that is required within Superalgos is the webhookURL.",
+            "text": "In order to use the Discord Bot, you will need to create a new Application. Follow the official Discord developmer portal documentation to create your bot and obtain an Auth Token.",
             "updated": 1619546875758
         },
         {
@@ -16,8 +16,12 @@
         },
         {
             "style": "Text",
-            "text": "- webhookURL - required - obtained from Integrations > Webhooks in the channel settings."
+            "text": "- token - required - obtained from the Discord Developer Portal."
         },
+        {
+             "style": "Text",
+             "text": "- channelId - required - right click on a channel then Copy ID to obtain the channel ID."
+         },
         {
             "style": "Text",
             "text": "- format - optional - allows custom formatting of the message being sent into Discord."

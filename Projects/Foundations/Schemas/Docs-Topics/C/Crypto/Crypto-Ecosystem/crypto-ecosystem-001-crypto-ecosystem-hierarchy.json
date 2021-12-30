@@ -4,7 +4,14 @@
     "type": "Crypto Ecosystem Hierarchy",
     "definition": {
         "text": "The crypto ecosystem hierarchy organizes the infrastructure of exchanges, markets and user accounts.",
-        "updated": 1611502351384
+        "updated": 1611502351384,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Иерархия криптоэкосистемы организует инфраструктуру бирж, рынков и учетных записей пользователей.",
+                "updated": 1640279400184
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "Чтобы участники могли участвовать в управлении, проект должен быть тщательно определен, поскольку именно эти определения могут принимать голоса и претензии авторов.",
                 "updated": 1639039480562
+            },
+            {
+                "language": "DE",
+                "text": "Damit die Contributors (Mitwirkenden) an der Governance (Verwaltung) teilnehmen können, muss das Projekt genau definiert werden, da diese Definitionen die Votes und Claims (Stimmen und Forderungen) der Contributors akzeptieren können.",
+                "updated": 1640644243649
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "RU",
                     "text": "Проект управления Governance Project разработан таким образом, чтобы можно было детально описать проект. Это одна из функций, обеспечивающих массовое сотрудничество, поскольку она позволяет разным людям участвовать в очень конкретных областях проекта.",
                     "updated": 1639039526493
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Governance-Projekt ist so konzipiert, dass das Projekt sehr detailliert beschrieben werden kann. Dies ist eines der Merkmale, die eine umfassende Zusammenarbeit (collaboration) ermöglichen, da sich so verschiedene Personen mit sehr spezifischen Bereichen des Projekts befassen können.",
+                    "updated": 1640644301702
                 }
             ]
         },
@@ -49,6 +59,11 @@
                     "language": "RU",
                     "text": "Обычно определения управления производятся ведущими участниками, ведущими важные области проекта. Они лучше всего подходят для определения направлений, которые они возглавляют, поскольку обладают глубокими знаниями существующей инфраструктуры и дорожной карты развития.",
                     "updated": 1639039556437
+                },
+                {
+                    "language": "DE",
+                    "text": "In der Regel werden Governance-Definitionen von führenden Contributors erstellt, die wichtige Bereiche des Projekts leiten. Sie sind am besten geeignet, die von ihnen geleiteten Bereiche zu definieren, da sie über profunde Kenntnisse der bestehenden Infrastruktur und der development roadmap (Entwicklungsplans) verfügen.",
+                    "updated": 1640644398010
                 }
             ]
         },
@@ -65,6 +80,11 @@
                     "language": "RU",
                     "text": "Постоянные участники, как правило, взаимодействуют с этими определениями, чтобы отдать свои голоса и заявить о своих претензиях.",
                     "updated": 1639039575377
+                },
+                {
+                    "language": "DE",
+                    "text": "Regelmäßige Contributor neigen dazu, mit diesen Definitionen zu interagieren, um ihre votes (Stimmen) abzugeben und ihre claims (Forderungen) zu stellen.",
+                    "updated": 1640644449935
                 }
             ]
         }

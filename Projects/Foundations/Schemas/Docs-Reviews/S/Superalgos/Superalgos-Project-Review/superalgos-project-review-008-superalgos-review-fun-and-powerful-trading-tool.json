@@ -4,18 +4,39 @@
     "type": "Superalgos Review - Fun and powerful trading tool!",
     "definition": {
         "text": "Superalgos is the perfect blend of an entry-level interface, with powerful tools for trading and analyzing data.",
-        "updated": 1619776163739
+        "updated": 1619776163739,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos - это идеальное сочетание интерфейса начального уровня с мощными инструментами для торговли и анализа данных.",
+                "updated": 1640411307855
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "My first impression of superalgos was a bit mixed, but after going through the tutorials I warmed up to the software a lot. While the interface can be a bit difficult to navigate at times, this makes it a bit challenging and therefore fun. I am especially exciting to experiment with data mines and trading systems.",
-            "updated": 1619776228324
+            "updated": 1619776228324,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Мое первое впечатление от Superalgos было несколько неоднозначным, но после изучения учебных пособий я значительно потеплел к программе.Хотя временами в интерфейсе может быть немного сложно ориентироваться, это делает его немного сложным и, следовательно, увлекательным. Мне особенно интересно экспериментировать с шахтами данных и торговыми системами.",
+                    "updated": 1640411529084
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The community surrounding the project is one of the greatest attractions, as well as the fact that the software isn't being run through a third party website controlling the data. I look forward to being an active contributor and especially hope to be able to learn and contribute in the machine learning subject. Really excited that the new version is incorporating TensorFlow!",
-            "updated": 1619860799196
+            "updated": 1619860799196,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сообщество, окружающее проект, является одним из самых привлекательных факторов, а также тот факт, что программное обеспечение не запускается через сторонний веб-сайт, контролирующий данные. Я с нетерпением жду возможности стать активным участником проекта и особенно надеюсь, что смогу научиться и вносить свой вклад в тему машинного обучения. Очень рад, что в новую версию включен TensorFlow!",
+                    "updated": 1640411582735
+                }
+            ]
         },
         {
             "style": "Text",

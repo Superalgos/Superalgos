@@ -4,11 +4,11 @@
     "type": "Tutorial Step - Is It Working?",
     "definition": {
         "icon": {
-            "name": "Crypto-Exchanges\\binance",
+            "name": "crypto-exchange",
             "project": "Foundations"
         },
-        "text": "The unequivocal way to verify if things are working fine is logging on to Binance and checking your order history for BTC/USDT.",
-        "updated": 1616435272813,
+        "text": "The unequivocal way to verify if things are working fine is logging on to the exchange and checking your order history for BTC/USDT.",
+        "updated": 1640291050452,
         "translations": [
             {
                 "language": "IT",
@@ -37,7 +37,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go to Binance and take a look at what's going on!",
+            "text": "Go to the exchange's web interface and take a look at what's going on!",
             "translations": [
                 {
                     "language": "IT",
@@ -61,7 +61,8 @@
                     "text": "Binance'e gidin ve neler olduğuna bir bakın!",
                     "updated": 1636577874188
                 }
-            ]
+            ],
+            "updated": 1640291072820
         },
         {
             "style": "Note",

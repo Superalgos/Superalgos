@@ -4,66 +4,164 @@
     "type": "Webhook Notifications",
     "definition": {
         "text": "Receive webhook notifications from other systems like Trading View, and use them as signals in your strategies.",
-        "updated": 1615365927821
+        "updated": 1615365927821,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Получайте уведомления по webhook от других систем, таких как Trading View, и используйте их в качестве сигналов в своих стратегиях.",
+                "updated": 1640422125036
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Overview",
-            "updated": 1611486037477
+            "updated": 1611486037477,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обзор",
+                    "updated": 1640422136341
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos allows you to receive webhook notifications from TradingView or any other system supporting webhooks. You may use this feature to turn notifications into signals upon which you may act from within your strategies."
+            "text": "Superalgos allows you to receive webhook notifications from TradingView or any other system supporting webhooks. You may use this feature to turn notifications into signals upon which you may act from within your strategies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos позволяет вам получать уведомления по webhook от TradingView или любой другой системы, поддерживающей webhooks. Вы можете использовать эту функцию для превращения уведомлений в сигналы, по которым вы можете действовать в своих стратегиях.",
+                    "updated": 1640422172686
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "How does it Work?",
-            "updated": 1615366465462
+            "updated": 1615366465462,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как это работает?",
+                    "updated": 1640422190592
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Receiving Data: the Client receives via it's http interface notifications from external sources (like Trading View) and keep the data received in-memory. This happens independently of the Webhooks Sensor Bot, meaning that it does not matter if the Webhook Sensor Bot is running or not.",
-            "updated": 1615366502234
+            "updated": 1615366502234,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получение данных: клиент получает через свой http-интерфейс уведомления из внешних источников (например, Trading View) и сохраняет полученные данные в памяти. Это происходит независимо от бота Webhooks Sensor Bot, то есть не имеет значения, запущен ли бот Webhooks Sensor Bot или нет.",
+                    "updated": 1640422231377
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Retrieving Data: The Webhooks Sensor Bot, when it is running, queries the Client and ask it for the in-memory data it holds.",
-            "updated": 1615366526381
+            "updated": 1615366526381,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получение данных: Webhooks Sensor Bot, когда он запущен, запрашивает клиента и получает данные, хранящиеся в памяти.",
+                    "updated": 1640422326072
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Saving Data: The Webhooks Sensor Bot saves this data to disk.",
-            "updated": 1615366538404
+            "updated": 1615366538404,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохранение данных: Webhooks Sensor Bot сохраняет эти данные на диск.",
+                    "updated": 1640422338086
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Consuming Data: A Trading Bot running a Strategy, might consume the data saved by the Webhooks Sensor Bot.",
-            "updated": 1615366547425
+            "updated": 1615366547425,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование данных: Торговый бот, запускающий стратегию, может потреблять данные, сохраненные ботом Webhooks Sensor Bot.",
+                    "updated": 1640422396600
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The rest of this page describes the set up process and how to use webhook notifications from within Superalgos."
+            "text": "The rest of this page describes the set up process and how to use webhook notifications from within Superalgos.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Остальная часть этой страницы описывает процесс настройки и как использовать уведомления webhook из Superalgos.",
+                    "updated": 1640422410179
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Set-up the Client for Webhooks"
+            "text": "Set-up the Client for Webhooks",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка клиента для Webhooks",
+                    "updated": 1640422421447
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There is nothing to configure in order for the Client to receive webhooks calls from external systems. The only thing you might need to do is to change the http interface port number at the Environment.js file if and only if your signals provider has any constraints regarding the port number it can send the notifications to."
+            "text": "There is nothing to configure in order for the Client to receive webhooks calls from external systems. The only thing you might need to do is to change the http interface port number at the Environment.js file if and only if your signals provider has any constraints regarding the port number it can send the notifications to.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для того чтобы клиент мог получать вызовы webhooks от внешних систем, ничего настраивать не нужно. Единственное, что вам может понадобиться сделать, это изменить номер порта http-интерфейса в файле Environment.js, и то только в том случае, если ваш поставщик сигналов имеет какие-либо ограничения относительно номера порта, на который он может отправлять уведомления.",
+                    "updated": 1640431753395
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Run a Quick Local Test"
+            "text": "Run a Quick Local Test",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проведите быстрый локальный тест",
+                    "updated": 1640431764239
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before setting up the actual signal at the corresponding provider, you may run a quick local test that will help you familiarize with how Superalgos handles webhooks."
+            "text": "Before setting up the actual signal at the corresponding provider, you may run a quick local test that will help you familiarize with how Superalgos handles webhooks.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед настройкой реального сигнала у соответствующего провайдера вы можете провести быстрый локальный тест, который поможет вам ознакомиться с тем, как Superalgos работает с webhook.",
+                    "updated": 1640431812464
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the crypto ecosystem node menu, select Add Signals Providers. A structure of nodes is added with a signals provider node that allows you to run a little test. Select Configure Signals Provider on the menu."
+            "text": "In the crypto ecosystem node menu, select Add Signals Providers. A structure of nodes is added with a signals provider node that allows you to run a little test. Select Configure Signals Provider on the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В меню узла Crypto Ecosystem выберите Add Signals Providers. В структуру узлов добавляется узел провайдера сигналов, который позволяет провести небольшой тест. В меню выберите Configure Signals Provider.",
+                    "updated": 1640431858377
+                }
+            ]
         },
         {
             "style": "Json",
@@ -73,16 +171,37 @@
         {
             "style": "List",
             "text": "webhookURL: This is the URL you need to use for testing purposes. Make sure you refer to the correct exchange and market. Something very similar to this, you will configure later at Trading View or other Signal Provider. ",
-            "updated": 1615368679683
+            "updated": 1615368679683,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "webhookURL: Это URL, который необходимо использовать для тестирования. Убедитесь, что вы ссылаетесь на правильную биржу и рынок. Что-то очень похожее на это, вы настроите позже в Trading View или другом поставщике сигналов.",
+                    "updated": 1640431882716
+                }
+            ]
         },
         {
             "style": "List",
             "text": "testMessage: Enter any message, for testing purposes. This message will be what you will use at your Trading System conditions to know which type of signal you received. ",
-            "updated": 1615368846219
+            "updated": 1615368846219,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "testMessage: Введите любое сообщение для тестирования. Это сообщение будет тем, что вы будете использовать в условиях вашей торговой системы, чтобы знать, какой тип сигнала вы получили.",
+                    "updated": 1640431907911
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "testMessage Examples"
+            "text": "testMessage Examples",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры testMessage",
+                    "updated": 1640431928244
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -107,32 +226,81 @@
         {
             "style": "Subtitle",
             "text": "Send the Test Message to the Client",
-            "updated": 1615368890166
+            "updated": 1615368890166,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отправьте тестовое сообщение на Client",
+                    "updated": 1640431987398
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once the test message is configured, select Send Test Message on the menu."
+            "text": "Once the test message is configured, select Send Test Message on the menu.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того как тестовое сообщение настроено, выберите в меню пункт Send Test Message (Отправить тестовое сообщение).",
+                    "updated": 1640432010180
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "By doing this, you are simulating being Trading View's server and sending the message in the exact same way they would do it, to the Superalgos Client you are running. "
+            "text": "By doing this, you are simulating being Trading View's server and sending the message in the exact same way they would do it, to the Superalgos Client you are running. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Делая это, вы имитируете, что являетесь сервером Trading View и отправляете сообщение точно так же, как это бы сделал он, на запущенный вами Superalgos Client.",
+                    "updated": 1640432055266
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Client does not know you are sending a Test Message, and it does not know it is you and not the real Trading View. For the Client's point of view someone sent a Webhook message to it and it will do with it what it will do with any other message of this type. Store it in-memory waiting for the Webhook Sensor Bot to fetch the pending messages, in which case the Client will delete them upon delivery to the Sensor Bot.",
-            "updated": 1615369237281
+            "updated": 1615369237281,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Client не знает, что вы отправляете тестовое сообщение, и он не знает, что это вы, а не реальное торговое предложение. С точки зрения клиента, кто-то послал ему Webhook-сообщение, и он будет делать с ним то же самое, что и с любым другим сообщением такого типа. Хранить его в памяти, ожидая, пока бот Webhook Sensor Bot не получит ожидающие сообщения, и в этом случае Client удалит их после доставки боту Sensor Bot.",
+                    "updated": 1640432111048
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "At the Signals Provider node you will see a message of failure or success depending if the message was successfully delivered to the Client or not."
+            "text": "At the Signals Provider node you will see a message of failure or success depending if the message was successfully delivered to the Client or not.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На узле Signals Provider вы увидите сообщение о неудаче или успехе в зависимости от того, было ли сообщение успешно доставлено клиенту (Client) или нет.",
+                    "updated": 1640432150731
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "At the Client 's console, you will see 3 lines of logs, acknowledging that the message was received or if something was wrong, an error message with the cause."
+            "text": "At the Client 's console, you will see 3 lines of logs, acknowledging that the message was received or if something was wrong, an error message with the cause.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На консоли клиента вы увидите 3 строки журнала, подтверждающие, что сообщение было получено, или, если что-то было не так, сообщение об ошибке с указанием причины.",
+                    "updated": 1640432174540
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The success logs looks like this:"
+            "text": "The success logs looks like this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В журнале сообщение об успехе выглядит следующим образом:",
+                    "updated": 1640432288344
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -142,16 +310,37 @@
         {
             "style": "Title",
             "text": "Set-up the Webhooks Sensor Bot Tasks",
-            "updated": 1615370044893
+            "updated": 1615370044893,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка задач Webhooks Sensor Bot",
+                    "updated": 1640432303091
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Webhooks Data Mine features the definition of the Webhooks sensor bot used to monitor incoming notifications. You need to run an instance of this bot in the data mining section of the exchange and market of your choice.",
-            "updated": 1629361373616
+            "updated": 1629361373616,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Webhooks Data Mine представлено определение бота Webhook Sensor Bot, используемого для мониторинга входящих уведомлений. Вам необходимо запустить экземпляр этого бота в разделе добычи данных на выбранной вами бирже и рынке.",
+                    "updated": 1640432457432
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Getting-Started-Tutorials workspace does not have this Data Mine as a plugin so you will need to add it first. To do that locate the Plugins node, expand it and at the Plugins Data Mines add a New Plugin File. You can setup it's configuration like this:"
+            "text": "The Getting-Started-Tutorials workspace does not have this Data Mine as a plugin so you will need to add it first. To do that locate the Plugins node, expand it and at the Plugins Data Mines add a New Plugin File. You can setup it's configuration like this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В рабочем пространстве Getting-Started-Tutorials нет этого Data Mine в качестве плагина, поэтому сначала его нужно добавить. Для этого найдите узел Plugins, раскройте его и в Plugins Data Mines добавьте New Plugin File. Вы можете настроить его конфигурацию следующим образом:",
+                    "updated": 1640432490954
+                }
+            ]
         },
         {
             "style": "Json",
@@ -161,25 +350,60 @@
         {
             "style": "Text",
             "text": "The default workspace does not feature these tasks. To create a task for the Webhooks sensor bot, you need to uninstall and re-install the corresponding market.  The process of installing a market adds all the tasks needed to run all the bots defined at all Data Mines present at the workspace.",
-            "updated": 1629361603647
+            "updated": 1629361603647,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В рабочем пространстве по умолчанию эти задачи отсутствуют. Чтобы создать задачу для Webhook Sensor Bot, необходимо удалить и заново установить соответствующий рынок. Процесс установки рынка добавляет все задачи, необходимые для запуска всех ботов, определенных на всех Data Mine, присутствующих в рабочем пространстве.",
+                    "updated": 1640432558869
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Once the Webhooks sensor task is set up, you are all set at the application level. It’s that simple.",
-            "updated": 1615370160742
+            "updated": 1615370160742,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После настройки задачи сенсора Webhooks все готово на уровне приложения. Все очень просто.",
+                    "updated": 1640432576289
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Running the Webhooks Sensor Bot"
+            "text": "Running the Webhooks Sensor Bot",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск бота Webhooks Sensor Bot",
+                    "updated": 1640432590357
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now that you have verified that the Client is receiving the signal messages and storing them for you, the next thing to do is to run the Webhooks Sensor Bot so that it fetches the signals from the Client and saves them on disk in the format that later can be consumed from strategies.",
-            "updated": 1615369878800
+            "updated": 1615369878800,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь, когда вы убедились, что клиент получает сигнальные сообщения и сохраняет их для вас, следующее, что нужно сделать, это запустить Webhooks Sensor Bot, чтобы он получал сигналы от клиента и сохранял их на диске в формате, который позже можно будет использовать в стратегиях.",
+                    "updated": 1640432609566
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "By default, this bot will run every 30 seconds. Each time it runs you will see logs entries at the Client 's console similar to this:"
+            "text": "By default, this bot will run every 30 seconds. Each time it runs you will see logs entries at the Client 's console similar to this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По умолчанию этот бот будет запускаться каждые 30 секунд. Каждый раз, когда он запускается, вы увидите в консоли клиента записи журналов, похожие на эти:",
+                    "updated": 1640432628122
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -189,25 +413,60 @@
         {
             "style": "Title",
             "text": "Send Test Messages while Sensor Bot is Running",
-            "updated": 1615371461320
+            "updated": 1615371461320,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отправка тестовых сообщений во время работы сенсорного бота",
+                    "updated": 1640432646447
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now that you know how to send test messages, try doing that while the Sensor Bot is running. By looking at the Client 's console you will be able to see what is going on:",
-            "updated": 1615370466427
+            "updated": 1615370466427,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь, когда вы знаете, как отправлять тестовые сообщения, попробуйте сделать это во время работы Sensor Bot. Посмотрев на консоль клиента, вы сможете увидеть, что происходит:",
+                    "updated": 1640432660241
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The Client accumulates the signals received.",
-            "updated": 1615370477786
+            "updated": 1615370477786,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Client накапливает полученные сигналы.",
+                    "updated": 1640432671633
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The Sensor Bot fetches all the accumulated signals every time it runs."
+            "text": "The Sensor Bot fetches all the accumulated signals every time it runs.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Sensor Bot собирает все накопленные сигналы при каждом запуске.",
+                    "updated": 1640432686311
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the example below I sent 3 signal messages from the UI to the Client, and then the Sensor Bot fetch them all."
+            "text": "In the example below I sent 3 signal messages from the UI to the Client, and then the Sensor Bot fetch them all.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В примере ниже я отправил 3 сигнальных сообщения из UI на Client, а затем Sensor Bot их все получил.",
+                    "updated": 1640432728498
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -216,12 +475,26 @@
         },
         {
             "style": "Title",
-            "text": "Webhooks Sensor Bot Output"
+            "text": "Webhooks Sensor Bot Output",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вывод данных Webhooks Sensor Bot",
+                    "updated": 1640432800323
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The Webhooks sensor bot outputs a single file, Data.json, in the following location: ",
-            "updated": 1611486267182
+            "updated": 1611486267182,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Webhooks Sensor Bot выводит один файл Data.json в следующем месте:",
+                    "updated": 1640432823919
+                }
+            ]
         },
         {
             "style": "Json",
@@ -231,7 +504,14 @@
         {
             "style": "Text",
             "text": "Based on our tests, the location you would find the file would be:",
-            "updated": 1615371008258
+            "updated": 1615371008258,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно нашим тестам, файл можно найти в следующем месте:",
+                    "updated": 1640432846375
+                }
+            ]
         },
         {
             "style": "Json",
@@ -240,17 +520,38 @@
         },
         {
             "style": "Text",
-            "text": "You may open the file and see if the content corresponds to what is expected."
+            "text": "You may open the file and see if the content corresponds to what is expected.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете открыть файл и посмотреть, соответствует ли его содержимое ожидаемому.",
+                    "updated": 1640432857256
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Make sure the Webhooks sensor bot task is running. The process is configured to run every 30 seconds by default. If that time has passed, you should find the messages you may have sent.",
-            "updated": 1611486302392
+            "updated": 1611486302392,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что задача Webhooks Sensor Bot запущена. По умолчанию этот процесс настроен на выполнение каждые 30 секунд. Если это время прошло, вы должны найти сообщения, которые вы отправили.",
+                    "updated": 1640432905290
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "This is what the file may look like after the 3 test messages we sent:",
-            "updated": 1615370943470
+            "updated": 1615370943470,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот как может выглядеть файл после отправки 3 тестовых сообщений:",
+                    "updated": 1640432916715
+                }
+            ]
         },
         {
             "style": "Json",
@@ -259,30 +560,72 @@
         },
         {
             "style": "Text",
-            "text": "As per the record definition of the Webhooks sensor bot in the Masters data mine, each record in the file features three fields:"
+            "text": "As per the record definition of the Webhooks sensor bot in the Masters data mine, each record in the file features three fields:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Согласно определению записи Webhooks Sensor Bot в Masters Data Mine, каждая запись в файле содержит три поля:",
+                    "updated": 1640433070841
+                }
+            ]
         },
         {
             "style": "List",
             "text": "timestamp: the Unix datetime of the message. This is the moment in time the Client received the signal from the external Signals provider.",
-            "updated": 1615371169447
+            "updated": 1615371169447,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "timestamp (временная метка): датировка сообщения в Unix. Это момент времени, когда Client получил сигнал от внешнего поставщика сигналов.",
+                    "updated": 1640433143700
+                }
+            ]
         },
         {
             "style": "List",
             "text": "source: the name of the Signal Provider. This comes as part of the message sent by the provider, because is part of the URL you will specify later at the Signal Provider's system. In our example we used Trading View, but in fact it could be any other provider. You will have this property available at your Trading System, meaning that you will be able to write conditions that distinguish the signal by Signal Provider.",
-            "updated": 1615371322994
+            "updated": 1615371322994,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "source: имя поставщика сигналов. Оно входит в сообщение, отправляемое провайдером, поскольку является частью URL, который вы позже укажете в системе провайдера сигналов (Signal Provider). В нашем примере мы использовали Trading View, но на самом деле это может быть любой другой провайдер. Это свойство будет доступно в вашей торговой системе, что означает, что вы сможете написать условия, которые различают сигнал по поставщику сигнала.",
+                    "updated": 1640433235114
+                }
+            ]
         },
         {
             "style": "List",
             "text": "message: the message set up at the provider’s system (BUY, SELL, etc.).",
-            "updated": 1615371373274
+            "updated": 1615371373274,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "message: сообщение, установленное в системе провайдера (BUY, SELL и т.д.).",
+                    "updated": 1640433256525
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Using Webhooks Signals from within Strategies"
+            "text": "Using Webhooks Signals from within Strategies",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование сигналов Webhooks внутри стратегий",
+                    "updated": 1640433267157
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may use each of the three available properties with the following syntax:"
+            "text": "You may use each of the three available properties with the following syntax:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать каждое из трех доступных свойств со следующим синтаксисом:",
+                    "updated": 1640433277375
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -298,7 +641,14 @@
         },
         {
             "style": "Text",
-            "text": "For example, a simple condition evaluating to true when a the last message received is a buy signal from TradingView would look like this:"
+            "text": "For example, a simple condition evaluating to true when a the last message received is a buy signal from TradingView would look like this:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, простое условие, возвращающее значение true, когда последнее полученное сообщение является сигналом на покупку от TradingView, будет выглядеть следующим образом:",
+                    "updated": 1640433354999
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -307,7 +657,14 @@
         },
         {
             "style": "Text",
-            "text": "You may also use the previous property to check the previous message, as follows:"
+            "text": "You may also use the previous property to check the previous message, as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы также можете использовать свойство previous для проверки предыдущего сообщения, как показано ниже:",
+                    "updated": 1640433367817
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -316,7 +673,14 @@
         },
         {
             "style": "Text",
-            "text": "It may be wise to verify the date of the message, or to check if the message corresponds to a certain time frame. To do that, you may use the isItInside function as follows:"
+            "text": "It may be wise to verify the date of the message, or to check if the message corresponds to a certain time frame. To do that, you may use the isItInside function as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Может быть целесообразно проверить дату сообщения или проверить, соответствует ли сообщение определенному таймфрейму. Для этого можно использовать функцию isItInside следующим образом:",
+                    "updated": 1640433419348
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -324,44 +688,107 @@
         },
         {
             "style": "Text",
-            "text": "In the above example, the first parameter chart.atAnyTimeFrame.externalSignal is the signal object you wish to check, and the second parameter chart.at01hs.candle is any other object that is delimited in time. In this case, the condition validates true if the last message falls within the last 1-hour candle."
+            "text": "In the above example, the first parameter chart.atAnyTimeFrame.externalSignal is the signal object you wish to check, and the second parameter chart.at01hs.candle is any other object that is delimited in time. In this case, the condition validates true if the last message falls within the last 1-hour candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В приведенном выше примере первый параметр chart.atAnyTimeFrame.externalSignal - это объект сигнала, который вы хотите проверить, а второй параметр chart.at01hs.candle - это любой другой объект, разграниченный во времени. В данном случае условие принимает значение true, если последнее сообщение попадает в последнюю 1-часовую свечу.",
+                    "updated": 1640433495915
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "The reason to make this validation is to avoid situations where the Webhook sensor bot was not running and it retrieved from the Client signals that are already old. If you do not check the age of the signal you might get into the situation where you are triggering a buy or sell based on old data."
+            "text": "The reason to make this validation is to avoid situations where the Webhook sensor bot was not running and it retrieved from the Client signals that are already old. If you do not check the age of the signal you might get into the situation where you are triggering a buy or sell based on old data.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эта проверка необходима для того, чтобы избежать ситуаций, когда Webhook Sensor Bot не был запущен и получал от клиента сигналы, которые уже устарели. Если вы не проверите возраст сигнала, вы можете попасть в ситуацию, когда срабатывает покупка или продажа на основании старых данных.",
+                    "updated": 1640433553136
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Test that the Signal is Taken by your Strategy",
-            "updated": 1615377044554
+            "updated": 1615377044554,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте, что сигнал принят вашей стратегией",
+                    "updated": 1640433564887
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "We will make ourselves sure that from within a strategy we can react to an external Signal. To test this, please take the following steps. All of the following goes into the current Lighting Strike Backtesting Session / Task.",
-            "updated": 1615379790606
+            "updated": 1615379790606,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Убедимся, что изнутри стратегии мы можем реагировать на внешний сигнал. Чтобы проверить это, выполните следующие действия. Все перечисленное ниже входит в текущую сессию/задачу бэктестинга Lighting Strike.",
+                    "updated": 1640433593459
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Paper Trading Session",
-            "updated": 1615380274411
+            "updated": 1615380274411,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сессия бумажной торговли",
+                    "updated": 1640433604843
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Right click over the Backtesting Session node and select switch to Paper Trading so that we can simulate live trading without connecting to the exchange."
+            "text": "Right click over the Backtesting Session node and select switch to Paper Trading so that we can simulate live trading without connecting to the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши на узле Backtesting Session и выберите switch to Paper Trading, чтобы мы могли имитировать реальную торговлю без подключения к бирже.",
+                    "updated": 1640433628539
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Set-up Session Parameters"
+            "text": "Set-up Session Parameters",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка параметров сеанса",
+                    "updated": 1640433638778
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Since you have reinstalled the market in order for the task of the Webhooks bot to appear at the Master Trading Mine Tasks, the setup for the Lighting Strike strategy needs to be fixed. (Assuming you are at the Getting Started Workspace). This is what we are going to do:",
-            "updated": 1615379719899
+            "updated": 1615379719899,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку вы переустановили рынок, чтобы задача бота Webhooks появилась в Master Trading Mine Tasks, необходимо исправить настройку для стратегии Lighting Strike. (Предполагается, что вы находитесь в рабочем пространстве Getting Started Workspace). Вот что мы собираемся сделать:",
+                    "updated": 1640433679310
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Apply this config to your Session Base Asset",
-            "updated": 1615379980416
+            "updated": 1615379980416,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примените эту конфигурацию к Session Base Asset",
+                    "updated": 1640433885838
+                }
+            ]
         },
         {
             "style": "Json",
@@ -371,7 +798,14 @@
         {
             "style": "Text",
             "text": "Apply this config to the Session Quoted Asset",
-            "updated": 1615379973089
+            "updated": 1615379973089,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примените эту конфигурацию к Session Quoted Asset",
+                    "updated": 1640433876866
+                }
+            ]
         },
         {
             "style": "Json",
@@ -381,7 +815,14 @@
         {
             "style": "Text",
             "text": "Apply this config to the Time Range",
-            "updated": 1615380023496
+            "updated": 1615380023496,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примените эту конфигурацию к Time Range",
+                    "updated": 1640433868889
+                }
+            ]
         },
         {
             "style": "Json",
@@ -391,12 +832,26 @@
         {
             "style": "Text",
             "text": "The initialDatetime will be ignored because we are running a Paper Trading Session. The important thing is that the finalDatetime is in the future.",
-            "updated": 1615380159343
+            "updated": 1615380159343,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "InitialDatetime будет игнорироваться, поскольку мы запускаем бумажную торговую сессию. Важно, чтобы конечное время (finalDatetime) находилось в будущем.",
+                    "updated": 1640433821569
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Apply this config to the Time Frame",
-            "updated": 1615380180549
+            "updated": 1615380180549,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примените эту конфигурацию к Time Frame",
+                    "updated": 1640433859826
+                }
+            ]
         },
         {
             "style": "Json",
@@ -406,12 +861,26 @@
         {
             "style": "Subtitle",
             "text": "Set-up the Strategy for Webhooks Signals",
-            "updated": 1615380571676
+            "updated": 1615380571676,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка стратегии для сигналов Webhooks",
+                    "updated": 1640433899075
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Inside the Lighting Strike trading system locate the Trigger On Event, and paste the following into the Javascript Node of the only condition it has.",
-            "updated": 1615380721252
+            "updated": 1615380721252,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Внутри торговой системы Lighting Strike найдите событие Trigger On Event и вставьте следующее в узел Javascript для единственного условия, которое у него есть.",
+                    "updated": 1640433993257
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -420,15 +889,36 @@
         },
         {
             "style": "Text",
-            "text": "What we are doing here is setting the strategy to be triggered once an external signal with the message TRIGGER ON is received via the Webhook Sensor Bot."
+            "text": "What we are doing here is setting the strategy to be triggered once an external signal with the message TRIGGER ON is received via the Webhook Sensor Bot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Здесь мы настраиваем стратегию на срабатывание после получения внешнего сигнала с сообщением TRIGGER ON через Webhook Sensor Bot.",
+                    "updated": 1640434010505
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Run the Data Mining Tasks"
+            "text": "Run the Data Mining Tasks",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выполнение задач по добыче данных",
+                    "updated": 1640434026737
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For this test, since we are Paper Trading, we will need a live stream of data from the exchange. We don't need to run all the Task of Mater Data Mining, only the ones needed by the Lighting Strike strategy:"
+            "text": "For this test, since we are Paper Trading, we will need a live stream of data from the exchange. We don't need to run all the Task of Mater Data Mining, only the ones needed by the Lighting Strike strategy:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для этого теста, поскольку мы занимаемся бумажной торговлей, нам понадобится реальный поток данных с биржи. Нам не нужно запускать все задачи Mater Data Mining, только те, которые необходимы для стратегии Lighting Strike:",
+                    "updated": 1640434055744
+                }
+            ]
         },
         {
             "style": "List",
@@ -452,16 +942,37 @@
         },
         {
             "style": "Subtitle",
-            "text": "Run Task and Session"
+            "text": "Run Task and Session",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запуск задачи и сессии",
+                    "updated": 1640434090160
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Run Task and the Session, and monitor the chart that was called Backtesting (now that is our Papertrading session), at the end of the market at the 1 minute time frame. Turn on the Episodes layer and wait for a few minutes until you see the Episode icons appear at the charts.",
-            "updated": 1615380482184
+            "updated": 1615380482184,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запустите Task и Session, и наблюдайте за графиком, который был назван Backtesting (теперь это наша сессия Papertrading), в конце рынка на 1-минутном таймфрейме. Включите слой Episodes и подождите несколько минут, пока на графике не появятся значки Episode.",
+                    "updated": 1640434150940
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Before running the task and session, delete the data at "
+            "text": "Before running the task and session, delete the data at ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перед запуском задачи и сессии удалите данные по следующему пути",
+                    "updated": 1640434240248
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -471,17 +982,38 @@
         {
             "style": "Important",
             "text": "This is not necessary the first time you run this, but if you are repeating this test, you will avoid confusions since the file of signals will be accumulating the test messages you send, and at the strategy we are not checking for the age of the messages, so it is a good idea to delete this data every time you try this procedure.",
-            "updated": 1615381726583
+            "updated": 1615381726583,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это не обязательно при первом запуске, но если вы повторяете этот тест, вы избежите путаницы, поскольку файл сигналов будет накапливать тестовые сообщения, которые вы отправляете, а в стратегии мы не проверяем возраст сообщений, поэтому хорошей идеей будет удалять эти данные каждый раз, когда вы испытываете эту процедуру.",
+                    "updated": 1640434307849
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Set-up the Signals Provider",
-            "updated": 1615380812487
+            "updated": 1615380812487,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка поставщика сигналов",
+                    "updated": 1640434329927
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "At the Crypto Ecosystem, paste the following config to the Signals Provider.",
-            "updated": 1615380855069
+            "updated": 1615380855069,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Crypto Ecosystem вставьте следующий конфиг в Signals Provider.",
+                    "updated": 1640434342061
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -490,33 +1022,82 @@
         },
         {
             "style": "Text",
-            "text": "This means that when you send this test message, you will be delivering the TRIGGER ON signal expected by the strategy."
+            "text": "This means that when you send this test message, you will be delivering the TRIGGER ON signal expected by the strategy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что когда вы отправите это тестовое сообщение, вы передадите сигнал TRIGGER ON, ожидаемый стратегией.",
+                    "updated": 1640434363185
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Ready to Send the Test Message TRIGGER ON",
-            "updated": 1615381087734
+            "updated": 1615381087734,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Готовность к отправке тестового сообщения TRIGGER ON",
+                    "updated": 1640434374840
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Go to the charts again an turn on the Strategies layer. You should not see anything at the charts since no strategy has been triggered.",
-            "updated": 1615381066133
+            "updated": 1615381066133,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Снова перейдите к графикам и включите слой  Strategies. Вы не должны ничего видеть на графиках, так как ни одна стратегия не была запущена.",
+                    "updated": 1640434411179
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Now you can send the test message."
+            "text": "Now you can send the test message.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь вы можете отправить тестовое сообщение.",
+                    "updated": 1640434419661
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "After you see the confirmation at the UI that the message was sent, check the Client's console to verify the message was received. Then wait until the message is picked up by the Webhooks Sensor Bot. Then wait until the Trading Bot runs again."
+            "text": "After you see the confirmation at the UI that the message was sent, check the Client's console to verify the message was received. Then wait until the message is picked up by the Webhooks Sensor Bot. Then wait until the Trading Bot runs again.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того как вы увидите подтверждение в UI, что сообщение было отправлено, проверьте консоль клиента, чтобы убедиться, что сообщение было получено. Затем подождите, пока сообщение не будет получено ботом Webhooks Sensor Bot. Затем ожидайте, пока торговый бот не запустится снова.",
+                    "updated": 1640434464745
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Go to the charts and wait until it plots the icons of the strategy, confirming that the strategy was triggered by the test message you sent."
+            "text": "Go to the charts and wait until it plots the icons of the strategy, confirming that the strategy was triggered by the test message you sent.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Перейдите к графикам и подождите, пока на них не появятся значки стратегии, подтверждающие, что стратегия была запущена отправленным вами тестовым сообщением.",
+                    "updated": 1640434492493
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "If all this worked, it means that it will work if the message comes from Trading View or other Signal Provider too."
+            "text": "If all this worked, it means that it will work if the message comes from Trading View or other Signal Provider too.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если все это сработало, значит, сработает и сообщение от Trading View или другого поставщика сигналов.",
+                    "updated": 1640434505481
+                }
+            ]
         },
         {
             "style": "Text",
@@ -528,37 +1109,93 @@
         },
         {
             "style": "Title",
-            "text": "Set-up your Firewall / Router to accept Incoming Connections"
+            "text": "Set-up your Firewall / Router to accept Incoming Connections",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройте брандмауэр / маршрутизатор на прием входящих подключений",
+                    "updated": 1640434518159
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As you might have imagined, you will need to open a port at your router / firewall to accept incoming connections from the signal provider's servers (like Trading View for instance). This is what allows that server to connect to the server where the Client is running, enabling the Client to receive those signals."
+            "text": "As you might have imagined, you will need to open a port at your router / firewall to accept incoming connections from the signal provider's servers (like Trading View for instance). This is what allows that server to connect to the server where the Client is running, enabling the Client to receive those signals.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как вы уже догадались, вам необходимо открыть порт на вашем маршрутизаторе/брандмауэре для приема входящих соединений с серверов поставщика сигналов (например, Trading View). Это позволит серверу подключиться к серверу, на котором запущен клиент, что позволит клиенту получать сигналы.",
+                    "updated": 1640434604489
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "How you configure your Router / Firewall is up to you, and it depends on your network setup. You will need to do your research for details on how to do it, because it depends on which router / firewall you are using. We suggest you to include on the rules of your Firewall / Router the domain name or IP address of the Signal provider, so that nobody else can connect to the Client's http interface, which has, beyond Webhooks other features you don't want to expose openly to the world without restrictions.",
-            "updated": 1615368540044
+            "updated": 1615368540044,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как настроить маршрутизатор/брандмауэр, зависит только от вас, и это зависит от настройки вашей сети. Вам нужно будет провести исследование для получения подробной информации о том, как это сделать, потому что это зависит от того, какой маршрутизатор / брандмауэр вы используете. Мы рекомендуем вам включить в правила вашего брандмауэра / маршрутизатора доменное имя или IP-адрес поставщика сигнала, чтобы никто другой не мог подключиться к http-интерфейсу клиента, который имеет, помимо Webhooks, другие функции, которые вы не хотите открыто демонстрировать миру без ограничений.",
+                    "updated": 1640434668426
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "What we can tell you regarding this, is that the Superalgos Client is running a very simple http server at the port configured at the Environment.js file."
+            "text": "What we can tell you regarding this, is that the Superalgos Client is running a very simple http server at the port configured at the Environment.js file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что мы можем сказать вам по этому поводу, так это то, что Superalgos Client запускает очень простой http-сервер на порту, настроенном в файле Environment.js.",
+                    "updated": 1640434693370
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Set-up Alerts / Messages at the Signals Provider",
-            "updated": 1615368585310
+            "updated": 1615368585310,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка оповещений / сообщений от поставщика сигналов",
+                    "updated": 1640434947317
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You will use the following syntax to craft the URL you need to configure for the webhooks at the provider:"
+            "text": "You will use the following syntax to craft the URL you need to configure for the webhooks at the provider:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы будете использовать следующий синтаксис для создания URL, который необходимо настроить для вебхуков провайдера:",
+                    "updated": 1640434896651
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "http://YourIPAddress:Port/Webhook/New-Message/Provider-Name/Exchange/Market"
+            "text": "http://YourIPAddress:Port/Webhook/New-Message/Provider-Name/Exchange/Market",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "http://Ваш_IP_адрес:порт/Webhook/New-Message/Provider-Name/Exchange/Market",
+                    "updated": 1640434798696
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For example:"
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640434816769
+                }
+            ]
         },
         {
             "style": "Json",

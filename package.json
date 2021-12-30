@@ -115,7 +115,7 @@
     "webpack-dev-server": "3.11.1",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4",
-    "ws": "^8.3.0"
+    "ws": "^8.4.0"
   },
   "optionalDependencies": {
     "@tensorflow/tfjs-node": "^2.8.6"

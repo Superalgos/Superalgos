@@ -126,12 +126,6 @@ function newCanvas() {
                 projectInstance.events.onMouseClickMap = new Map()
                 projectInstance.events.onMouseDownMap = new Map()
 
-                /* let spaceInitializationMap = new Map()
-                let spaceAnimationPhysicsMap = new Map()
-                let spaceDefinitionPhysicsMap = new Map()
-                let spaceAnimationDrawMap = new Map()
-                let spaceDefinitionDrawMap = new Map() */
-
                 if (projectDefinition.UI === undefined) { continue }
 
                 /* Set up Globals of this Project */
@@ -215,37 +209,9 @@ function newCanvas() {
                         projectInstance.events.onMouseDownMap.set(spaceDefinition.onMouseDownIndex, spaceInstance)
                     }
                 }
-
-                /* Space Initialization */
-                /* for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
-                    let spaceInstance = spaceInitializationMap.get(j)
-                    if (spaceInstance !== undefined) {
-                        await spaceInstance.initialize()
-                    }
-                } */
-
-                /* Space Animation Physics */
-                /* for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
-                    let spaceInstance = spaceAnimationPhysicsMap.get(j)
-                    let spaceDefinition = spaceDefinitionPhysicsMap.get(j)
-                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
-                    if (spaceInstance.physics !== undefined) {
-                        thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
-                    }
-                } */
-
-                /* Space Animation Drawing*/
-                /* for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
-                    let spaceInstance = spaceAnimationDrawMap.get(j)
-                    let spaceDefinition = spaceDefinitionDrawMap.get(j)
-                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
-                    if (spaceInstance.draw !== undefined) {
-                        thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
-                    }
-                } */
             }
 
-            /* spaces are initialized in a global order, not per project */
+            /* Spaces need to be initialized in a global order, not per project. */
             for (let i = 0; i < spaceInitializationMap.size; i++) {
                 let spaceInstance = spaceInitializationMap.get(i)
                 if (spaceInstance !== undefined) {

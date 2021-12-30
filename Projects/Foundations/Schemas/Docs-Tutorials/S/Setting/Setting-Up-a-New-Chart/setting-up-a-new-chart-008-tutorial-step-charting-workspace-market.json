@@ -5,7 +5,7 @@
     "definition": {
         "text": "To finish this basic setup, I have gone ahead and installed the BTC/USDT market for you.",
         "icon": {
-            "name": "Market/market",
+            "name": "market",
             "project": "Foundations"
         },
         "updated": 1628360778811,

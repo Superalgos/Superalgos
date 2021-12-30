@@ -16,7 +16,7 @@ import {CloseOutlined, Input} from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
-
+import pfp from "../../images/superalgos.png";
 
 const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
     useEffect(() => {
@@ -98,19 +98,36 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                         </div>
                     </div>
                     <div className="editBannerAvatarContainer">
-                        <CardMedia className="banner"
-                                   component="img"
-                                   src={`${userInfo.bannerPic}`}
-                                   alt="PP"
-                        />
+                        {userInfo.bannerPic ?
+                            (
+                                <CardMedia className="banner"
+                                           component="img"
+                                           src={`${userInfo.bannerPic}`}
+                                           alt="PP"/>
+                            ) :
+                            (
+                                <CardMedia className="banner"
+                                           component="img"
+                                           image={pfp}
+                                           alt="PP"
+                                />
+                            )}
                         <div className="editAvatar">
                             <div className="profileCard">
                                 <div className="profilePicBG">
-                                    <CardMedia className="profileAvatar"
-                                               component="img"
-                                               src={`${userInfo.profilePic}`}
-                                               alt="ProfilePic"
-                                    />
+                                    {userInfo.profilePic ?
+                                        (
+                                            <CardMedia className="profileAvatar"
+                                                       component="img"
+                                                       src={`${userInfo.profilePic}`}
+                                                       alt="ProfilePic"/>
+                                        ) :
+                                        (
+                                            <CardMedia className="profileAvatar"
+                                                       component="img"
+                                                       image={pfp}
+                                                       alt="ProfilePic"/>
+                                        )}
                                 </div>
                                 <label htmlFor="profilePic">
                                     <Input className="input" accept="image/*" id="profilePic" multiple type="file"

@@ -13,8 +13,7 @@ const UsersSidebar = () => {
                alignItems="center"
                spacing={2}
                sx={{minWidth: "max-content"}}>
-
-            <SearchBox/>
+            {/*<SearchBox/>*/}
             <SuggestedUsers/>
         </Stack>
     );

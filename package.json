@@ -16,7 +16,9 @@
     "postinstall": "electron-builder install-app-deps",
     "startNetwork": "node network",
     "startDesktop": "node desktop",
-    "startDesktopReact": "node desktop-react"
+    "startDesktopReactBackend": "node desktop-react-backend",
+    "startDesktopReactFrontend": "node desktop-react-frontend",
+    "startDesktopReact": "start npm run startNetwork && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
   },
   "dependencies": {
     "@babel/core": "7.12.3",

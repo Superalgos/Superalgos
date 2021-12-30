@@ -1,0 +1,19 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 47,
+    "type": "Superalgos Review - A data scientist's and trading newbie's perspective",
+    "definition": {
+        "text": "Write a summary for this review page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "test123",
+            "updated": 1640888133148
+        },
+        {
+            "style": "Text",
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+        }
+    ]
+}

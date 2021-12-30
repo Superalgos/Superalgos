@@ -46,9 +46,7 @@ const UserProfile = () => {
         let {
             data,
             result
-        } = await getProfile(
-            undefined /* TODO get user data from somewhere in the case of other users from url */
-        ).then(response => response.json());
+        } = await getProfile().then(response => response.json());
         if (result === STATUS_OK) {
             console.log('user profile loaded')
             setUser(data);

@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Wir haben uns mit zwei Beispielen von Trading Systemen beschäftigt, die mehrere Strategien beinhalten... was können wir von ihnen lernen?",
                 "updated": 1639148066353
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Birden fazla strateji içeren ticaret sistemlerinin iki örneğini ele aldık... Onlardan ne öğrenebiliriz?",
+                "updated": 1640781128057
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Im Fall von Weak-hands Buster stellt jede Strategie einen besonderen Fall der gleichen Handelsidee dar. Im Fall von BB Top Bounce ist jede Strategie auf bestimmte Marktbedingungen spezialisiert.",
                     "updated": 1639148074263
+                },
+                {
+                    "language": "TR",
+                    "text": "Weak-hands Buster durumunda, her strateji aynı ticaret fikrinin belirli bir durumunu temsil eder. BB Top Bounce durumunda, her strateji belirli piyasa koşullarında uzmanlaşmıştır.",
+                    "updated": 1640781585878
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "In den nächsten Schritten werden wir die Auswirkungen der Verwendung mehrerer Strategien innerhalb desselben Handelssystems erläutern und schließlich die brennende Frage beantworten: Warum sollten wir ein solches Setup verwenden?",
                     "updated": 1639148082982
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımda, aynı ticaret sistemi içinde birden fazla strateji kullanmanın etkilerini ortaya çıkaracağız ve son olarak, can alıcı soruyu yanıtlayacağız: neden böyle bir kurulumu kullanmak isteyelim?",
+                    "updated": 1640781381357
                 }
             ]
         }

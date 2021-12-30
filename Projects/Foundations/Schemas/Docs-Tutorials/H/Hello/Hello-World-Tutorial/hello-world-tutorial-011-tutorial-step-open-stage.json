@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Açık sahne ( Open Stage ), botun pozisyon aldığı yerdir!",
                 "updated": 1640617312499
+            },
+            {
+                "language": "RU",
+                "text": "Open Stage - это место, где бот занимает позицию!",
+                "updated": 1640856530548
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Geri test etmek istediğim strateji 4h TF'ye dayanıyor ve strateji Uzun. Bu, botun daha sonra satmak için varlığı daha iyi bir fiyata satın alacağı anlamına. İşleri basit tutmak için tek yapmam gereken, Teklif Edilen Varlıktaki ( Asset ) Hedef Boyut'taki ( Target Size ) tüm bakiyemi kullanarak Hedef Oran ( Target Rate ) düğümündeki TF'yi belirtmektir.",
                     "updated": 1640617325801
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия, которую я хочу протестировать, основана на 4h TF, и стратегия является Long. Это означает, что бот будет покупать актив, чтобы позже продать его (по лучшей цене, мы надеемся!). Чтобы упростить ситуацию, все, что мне нужно сделать, это указать TF в узле Target Rate, используя мой весь баланс в Target Size в Quoted Asset.",
+                    "updated": 1640857188703
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "İpucu: Pazarımız BTC/USDT ise, Kota Edilen Varlık ( Asset ) USDT ve Temel Varlık ( Asset ) BTC'dir.",
                     "updated": 1640617344853
+                },
+                {
+                    "language": "RU",
+                    "text": "Если наш рынок - BTC/USDT, то котируемый актив (Quoted Asset) - USDT, а базовый актив (Base Asset) - BTC.",
+                    "updated": 1640856676020
                 }
             ]
         }

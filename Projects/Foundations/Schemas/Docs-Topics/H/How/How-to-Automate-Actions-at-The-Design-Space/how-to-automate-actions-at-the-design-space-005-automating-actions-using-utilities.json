@@ -4,23 +4,51 @@
     "type": "Automating Actions - Using Utilities",
     "definition": {
         "text": "Lower level functionality is packed in Utilities files by topic. There are already many utilities files with operations that will save you time while trying to implement your own Action. ",
-        "updated": 1614941756401
+        "updated": 1614941756401,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Функциональность более низкого уровня упакована в файлы Utilities по темам. Уже существует множество файлов утилит с операциями, которые сэкономят ваше время при попытке реализовать собственный Action.",
+                "updated": 1640762253740
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "It is a very good idea to invest some time at the Utilities folder, scanning the files in there to see what you already have available to use at your actions. You will see that other actions in Function Libraries heavily rely on utilities functions defined at one of the files within the Utilities folder.",
-            "updated": 1628257595439
+            "updated": 1628257595439,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Очень хорошей идеей будет потратить некоторое время на папку Utilities, просмотреть файлы в ней, чтобы увидеть, что уже доступно для использования в ваших действиях. Вы увидите, что другие действия в библиотеках функций в значительной степени зависят от функций, определенных в одном из файлов папки Utilities.",
+                    "updated": 1640762295489
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "How to Call an Utility Function?",
-            "updated": 1614942924609
+            "updated": 1614942924609,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как вызвать функцию утилиты?",
+                    "updated": 1640762333403
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "At runtime, all utility objects will be already instantiated by the time your Action function code runs. You just need to get to the object that hosts the utility function you want to execute via the UI Global Object that is available to you. For example:",
-            "updated": 1628257649169
+            "updated": 1628257649169,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во время выполнения все объекты утилиты уже будут созданны к моменту выполнения кода вашей функции Action. Вам просто нужно добраться до объекта, в котором находится утилита-функция, которую вы хотите выполнить, через доступный вам глобальный объект UI. Например:",
+                    "updated": 1640762385539
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -30,7 +58,14 @@
         {
             "style": "Text",
             "text": "The way to find out which is the property name of a certain utility object is by reading the definitions at the Project Schema File. The utility object hosting the nodeBranchToArray function used in the example above, is defined at the Project Schema File in this way:",
-            "updated": 1614943148547
+            "updated": 1614943148547,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выяснить, какое имя является именем свойства определенного объекта утилиты, можно, прочитав определения в файле Project Schema File (файл схемы проекта). Объект утилиты, содержащий функцию nodeBranchToArray, использованную в приведенном выше примере, определен в файле схемы проекта таким образом:",
+                    "updated": 1640762527967
+                }
+            ]
         },
         {
             "style": "Json",
@@ -40,16 +75,37 @@
         {
             "style": "Text",
             "text": "The propertyName is what you need to know in order to get to the runtime reference of the utility object and execute it's functions.",
-            "updated": 1614930462629
+            "updated": 1614930462629,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "PropertyName - это то, что вам нужно знать, чтобы получить ссылку на объект утилиты во время ее работы и выполнить ее функции.",
+                    "updated": 1640762585267
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Example: Change a Node's Config",
-            "updated": 1614943976780
+            "updated": 1614943976780,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример: Изменение конфигурации узла",
+                    "updated": 1640762596266
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is the way you programmatically manipulate the config of a Node:"
+            "text": "This is the way you programmatically manipulate the config of a Node:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это способ, с помощью которого вы программно управляете конфигурацией узла:",
+                    "updated": 1640762624713
+                }
+            ]
         },
         {
             "style": "Javascript",

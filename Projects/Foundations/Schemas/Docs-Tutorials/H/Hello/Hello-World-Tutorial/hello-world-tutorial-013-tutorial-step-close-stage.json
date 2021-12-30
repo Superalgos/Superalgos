@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Kapanış Aşaması ( The Close Stage ) , işlemin kapatılmasından sorumludur",
                 "updated": 1640617586608
+            },
+            {
+                "language": "RU",
+                "text": "Этап Close Stage отвечает за закрытие сделки",
+                "updated": 1640856843212
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Önceki aşamada yönetim aşamasında ( Manage Stage ) bot, mevcut fiyatın SL'ye mi yoksa TP'ye mi ulaştığını kontrol ediyordu. Bu iki olaydan biri olduğunda, Kapatma Aşaması ( Close Stage ) işlemin kapatılmasından sorumlu olur. Çalışma şekli Açık Aşamaya ( Open Stage ) çok benzer. Bot, mumun nasıl görünmesi gerektiğini bilmelidir",
                     "updated": 1640617605549
+                },
+                {
+                    "language": "RU",
+                    "text": "На предыдущем этапе (на этапе Manage Stage) бот проверяет, достигла ли текущая цена SL или TP. Как только одно из этих двух событий было достигнуто, этап Close Stage берет на себя ответственность за закрытие сделки. Принцип его работы очень похож на этап открытия (Open Stage). Бот должен знать, на какую свечу следует обратить внимание.",
+                    "updated": 1640856950980
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Açık Aşamanın ( Open Stage ) aksine, burada varlığı Satıyoruz, bu nedenle bir Piyasa Satış Emrine ( Market Sell Order ) ihtiyacımız var ve botun sattığı şey Kota edilmiş varlıktır.",
                     "updated": 1640617621195
+                },
+                {
+                    "language": "RU",
+                    "text": "И, очевидно, в отличие от стадии открытия, здесь мы продаем актив, поэтому нам нужен рыночный ордер на продажу, и то, что бот продает, является котируемым активом.",
+                    "updated": 1640856975092
                 }
             ]
         },

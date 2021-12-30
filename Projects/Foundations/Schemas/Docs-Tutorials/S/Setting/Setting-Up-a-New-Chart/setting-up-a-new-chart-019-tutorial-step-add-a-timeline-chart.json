@@ -6,7 +6,7 @@
         "text": "Now that we have something to hold our charts, let's go ahead and add one!",
         "updated": 1617800759702,
         "icon": {
-            "name": "Time/timeline-chart",
+            "name": "timeline-chart",
             "project": "Foundations"
         },
         "translations": [

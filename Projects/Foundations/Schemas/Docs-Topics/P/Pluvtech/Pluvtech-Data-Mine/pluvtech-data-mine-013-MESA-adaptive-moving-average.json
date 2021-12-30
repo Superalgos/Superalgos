@@ -1,0 +1,74 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "13",
+    "type": "MESA Adaptive Moving Average",
+    "definition": {
+        "text": "The MESA Adaptive Moving Average (MAMA) is an indicator characterised by its ability to adapt to the price movement of the underlying asset.",
+        "updated": 1622696264788
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MAMA on the Charts:",
+            "updated": 1622481793076
+        },
+		{
+            "style": "Text",
+            "text": "To determine the rate of price change, the MESA Adaptive Moving Average uses a Hilbert Transform Discriminator to determine the average value and signals market trends."
+        },
+		{
+            "style": "Text",
+            "text": "This indicator consists of a pair of plotted lines, MAMA and FAMA (Following Adaptive Moving Average), that give buy/sell signals."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-MAMA.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The parameters of the MAMA indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019MAMA\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-MAMA-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| MAMA | MAMA | mama, fama |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The MAMA indicator could be used to generate a buy signal when the MAMA crosses above the FAMA:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.MAMA.mama > chart.at01hs.MAMA.fama && chart.at01hs.MAMA.previous.mama < chart.at01hs.MAMA.previous.fama",
+            "updated": 1636853769
+        },
+		{
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

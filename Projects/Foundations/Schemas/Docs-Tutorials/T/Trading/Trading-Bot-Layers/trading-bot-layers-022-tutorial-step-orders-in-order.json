@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Sie sind mit der Visualisierung von Limit-Orders aus dem Willkommenstutorial vertraut. Jetzt ist es an der Zeit, dass Market Orders zum Zuge kommen!",
                 "updated": 1639144530656
+            },
+            {
+                "language": "RU",
+                "text": "Вы знакомы с визуализацией лимитных ордеров из учебника Welcome to Superalgos Tutorial. Пришло время для рыночных ордеров!",
+                "updated": 1640629739499
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Weak-hands Buster V.2 - geboren mit früheren Versionen des Systems - verwendet einzelne Marktaufträge, um in Positionen ein- und auszusteigen. Schauen wir uns an, wie diese in den Charts aussehen...",
                     "updated": 1639144552378
+                },
+                {
+                    "language": "RU",
+                    "text": "Weak-hands Buster V.2 - рождённый в более ранних версиях системы - использует одиночные рыночные ордера для входа и выхода из позиций. Давайте посмотрим, как они выглядят на графиках...",
+                    "updated": 1640629814352
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Ebenen \"Market Buy Orders\" und \"Market Sell Orders\" und aktivieren Sie sie!",
                     "updated": 1639144566762
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите слои \"Market Buy Orders\" и \"Market Sell Orders\" и включите их!",
+                    "updated": 1640629825625
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Wie bei Limit-Orders bedeutet ein roter Punkt einen Verkaufsauftrag und ein grüner Punkt einen Kaufauftrag.",
                     "updated": 1639144575562
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с лимитными ордерами, красная стрелка означает ордер на продажу, а зеленая стрелка - ордер на покупку.",
+                    "updated": 1640629988766
                 }
             ]
         }

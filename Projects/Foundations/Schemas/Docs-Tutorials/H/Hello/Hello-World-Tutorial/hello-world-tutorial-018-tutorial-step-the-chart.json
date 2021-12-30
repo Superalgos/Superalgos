@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Backtest'in tadını çıkarın!",
                 "updated": 1640618527650
+            },
+            {
+                "language": "RU",
+                "text": "Наслаждайтесь бэктестом!",
+                "updated": 1640857620372
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Şimdi Grafik Alanı'na ( Charting Space ) geçme ve tüm hiyerarşiyi durdursanız harekete geçme zamanı:",
                     "updated": 1640618539913
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь пришло время перейти в Charting Space и (если он еще не запущен) запустить работу:",
+                    "updated": 1640857683899
                 }
             ]
         },
@@ -151,6 +161,11 @@
                     "language": "TR",
                     "text": "İpucu: Zaman ayırın ve görsel sonuçları keşfedin. SMA göstergesini grafiğe uygulayın ve botun beklendiği zaman pozisyon aldığından emin olun.",
                     "updated": 1640618613714
+                },
+                {
+                    "language": "RU",
+                    "text": "Не торопитесь и изучите визуальные результаты. Примените индикатор SMA к графику и убедитесь, что бот занял позицию, когда это ожидалось.",
+                    "updated": 1640857737238
                 }
             ]
         }

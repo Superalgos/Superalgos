@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir haben die drei Hauptgründe behandelt, warum es eine gute Idee ist, komplexe Logik in mehr als eine Strategie aufzuteilen...",
                 "updated": 1639148294417
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Karmaşık mantığı birden fazla stratejiye bölmenin iyi bir fikir olmasının üç ana nedenini ele aldık...",
+                "updated": 1640783087850
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Wir haben auch einige Beispiele von Handelssystemen vorgestellt, die genau das tun. Es gibt noch ein weiteres Beispiel, das mir in den Sinn kommt:",
                     "updated": 1639148309223
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, bunu yapan ticaret sistemlerinin birkaç örneğini de ele aldık. Akla gelen başka bir örnek daha var:",
+                    "updated": 1640783129893
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Long und Short: Eine Strategie zu entwickeln, die sowohl long als auch short geht, ist wahrscheinlich keine gute Idee. Trennen Sie die Logik und entwickeln Sie eine Strategie für Long-Positionen und eine andere für Short-Positionen!",
                     "updated": 1639148339985
+                },
+                {
+                    "language": "TR",
+                    "text": "Uzun ve kısa: hem uzun hem de kısa olan bir strateji geliştirmek muhtemelen iyi bir fikir değildir. Mantığı ayırın ve uzun pozisyonlar için bir strateji ve kısa pozisyonlar için başka bir strateji geliştirin!",
+                    "updated": 1640783506574
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Denken Sie an das KISS-Prinzip!",
                     "updated": 1639148350647
+                },
+                {
+                    "language": "TR",
+                    "text": " İpucu: KISS ilkesini unutmayın!",
+                    "updated": 1640783268317
                 }
             ]
         }

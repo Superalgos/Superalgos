@@ -133,7 +133,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let userProfile = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                     node,
                     'User Profile',
-                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
     
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, userProfile)
@@ -329,7 +329,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     /*
                     Delete Signing Account if it already exists.
                     */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     if (targetNode.signingAccount !== undefined) {
                         UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(targetNode.signingAccount, rootNodes)
                     }
@@ -513,7 +513,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let userProfile = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                     node,
                     'User Profile',
-                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
 
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, userProfile)

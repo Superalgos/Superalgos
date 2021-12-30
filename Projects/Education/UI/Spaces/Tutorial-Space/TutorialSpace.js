@@ -112,7 +112,7 @@ function newEducationTutorialSpace() {
         setupSidePanelTab()
 
         browserResizedEventSubscriptionId = canvas.eventHandler.listenToEvent('Browser Resized', resize)
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace
         workspace.executeAction({ name: 'Play Tutorials', project: 'Visual-Scripting' })
         isInitialized = true
     }
@@ -313,7 +313,7 @@ function newEducationTutorialSpace() {
             currentImageName = newImageName
             
             // If gathering Icon by Project and Name get it now 
-            let icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(newImageProject, newImageName)
+            let icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(newImageProject, newImageName)
             if (icon !== undefined) {
                     htmlImage.src = icon.src
                     htmlImage.width = "100"
@@ -401,7 +401,7 @@ function newEducationTutorialSpace() {
                 This forces the tutorial to close the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
+                    UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
                 }
                 return
             }
@@ -410,7 +410,7 @@ function newEducationTutorialSpace() {
                 This forces the tutorial to open the workspaces panel and to keep it closed.
                 */
                 if (workspacesCounter === 5) {
-                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.open()
+                    UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.open()
                 }
                 return
             }
@@ -972,7 +972,7 @@ function newEducationTutorialSpace() {
     }
 
     function playTutorial(node) {
-        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace.isInitialized !== true) { return }
 
         PAGE_NUMBER = 0
         TUTORIAL_NAME = node.name
@@ -987,7 +987,7 @@ function newEducationTutorialSpace() {
     }
 
     function resumeTutorial(node) {
-        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace.isInitialized !== true) { return }
         //Testing if removing the navigationStack reset here fixes the tutorial resume issues
         //navigationStack = []
         node.payload.uiObject.isPlaying = true

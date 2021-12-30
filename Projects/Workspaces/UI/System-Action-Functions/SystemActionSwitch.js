@@ -1,7 +1,7 @@
-function newFoundationsSystemActionSwitch() {
+function newWorkspacesSystemActionSwitch() {
 
     let thisObject = {
-        name: 'newFoundationsSystemActionSwitch',
+        name: 'newWorkspacesSystemActionSwitch',
         executeAction: executeAction,
         initialize: initialize,
         finalize: finalize
@@ -21,21 +21,21 @@ function newFoundationsSystemActionSwitch() {
         switch (action.name) {
             case 'saveWorkspace':
                 {
-                    await UI.projects.foundations.spaces.designSpace.workspace.save()
+                    await UI.projects.workspaces.spaces.designSpace.workspace.save()
                 }
                 break
             case 'switchWorkspace':
                 {
-                    UI.projects.foundations.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(action.params[0], action.params[1])
+                    UI.projects.workspaces.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(action.params[0], action.params[1])
                 }
                 break
             /* the following is a special action called by the buildSystemMenu function that constructs and returns a submenu */
             case 'workspacesSubmenu':
                 {
-                    return UI.projects.foundations.systemActionFunctions.workspaceFunctions.workspacesSubmenu(action.params[0])
+                    return UI.projects.workspaces.systemActionFunctions.workspaceFunctions.workspacesSubmenu(action.params[0])
                 }
             default: {
-                console.log("[WARN] Action sent to Foundations System Action Switch does not belong here. -> Action = " + action.name)
+                console.log("[WARN] Action sent to Workspaces System Action Switch does not belong here. -> Action = " + action.name)
             }
         }
     }

@@ -572,7 +572,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
+                UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -679,7 +679,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
+                UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -1162,7 +1162,7 @@ function newUiObject() {
     async function getTargetUiObject(message) {
         let uiObject = thisObject
         if (message.event.nodeId !== undefined) {
-            let targetNode = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
+            let targetNode = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
             if (targetNode !== undefined) {
                 if (targetNode.payload !== undefined) {
                     if (targetNode.payload.uiObject !== undefined) {
@@ -1228,7 +1228,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
         let schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /*
@@ -1288,7 +1288,7 @@ function newUiObject() {
                             iconName = alternativeIcon.iconName
                         }
                     }
-                    let newIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
+                    let newIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
@@ -1297,7 +1297,7 @@ function newUiObject() {
                 }
             } else {
                 if (schemaDocument.icon !== undefined) {
-                    let newIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
+                    let newIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
@@ -1307,7 +1307,7 @@ function newUiObject() {
 
             let config = JSON.parse(thisObject.payload.node.config)
             let url = 'https://www.github.com/' + config.codeName + '.png'
-            let image = UI.projects.foundations.spaces.designSpace.getIconByExternalSource(thisObject.payload.node.project, url)
+            let image = UI.projects.workspaces.spaces.designSpace.getIconByExternalSource(thisObject.payload.node.project, url)
 
             if (image.canDrawIcon === true) {
                 icon = image
@@ -1315,7 +1315,7 @@ function newUiObject() {
         }
 
         thisObject.icon = icon
-        executingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
+        executingIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
     }
 
     function onFocus() {
@@ -1376,14 +1376,14 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
+            UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
             /* We want to avoid the situation in which we are attaching a node to its parent and at the same time referencing another node. */
             isReferenceAttaching = false
         }
         if (isReferenceAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
+            UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }

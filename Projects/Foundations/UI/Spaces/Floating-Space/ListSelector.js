@@ -68,7 +68,7 @@ function newListSelector() {
     }
 
     function initialize() {
-        icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Governance', 'user-profile')
+        icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Governance', 'user-profile')
         onMouseWheelEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseWheel', onMouseWheel)
         selfMouseClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseClick', onMouseClick)
     }

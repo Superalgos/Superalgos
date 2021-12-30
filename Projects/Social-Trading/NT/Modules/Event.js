@@ -305,17 +305,21 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
 
+                let profileId 
                 if (targetBotProfile !== undefined) {
                     targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetBotProfile.botProfileId
                 } else {
                     targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetUserProfile.userProfileId
                 }
 
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.addReaction(thisObject.eventType - 100)
+                targetPost.addReaction(thisObject.eventType - 100, profileId)               
+                
                 return  true
             }
             if (
@@ -328,17 +332,21 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_CARE
             ) {
 
+                let profileId 
                 if (targetBotProfile !== undefined) {
                     targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetBotProfile.botProfileId
                 } else {
                     targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetUserProfile.userProfileId
                 }
 
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.removeReaction(thisObject.eventType - 200)
+                targetPost.removeReaction(thisObject.eventType - 100, profileId) 
+
                 return  true
             }
         }

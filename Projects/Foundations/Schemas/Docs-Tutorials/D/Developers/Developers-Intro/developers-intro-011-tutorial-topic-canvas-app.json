@@ -7,48 +7,125 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Most of the action happens on an HTML 5 Canvas animation. The rest is pure HTML + CSS, nothing else."
+        "text": "Most of the action happens on an HTML 5 Canvas animation. The rest is pure HTML + CSS, nothing else.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Большая часть действий происходит н�� анимации HTML 5 Canvas. Остальное - чистый HTML + CSS, больше ничего.",
+                "updated": 1640930621919
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The main object of the Canvas App is called canvas. It is essentially a collection of different space objects:"
+            "text": "The main object of the Canvas App is called canvas. It is essentially a collection of different space objects:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основной объект приложения Canvas называется холстом. По сути, это коллекция различных пространственных объектов:",
+                    "updated": 1640930639721
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Charting Space: Where charts are displayed,"
+            "text": "Charting Space: Where charts are displayed,",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Charting Space: Где отображаются графики.",
+                    "updated": 1640930660372
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Design Space: Where definitions are maintained."
+            "text": "Design Space: Where definitions are maintained.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Design Space: Где сохраняются определения.",
+                    "updated": 1640930671870
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Floating Space: Enables visual scripting."
+            "text": "Floating Space: Enables visual scripting.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Floating Space: Включает визуальное создание сценариев.",
+                    "updated": 1640930683465
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Side Space: Currently, the workspace selector."
+            "text": "Side Space: Currently, the workspace selector.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Side Space: В настоящее время селектор рабочего пространства.",
+                    "updated": 1640930695794
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Docs Space: In-app documentation."
+            "text": "Docs Space: In-app documentation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Docs Space: Документация в приложении.",
+                    "updated": 1640930707087
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Tutorial Space: Enables tutorials like this one."
+            "text": "Tutorial Space: Enables tutorials like this one.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Tutorial Space: Включает учебные пособия, подобные этому.",
+                    "updated": 1640930718642
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Panel Space: Where plotter panels live."
+            "text": "Panel Space: Where plotter panels live.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Panel Space: Где находятся панели плоттера.",
+                    "updated": 1640930730144
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Cockpit Space: Currently, the slider ."
+            "text": "Cockpit Space: Currently, the slider .",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Cockpit Space: В настоящее время - слайдер.",
+                    "updated": 1640930746581
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Top Space: Currently, the top bar with logo."
+            "text": "Top Space: Currently, the top bar with logo.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Top Space: В настоящее время верхняя панель с логотипом.",
+                    "updated": 1640930759568
+                }
+            ]
         }
     ]
 }

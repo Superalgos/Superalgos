@@ -1,0 +1,74 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "14",
+    "type": "Donchian-Tenkan",
+    "definition": {
+        "text": "The Donchian-Tenkan indicator is a short term support/resistance value that can highlight the momentum of an asset. It is a component in the Ichimoku cloud indicators.",
+        "updated": 1622696264788
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Donchian-Tenkan on the Charts:",
+            "updated": 1622481793076
+        },
+		{
+            "style": "Text",
+            "text": "The Donchian-Tenkan is calculated by averaging the previous highs and lows to create a donchian channel, and then using the midpoint of these extremes to create the returned value. This value can then be used as a support/resistance line."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Donchian-Tenkan.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The period length parameter of the Donchian-Tenkan indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019Donchian-Tenkan\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-Donchian-Tenkan-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Donchian-Tenkan | donchianTenkan | midPoint, closePrice |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The Donchian-Tenkan indicator could be used to generate a buy signal when the close price is above the midPoint value:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.donchianTenkan.midPoint",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "This indicator could also be used to provide a trailing stop loss when in a trade by checking if the candle close is still above the midPoint value."
+        },
+		{
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

@@ -285,11 +285,10 @@ exports.newWeb3Server = function newWeb3Server() {
 
     async function recoverWalletAddress(signature, account, data) {
         try {
-            const msg = 'Github username: ' + data
             let ethUtil = require('ethereumjs-util')
 
-            const msgBuffer = ethUtil.toBuffer(ethUtil.fromUtf8(msg))
-            const msgHash = ethUtil.hashPersonalMessage(msgBuffer)
+            const msgBuffer = ethUtil.toBuffer(ethUtil.fromUtf8(data))
+            const msgHash = ethUtil.hashPersonalMessage(msgBuffer) // it adds the prefix
             const signatureBuffer = ethUtil.toBuffer(signature)
             const signatureParams = ethUtil.fromRpcSig(signatureBuffer)
             const publicKey = ethUtil.ecrecover(

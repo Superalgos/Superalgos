@@ -30,7 +30,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         } catch (err) {
             let response = {
                 result: 'Error',
-                message: 'messageHeader Not Coorrect JSON Format.'
+                message: 'messageHeader Not Correct JSON Format.'
             }
             return JSON.stringify(response)
         }
@@ -43,7 +43,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 } catch (err) {
                     let response = {
                         result: 'Error',
-                        message: 'queryMessage Not Coorrect JSON Format.'
+                        message: 'queryMessage Not Correct JSON Format.'
                     }
                     return JSON.stringify(response)
                 }
@@ -54,14 +54,26 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
-                if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
+                if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA){
+
+                    if(!queryMessage.userProfileId & !queryMessage.username){
+                        queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
+                        queryMessage.username =SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
+                    }
+
+                    response = {
+                        result: 'Ok',
+                        message: 'Web App Interface Query Processed.',
+                        data: await getUserProfileData(queryMessage.username,queryMessage.userProfileId)
+                    }
+                }  else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
                         data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     }
-                } else {
-
+                }
+                else{
                     let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
@@ -88,7 +100,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 } catch (err) {
                     let response = {
                         result: 'Error',
-                        message: 'eventMessage Not Coorrect JSON Format.'
+                        message: 'eventMessage Not Correct JSON Format.'
                     }
                     return JSON.stringify(response)
                 }
@@ -125,6 +137,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     eventMessage.emitterPostHash = await savePostAtStorage(eventMessage.postText, commitMessage, eventMessage.timestamp)
                     eventMessage.postText = undefined
                 }
+                 else if(eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE)
+                 {
+                    let commitMessage = "Edit User Profile";
+                    eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
+            }
 
                 eventMessage.emitterUserProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
@@ -167,6 +184,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileName = fileHash + ".json"
         const filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
+        console.log(filePath)
+
         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
 
@@ -181,6 +200,39 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         await git.commit(commitMessage)
         await git.push('origin')
 
+        return fileHash
+    }
+        
+    async function saveUserAtStorage(userProfileId, profileData, commitMessage) {
+        /*
+        Each user, has a git repository that acts as his publicly accessible
+        storage for posts.
+
+        They way we store post there is first saving the data at the local disk
+        which has a clone of the remote git repository, and once done, we push
+        the changes to the public git repo.
+        */
+        const { createHash } = await import('crypto')
+        const hash = createHash('sha256')
+
+        const fileContent = JSON.stringify(userProfileId, undefined, 4)
+        const fileHash = hash.update(fileContent).digest('hex')
+        const fileName = fileHash + ".json"
+        const filePath = './My-Social-Trading-Data/User-Profile/';
+
+        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
+        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(profileData))
+
+        const options = {
+            baseDir: process.cwd() + '/My-Social-Trading-Data',
+            binary: 'git',
+            maxConcurrentProcesses: 6,
+        }
+        const git = SA.nodeModules.simpleGit(options)
+
+        await git.add('./*')
+        await git.commit(commitMessage)
+        await git.push('origin')
         return fileHash
     }
 
@@ -199,6 +251,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
             const fetch = SA.nodeModules.nodeFetch
             let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
 
+            console.log(url)
+
             fetch(url)
                 .then((response) => {
 
@@ -214,6 +268,50 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 })
                 .catch(err => {
                     resolve('Post Text could not be fetched. ' + err.message)
+                })
+
+        }
+        )
+
+        return promise
+    }
+
+    async function getUserProfileData(userProfileHandle,userProfileId) {
+
+        const { createHash } = await import('crypto')
+        const hash = createHash('sha256')
+        const fileContent = JSON.stringify(userProfileId, undefined, 4)
+        const fileHash = hash.update(fileContent).digest('hex')
+        const fileName = fileHash + ".json";
+        /*
+        When the Web App makes a query that includes User Profile Data as responses,
+        we need to fetch the text from the public git repositories, since
+        the Network Nodes do not store that info themselves, they just
+        store the structure of the social graph.
+        */
+        let promise = new Promise((resolve, reject) => {
+
+            const filePath = 'My-Social-Trading-Data/main/User-Profile/'
+
+            const fetch = SA.nodeModules.nodeFetch
+            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
+
+            fetch(url)
+                .then((response) => {
+
+                    if (response.status != 200) {
+                        reject('Github.com responded with status ' + response.status)
+                        return
+                    }
+
+                    response.text().then(body => {
+                        userProfile = JSON.parse(body);
+                        userProfile.userProfileId = userProfileId;
+                        resolve(userProfile)
+                    })
+                })
+                .catch(err => {
+                    resolve('User Profile could not be fetched. ' + err.message)
                 })
 
         }

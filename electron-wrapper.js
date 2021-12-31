@@ -79,9 +79,7 @@ function selectionWindow() {
 
 function run(workspace) {
   const { fork } = require('child_process')
-  var options = ["noBrowser"]
-  //if (workspace) {options.push('Foundations ' + workspace)}
-  platform = fork(path.join(__dirname, '/PlatformRoot.js'), options, {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+  platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
 
   platform.on('message', _ => {
     openMain(workspace)
@@ -94,9 +92,7 @@ ipcMain.on("toMain", (event, args) => {
   if (args === "ImAlive!" && consoleWindow) {
     platform.stdout.setEncoding('utf8')
     platform.stdout.on('data', (data) => {
-      if(consoleWindow != null) {
-        consoleWindow.webContents.send("fromMain", data);
-      }
+      consoleWindow.webContents.send("fromMain", data);
     })
   } else if (args === "getExchanges") {
     const workspaces = getWorkspaces()

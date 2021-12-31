@@ -1,13 +1,33 @@
 import "./PostPlaceholder.css"
-import React from 'react';
-import {Avatar, Button, Card, Stack, TextField, Typography} from "@mui/material";
+import React, {useState} from 'react';
+import {Alert, Avatar, Button, Card, Snackbar, Stack, TextField, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
+import {STATUS_OK} from "../../api/httpConfig";
+import {createPost} from "../../api/post.httpService"
 
-const PostPlaceholder = () => {
+const PostPlaceholder = ({reloadPostCallback}) => {
+    const [postText, setPostText] = useState(undefined);
+    const [open, setOpen] = useState(false);
 
-    function onButtonClick() {
-        console.log("Clicked Post button");
+    const onButtonClick = async () => {
+        let {result} = await createPost({postText: postText}).then(response => response.json());
+        console.log({status})
+        if (result === STATUS_OK) {
+            reloadPostCallback();
+        } else {
+            setOpen(true);
+        }
     }
+
+    const handleChange = (event) => {
+        setPostText(event.target.value);
+    }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') return;
+        setOpen(false);
+    };
+
 
     return (
         <div className="postPlaceholder">
@@ -32,21 +52,27 @@ const PostPlaceholder = () => {
                                     fullWidth
                                     multiline
                                     maxRows={6}
+                                    value={postText}
+                                    onChange={handleChange}
                                 />
                             </Typography>
                         </Stack>
                     </Stack>
                     <Stack className="postPlaceholderButtonStyle" direction="row">
                         <Button
-                            onClick={() => { /* TODO remove unnecessary arrow function call*/
-                                onButtonClick()
-                            }}
+                            disabled={!postText}
+                            onClick={onButtonClick}
                             className="postPlaceholderButton" variant="outlined">
                             Post
                         </Button>
                     </Stack>
                 </Card>
             </div>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="error" sx={{width: '100%'}}>
+                    Failed to post message!
+                </Alert>
+            </Snackbar>
         </div>
     );
 };

@@ -1,26 +1,95 @@
-import React from 'react';
-import {Card, CardContent, CardMedia, Typography} from "@mui/material";
-import banner from "../../images/banner.jpg";
-import pfp from "../../images/superalgos.png";
+import React, {useState} from 'react';
+import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
+import "./UserProfileHeader.css"
+import UserProfileModal from "./UserProfileModal";
+import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 
-const UserProfileHeader = ({actualUser}) => {
+
+const UserProfileHeader = ({user, updateProfileCallback}) => {
+
+    const profileIcons = { // todo need proper style, and handle from css file
+        width: "15px",
+        height: "15px",
+        verticalAlign: "text-top"
+    }
+
+    const [modal, setModal] = useState(false);
+    const handleClickCallback = () => setModal(!modal);
+
     return (
         <Card className="profileSection">
-            <CardMedia className="banner"
-                       component="img"
-                       image={banner}
-                       alt="PP"
-            />
+            {user.bannerPic ?
+                (<CardMedia className="banner"
+                            component="img"
+                            src={`${user.bannerPic}`}
+                            alt="PP"
+                />) :
+                (<CardMedia className="banner"
+                            component="img"
+                            image={pfp}
+                            alt="PP"
+                />)}
             <div className="profileCard">
                 <div className="profilePicBG">
-                    <CardMedia className="profileAvatar"
-                               component="img"
-                               image={pfp}
-                               alt="ProfilePic"
-                    />
+                    {user.profilePic ?
+                        (<CardMedia className="profileAvatar"
+                                    component="img"
+                                    src={`${user.profilePic}`}
+                                    alt="ProfilePic"
+                        />) :
+                        (<CardMedia className="profileAvatar"
+                                    component="img"
+                                    image={pfp}
+                                    alt="ProfilePic"
+                        />)
+                    }
                 </div>
+                <Button className="editProfileButton"
+                        variant="outlined"
+                        onClick={handleClickCallback}>
+                    Edit profile
+                </Button>
+                <UserProfileModal user={user} show={modal} close={handleClickCallback}
+                                  updateProfileCallback={updateProfileCallback}/>
+            </div>
+            <div>
                 <CardContent className="userSection">
-                    <Typography variant="h5">{actualUser}</Typography>
+                    {user.name ? (
+                        <Typography className="username" variant="h5">{user.name}</Typography>
+                    ) : null}
+                    {user.username ? (
+                        <Typography className="userHandle" variant="subtitle2">
+                            @{user.username}
+                        </Typography>
+                    ) : null}
+                    {user.web ? (
+                        <Typography className="stats" variant="subtitle2">
+                            {user.web}
+                        </Typography>
+                    ) : null}
+                    {user.bio ? (
+                        <Typography className="bio">
+                            {user.bio}
+                        </Typography>
+                    ) : null}
+                    {user.joined ? (
+                        <Typography className="joinDate" variant="subtitle2">
+                            <DateRangeOutlined sx={{...profileIcons}}/>
+                            {user.joined}
+                        </Typography>
+                    ) : null}
+                    {user.location ? (
+                        <Typography className="location" variant="subtitle2">
+                            <LocationOnOutlined sx={{...profileIcons}}/>
+                            {user.location}
+                        </Typography>
+                    ) : null}
+                    {user.stats ?
+                        (
+                            <Typography className="stats" variant="subtitle2">
+                                {user.stats}
+                            </Typography>
+                        ) : null}
                 </CardContent>
             </div>
         </Card>

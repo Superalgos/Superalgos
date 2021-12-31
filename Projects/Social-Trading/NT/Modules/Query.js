@@ -81,6 +81,12 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 thisObject.query.initialize(queryReceived)
                 break
             }
+
+            case SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA: {
+                thisObject.query = NT.projects.socialTrading.modules.queriesEvents.newSocialTradingModulesQueriesEvents()
+                thisObject.query.initialize(queryReceived)
+                break
+            }
             default: throw ('Query Type Not Supported.')
         }
     }

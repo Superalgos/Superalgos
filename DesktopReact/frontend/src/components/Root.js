@@ -5,7 +5,7 @@ import UserProfile from "./userProfile/UserProfile";
 import NotFound from "./notFound/NotFound";
 import Feed from "./feed/Feed";
 import PostPlaceholder from "./postPlaceholder/PostPlaceholder";
-
+import Post from "./post/Post";
 
 const Root = () => {
     return (
@@ -14,9 +14,12 @@ const Root = () => {
                 <Route path='/' element={<App/>}>
                     <Route path='' element={<Feed/>}/>
                     <Route path='Profile' element={<UserProfile/>}>
-                        {/*<Route path=':profileId' element={<UserProfile/>}/>*/}
+                        <Route path=':userId' element={<UserProfile/>}/>
                     </Route>
-                    <Route path='Post' element={<PostPlaceholder/>}/>
+                    <Route path='PostPlaceholder' element={<PostPlaceholder/>}/>
+                    <Route path='post'>
+                        <Route path={':postId'} element={<Post/>}/> {/* TODO handle this post data*/}
+                    </Route>
                 </Route>
                 <Route
                     path="*"

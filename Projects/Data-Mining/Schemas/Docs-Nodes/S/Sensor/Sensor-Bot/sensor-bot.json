@@ -30,6 +30,11 @@
                     "language": "RU",
                     "text": "Когда нет необходимости в кодировании специального алгоритма, пользователи Superalgos запускают бот API Data Fetcher Bot, который использует API Map для описания самого API, а бот позволяет извлекать данные без необходимости кодировать алгоритм вообще.",
                     "updated": 1639406773116
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando no es necesario codificar un algoritmo en especial, los usuarios de Superalgos ejecutan una API Data Fetcher Bot (Bot de Obtención de Datos), que utiliza un API Map para describir la propia API, así el bot permite obtener datos sin necesidad de codificar un algoritmo en absoluto.",
+                    "updated": 1640925825437
                 }
             ]
         },
@@ -41,6 +46,11 @@
                     "language": "RU",
                     "text": "Текущая реализация",
                     "updated": 1639406782138
+                },
+                {
+                    "language": "ES",
+                    "text": "Aplicación actual",
+                    "updated": 1640925855328
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Пока для Sensor Bot закодированы только два процесса:",
                     "updated": 1639406795512
+                },
+                {
+                    "language": "ES",
+                    "text": "Hasta el momento solo hay dos procesos codificados para el Sensor Bot:",
+                    "updated": 1640925867753
                 }
             ]
         },
@@ -64,6 +79,11 @@
                     "language": "RU",
                     "text": "Исторические данные - OHLCV: он может специально получать 1-минутные свечи с бирж, поддерживаемых библиотекой с открытым исходным кодом CCXT.",
                     "updated": 1639406893465
+                },
+                {
+                    "language": "ES",
+                    "text": "Historic-OHLCVs: Específicamente puede obtener velas de 1 minuto de los Exchanges soportados por la librería de código abierto CCXT.",
+                    "updated": 1640925876886
                 }
             ]
         },
@@ -75,6 +95,11 @@
                     "language": "RU",
                     "text": "Проверка Webhooks: Он проверяет информацию, поступившую к клиенту в результате вызовов webhook из внешних систем.",
                     "updated": 1639406959823
+                },
+                {
+                    "language": "ES",
+                    "text": "Check Webhooks: Comprueba la información que recibe el cliente proveniente de llamadas Webhook de sistemas externos.",
+                    "updated": 1640926050100
                 }
             ]
         },
@@ -86,6 +111,11 @@
                     "language": "RU",
                     "text": "В будущем по мере роста системы может быть закодировано больше процессов.",
                     "updated": 1639406975132
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que en el futuro se codifiquen más procesos a medida que el sistema crezca.",
+                    "updated": 1640926080137
                 }
             ]
         },
@@ -102,6 +132,11 @@
                     "language": "RU",
                     "text": "Конфигурация Sensor Bot",
                     "updated": 1639406989637
+                },
+                {
+                    "language": "ES",
+                    "text": "Configuración del Sensor Bot",
+                    "updated": 1640926116229
                 }
             ]
         },
@@ -114,6 +149,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1639406996298
+                },
+                {
+                    "language": "ES",
+                    "text": "Propiedades",
+                    "updated": 1640926219918
                 }
             ]
         },
@@ -126,6 +166,11 @@
                     "language": "RU",
                     "text": "codeName - это имя бота, используемое в коде системы. Это также будет использоваться как имя папки в структуре папок хранилища данных.",
                     "updated": 1639407072621
+                },
+                {
+                    "language": "ES",
+                    "text": "codeName es el nombre del bot tal y como se utiliza dentro del código del sistema. Este también se utilizará como nombre de la carpeta dentro de la estructura de la carpeta Data-Storage.",
+                    "updated": 1640926227133
                 }
             ]
         }

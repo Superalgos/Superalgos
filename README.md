@@ -103,7 +103,7 @@ The main draw back for this type of installation comes with limitations on the a
 
 ### Docker Installations
 
-Docker installations are another avenue that allows for an easy and clean installation of the Superalgos Platform. While a little more techincal than the packaged applications, it offers the ability to install the platform in a clean and isolated enviroment. 
+Docker installations are another avenue that allows for an easy and clean installation of the Superalgos Platform. While a little more technical than the packaged applications, it offers the ability to install the platform in a clean and isolated enviroment. 
 
 You can find a walk through for docker installations in our [Docker Guide](Docker/README.md).
 
@@ -111,7 +111,7 @@ Traditional docker installations are not meant to be development environments. M
 
 > **IMPORTANT:**
 > 
-> Please note that the development compatible docker image is not the standard meathod to install Superalgos for contributing. If you are new to contributing, or are not an expereinced developer, it is recommended that you follow the steps for a standard techincal installation.
+> Please note that the development compatible docker image is not the standard meathod to install Superalgos for contributing. If you are new to contributing, or are not an experienced developer, it is recommended that you follow the steps for a standard technical installation.
 
 #### Pros and Cons of Docker Installations
 

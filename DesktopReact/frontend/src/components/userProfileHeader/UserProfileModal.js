@@ -18,11 +18,9 @@ import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import pfp from "../../images/superalgos.png";
 
-const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
+const UserProfileModal = ({user, close, updateProfileCallback}) => {
     useEffect(() => {
-        return () => {
-            setUserInfo(user);
-        };
+        return () => setUserInfo(user);
     }, []);
 
     const Input = styled('input')({
@@ -68,7 +66,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                 [event.target.id]: event.target.value
             });
         }
-        setChanged(user === userInfo && userInfo && userInfo.name)
+        setChanged(!!(user === userInfo && userInfo && userInfo.name))
     }
 
     const saveProfile = async () => {
@@ -81,9 +79,9 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
         }
     }
 
-    return (<>
-        {show ? <Modal open={show}
-                       onClose={close}>
+    return (
+        <Modal open={show}
+               onClose={close}>
             <Box className="editUserBox" component="form" noValidate autoComplete="off">
                 <CardContent className="userSection">
                     <div className="editProfileHeader">
@@ -192,8 +190,8 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                     </div>
                 </CardContent>
             </Box>
-        </Modal> : null}
-    </>);
+        </Modal>
+    );
 };
 
 export default UserProfileModal;

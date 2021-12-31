@@ -49,8 +49,8 @@ const UserProfileHeader = ({user, updateProfileCallback}) => {
                         onClick={handleClickCallback}>
                     Edit profile
                 </Button>
-                <UserProfileModal user={user} show={modal} close={handleClickCallback}
-                                  updateProfileCallback={updateProfileCallback}/>
+                {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}
+                                           updateProfileCallback={updateProfileCallback}/>) : null}
             </div>
             <div>
                 <CardContent className="userSection">

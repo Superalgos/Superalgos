@@ -112,10 +112,10 @@ const PostFooter = ({postId, reactions}) => { // props needed? review
         return <div className="footerCommentContainer">
             <Stack className="postFooterComment" direction="row">
                 <IconButton className="commentIconButton" size="small"
-                            onClick={(e) => e.stopPropagation(HandleCommentContainer())}> {/* need review, correct way?*/}
+                            onClick={(e) => e.stopPropagation(HandleCommentContainer)}> {/* need review, correct way?*/}
                     <MessageOutlined/>
                 </IconButton>
-                <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>
+                {/*<FooterReplyModal show={replyModal} close={HandleCommentContainer}/>*/}
             </Stack>
             {/*<Stack className="postFooterRepost" direction="row"> todo not implemented yet
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">

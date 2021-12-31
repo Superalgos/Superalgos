@@ -16,7 +16,9 @@
     "postinstall": "electron-builder install-app-deps",
     "startNetwork": "node network",
     "startDesktop": "node desktop",
-    "startDesktopReact": "node desktop-react"
+    "startDesktopReactBackend": "node desktop-react-backend",
+    "startDesktopReactFrontend": "node desktop-react-frontend",
+    "startDesktopReact": "start npm run startNetwork && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
   },
   "dependencies": {
     "@babel/core": "7.12.3",
@@ -68,6 +70,7 @@
     "fs-extra": "^9.0.1",
     "html-webpack-plugin": "4.5.0",
     "http": "0.0.1-security",
+    "http-errors": "^2.0.0",
     "http-status": "^1.5.0",
     "https": "^1.0.0",
     "identity-obj-proxy": "3.0.0",
@@ -115,7 +118,7 @@
     "webpack-dev-server": "3.11.1",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4",
-    "ws": "^8.3.0"
+    "ws": "^8.4.0"
   },
   "optionalDependencies": {
     "@tensorflow/tfjs-node": "^2.8.6"

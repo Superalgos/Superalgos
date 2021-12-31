@@ -42,8 +42,8 @@ function newFoundationsUtilitiesFolders() {
                                     In this first Use Case, we are going to connect each origin object clone
                                     to its origin object counter part.
                                 */
-                                let clonedObject = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
-                                UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObject)
+                                let clonedObject = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
+                                UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(clonedObject, originObject)
                             } else {
                                 /*
                                     In this second Use Case, we are going to connect an inner object that is
@@ -53,8 +53,8 @@ function newFoundationsUtilitiesFolders() {
                                 let originObjectArray = originObject[originObjectArrayPropertyName]
                                 for (let n = 0; n < originObjectArray.length; n++) {
                                     let originObjectArrayItem = originObjectArray[n]
-                                    let clonedObject = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
-                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(clonedObject, originObjectArrayItem)
+                                    let clonedObject = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(destinationNode, clonedObjectType)
+                                    UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(clonedObject, originObjectArrayItem)
                                 }
                             }
                         }
@@ -74,7 +74,7 @@ function newFoundationsUtilitiesFolders() {
                                 }
                             }
                             if (found === false) {
-                                destinationFolder = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(destinationNode, destinationFolderType)
+                                destinationFolder = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(destinationNode, destinationFolderType)
                                 destinationFolder.name = originFolder.name
                             }
                             asymetricalFolderStructureCloning(

@@ -14,7 +14,7 @@ const Root = () => {
                 <Route path='/' element={<App/>}>
                     <Route path='' element={<Feed/>}/>
                     <Route path='Profile' element={<UserProfile/>}>
-                        <Route path=':profileId' element={<UserProfile/>}/>
+                        <Route path=':userId' element={<UserProfile/>}/>
                     </Route>
                     <Route path='PostPlaceholder' element={<PostPlaceholder/>}/>
                     <Route path='post'>

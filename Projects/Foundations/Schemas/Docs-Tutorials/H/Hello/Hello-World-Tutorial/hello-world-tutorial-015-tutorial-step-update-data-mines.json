@@ -5,7 +5,7 @@
     "definition": {
         "text": "Chances are you already have some data mined!",
         "icon": {
-            "name": "Data\\data-tasks",
+            "name": "data-tasks",
             "project": "Foundations"
         },
         "updated": 1614267263084,
@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "¡Lo más probable es que ya tengas algunos datos extraídos!",
                 "updated": 1629576816892
+            },
+            {
+                "language": "IT",
+                "text": "Se hai già seguito il Welcome Tutorial, probabilmente hai già minato un pò di candele!",
+                "updated": 1640110485198
+            },
+            {
+                "language": "TR",
+                "text": "Bazı verileri zaten almış olabilirsiniz!",
+                "updated": 1640617991764
+            },
+            {
+                "language": "RU",
+                "text": "Скорее всего, у вас уже есть некоторые накопленные данные!",
+                "updated": 1640857240429
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "Si has hecho la intro Tutorial entonces probablemente ya hayas extraído algunos datos. Pero agregué un nuevo indicador que no está presente en la configuración inicial. Así que por favor Run los data Mines Y espera hasta que estén 100% listos.",
                     "updated": 1629576956473
+                },
+                {
+                    "language": "IT",
+                    "text": "Se hai fatto il Welcome Tutorial il tuo grafico sarà già popolato dalle candele del prezzo e probabilmente qualche indicatore. In quetso Workspace ho però aggiunto un nuovo indicatore che non è presente nella configurazione iniziale. Quindi, per favore, esegui Data Mine Task chiamato Sparta e attendi fino al completamento al 100%.",
+                    "updated": 1640110613363
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş Eğitimini ( Tutorial ) yaptıysanız, muhtemelen bazı verileri almışsınızdır. Ancak ilk yapılandırmada bulunmayan yeni bir gösterge ekledim. Bu yüzden lütfen veri Madenlerini ( Mines ) çalıştırın ve %100 hazır olana kadar bekleyin.",
+                    "updated": 1640618010805
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучили вводный учебник, то, вероятно, вы уже добыли некоторые данные. Но я добавил новый индикатор, которого нет в начальной конфигурации. Поэтому, пожалуйста, запустите добычу данных и подождите, пока они не будут готовы на 100%.",
+                    "updated": 1640857287228
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "language": "ES",
                     "text": "Asegúrate de que debajo Sparta Data Mine Tasks el indicador recién agregado Simple Moving Average está 100% actualizado.",
                     "updated": 1629577044677
+                },
+                {
+                    "language": "IT",
+                    "text": "Assicurati che in Sparta - Data Mine Tasks l'indicatore SMA sia aggiornato al 100%.",
+                    "updated": 1640110648546
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Sparta Veri Madeni Görevleri ( Data Mine Tasks ) altında yeni eklenen Basit Hareketli Ortalama göstergesinin ( Simple Moving Average ) %100 güncellendiğinden emin olun.",
+                    "updated": 1640618037690
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что в разделе Sparta Data Mine Tasks недавно добавленный индикатор Simple Moving Average обновлен на 100%.",
+                    "updated": 1640857303985
                 }
             ]
         },
@@ -75,6 +120,21 @@
                     "language": "ES",
                     "text": "Ya al 100%, puedes detener los Data Mines y ahorrar recursos para el backtest.",
                     "updated": 1629577393595
+                },
+                {
+                    "language": "IT",
+                    "text": "Una volta che tutti gli indicatori sono al 100%, puoi fermare i Data Mine e risparmiare risorse per il backtest",
+                    "updated": 1640110681763
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Tüm göstergeler %100 olduğunda, veri madenlerini durdurabilir ve geriye dönük test için kaynak tasarrufu yapabilirsiniz",
+                    "updated": 1640618053948
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только все показатели достигнут 100%, вы можете остановить добычу данных и сохранить ресурсы для бэктеста.",
+                    "updated": 1640857369873
                 }
             ]
         }

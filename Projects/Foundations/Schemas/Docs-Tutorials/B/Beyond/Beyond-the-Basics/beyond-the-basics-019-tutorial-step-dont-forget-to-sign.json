@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Diese Kommentare über Ihre ersten Eindrücke von Superalgos sind Ihr erster Beitrag, und dafür danken wir Ihnen!",
                 "updated": 1635149257044
+            },
+            {
+                "language": "RU",
+                "text": "Эти комментарии о ваших первых впечатлениях о Superalgos - ваш первый вклад, и за это мы вас поблагодарим!",
+                "updated": 1640161730955
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'taki ilk izlenimlerinizle ilgili bu yorumlar sizin ilk katkınızdır ve bunun için size teşekkür ederiz!",
+                "updated": 1640610855166
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Damit Ihr Beitrag in das Superalgos-Repository aufgenommen werden kann, müssen Sie ihn im letzten Absatz der Seite mit Ihrem GitHub.com-Benutzernamen signieren! Dies ist wichtig, damit Sie die Seite später über die Suche finden können! Wenn Sie mit Superalgos Fortschritte machen, können Sie jederzeit zurückkommen und die Seite bearbeiten.",
                     "updated": 1635149266576
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы ваш обзор был объединен в репозиторий Superalgos, вы должны подписать его своим именем пользователя GitHub.com в последнем абзаце страницы! Это важно для того, чтобы впоследствии вы могли найти страницу с помощью поиска! По мере освоения Superalgos вы всегда сможете вернуться и отредактировать ее.",
+                    "updated": 1640161758370
+                },
+                {
+                    "language": "TR",
+                    "text": "İncelemenizin Superalgos deposunda birleştirilmesi için sayfanın son paragrafında GitHub.com kullanıcı adınızla imzalamanız gerekir! Bu, daha sonra aramayı kullanarak sayfayı bulabilmeniz için önemlidir! Superalgos ile ilerledikçe, her zaman geri gelip düzenleyebilirsiniz.",
+                    "updated": 1640610982807
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Beiträge bringen Ihnen <a href=\\\"https://superalgos.org/token-overview.shtml\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Superalgos SA Tokens</a> ein und unterliegen den Bedingungen der <a href=\\\"https://github.com/Superalgos/Superalgos/blob/master/LICENSE\\\" target=\\\"_blank\\\" style=\\\"color:blue;\\\">Apache Licence 2.0</a>. Kurz gesagt, die Mitwirkenden gewähren ausdrücklich das Urheberrecht/Patentrecht.",
                     "updated": 1635150086827
+                },
+                {
+                    "language": "RU",
+                    "text": "Вклад приносит вам токены Superalgos SA Tokens и регулируется условиями лицензии Apache Licence 2.0. Короче говоря, вкладчики предоставляют прямые авторские/патентные права.",
+                    "updated": 1640161875463
+                },
+                {
+                    "language": "TR",
+                    "text": "Katkılar size Superalgos SA Tokenleri kazandırır ve Apache Lisansı 2.0'ın koşullarına tabidir. Kısacası, Katkıda Bulunanlar, telif hakkı/patent haklarının açık bir şekilde devretmiş olurlar.",
+                    "updated": 1640611462549
                 }
             ]
         }

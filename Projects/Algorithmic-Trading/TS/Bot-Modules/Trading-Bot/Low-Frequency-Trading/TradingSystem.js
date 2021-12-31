@@ -26,10 +26,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
-    let portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
-    let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
-    let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+    let tradingStagesModuleObject 
+    let incomingTradingSignalsModuleObject 
+    let outgoingTradingSignalsModuleObject 
+    let portfolioManagerClient 
 
     let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -46,9 +46,15 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         tradingSystem.conditions = new Map()
         tradingSystem.formulas = new Map()
 
+        tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
+        incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
+        outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+        portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
+
         tradingStagesModuleObject.initialize()
         incomingTradingSignalsModuleObject.initialize()
         outgoingTradingSignalsModuleObject.initialize()
+        portfolioManagerClient.initialize()
 
         /* Adding Functions used elsewhere to Trading System Definition */
         tradingSystem.checkConditions = function (situation, passed) {
@@ -430,7 +436,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             let lastSignalFormulaValue = 0
             for (let i = 0; i < signals.length; i++) {
                 let signal = signals[i]
-                lastSignalFormulaValue = signal.source.tradingSystem.node.formula.value
+                lastSignalFormulaValue = tradingSignal.source.tradingSystem.node.formula.value
             }
             lastSignalFormulaValue
 
@@ -439,7 +445,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             let lastSignalContextValue = 0
             for (let i = 0; i < signals.length; i++) {
                 let signal = signals[i]
-                lastSignalContextValue = signal.source.tradingSystem.node.context.roi
+                lastSignalContextValue = tradingSignal.source.tradingSystem.node.context.roi
             }
             lastSignalContextValue
 
@@ -463,8 +469,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             Now that we have the value of the formula, we will check with the Porfolio Manager
             to see if we can use this value, or we need to use something else.
             */
-            let response = await portfolioManagerClient.askPortfolioFormulaManager(parentNode, value)
-            value = response.value
+            if (parentNode.askPortfolioFormulaManager !== undefined) {
+                let response = await portfolioManagerClient.askPortfolioFormulaManager(node, parentNode, value)
+                value = response.value
+            }
             /*
             Now we actually have the final value. We will check if we need to broadcast a signals
             with this value as context or not.

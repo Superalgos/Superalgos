@@ -47,3 +47,20 @@
 .repostIconButton{
 }
 
+.reactionsButtons{
+    position: relative !important;
+    min-height: 0.5rem;
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    box-shadow: none !important;
+    margin: 0.20rem !important;
+}
+
+.speedDialContainer{ /*remove if not needed*/
+    /*width: 17rem !important;
+    height: 17rem !important;*/
+}
+
+.MuiSpeedDial-actions{
+    margin-left: -45px !important;
+}

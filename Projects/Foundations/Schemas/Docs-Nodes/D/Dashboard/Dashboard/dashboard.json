@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Dashboard -  это набор средств наблюдения реального времени, каждый из которых содержит любое количество диаграмм.",
                 "updated": 1638707398781
+            },
+            {
+                "language": "DE",
+                "text": "Ein Dashboard ist eine Sammlung von time machines (Zeitmaschinen), die jeweils eine beliebige Anzahl von charts (Diagrammen) enthalten.",
+                "updated": 1640212354090
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Концепция информационной панели позволяет настраивать сразу несколько графиков, чтобы вы могли консультироваться с разными биржами, разными рынками, разными таймфреймами или различными техническими исследованиями по запросу, просто перемещаясь и увеличивая или уменьшая масштаб. Вы можете размещать графики рядом или даже накладывать их друг на друга для изучения рыночных потоков, поиска возможностей арбитража или просто держать их в поле зрения при анализе конкретных рыночных ситуаций.",
                     "updated": 1638707972767
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Konzept des Dashboards erlaubt es, mehrere Charts gleichzeitig zu konfigurieren, so dass Sie bei Bedarf verschiedene exchanges (Börsen), verschiedene markets (Märkte), verschiedene Zeitrahmen (time frames) oder verschiedene technical studies (technische Studien) konsultieren können, indem Sie sich einfach bewegen und hinein- oder herauszoomen. Sie können die Charts nebeneinander stellen oder sogar übereinander legen, um die Marktbewegungen zu studieren, nach Arbitragemöglichkeiten zu suchen oder sie einfach im Blick zu behalten, wenn Sie bestimmte Marktsituationen analysieren.",
+                    "updated": 1640212609713
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "На данный момент функциональность информационной панели тривиальна: группировка средств наблюдения. Однако в будущем он будет предлагать различные функции для улучшения взаимодействия с пользователем.",
                     "updated": 1638708114283
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Moment ist die Funktionalität eines Dashboards noch trivial: die Gruppierung von time machines. In Zukunft wird es jedoch verschiedene Funktionen zur Verbesserung der Benutzerfreundlichkeit bieten.",
+                    "updated": 1640212712563
                 }
             ]
         }

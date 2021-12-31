@@ -4,13 +4,27 @@
     "type": "Master",
     "definition": {
         "text": "The Master branch is where the stable code or current version is located at. This is the branch where the software is installed from by default. ",
-        "updated": 1622467520315
+        "updated": 1622467520315,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ветка Master - это ветка, в которой находится стабильный код или текущая версия. Это ветка, из которой программное обеспечение устанавливается по умолчанию.",
+                "updated": 1640353048759
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Users of Superalgos running the stable version at Master discuss several topics here:",
-            "updated": 1622468372179
+            "updated": 1622468372179,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи Superalgos, работающие со стабильной версией на Master, обсуждают здесь несколько тем:",
+                    "updated": 1640353065387
+                }
+            ]
         },
         {
             "style": "Link",
@@ -19,7 +33,14 @@
         },
         {
             "style": "Text",
-            "text": "When they have issues with the stable version at Master, they ask for help here:"
+            "text": "When they have issues with the stable version at Master, they ask for help here:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда у них возникают проблемы со стабильной версией в Master, они обращаются за помощью сюда:",
+                    "updated": 1640353080781
+                }
+            ]
         },
         {
             "style": "Link",

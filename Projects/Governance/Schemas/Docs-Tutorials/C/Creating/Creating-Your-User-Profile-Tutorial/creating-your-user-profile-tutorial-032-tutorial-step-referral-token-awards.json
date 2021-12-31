@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Superpages - это проект, управляемый сообществом, а не стартап, финансируемый венчурным капиталом! Мы рассчитываем на вашу помощь в маркетинге из уст в уста!",
                 "updated": 1639050898782
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos ist ein von der Gemeinschaft betriebenes Projekt, kein VC-finanziertes Startup! Wir zählen auf Ihre Hilfe bei der Mund-zu-Mund-Propaganda!",
+                "updated": 1640080438599
             }
         ]
     },
@@ -34,6 +39,11 @@
                     "text": "¡Los incentivos para traer a sus amigos, colegas o sus seguidores son significativos! Encuentre la breve explicación a continuación y sumérjase en los detalles a la derecha si lo desea.",
                     "updated": 1630896616974,
                     "style": "Important"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Anreize, Ihre Freunde, Kollegen oder Ihre Anhängerschaft mitzubringen, sind beträchtlich! Unten finden Sie eine kurze Erklärung, und wenn Sie möchten, können Sie rechts in die Details eintauchen!",
+                    "updated": 1640080454958
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Это краткая версия того, как работают эти программы:",
                     "updated": 1639050914721
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist die Kurzversion, wie diese Programme funktionieren:",
+                    "updated": 1640080463311
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Чем больше людей объявляют вас своими рефералами, тем больше токенов вы зарабатываете на каждом выпуске программного обеспечения на неопределенный срок!",
                     "updated": 1639050932219
+                },
+                {
+                    "language": "DE",
+                    "text": "Je mehr Leute Sie als Empfehlungsgeber angeben, desto mehr Token verdienen Sie für jede einzelne Version der Software, und zwar auf unbestimmte Zeit!",
+                    "updated": 1640080473267
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "RU",
                     "text": "Если люди, которых вы приводите в Superalgos, тоже приводят людей, вы за них тоже зарабатываете, а за тех, кого они приводят, вы тоже зарабатываете!",
                     "updated": 1639050994343
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Leute, die Sie zu Superalgos bringen, auch Leute mitbringen, verdienen Sie auch für diese, und für die, die diese mitbringen, verdienen Sie auch!",
+                    "updated": 1640080485683
                 }
             ]
         },

@@ -5,9 +5,9 @@
         "updated": 1624781372494,
         "translations": [
             {
-                "language": "ES",
-                "text": "Claim Power (poder de la solicitud) es el Token Power que va al Claims Program, y determina el número de  tokens que está solicitando con cualquiera de las solicitudes existentes: Position Contribution Claim, Feature Contribution Claim y Asset Contribution Claim.",
-                "updated": 1636110904315
+                "language": "RU",
+                "text": "Claim Power (Сила требования, претензии) - это Token Power, который используется в программе Claims Program, и определяет количество токенов, которые вы претендуете на любой из существующих типов требований: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
+                "updated": 1640325380338
             }
         ]
     },
@@ -23,9 +23,9 @@
             "updated": 1630254492262,
             "translations": [
                 {
-                    "language": "ES",
-                    "text": "Claim Power (poder de la solicitud) es el Token Power que va al Claims Program, y determina el número de  tokens que está solicitando con cualquiera de las solicitudes existentes: Position Contribution Claim, Feature Contribution Claim y Asset Contribution Claim.",
-                    "updated": 1636110927536
+                    "language": "RU",
+                    "text": "Claim Power (Сила требования, претензии) - это Token Power, который используется в программе Claims Program, и определяет количество токенов, которые вы претендуете на любой из существующих типов требований: Position Contribution Claim, Feature Contribution Claim, and Asset Contribution Claim.",
+                    "updated": 1640325393169
                 }
             ]
         }

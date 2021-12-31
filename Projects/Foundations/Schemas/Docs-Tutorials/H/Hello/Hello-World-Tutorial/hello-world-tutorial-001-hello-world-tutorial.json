@@ -11,6 +11,16 @@
                 "text": "Dieses Tutorial ist ein Schnellkurs, der dich in die Idee einführt, ein einfaches Tradingsystem aufzubauen. Das Tutorial setzt ein grundlegendes Verständnis dafür voraus, wie Trading-Strategien definiert werden. Das heißt, du kannst es auch als eine allererste Einführung nützlich finden, besonders wenn du direkte, auf den Punkt gebrachte Informationen magst.",
                 "updated": 1622969782378,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu öğretici, sizi basit bir Ticaret Sistemi ( Trading System ) oluşturma kavramıyla tanıştıran,hızlı ve basit bir kursdur. Eğitim, Ticaret Stratejilerinin ( Trading Strategies ) nasıl tanımlandığına dair temel bir anlayış olduğunu varsayar. Bununla birlikte, özellikle doğrudan, konuya ilişkin bilgileri seviyorsanız, ilk adım girişi olarak da yararlı bulabilirsiniz.",
+                "updated": 1640615219422
+            },
+            {
+                "language": "RU",
+                "text": "Этот учебник представляет собой флэш-курс, в стиле \"сразу к делу\", знакомящий вас с понятием построения простой торговой системы. Учебник предполагает базовое понимание того, как определяются торговые стратегии. Тем не менее, вы можете найти его полезным и в качестве первого шага, особенно если вам нравится прямая, конкретная информация.",
+                "updated": 1640632619784
             }
         ]
     },
@@ -18,7 +28,14 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617110507620
+            "updated": 1617110507620,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640632630643
+                }
+            ]
         },
         {
             "style": "List",

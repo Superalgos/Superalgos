@@ -4,22 +4,50 @@
     "type": "How to Uninstall an Existing Market",
     "definition": {
         "text": "To uninstall an existing market, select Uninstall Market on the menu of the market you wish to uninstall.",
-        "updated": 1611650874487
+        "updated": 1611650874487,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Чтобы удалить существующий рынок, выберите Uninstall Market в меню рынка, который вы хотите удалить.",
+                "updated": 1640279610900
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "1. Expand the exchange markets node of your preferred crypto exchange in the crypto ecosystem hierarchy.",
-            "updated": 1611650884837
+            "updated": 1611650884837,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1. Разверните узел Exchange Markets предпочитаемой вами криптобиржи в иерархии Crypto Ecosystem.",
+                    "updated": 1640279683706
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "2. Select Uninstall Market on the menu of the market you wish to uninstall."
+            "text": "2. Select Uninstall Market on the menu of the market you wish to uninstall.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2. Выберите Uninstall Market в меню рынка, который вы хотите удалить.",
+                    "updated": 1640279698755
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The function deletes all the infrastructure associated with the market that may have been created using the Install Market function.",
-            "updated": 1611650909369
+            "updated": 1611650909369,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Функция удаляет всю инфраструктуру, связанную с рынком, которая могла быть создана с помощью функции Install Market.",
+                    "updated": 1640279725717
+                }
+            ]
         },
         {
             "style": "Text",

@@ -11,6 +11,11 @@
                 "text": "Toggling Breakpoints is telling the the program where to slow down - Where we'd like to take control.",
                 "updated": 1614338778954,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Первым шагом является настройка Visual Studio Code так, чтобы он имел доступ к каталогу Superalgos и знал, какой файл запускать, подключать к нему и контролировать отладку.",
+                "updated": 1640280594888
             }
         ]
     },
@@ -18,36 +23,85 @@
         {
             "style": "Title",
             "text": "Overview",
-            "updated": 1623402158529
+            "updated": 1623402158529,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Краткий обзор",
+                    "updated": 1640280644169
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Superalgos has three core components, the Client, TS and the UI.",
-            "updated": 1623402455917
+            "updated": 1623402455917,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos состоит из трех основных компонентов: Client, TS и UI.",
+                    "updated": 1640280661008
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Hover over (or click) each word above above to learn more regarding each component.",
-            "updated": 1623402349861
+            "updated": 1623402349861,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор (или нажмите) на каждое слово выше, чтобы узнать больше о каждом компоненте.",
+                    "updated": 1640280677749
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For debugging purposes we already want to have the Client and UI running. This process details how to set up Visual Studio Code to run a debug instance of the TS.",
-            "updated": 1623404705493
+            "updated": 1623404705493,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для целей отладки мы должны иметь запущенный Client и UI. Этот раздел описывает, как настроить Visual Studio Code для запуска отладочного экземпляра TS.",
+                    "updated": 1640280733806
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "First we need to set up our Visual Studio Code workspace so we can see the Superalgos directory.",
-            "updated": 1623404725437
+            "updated": 1623404725437,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сначала нам нужно настроить рабочее пространство Visual Studio Code так, чтобы мы могли видеть каталог Superalgos.",
+                    "updated": 1640280750415
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Configuring Visual Studio Code",
-            "updated": 1623402750807
+            "updated": 1623402750807,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настройка Visual Studio Code",
+                    "updated": 1640280760428
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Start up Visual Studio Code and click on the Explorer icon to open the Explorer left hand panel."
+            "text": "Start up Visual Studio Code and click on the Explorer icon to open the Explorer left hand panel.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Запустите Visual Studio Code и нажмите на значок проводника, чтобы открыть левую панель проводника.",
+                    "updated": 1640280776595
+                }
+            ]
         },
         {
             "style": "Png",
@@ -57,11 +111,25 @@
         {
             "style": "Text",
             "text": "As we are just running the TS in debug mode, we start with the \"TaskServer\" folder.",
-            "updated": 1623404758089
+            "updated": 1623404758089,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку мы просто запускаем TS в режиме отладки, мы начинаем с папки \"TaskServer\".",
+                    "updated": 1640280796841
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Click on the Add Folder button and open the \"TaskServer\" folder (../Superalgos/TaskServer) to add this to your Visual Studio Code workspace."
+            "text": "Click on the Add Folder button and open the \"TaskServer\" folder (../Superalgos/TaskServer) to add this to your Visual Studio Code workspace.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Нажмите на кнопку Add Folder и откройте папку \"TaskServer\" (../Superalgos/TaskServer), чтобы добавить ее в рабочее пространство Visual Studio Code.",
+                    "updated": 1640280817496
+                }
+            ]
         },
         {
             "style": "Png",
@@ -76,11 +144,25 @@
         {
             "style": "Text",
             "text": "Next we add the \"Projects\" folder so that we can analyse the rest of the Superalgos files.",
-            "updated": 1623405000959
+            "updated": 1623405000959,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Далее мы добавляем папку \"Projects\", чтобы мы могли проанализировать остальные файлы Superalgos.",
+                    "updated": 1640280834432
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Right-click in the empty space of the Explorer left-hand panel and click on Add Folder to Workspace and also add the \"Projects\" (../Superalgos/Projects) folder to your workspace."
+            "text": "Right-click in the empty space of the Explorer left-hand panel and click on Add Folder to Workspace and also add the \"Projects\" (../Superalgos/Projects) folder to your workspace.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши в пустом пространстве левой панели проводника и выберите Add Folder to Workspace, а также добавьте папку \"Projects\" (../Superalgos/Projects) в рабочее пространство.",
+                    "updated": 1640280886033
+                }
+            ]
         },
         {
             "style": "Png",
@@ -95,7 +177,14 @@
         {
             "style": "Text",
             "text": "The Explorer left-hand panel should now have the two folders \"TaskServer\" and \"Projects\" like below.",
-            "updated": 1623408055408
+            "updated": 1623408055408,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На левой панели проводника теперь должны быть две папки \"TaskServer\" и \"Projects\", как показано ниже.",
+                    "updated": 1640280911647
+                }
+            ]
         },
         {
             "style": "Png",
@@ -105,7 +194,14 @@
         {
             "style": "Text",
             "text": "If this matches let's save our Workspace so the next time we open Visual Studio Code this loads automatically. Click on File then Save Workspace As and give it a name.",
-            "updated": 1623408092688
+            "updated": 1623408092688,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если все совпадает, давайте сохраним наше рабочее пространство, чтобы при следующем открытии Visual Studio Code оно загрузилось автоматически. Щелкните на File, затем Save Workspace As и дайте ему название.",
+                    "updated": 1640280941621
+                }
+            ]
         },
         {
             "style": "Png",
@@ -113,7 +209,14 @@
         },
         {
             "style": "Text",
-            "text": "Awesome! That's all there is to setting up Visual Studio Code so it can access the Superalgos directory. Next we are going to dive into the code and talk about breakpoints."
+            "text": "Awesome! That's all there is to setting up Visual Studio Code so it can access the Superalgos directory. Next we are going to dive into the code and talk about breakpoints.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Потрясающе! Это все, что нужно сделать для настройки Visual Studio Code, чтобы он мог получить доступ к каталогу Superalgos. Далее мы погрузимся в код и поговорим о точках прерывания.",
+                    "updated": 1640280975880
+                }
+            ]
         }
     ]
 }

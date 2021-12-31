@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Программа развернута! Теперь вам нужно объявить своего реферера, чтобы выполнить второе требование!",
                 "updated": 1639050157482
+            },
+            {
+                "language": "DE",
+                "text": "Das Programm wird eingesetzt! Jetzt müssen Sie Ihren Referrer angeben, um die zweite Anforderung zu erfüllen!",
+                "updated": 1640079593034
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Может быть, вы узнали о Superalgos из статьи, видео, комментария на Reddit, твита, официального сайта или кого-то, кто рассказал вам о нас!",
                     "updated": 1639050181351
+                },
+                {
+                    "language": "DE",
+                    "text": "Vielleicht haben Sie von Superalgos durch einen Artikel, ein Video, einen Kommentar auf Reddit, einen Tweet, die offizielle Website oder jemanden, der Ihnen von uns erzählt hat, erfahren!",
+                    "updated": 1640079609498
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Объявление ваших рефереров - лучший способ поблагодарить людей, которые, возможно, написали эту статью или твит, создали это видео, поддерживали веб-сайт или рассказали вам о Superalgos!",
                     "updated": 1639050200668
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Angabe von Empfehlungsgebern ist der beste Weg, sich bei den Personen zu bedanken, die den Artikel oder Tweet geschrieben, das Video produziert, die Website gepflegt oder Ihnen von Superalgos erzählt haben!",
+                    "updated": 1640079619440
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "RU",
                     "text": "Чтобы объявить реферер, вы должны установить ссылку из узла User Referrer на профиль пользователя вашего реферера! Это означает, что имя профиля пользователя User Profile также является реферальным кодом!",
                     "updated": 1639050245116
+                },
+                {
+                    "language": "DE",
+                    "text": "Um einen Referrer zu deklarieren, müssen Sie einen Verweis vom Knoten User Referrer auf das Benutzerprofil Ihres Referrers herstellen! Das bedeutet, dass der Name eines Benutzerprofils (User Profile ) auch ein Empfehlungscode ist!",
+                    "updated": 1640079659488
                 }
             ]
         }

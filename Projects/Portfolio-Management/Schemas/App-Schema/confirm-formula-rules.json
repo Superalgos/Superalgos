@@ -27,7 +27,7 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "confirmFormulaReference",
+            "name": "confirmFormulaReferences",
             "type": "array",
             "childType": "Confirm Formula Reference"
         }

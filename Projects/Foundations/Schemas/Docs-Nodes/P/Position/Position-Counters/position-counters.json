@@ -1,12 +1,26 @@
 {
     "type": "Position Counters",
     "definition": {
-        "text": "The position counters node features counters of instances of objects that come to exist during the duration of the position."
+        "text": "The position counters node features counters of instances of objects that come to exist during the duration of the position.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Position Counters содержит счетчики экземпляров объектов, которые появляются во время нахождения в позиции.",
+                "updated": 1640346587583
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1640346594902
+                }
+            ]
         }
     ]
 }

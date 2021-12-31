@@ -1,7 +1,5 @@
 .userSection {
-    display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 16px !important;
+
 }
 
 .profilePicBG {
@@ -67,14 +65,14 @@
 .location {
     padding-top: 1px;
     padding-bottom: 1px;
-    width: 74%;
+    width: 100%;
     color: #6b6b6b;
 }
 
 .joinDate {
     padding-top: 1px;
     padding-bottom: 1px;
-    width: 26%;
+    width: 100%;
     color: #6b6b6b;
 }
 

@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Erstaunlich! Sie haben gelernt, eine Seite zu den Docs hinzuzufügen, sie zu bearbeiten und zu speichern! Jetzt müssen Sie sie über Ihren PC hinausbringen und sie zu Superalgos beitragen!",
                 "updated": 1635150364540
+            },
+            {
+                "language": "RU",
+                "text": "Потрясающе! Вы научились добавлять страницу в Docs, редактировать ее и сохранять! Теперь вам нужно сделать так, чтобы она вышла за пределы вашего компьютера и попала в Superalgos!",
+                "updated": 1640162015180
+            },
+            {
+                "language": "TR",
+                "text": "İnanılmaz! Dokümanlar'a bir sayfa eklemeyi, düzenlemeyi ve kaydetmeyi öğrendiniz! Şimdi onu PC'nizin ötesine taşımanız ve Superalgos'a katkıda bulunmanız gerekiyor!",
+                "updated": 1640628334773
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Superalgos interagiert mit Git, um Ihre Superalgos-Installation auf dem neuesten Stand zu halten und um Beiträge für technisch weniger versierte Benutzer zu erleichtern. Der  App Contribute Command führt die folgenden Git-Befehle nacheinander aus:",
                     "updated": 1635150376963
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos взаимодействует с Git, чтобы поддерживать вашу версию Superalgos в актуальном состоянии и облегчить внесение вкладов для менее технически подкованных пользователей. Команда App Contribute Command выполняет следующие команды Git в последовательности:",
+                    "updated": 1640162083117
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, Superalgos kurulumunuzu güncel tutmak ve daha az teknik kullanıcı için katkıları kolaylaştırmak amacıyla Git ile etkileşime girer. App Contribute Command, aşağıdaki Git komutlarını sırayla çalıştırır:",
+                    "updated": 1640628398749
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "git add: fügt die Änderungen, die Sie an beitragsfähigen Dateien vorgenommen haben, einem Git-Commit hinzu.",
                     "updated": 1635150385694
+                },
+                {
+                    "language": "RU",
+                    "text": "git add: добавляет изменения, внесенные вами в файлы, в git commit.",
+                    "updated": 1640162160046
+                },
+                {
+                    "language": "TR",
+                    "text": "git add: Katkıda bulunulan dosyalarda yaptığınız değişiklikleri bir git taahhüdüne ekler.",
+                    "updated": 1640628443857
                 }
             ]
         },
@@ -99,6 +129,16 @@
                     "language": "DE",
                     "text": "git commit: Überträgt alle Änderungen.",
                     "updated": 1635150395840
+                },
+                {
+                    "language": "RU",
+                    "text": "git commit: фиксирует все изменения.",
+                    "updated": 1640162172938
+                },
+                {
+                    "language": "TR",
+                    "text": "git commit: tüm değişiklikleri gerçekleştirir.",
+                    "updated": 1640628503599
                 }
             ]
         },
@@ -123,6 +163,16 @@
                     "language": "DE",
                     "text": "git push: Überträgt die Änderungen auf Ihren Fork.",
                     "updated": 1635150403499
+                },
+                {
+                    "language": "RU",
+                    "text": "git push: переносит изменения в ваш форк.",
+                    "updated": 1640162184534
+                },
+                {
+                    "language": "TR",
+                    "text": "git Push: değişiklikleri çatalınıza gönderir.",
+                    "updated": 1640628522294
                 }
             ]
         },
@@ -147,6 +197,16 @@
                     "language": "DE",
                     "text": "github createPullRequest: erstellt einen Pull Request im Superalgos-Repository oder fügt Commits zu einem bestehenden Pull Request hinzu.",
                     "updated": 1635150423168
+                },
+                {
+                    "language": "RU",
+                    "text": "github createPullRequest: создает Pull Request в репозитории Superalgos или добавляет коммиты в существующий Pull Request.",
+                    "updated": 1640162201259
+                },
+                {
+                    "language": "TR",
+                    "text": "github createPullRequest: Superalgos deposunda bir Çekme İsteği oluşturur veya mevcut bir Çekme İsteğine taahhütler ekler.",
+                    "updated": 1640628550015
                 }
             ]
         }

@@ -49,14 +49,17 @@ function newWorkspace() {
     let sessionTimestamp = (new Date()).valueOf()
     window.localStorage.setItem('Session Timestamp', sessionTimestamp)
 
-    let actionSwitchesByProject = new Map()
+    let nodeActionSwitchesByProject = new Map()
+    let systemActionSwitchesByProject = new Map()
+    let topMenu = document.getElementById('topMenu')
 
     return thisObject
 
     function finalize() {
         thisObject.definition = undefined
         thisObject.workspaceNode = undefined
-        actionSwitchesByProject = undefined
+        nodeActionSwitchesByProject = undefined
+        systemActionSwitchesByProject = undefined
     }
 
     async function initialize() {
@@ -69,10 +72,20 @@ function newWorkspace() {
                 for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                     let project = PROJECTS_SCHEMA[i].name
                     try {
-                        let actionSwitch = eval('new' + project.replaceAll('-', '') + 'ActionSwitch()')
-                        actionSwitchesByProject.set(project, actionSwitch)
+                        let nodeActionSwitch = eval('new' + project.replaceAll('-', '') + 'NodeActionSwitch()')
+                        nodeActionSwitchesByProject.set(project, nodeActionSwitch)
                     } catch (err) {
                         console.log('[WARN] Action Switch for project ' + project + ' not found.')
+                    }
+                }
+                /* … and the system action switches map */
+                for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
+                    let project = PROJECTS_SCHEMA[i].name
+                    try {
+                        let systemActionSwitch = eval('new' + project.replaceAll('-', '') + 'SystemActionSwitch()')
+                        systemActionSwitchesByProject.set(project, systemActionSwitch)
+                    } catch (err) {
+                        console.log('[WARN] System Action Switch for project ' + project + ' not found.')
                     }
                 }
 
@@ -144,6 +157,8 @@ function newWorkspace() {
                     //savingWorkspaceIntervalId = setInterval(saveWorkspace, 60000)
                     UI.projects.foundations.utilities.statusBar.changeStatus("Displaying the UI...")
 
+                    buildSystemMenu()
+
                     resolve()
                 }
             } catch (err) {
@@ -177,6 +192,69 @@ function newWorkspace() {
                 }
             }
         }
+    }
+    
+    /* This function constructs the innerHTML of the topMenu div by following the system menu structure per-project defined in PROJECTS_MENU.
+    Only projects that have a project head node at the current workspace get a menu. */
+    async function buildSystemMenu() {
+        let html = '<nav><ul>'
+        /* get all project head nodes present at the current workspace */
+        let projectHeads = thisObject.getProjectsHeads()
+        for (let projectObject of projectHeads) {
+            let projectPresentAtWorkspace = projectObject.type.replace(' Project', '')
+            /* iterate through PROJECTS_MENU to pick the projects that are both present at the workspace and have a system menu defined */
+            for (let project of PROJECTS_MENU) {
+                if (project.name !== projectPresentAtWorkspace) { continue }
+                if (project.systemMenu === undefined || project.systemMenu.length === 0) { continue }
+                html = html + '<il><a>' + project.name + '</a><ul>'
+                /* call addMenuItem on the highest system menu hierarchy */
+                await addMenuItem(project.systemMenu)
+                html = html + '</ul></il>'
+                
+                async function addMenuItem(menu) {
+                    for (let item of menu) {
+                        /* We define the systemActionSwitch here to allow for a menu item to execute actions of another project.
+                        An action property looks like this: {"name": "…", "params": […], "systemActionProject": "…"},
+                        with only action.name being mandatory. */
+                        let systemActionSwitch
+                        if (item.action !== undefined && item.action.systemActionProject !== undefined) {
+                            systemActionSwitch = systemActionSwitchesByProject.get(item.action.systemActionProject)
+                        } else {
+                            systemActionSwitch = systemActionSwitchesByProject.get(project.name)
+                        }
+                        if (systemActionSwitch === undefined) {
+                            console.log('[ERROR] System Action Switch for project ' + project.name + ' could not be found.')
+                            continue
+                        }
+                        /* for a menu item that has an action: {"label": "…", "action": {…}} */
+                        if (item.action !== undefined && item.action.name !== undefined) {
+                            let action
+                            if (item.action.params === undefined) {
+                                action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\'})'
+                            } else {
+                                action = systemActionSwitch.name + '().executeAction({name:\'' + item.action.name + '\', params:['  + item.action.params + ']})'
+                            }
+                            html = html + '<il><a onclick="' + action + '">' + item.label + '</a></il>'
+                        /* for a menu item that has an explicit submenu instead of an action */
+                        } else if (item.subMenu !== undefined ) {
+                            let label = item.label + ' →'
+                            html = html + '<il><a>' + label + '</a><ul>'
+                            /* recurse into the submenu */
+                            addMenuItem(item.subMenu)
+                            html = html + '</ul></il>'
+                        /* for a menu item that has a submenu constructor function instead of an action or an explicit submenu */
+                        } else if (item.submenuConstructorFunction !== undefined) {
+                            let label = item.label + ' →'
+                            html = html + '<il><a>' + label + '</a><ul>'
+                            let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
+                            addMenuItem(subMenu)
+                            html = html + '</ul></il>'
+                        }
+                    }
+                }
+            }
+        }
+        topMenu.innerHTML = html
     }
 
     async function saveWorkspace(callBackFunction) {
@@ -413,6 +491,8 @@ function newWorkspace() {
                             thisObject.workspaceNode = loadedWorkspaceNode
                             thisObject.workspaceNode.project = 'Foundations'
                             loadedWorkspaceNode = undefined
+                            /* rebuild the system menu for the new workspace, as present project heads might have changed */
+                            buildSystemMenu()
                             workingAtTask = 6
                         }
                         break
@@ -742,12 +822,12 @@ function newWorkspace() {
         */
         action.rootNodes = thisObject.workspaceNode.rootNodes
 
-        let actionSwitch = actionSwitchesByProject.get(action.project)
-        if (actionSwitch === undefined) {
+        let nodeActionSwitch = nodeActionSwitchesByProject.get(action.project)
+        if (nodeActionSwitch === undefined) {
             console.log('[ERROR] Action Switch for project ' + action.project + ' could not be found.')
             return
         }
-        return actionSwitch.executeAction(action)
+        return nodeActionSwitch.executeAction(action)
 
     }
 }

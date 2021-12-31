@@ -357,7 +357,7 @@ exports.newWeb3Server = function newWeb3Server() {
             console.log('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await PL.projects.foundations.utilities.asyncFunctions.sleep(15000)
+                await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)
                 let payment = paymentsArray[i]
                 await sendTokens(
                     i + 1,

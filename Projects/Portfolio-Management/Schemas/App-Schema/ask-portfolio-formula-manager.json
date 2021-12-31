@@ -5,7 +5,7 @@
             "action": "Add UI Object",
             "label": "Add Confirm Formula",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "confirmFormula",
+            "propertyToCheckFor": "request",
             "relatedUiObject": "Confirm Formula",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
@@ -15,7 +15,7 @@
             "action": "Add UI Object",
             "label": "Add Set Formula",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "setFormula",
+            "propertyToCheckFor": "request",
             "relatedUiObject": "Set Formula",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Portfolio-Management",
@@ -39,12 +39,12 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "confirmFormula",
+            "name": "request",
             "type": "node",
             "childType": "Confirm Formula"
         },
         {
-            "name": "setFormula",
+            "name": "request",
             "type": "node",
             "childType": "Set Formula"
         }

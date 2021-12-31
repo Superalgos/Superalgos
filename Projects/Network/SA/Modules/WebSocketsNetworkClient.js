@@ -105,7 +105,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: thisObject.callerRole,
-                                callerProfileHandle: SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle,
+                                callerProfileHandle: SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
                                 step: 'One'
                             }
@@ -166,7 +166,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attacks.
                             */
-                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -196,7 +196,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             */
                             thisObject.socket.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
 
                             let message = {
                                 messageType: 'Handshake',
@@ -329,17 +329,17 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                 return
             }
 
-            if (message.signalMessage !== undefined) {
-                let signalMessage
+            if (message.signal !== undefined) {
+                let signal
                 try {
-                    signalMessage = JSON.parse(message.signalMessage)
+                    signal = JSON.parse(message.signal)
                 } catch (err) {
                     console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
                     console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
                     thisObject.socket.close()
                     return
                 }
-                thisObject.p2pNetworkInterface.signalReceived(signalMessage)
+                thisObject.p2pNetworkInterface.signalReceived(signal)
                 return
             }            
         }

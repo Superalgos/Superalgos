@@ -23,6 +23,34 @@ const getProfiles = async (req, res) => {
     }
 };
 
+const paginateProfiles = async(initialIndex, pagination, res) => {
+        try{
+            const queryMessage = {
+                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
+                emitterUserProfileId: undefined,
+                initialIndex: initialIndex ? initialIndex : 0 ,
+                amountRequested: pagination ? pagination : 3,
+                direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
+            }
+            const  query = {
+                requestType: 'Query',
+                queryMessage: JSON.stringify(queryMessage)
+            }
+            return webAppInterface.messageReceived(
+                JSON.stringify(query)
+            )
+            .then(rta => rta)
+            .catch(e =>{
+                console.log('catch from webapi', e)
+                return(e)
+            })
+        }catch(e) {
+            console.log('error here')
+            return (e)
+        }
+        
+}
+
 
 const followProfile = async (userProfileId, eventType, res) => {
     try {
@@ -102,6 +130,7 @@ const getProfile = async (userProfileId, username,res) => {
 module.exports = {
     getProfiles,
     followProfile,
+    paginateProfiles,
     editProfile,
     getProfile
 };

@@ -7,11 +7,13 @@ const UsersSidebar = () => {
 
     const showMoreCallback = () => console.log("clicked show more");
     return (
-        <Stack direction="column"
-               justifyContent="flex-start"
-               alignItems="center"
-               spacing={2}
-               sx={{minWidth: "max-content"}}>
+        <Stack 
+            direction="column"
+            justifyContent="flex-start"
+            alignItems="center"
+            spacing={2}
+            sx={{minWidth: "max-content"}}
+            >
             {/*<SearchBox/>*/}
             <Typography> Suggested Users</Typography>
             <SuggestedUsers/>

@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 74,
+    "type": "Tutorial Step - Radical Workaround",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "The definitions in the open, close, and manage stages are the subject of the next tutorial in the series!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Definitionen in den Phasen Open, Close und Manage Stage sind Gegenstand des nächsten Tutorials in dieser Reihe!",
+                "updated": 1639391031110
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To complete the overview of the Trigger Stage we want to be able to see how the Take Position Event works on the rest of the time range tested. We are going to go for a radical workaround!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um den Überblick über die Trigger Stage zu vervollständigen, wollen wir sehen, wie das Take Position Event auf den Rest des getesteten Zeitraums wirkt. Wir werden einen radikalen Umweg gehen!",
+                    "updated": 1639391046807
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Delete the open, close, and manage stages! Use the Delete button on the menu!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Löschen (Delete) Sie die Open, Close und Manage Stages! Verwenden Sie die Schaltfläche Löschen (Delete)  im Menü! ",
+                    "updated": 1639391161313
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This way, when the Take Position Event validates true and the trading bot attempts to read the definitions of the Open Stage, it will understand that the rest of the strategy is not defined, and will close the strategy.",
+            "updated": 1622489825175,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn das Take Position Event für wahr true erklärt wird und der Trading-Bot versucht, die Definitionen der Open Stage zu lesen, wird er verstehen, dass der Rest der Strategie nicht definiert ist, und die Strategie schließen.",
+                    "updated": 1639391234149
+                }
+            ]
+        }
+    ]
+}

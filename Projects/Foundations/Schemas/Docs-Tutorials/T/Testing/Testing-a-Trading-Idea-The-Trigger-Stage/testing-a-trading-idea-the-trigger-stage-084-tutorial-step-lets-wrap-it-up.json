@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 84,
+    "type": "Tutorial Step - Let's Wrap It Up!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "trigger-stage"
+        },
+        "text": "We've covered the basics and many of the nuances of the Trigger Stage, but the trading idea is not tested yet!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir haben die Grundlagen und viele der Feinheiten der Trigger Stage behandelt, aber die Handelsidee ist noch nicht getestet!",
+                "updated": 1639391817293
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This little speculation game we just played is just that... a game! To complete the test of the trading idea, we'll have to dive deep into the rest of the stages!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieses kleine Spekulationsspiel, das wir gerade gespielt haben, ist genau das... ein Spiel! Um den Test der Handelsidee zu vervollständigen, müssen wir tief in die übrigen Phasen eintauchen!",
+                    "updated": 1639391826096
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "And that is the subject of the next tutorial!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Und das ist das Thema des nächsten Tutorials!",
+                    "updated": 1639391833052
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If you are ready to keep going, click Next to close this tutorial and select Play on the one to the right!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie bereit sind, weiterzumachen, klicken Sie auf Weiter, um dieses Tutorial zu schließen, und wählen Sie \"Play\" auf der rechten Seite!",
+                    "updated": 1639391857514
+                }
+            ]
+        }
+    ]
+}

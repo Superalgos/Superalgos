@@ -1,0 +1,46 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 72,
+    "type": "Tutorial Step - Find The Error Challenge",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "Have you figured out the error? What? You haven't looked? I just split the screen so that you may find the offending node too!",
+        "updated": 1612698780503,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Haben Sie den Fehler herausgefunden? Was? Sie haben nicht nachgeschaut? Ich habe gerade den Bildschirm geteilt, damit Sie den fehlerhaften Knoten auch finden können!",
+                "updated": 1639390780532
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The \"Trading System Errors\" layer is on! Go ahead and investigate what the error is about!",
+            "updated": 1622489670752,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Ebene \"Trading System Errors\" ist eingeschaltet! Machen Sie weiter und untersuchen Sie, worum es sich bei dem Fehler handelt!",
+                    "updated": 1639390793021
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Remember... You just need to point to the first error at the chart, read the description of the error, find the red ring marking the offending node on the design space, and interpret the available information! Good luck!",
+            "updated": 1612698958200,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nicht vergessen... Sie müssen nur auf den ersten Fehler im Chart zeigen, die Beschreibung des Fehlers lesen, den roten Ring finden, der den fehlerhaften Knoten im design space markiert, und die verfügbaren Informationen interpretieren! Viel Erfolg!",
+                    "updated": 1639390802890
+                }
+            ]
+        }
+    ]
+}

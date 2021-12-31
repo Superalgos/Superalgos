@@ -1,0 +1,65 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 66,
+    "type": "Tutorial Step - Second Backtest!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "backtesting-session"
+        },
+        "text": "Now that we have implemented statements involving the 1H chart, we need to revise our testing parameters!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nachdem wir nun Aussagen zum 1H-Chart implementiert haben, müssen wir unsere Testparameter überarbeiten!",
+                "updated": 1639390052067
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Make the following changes in these parameters:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie die folgenden Änderungen an diesen Parametern vor:",
+                    "updated": 1639390058323
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Time Range: change the initialDateTime to 2020-02-01, so that we avoid the errors during the first 19 days of January.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zeitbereich: Ändern Sie die initialDateTime auf 2020-02-01, damit wir die Fehler während der ersten 19 Tage des Januars vermeiden.",
+                    "updated": 1639390078099
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Time Frame: change the label to 01-hs to adapt to the current definitions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Time Frame: Ändern Sie die Bezeichnung in 01-hs, um sie an die aktuellen Definitionen anzupassen. ",
+                    "updated": 1639390119493
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "We are not addressing the rest of the parameters yet, as we haven't defined the Open Stage, the one dealing with execution.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die übrigen Parameter werden noch nicht behandelt, da wir die Open Stage, die sich mit der Ausführung befasst, noch nicht definiert haben.",
+                    "updated": 1639390131732
+                }
+            ]
+        }
+    ]
+}

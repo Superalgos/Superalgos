@@ -47,7 +47,7 @@ function newGovernanceReportsCommmandInterface() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
@@ -139,7 +139,7 @@ function newGovernanceReportsCommmandInterface() {
             UI.projects.education.spaces.docsSpace.sidePanelTab.open()
 
             /* Find the Username and Password */
-            let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+            let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
             if (apisNode === undefined) {
                 UI.projects.education.spaces.docsSpace.navigateTo('Governance', 'Topic', 'Gov Error - Github Credentials Missing', 'Anchor Github Credentials Missing')
                 return
@@ -213,7 +213,7 @@ function newGovernanceReportsCommmandInterface() {
             /*
             Here we get from the workspace all User Profiles.
             */
-            let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+            let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
             /*
             Transform the result array into table records.
             */
@@ -235,7 +235,7 @@ function newGovernanceReportsCommmandInterface() {
                 paymentsArray.push(payment)
             }
             /* Let's get the Mnemonic */
-            let web3API = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
+            let web3API = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('APIs')[0].web3API
             let mnemonic = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(web3API.payload, 'mnemonic')
 
             /* Lets execute this command against the Client */

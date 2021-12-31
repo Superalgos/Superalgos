@@ -36448,12 +36448,12 @@
             "id": "0539e0b4-2d9b-467d-88be-36d45d778823",
             "savedPayload": {
                 "position": {
-                    "x": 10102.462075848303,
-                    "y": 8643.550276520864
+                    "x": 5000,
+                    "y": 10000
                 },
                 "targetPosition": {
-                    "x": 10102.462075848303,
-                    "y": 8643.550276520864
+                    "x": 5000,
+                    "y": 10000
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -38175,12 +38175,12 @@
             "id": "7df06833-a99c-430a-b4ca-85e087dc9bc7",
             "savedPayload": {
                 "position": {
-                    "x": 10091.260479041915,
-                    "y": 16788.337104072398
+                    "x": 5000,
+                    "y": 17500
                 },
                 "targetPosition": {
-                    "x": 10091.260479041915,
-                    "y": 16788.337104072398
+                    "x": 5000,
+                    "y": 17500
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -38230,12 +38230,12 @@
             "id": "11696ef5-e198-4381-8d03-872659fda963",
             "savedPayload": {
                 "position": {
-                    "x": 10109.260479041915,
-                    "y": 35240.267219708396
+                    "x": 5000,
+                    "y": 32500
                 },
                 "targetPosition": {
-                    "x": 10109.260479041915,
-                    "y": 35240.267219708396
+                    "x": 5000,
+                    "y": 32500
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -38285,12 +38285,39 @@
             "id": "c63fd67e-ce39-4811-b010-d2e44172259b",
             "savedPayload": {
                 "position": {
-                    "x": 10135.621756487026,
-                    "y": 24385.1978381096
+                    "x": 5000,
+                    "y": 25000
                 },
                 "targetPosition": {
-                    "x": 10135.621756487026,
-                    "y": 24385.1978381096
+                    "x": 5000,
+                    "y": 25000
+                },
+                "floatingObject": {
+                    "isPinned": true,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Workspaces Project",
+            "name": "New Workspaces Project",
+            "project": "Workspaces",
+            "id": "680001f8-64a8-453e-ae6f-9c415d9d10b4",
+            "savedPayload": {
+                "position": {
+                    "x": 5000,
+                    "y": 40000
+                },
+                "targetPosition": {
+                    "x": 5000,
+                    "y": 40000
                 },
                 "floatingObject": {
                     "isPinned": true,

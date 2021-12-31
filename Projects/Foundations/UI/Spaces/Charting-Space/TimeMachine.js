@@ -649,7 +649,7 @@ function newTimeMachine() {
             }
         } else {
             if (UI.projects.foundations.spaces.chartingSpace.viewport.zoomTargetLevel < UI.projects.foundations.globals.zoom.ZOOM_OUT_THRESHOLD_FOR_DISPLAYING_TIME_MACHINES_ICONIZED) {
-                let icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+                let icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
                 if (icon !== undefined) {
                     if (icon.canDrawIcon === true) {
                         let imageSize = 40
@@ -702,7 +702,7 @@ function newTimeMachine() {
         let imageSize = 12
         let fontSize = 12
         let opacity = 1
-        let icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         position = UI.projects.foundations.utilities.coordinateTransformations.transformThisPoint(position, thisObject.container)
 

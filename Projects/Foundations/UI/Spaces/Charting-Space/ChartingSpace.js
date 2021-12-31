@@ -93,11 +93,11 @@ function newFoundationsChartingSpace() {
 
     function initialize() {
         if (isInitialized === true) { return }
-        if (UI.projects.foundations.spaces.designSpace === undefined) { return }
-        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
-        if (UI.projects.foundations.spaces.designSpace.workspace.isInitialized !== true) { return }
+        if (UI.projects.workspaces.spaces.designSpace === undefined) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace.isInitialized !== true) { return }
 
-        let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode !== null) {

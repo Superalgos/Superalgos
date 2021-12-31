@@ -68,7 +68,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                 [event.target.id]: event.target.value
             });
         }
-        setChanged(user === userInfo)
+        setChanged(user === userInfo && userInfo && userInfo.name)
     }
 
     const saveProfile = async () => {
@@ -77,8 +77,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
         if (result === STATUS_OK) {
             updateProfileCallback();
             close();
-            console.log('profile should be updated')
-            //todo show a toast that the profile saved
+            //todo show a toast that the profile saved and that it takes a while to apply
         }
     }
 
@@ -132,7 +131,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                 <label htmlFor="profilePic">
                                     <Input className="input" accept="image/*" id="profilePic" multiple type="file"
                                            onChange={selectProfilePic}/>
-                                    <Button variant="contained" component="span">
+                                    <Button variant="outlined" component="span">
                                         Upload Profile Picture
                                     </Button>
                                 </label>
@@ -140,7 +139,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     <label htmlFor="bannerPic">
                                         <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
                                                onChange={selectBannerPic}/>
-                                        <Button variant="contained" component="span">
+                                        <Button variant="outlined" component="span">
                                             Upload Banner Picture
                                         </Button>
                                     </label>
@@ -166,7 +165,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     id="bio"
                                     value={userInfo.bio}
                                     onChange={handleChange}
-                                    label="bio"
+                                    label="Bio"
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -175,7 +174,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     id="location"
                                     value={userInfo.location}
                                     onChange={handleChange}
-                                    label="location"
+                                    label="Location"
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -184,7 +183,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     id="web"
                                     value={userInfo.web}
                                     onChange={handleChange}
-                                    label="web"
+                                    label="Web"
                                 />
                             </FormControl></div>
                         <div className="editProfileFooter">

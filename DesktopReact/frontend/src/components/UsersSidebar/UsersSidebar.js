@@ -1,6 +1,5 @@
 import './UsersSidebar.css';
-import {Stack} from "@mui/material";
-import SearchBox from "../searchBox/SearchBox";
+import {Stack, Typography} from "@mui/material";
 import SuggestedUsers from "../suggestedUsers/SuggestedUsers";
 
 
@@ -14,6 +13,7 @@ const UsersSidebar = () => {
                spacing={2}
                sx={{minWidth: "max-content"}}>
             {/*<SearchBox/>*/}
+            <Typography> Suggested Users</Typography>
             <SuggestedUsers/>
         </Stack>
     );

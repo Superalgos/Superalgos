@@ -8,7 +8,7 @@ import {STATUS_OK} from "../../api/httpConfig";
 const UserCard = ({name, userId}) => {
 
     const [followed, setFollowed] = useState(false);
-    console.log(`followed status ${followed}`)
+
     const followCallback = async () => {
         let eventType = followed ? 16 : 15;/* TODO use constant */
         let {result} = await followUser(userId, eventType).then(response => response.json());

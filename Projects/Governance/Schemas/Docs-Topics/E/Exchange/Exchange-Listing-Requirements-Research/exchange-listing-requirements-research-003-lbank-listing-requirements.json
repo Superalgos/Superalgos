@@ -317,7 +317,14 @@
         {
             "style": "List",
             "text": "Observations: Obscure. Zero info provided as of where or how the company operates.",
-            "updated": 1628539616801
+            "updated": 1628539616801,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Observations: Oscuro. Cero información proporcionada sobre dónde o cómo opera la empresa",
+                    "updated": 1640979297864
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -388,6 +395,11 @@
                     "language": "RU",
                     "text": "Observations: A quick look on August 9th, 2021. Light and decent conversation. Some shilling of coins. Some support requests from users redirected to the website's chat by admins. Many admins present.",
                     "updated": 1640787037167
+                },
+                {
+                    "language": "ES",
+                    "text": "Observaciones: Un vistazo rápido el 9 de agosto de 2021. Conversación ligera y decente. Un chelín de monedas. Algunas solicitudes de soporte de usuarios redirigidos al chat del sitio web por administradores. Muchos administradores presentes.",
+                    "updated": 1640979256817
                 }
             ]
         },

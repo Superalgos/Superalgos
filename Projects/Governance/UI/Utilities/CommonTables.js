@@ -68,7 +68,7 @@ function newGovernanceUtilitiesCommonTables() {
         /*
         Here we get from the workspace all User Profiles.
         */
-        let nodes = UI.projects.foundations.spaces.designSpace.workspace.getNodesByTypeAndHierarchyHeadsType(nodeType, hierarchyHeadsType)
+        let nodes = UI.projects.workspaces.spaces.designSpace.workspace.getNodesByTypeAndHierarchyHeadsType(nodeType, hierarchyHeadsType)
         /*
         Transform the result array into table records.
         */

@@ -818,7 +818,7 @@ function newPlotter() {
 
                         imagePosition = thisObject.fitFunction(imagePosition, true)
 
-                        let imageToDraw = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', imageName)
+                        let imageToDraw = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', imageName)
                         if (imageToDraw !== undefined) {
                             if (imageToDraw.canDrawIcon === true) {
                                 browserCanvasContext.drawImage(imageToDraw, imagePosition.x, imagePosition.y, imageSize, imageSize)

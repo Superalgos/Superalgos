@@ -244,7 +244,7 @@ function newAppPostLoader() {
         window.addEventListener('keydown', window.manageBackRefresh)
 
         function saveWorkspace() {
-            UI.projects.foundations.spaces.designSpace.workspace.save()
+            UI.projects.workspaces.spaces.designSpace.workspace.save()
         }
     }
 }

@@ -4,7 +4,14 @@
     "type": "Financial Programs Intro",
     "definition": {
         "text": "This is what you may do with the Token Power you're not using for other purposes!",
-        "updated": 1630499936092
+        "updated": 1630499936092,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Esto es lo que puede hacer con el poder del token (Token Power) que no lo está utilizando para otros fines!",
+                "updated": 1640960510124
+            }
+        ]
     },
     "paragraphs": [
         {

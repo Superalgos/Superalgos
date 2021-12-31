@@ -49,8 +49,8 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos realiza dos tipos de pruebas simuladas: Backtesting y Paper Trading. El Backtesting consiste en realizar pruebas sobre datos históricos, mientras que el Paper Trading consiste en realizar pruebas sobre un flujo de datos en vivo, pero sin colocar ordenes en el Exchange.",
-                    "updated": 1640923708942
+                    "text": "Superalgos realiza dos tipos de pruebas simuladas: Backtesting y Paper Trading. El Backtesting consiste en realizar pruebas sobre datos históricos, mientras que el Paper Trading consiste en realizar pruebas sobre un flujo de datos en vivo, pero sin colocar ordenes en le Exchange.",
+                    "updated": 1640922588171
                 }
             ]
         },

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wie cool wäre es, die Fortsetzung eines Abschwungs vorhersagen zu können, wenn der Trend bereits etabliert ist?",
                 "updated": 1639253233680
+            },
+            {
+                "language": "TR",
+                "text": "Summary: Özet: Trend zaten belirlendikten sonra bir düşüşün devamını tahmin edebilmek ne kadar havalı olurdu?",
+                "updated": 1640949310633
             }
         ]
     },
@@ -25,12 +30,24 @@
                     "language": "DE",
                     "text": "Die Vorhersage der Umkehrung eines gut etablierten Trends ist eine sehr schwierige Aufgabe. Die Analyse, die wir gerade für den 10. April durchgeführt haben, ist ein gutes Beispiel: Während der Zusammenbruch im 1H- und 4H-Zeitrahmen eine mittelfristige Trendumkehr markierte, blieb der langfristige Trend intakt.",
                     "updated": 1639253247472
+                },
+                {
+                    "language": "TR",
+                    "text": "İyi kurulmuş bir trendin tersine döneceğini tahmin etmek çok zor bir iştir. Az önce 10 Nisan için yaptığımız analiz iyi bir örnek: 1H ve 4H zaman dilimlerindeki kırılma orta vadede bir trendin tersine dönmesini işaret ederken, uzun vadeli trend bozulmadan kaldı.",
+                    "updated": 1640948801348
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!"
+            "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ticarete daha güvenli bir yaklaşım, halihazırda kurulmuş olan bir trendin devamını tahmin etmektir!     Kural 8'i hatırlıyor musun? Bollinger Bantlarının dışındaki kapanışlar başlangıçta devam sinyalleridir!",
+                    "updated": 1640949333106
+                }
+            ]
         }
     ]
 }

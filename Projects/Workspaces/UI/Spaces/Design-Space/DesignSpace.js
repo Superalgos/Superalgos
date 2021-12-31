@@ -1,4 +1,4 @@
-function newFoundationsDesignSpace() {
+function newWorkspacesDesignSpace() {
     let thisObject = {
         container: undefined,
         iconsByProjectAndName: undefined,
@@ -127,7 +127,7 @@ function newFoundationsDesignSpace() {
         let image
         let key = project + '-' + url
 
-        image = UI.projects.foundations.spaces.designSpace.iconsByProjectAndName.get(key)
+        image = UI.projects.workspaces.spaces.designSpace.iconsByProjectAndName.get(key)
 
         if (image === undefined) {
 
@@ -141,7 +141,7 @@ function newFoundationsDesignSpace() {
             image.src = url
 
             let key = project + '-' + image.src
-            UI.projects.foundations.spaces.designSpace.iconsByProjectAndName.set(key, image)
+            UI.projects.workspaces.spaces.designSpace.iconsByProjectAndName.set(key, image)
         }
 
         return image

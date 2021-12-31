@@ -78,7 +78,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Manager */
         let eventSubscriptionIdOnStatus
@@ -121,7 +121,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         for (let i = 0; i < node.bot.processes.length; i++) {
             let process = node.bot.processes[i]
@@ -292,7 +292,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             stopAllManagedTasks(node.managedTasks);
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let event = {
             taskId: node.id,
@@ -1063,7 +1063,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                                     /*
                                     We will locate and reference the API MAP that has the same codeName than the data mine.
                                     */
-                                    let apiMaps = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('API Map')
+                                    let apiMaps = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('API Map')
                                     for (let i = 0; i < apiMaps.length; i++) {
                                         let apiMap = apiMaps[i]
                                         let apiMapCodeName = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(apiMap.payload, 'codeName')

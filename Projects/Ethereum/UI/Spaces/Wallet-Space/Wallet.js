@@ -48,10 +48,10 @@ function newEthereumWalletSpace() {
 
         async function checkBalances() {
             try {
-                if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+                if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
 
                 let wallets = []
-                let hierarchyHeads = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeads()
+                let hierarchyHeads = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeads()
                 for (let i = 0; i < hierarchyHeads.length; i++) {
                     let hierarchyHead = hierarchyHeads[i]
                     if (hierarchyHead.type === 'Ethereum Wallet') {

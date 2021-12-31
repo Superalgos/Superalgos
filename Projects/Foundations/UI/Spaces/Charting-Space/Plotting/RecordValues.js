@@ -32,22 +32,22 @@ function newRecordValues() {
 
     function initialize(pTradingOrLearningOrPortfolioSystem, pTradingOrLearningOrPortfolioEngine, pProductDefinition) {
         if (pTradingOrLearningOrPortfolioSystem.type === 'Trading System') {
-            tradingSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
+            tradingSystem = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
         }
         if (pTradingOrLearningOrPortfolioSystem.type === 'Portfolio System') {
-            portfolioSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
+            portfolioSystem = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
         }
         if (pTradingOrLearningOrPortfolioSystem.type === 'Learning System') {
-            learningSystem = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
+            learningSystem = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioSystem.id)
         }
         if (pTradingOrLearningOrPortfolioEngine.type === 'Trading Engine') {
-            tradingEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
+            tradingEngine = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
         }
         if (pTradingOrLearningOrPortfolioEngine.type === 'Portfolio Engine') {
-            portfolioEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
+            portfolioEngine = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
         }
         if (pTradingOrLearningOrPortfolioEngine.type === 'Learning Engine') {
-            learningEngine = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
+            learningEngine = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsById(pTradingOrLearningOrPortfolioEngine.id)
         }
         productDefinition = pProductDefinition
 

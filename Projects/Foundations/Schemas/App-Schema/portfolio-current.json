@@ -32,42 +32,6 @@
             "type": "node",
             "childType": "Portfolio Episode",
             "autoAdd": true
-        },
-        {
-            "name": "strategy",
-            "type": "node",
-            "childType": "Strategy",
-            "autoAdd": true
-        },
-        {
-            "name": "position",
-            "type": "node",
-            "childType": "Position",
-            "autoAdd": true
-        },
-        {
-            "name": "strategyTriggerStage",
-            "type": "node",
-            "childType": "Strategy Trigger Stage",
-            "autoAdd": true
-        },
-        {
-            "name": "strategyOpenStage",
-            "type": "node",
-            "childType": "Strategy Open Stage",
-            "autoAdd": true
-        },
-        {
-            "name": "strategyManageStage",
-            "type": "node",
-            "childType": "Strategy Manage Stage",
-            "autoAdd": true
-        },
-        {
-            "name": "strategyCloseStage",
-            "type": "node",
-            "childType": "Strategy Close Stage",
-            "autoAdd": true
         }
     ]
 }

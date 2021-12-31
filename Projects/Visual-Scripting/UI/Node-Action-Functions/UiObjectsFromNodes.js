@@ -355,11 +355,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                 if (i === 0) {
                                     pathName = rawPath[i][0]
                                     pathType = rawPath[i][1]
-                                    pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(pathName, pathType)
+                                    pathNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(pathName, pathType)
 
                                     // If reference parent is workspace node grab node
                                     if (pathType === "Workspace") {
-                                        pathNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                                        pathNode = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
                                     }
                                     // If Hierarchy Head is not located within the workspace abort reconnection
                                     if (pathNode === undefined) {
@@ -922,7 +922,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         payload.node = node
         payload.parentNode = parentNode
         payload.chainParent = chainParent
-        payload.executeAction = UI.projects.foundations.spaces.designSpace.workspace.executeAction
+        payload.executeAction = UI.projects.workspaces.spaces.designSpace.workspace.executeAction
 
         node.payload = payload
         node.type = uiObjectType

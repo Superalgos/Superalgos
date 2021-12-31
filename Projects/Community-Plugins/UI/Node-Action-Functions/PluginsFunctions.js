@@ -291,7 +291,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     function savePluginHierarchy(node, rootNodes) {
         if (node.isPlugin !== true) { return }
 
-        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let plugins = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
         let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
         let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
         let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
@@ -316,7 +316,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     }
 
     function installAsPlugin(node, rootNodes) {
-        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let plugins = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
         let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
         let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
         let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')

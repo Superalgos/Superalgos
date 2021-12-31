@@ -497,26 +497,6 @@ function newFoundationsNodeActionSwitch() {
                     }
                 }
                 break
-            case 'Add Missing Workspace Projects':
-                {
-                    UI.projects.foundations.nodeActionFunctions.workspaceFunctions.addMissingWorkspaceProjects(action.node, action.rootNodes)
-                }
-                break
-            case 'Add Specified Workspace Project':
-            {
-                UI.projects.foundations.nodeActionFunctions.workspaceFunctions.addSpecifiedWorkspaceProject(action.node, action.rootNodes)
-            }
-                break
-            case 'Check For Missing References':
-                {
-                    UI.projects.foundations.nodeActionFunctions.workspaceFunctions.checkForMissingReferences(action.rootNodes)
-                }
-                break
-            case 'Fix Missing References':
-                {
-                    UI.projects.foundations.nodeActionFunctions.workspaceFunctions.fixMissingReferences(action.rootNodes)
-                }
-                break
             case 'Switch To Forward Testing':
                 {
                     action.node.type = "Forward Testing Session"

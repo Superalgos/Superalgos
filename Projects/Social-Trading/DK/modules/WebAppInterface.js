@@ -184,6 +184,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileName = fileHash + ".json"
         const filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
+        console.log(filePath)
+
         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
 
@@ -248,6 +250,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
             const fetch = SA.nodeModules.nodeFetch
             let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
+
+            console.log(url)
 
             fetch(url)
                 .then((response) => {

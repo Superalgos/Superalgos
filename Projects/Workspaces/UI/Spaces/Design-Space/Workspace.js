@@ -262,7 +262,7 @@ function newWorkspace() {
             return
         }
 
-        let workspace = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let workspace = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
 
         /* Validation if it is too early to save. */
         if (thisObject.isInitialized === false) {
@@ -324,7 +324,7 @@ function newWorkspace() {
     }
 
     function setLastUsedWorkspace() {
-        window.localStorage.setItem('Last Used Workspace', UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.name)
+        window.localStorage.setItem('Last Used Workspace', UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.name)
         window.localStorage.setItem('Session Timestamp', sessionTimestamp)
     }
 
@@ -425,7 +425,7 @@ function newWorkspace() {
                     workingAtTask = 0
 
                     UI.projects.education.spaces.docsSpace.sidePanelTab.close()
-                    UI.projects.foundations.spaces.workspaceSpace.sidePanelTab.close()
+                    UI.projects.workspaces.spaces.workspaceSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.codeEditorSpace.sidePanelTab.close()
                     UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                     workingAtTask = 2

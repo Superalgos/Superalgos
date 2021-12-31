@@ -12,13 +12,13 @@
         {
             "iconPathOn": "share-entity",
             "iconPathOff": "share-entity",
-            "actionFunction": "UI.projects.foundations.spaces.designSpace.workspace.share",
+            "actionFunction": "UI.projects.workspaces.spaces.designSpace.workspace.share",
             "ring": 1
         },
         {
             "iconPathOn": "backup-entity",
             "iconPathOff": "backup-entity",
-            "actionFunction": "UI.projects.foundations.spaces.designSpace.workspace.backup",
+            "actionFunction": "UI.projects.workspaces.spaces.designSpace.workspace.backup",
             "ring": 1
         },
         {
@@ -31,6 +31,7 @@
         },
         {
             "action": "Add Missing Workspace Projects",
+            "actionProject": "Workspaces",
             "label": "Add Missing Projects",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Proceed",
@@ -41,6 +42,7 @@
         },
         {
             "action": "Add Specified Workspace Project",
+            "actionProject": "Workspaces",
             "label": "Add Specified Workspace Project",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
@@ -48,6 +50,7 @@
         },
         {
             "action": "Check For Missing References",
+            "actionProject": "Workspaces",
             "label": "Check For Missing References",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
@@ -55,6 +58,7 @@
         },
         {
             "action": "Fix Missing References",
+            "actionProject": "Workspaces",
             "label": "Fix Missing References",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",

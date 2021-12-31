@@ -19,7 +19,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Server */
         let eventSubscriptionIdOnStatus
@@ -63,7 +63,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
 
@@ -243,7 +243,7 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Trading Session')

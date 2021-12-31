@@ -25,7 +25,7 @@ function newVisualScriptingFunctionLibraryReferenceAttachDetach() {
         let allNodesFound = []
 
         let schemaDocument = getSchemaDocument(node)
-        let workspaceRootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let workspaceRootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
 
         let compatibleTypes = schemaDocument.referencingRules.compatibleTypes.split('->').filter(i => i)
 

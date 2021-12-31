@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "На этой странице перечислены фрагменты текста, необходимые для нескольких страниц. Централизованное хранение фрагментов упрощает обслуживание и позволяет избежать дублирования контента. Каждый фрагмент размещается в блоке с тем же именем, что и заголовок, отображаемый перед фрагментом. Чтобы использовать эти фрагменты, включите соответствующий блок на целевой странице.",
                 "updated": 1638293987162
+            },
+            {
+                "language": "ES",
+                "text": "Esta página enumera fragmentos de texto utilizados en varias páginas. Mantener estos fragmentos en un lugar único facilita el mantenimiento y evita la duplicación de contenidos. Cada fragmento de texto está situado en un bloque con el mismo nombre que el título que aparece antes del fragmento. Para utilizar estos fragmentos, incluya el bloque correspondiente en la página de destino.",
+                "updated": 1640965138539
             }
         ]
     },
@@ -139,6 +144,11 @@
                     "language": "RU",
                     "text": "Предупреждение об удалении узла",
                     "updated": 1640259289773
+                },
+                {
+                    "language": "ES",
+                    "text": "Advertencia sobre Eliminación de Nodo",
+                    "updated": 1640965100904
                 }
             ]
         },
@@ -165,6 +175,11 @@
                     "language": "RU",
                     "text": "Удаление этого узла приводит к тому, что рыночные сценарии установки и удаления перестают работать, даже если узел создается заново после удаления.",
                     "updated": 1638293776509
+                },
+                {
+                    "language": "ES",
+                    "text": "La eliminación de este Nodo hace que los scripts de instalación y desinstalación del Market dejen de funcionar, incluso si el nodo se vuelve a crear después de haber sido eliminado.",
+                    "updated": 1640964948098
                 }
             ]
         },

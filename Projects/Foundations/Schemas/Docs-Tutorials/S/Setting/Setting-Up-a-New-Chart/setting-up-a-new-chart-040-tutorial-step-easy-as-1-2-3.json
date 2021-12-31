@@ -5,7 +5,7 @@
     "definition": {
         "text": "You did it! I knew you could. You have successfully added your first custom chart. I hope you had as much fun as I did!",
         "icon": {
-            "name": "Charting-Space/charting-space",
+            "name": "charting-space",
             "project": "Foundations"
         },
         "updated": 1619025041063,
@@ -84,7 +84,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Trading Mine Products– для результатов сессии торговой системы (Trading System’s) бэктестинга (Backtesting Session) реальной торговой сессии (Live Trading Session).",
+                    "text": "Trading Mine Products– для ре��ультатов сессии торговой системы (Trading System’s) бэктестинга (Backtesting Session) реальной торговой сессии (Live Trading Session).",
                     "updated": 1639084838280
                 },
                 {

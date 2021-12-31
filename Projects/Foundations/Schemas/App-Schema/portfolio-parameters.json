@@ -27,18 +27,6 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "sessionBaseAsset",
-            "type": "node",
-            "childType": "Session Base Asset",
-            "autoAdd": true
-        },
-        {
-            "name": "sessionQuotedAsset",
-            "type": "node",
-            "childType": "Session Quoted Asset",
-            "autoAdd": true
-        },
-        {
             "name": "timeRange",
             "type": "node",
             "childType": "Time Range",

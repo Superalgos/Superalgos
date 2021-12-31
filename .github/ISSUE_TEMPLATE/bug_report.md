@@ -11,9 +11,9 @@ assignees: ''
 
 There are two requirements to open an issue:
 
-1. You must first follow the [Troubleshooting Guide](https://docs.superalgos.org/suite-how-to-troubleshoot-an-issue.html)
+1. You must first follow the Troubleshooting Guide in the built-in Docs.
 
-2. If your issue hasn't been resolved by following the Troubleshooting Guide, then follow the guide on [How to Report an Issue](https://docs.superalgos.org/suite-how-to-report-an-issue.html).
+2. If your issue hasn't been resolved by following the Troubleshooting Guide, then follow the guide on How to Report an Issue, also in the Docs.
 
 ## Context
 

@@ -1,4 +1,4 @@
-exports.newPortfolioManagementModulesTradingBotsInterface = function (processIndex) {
+exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = function (processIndex) {
     /*
     This object represents a proxy of the Profile Manager. It is used to send 
     questions to the Event and Formula Managers and receive their answers.
@@ -8,16 +8,20 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
         initialize: initialize,
         finalize: finalize
     }
-    let managedTradingBotsModuleObject
+    let portfolioManagedTradingBotsModuleObject
+    let portfolioSystemModuleObject
 
     return thisObject
 
-    function initialize(managedTradingBots) {
-        managedTradingBotsModuleObject = managedTradingBots
+    function initialize(managedTradingBots, portfolioSystem) {
+        portfolioManagedTradingBotsModuleObject = managedTradingBots
+        portfolioSystemModuleObject = portfolioSystem
+        portfolioEngine = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SIMULATION_STATE.portfolioEngine
     }
 
     function finalize() {
-        managedTradingBotsModuleObject = undefined
+        portfolioManagedTradingBotsModuleObject = undefined
+        portfolioSystemModuleObject = undefined
     }
 
     function processMessage(
@@ -28,29 +32,41 @@ exports.newPortfolioManagementModulesTradingBotsInterface = function (processInd
 
         switch (message.type) {
             case 'Check In Candle': {
-                response = managedTradingBotsModuleObject.checkInCandle(
+                response = portfolioManagedTradingBotsModuleObject.checkInCandle(
                     SESSION_KEY,
                     message.candle
                 )
                 break
             }
             case 'Check Out Candle': {
-                response = managedTradingBotsModuleObject.checkOutCandle(
+                response = portfolioManagedTradingBotsModuleObject.checkOutCandle(
                     SESSION_KEY,
                     message.candle
                 )
                 break
             }
             case 'Confirm This Event': {
+                response = portfolioSystemModuleObject.confirmThisEvent(
+                    message.event
+                )
                 break
             }
             case 'Set This Event': {
+                response = portfolioSystemModuleObject.setThisEvent(
+                    message.event
+                )
                 break
             }
             case 'Confirm This Formula': {
+                response = portfolioSystemModuleObject.confirmThisFormula(
+                    message.formula
+                )
                 break
             }
             case 'Set This Formula': {
+                response = portfolioSystemModuleObject.setThisFormula(
+                    message.formula
+                )
                 break
             }
             default: {

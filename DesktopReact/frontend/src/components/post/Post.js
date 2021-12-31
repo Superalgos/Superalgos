@@ -42,11 +42,13 @@ const Post = ({postData}) => {
     } = post;
 
     const handlePostClick = (e) => {
+/*
         if (postIdParameter !== postId) {
             e.preventDefault()
             dispatch(setSelectedPost(postData))
             navigate(`/post/${postId}`) //todo implement reply feed
         }
+*/
     }
 
     return (

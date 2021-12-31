@@ -29,7 +29,6 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
 
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
-    const [changed, setChanged] = useState(false);
 
     const toBase64 = file => new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -57,30 +56,30 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
     }
 
     const handleChange = (event) => {
-        if (userInfo[name]) {
-            setErrorState(true);
-        } else {
-            setErrorState(false);
-            setUserInfo({
-                ...userInfo,
-                [event.target.id]: event.target.value
-            });
-        }
-        setChanged(!!(user === userInfo && userInfo && userInfo.name))
+        let newValue = event.target.value;
+        let field = event.target.id;
+        setErrorState(field === 'name' && (!newValue));
+        setUserInfo({
+            ...userInfo,
+            [field]: newValue
+        });
     }
 
     const saveProfile = async () => {
-        console.log(userInfo)
         let {result} = await updateProfile(userInfo).then(response => response.json());
         if (result === STATUS_OK) {
             updateProfileCallback();
             close();
-            //todo show a toast that the profile saved and that it takes a while to apply
         }
     }
 
+    const isEquals = () => {
+        let differentKey = Object.keys(user).find(key => user[key] !== userInfo[key]);
+        return !differentKey;
+    }
+
     return (
-        <Modal open={show}
+        <Modal open
                onClose={close}>
             <Box className="editUserBox" component="form" noValidate autoComplete="off">
                 <CardContent className="userSection">
@@ -185,7 +184,8 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
                                 />
                             </FormControl></div>
                         <div className="editProfileFooter">
-                            <Button disabled={changed} onClick={saveProfile} variant="outlined">Save</Button>
+                            <Button disabled={errorState || isEquals()} onClick={saveProfile}
+                                    variant="outlined">Save</Button>
                         </div>
                     </div>
                 </CardContent>

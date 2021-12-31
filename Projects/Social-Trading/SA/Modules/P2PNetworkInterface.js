@@ -29,7 +29,7 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
     }
 
     async function eventReceived(event) {
-        userApp.eventReceived()
+        thisObject.userApp.eventReceived()
 
         // DK.desktopApp.webSocketsInterface.sendToWebApp(JSON.stringify(event))
     }

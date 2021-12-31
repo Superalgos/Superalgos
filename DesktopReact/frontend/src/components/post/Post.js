@@ -1,63 +1,68 @@
 import "./Post.css"
-import React, {useState} from 'react';
-import {Avatar, Card, IconButton, Stack, Typography} from "@mui/material";
-import {Autorenew, ThumbDown, ThumbUp} from "@mui/icons-material";
+import React, {useEffect, useState} from 'react';
+import {Avatar, Card, Stack} from "@mui/material";
 import pic from "../../images/superalgos.png"
+import PostFooter from "../PostFooter/PostFooter";
+import FooterReply from "../FooterReply/FooterReply";
+import {useNavigate, useParams} from "react-router-dom";
+import Store from '../../store/index';
+import {useDispatch, useSelector} from 'react-redux'
+import {setSelectedPost} from '../../store/slices/post.slice'
 
-const Post = () => {
 
-    const userName = "User Name",
-        postBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+const Post = ({postData}) => {
+    const {postId:postIdParameter} = useParams();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const selectedPost = useSelector( state => state.post.selectedPost );
+    const [post, setPost] = useState({});
+    const [collapse, setCollapse] = useState(false);
+    const ToggleCollapseComment = () => setCollapse(!collapse);
 
-    const [count, setCount] = useState(0); /* todo define one more for dislike button */
+    useEffect( () => {
+        if (postData){
+            setPost(postData);
+            if(selectedPost){
+                dispatch( setSelectedPost({}) );
+            }
+        } else {
+            if (selectedPost)
+                setPost(selectedPost);
+        };
+    }, [])
 
-    function onLikeButtonClick() { {/* todo console log print need a fix */}
-        console.log("Liked " + count + " times")
+    if(!post.emitterUserProfile) {
+        return <></>
     }
 
-    function onButtonClick(){ /* todo dislike button function necessary? */
-        console.log("Liked " + count + " times")
+    const {emitterUserProfile: {userProfileHandle: userName}, postText: postBody, eventId: postId, emitterPost: {reactions: reactions} } = post;
+
+    const handlePostClick = (e) => {
+        if(postIdParameter !== postId) {
+            e.preventDefault()
+            dispatch(setSelectedPost(postData))
+            navigate(`/post/${postId}`) //todo implement reply feed
+        }
     }
 
     return (
-        <Card className="post">
-            <Stack direction="row">
-                <Stack className="postAvatarContainer">
-                    <Avatar src={pic}/>
+        <div className="postWrapper"
+        >
+            <Card className="post">
+                <Stack direction="row" onClick={handlePostClick}>
+                    <Stack className="postAvatarContainer">
+                        <Avatar src={pic}/>
+                    </Stack>
+                    <Stack className="postUserName">
+                        {userName}
+                    </Stack>
                 </Stack>
-                <Stack className="postUserName">
-                    {userName}
+                <Stack className="postBody">
+                    {postBody ? postBody.toString() : ''}
                 </Stack>
-            </Stack>
-            <Stack className="postBody">
-                    {postBody}
-            </Stack>
-            <Stack className="postFooterContainer" direction="row">
-                <Stack className="postFooterLikeDislike" direction="row">
-                <IconButton
-                    onClick={() => setCount(count + 1)}
-                    >
-                    <ThumbUp/>
-                </IconButton><Typography>{count}</Typography>
-                <IconButton
-                    onClick={() => {/* TODO remove unnecessary arrow function*/
-                        onButtonClick()
-                    }}
-                >
-                    <ThumbDown/>
-                </IconButton>
-                </Stack>
-                <Stack className="postFooterRepost" direction="row">
-                <IconButton
-                    onClick={() => {/* TODO remove unnecessary arrow function*/
-                        onButtonClick()
-                    }}
-                >
-                    <Autorenew/>
-                </IconButton>
-                </Stack>
-            </Stack>
-        </Card>
+                <PostFooter  postId={postId} reactions={reactions} stateCallback={ToggleCollapseComment}/>
+                {/*<FooterReply show={collapse}/>*/}
+            </Card></div>
     );
 };
 

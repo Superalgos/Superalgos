@@ -1,0 +1,80 @@
+{
+    "type": "Workspace",
+    "menuItems": [
+        {
+            "action": "Pin / Unpin",
+            "currentStatus": true,
+            "iconPathOn": "unpinned-node",
+            "iconPathOff": "pinned-node",
+            "actionFunction": "payload.executeAction",
+            "ring": 1
+        },
+        {
+            "iconPathOn": "share-entity",
+            "iconPathOff": "share-entity",
+            "actionFunction": "UI.projects.workspaces.spaces.designSpace.workspace.share",
+            "ring": 1
+        },
+        {
+            "iconPathOn": "backup-entity",
+            "iconPathOff": "backup-entity",
+            "actionFunction": "UI.projects.workspaces.spaces.designSpace.workspace.backup",
+            "ring": 1
+        },
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add Missing Workspace Projects",
+            "actionProject": "Workspaces",
+            "label": "Add Missing Projects",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add Specified Workspace Project",
+            "actionProject": "Workspaces",
+            "label": "Add Specified Workspace Project",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Check For Missing References",
+            "actionProject": "Workspaces",
+            "label": "Check For Missing References",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Fix Missing References",
+            "actionProject": "Workspaces",
+            "label": "Fix Missing References",
+            "relatedUiObject": "Workspace",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        }
+    ],
+    "initialValues": {
+        "config": "{\"docsLanguage\": \"EN\"}"
+    },
+    "editors": {
+        "config": true,
+        "list": true
+    },
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": false,
+    "isPinned": true,
+    "positionLocked": true,
+    "level": 0
+}

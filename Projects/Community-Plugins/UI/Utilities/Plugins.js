@@ -138,7 +138,7 @@ function newPluginsUtilitiesPlugins() {
         Next thing to do is to find the Plugin Hierarchy at the Workspace, and send 
         a request to the Client to save it.
         */
-        let pluginToSave = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
+        let pluginToSave = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(fileName, nodeType)
 
         if (pluginToSave === undefined) {
             pluginFile.payload.uiObject.setWarningMessage('This Plugin could not be saved because it could not be found at the workspace.', 500)

@@ -23,28 +23,7 @@
     {
         "name": "Foundations",
         "propertyName": "foundations",
-        "systemMenu": [
-            {
-                "label": "Save Workspace",
-                "action": {
-                    "name": "saveWorkspace"
-                }
-            },
-            {
-                "label": "User Workspaces",
-                "submenuConstructorFunction": {
-                    "name": "workspacesSubmenu",
-                    "params": ["user"]
-                }
-            },
-            {
-                "label": "Plugin Workspaces",
-                "submenuConstructorFunction": {
-                    "name": "workspacesSubmenu",
-                    "params": ["plugin"]
-                }
-            }
-        ]
+        "systemMenu": []
     },
     {
         "name": "Data-Mining",
@@ -95,5 +74,31 @@
         "name": "Trading-Signals",
         "propertyName": "tradingSignals",
         "systemMenu": []
+    },
+    {
+        "name": "Workspaces",
+        "propertyName": "workspaces",
+        "systemMenu": [
+            {
+                "label": "Save Workspace",
+                "action": {
+                    "name": "saveWorkspace"
+                }
+            },
+            {
+                "label": "User Workspaces",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["user"]
+                }
+            },
+            {
+                "label": "Plugin Workspaces",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["plugin"]
+                }
+            }
+        ]
     }
 ]

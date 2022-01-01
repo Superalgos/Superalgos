@@ -1,4 +1,4 @@
-function newFoundationsSystemActionWorkspaceFunctions() {
+function newWorkspacesSystemActionWorkspaceFunctions() {
     let thisObject = {
         workspacesSubmenu: workspacesSubmenu
     }

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der dritte zu definierende Aspekt sind die Regeln für das Auslösen der Strategie und das Einnehmen einer Position.",
                 "updated": 1639251779956
+            },
+            {
+                "language": "TR",
+                "text": "Tanımlanacak üçüncü husus, stratejiyi tetikleme ve pozisyon alma kurallarıdır.",
+                "updated": 1640867430097
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "In vielen Fällen ergeben sich die Regeln für die Auslösung der Strategie aus der Analyse des Kontextes. Sie möchten zum Beispiel, dass die Strategie aktiv wird, wenn ein bestimmter Trend durch eine bestimmte Methode erkannt wird.",
                     "updated": 1639251789768
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu zaman, stratejiyi tetikleyecek kurallar, bağlamın analizinden türetilir. Örneğin, belirli bir yöntemle belirli bir eğilim tespit edildiğinde stratejinin aktif olmasını istersiniz.",
+                    "updated": 1640867458806
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Regeln zum Eingehen einer Position werden gewöhnlich als Signal und Signalbestätigung bezeichnet.",
                     "updated": 1639251797598
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon alma kuralları genellikle sinyal ve sinyal onayı olarak adlandırılır.",
+                    "updated": 1640867496258
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Diese Regeln sind die Beschreibung des spezifischen Ereignisses, das bestimmt, wann eine Position eingegangen werden soll. Zum Beispiel das Kreuzen zweier bestimmter Linien oder ein bestimmter Wert bei einem bestimmten Indikator.",
                     "updated": 1639251804151
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kurallar, bir pozisyona ne zaman girileceğini belirleyen belirli olayın açıklamasıdır. Örneğin, iki belirli çizginin çaprazlanması veya belirli bir göstergede belirli bir değer.",
+                    "updated": 1640867528994
                 }
             ]
         }

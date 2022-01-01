@@ -1,4 +1,4 @@
-function newFoundationsWorkspaceSpace() {
+function newWorkspacesWorkspaceSpace() {
     const MODULE_NAME = 'Workspace Space'
     let thisObject = {
         sidePanelTab: undefined,

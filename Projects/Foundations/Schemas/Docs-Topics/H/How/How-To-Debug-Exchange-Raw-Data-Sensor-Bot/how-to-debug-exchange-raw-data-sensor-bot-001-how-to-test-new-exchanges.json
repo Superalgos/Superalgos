@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Borsaları test etmek, devam eden bir Topluluk çabasıdır. Test edilmemiş bir borsa ile çalışmak istiyorsanız, bu konu Sensör Botunda hata ayıklamak ve hedefe ulaşmak için ne yapılması gerektiğini öğrenmek için bilmeniz gereken her şeyi kapsar.",
                 "updated": 1639821729715
+            },
+            {
+                "language": "RU",
+                "text": "Тестирование бирж является постоянной работой Сообщества. Если вы хотите работать с биржей, которая не тестировалась, в этой теме рассматривается все, что вам нужно знать для отладки Sensor Bot и выяснения того, что нужно сделать для достижения цели.",
+                "updated": 1640359763973
             }
         ]
     },
@@ -22,7 +27,14 @@
         {
             "style": "Title",
             "text": "CCXT Library",
-            "updated": 1614590456998
+            "updated": 1614590456998,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Библиотека CCXT",
+                    "updated": 1640359777264
+                }
+            ]
         },
         {
             "style": "Text",
@@ -38,6 +50,11 @@
                     "language": "TR",
                     "text": "CCXT, API'leri değiş tokuş etmek için bir ağ geçidi görevi gören popüler bir açık kaynaklı kitaplıktır. Amacı, farklı API'lere erişimi standart hale getirmektir, böylece CCXT kullanılarak oluşturulan yazılımın her borsanın özel işlemlerini bilmesine gerek kalmaz. Oldukça iyi bir iş çıkarsa da mükemmel değil ve hala farklı borsalarda kullanılması gereken özel konfigürasyonlar var.",
                     "updated": 1639821772831
+                },
+                {
+                    "language": "RU",
+                    "text": "CCXT - это популярная библиотека с открытым исходным кодом, которая действует как шлюз для API бирж. Ее цель - стандартизировать доступ к различным API, чтобы программное обеспечение, созданное с использованием CCXT, не нуждалось в знании особенностей работы каждой биржи. Несмотря на то, что она делает довольно хорошую работу, она не идеальна, и все еще существуют специальные конфигурации, которые необходимо использовать с различными биржами.",
+                    "updated": 1640360009450
                 }
             ]
         },
@@ -54,6 +71,11 @@
                     "language": "TR",
                     "text": "Bu sorunun kökü, kripto endüstrisinin genelinde bir standart olmaması ve her borsanın, her bir işlevsellik ile başa çıkmak için kendi yolunu icat etmesidir.",
                     "updated": 1639821814794
+                },
+                {
+                    "language": "RU",
+                    "text": "Корень этой проблемы в том, что в отрасли не существует стандарта, и каждая биржа изобретает свой собственный способ работы с каждой функциональностью.",
+                    "updated": 1640360027000
                 }
             ]
         },
@@ -78,6 +100,11 @@
                     "language": "TR",
                     "text": "Binance'teki Orjinal Testler",
                     "updated": 1639822006559
+                },
+                {
+                    "language": "RU",
+                    "text": "Оригинальные тесты на Binance",
+                    "updated": 1640360039800
                 }
             ]
         },
@@ -95,13 +122,25 @@
                     "language": "TR",
                     "text": "Superalgos yazılımı, ince ayar ve kurulumları Topluluğa bırakmayı seçtikçe hızla gelişti. Ekip, en popüler borsa olduğu için Binance'i erken test etti. Varsayılan konfigürasyonla ilk denemede çalışmadı, bu yüzden özel bir konfigürasyon oluşturuldu.",
                     "updated": 1639821983968
+                },
+                {
+                    "language": "RU",
+                    "text": "Программное обеспечение Superalgos развивается быстро, так как команда решила оставить тонкую настройку и установку на усмотрение сообщества. В самом начале команда протестировала Binance, поскольку это самая популярная биржа. Она не сработала с первой попытки с конфигурацией по умолчанию, поэтому была создана специальная конфигурация.",
+                    "updated": 1640360069570
                 }
             ]
         },
         {
             "style": "Subtitle",
             "text": "Binance Configuration",
-            "updated": 1616007864841
+            "updated": 1616007864841,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Binance",
+                    "updated": 1640360080470
+                }
+            ]
         },
         {
             "style": "Json",
@@ -117,6 +156,11 @@
                     "language": "TR",
                     "text": "Topluluk Çabası",
                     "updated": 1639821997435
+                },
+                {
+                    "language": "RU",
+                    "text": "Усилия сообщества",
+                    "updated": 1640360097329
                 }
             ]
         },
@@ -134,6 +178,11 @@
                     "language": "TR",
                     "text": "Test edilmemiş bir değişimi test edecekseniz, lütfen sonuçları belgeleyerek Topluluk Test Değişimlerine Yönelik Çabalara ( Community Effort to Test Exchanges ) katılın!",
                     "updated": 1639822295707
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вам удастся протестировать непроверенную биржу, пожалуйста, примите участие в работе сообщества по тестированию бирж Community Effort to Test Exchanges, задокументировав результаты!",
+                    "updated": 1640360171213
                 }
             ]
         },
@@ -145,6 +194,11 @@
                     "language": "TR",
                     "text": "Borsaları test etmek değerli bir katkıdır! Daha az teknik kullanıcılar da dahil olmak üzereherkesin favori borsalarıyla çalışmanın keyfini çıkarmasını sağlar!",
                     "updated": 1639822183138
+                },
+                {
+                    "language": "RU",
+                    "text": "Тестирование бирж - это ценный вклад! Это позволяет всем следующим пользователям - в том числе и менее техническим - получать удовольствие от работы с любимой биржей!",
+                    "updated": 1640360191629
                 }
             ]
         },
@@ -157,6 +211,11 @@
                     "language": "TR",
                     "text": "Favori Borsanız Listelenmemişse",
                     "updated": 1639822383532
+                },
+                {
+                    "language": "RU",
+                    "text": "Вашей любимой биржи нет в списке",
+                    "updated": 1640360203165
                 }
             ]
         },
@@ -169,6 +228,11 @@
                     "language": "TR",
                     "text": "Bir borsanın Test Edilmemiş Borsalar ( Untested Exchanges ) düğümünde bile listelenmemesinin birçok nedeni vardır. Bunlardan bazıları:",
                     "updated": 1639822723378
+                },
+                {
+                    "language": "RU",
+                    "text": "Существует множество причин, по которым биржа может не попасть в список даже на узле Untested Exchanges. Вот некоторые из них:",
+                    "updated": 1640360230176
                 }
             ]
         },
@@ -181,6 +245,11 @@
                     "language": "TR",
                     "text": "Liste oluşturulduğunda mevcut değildir (Kripto Değişimleri düğümünün ( Crypto Exchanges ) Eksik Değişimleri Ekle ( Add Missing Exchanges ) düğmesini kullanabilirsiniz).",
                     "updated": 1639822939954
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда список был создан, он не существовал (вы можете попробовать пункт меню Add Missing Exchanges узла Crypto Exchanges).",
+                    "updated": 1640360257673
                 }
             ]
         },
@@ -193,6 +262,11 @@
                     "language": "TR",
                     "text": "Superalgos'ta bulunan CCXT kitaplığında listelenmemiştir. (kütüphaneyi güncellemek için doğru klasörde bir npm güncellemesi gerekir). Güncellemeden sonra borsa görünüyorsa, lütfen tüm kullanıcılar için  ekibe bildirin ve güncellenmesini sağlayın.",
                     "updated": 1639823017534
+                },
+                {
+                    "language": "RU",
+                    "text": "Он не указан в библиотеке CCXT, входящей в состав Superalgos (для обновления библиотеки потребуется обновление npm в нужной папке). Если биржа появится после обновления, пожалуйста, сообщите об этом команде, чтобы обновить его для всех пользователей.",
+                    "updated": 1640360319986
                 }
             ]
         },
@@ -205,6 +279,11 @@
                     "language": "TR",
                     "text": "Borsa, 1 dakikalık mumlar halinde geçmiş verileri sağlamıyordur. (Borsa API belgelerini kontrol edebilirsiniz). Bu temel özelliği desteklemeyen borsalar, Add Missing Exchanges komutu çalıştırılırken filtrelenir.",
                     "updated": 1639823090726
+                },
+                {
+                    "language": "RU",
+                    "text": "Биржа не предоставляет исторические данные в виде 1-минутных свечей (вы можете проверить документацию API биржи). Биржи, не поддерживающие эту базовую функцию, отфильтровываются при выполнении команды Add Missing Exchanges.",
+                    "updated": 1640360339017
                 }
             ]
         },
@@ -217,6 +296,11 @@
                     "language": "TR",
                     "text": "Borsa, işlem çiftleri listeleme işlevini desteklemiyor (değişim API belgelerini kontrol edin).",
                     "updated": 1639823127483
+                },
+                {
+                    "language": "RU",
+                    "text": "Биржа не поддерживает функцию списка рынков (проверьте документацию API биржи).",
+                    "updated": 1640360375324
                 }
             ]
         },
@@ -228,6 +312,11 @@
                     "language": "TR",
                     "text": "Başlarken",
                     "updated": 1639823134208
+                },
+                {
+                    "language": "RU",
+                    "text": "Начало работы",
+                    "updated": 1640360415074
                 }
             ]
         },
@@ -240,6 +329,11 @@
                     "language": "TR",
                     "text": "Bu kılavuzun geri kalanında, Eklenti olarak gelen Getting Started Tutorial eklentisini kullandığınızı varsayacağız. Değilseniz, lütfen  Getting Started Tutorial çalışma alanını yükleyin ve Welcome eğitimini kapatın.",
                     "updated": 1639823216821
+                },
+                {
+                    "language": "RU",
+                    "text": "В остальной части этого руководства мы будем считать, что вы используете рабочее пространство Getting Started, которое поставляется как Plugin. Если это не так, загрузите это рабочее пространство и закройте учебник \"Начало работы\".",
+                    "updated": 1640360469370
                 }
             ]
         },

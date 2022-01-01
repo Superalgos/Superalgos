@@ -1,0 +1,43 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 30,
+    "type": "Superalgos Review - Great Getting Started Tutorials But Not Fully Stable",
+    "definition": {
+        "text": "Write a summary for this review page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Great GUI - hierarchy, options to move icons around, create backups, and workspaces.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отличный графический интерфейс - иерархия, возможности перемещения иконок, создания резервных копий и рабочих пространств.",
+                    "updated": 1640418231227
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Although, an opportunity to improve troubleshooting errors exists (e.g. providing more on-screen user feedback). A couple of errors occurred for me during the getting started tutorials, which made my learning experience a little frustrating.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя существует возможность улучшить процесс устранения ошибок (например, обеспечить больше обратной связи с пользователем на экране). В процессе изучения учебников по началу работы у меня возникло несколько ошибок, что немного расстроило меня.",
+                    "updated": 1640418251634
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Otherwise, I'm looking forward to exploring the full potential of the app framework! :)",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В остальном, я с нетерпением жду возможности исследовать весь потенциал фреймворка приложения!:)",
+                    "updated": 1640418266144
+                }
+            ]
+        }
+    ]
+}

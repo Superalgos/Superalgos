@@ -238,7 +238,7 @@ function newFoundationsCodeEditorEditorPage() {
         let dot = '.'
         let numberOfPreviousSuffixes = 5
 
-        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+        UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Data Mine') {
                 // Getting all the Javascript code nodes into one single model
                 UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Procedure Javascript Code').forEach(node => {
@@ -327,12 +327,12 @@ function newFoundationsCodeEditorEditorPage() {
                 })
             } else if (node.type === 'Trading Engine') {
                 // Create an object representation for the engine
-                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
+                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
             }
         })
 
         // Enrich chart data with market and exchange structure
-/*        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+/*        UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Crypto Ecosystem') {
                 node.cryptoExchanges.forEach(cxs => {
                     cxs.exchanges.forEach(exchange => {

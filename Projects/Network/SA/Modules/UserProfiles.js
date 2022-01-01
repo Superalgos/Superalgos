@@ -101,7 +101,9 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                 let userProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
                     userProfilePlugin
                 )
-
+                /*
+                Store in memory all User Profiles
+                */
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
@@ -144,15 +146,21 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     Now, we will extract the information from the User Profile, specifically the user app that it is being used.
                     */
                     if (
-                        networkClient.id === SA.secrets.map.get(userAppCodeName).nodeId
+                        networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
                     ) {
                         p2pNetworkClientIdentity.node = networkClient
                         p2pNetworkClientIdentity.blockchainAccount = blockchainAccount
                         p2pNetworkClientIdentity.userSocialProfile = userSocialProfile
                     }
                 }
-            }
 
+                let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
+
+                for (let j = 0; j < storageContainers.length; j++) { 
+                    let storageContainer = storageContainers[j]
+                    SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                }
+            }
         }
     }
 }

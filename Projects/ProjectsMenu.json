@@ -1,0 +1,104 @@
+[
+    {
+        "name": "Algorithmic-Trading",
+        "propertyName": "algorithmicTrading",
+        "systemMenu": []
+    },
+    {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "systemMenu": []
+    },
+    {
+        "name": "Machine-Learning",
+        "propertyName": "machineLearning",
+        "systemMenu": []
+        
+    },
+    {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "systemMenu": []
+    },
+    {
+        "name": "Foundations",
+        "propertyName": "foundations",
+        "systemMenu": []
+    },
+    {
+        "name": "Data-Mining",
+        "propertyName": "dataMining",
+        "systemMenu": []
+    },
+    {
+        "name": "Community-Plugins",
+        "propertyName": "communityPlugins",
+        "systemMenu": []
+    },
+    {
+        "name": "Ethereum",
+        "propertyName": "ethereum",
+        "systemMenu": []
+    },
+    {
+        "name": "TensorFlow",
+        "propertyName": "tensorflow",
+        "systemMenu": []
+    },
+    {
+        "name": "Education",
+        "propertyName": "education",
+        "systemMenu": []
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "systemMenu": []
+    },
+    {
+        "name": "Network",
+        "propertyName": "network",
+        "systemMenu": []
+    },
+    {
+        "name": "Social-Trading",
+        "propertyName": "socialTrading",
+        "systemMenu": []
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "systemMenu": []
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "systemMenu": []
+    },
+    {
+        "name": "Workspaces",
+        "propertyName": "workspaces",
+        "systemMenu": [
+            {
+                "label": "Save Workspace",
+                "action": {
+                    "name": "saveWorkspace"
+                }
+            },
+            {
+                "label": "User Workspaces",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["user"]
+                }
+            },
+            {
+                "label": "Plugin Workspaces",
+                "submenuConstructorFunction": {
+                    "name": "workspacesSubmenu",
+                    "params": ["plugin"]
+                }
+            }
+        ]
+    }
+]

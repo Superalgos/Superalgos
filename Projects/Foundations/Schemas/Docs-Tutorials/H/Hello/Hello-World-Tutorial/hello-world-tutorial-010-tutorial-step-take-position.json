@@ -25,6 +25,16 @@
                 "language": "IT",
                 "text": "E'ora di comprare!",
                 "updated": 1639078245611
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon ( Position ) alma zamanı!",
+                "updated": 1640617143844
+            },
+            {
+                "language": "RU",
+                "text": "Время занять позицию (Position)!",
+                "updated": 1640856251728
             }
         ]
     },
@@ -49,6 +59,16 @@
                     "language": "IT",
                     "text": "In questo nodo utilizzo lo stesso trucco utilizzato per l'evento Trigger Off ma in questo caso forzandolo a True. Ho già definito nel Trigger On Event quali sono le mie condizioni. Quindi in questo nodo posso semplicemente copiare le due condizioni o impostarlo su True.",
                     "updated": 1639078166522
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düğümde ( Trigger Off Event ) için kullanılanın aynısını kullanıyorum, True yapıyorum. Tetikleyici Olayda (Trigger On Event )koşullarımın neler olduğunu zaten tanımladım. Yani bu düğümde iki koşulu kopyalayabilir veya True olarak ayarlayabilirim.",
+                    "updated": 1640617163744
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом узле я использую тот же прием, что и для события Trigger Off, но в данном случае заставляю его принимать значение True. В событии Trigger On Event я уже определил, каковы мои условия. Поэтому в этом узле я могу просто скопировать эти два условия или установить их в True.",
+                    "updated": 1640856385641
                 }
             ]
         },
@@ -71,6 +91,16 @@
                     "language": "IT",
                     "text": "Ovviamente se ho bisogno di più condizioni posso aggiungerle o modificarle secondo le mie esigenze!",
                     "updated": 1639078182830
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Elbette daha fazla koşula ihtiyacım olursa, bunları ihtiyaçlarıma göre ekleyebilir veya değiştirebilirim!",
+                    "updated": 1640617211347
+                },
+                {
+                    "language": "RU",
+                    "text": "Конечно, если мне понадобится больше условий, я могу добавить или изменить их в соответствии с моими потребностями!",
+                    "updated": 1640856441565
                 }
             ]
         },
@@ -93,6 +123,16 @@
                     "language": "IT",
                     "text": "Bene! Le mie definizioni iniziali sono impostate. È ora di passare all'Open Stage!",
                     "updated": 1639078235045
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Harika. İlk tanımlarım belirlendi. Açık Sahne'ye ( Open Stage ) geçme zamanı",
+                    "updated": 1640617221673
+                },
+                {
+                    "language": "RU",
+                    "text": "Отлично. Мои первоначальные определения установлены. Пора переходить к стадии открытия (Open Stage)!",
+                    "updated": 1640856486187
                 }
             ]
         }

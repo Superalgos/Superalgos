@@ -6,7 +6,7 @@
         "text": "Woohoo, you did it! You have added your first custom chart. Let's see what we've got so far. Zoom all the way into your chart and take a look around.",
         "updated": 1619020412228,
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "translations": [

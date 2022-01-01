@@ -4,7 +4,14 @@
     "type": "Superalgos Review - Superalgos overwhelmes me! (Awesome)",
     "definition": {
         "text": "I am hooked by this awesome project!",
-        "updated": 1622380449884
+        "updated": 1622380449884,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Меня зацепил этот потрясающий проект!",
+                "updated": 1640413746767
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -14,15 +21,36 @@
         },
         {
             "style": "Text",
-            "text": "I am absolutely overwhelmed. What an awesome project. I have just scratched the surface, got a grasp of the ideas behind, and will definetely take the tour to master it."
+            "text": "I am absolutely overwhelmed. What an awesome project. I have just scratched the surface, got a grasp of the ideas behind, and will definetely take the tour to master it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я совершенно ошарашен. Какой потрясающий проект. Я только поцарапал поверхность, уловил идеи, лежащие в основе, и обязательно возьму тур, чтобы освоить его.",
+                    "updated": 1640413818345
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "So my first review is very short just to keep the flow. "
+            "text": "So my first review is very short just to keep the flow. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому мой первый обзор очень короткий, просто чтобы не сбиться с пути.",
+                    "updated": 1640413854103
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I'll come back later with a more detailed review."
+            "text": "I'll come back later with a more detailed review.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я вернусь позже с более подробным отзывом.",
+                    "updated": 1640413893912
+                }
+            ]
         },
         {
             "style": "Text",

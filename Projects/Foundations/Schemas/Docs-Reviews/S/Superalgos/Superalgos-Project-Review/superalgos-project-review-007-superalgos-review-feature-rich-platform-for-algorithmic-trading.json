@@ -4,29 +4,71 @@
     "type": "Superalgos Review - Feature-rich platform for algorithmic trading",
     "definition": {
         "text": "The possibilities are endless when you are in control of the platform. Superalgos allows the end-user to create sophisticated trading strategies through a visual designer with built-in backtesting capabilities based on historical market data.",
-        "updated": 1618174871748
+        "updated": 1618174871748,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Возможности безграничны, когда вы контролируете платформу. Superalgos позволяет конечному пользователю создавать сложные торговые стратегии с помощью визуального конструктора со встроенными возможностями бэктестинга на основе исторических рыночных данных.",
+                "updated": 1640410653874
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "After more time than I care to admit executing crypto trades manually, I began to wonder what tools successful traders were able to leverage to quickly recognize and respond to market indicators. I started looking for a trading bot that I could leverage to make trades, but quickly realized that most of the software available today required me to give my account information to a service hosted by someone else.",
-            "updated": 1618175562829
+            "updated": 1618175562829,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того как я провел много времени, совершая криптовалютные сделки вручную, мне стало интересно, какие инструменты успешные трейдеры могут использовать для быстрого распознавания и реагирования на рыночные индикаторы. Я начал искать торгового бота, которого можно было бы использовать для совершения сделок, но быстро понял, что большинство доступных сегодня программ требуют от меня передачи информации о моей учетной записи в чужой сервис.",
+                    "updated": 1640410860265
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos, a community-developed open-source project, does not work in that way at all. With SA, I’m able to run the software from my own device without relying on anyone else for the necessary infrastructure. I don’t need to pay a monthly subscription, and I don’t need to worry about my trading account security being at risk. "
+            "text": "Superalgos, a community-developed open-source project, does not work in that way at all. With SA, I’m able to run the software from my own device without relying on anyone else for the necessary infrastructure. I don’t need to pay a monthly subscription, and I don’t need to worry about my trading account security being at risk. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos, разработанный сообществом, проект с открытым исходным кодом, работает совсем не так. С SA я могу запускать программное обеспечение со своего собственного устройства, не полагаясь на чью-либо инфраструктуру. Мне не нужно оплачивать ежемесячную подписку и беспокоиться о безопасности моего торгового счета.",
+                    "updated": 1640410953382
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It does, however, require a bit of patience and attention to gain an understanding of the fundamental concepts. A familiarity with coding, particularly in Javascript, is helpful, but not necessary to execute successful strategies. The tool features an entirely visual scripting designer to help create and debug your very own strategies and indicators. Once your strategy is designed, the tool has built-in backtesting capabilities that leverage downloaded historical market data, giving you peace of mind that your strategy is fully tested before moving on to live trading. "
+            "text": "It does, however, require a bit of patience and attention to gain an understanding of the fundamental concepts. A familiarity with coding, particularly in Javascript, is helpful, but not necessary to execute successful strategies. The tool features an entirely visual scripting designer to help create and debug your very own strategies and indicators. Once your strategy is designed, the tool has built-in backtesting capabilities that leverage downloaded historical market data, giving you peace of mind that your strategy is fully tested before moving on to live trading. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако для понимания основных концепций требуется немного терпения и внимания. Знакомство с программированием, особенно на Javascript, полезно, но не обязательно для выполнения успешных стратегий. Инструмент имеет визуальный конструктор сценариев, позволяющий создавать и отлаживать собственные стратегии и индикаторы. После разработки стратегии в инструмент встроены возможности бэктестинга, которые позволяют использовать загруженные исторические данные рынка, что дает вам уверенность в том, что ваша стратегия полностью протестирована, прежде чем переходить к реальной торговле.",
+                    "updated": 1640411045601
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Out of the box, there are several community-built strategies to learn from. In fact, the community is perhaps the most highly underrated feature included with the tool! A healthy set of contributors and a dedicated group of users who are willing to share and contribute their time and effort has seen this project enjoy rapid growth. "
+            "text": "Out of the box, there are several community-built strategies to learn from. In fact, the community is perhaps the most highly underrated feature included with the tool! A healthy set of contributors and a dedicated group of users who are willing to share and contribute their time and effort has seen this project enjoy rapid growth. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Из коробки есть несколько стратегий, разработанных сообществом, которые можно изучить. Фактически, сообщество - это, возможно, наиболее недооцененная функция, входящая в состав инструмента! Благодаря здравому составу участников и преданной группе пользователей, готовых делиться своим временем и усилиями, этот проект быстро развивается.",
+                    "updated": 1640411254380
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I have personal experience with the speed at which features can be developed, and problems can be addressed; it’s quite astonishing! As an open-sourced project, the capabilities of Superalgos are limitless."
+            "text": "I have personal experience with the speed at which features can be developed, and problems can be addressed; it’s quite astonishing! As an open-sourced project, the capabilities of Superalgos are limitless.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я лично убедился в скорости разработки функций и решения проблем; это просто поразительно! Как проект с открытым исходным кодом, возможности Superalgos безграничны.",
+                    "updated": 1640411281603
+                }
+            ]
         },
         {
             "style": "Text",

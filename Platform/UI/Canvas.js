@@ -103,6 +103,12 @@ function newCanvas() {
             Here we will setup the UI object, with all the
             projects and spaces.
             */
+            let spaceInitializationMap = new Map()
+            let spaceAnimationPhysicsMap = new Map()
+            let spaceDefinitionPhysicsMap = new Map()
+            let spaceAnimationDrawMap = new Map()
+            let spaceDefinitionDrawMap = new Map()
+
             for (let i = 0; i < PROJECTS_SCHEMA.length; i++) {
                 let projectDefinition = PROJECTS_SCHEMA[i]
                 UI.projects[projectDefinition.propertyName] = {}
@@ -112,17 +118,13 @@ function newCanvas() {
                 projectInstance.utilities = {}
                 projectInstance.globals = {}
                 projectInstance.functionLibraries = {}
+                projectInstance.nodeActionFunctions = {}
+                projectInstance.systemActionFunctions = {}
 
                 projectInstance.events.onMouseWheelMap = new Map()
                 projectInstance.events.onMouseOverMap = new Map()
                 projectInstance.events.onMouseClickMap = new Map()
                 projectInstance.events.onMouseDownMap = new Map()
-
-                let spaceInitializationMap = new Map()
-                let spaceAnimationPhysicsMap = new Map()
-                let spaceDefinitionPhysicsMap = new Map()
-                let spaceAnimationDrawMap = new Map()
-                let spaceDefinitionDrawMap = new Map()
 
                 if (projectDefinition.UI === undefined) { continue }
 
@@ -150,6 +152,24 @@ function newCanvas() {
                         let functionLibraryDefinition = projectDefinition.UI.functionLibraries[j]
 
                         projectInstance.functionLibraries[functionLibraryDefinition.propertyName] = eval(functionLibraryDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up Node Action Functions of this Project */
+                if (projectDefinition.UI.nodeActionFunctions !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.nodeActionFunctions.length; j++) {
+                        let nodeActionFunctionsDefinition = projectDefinition.UI.nodeActionFunctions[j]
+
+                        projectInstance.nodeActionFunctions[nodeActionFunctionsDefinition.propertyName] = eval(nodeActionFunctionsDefinition.functionName + '()')
+                    }
+                }
+
+                /* Set up System Action Functions of this Project */
+                if (projectDefinition.UI.systemActionFunctions !== undefined) {
+                    for (let j = 0; j < projectDefinition.UI.systemActionFunctions.length; j++) {
+                        let systemActionFunctionsDefinition = projectDefinition.UI.systemActionFunctions[j]
+
+                        projectInstance.systemActionFunctions[systemActionFunctionsDefinition.propertyName] = eval(systemActionFunctionsDefinition.functionName + '()')
                     }
                 }
 
@@ -189,35 +209,32 @@ function newCanvas() {
                         projectInstance.events.onMouseDownMap.set(spaceDefinition.onMouseDownIndex, spaceInstance)
                     }
                 }
+            }
 
-                /* Space Initialization */
-                for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
-                    let spaceInstance = spaceInitializationMap.get(j)
-                    if (spaceInstance !== undefined) {
-                        await spaceInstance.initialize()
-                    }
-                }
-
-                /* Space Animation Physics */
-                for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
-                    let spaceInstance = spaceAnimationPhysicsMap.get(j)
-                    let spaceDefinition = spaceDefinitionPhysicsMap.get(j)
-                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
-                    if (spaceInstance.physics !== undefined) {
-                        thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
-                    }
-                }
-
-                /* Space Animation Drawing*/
-                for (let j = 0; j < projectDefinition.UI.spaces.length; j++) {
-                    let spaceInstance = spaceAnimationDrawMap.get(j)
-                    let spaceDefinition = spaceDefinitionDrawMap.get(j)
-                    if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
-                    if (spaceInstance.draw !== undefined) {
-                        thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
-                    }
+            /* Spaces need to be initialized in a global order, not per project. */
+            for (let i = 0; i < spaceInitializationMap.size; i++) {
+                let spaceInstance = spaceInitializationMap.get(i)
+                if (spaceInstance !== undefined) {
+                    await spaceInstance.initialize()
                 }
             }
+            for (let i = 0; i < spaceAnimationPhysicsMap.size; i++) {
+                let spaceInstance = spaceAnimationPhysicsMap.get(i)
+                let spaceDefinition = spaceDefinitionPhysicsMap.get(i)
+                if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
+                if (spaceInstance.physics !== undefined) {
+                    thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Physics', spaceInstance.physics)
+                }
+            }
+            for (let i = 0; i < spaceAnimationDrawMap.size; i++) {
+                let spaceInstance = spaceAnimationDrawMap.get(i)
+                let spaceDefinition = spaceDefinitionDrawMap.get(i)
+                if (spaceInstance === undefined || spaceDefinition === undefined) { continue }
+                if (spaceInstance.draw !== undefined) {
+                    thisObject.animation.addCallBackFunction(spaceDefinition.name + ' ' + 'Draw', spaceInstance.draw)
+                }
+            }
+
             thisObject.animation.start()
 
         } catch (err) {
@@ -373,7 +390,7 @@ function newCanvas() {
     }
 
     async function onKeyDown(event) {
-        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
 
         if (EDITOR_ON_FOCUS === true) {
             /*
@@ -461,7 +478,7 @@ function newCanvas() {
             (event.ctrlKey === true || event.metaKey === true) &&
             (event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.saveWorkspace || event.key === UI.projects.foundations.spaces.floatingSpace.settings.shortcuts.saveWorkspace.toLowerCase())
         ) {
-            UI.projects.foundations.spaces.designSpace.workspace.save()
+            UI.projects.workspaces.spaces.designSpace.workspace.save()
             if (event.preventDefault !== undefined) {
                 event.preventDefault()
             }
@@ -507,7 +524,7 @@ function newCanvas() {
             return
         }
 
-        let nodeOnFocus = await UI.projects.foundations.spaces.designSpace.workspace.getNodeThatIsOnFocus()
+        let nodeOnFocus = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeThatIsOnFocus()
         if (nodeOnFocus !== undefined) {
             if (nodeOnFocus.payload.uiObject.codeEditor !== undefined) {
                 if (nodeOnFocus.payload.uiObject.codeEditor.visible === true) {
@@ -666,7 +683,7 @@ function newCanvas() {
             if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 65 && event.keyCode <= 90)) {
                 /* From here we prevent the default behaviour. Putting it earlier prevents input box and text area to receive keystrokes */
                 event.preventDefault()
-                let nodeUsingThisKey = await UI.projects.foundations.spaces.designSpace.workspace.getNodeByShortcutKey(event.key)
+                let nodeUsingThisKey = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeByShortcutKey(event.key)
 
                 if (nodeUsingThisKey !== undefined) {
                     if (nodeOnFocus !== undefined) {
@@ -750,7 +767,7 @@ function newCanvas() {
                         x: event.x,
                         y: event.y
                     }
-                    UI.projects.foundations.spaces.designSpace.workspace.spawn(reader.result, mousePosition)
+                    UI.projects.workspaces.spaces.designSpace.workspace.spawn(reader.result, mousePosition)
                 }
             }
         } catch (err) {

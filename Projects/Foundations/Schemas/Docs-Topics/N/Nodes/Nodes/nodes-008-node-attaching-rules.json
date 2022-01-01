@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Cada Node Type puede tener un conjunto de reglas que defina a qué Node Type puede adherirse.",
                 "updated": 1628036385094
+            },
+            {
+                "language": "RU",
+                "text": "Каждый тип узла может иметь набор правил, определяющих, к какому типу узла он может присоединиться.",
+                "updated": 1640356570141
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Text",
             "text": "Each Node Type, might have a set of rules that defines to which nodes it can be attached to. These rules are literally two lists of Node Type s, one for compatible types and the second one for incompatible types. There is also the possibility to replace the list of types for the keyword *Any Node*.",
-            "updated": 1609243750949
+            "updated": 1609243750949,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый тип узла может иметь набор правил, определяющих, к каким узлам он может быть присоединен. Эти правила представляют собой буквально два списка типов узлов, один для совместимых типов, а второй - для несовместимых. Существует также возможность заменить список типов на ключевое слово *Any Node*.",
+                    "updated": 1640356598217
+                }
+            ]
         }
     ]
 }

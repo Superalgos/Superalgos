@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Revisión de tutorial Superalgos \n\nEn general, el tutorial es muy claro. y te lleva a través de los movimientos. Con sistemas tan vastos como estos, naturalmente lleva algún tiempo absorberlos. Como punto de mejora, sería bueno tener una visión más general de cómo funcionan juntos ciertos elementos. Llevando a los principiantes a través de los pasos lógicos: 1. Dónde entran los datos del mercado 2. Cómo se interpretan y traducen esos datos en indicadores, 3. Cómo puede actuar el sistema sobre esos indicadores, 4. Cómo repercuten estas acciones en los mercados para ejecutar operaciones. Si el tutorial pudiera estructurarse de acuerdo con esos pasos, mentalmente lleva al principiante a través de todos los movimientos y le hace entender el flujo.. Quizás esto sea prematuro y los siguientes tutoriales están estructurados así, Sin embargo, hacer que este flujo más grande ya sea claro al principio permite a los usuarios colocar sus acciones en una de esas 4 categorías., proporcionando una idea de en qué parte del proceso está interactuando.",
                 "updated": 1636719583916
+            },
+            {
+                "language": "RU",
+                "text": "Обзор руководства по Superalgos.\nВ целом, учебник действительно понятен и проводит вас по всем шагам. Поскольку система настолько обширна, на ее освоение, естественно, требуется некоторое время. В качестве улучшения, было бы неплохо иметь более подробный обзор того, как определенные элементы работают вместе. Провести начинающих через логические шаги: 1. Откуда поступают рыночные данные, 2. Как эти данные интерпретируются и преобразуются в индикаторы, 3. Как система может действовать на основе этих индикаторов, 4. Как эти действия возвращаются на рынок для совершения сделок. Если бы учебник был структурирован в соответствии с этими шагами, он мысленно провел бы новичка через все движения и заставил бы его понять поток. Возможно, это преждевременно, и следующие учебники будут структурированы подобным образом, однако, если сделать этот большой поток ясным уже в начале, это позволит пользователям отнести свои действия к одной из этих 4 категорий, обеспечивая ощущение того, в какой части процесса вы взаимодействуете.",
+                "updated": 1640414035567
             }
         ]
     },

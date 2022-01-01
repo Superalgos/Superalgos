@@ -226,8 +226,8 @@ function newFoundationsFloatingSpace() {
                 y: mousePosition.y / browserCanvas.height * SPACE_SIZE
             }
             /* Let's see if we can snap to some of the root nodes that are Hierarchy Head and Project Heads */
-            let snapCandidateNodes = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeads()
-            snapCandidateNodes = snapCandidateNodes.concat(UI.projects.foundations.spaces.designSpace.workspace.getProjectsHeads())
+            let snapCandidateNodes = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeads()
+            snapCandidateNodes = snapCandidateNodes.concat(UI.projects.workspaces.spaces.designSpace.workspace.getProjectsHeads())
 
             for (let i = 0; i < snapCandidateNodes.length; i++) {
                 let node = snapCandidateNodes[i]
@@ -467,9 +467,9 @@ function newFoundationsFloatingSpace() {
     }
 
     function syncStylePhysics() {
-        if (UI.projects.foundations.spaces.designSpace === undefined) { return }
-        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
-        let designSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
+        if (UI.projects.workspaces.spaces.designSpace === undefined) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
+        let designSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceStyle === undefined) { return }
         let configStyle
@@ -519,9 +519,9 @@ function newFoundationsFloatingSpace() {
     }
 
     function syncSettingsPhysics() {
-        if (UI.projects.foundations.spaces.designSpace === undefined) { return }
-        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
-        let designSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
+        if (UI.projects.workspaces.spaces.designSpace === undefined) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
+        let designSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Design Space')
         if (designSpaceNode === undefined) { return }
         if (designSpaceNode.spaceSettings === undefined) { return }
         let configSettings
@@ -709,9 +709,9 @@ function newFoundationsFloatingSpace() {
 
         UI.projects.foundations.spaces.cockpitSpace.setStatus('Attempting to rescue lost nodes to your mouse', 100, UI.projects.foundations.spaces.cockpitSpace.statusTypes.ALL_GOOD)
         let map;
-        for (let i = 0; i < UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
+        for (let i = 0; i < UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes.length; i++) {
             //let map = new Map() // Why is it here?
-            map = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes[i])
+            map = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes[i])
             let iterator1 = map.values();
             for (let k = 0; k < map.size; k++) {
                 let floatingObject1 = iterator1.next().value.payload.floatingObject

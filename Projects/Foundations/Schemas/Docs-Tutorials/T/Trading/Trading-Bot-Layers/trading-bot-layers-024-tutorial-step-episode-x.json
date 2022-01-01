@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Es ist noch eine Ebene übrig... Episoden! Sie markiert die Dauer der Episode und enthält mehrere Plotter-Panels...",
                 "updated": 1639144855883
+            },
+            {
+                "language": "RU",
+                "text": "Остался один слой... Эпизоды! Он обозначает продолжительность эпизода и содержит несколько панелей плоттера...",
+                "updated": 1640630164191
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "DE",
                     "text": "Schalten Sie die Ebene \"Episodes\" ein!",
                     "updated": 1639144873296
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой \"Episodes\"!",
+                    "updated": 1640630183428
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "In diesem Fall ist die Episode sechs Monate lang. Sie sehen also nur eine Linie am unteren Rand des Bildschirms und das Episodensymbol auf beiden Seiten, das anzeigt, dass die Episode länger ist als der auf dem Bildschirm dargestellte Zeitraum.",
                     "updated": 1639144889284
+                },
+                {
+                    "language": "RU",
+                    "text": "В данном случае эпизод длится шесть месяцев, поэтому все, что вы увидите, это линию в нижней части экрана и значок эпизода с обеих сторон, сигнализирующий о том, что эпизод длится дольше, чем период, представленный на экране.",
+                    "updated": 1640630233254
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "DE",
                     "text": "Wie üblich enthalten die Plotter-Panels Informationen, die im Abschnitt \"Trading Engine\" in der Dokumentation erläutert werden.",
                     "updated": 1639144895542
+                },
+                {
+                    "language": "RU",
+                    "text": "Как обычно, панели плоттера содержат информацию, которая объясняется в разделе документации Trading Engine.",
+                    "updated": 1640630255998
                 }
             ]
         }

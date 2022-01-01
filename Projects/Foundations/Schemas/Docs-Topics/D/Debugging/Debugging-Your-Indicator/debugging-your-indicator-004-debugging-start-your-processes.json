@@ -16,6 +16,11 @@
                 "language": "DE",
                 "text": "Jetzt haben wir einen breakpoint konfiguriert und können den TS in Visual Studio Code starten. In der Superalgos UI (Benutzeroberfläche) können wir dann eine Task finden und diese im Debug-Modus starten.",
                 "updated": 1638032216795
+            },
+            {
+                "language": "RU",
+                "text": "Теперь у нас настроена точка прерывания, и мы можем запустить TS в Visual Studio Code. Затем в пользовательском интерфейсе Superalgos мы можем найти задачу и запустить ее в режиме отладки.",
+                "updated": 1640281308480
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "DE",
                     "text": "Wie bereits erwähnt, besteht Superalgos aus drei Kernkomponenten: dem Client, dem TS und der UI.",
                     "updated": 1638032441543
+                },
+                {
+                    "language": "RU",
+                    "text": "Как мы уже говорили, Superalgos состоит из трех основных компонентов: Client, TS и UI.",
+                    "updated": 1640281325849
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "DE",
                     "text": "Zunächst müssen wir sicherstellen, dass der Client und die UI ausgeführt werden. Wenn sie noch nicht laufen, können Sie die UI starten, indem Sie im Terminal sicherstellen, dass Sie sich im Superalgos root directory (Stammverzeichnis) befinden und \"node run\" eingeben.",
                     "updated": 1638035462816
+                },
+                {
+                    "language": "RU",
+                    "text": "Во-первых, необходимо убедиться, что Client и UI запущены. Если они еще не запущены, вы можете запустить UI, перейдя в терминал, убедившись, что вы находитесь в корневом каталоге Superalgos, и введя \"node run\".",
+                    "updated": 1640281349350
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "language": "DE",
                     "text": " Wenn das Terminal nicht sichtbar ist, klicken Sie auf View -> Terminal und es sollte am unteren Rand erscheinen.",
                     "updated": 1638035499037
+                },
+                {
+                    "language": "RU",
+                    "text": "Если терминал не виден, нажмите View -> Terminal, и он должен появиться внизу.",
+                    "updated": 1640281376425
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "DE",
                     "text": "Bei Bedarf können Sie dies mit beliebigen Parametern wie \"node run minMemo noBrowser\" ausführen.",
                     "updated": 1638035735520
+                },
+                {
+                    "language": "RU",
+                    "text": "При необходимости вы можете запустить его с любыми параметрами, например \"node run minMemo noBrowser\".",
+                    "updated": 1640281394038
                 }
             ]
         },
@@ -81,6 +106,11 @@
                     "language": "DE",
                     "text": "Zu diesem Zeitpunkt sollten Sie in der Lage sein, Superalgos im Browser über http://localhost:34248/ (oder den von Ihnen verwendeten Hostnamen und Port) zu erreichen.",
                     "updated": 1638035762798
+                },
+                {
+                    "language": "RU",
+                    "text": "На этом этапе вы должны иметь возможность получить доступ к Superalgos в браузере, используя http://localhost:34248/ (или конкретное имя хоста и порт, которые вы используете).",
+                    "updated": 1640281412984
                 }
             ]
         },
@@ -93,6 +123,11 @@
                     "language": "DE",
                     "text": "Als nächstes werden wir den TS im Debug Modus starten. Starten Sie dazu eine Debug Session in Visual Studio Code, indem Sie auf \"Run -> Start Debugging\" F5 klicken.",
                     "updated": 1638035870215
+                },
+                {
+                    "language": "RU",
+                    "text": "Далее мы собираемся запустить TS в режиме отладки. Для этого запустите сеанс отладки в Visual Studio Code, нажав \"Run -> Start Debugging\" F5",
+                    "updated": 1640281434218
                 }
             ]
         },
@@ -110,6 +145,11 @@
                     "language": "DE",
                     "text": "Um zu bestätigen, dass der TS läuft, können Sie auf das Symbol Ausführen und Debuggen klicken, wodurch sich ein neues Fenster auf der linken Seite öffnet. Hier unter dem Call Stack sollten Sie den TaskServer laufen sehen können.",
                     "updated": 1638035990486
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы убедиться, что TS запущен, вы можете щелкнуть на значке Run and Debug, который откроет новую левую панель. Здесь под стеком вызовов (\"Call Stack\") вы должны увидеть запущенный TaskServer.",
+                    "updated": 1640281470468
                 }
             ]
         },
@@ -126,6 +166,11 @@
                     "language": "DE",
                     "text": "Jetzt, wo der TS läuft, können wir über die Debug Aktion eine Task starten.",
                     "updated": 1638036015855
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь TS запущен, и мы можем запустить задачу с помощью действия Debug.",
+                    "updated": 1640281504313
                 }
             ]
         },
@@ -137,6 +182,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zu Ihrer Network node und suchen Sie die Data Task für Ihren Indikator.",
                     "updated": 1638036155109
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в узел Network и найдите Data Task для вашего индикатора.",
+                    "updated": 1640281518305
                 }
             ]
         },
@@ -154,6 +204,11 @@
                     "language": "DE",
                     "text": "Erweitern Sie die Data Tasks, bewegen Sie den Mauszeiger über die Task Node für Ihren Indikator und klicken Sie auf \"Debug\" (die Task wird gestartet, aber im Debug-Modus).",
                     "updated": 1638036387502
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните Data Tasks, наведите курсор на узел Task для вашего индикатора и нажмите \"Debug\" (Задача запустится, но в режиме Debug).",
+                    "updated": 1640281549332
                 }
             ]
         },
@@ -166,6 +221,11 @@
                     "language": "DE",
                     "text": "Wenn Sie die Fehlermeldung \"Parent Task Not Running\" erhalten, können Sie dies ignorieren. Da wir die Debug Aktion verwenden, wird die Aufgabe trotzdem gestartet.",
                     "updated": 1638036480125
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы получите ошибку \"Parent Task Not Running\", ее можно проигнорировать. Поскольку мы используем действие Debug, задача все равно запустится.",
+                    "updated": 1640281571919
                 }
             ]
         },
@@ -188,6 +248,11 @@
                     "language": "DE",
                     "text": "Wenn Ihre Task Abhängigkeiten hat (z. B. debuggen wir oben Resistances und Supports, aber diese benötigen Exchange Raw Data und Candles, bevor sie ausgeführt werden können), starten Sie die benötigten Tasks, die mit Ihrem Indikator verbunden sind, indem Sie mit dem Mauszeiger über der Node schweben und auf \"Run\" klicken.",
                     "updated": 1638036654674
+                },
+                {
+                    "language": "RU",
+                    "text": "Если ваша задача имеет зависимости (например, выше мы отлаживаем Resistances и Supports, но для их запуска необходимы Exchange Raw Data и Candles), запустите необходимые задачи, связанные с вашим индикатором, наведя курсор на узлы и нажав \"Run\".",
+                    "updated": 1640281597533
                 }
             ]
         },
@@ -210,6 +275,11 @@
                     "language": "DE",
                     "text": "Wenn Sie einen Blick in das Debug Code Terminal werfen, sollten Sie nun sehen, dass Ihr indicator ganz normal läuft.",
                     "updated": 1638036732977
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы посмотрите в терминал Debug Code, то увидите, что ваш индикатор работает в обычном режиме.",
+                    "updated": 1640281617522
                 }
             ]
         },
@@ -227,6 +297,11 @@
                     "language": "DE",
                     "text": "Das Löschen vorhandener Daten aus Ihrem Indikator im Superalgos/Data-Storage/ Ordner kann den Data Mining Prozess beschleunigen.",
                     "updated": 1638036825328
+                },
+                {
+                    "language": "RU",
+                    "text": "Удаление существующих данных из вашего индикатора в папке ...Superalgos/Data-Storage/ может ускорить процесс поиска данных.",
+                    "updated": 1640281641941
                 }
             ]
         }

@@ -63,11 +63,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                         queryMessage.username =SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
                     }
 
-                    response = {
-                        result: 'Ok',
-                        message: 'Web App Interface Query Processed.',
-                        data: await getUserProfileData(queryMessage.username,queryMessage.userProfileId)
-                    }
+                    response = await getUserProfileData(queryMessage.username,queryMessage.userProfileId)
                 }  else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
                     response = {
                         result: 'Ok',
@@ -259,7 +255,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 .then((response) => {
 
                     if (response.status != 200) {
-                        console.log("getUserProfileData", 'Github.com responded with status ' , response.status, 'url',url )
+                        console.log("getPostText", 'Github.com responded with status ' , response.status, 'url',url )
                         throw new createError.NotFound();
                     }
 
@@ -285,6 +281,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileContent = JSON.stringify(userProfileId, undefined, 4)
         const fileHash = hash.update(fileContent).digest('hex')
         const fileName = fileHash + ".json";
+
         /*
         When the Web App makes a query that includes User Profile Data as responses,
         we need to fetch the text from the public git repositories, since
@@ -309,16 +306,27 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     response.text().then(body => {
                         userProfile = JSON.parse(body);
                         userProfile.userProfileId = userProfileId;
-                        resolve(userProfile)
+                        userProfile.username = userProfileHandle;
+                        resolve(responseData('Ok','Web App Interface Query Processed.',userProfile))
                     })
                 })
                 .catch(err => {
-                    resolve('User Profile could not be fetched. ' + err.message)
+                    const response  = { userProfileId: userProfileId , username:userProfileHandle }
+                    resolve(responseData('Ok','Web App Interface Query Processed.',response,err));
                 })
 
         }
         )
 
         return promise
+    }
+
+    async function responseData(result, message, data, error){
+        return {
+            result: result,
+            message: message,
+            data: data,
+            error: error
+        };
     }
 }

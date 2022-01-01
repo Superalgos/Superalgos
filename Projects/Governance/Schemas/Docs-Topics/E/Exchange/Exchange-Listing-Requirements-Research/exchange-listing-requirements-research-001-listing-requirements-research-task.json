@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Esta tarea es un esfuerzo de la Community liderada por el Token Task Force (fuerza de tarea del token). Investigar los requisitos para listar en los exchanges es el primer paso en el proceso de lograr que sea listado el Superalgos SA Token.",
                 "updated": 1637234081113
+            },
+            {
+                "language": "RU",
+                "text": "Эту задачу выполняет Сообщество (Community) под руководством группы Token Task Force. Изучение требований бирж к листингу является первым шагом в процессе получения листинга токена Superalgos SA Token.",
+                "updated": 1640781675670
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "About the Task",
-            "updated": 1618499836929
+            "updated": 1618499836929,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "О задаче",
+                    "updated": 1640781695618
+                }
+            ]
         },
         {
             "style": "Title",
@@ -32,6 +44,11 @@
                     "language": "ES",
                     "text": "En resumen, el trabajo consiste en investigar el proceso de listado de tokens y los requisitos de los principales exchanges para que luego podamos evaluar y decidir a qué exchanges se abordará primero el proyecto y cómo.",
                     "updated": 1637161592614
+                },
+                {
+                    "language": "RU",
+                    "text": "В общем, работа заключается в изучении процесса листинга токенов и требований ведущих бирж, чтобы впоследствии мы могли оценить и решить, к каким биржам проект должен обратиться в первую очередь и каким образом.",
+                    "updated": 1640781784383
                 }
             ]
         },
@@ -43,6 +60,11 @@
                     "language": "ES",
                     "text": "En resumen:",
                     "updated": 1637161599238
+                },
+                {
+                    "language": "RU",
+                    "text": "Если кратко:",
+                    "updated": 1640781747412
                 }
             ]
         },
@@ -55,6 +77,11 @@
                     "language": "ES",
                     "text": "Elija cualquiera de los exchanges de los  Top 100 listados en coinmarketcap.com",
                     "updated": 1637161662049
+                },
+                {
+                    "language": "RU",
+                    "text": "Выбрать любую из бирж в списке 100 лучших на сайте coinmarketcap.com",
+                    "updated": 1640781818854
                 }
             ]
         },
@@ -72,6 +99,11 @@
                     "language": "ES",
                     "text": "Buscar el sitio del exchange para información describiendo el proceso de listado y sus requerimientos. Estudie la información detenidamente.",
                     "updated": 1637161765451
+                },
+                {
+                    "language": "RU",
+                    "text": "Найти на сайте биржи информацию, описывающую процесс листинга и требования. Внимательно изучите информацию.",
+                    "updated": 1640781836138
                 }
             ]
         },
@@ -83,6 +115,11 @@
                     "language": "ES",
                     "text": "Si no hay suficiente información disponible públicamente, no dude en ponerse en contacto con su equipo de soporte o listado para obtener más información.",
                     "updated": 1637161799068
+                },
+                {
+                    "language": "RU",
+                    "text": "Если в открытом доступе недостаточно информации, не стесняйтесь связаться с их службой поддержки или листинговой командой для получения дополнительной информации. ",
+                    "updated": 1640782045529
                 }
             ]
         },
@@ -94,6 +131,11 @@
                     "language": "ES",
                     "text": "También es posible que desee comenzar a completar un formulario de requisitos de listado ficticio para averiguar qué tipo de información el exchange requiere.",
                     "updated": 1637161845312
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, вам также стоит начать заполнять фиктивную форму требований к листингу, чтобы выяснить, какую информацию требует биржа.",
+                    "updated": 1640782085281
                 }
             ]
         },
@@ -106,6 +148,11 @@
                     "language": "ES",
                     "text": "Informe sobre sus hallazgos utilizando la lista de viñetas de Requisitos de investigación a continuación.",
                     "updated": 1637161875626
+                },
+                {
+                    "language": "RU",
+                    "text": "Отчитаться о своих результатах, используя приведенный ниже список основных требований к исследованию.",
+                    "updated": 1640782127053
                 }
             ]
         },
@@ -118,6 +165,11 @@
                     "language": "ES",
                     "text": "Si desea participar en esta tarea, por favor únase al Token Group y comuníquenos que exchanges tiene la intencion de investigar! Comunicarse con el resto de los participantes ayuda a evitar la duplicación de esfuerzos. ¡Puede comenzar tan pronto como pueda!",
                     "updated": 1637162017064
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите принять участие в этом задании, пожалуйста, присоединяйтесь к группе Token Group и сообщите нам, какие биржи вы собираетесь исследовать! Общение с остальными участниками поможет избежать дублирования усилий! Вы можете приступить к работе, как только сможете!",
+                    "updated": 1640782154217
                 }
             ]
         },
@@ -130,6 +182,11 @@
                     "language": "ES",
                     "text": "No utilice fuentes de terceros para obtener información sobre el proceso y los requisitos de listar. ¡Vaya siempre directamente a la fuente!",
                     "updated": 1637162053784
+                },
+                {
+                    "language": "RU",
+                    "text": "Не используйте сторонние источники для получения информации о процессе листинга и требованиях. Всегда обращайтесь непосредственно к источнику!",
+                    "updated": 1640782168022
                 }
             ]
         },
@@ -142,6 +199,11 @@
                     "language": "ES",
                     "text": "Cuando esté listo para informar sobre los resultados de un determinado exchange, siga los pasos a continuación.",
                     "updated": 1637162092640
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы будете готовы сообщить о результатах, выполните следующие действия.",
+                    "updated": 1640782432277
                 }
             ]
         },
@@ -153,6 +215,11 @@
                     "language": "ES",
                     "text": "1. Get up to speed with your contributions setup (Ponte al día con la configuración de tus contribuciones)",
                     "updated": 1637162124822
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Начните работу по настройке своих вкладов.",
+                    "updated": 1640782466492
                 }
             ]
         },
@@ -165,6 +232,11 @@
                     "language": "ES",
                     "text": "Si no está familiarizado con el proceso de editar páginas en los Documentos y contribuir con las páginas que crea o edita, vaya a  Getting Started Tutorials Plugin Workspace y haga Beyond the Basics Tutorial.",
                     "updated": 1637162184012
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы не знакомы с процессом редактирования страниц во вкладке Docs и внесения изменений в страницы, которые вы создаете или редактируете, перейдите в рабочее пространство Getting Started Tutorials Plugin Workspace и пройдите курс обучения Beyond the Basics Tutorial.",
+                    "updated": 1640782596008
                 }
             ]
         },
@@ -177,6 +249,11 @@
                     "language": "ES",
                     "text": "2. Create a new page on this topic (Cree una nueva página sobre este tema)",
                     "updated": 1637162213374
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Создайте новую страницу в этом разделе",
+                    "updated": 1640782627075
                 }
             ]
         },
@@ -189,6 +266,11 @@
                     "language": "ES",
                     "text": "La forma más sencilla de configurar la nueva página es la siguiente:",
                     "updated": 1637162229090
+                },
+                {
+                    "language": "RU",
+                    "text": "Проще всего настроить новую страницу следующим образом:",
+                    "updated": 1640782636379
                 }
             ]
         },
@@ -201,6 +283,11 @@
                     "language": "ES",
                     "text": "Utilice la siguiente sintaxis, reemplazando\"Exchange Name\" con el nombre del exchange, y reemplazando el \"N\" en la última sección del comando con el siguiente número de página disponible en el tema (mire la última página en el TOC a continuación y asigne el siguiente número de la serie).",
                     "updated": 1637162350910
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте следующий синтаксис, заменив \"Exchange Name\" на название биржи, и заменив \"N\" в последнем разделе команды на номер следующей доступной страницы в разделе (посмотрите на последнюю страницу в TOC ниже и присвойте следующий номер в серии).",
+                    "updated": 1640782704513
                 }
             ]
         },
@@ -218,6 +305,11 @@
                     "language": "ES",
                     "text": "Asigne el Docs List Style al primer párrafo de la nueva página (el que muestra el texto publicitario predeterminado).",
                     "updated": 1637162425098
+                },
+                {
+                    "language": "RU",
+                    "text": "Назначьте стиль Docs List Style первому абзацу новой страницы (тому, на котором отображается текст по умолчанию).",
+                    "updated": 1640782741626
                 }
             ]
         },
@@ -230,6 +322,11 @@
                     "language": "ES",
                     "text": "Seleccione y copie la lista de requisitos de investigación a continuación. No incluya el título.",
                     "updated": 1637162445001
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите и скопируйте приведенный ниже список требований. Не включайте название.",
+                    "updated": 1640782941558
                 }
             ]
         },
@@ -242,6 +339,11 @@
                     "language": "ES",
                     "text": "Edite el primer párrafo de la nueva página y pegue lo que acaba de copiar. Esto debería resultar en una lista como la que se muestra a continuación.",
                     "updated": 1637162466723
+                },
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте первый абзац на новой странице и вставьте то, что вы только что скопировали. В результате должен получиться список, подобный приведенному ниже.",
+                    "updated": 1640782962295
                 }
             ]
         },
@@ -254,6 +356,11 @@
                     "language": "ES",
                     "text": "Reemplace la explicación de cada punto de la lista con los resultados de su investigación.",
                     "updated": 1637162482666
+                },
+                {
+                    "language": "RU",
+                    "text": "Замените пояснения к каждому пункту списка результатами вашего исследования.",
+                    "updated": 1640782987333
                 }
             ]
         },
@@ -266,6 +373,11 @@
                     "language": "ES",
                     "text": "Si alguno de los datos requeridos no está disponible o no se aplica al exchange en cuestión, por favor complete el campo con \"N/A\". No deje campos en blanco, ya que eso puede sugerir que el informe está incompleto.",
                     "updated": 1637162559130
+                },
+                {
+                    "language": "RU",
+                    "text": "Если какая-либо из требуемых частей информации недоступна или не относится к рассматриваемой бирже, заполните поле \"N/A\". Не оставляйте пустые поля, так как это может свидетельствовать о неполноте отчета.",
+                    "updated": 1640783038892
                 }
             ]
         },
@@ -278,6 +390,11 @@
                     "language": "ES",
                     "text": "No solicite  Pull Request hasta que su investigación esté cmpleta! No queremos informes incompletos o sin sentido. Envíe la investigación solo una vez que haya reunido todos los datos necesarios. Por favor, asegúrese de enviar un informe de calidad. ¡Preferimos la calidad a la cantidad, siempre!",
                     "updated": 1637162638008
+                },
+                {
+                    "language": "RU",
+                    "text": "Не подавайте Pull Request до тех пор, пока исследование не будет завершено! Нам не нужны бессмысленные или неполные отчеты. Отправляйте исследование только после того, как соберете все необходимые данные. Пожалуйста, убедитесь, что вы отправляете качественный отчет. Мы всегда предпочитаем качество количеству!",
+                    "updated": 1640783070415
                 }
             ]
         },
@@ -290,6 +407,11 @@
                     "language": "ES",
                     "text": "Research Requirements (Requisitos de investigación)",
                     "updated": 1637162660796
+                },
+                {
+                    "language": "RU",
+                    "text": "Требования для исследований",
+                    "updated": 1640782898741
                 }
             ]
         },
@@ -302,6 +424,11 @@
                     "language": "ES",
                     "text": "Exchange name(nombre del excahnge):Utilice el nombre oficial y más común del exchange; el mismo que usaste en el nombre de la página.",
                     "updated": 1637162717190
+                },
+                {
+                    "language": "RU",
+                    "text": "Exchange name (название биржи): Используйте официальное, наиболее распространенное название биржи; то же самое, которое вы использовали в названии страницы.",
+                    "updated": 1640783158526
                 }
             ]
         },
@@ -313,6 +440,11 @@
                     "language": "ES",
                     "text": "CMC ranking: La posición del .exchange en el ranking a partir del día de la investigación.",
                     "updated": 1637162786270
+                },
+                {
+                    "language": "RU",
+                    "text": "CMC ranking (рейтинг CMC): Позиция биржи в рейтинге по состоянию на день проведения исследования.",
+                    "updated": 1640783213298
                 }
             ]
         },
@@ -325,6 +457,11 @@
                     "language": "ES",
                     "text": "Exchange home page:Edite la cadena a continuación con el nombre del exchange  y la URL (sin el protocolo). Añadiendo el párrafo Docs Web Page Link Style y borre esta explicaión.Pruebe el enlace y asegúrese de que funcione.",
                     "updated": 1637162865297
+                },
+                {
+                    "language": "RU",
+                    "text": "Exchange home page (домашняя страница биржи): Отредактируйте приведенную ниже строку с названием биржи и URL (без протокола). Добавьте абзац со стилем Docs Web Page Link Style и удалите это пояснение. Протестируйте ссылку и убедитесь, что она работает.",
+                    "updated": 1640783322026
                 }
             ]
         },
@@ -342,6 +479,11 @@
                     "language": "ES",
                     "text": "Listing requirements page: Edite la cadena a continuación con la URL (sin el protocolo) de la página donde obtuvo el núcleo de la información de este informe. Añadiendo el párrafo Docs Web Page Link Style y elimine esta explicación. Pruebe el enlace y asegúrese de que funcione.",
                     "updated": 1637162914462
+                },
+                {
+                    "language": "RU",
+                    "text": "Listing requirements page (страница требований к листингу): Отредактируйте приведенную ниже строку с URL (без протокола) страницы, на которой вы получили основную информацию в этом отчете. Добавьте абзац со стилем Docs Web Page Link Style и удалите это пояснение. Протестируйте ссылку и убедитесь, что она работает.",
+                    "updated": 1640783439002
                 }
             ]
         },
@@ -359,6 +501,11 @@
                     "language": "ES",
                     "text": "Listing request form page:Edite la cadena a continuación con la URL (sin el protocolo) de la página (o formulario en línea) que el proyecto debe usar para solicitar que el token. sea listado Añadiendo el párrafo Docs Web Page Link Style y elimine esta explicación. Pruebe el enlace y asegúrese de que funcione.",
                     "updated": 1637163085847
+                },
+                {
+                    "language": "RU",
+                    "text": "Listing request form page (страница запроса на листинг): Отредактируйте приведенную ниже строку с URL (без протокола) страницы (или онлайн-формы), которую проект должен использовать для запроса листинга токена. Добавьте абзац со стилем Docs Web Page Link Style и удалите это пояснение. Протестируйте ссылку и убедитесь, что она работает.",
+                    "updated": 1640783521328
                 }
             ]
         },
@@ -375,6 +522,11 @@
                     "language": "ES",
                     "text": "Can list BEP 20 BSC tokens: Algunos exchanges puden no estar capacitados para listar tokens en la Binance Smart Chain. Asegúrese de averiguar si listar eltoken es tecnicamente posible.",
                     "updated": 1637163207116
+                },
+                {
+                    "language": "RU",
+                    "text": "Can list BEP 20 BSC tokens (может размещать токены BEP 20 BSC): Некоторые биржи могут не иметь возможности листинга токенов в Binance Smart Chain. Убедитесь, что вы выяснили, что включение токена в листинг технически возможно.",
+                    "updated": 1640783644304
                 }
             ]
         },
@@ -387,6 +539,11 @@
                     "language": "ES",
                     "text": "Listing fee: Exchanges usualmente cobran por listar nuevas monedas. Ingrese la comisión e incluya cualquier comentario, excepciones, o detallesque pueda ser relevante para nuestro caso particular.",
                     "updated": 1637163339255
+                },
+                {
+                    "language": "RU",
+                    "text": "Listing fee (плата за листинг): Биржи обычно взимают плату за листинг новых монет. Укажите размер платы и включите любые комментарии, исключения или детали, которые могут иметь отношение к нашему конкретному случаю.",
+                    "updated": 1640783698792
                 }
             ]
         },
@@ -398,6 +555,11 @@
                     "language": "ES",
                     "text": "Security deposit: Algunos exchanges requieren un déposito de seguridad para ser devuelto al priyect despues de que el listado se complete. Describa los detalles de tales requisitos, si existen..",
                     "updated": 1637163416572
+                },
+                {
+                    "language": "RU",
+                    "text": "Security deposit (гарантийный депозит): Некоторые биржи требуют внесения гарантийного депозита, который должен быть возвращен проекту после завершения листинга. Опишите детали таких требований, если они существуют.",
+                    "updated": 1640783739624
                 }
             ]
         },
@@ -410,6 +572,11 @@
                     "language": "ES",
                     "text": "Volume requirements: Exchanges están en el negocio de cobrar tarifas de transacción, por lo que generalmente esperan listar tokens que tengan tracción,en el entendimiento de que tales tokens generarán un cierto nivel de volumen de trading. Algunos exchanges tienen requisitos específicos acerca del volumen esperado. Si el exchange requiere un volumen preciso, ingréselo en números. De otro modo, describa que se espera en palabras.",
                     "updated": 1637163647215
+                },
+                {
+                    "language": "RU",
+                    "text": "Volume requirements (требования к объему торгов): Биржи занимаются взиманием платы за транзакции, поэтому они обычно рассчитывают на листинг токенов, которые пользуются спросом, понимая, что такие токены будут обеспечивать определенный объем торгов. Некоторые биржи предъявляют конкретные требования к ожидаемому объему. Если биржа требует точного объема, укажите его в цифрах. В противном случае опишите ожидаемый объем словами.",
+                    "updated": 1640783809034
                 }
             ]
         },
@@ -422,6 +589,11 @@
                     "language": "ES",
                     "text": "Market-making requirements: Muchas veces los exchanges esperan que los proyectos garanticen liquidéz para el token en ambos lados del libro de solicitudes. A veces requieren proyectos para contratar proyectos específicos .de market-makers o pregunte al proyecto cómo abordarán el problema. Explica lo que exchange espera al respecto.",
                     "updated": 1637163841957
+                },
+                {
+                    "language": "RU",
+                    "text": "Market-making requirements (требования к маркет-мейкеру): Во многих случаях биржи ожидают, что проекты будут гарантировать ликвидность токена с обеих сторон книги заявок. Иногда они требуют от проектов нанимать конкретных маркет-мейкеров или спрашивают у проекта, как он будет решать этот вопрос. Объясните, чего ожидает биржа в этом отношении.",
+                    "updated": 1640784950296
                 }
             ]
         },
@@ -433,6 +605,11 @@
                     "language": "ES",
                     "text": "Exchange users requirement Algunos exchanges requieren que el proyecto maneje un cierto número de usuarios del exchange. Describa los requisitos que puedan existir al respecto.",
                     "updated": 1637163941086
+                },
+                {
+                    "language": "RU",
+                    "text": "Exchange users requirement (требование к пользователям биржи): Некоторые биржи требуют, чтобы проект привел на биржу определенное количество пользователей. Опишите все требования, которые могут существовать в этом отношении.",
+                    "updated": 1640784987826
                 }
             ]
         },
@@ -445,6 +622,11 @@
                     "language": "ES",
                     "text": "Pairs available for first listing:  Algunos exchanges limitan el número de pares o  of pairs orincluso los activos de cotización precisos que se pueden utilizar para el primer listado. Describe lo que sea que exchange requiere u ofrece al respecto.",
                     "updated": 1637164115142
+                },
+                {
+                    "language": "RU",
+                    "text": "Pairs available for first listing (пары, доступные для первого листинга): Некоторые биржи ограничивают количество пар или даже точные котировочные активы, которые могут быть использованы для первого листинга. Опишите все требования или предложения биржи в этом отношении.",
+                    "updated": 1640785035804
                 }
             ]
         },
@@ -457,6 +639,11 @@
                     "language": "ES",
                     "text": "Waiting period: La mayoría de los exchanges tienen una cola de requisitos par listar y es posible que puedan estimar cuánto tiempo se tarda en procesar. Si hay información al respecto, inclúyala aquí.. The exchange puede que no anuncie cuál es la estimación, pero puede deducirlo o averiguarlo en los chats de la comunidad, foros, etc. Haga su investigación.",
                     "updated": 1637164208150
+                },
+                {
+                    "language": "RU",
+                    "text": "Waiting period (период ожидания): У большинства бирж есть очередь запросов на листинг, и они могут оценить, сколько времени потребуется на обработку. Если есть информация на этот счет, укажите ее здесь. Биржа может не объявлять о сроках, но вы можете сделать вывод об этом или узнать в чатах сообщества, на форумах и т. д. Проведите свое исследование.",
+                    "updated": 1640785090713
                 }
             ]
         },
@@ -469,6 +656,11 @@
                     "language": "ES",
                     "text": "Legal entity: Algunos exchanges puede requerir que el proyecto sea representado por una entidad legal (una fundación, corporación, etc.). Si ese es el caso, ingrese \"Sí\" y describa cuál es el requisito. Si no existe tal requisito, ingrese \"No\".",
                     "updated": 1637164244969
+                },
+                {
+                    "language": "RU",
+                    "text": "Legal entity (юридическое лицо): Некоторые биржи могут потребовать, чтобы проект был представлен юридическим лицом (фондом, корпорацией и т.д.). Если это так, укажите \"Yes\" и опишите, в чем заключается требование. Если такого требования нет, укажите \"No\".",
+                    "updated": 1640785137972
                 }
             ]
         },
@@ -481,6 +673,11 @@
                     "language": "ES",
                     "text": "Legal opinion: Algunos exchanges puede requerir que el proyecto obtenga asesoramiento legal en forma de una \"carta de opinión legal\" o algún instrumento por el estilo, la mayoría de las veces sobre la naturaleza del token, en particular, para determinar si el token es un security o no. Si ese es el caso, ingrese \"Sí\" y describa cuál es el requisito. Si no existe tal requisito, ingrese \"No\".",
                     "updated": 1637164365388
+                },
+                {
+                    "language": "RU",
+                    "text": "Legal opinion (юридическое заключение): Некоторые биржи могут потребовать от проекта получить юридическую консультацию в форме \"письма с юридическим заключением\" или другого подобного документа, чаще всего о природе токена, в частности, чтобы определить, является ли токен ценной бумагой или нет. Если это так, укажите \"Yes\" и опишите, в чем заключается требование. Если такого требования нет, укажите \"No\".",
+                    "updated": 1640785214049
                 }
             ]
         },
@@ -493,6 +690,11 @@
                     "language": "ES",
                     "text": "Selection process: Algunos exchanges describen la naturaleza del proceso de toma de decisiones para seleccionar qué tokens serán listados. Algunos involucran la participación de su comunidad, un proceso de votación o cosas por el estilo. Describe cómo es el proceso si hay alguna información al respecto.",
                     "updated": 1637164443782
+                },
+                {
+                    "language": "RU",
+                    "text": "Selection process (процесс отбора): Некоторые биржи описывают характер процесса принятия решений по выбору токенов для включения в листинг. Некоторые предполагают участие их сообщества, процесс голосования или что-то в этом роде. Опишите, каков этот процесс, если есть какая-либо информация о нем.",
+                    "updated": 1640785331253
                 }
             ]
         },
@@ -504,6 +706,11 @@
                     "language": "ES",
                     "text": "Researcher's comments: Si nota alguna información de importancia para el proceso de listado que no esté cubierta en esta lista, inclúyala aquí.",
                     "updated": 1637164466638
+                },
+                {
+                    "language": "RU",
+                    "text": "Researcher's comments (комментарии исследователя): Если вы заметили какую-либо важную для процесса листинга информацию, которая не включена в этот список, включите ее сюда.",
+                    "updated": 1640785393313
                 }
             ]
         },
@@ -515,6 +722,11 @@
                     "language": "ES",
                     "text": "Researcher's Github.com Username: Esto ayuda a rastrear al autor de cada contribución a la investigación..",
                     "updated": 1637164489394
+                },
+                {
+                    "language": "RU",
+                    "text": "Researcher's Github.com Username (имя пользователя Github.com исследователя): Это помогает отследить автора каждого материала исследования.",
+                    "updated": 1640785444974
                 }
             ]
         },
@@ -526,6 +738,11 @@
                     "language": "ES",
                     "text": "Researcher's Telegram Username: Lo mismo que arriba.",
                     "updated": 1637164507310
+                },
+                {
+                    "language": "RU",
+                    "text": "Researcher's Telegram Username (имя пользователя Telegram исследователя): то же, что и выше.",
+                    "updated": 1640785491432
                 }
             ]
         },
@@ -537,6 +754,11 @@
                     "language": "ES",
                     "text": "Date of last revision: Este informe puede actualizarse de vez en cuando. Utilice este campo para anotar la última vez que se actualizó el informe.",
                     "updated": 1637164536522
+                },
+                {
+                    "language": "RU",
+                    "text": "Date of last revision (дата последнего уточнения): Этот отчет может обновляться время от времени. Используйте это поле, чтобы отметить последний раз, когда отчет был обновлен.",
+                    "updated": 1640785556531
                 }
             ]
         },

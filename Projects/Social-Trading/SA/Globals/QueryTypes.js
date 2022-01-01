@@ -9,7 +9,8 @@ exports.newSocialTradingGlobalsQueryTypes = function () {
         PROFILE_FOLLOWERS: 5,
         PROFILE_FOLLOWING: 6,
         POST_REPLIES: 7,
-        EVENTS: 8
+        EVENTS: 8,
+        USER_PROFILE_DATA: 9,
     }
 
     return thisObject

@@ -6,16 +6,11 @@
     padding: 0.5rem;
 }
 
-/*.post:hover {*/
-/*    background-color: darkgray;*/
-/*}*/
-
 .postWrapper{
-    /* z-index: 1; */
     width: 40rem;
 }
 
-.postWrapper:hover {
+.postWrapper:hover { /* todo need to change color on over */
 
 }
 

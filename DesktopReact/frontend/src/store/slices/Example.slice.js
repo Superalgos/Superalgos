@@ -1,21 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
 
 export const ExampleSlice = createSlice({
     name: 'example',
     initialState: {
-        exampleName:'',
-        token:''
+        exampleName: '',
+        token: ''
     },
     reducers: {
-      exampleAction: (state, action) => {
-        state.userName = action.payload;
-      },
+        exampleAction: (state, action) => {
+            state.userName = action.payload;
+        },
     },
-  })
-  
-  // Action creators are generated for each case reducer function
-  export const { exampleAction } = ExampleSlice.actions
-  
-  export default ExampleSlice.reducer
+})
+
+// Action creators are generated for each case reducer function
+export const {exampleAction} = ExampleSlice.actions
+
+export default ExampleSlice.reducer
 
 

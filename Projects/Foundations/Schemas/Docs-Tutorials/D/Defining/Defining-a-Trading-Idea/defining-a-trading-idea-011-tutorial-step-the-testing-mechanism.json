@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Schließlich muss festgelegt werden, wie die Idee getestet werden soll. Auch dies ist abhängig von der Art der Strategie!",
                 "updated": 1639251942284
+            },
+            {
+                "language": "TR",
+                "text": "Son olarak, fikrin nasıl test edileceğini tanımlamaktır. Bu da stratejinin türüne bağlıdır!",
+                "updated": 1640868334918
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Der Schwerpunkt der Handelsidee liegt auf dem Einstiegspunkt, nicht auf dem Management des Handels oder dem Ausstieg. Aber...",
                     "updated": 1639251951116
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret fikrinin odak noktası, ticaretin yönetimi veya çıkışı değil, giriş noktasıdır. Ancak...",
+                    "updated": 1640868524854
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Wie messen wir, ob die Einstiegspunkte gut oder schlecht sind? Welchen Zeitraum verwenden wir zum Testen?",
                     "updated": 1639251957420
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş noktalarının iyi mi kötü mü olduğunu nasıl ölçeceğiz? Test için hangi periyodu kullanıyoruz?",
+                    "updated": 1640868910311
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Die erste Frage führt uns zu der Erkenntnis, dass wir möglicherweise einige willkürliche Stop Loss- und Take Profit-Ziele festlegen müssen, damit wir feststellen können, ob die sich ergebenden Einstiegspunkte wahrscheinlich ein Treffer oder ein Fehlschlag sind. Mit der zweiten Frage werden wir uns im nächsten Tutorial befassen.",
                     "updated": 1639251990008
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk soru, ortaya çıkan giriş noktalarının isabet veya başarısızlık olasılığının yüksek olup olmadığını belirleyebilmemiz için bazı keyfi stop loss tanımlamamız ve kar hedefleri almamız gerekebileceğini kabul etmemize neden olmaktadır. Bir sonraki eğitimde ikinci soruyla ilgileneceğiz.",
+                    "updated": 1640869279644
                 }
             ]
         }

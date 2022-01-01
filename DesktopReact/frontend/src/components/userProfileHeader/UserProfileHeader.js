@@ -4,8 +4,12 @@ import "./UserProfileHeader.css"
 import UserProfileModal from "./UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
+import {useSelector} from "react-redux";
 
-const UserProfileHeader = ({user, updateProfileCallback}) => {
+const UserProfileHeader = ({ updateProfileCallback}) => {
+
+    const user = useSelector(state => state.profile);
+    console.log(user)
 
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px", height: "15px", verticalAlign: "text-top"

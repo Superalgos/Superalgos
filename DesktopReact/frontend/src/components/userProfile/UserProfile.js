@@ -8,12 +8,14 @@ import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import {useParams} from "react-router-dom";
 import {getProfile} from "../../api/profile.httpService";
+import {useDispatch} from "react-redux";
+import {setProfile} from "../../store/slices/Profile.slice";
 
 const UserProfile = () => {
     let {userId} = useParams();
 
+    const dispatch = useDispatch();
     const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState(undefined);
     const [postLoading, setPostLoading] = useState(true);
     const [profileLoading, setProfileLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
@@ -45,13 +47,13 @@ const UserProfile = () => {
 
     const loadUser = async () => {
         setProfileLoading(true);
-        let queryParams /*= {userProfileId: undefined}*/; /* TODO set query params as undefined if own profile*/
+        let queryParams /*= {userProfileId: undefined}*/;
         let {
             data, result
         } = await getProfile().then(response => response.json());
+        console.log({data, result})
         if (result === STATUS_OK) {
-            console.log('user profile loaded')
-            setUser(data);
+            dispatch(setProfile(data))
         }
         setProfileLoading(false);
     }
@@ -74,7 +76,7 @@ const UserProfile = () => {
                spacing={1}
                className="middleSection">
             {profileLoading ? (<Skeleton variant="rectangular" width="100%" height="23rem"/>) : (
-                <UserProfileHeader user={user} updateProfileCallback={updateProfileCallback}/>)}
+                <UserProfileHeader updateProfileCallback={updateProfileCallback}/>)}
             <PostsFeed posts={posts} loading={postLoading}/>
         </Stack>
         <Snackbar open={openSnack} autoHideDuration={6000} onClose={handleSnackClose}>

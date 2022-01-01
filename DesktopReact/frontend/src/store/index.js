@@ -1,13 +1,14 @@
-
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import ExampleReducer from './slices/Example.slice'
 import PostReducer from './slices/post.slice'
-import SuggestedUsersRedcuer from './slices/suggestedUsers.slice'
+import SuggestedUsersReducer from './slices/suggestedUsers.slice'
+import ProfileReducer from './slices/Profile.slice'
 
 export default configureStore({
-    reducer:{
+    reducer: {
         example: ExampleReducer,
         post: PostReducer,
-        suggestedUsers: SuggestedUsersRedcuer
+        suggestedUsers: SuggestedUsersReducer,
+        profile: ProfileReducer
     }
-  })
+})

@@ -27,7 +27,6 @@ const Post = ({postData}) => {
             if (selectedPost)
                 setPost(selectedPost);
         }
-        ;
     }, [])
 
     if (!post.emitterUserProfile) {

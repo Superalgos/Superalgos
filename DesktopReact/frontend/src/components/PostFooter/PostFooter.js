@@ -16,6 +16,10 @@ import styled from "@emotion/styled";
 import {actionsNav} from './interactionsConfig.json';
 import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 import {dialStyle} from "./reactionsStyle";
+import {reactedPost} from "../../api/post.httpService";
+import {STATUS_OK} from "../../api/httpConfig";
+import {useDispatch} from "react-redux";
+import {setModalPost} from "../../store/slices/post.slice";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
@@ -26,18 +30,18 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-const PostFooter = ({postId, reactions}) => { // props needed? review
+const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props needed? review
+    //console.log(actualReaction)
 
     // gets values from httpService.js array reactToPost function
     const [badgeValues, setBadgeValues] = useState([])
-    const [likeValue, setLikeValue] = useState()
+    const [likeBadgeValue, setLikeBadgeValue] = useState()
     const [replyModal, setReplyModal] = useState(false)
-
+    const dispatch = useDispatch();
     const BadgeCounterValue = () => {
-        setLikeValue(reactions[0][1]) // need an callback
-        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
+        setLikeBadgeValue(reactions[0][1]) // need an callback
+        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
         setBadgeValues(reactionsValue)
-        //console.log(reactionsValue)
 
     }
 
@@ -51,27 +55,22 @@ const PostFooter = ({postId, reactions}) => { // props needed? review
     }
 
     const HandleCommentContainer = () => {
-        // review, maybe not needed. Using other method to handle the button
-        // const {stateCallback} = props
-        // stateCallback && stateCallback()
-        setReplyModal(!replyModal)
+        setReplyModal(!replyModal);
+        dispatch(setModalPost(postData))
     }
 
-    const handleLikeReaction = (e, reactionId, name) => {
-        e.stopPropagation()
 
-// TODO
-        console.log(`click on button ${name}, id ${reactionId} of post ${postId}`)
+    const handleReactions = async (e, id, name) => {
+        e.stopPropagation();
+        let {result} = await reactedPost({eventType: 100 + (+id), postId}).then(response => response.json());
+        if (result === STATUS_OK) {
+            console.log(`correctly reacted with ${name}`)
+        }
+        //console.log(`click on button ${name}, id ${id}`)
     }
 
-    const handleReactions = (e, id, name) => {
-        e.stopPropagation()
-
-        console.log(`click on button ${name}, id ${id}`)
-    }
-
-    const getIcon = (icon) => {
-        switch (icon) {
+    const getIcon = (icon) =>{
+        switch(icon){
             case "FavoriteBorder":
                 return <FavoriteBorder/>
             case "Mood":
@@ -90,21 +89,21 @@ const PostFooter = ({postId, reactions}) => { // props needed? review
     }
 
     const FooterButton = (id, name, icon, badgeCounter) => {
-        return <SpeedDialAction className=""
-                                key={id}
-                                id={id}
-                                FabProps={{style: {...dialStyle}}} /*Changes the position of the reactions icons, but not the div container*/
-                                icon={
-                                    <StyledBadge
-                                        badgeContent={badgeCounter} /*need pass the index of the id reaction*/
-                                        color="primary"
-                                        max={99}>
-                                        {getIcon(icon)}
-                                    </StyledBadge>
-                                }
-                                onClick={ev => handleReactions(ev, id, name)}
-                                tooltipPlacement="bottom"
-                                tooltipTitle={name}
+        return <SpeedDialAction
+            key={id}
+            id={id}
+            FabProps={{style: {...dialStyle}}} /*Changes the position of the reactions icons, but not the div container*/
+            icon={
+                <StyledBadge
+                    badgeContent={badgeCounter} /*need pass the index of the id reaction*/
+                    color="primary"
+                    max={99}>
+                    {getIcon(icon)}
+                </StyledBadge>
+            }
+            onClick={ev => handleReactions(ev, id, name)}
+            tooltipPlacement="bottom"
+            tooltipTitle={name}
         />
     }
 
@@ -115,7 +114,7 @@ const PostFooter = ({postId, reactions}) => { // props needed? review
                             onClick={(e) => e.stopPropagation(HandleCommentContainer)}> {/* need review, correct way?*/}
                     <MessageOutlined/>
                 </IconButton>
-                {/*<FooterReplyModal show={replyModal} close={HandleCommentContainer}/>*/}
+                {replyModal ? <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>: null } {/* todo pass postData to the modal from props */}
             </Stack>
             {/*<Stack className="postFooterRepost" direction="row"> todo not implemented yet
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">
@@ -129,23 +128,22 @@ const PostFooter = ({postId, reactions}) => { // props needed? review
         <div className="postFooterContainer">
             <Stack className="postFooterContainerStack" direction="row">
                 <Stack className="postFooterContainerSpeedDial" direction="row">
-                    <SpeedDial className="speedDialContainer" // like button style
-                               FabProps={{ /*Access to props of SpeedDial*/
-                                   style: {...dialStyle}
-                               }}
-                               color="secondary"
-                               ariaLabel="SpeedDial"
-                               icon={<StyledBadge
-                                   color="primary"
-                                   badgeContent={likeValue}>
-                                   <ThumbUp // sx={{width: "15px", height: "15px"}}  review if removed
-                                       color="action"
-                                       fontSize="small"
-                                       onClick={handleLikeReaction}>
-                                   </ThumbUp>
-                               </StyledBadge>}
-                               direction="right"
-                    >
+                    <SpeedDial
+                        FabProps={{ /*Access to props of SpeedDial*/
+                            style: {...dialStyle}
+                        }}
+                        color="secondary"
+                        ariaLabel="SpeedDial"
+                        icon={<StyledBadge
+                            color="primary"
+                            badgeContent={likeBadgeValue}>
+                            <ThumbUp
+                                color="action"
+                                fontSize="small"
+                                onClick={handleReactions}>
+                            </ThumbUp>
+                        </StyledBadge>}
+                        direction="right">
                         {actionsNav.map(e => {
                             const {id, name, badgeCounter, icon} = e;
                             return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */

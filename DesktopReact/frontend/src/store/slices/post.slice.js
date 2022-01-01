@@ -4,7 +4,8 @@ export const PostSlice = createSlice({
     name: 'post',
     initialState: {
       postsList:{},
-      selectedPost:{}
+      selectedPost:{},
+        modalPost:{}
     },
     reducers: {
       setPostList: (state, action) => {
@@ -12,12 +13,15 @@ export const PostSlice = createSlice({
       },
       setSelectedPost:(state, action) => {
           state.selectedPost = action.payload
-      }
+      },
+        setModalPost: (state,action) => {
+          state.modalPost = action.payload
+        }
     },
   })
   
   // Action creators are generated for each case reducer function
-  export const { setPostList, setSelectedPost } = PostSlice.actions
+  export const { setPostList, setSelectedPost, setModalPost } = PostSlice.actions
   
   export default PostSlice.reducer
 

@@ -1,15 +1,10 @@
 .postPlaceholder {
     width: 40rem;
-    /*padding: 0.5rem;*/
 }
 
 .postPlaceholderContainer {
     min-width: 100%;
     max-width: 100%;
-}
-
-.postPlaceholderInputBoxContainer {
-
 }
 
 .postPlaceholderAvatar {

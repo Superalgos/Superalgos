@@ -23,10 +23,6 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
         return () => setUserInfo(user);
     }, []);
 
-    const Input = styled('input')({
-        display: 'none',
-    });
-
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
 

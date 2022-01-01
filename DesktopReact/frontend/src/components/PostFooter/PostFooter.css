@@ -33,8 +33,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /*width: 8%;*/
-    /*box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);*/
 }
 
 .postFooterRepost {
@@ -54,11 +52,6 @@
     height: 1.8rem !important;
     box-shadow: none !important;
     margin: 0.20rem !important;
-}
-
-.speedDialContainer{ /*remove if not needed*/
-    /*width: 17rem !important;
-    height: 17rem !important;*/
 }
 
 .MuiSpeedDial-actions{

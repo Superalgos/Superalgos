@@ -133,7 +133,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let userProfile = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                     node,
                     'User Profile',
-                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
     
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, userProfile)
@@ -329,7 +329,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     /*
                     Delete Signing Account if it already exists.
                     */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     if (targetNode.signingAccount !== undefined) {
                         UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(targetNode.signingAccount, rootNodes)
                     }
@@ -460,10 +460,10 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     const web3 = new window.Web3()
                     try {
                         const message = [
-                            web3.utils.fromUtf8("Github username: " + githubUsername),
-                            connector.accounts[0]
+                            connector.accounts[0],
+                            web3.utils.keccak256("\u0019Ethereum Signed Message:\n" + githubUsername.length + githubUsername)
                         ]
-                        signedMessage = await connector.signPersonalMessage(message)
+                        signedMessage = await connector.signMessage(message)
                         setupProfile(signedMessage, connector.accounts[0], githubUsername)
                     } catch (e) {
                         console.log(e)
@@ -513,7 +513,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let userProfile = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                     node,
                     'User Profile',
-                    UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
 
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, userProfile)

@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Yönetim Aşaması ( The Manage Stage ), botun Kâr Almak ( Take Profit ) veya Zarar Durdurmak ( Stop Loss ) zorunda olup olmadığını kontrol ettiği yerdir.",
                 "updated": 1640617427959
+            },
+            {
+                "language": "RU",
+                "text": "На этапе Manage Stage бот проверяет, нужно ли ему устанавливать тейк-профит (\"Take Profit\") или стоп-лосс (\"Stop Loss\").",
+                "updated": 1640856751520
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu aşamada, fiyatın Kâr Al (TP) ( Take Profit ) veya Zarar Durdur (SL) ( Stop Loss ) olup olmadığını bot kontrol eder. Stratejim için başlangıç koşulları, girişten itibaren bir SL'yi %20'ye ve bir TP'yi %100'e veya MA50, MA200'ün altında kesiştiğinde ayarlamaktı.",
                     "updated": 1640617449497
+                },
+                {
+                    "language": "RU",
+                    "text": "На этом этапе бот проверяет, достигла ли цена тейк-профита (TP) или стоп-лосса (SL). Исходными условиями для моей стратегии было установить SL на 20% от входа и TP на 100% или когда MA50 пересекается под MA200.",
+                    "updated": 1640856776409
                 }
             ]
         },
@@ -79,6 +89,11 @@
                     "language": "TR",
                     "text": "Zararı Durdur ( Stop Loss ) formülü:",
                     "updated": 1640617464902
+                },
+                {
+                    "language": "RU",
+                    "text": "Формула Stop Loss:",
+                    "updated": 1640856784637
                 }
             ]
         },
@@ -112,6 +127,11 @@
                     "language": "TR",
                     "text": "Kâr Al ( Take Profit ) formülü biraz daha ayrıntılıdır:",
                     "updated": 1640617476503
+                },
+                {
+                    "language": "RU",
+                    "text": "Формула Take Profit немного сложнее:",
+                    "updated": 1640856799284
                 }
             ]
         },

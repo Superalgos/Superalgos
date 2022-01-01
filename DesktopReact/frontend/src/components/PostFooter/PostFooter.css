@@ -1,0 +1,59 @@
+.postFooterContainer {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-top: 0.50rem;
+    padding-bottom: 0.50rem;
+}
+.postFooterContainerStack{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+    width: 100%;
+}
+
+.postFooterContainerSpeedDial { /* size of the reaction div */
+    width: 45%;
+}
+
+.footerCommentContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.postFooterComment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17%;
+}
+
+.commentIconButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.postFooterRepost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17%;
+}
+
+.repostIconButton{
+}
+
+.reactionsButtons{
+    position: relative !important;
+    min-height: 0.5rem;
+    width: 1.8rem !important;
+    height: 1.8rem !important;
+    box-shadow: none !important;
+    margin: 0.20rem !important;
+}
+
+.MuiSpeedDial-actions{
+    margin-left: -45px !important;
+}

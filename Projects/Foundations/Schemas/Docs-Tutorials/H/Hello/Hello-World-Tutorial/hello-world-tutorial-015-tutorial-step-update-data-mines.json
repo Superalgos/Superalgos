@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Bazı verileri zaten almış olabilirsiniz!",
                 "updated": 1640617991764
+            },
+            {
+                "language": "RU",
+                "text": "Скорее всего, у вас уже есть некоторые накопленные данные!",
+                "updated": 1640857240429
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Giriş Eğitimini ( Tutorial ) yaptıysanız, muhtemelen bazı verileri almışsınızdır. Ancak ilk yapılandırmada bulunmayan yeni bir gösterge ekledim. Bu yüzden lütfen veri Madenlerini ( Mines ) çalıştırın ve %100 hazır olana kadar bekleyin.",
                     "updated": 1640618010805
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучили вводный учебник, то, вероятно, вы уже добыли некоторые данные. Но я добавил новый индикатор, которого нет в начальной конфигурации. Поэтому, пожалуйста, запустите добычу данных и подождите, пока они не будут готовы на 100%.",
+                    "updated": 1640857287228
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Önemli: Sparta Veri Madeni Görevleri ( Data Mine Tasks ) altında yeni eklenen Basit Hareketli Ortalama göstergesinin ( Simple Moving Average ) %100 güncellendiğinden emin olun.",
                     "updated": 1640618037690
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что в разделе Sparta Data Mine Tasks недавно добавленный индикатор Simple Moving Average обновлен на 100%.",
+                    "updated": 1640857303985
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "İpucu: Tüm göstergeler %100 olduğunda, veri madenlerini durdurabilir ve geriye dönük test için kaynak tasarrufu yapabilirsiniz",
                     "updated": 1640618053948
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только все показатели достигнут 100%, вы можете остановить добычу данных и сохранить ресурсы для бэктеста.",
+                    "updated": 1640857369873
                 }
             ]
         }

@@ -62,7 +62,7 @@
         },
         {
             "style": "List",
-            "text": "One Task Manager per Trading Mine and one Task with a Backtesting Session for each Trading System in the workspace.",
+            "text": "One Task Manager per Trading Mine and one Task with a Live Trading Session for each Trading System in the workspace.",
             "translations": [
                 {
                     "language": "ES",
@@ -71,10 +71,11 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ein Task Manager pro Trading Mine und eine Task mit einer Backtesting Session für jedes Trading System im Arbeitsbereich.",
-                    "updated": 1636469243913
+                    "text": "Ein Task Manager pro Trading Mine und eine Task mit einer Live Trading Session für jedes Trading System im Arbeitsbereich.",
+                    "updated": 1640710000128
                 }
-            ]
+            ],
+            "updated": 1640709691528
         }
     ]
 }

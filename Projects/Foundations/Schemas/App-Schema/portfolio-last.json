@@ -27,29 +27,5 @@
     },
     "propertyNameAtParent": "portfolioLast",
     "childrenNodesProperties": [
-        {
-            "name": "position",
-            "type": "node",
-            "childType": "Position",
-            "autoAdd": true
-        },
-        {
-            "name": "strategy",
-            "type": "node",
-            "childType": "Strategy",
-            "autoAdd": true
-        },
-        {
-            "name": "limitOrders",
-            "type": "node",
-            "childType": "Limit Order",
-            "autoAdd": true
-        },
-        {
-            "name": "marketOrders",
-            "type": "node",
-            "childType": "Market Order",
-            "autoAdd": true
-        }
     ]
 }

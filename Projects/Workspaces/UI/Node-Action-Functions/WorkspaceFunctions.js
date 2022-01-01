@@ -1,4 +1,4 @@
-function newFoundationsFunctionLibraryWorkspaceFunctions() {
+function newWorkspacesNodeActionWorkspaceFunctions() {
     let thisObject = {
         addMissingWorkspaceProjects: addMissingWorkspaceProjects,
         addSpecifiedWorkspaceProject: addSpecifiedWorkspaceProject,
@@ -124,7 +124,7 @@ function newFoundationsFunctionLibraryWorkspaceFunctions() {
                                     })
                                     if (workspaceItems.length > 0) {
                                         // Not the wisest choice to get the first result, but the search engine will for sure return the most relevant doc as first.
-                                        UI.projects.foundations.spaces.designSpace.workspace.getNodeById(workspaceItems[0].doc.docsSchemaDocument.nodeId).then(function (node) {
+                                        UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(workspaceItems[0].doc.docsSchemaDocument.nodeId).then(function (node) {
                                             console.log("Found a node to attach to: ", node)
                                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(value, node)
                                             console.log("Attached successfully")

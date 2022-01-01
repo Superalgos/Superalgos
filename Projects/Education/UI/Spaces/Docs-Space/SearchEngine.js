@@ -36,7 +36,7 @@ function newFoundationsDocsSearchEngine() {
         /*
         This is a way to avoid indexing the docs, if the user does not want to.
         */
-        let docsSpaceNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
+        let docsSpaceNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Docs Space')
         if (docsSpaceNode !== undefined) {
             if (docsSpaceNode.docsSpaceSettings !== undefined) {
                 let indexContent = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(docsSpaceNode.docsSpaceSettings.payload, 'indexContent')
@@ -270,7 +270,7 @@ function newFoundationsDocsSearchEngine() {
         /*
         We will scan the whole workspace and create an array with all of its nodes.
         */
-        let workspaceNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+        let workspaceNode = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
         let rootNodes = workspaceNode.rootNodes
         let allNodesFound = []
         for (let i = 0; i < rootNodes.length; i++) {

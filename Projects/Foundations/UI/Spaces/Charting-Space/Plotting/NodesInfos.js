@@ -82,7 +82,7 @@ function newNodesInfos() {
 
     async function applyValue(nodeId, infoMessage, docs) {
         if (UI.projects.foundations.spaces.chartingSpace.visible !== true) { return }
-        let node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(nodeId)
+        let node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(nodeId)
         if (node === undefined) { return }
         if (node.payload === undefined) { return }
         if (node.payload.uiObject === undefined) { return }

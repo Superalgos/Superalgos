@@ -34,7 +34,7 @@ function newFoundationsSideSpace() {
 
         sidePanel = newSidePanelTab()
         sidePanel.container.connectToParent(container, false, false)
-        sidePanel.tabIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(porject, iconName)
+        sidePanel.tabIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(porject, iconName)
         sidePanel.tabLabel = label
         sidePanel.initialize(side)
 

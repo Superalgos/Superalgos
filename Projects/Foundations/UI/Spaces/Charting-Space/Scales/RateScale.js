@@ -551,8 +551,8 @@ function newRateScale() {
         if (thisObject.payload === undefined) { return }
         if (thisObject.payload.node === undefined) { return }
 
-        let icon1 = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
-        let icon2 = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        let icon1 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.payload.parentNode.project, thisObject.payload.node.payload.parentNode.type)
+        let icon2 = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
 
         let backgroundColor = UI_COLOR.BLACK
         let labels = scaleLabels(thisObject.rate, true)

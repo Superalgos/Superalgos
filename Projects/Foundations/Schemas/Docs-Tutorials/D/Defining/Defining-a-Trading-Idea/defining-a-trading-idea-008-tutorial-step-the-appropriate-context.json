@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die zweite wichtige Dimension, die es zu definieren gilt, ist der allgemeine Kontext, auf den die Hypothese ausgerichtet ist.",
                 "updated": 1639251726373
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tanımlanması gereken ikinci önemli ölçü, varsayımın hedeflendiği genel bağlamdır.",
+                "updated": 1640866693545
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Nur wenige - wenn überhaupt - auf der technischen Analyse basierende Strategien erzielen in undefinierten Marktsituationen konsistente Ergebnisse.",
                     "updated": 1639251739728
+                },
+                {
+                    "language": "TR",
+                    "text": "Teknik analize dayalı stratejiler, tanımlanmamış piyasa durumlarında tutarlı bir şekilde performans gösterir.",
+                    "updated": 1640867069015
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Es muss zumindest definiert werden, ob die Hypothese auf Abwärtstrends, Aufwärtstrends oder Seitwärtsmärkte abzielt.",
                     "updated": 1639251746659
+                },
+                {
+                    "language": "TR",
+                    "text": "Gerekli minimum tanım, varsayımınızın düşüş trendlerini mi, yükseliş trendlerini mi yoksa yan yönlü piyasaları mı hedeflediğidir.",
+                    "updated": 1640867252493
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Das übliche Hilfsmittel ist eine Multi-Time-Frame-Analyse, die auf einem oder mehreren Indikatoren basiert, die den bestehenden Trend in verschiedenen Zeitrahmen bestimmen, sowie alle anderen Faktoren, die für die spezifische Strategie von Bedeutung sein können, z. B. Volumen oder Volatilität.",
                     "updated": 1639251753848
+                },
+                {
+                    "language": "TR",
+                    "text": "Olağan kaynak, mevcut eğilimin farklı zaman dilimlerinde ne olduğunu belirleyen bir veya daha fazla göstergeye ve belirli strateji için önemli olabilecek diğer faktörlere (örneğin hacim veya oynaklık) dayanan çok zaman çerçeveli bir analizdir.",
+                    "updated": 1640867331944
                 }
             ]
         }

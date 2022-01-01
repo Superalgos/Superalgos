@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der vierte Aspekt, den es zu berücksichtigen gilt, ist die Frage, was wir von dieser Idee erwarten, und dies hängt stark von der Art der Strategie ab.",
                 "updated": 1639251850952
+            },
+            {
+                "language": "TR",
+                "text": "Dikkate alınması gereken dördüncü husus, bu fikirden ne beklediğimizdir ve bu stratejinin türüne oldukça bağlıdır.",
+                "updated": 1640867620767
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Bei einer Swing-Strategie kann es zum Beispiel akzeptabel sein, zweimal pro Monat eine Position mit einer Trefferquote von 50 % einzugehen, bei einer Scalping-Strategie hingegen nicht.",
                     "updated": 1639251862202
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin, bir salınım stratejisi için, %50 isabet oranıyla ayda iki kez pozisyon almak kabul edilebilir, ancak scalping stratejisi için kabul edilemez.",
+                    "updated": 1640867758388
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Festlegung der Erwartungen an die Strategie in Bezug auf die Handelshäufigkeit und die Trefferquote hilft bei der Entscheidung, ob es sich lohnt, die Strategie zu verfolgen oder nicht.",
                     "updated": 1639251880642
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejiden ne beklediğimizi ticaret sıklığı ve isabet oranı açısından tanımlamak, stratejinin takip etmeye değer olup olmadığını belirlemeye yardımcı olur.",
+                    "updated": 1640867969084
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Wenn die Tests zeigen, dass die Idee nicht so viele Geschäfte oder so viele gute Einstiege produziert, wie es wünschenswert wäre, sollten Sie sich eine neue Idee ausdenken.",
                     "updated": 1639251901086
+                },
+                {
+                    "language": "TR",
+                    "text": "Testler, fikrin istenildiği kadar çok işlem veya çok sayıda iyi girdi üretmediğini gösteriyorsa, yeni bir fikir edinmek isteyebilirsiniz.",
+                    "updated": 1640868138794
                 }
             ]
         }

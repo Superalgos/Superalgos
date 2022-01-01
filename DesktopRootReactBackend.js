@@ -1,4 +1,4 @@
-exports.newDesktopRoot = function newDesktopRoot() {
+exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
     /*
     This module represents the execution root of the Desktop App.
     We use this module that is outside the Desktop folder to 
@@ -67,9 +67,9 @@ exports.newDesktopRoot = function newDesktopRoot() {
         run()
 
         async function run() {
-            DK.app = require('./DesktopReact/DesktopApp.js').newDesktopApp()
+            DK.app = require('./DesktopReact/DesktopAppBackend.js').newDesktopAppBackend()
             await DK.app.run()
-            console.log('Superalgos Desktop App is Running!')
+            console.log('Superalgos Desktop Backend App is Running!')
         }
     }
 }

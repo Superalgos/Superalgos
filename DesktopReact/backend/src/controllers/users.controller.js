@@ -20,9 +20,17 @@ const getProfile = async (req, res) => {
   res.send(result);
 };
 
+const paginateProfiles = async (req, res) => {
+  const {initialIndex, pagination} = req.body
+  await userService.paginateProfiles(initialIndex, pagination).then( response => {
+    res.send(response)
+  }).catch(error =>{ res.send(error)})
+}
+
 module.exports = {
   getProfiles,
   follow,
+  paginateProfiles,
   editProfile,
   getProfile
 };

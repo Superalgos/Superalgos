@@ -1,4 +1,4 @@
-exports.newDesktopApp = function newDesktopApp() {
+exports.newDesktopAppBackend = function newDesktopAppBackend() {
 
     let thisObject = {
         userProfiles: undefined,
@@ -65,14 +65,9 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
             await thisObject.socialGraph.initialize()
 
-            /* TODO use new port settings*/
             let express = require('./backend/src/expressServer.js')
             express.DesktopBackend(DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
-            console.log('express Interface ................................................ Listening at port ' );
-
-            let react = require('./frontend/scripts/start')
-            react.start(+DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort + 1);
-            console.log('react Interface ................................................ Listening at port ' );
+            console.log(`express Interface ................................................ Listening at port ${DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort}` );
         }
     }
 }

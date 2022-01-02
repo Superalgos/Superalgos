@@ -11,7 +11,7 @@ exports.newDesktopFrontendRoot = function newDesktopFrontendRoot() {
         run()
 
         async function run() {
-            let app = require('./DesktopReact/DesktopAppFrontend').newDesktopAppFrontend()
+            let app = require('./DesktopAppFrontend').newDesktopAppFrontend()
             await app.run()
             console.log('Superalgos Desktop Frontend App is Running!')
         }

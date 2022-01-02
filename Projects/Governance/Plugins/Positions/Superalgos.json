@@ -34,12 +34,12 @@
                                     "id": "058bd185-8463-4f3f-aace-c27e73e39792",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 19585.703848624515,
-                                            "y": 45369.849825107936
+                                            "x": 22008.722635683444,
+                                            "y": 45799.82372634176
                                         },
                                         "targetPosition": {
-                                            "x": 19762.039424312257,
-                                            "y": 45127.14472679545
+                                            "x": 21571.79881784172,
+                                            "y": 45692.13167741236
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -59,8 +59,8 @@
                             "id": "30d83622-3341-4cdb-a4a1-ff0290530835",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21571.79881784172,
-                                    "y": 45692.13167741236
+                                    "x": 21575.041420330213,
+                                    "y": 45677.999889350955
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -180,8 +180,8 @@
                             "id": "5c994463-567b-4433-bc9d-154a58fef42b",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21533.330211543944,
-                                    "y": 45793.56505590266
+                                    "x": 21545.970455939172,
+                                    "y": 45767.47111786708
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -241,8 +241,8 @@
                             "id": "5324ddfa-08ac-4b13-a3bf-ec878f54d8a7",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21471.704836676996,
-                                    "y": 45882.844824691325
+                                    "x": 21498.932647468726,
+                                    "y": 45848.94299201458
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -263,13 +263,13 @@
                         },
                         {
                             "type": "Position Class",
-                            "name": "Algorithmic-Trading & Portfolio Management Team PoW Report",
+                            "name": "Portfolio Management Team PoW Report",
                             "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/algorithmic-trading-portfolio-management-bot-teams-pow-november-2021-a3b40c1a3166\"\r\n}",
                             "project": "Governance",
                             "positions": [
                                 {
                                     "type": "Position",
-                                    "name": "Algorithmic-Trading & Portfolio Management Team Token Pool",
+                                    "name": "Portfolio Management Team Token Pool",
                                     "config": "{}",
                                     "project": "Governance",
                                     "positions": [],
@@ -277,12 +277,12 @@
                                     "id": "7d22e85a-3e63-4704-ae4c-96c53f243f11",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20030.7444534699,
-                                            "y": 44097.99684800055
+                                            "x": 21696.01582167286,
+                                            "y": 46288.087962704194
                                         },
                                         "targetPosition": {
-                                            "x": 20017.285004364745,
-                                            "y": 44397.694767962945
+                                            "x": 21415.44541083643,
+                                            "y": 45936.26379559358
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -302,8 +302,8 @@
                             "id": "28b3569f-a1cc-4c0b-944a-5a9da748bc07",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21390.50413602902,
-                                    "y": 45954.78236813511
+                                    "x": 21435.983772861488,
+                                    "y": 45918.85479994779
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -324,13 +324,13 @@
                         },
                         {
                             "type": "Position Class",
-                            "name": "One-Man Team PoW Report",
+                            "name": "WHTV Team PoW Report",
                             "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/one-man-team-proof-of-work-november-2021-9c79e916a57\"\r\n}",
                             "project": "Governance",
                             "positions": [
                                 {
                                     "type": "Position",
-                                    "name": "One-Man Team Token Pool",
+                                    "name": "WHTV Team Token Pool",
                                     "config": "{}",
                                     "project": "Governance",
                                     "positions": [],
@@ -338,12 +338,12 @@
                                     "id": "dd3468bb-8469-4b7f-a00a-64b1fafad83d",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20093.250914965294,
-                                            "y": 44104.09419219027
+                                            "x": 21525.370365205803,
+                                            "y": 46395.31160959513
                                         },
                                         "targetPosition": {
-                                            "x": 20048.538235112443,
-                                            "y": 44400.743440057806
+                                            "x": 21330.1226826029,
+                                            "y": 45989.87561903905
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -363,8 +363,8 @@
                             "id": "b2eb140d-f1c8-4796-8f2d-fd8e1276e66e",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21294.447199169143,
-                                    "y": 46005.1969376914
+                                    "x": 21359.875,
+                                    "y": 45974.15106018596
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -604,8 +604,8 @@
                             "id": "2b6b9773-2ffd-4c26-88c3-26aee4e03b75",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21189.116506114897,
-                                    "y": 46031.15862182709
+                                    "x": 21273.932647468726,
+                                    "y": 46012.41506081578
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -665,8 +665,8 @@
                             "id": "700997dc-7fd5-4ba8-9447-92bdaac90acc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 21080.633493885103,
-                                    "y": 46031.15862182709
+                                    "x": 21181.912808470443,
+                                    "y": 46031.97448139868
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -687,7 +687,7 @@
                         },
                         {
                             "type": "Position Class",
-                            "name": "Brett’s Team PoW Report",
+                            "name": "Brett's Team PoW Report",
                             "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/bretts-team-proof-of-work-november-2021-789199b99cac\"\r\n}",
                             "project": "Governance",
                             "positions": [
@@ -726,8 +726,8 @@
                             "id": "9f3b4c01-b057-42bf-af2f-35122ecf83a8",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20975.302800830857,
-                                    "y": 46005.1969376914
+                                    "x": 21087.837191529557,
+                                    "y": 46031.97448139868
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -787,8 +787,8 @@
                             "id": "ba2f7dfc-1635-493a-a17a-dc0469bfab44",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20879.24586397098,
-                                    "y": 45954.78236813511
+                                    "x": 20995.817352531274,
+                                    "y": 46012.41506081578
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -823,12 +823,12 @@
                                     "id": "12890416-8f7f-49a1-b78d-d2d28722ab94",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20230.605576116937,
-                                            "y": 44141.901173912804
+                                            "x": 20573.73417832714,
+                                            "y": 46288.087962704194
                                         },
                                         "targetPosition": {
-                                            "x": 20117.215565688264,
-                                            "y": 44419.64693091907
+                                            "x": 20854.30458916357,
+                                            "y": 45936.26379559358
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -848,8 +848,8 @@
                             "id": "d5995cb4-6faf-4672-8abc-1f59dd909782",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20798.045163323004,
-                                    "y": 45882.844824691325
+                                    "x": 20909.875,
+                                    "y": 45974.15106018596
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -870,73 +870,13 @@
                         },
                         {
                             "type": "Position Class",
-                            "name": "Non-Tech-Users Community Team",
+                            "name": "EvaMaria70 Team PoW Report",
                             "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/non-techteam-proof-of-work-november-2021-fcfc7660e4bc\"\r\n}",
                             "project": "Governance",
                             "positions": [
                                 {
                                     "type": "Position",
-                                    "name": "Team Creator EvaMaria70 Token Pool",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "9bf62223-b810-41fb-b546-5ba5c0dc69b7",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20570.536907604575,
-                                            "y": 45584.02499750502
-                                        },
-                                        "targetPosition": {
-                                            "x": 20420.536907604575,
-                                            "y": 45324.217376369685
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position",
-                                    "name": "Team Leader @gustavohcorradi Token Pool ",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "62824024-4d00-4d50-9c08-5c3f0ea50d0e",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20342.891194073818,
-                                            "y": 45613.995124256406
-                                        },
-                                        "targetPosition": {
-                                            "x": 20420.536907604575,
-                                            "y": 45324.217376369685
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position",
-                                    "name": "Team Members Token Pool",
+                                    "name": "EvaMaria70 Tokens Pool",
                                     "config": "{}",
                                     "project": "Governance",
                                     "positions": [],
@@ -944,12 +884,12 @@
                                     "id": "3940f893-53da-4b45-a03a-34dd16d4a657",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20160.729286469243,
-                                            "y": 45474.217376369685
+                                            "x": 20431.22666577877,
+                                            "y": 46145.58045015582
                                         },
                                         "targetPosition": {
-                                            "x": 20420.536907604575,
-                                            "y": 45324.217376369685
+                                            "x": 20783.050832889385,
+                                            "y": 45865.01003931939
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -969,8 +909,8 @@
                             "id": "a5ee431a-ef5d-4533-b9e2-76a9d92002cc",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20736.419788456056,
-                                    "y": 45793.56505590266
+                                    "x": 20833.766227138512,
+                                    "y": 45918.85479994779
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -1030,8 +970,130 @@
                             "id": "dec9077e-22c2-4339-a300-02e021053e8f",
                             "savedPayload": {
                                 "position": {
-                                    "x": 20697.95118215828,
-                                    "y": 45692.13167741236
+                                    "x": 20770.817352531274,
+                                    "y": 45848.94299201458
+                                },
+                                "targetPosition": {
+                                    "x": 21134.875,
+                                    "y": 45584.43962848296
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Algorithmic-Trading Team PoW Report",
+                            "config": "{\r\n    \"URL\": \"https://medium.com/superalgos/algorithmic-trading-portfolio-management-bot-teams-pow-november-2021-a3b40c1a3166\"\r\n}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Algorithmic-Trading Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "2d7d3aab-45cc-428a-a68a-6293418c156f",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20257.439879036356,
+                                            "y": 45784.70846904365
+                                        },
+                                        "targetPosition": {
+                                            "x": 20696.157439518178,
+                                            "y": 45684.57404876331
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "04b25886-ca7d-4857-aee8-78db0ea25467",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 20723.779544060828,
+                                    "y": 45767.47111786708
+                                },
+                                "targetPosition": {
+                                    "x": 21134.875,
+                                    "y": 45584.43962848296
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": true,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Position Class",
+                            "name": "Exchange Testing Team PoW Report",
+                            "config": "{}",
+                            "project": "Governance",
+                            "positions": [
+                                {
+                                    "type": "Position",
+                                    "name": "Exchange Testing Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "5f31fe20-f10a-474c-aa88-b86dafbae407",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20252.16824763709,
+                                            "y": 45760.02091829747
+                                        },
+                                        "targetPosition": {
+                                            "x": 20693.521623818546,
+                                            "y": 45672.23027339022
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "positionClasss": [],
+                            "id": "7e28979d-d321-4478-871b-77036f74ce6a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 20694.708579669787,
+                                    "y": 45677.999889350955
                                 },
                                 "targetPosition": {
                                     "x": 21134.875,
@@ -1113,7 +1175,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

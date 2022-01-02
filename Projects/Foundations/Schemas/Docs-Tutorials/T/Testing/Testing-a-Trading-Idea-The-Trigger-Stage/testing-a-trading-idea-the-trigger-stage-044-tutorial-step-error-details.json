@@ -3,18 +3,55 @@
     "pageNumber": 44,
     "type": "Tutorial Step - Error Details",
     "definition": {
-        "text": "So, what's in those bullets? Point the mouse at one of the error bullets in the top row and see what happens!",
-        "updated": 1612632114380
+        "text": "So, what's in those bullets? Place the mouse at one of the error bullets in the top row and see what happens!",
+        "updated": 1622487609515,
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Was steht in diesen Aufzählungszeichen? Bewegen Sie die Maus auf einen der Fehlerpunkte in der obersten Zeile und sehen Sie, was passiert!",
+                "updated": 1639267409261
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Each error handled by the trading bot features a page in the Docs with a human-written description of why the error happened, as well as contextual technical information that should help you identify and fix the causes of the error.",
-            "updated": 1612632341644
+            "updated": 1612632341644,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für jeden vom Trading-Bot behandelten Fehler gibt es in den Docs eine Seite mit einer von Menschen verfassten Beschreibung, warum der Fehler aufgetreten ist, sowie kontextbezogene technische Informationen, die Ihnen helfen sollen, die Ursachen des Fehlers zu erkennen und zu beheben.",
+                    "updated": 1639267429241
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Take a good look at this page!"
+            "text": "Take a good look at this page!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie sich diese Seite genau an!",
+                    "updated": 1639267434887
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "There's plenty of information pointing to the causes of the error, but there's still some detective work to do!",
+            "updated": 1612638866209,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gibt viele Informationen, die auf die Ursachen des Fehlers hinweisen, aber es gibt noch einiges an Detektivarbeit zu tun!",
+                    "updated": 1639267440249
+                }
+            ]
         },
         {
             "style": "Text",

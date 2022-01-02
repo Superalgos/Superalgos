@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 60,
+    "type": "Tutorial Step - What is the Nuance?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "space-style"
+        },
+        "text": "Let's attempt a more nuanced analysis using the elements observed during our tour of the tested period.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Versuchen wir eine differenziertere Analyse anhand der Elemente, die wir bei unserem Rundgang durch den Testzeitraum beobachtet haben.",
+                "updated": 1639419011541
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Potential hits: Two out of the seven fails could have been hits, or at least breakeven trades had we managed the trade and exited earlier, either via a trailing stop loss, partial profit-taking, or any other suitable risk-management strategy.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Potenzielle Treffer: Zwei der sieben fehlgeschlagenen Trades hätten ein Treffer sein können oder zumindest den Break-even erreicht, wenn wir den Handel früher beendet hätten, entweder durch einen Trailing Stop Loss, eine teilweise Gewinnmitnahme oder eine andere geeignete Risikomanagementstrategie.",
+                    "updated": 1639419020478
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Halt trading: One of the fails was likely to be avoidable had we incorporated a basic volatility envelope in the take position event conditions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Handel einstellen: Einer der Fehlschläge wäre wahrscheinlich vermeidbar gewesen, wenn wir in die Ereignisbedingungen für die Positionsübernahme eine grundlegende Volatilitätshüllkurve eingebaut hätten.",
+                    "updated": 1639419028320
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "That would leave us with 4 fails, maybe one break-even, and 3 hits with a potential for 100% profit. Does that nuance work for you?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dann hätten wir noch 4 Fehlschläge, vielleicht einen Break-even und 3 Treffer mit einem Gewinnpotenzial von 100 %. Ist diese Nuance für Sie interessant?",
+                    "updated": 1639419036444
+                }
+            ]
+        }
+    ]
+}

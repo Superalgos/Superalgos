@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Arkadaşım Hoş Geldiniz dersinin size etrafı gösterdiğini ve birkaç ucuz numarayla sizi büyülediğini duydum... Ne gösteriş! :-)",
                 "updated": 1636698021188
+            },
+            {
+                "language": "ID",
+                "text": "Aku mendengar temanku  Welcome to Superalgos Tutorial menunjukkan kamu sekeliling bot serta memperkenalkan beberapa trik mudah... Pertunjukan yang luar biasa bukan!",
+                "updated": 1641093078598
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Şimdi çalışma zamanı!",
                     "updated": 1636698045347
+                },
+                {
+                    "language": "ID",
+                    "text": "Nah, sekarang saatnya untuk kita bekerja!",
+                    "updated": 1641092624533
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Superalgos'u öğrenmek oldukça zahmetli bir iştir! Zor olduğu için değil, sistem çok geniş, son derece esnek ve yeni bir paradigma üzerine kurulu olduğu için...",
                     "updated": 1636698298697
+                },
+                {
+                    "language": "ID",
+                    "text": "Belajar Superalgos cukup sulit! Bukan karena susah, tetapi karena sistemnya luas, sangat fleksibel, dan dibangun di atas paradigma baru yang tidak tentu pada awalnya...",
+                    "updated": 1641092701951
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır!",
                     "updated": 1636698446384
+                },
+                {
+                    "language": "ID",
+                    "text": "Tapi jangan khawatir! Jika kamu memperhatikan dan mengikuti semua tutorial yang ada, Kamu akan dapat mengatasi kesulitan dengan mudah! Tetap harus diperhatikan... kebanyakan orang melakukan tutorial lebih dari sekali!",
+                    "updated": 1641092815981
                 }
             ]
         }

@@ -1,10 +1,17 @@
-exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles() {
+exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppBootstrapingProcess() {
     /*
-    This module is useful for all Apps that needs to operate with all User Profiles loaded in
-    memory maps. 
+    This module is useful for all Apps that needs to operate with the P2P Network. 
     
-    User Profiles are plugins of the Governance System. Besides the info they carry, we also 
-    need to read the blockchain for each one in order to calculate their ranking.
+    This process will:
+    
+    1. Load Appp Schemas.
+    2. Load User Profiles
+    3. Identify all P2P Network Nodes.
+    4. Identify the node representing the Identity of the current running App.
+    5. Setting up the User Social Profiles.
+    6. Setting up Storage Containers.
+    7. TODO: Calculate Profiles Rankings.    
+
     */
     let thisObject = {
         /* Framework Functions */
@@ -62,7 +69,10 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
         }
 
         async function loadProfiles() {
-
+            /*
+            User Profiles are plugins of the Governance System. Besides the info they carry, we also 
+            need to get the blockchain account for each one in order to later calculate their ranking.
+            */           
             let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                 'Governance',
                 'User-Profiles'
@@ -102,7 +112,7 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                     userProfilePlugin
                 )
                 /*
-                Store in memory all User Profiles
+                Store in memory all User Social Profiles
                 */
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
@@ -153,7 +163,9 @@ exports.newNetworkModulesUserProfiles = function newNetworkModulesUserProfiles()
                         p2pNetworkClientIdentity.userSocialProfile = userSocialProfile
                     }
                 }
-
+                /*
+                Identify Storage Containers of each profiles and load them to memory.
+                */
                 let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
 
                 for (let j = 0; j < storageContainers.length; j++) { 

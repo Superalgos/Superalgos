@@ -1,7 +1,7 @@
 exports.newNetworkNode = function newNetworkNode() {
 
     let thisObject = {
-        userProfiles: undefined,
+        appBootstrapingProcess: undefined,
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
         p2pNetworkNode: undefined,
@@ -23,15 +23,17 @@ exports.newNetworkNode = function newNetworkNode() {
 
         async function setupNetwork() {
             /*
-            We set up ourselves as a Network Node.
+            We set up ourselves as a Network Node and store here
+            an object representing ourselves. The properties of this object
+            are going to be set afterwards at the bootstrapping process.
             */
             thisObject.p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-            await thisObject.p2pNetworkNode.initialize()
             /*
             We will read all user profiles plugins and get from there our network identity.
+            This is what we call the bootstrap process.
             */
-            thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-            await thisObject.userProfiles.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
+            thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
+            await thisObject.appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
             /*
             Let's discover who is at the p2p network.
             */

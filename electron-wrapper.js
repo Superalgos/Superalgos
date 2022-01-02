@@ -29,7 +29,7 @@ function firstRun() {
     fs.writeFileSync(configPath, '');
   } catch (error) {
     if (error.code === 'ENOENT') {
-      fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/FirstRun'), {recursive: true});
+      fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/'), {recursive: true});
       return firstRun();
     }
 

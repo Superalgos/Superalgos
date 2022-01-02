@@ -3,7 +3,19 @@
     "pageNumber": 31,
     "type": "Tutorial Step - Trading Bot Layers Trading System Highlights",
     "definition": {
-        "text": "This step will play a video in full screen mode."
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Mit diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639145662360
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1640631255559
+            }
+        ]
     },
     "paragraphs": [
         {

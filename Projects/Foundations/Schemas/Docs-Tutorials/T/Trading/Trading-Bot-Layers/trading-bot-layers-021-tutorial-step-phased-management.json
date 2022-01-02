@@ -7,21 +7,69 @@
             "project": "Foundations",
             "name": "phase"
         },
-        "text": "The Manage Stage enables the management of your stop loss and take profit targets in phases. Let's see how that looks in simulations..."
+        "text": "The Manage Stage enables the management of your stop loss and take profit targets in phases. Let's see how that looks in simulations...",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "The Manage Stage ermöglicht die Verwaltung Ihrer Stop-Loss- und Take-Profit-Ziele in Phasen. Schauen wir uns an, wie das in Simulationen aussieht...",
+                "updated": 1639143624751
+            },
+            {
+                "language": "RU",
+                "text": "Узел Manage Stage позволяет поэтапно управлять целями стоп-лосс и тейк-профит. Давайте посмотрим, как это выглядит в симуляторах...",
+                "updated": 1640627689862
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Turn on the \"Stop Loss\" and the \"Take Profit\" layers in the Simulation Objects layer manager!",
-            "updated": 1622541793215
+            "updated": 1622541793215,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die Ebenen \"Stop Loss\" und \"Take Profit\" im Ebenenmanager der Simulationsobjekte ein!",
+                    "updated": 1639144058572
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слои \"Stop Loss\" и \"Take Profit\" в менеджере слоев объектов симуляции (Simulation Objects)!",
+                    "updated": 1640628140797
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "It's probably self-explanatory, right? The Phase icon marks the switching of phases, thus, of the Formula used to determine each target."
+            "text": "It's probably self-explanatory, right? The Phase icon marks the switching of phases, thus, of the Formula used to determine each target.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist wahrscheinlich selbsterklärend, oder? Das Phase Symbol markiert den Wechsel der Phasen, also der Formel ( Formula ), die zur Bestimmung der einzelnen Ziele verwendet wird.",
+                    "updated": 1639144223019
+                },
+                {
+                    "language": "RU",
+                    "text": "Это, вероятно, не требует пояснений, верно? Значок Phase обозначает переключение фаз, таким же образом, Formula, используемая для определения формулы расчета каждой цели.",
+                    "updated": 1640628516781
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This is a fantastic feature when designing strategies, as you can literally see what the formula does, and how phases change!"
+            "text": "This is a fantastic feature when designing strategies, as you can literally see what the formula does, and how phases change!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine fantastische Funktion bei der Entwicklung von Strategien, da Sie buchstäblich sehen können, was die Formel tut und wie sich die Phasen ändern!",
+                    "updated": 1639144226306
+                },
+                {
+                    "language": "RU",
+                    "text": "Это фантастическая возможность при разработке стратегий, так как вы можете буквально видеть, что делает формула и как меняются фазы!",
+                    "updated": 1640628433075
+                }
+            ]
         }
     ]
 }

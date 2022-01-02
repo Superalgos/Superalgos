@@ -1,0 +1,21 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 77,
+    "type": "Tutorial Step - Trading Systems Third Backtest",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Mit diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639391399392
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/trading-systems-third-backtest.gif"
+        }
+    ]
+}

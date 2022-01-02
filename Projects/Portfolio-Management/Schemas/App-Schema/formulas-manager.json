@@ -1,0 +1,53 @@
+{
+    "type": "Formulas Manager",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Confirm Formula Rules",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "confirmFormulaRules",
+            "relatedUiObject": "Confirm Formula Rules",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Set Formula Rules",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "setFormulaRules",
+            "relatedUiObject": "Set Formula Rules",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio System->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "confirmFormulaRules",
+            "type": "node",
+            "childType": "Confirm Formula Rules"
+        },
+        {
+            "name": "setFormulaRules",
+            "type": "node",
+            "childType": "Set Formula Rules"
+        }
+    ],
+    "propertyNameAtParent": "formulasManager"
+}

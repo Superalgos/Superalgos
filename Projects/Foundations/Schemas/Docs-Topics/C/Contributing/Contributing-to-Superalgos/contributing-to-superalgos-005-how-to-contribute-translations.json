@@ -7,7 +7,7 @@
         "updated": 1613822257340,
         "translations": [
             {
-              "language": "DE",
+                "language": "DE",
                 "text": "Die Docs sind ursprünglich in Englisch geschrieben. Superalgos zugänglicher zu machen ist ein wichtiges Ziel, um die Gemeinschaft und die Community zu vergrößern. Die Übersetzung von Tutorials und Software-Dokumentation in andere Sprachen als Englisch ist von großem Wert! Ins deutsche übersetzt von gitforkgit.",
                 "updated": 1634133734053,
                 "style": "Definition"
@@ -17,6 +17,11 @@
                 "text": "Los Docs (documentos) son originalmente escritos en Ingles. Hacer a Superalgos más accesible es un esfuerzo clave para el crecimiento de la comunidad y la base de usuarios. Traducir tutoriales y documentación del software a otros idiomas que no sean el Inglés es un aporte muy valioso!",
                 "updated": 1633170996967,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Документация изначально написана на английском языке. Сделать Superalgos более доступным - это ключевая задача по развитию сообщества и пользовательской базы. Перевод учебных пособий и документации по программному обеспечению на другие языки, кроме английского, имеет огромное значение!",
+                "updated": 1637925514224
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "text": "Read About Contributing to the Docs  (Leer sobre como contribuir a los Docs)",
                     "updated": 1633171160951,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочтите о внесении вклада в документацию",
+                    "updated": 1637925850525
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "text": "Las traducciones son un caso particular de contribuir con los documentos. Por favor leer primero la página de como contribuir con los documentos, y regresar aqui para los detalles de como nosotros nos manejamos particularmente con las traducciones.",
                     "updated": 1633171406067,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Переводы - это частный случай участия в развитии документации. Пожалуйста, прочтите сначала страницу How to Contribute to the Docs и вернитесь сюда, чтобы получить подробную информацию о том, как мы работаем с переводами, в частности.",
+                    "updated": 1637925714099
                 }
             ]
         },
@@ -75,13 +90,25 @@
                     "text": "About Translations    ( Acerca de las traducciones)",
                     "updated": 1633171444432,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "О переводе на другие языки",
+                    "updated": 1637925777545
                 }
             ]
         },
         {
             "style": "Include",
             "text": "Foundations->Topic->Docs In English->Content",
-            "updated": 1616762047762
+            "updated": 1616762047762,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Английский считается языком по умолчанию. Когда вы переключаетесь на другой язык, система пытается показать контент на новом языке. Однако, если перевод еще не доступен, вместо него отображается английская версия.",
+                    "updated": 1637926039878
+                }
+            ]
         },
         {
             "style": "Text",
@@ -99,6 +126,11 @@
                     "text": "El sistema guarda el contenido de cada pagina de los Documentos en un solo archivo, independientemente de cuantas traducciones existan por cada página.",
                     "updated": 1633171834036,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Система хранит содержимое каждой страницы Docs Page в одном файле, независимо от того, сколько переводов может существовать для каждой страницы.",
+                    "updated": 1640267455508
                 }
             ]
         },
@@ -118,6 +150,11 @@
                     "text": "Actualmente, existen al nivel de cada párrafo.  Esto significa que, por cada párrafo de la página, puede haber tantas traducciones como lenguages de soporte hayan.",
                     "updated": 1633171706597,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "На самом деле, переводы существуют на уровне каждого абзаца. Это означает, что для каждого абзаца на странице может быть столько переводов, сколько поддерживаемых языков.",
+                    "updated": 1640267476761
                 }
             ]
         },
@@ -131,6 +168,11 @@
                     "text": "Dies hat zwar keine direkten Auswirkungen auf Ihre Arbeit, ist aber dennoch erwähnenswert, weil es bedeutet, dass viele Mitwirkende zu einem bestimmten Zeitpunkt an derselben Seite arbeiten können. Daher ist es notwendig, die Seite ständig zu aktualisieren und häufig contributions (Beiträge) einzureichen.",
                     "updated": 1634065120896,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вышесказанное не влияет непосредственно на вашу работу, но это стоит отметить, потому что это означает, что многие участники могут работать над одной и той же страницей в любой момент времени. Отсюда вытекает необходимость постоянного обновления и частой подачи материалов.",
+                    "updated": 1640267505495
                 }
             ]
         },
@@ -144,6 +186,11 @@
                     "text": "Was auch immer Sie übersetzen, achten Sie darauf, dass Sie keine Schlüsselwörter übersetzen. Sie bieten die Möglichkeit, durch Anklicken der Schlüsselwörter auf die Dokumentseite des jeweiligen Schlüsselworts zu springen. Sie erkennen sie an der gestrichelten Linie unter ihnen und daran, dass sie mit einem Großbuchstaben beginnen. Zum Beispiel Node. Es können aber auch kurze Phrasen sein, die durch die Überschrift eines Doku-Artikels verlinkt sind. Sie können sie übersetzen, indem Sie sie in () nach den Schlüsselwörtern einfügen, damit neue Superalgos-Benutzer einen leichteren Einstieg haben.",
                     "updated": 1634065297899,
                     "style": "Important"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что бы вы ни переводили, будьте осторожны, чтобы не перевести ключевые слова. Они предоставляют возможность перейти на страницу документа по соответствующему ключевому слову, щелкнув по ключевым словам. Их можно узнать по пунктирной линии под ними и по тому, что они начинаются с заглавной буквы. Например, Node. Но это также могут быть короткие фразы, которые связаны с заголовком статьи в документах. Вы можете перевести их, поставив () после ключевых слов, чтобы новым пользователям Superalgos было легче освоиться.",
+                    "updated": 1640267621613
                 }
             ]
         },
@@ -157,6 +204,11 @@
                     "text": "Beispiele für Schlüsselwörter/Phrasen, die nicht übersetzt werden sollten:",
                     "updated": 1634065317195,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры ключевых слов/фраз, которые не следует переводить:",
+                    "updated": 1640267637755
                 }
             ]
         },
@@ -189,6 +241,11 @@
                     "text": "Best Practices  (Las mejores prácticas)",
                     "updated": 1633172460565,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Передовые методы:",
+                    "updated": 1640267715959
                 }
             ]
         },
@@ -219,6 +276,11 @@
                     "text": "Como fue explicado en la página de How to Contribute to the Docs, debe cambiar su Contributions Branch  (rama de contribución) y su Current Branch (rama actual) a la rama de desarrollo. Recuerde de recomenzar la app luego del cambio.",
                     "updated": 1633277617230,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Как объясняется на странице How to Contribute to the Docs, вы должны переключить вашу ветку Contributions Branch и вашу текущую ветку Current Branch на ветку develop. Не забудьте перезапустить приложение после переключения.",
+                    "updated": 1640267770012
                 }
             ]
         },
@@ -238,6 +300,11 @@
                     "text": "Asegúrese de que sus sitema esté actualizado haciendo correr el comando app.update.",
                     "updated": 1633277826500,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что ваша система обновлена, выполнив команду app.update в панели поиска/командной строке в верхней части вкладки Docs.",
+                    "updated": 1640267806652
                 }
             ]
         },
@@ -256,6 +323,11 @@
                     "text": "Entonces, cambie el idioma al cual desea traducir.",
                     "updated": 1633277782209,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Затем переключитесь на язык, на который вы хотите перевести.",
+                    "updated": 1640267823722
                 }
             ]
         },
@@ -275,6 +347,11 @@
                     "text": "Para traducir un párrafo  cliquear botón derecho editar el contenido y reemplace e texto en Inglés  con su traducción. Eso es!",
                     "updated": 1633277934174,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы перевести абзац, щелкните правой кнопкой мыши для редактирования содержимого и замените английский текст своим переводом. Вот и все!",
+                    "updated": 1640267841990
                 }
             ]
         },
@@ -294,6 +371,11 @@
                     "text": "Puede encontrar más fácil escribir su traducción en un editor de texto separado, donde puede utilizar corrector ortográfico y gramatical. Ona vez que haya doble chequeado su traducción, puede volver a Superalgos para reemplazar cada parrafo con la versión traducida.",
                     "updated": 1633278119180,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, вам будет проще писать свои переводы в отдельном текстовом редакторе, где вы можете использовать программы проверки орфографии и грамматики. После того, как вы перепроверили свой перевод, вы можете вернуться в Superalgos, чтобы заменить каждый абзац переведенной версией.",
+                    "updated": 1640267865011
                 }
             ]
         },
@@ -332,6 +414,11 @@
                     "text": "Participe en Superalgos Docs Group ( grupo de documentos de superalgos). Permita que la gente sepa que parte de los documentos o que tutoriales  va a estar trabajando. Esto coordinación básica  ayudará a evitar conflictos cuando más de un usuario trabajan en la misma página al mismo tiempo.",
                     "updated": 1633278524671,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Участвуйте в работе группы Superalgos Docs Group. Сообщите людям, с какой частью документов или с каким учебником вы будете работать. Эта базовая координация поможет избежать конфликтов, когда несколько пользователей одновременно работают над одними и теми же страницами.",
+                    "updated": 1640267903661
                 }
             ]
         },
@@ -351,6 +438,11 @@
                     "text": "Puede comenzar con la traducción de los documentos de la pagina [Language] (idioma) que abra luego de cambiar el idioma.",
                     "updated": 1633278662035,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете начать с перевода страницы Docs in [Язык], на которую вы попадаете после переключения языка.",
+                    "updated": 1640267945804
                 }
             ]
         },
@@ -364,6 +456,11 @@
                     "text": "Sie möchten eine wichtige Information hinzufügen, die noch fehlt?",
                     "updated": 1634067408405,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы хотите добавить важную информацию, которая отсутствует?",
+                    "updated": 1640267959814
                 }
             ]
         },
@@ -377,6 +474,11 @@
                     "text": "Ändern Sie die Sprache in der Fußzeile auf Englisch, da dies die Ausgangssprache ist. Klicken Sie auf den englischen Kreis in der Fußzeile.",
                     "updated": 1634067430126,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "измените язык в нижнем колонтитуле на английский, поскольку он является языком оригинала. Нажмите на кружок English в нижнем колонтитуле.",
+                    "updated": 1640267980117
                 }
             ]
         },
@@ -390,6 +492,11 @@
                     "text": "Navigieren Sie zu der Dokumentseite, zu der Sie etwas hinzufügen möchten.",
                     "updated": 1634067447605,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "перейдите на страницу документов, к которой вы хотите что-то добавить.",
+                    "updated": 1640268009106
                 }
             ]
         },
@@ -403,6 +510,11 @@
                     "text": "Suchen Sie sich einen Absatz, nach dem Sie den Absatz einfügen möchten (unabhängig vom Stil), klicken Sie mit der rechten Maustaste darauf, gehen Sie zum Ende des letzten Satzes des Absatzes und drücken Sie \"Enter\". Wenn Sie in eine neue Zeile gewechselt haben, klicken Sie mit der rechten Maustaste auf einen anderen bestehenden Absatz. Dadurch erzeugen Sie einen Zeilenumbruch. Jetzt sollten Sie einen neuen Absatz sehen. Wenn das nicht funktioniert hat, wiederholen Sie den Vorgang, aber schreiben Sie etwas in die neue Zeile, irgendetwas.",
                     "updated": 1634067513279,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "найдите абзац, после которого вы хотите добавить абзац (неважно, в каком стиле), щелкните на нем правой кнопкой мыши, перейдите в конец последнего предложения абзаца и нажмите \"Enter\". Если вы перешли на новую строку, щелкните правой кнопкой мыши на другом существующем абзаце. Так вы создадите разрыв строки. Теперь вы должны увидеть новый абзац. Если это не помогло, повторите процедуру, но напишите что-нибудь в новой строке, что угодно.",
+                    "updated": 1640268047132
                 }
             ]
         },
@@ -416,6 +528,11 @@
                     "text": "Sie können nun wieder mit der rechten Maustaste auf den neuen Absatz klicken und alle Bearbeitungsfunktionen nutzen, wie z.B. das Ändern des Stils.",
                     "updated": 1634067539969,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь вы можете снова щелкнуть правой кнопкой мыши на новом абзаце и использовать все возможности редактирования, например, изменить стиль.",
+                    "updated": 1640268064123
                 }
             ]
         },
@@ -429,6 +546,11 @@
                     "text": "Denken Sie daran, die Sprache wieder umzuschalten, nachdem Sie die Änderungen mit docs.save  gespeichert oder mit app.contribute commited haben. Andernfalls könnten Sie es vergessen und später den englischen Originaltext in Ihre Sprache übersetzen, was zu Problemen führen könnte.",
                     "updated": 1634067925417,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Не забудьте переключить язык обратно после того, как вы сохраните изменения командой docs.save или app.contribute. В противном случае вы можете забыть об этом и позже перевести оригинальный английский текст на свой язык, что может вызвать проблемы.",
+                    "updated": 1640268136755
                 }
             ]
         },
@@ -448,6 +570,11 @@
                     "text": "Translating Tutorials      Traduciendo tutoriales",
                     "updated": 1633278676243,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Перевод учебных пособий",
+                    "updated": 1640268150093
                 }
             ]
         },
@@ -467,6 +594,11 @@
                     "text": "Las páginas de los Tutorial presentan ciertos desafíos que debemos tener en cuenta mientras traducimos: el primero y principal es que el espacio disponible en la ventana del tutorial es limitado. Esto significa que debe considerar la extensión  del texto traducido y que debe probar cada paso del tutorial para asegurarse que la traducción cabe en el espacio disponible.",
                     "updated": 1633279006183,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "При переводе страниц учебников возникают определенные трудности, которые необходимо учитывать: прежде всего, это ограниченное пространство в окне учебника. Это означает, что необходимо помнить о длине переводимого текста и проверять каждый шаг учебника, чтобы убедиться, что перевод вписывается в имеющееся пространство.",
+                    "updated": 1640268175910
                 }
             ]
         },
@@ -480,6 +612,11 @@
                     "text": "You will notice that if you open the Docs when a tutorial is running, the Docs automatically load the page of the corresponding tutorial step, so that you may edit it. This is quite helpful, as you may translate the page and see how it looks on the tutorial window in real-time. Dies ist der empfohlene Weg.",
                     "updated": 1634068602979,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы заметите, что если вы откроете вкладку Docs во время работы учебника, то автоматически загрузится страница соответствующего шага учебника, чтобы вы могли ее отредактировать. Это очень удобно, так как вы можете перевести страницу и посмотреть, как она выглядит в окне учебника в реальном времени. Это рекомендуемый способ.",
+                    "updated": 1640268232423
                 }
             ]
         },
@@ -509,7 +646,12 @@
                     "language": "ES",
                     "text": "De todos modos, este no es siempre el caso. Algunos pasos de los tutoriales están configurados para cerrar  los dcumentos o el editor, y cuando abre los documentos manualmente, la página del paso del tutorial no se carga automáticamente. En estos casos, deberá buscar la pagina por su nombre  — la cual debería coincidir con el titulo del paso en el tutorial — podrá acceder a la página en forma manual.",
                     "updated": 1633279497908,
-                    "style": "Important" 
+                    "style": "Important"
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако это не всегда так. Некоторые обучающие шаги настроены на закрытие Docs или редактора, и когда вы открываете Docs вручную, страница обучающего шага не загружается автоматически. В таких случаях необходимо найти название страницы, которое должно совпадать с названием шага учебника, чтобы можно было открыть страницу вручную.",
+                    "updated": 1640268365512
                 }
             ]
         }

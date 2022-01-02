@@ -6,7 +6,7 @@
         "text": "What if the nodes are far away from each other, maybe even in different hierarchies? Watch the video to learn a few tricks!",
         "updated": 1616098998366,
         "icon": {
-            "name": "mouse-right-click",
+            "name": "copy-position",
             "project": "Foundations"
         },
         "translations": [
@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Was tun, wenn die Knoten weit voneinander entfernt sind, vielleicht sogar in verschiedenen Hierarchien? Sehen Sie sich das Video an und lernen Sie ein paar Tricks!",
                 "updated": 1634334595517
+            },
+            {
+                "language": "TR",
+                "text": "Ya Düğümler birbirinden çok uzaktaysa, hatta belki farklı hiyerarşilerdeyse? Birkaç püf noktası öğrenmek için videoyu izleyin!",
+                "updated": 1639488625000
             }
         ]
     },
@@ -51,35 +56,17 @@
                     "language": "DE",
                     "text": "Diese UI-Tricks können Ihnen das Leben leichter machen:",
                     "updated": 1634334609357
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu UI ( User Interface ) hileleri hayatınızı kolaylaştırabilir:",
+                    "updated": 1639488655612
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Use the design space map as many times as required to find your way from node to node.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Usa la mappa del design space tante volte quante serve per trovare il percorso tra i nodi.",
-                    "updated": 1619501801090,
-                    "style": "List"
-                },
-                {
-                    "language": "ES",
-                    "text": "Utiliza el mapa del espacio de diseño para encontrar tu camino de nodo en nodo.",
-                    "updated": 1626541152202,
-                    "style": "List"
-                },
-                {
-                    "language": "DE",
-                    "text": "Verwenden Sie die Design Space Map so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
-                    "updated": 1634334613516
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Pin the node you are going to move across the design space, so that you may drop it at any point to check the design space map for directions.",
+            "text": "Pin the node you are going to move across the design space, so that it will stay where you drop it!",
             "translations": [
                 {
                     "language": "IT",
@@ -97,13 +84,19 @@
                     "language": "DE",
                     "text": "Heften Sie den Knoten, den Sie verschieben möchten, an den Entwurfsraum, damit Sie ihn an jedem beliebigen Punkt loslassen können, um die Entwurfsraumkarte auf Richtungen zu überprüfen.",
                     "updated": 1634334621202
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı boyunca hareket ettireceğiniz düğümü sabitleyin, böylece hareket ettirdiğiniz düğümü tasarım alanında herhangi bir noktada bıraktığınızda sabit kalacaktır.",
+                    "updated": 1639558424076
                 }
-            ]
+            ],
+            "updated": 1640097977030
         },
         {
             "style": "List",
-            "text": "Use Ctrl / Cmd + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
-            "updated": 1615807572088,
+            "text": "Click the \"Save node to be moved\" button on the node you wish to move.",
+            "updated": 1640098072442,
             "translations": [
                 {
                     "language": "IT",
@@ -121,31 +114,27 @@
                     "language": "DE",
                     "text": "Ziehen Sie den Knoten mit Ctrl / Cmd + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
                     "updated": 1634334644137
+                },
+                {
+                    "language": "TR",
+                    "text": "Farenin sağ tuşu ile üzerine tıkladıktan sonra düğümü ekran boyunca sürüklemek için Windows'ta Ctrl  + ok tuşları, Mac'te ise Cmd + ok tuşlarını kullanın.",
+                    "updated": 1639558498078
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
-            "translations": [
-                {
-                    "language": "IT",
-                    "text": "Rimuovi il pin una volta stabilita la reference, così da rimandare il nodo al suo posto.",
-                    "updated": 1619501980789,
-                    "style": "List"
-                },
-                {
-                    "language": "ES",
-                    "text": "Retira el pin una vez que se establezca la referencia para que el nodo vuelva a su lugar.",
-                    "updated": 1626540795482,
-                    "style": "List"
-                },
-                {
-                    "language": "DE",
-                    "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
-                    "updated": 1634334653385
-                }
-            ]
+            "text": "Use the design space map to zoom out and click near the node to which you wish to travel. ",
+            "updated": 1640098364795
+        },
+        {
+            "style": "List",
+            "text": "Click \"Snap saved node to postion\" and the node you saved will magically appear on top of the node you are at!",
+            "updated": 1640098421986
+        },
+        {
+            "style": "List",
+            "text": "Remove the pin once the reference is established so that the node goes back to its place."
         }
     ]
 }

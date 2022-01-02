@@ -7,20 +7,68 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "The final concern is defining how the idea is to be tested. This too is dependent on the type of strategy!"
+        "text": "The final concern is defining how the idea is to be tested. This too is dependent on the type of strategy!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Schließlich muss festgelegt werden, wie die Idee getestet werden soll. Auch dies ist abhängig von der Art der Strategie!",
+                "updated": 1639251942284
+            },
+            {
+                "language": "TR",
+                "text": "Son olarak, fikrin nasıl test edileceğini tanımlamaktır. Bu da stratejinin türüne bağlıdır!",
+                "updated": 1640868334918
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The focus of the trading idea is the entry point, not the management of the trade or the exit. However..."
+            "text": "The focus of the trading idea is the entry point, not the management of the trade or the exit. However...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Schwerpunkt der Handelsidee liegt auf dem Einstiegspunkt, nicht auf dem Management des Handels oder dem Ausstieg. Aber...",
+                    "updated": 1639251951116
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret fikrinin odak noktası, ticaretin yönetimi veya çıkışı değil, giriş noktasıdır. Ancak...",
+                    "updated": 1640868524854
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "How do we measure if the entry points are good or bad? What period do we use for testing?"
+            "text": "How do we measure if the entry points are good or bad? What period do we use for testing?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie messen wir, ob die Einstiegspunkte gut oder schlecht sind? Welchen Zeitraum verwenden wir zum Testen?",
+                    "updated": 1639251957420
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş noktalarının iyi mi kötü mü olduğunu nasıl ölçeceğiz? Test için hangi periyodu kullanıyoruz?",
+                    "updated": 1640868910311
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The first question leads us to acknowledge that we may need to define some arbitrary stop loss and take profit targets so that we can determine if the resulting entry points are likely to be hits or fails. We will deal with the second question in the next tutorial."
+            "text": "The first question leads us to acknowledge that we may need to define some arbitrary stop loss and take profit targets so that we can determine if the resulting entry points are likely to be hits or fails. We will deal with the second question in the next tutorial.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die erste Frage führt uns zu der Erkenntnis, dass wir möglicherweise einige willkürliche Stop Loss- und Take Profit-Ziele festlegen müssen, damit wir feststellen können, ob die sich ergebenden Einstiegspunkte wahrscheinlich ein Treffer oder ein Fehlschlag sind. Mit der zweiten Frage werden wir uns im nächsten Tutorial befassen.",
+                    "updated": 1639251990008
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk soru, ortaya çıkan giriş noktalarının isabet veya başarısızlık olasılığının yüksek olup olmadığını belirleyebilmemiz için bazı keyfi stop loss tanımlamamız ve kar hedefleri almamız gerekebileceğini kabul etmemize neden olmaktadır. Bir sonraki eğitimde ikinci soruyla ilgileneceğiz.",
+                    "updated": 1640869279644
+                }
+            ]
         }
     ]
 }

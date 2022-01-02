@@ -1,0 +1,179 @@
+{
+    "topic": "How To",
+    "pageNumber": 3,
+    "type": "Run Two Independent Installations of Superalgos in Parallel",
+    "definition": {
+        "text": "Run two independent installations of Superalgos in parallel but be aware of possible issues.",
+        "updated": 1620660561822,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте две независимые установки Superalgos параллельно, но помните о возможных проблемах.",
+                "updated": 1640250510762
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos in its essence is very easy and straightforward. This is the big advantage of this software that let you do literally whatever you want. One of the many Big Questions we face in the community is how to run multiple instances of SA at the same time. This is totally achievable and indeed it's really easy but, please, read everything carefully because this is not exempted from downsides. So first of all let's see how to configure SA to achieve this feature and at the end of this How To you will find what aspects to consider.",
+            "updated": 1620660089736,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos по своей сути очень прост и понятен. Это большое преимущество данного программного обеспечения, которое позволяет вам делать буквально все, что вы захотите. Один из многих больших вопросов, с которым мы сталкиваемся в сообществе, - как запустить несколько экземпляров SA одновременно. Это вполне достижимо, и это действительно просто, но, пожалуйста, читайте все внимательно, потому что это не лишено недостатков. Итак, прежде всего, давайте посмотрим, как настроить SA для достижения этой цели, а в конце этого руководства вы узнаете, какие моменты следует учитывать.",
+                    "updated": 1640250638187
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Basically Superalgos consists of two different parts, the UI and the CLI, that live together. To communicate with us they use 3 different parameters defined in the Environment.js file (see default values below) and are the following:",
+            "updated": 1620714602413,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В основном Superalgos состоит из двух различных частей, UI и CLI, которые живут вместе. Для связи с нами они используют 3 различных параметра, определенных в файле Environment.js (см. значения по умолчанию ниже):",
+                    "updated": 1640250694989
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "IP Address -> WEB_SERVER_URL localhost\n",
+            "updated": 1620714659625
+        },
+        {
+            "style": "List",
+            "text": "HTTP Port -> HTTP_INTERFACE_PORT 34248",
+            "updated": 1620664211003
+        },
+        {
+            "style": "List",
+            "text": "Web Socket Port -> WEB_SOCKETS_INTERFACE_PORT 18041",
+            "updated": 1620664191467
+        },
+        {
+            "style": "Text",
+            "text": "It will therefore be sufficient to simply change these parameters to obtain the desired result. But note that changing the values in the Environment.js file could not be sufficient though. Superalgos saves these values not only as global variables but as straight values when you save a workspace, for example. You must then be sure to change these parameters in all your SA install. One way to achieve this quickly is to use a software like VSCode that let you do a search and replace in a whole directory.",
+            "updated": 1620714695058,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому будет достаточно просто изменить эти параметры, чтобы получить желаемый результат. Но обратите внимание, что изменение значений в файле Environment.js может оказаться недостаточным. Superalgos сохраняет эти значения не только как глобальные переменные, но и как прямые значения, когда вы сохраняете рабочее пространство, например. Затем вы должны обязательно изменить эти параметры во всех ваших установленных SA. Один из способов быстро добиться этого - использовать программу типа VSCode, которая позволяет выполнить поиск и замену во всем каталоге.",
+                    "updated": 1640250785859
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/how-to/SA2IndependInstall-SArunDifferentBranches.png",
+            "updated": 1620715052275
+        },
+        {
+            "style": "Text",
+            "text": "In the above screenshot you can see two different installation of SA running together at the same time. To avoid any type of conflict it's suggested to change not only the ports being used but also to replace 'localhost' with the IP of your local lan. In Windows you can know which IP is assigned to your machine with a simple CLI command. Just type ipconfig and you will presented with details about your local lan as in the following screenshot. IPv4 Address is your local IP:",
+            "updated": 1620717800744,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На скриншоте выше вы можете видеть две разные установки SA, запущенные одновременно. Чтобы избежать конфликтов, рекомендуется изменить не только используемые порты, но и заменить 'localhost' на IP вашей локальной сети. В Windows вы можете узнать, какой IP назначен вашей машине, с помощью простой команды CLI. Просто введите ipconfig, и вы получите подробную информацию о вашей локальной сети, как показано на следующем снимке экрана. Адрес IPv4 - это ваш локальный IP:",
+                    "updated": 1640250827021
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/how-to/SA2IndependInstall-IPlocalAddress.png",
+            "updated": 1620717894730
+        },
+        {
+            "style": "Text",
+            "text": "Using VSCode or any other editor that let you import the whole Supealgos folder is easy to do a search and replace. Just be sure to replace the exact match to avoid errors and ending up replacing something that should not be replaced like nested values in json files.",
+            "updated": 1620718097975,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Используя VSCode или любой другой редактор, который позволяет импортировать всю папку Supealgos, легко выполнить поиск и замену. Только не забудьте заменить точное совпадение, чтобы избежать ошибок и замены того, что не должно быть заменено, например, вложенных значений в json-файлах.",
+                    "updated": 1640250862510
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/how-to/SA2IndependInstall-VSCodeSearch.png",
+            "updated": 1620718137061
+        },
+        {
+            "style": "Text",
+            "text": "Once all 3 parameters are changed you can fire up Superalgos. The first step now is to navigate to the Network node and make sure the values are updated. In the screenshot below you can see that localhost and WebPort have updated values from the default ones (arbitrary set to 192.168.0.2 for IP and 34444 for the WebPort), but not the WebSocketPort that has the default value 18041. This mistake will end up with errors in Superalgos.",
+            "updated": 1620718262006,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После изменения всех трех параметров можно запускать Superalgos. Первым шагом теперь будет переход к узлу Network и убедиться, что значения обновлены. На скриншоте ниже вы можете видеть, что localhost и WebPort имеют обновленные значения по сравнению со значениями по умолчанию (произвольное значение 192.168.0.2 для IP и 34444 для WebPort), но не WebSocketPort, который имеет значение по умолчанию 18041. Эта оплошность приведет к ошибкам в Superalgos.",
+                    "updated": 1640250929567
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/how-to/SA2IndependInstall-CheckNetworkNode.png",
+            "updated": 1620718468553
+        },
+        {
+            "style": "Text",
+            "text": "Once everything is properly set up you can now run two independent installations of Superalgos in parallel. The two installation are independent and can run different branches or different workspaces:",
+            "updated": 1620718883900,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того как все правильно настроено, вы можете запустить две независимые установки Superalgos параллельно. Эти две установки независимы и могут запускать разные ветки или разные рабочие пространства:",
+                    "updated": 1640250964250
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/how-to/SA2IndependInstall-SA2Branches.png",
+            "updated": 1620719054815
+        },
+        {
+            "style": "Text",
+            "text": "One downside aspect to consider with such configuration is possible issues if you want to contribute to Superalgos. In the following screenshot, for example, you can see that a simple git checkout command will present you with a list of changed files that probably you don't want to use to contribute:",
+            "updated": 1620719690807,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Одним из недостатков такой конфигурации являются возможные проблемы, если вы захотите внести свой вклад в Superalgos. Например, на следующем снимке экрана видно, что простая команда git checkout представит вам список измененных файлов, которые, вероятно, вы не захотите использовать для внесения вклада:",
+                    "updated": 1640250989946
+                }
+            ]
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/how-to/SA2IndependInstall-GitCheckoutIssues.png",
+            "updated": 1620719642661
+        },
+        {
+            "style": "Text",
+            "text": "It is therefore advisable to carefully decide how to handle an SA installation when changing to arbitrary parameters.",
+            "updated": 1620719781972,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому рекомендуется тщательно решить, как обращаться с установкой SA при изменении на произвольные параметры.",
+                    "updated": 1640251071463
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

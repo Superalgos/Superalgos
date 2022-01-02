@@ -4,7 +4,14 @@
     "type": "Trading Strategies",
     "definition": {
         "text": "Trading strategies encompass the logic to trigger a strategy among the many that may exist in the Trading System, take a position, manage it, and close a position.",
-        "updated": 1610199807593
+        "updated": 1610199807593,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговые стратегии включают в себя логику для запуска стратегии Trading System из многих, которые могут существовать в торговой системе, открытия позиции, управления ею и закрытия позиции.",
+                "updated": 1639733954288
+            }
+        ]
     },
     "paragraphs": [
         {

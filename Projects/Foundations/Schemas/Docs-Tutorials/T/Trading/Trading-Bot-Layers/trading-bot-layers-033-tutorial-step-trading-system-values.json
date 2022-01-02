@@ -8,21 +8,69 @@
             "name": "formula"
         },
         "text": "The \"Trading System Values\" layers works like the layers on the Trading Engine layer manager showing the values of nodes...",
-        "updated": 1622544968894
+        "updated": 1622544968894,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die \"Trading System Values\" Ebenen funktionieren wie die Ebenen im Trading Engine-Ebenenmanager und zeigen die Werte der Knoten an...",
+                "updated": 1639145860011
+            },
+            {
+                "language": "RU",
+                "text": "Слои \" Trading System Values\" работают как слои в менеджере слоев Trading Engine, показывая значения узлов...",
+                "updated": 1640631532037
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Turn the \"Trading System Values\" layer on, slide your mouse over the chart and check the stop formulas!",
-            "updated": 1622544977236
+            "updated": 1622544977236,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die Ebene \"Trading System Values\" ein, fahren Sie mit der Maus über den Chart und überprüfen Sie die Stop-Formeln!",
+                    "updated": 1639145878112
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой \" Trading System Values\", проведите мышью по графику и проверьте формулы стопов!",
+                    "updated": 1640631558036
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The common theme among these layers is that they provide on-the-fly information about each node, for each candle!"
+            "text": "The common theme among these layers is that they provide on-the-fly information about each node, for each candle!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Gemeinsamkeit dieser Ebenen ist, dass sie für jede Kerze Informationen über jeden Knoten bereitstellen!",
+                    "updated": 1639145881304
+                },
+                {
+                    "language": "RU",
+                    "text": "Общей темой этих слоев является то, что они предоставляют информацию \"на лету\" о каждом узле, для каждой свечи!",
+                    "updated": 1640631573352
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Is it fair to say that our Trading Bot is 100% accountable?"
+            "text": "Is it fair to say that our Trading Bot is 100% accountable?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ist es fair zu sagen, dass unser Trading Bot zu 100 % zuverlässig ist?",
+                    "updated": 1639145956476
+                },
+                {
+                    "language": "RU",
+                    "text": "Справедливо ли утверждать, что наш торговый бот подотчетен на 100%?",
+                    "updated": 1640631589733
+                }
+            ]
         }
     ]
 }

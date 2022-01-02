@@ -7,20 +7,68 @@
             "name": "Layer\\layer-candles",
             "project": "Foundations"
         },
-        "text": "Does the price action to your left ring a bell? Do you recognize this major market crash?"
+        "text": "Does the price action to your left ring a bell? Do you recognize this major market crash?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Kommt Ihnen das Kursgeschehen zu Ihrer Linken bekannt vor? Erkennen Sie diesen großen Marktcrash?",
+                "updated": 1639253115528
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Solunuzdaki fiyat hareketi bir şey çağrıştırıyor mu? Bu büyük piyasa çöküşlerini hatırlıyor musun?",
+                "updated": 1640948706186
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "You're looking at the March 12-13th, 2020 ~50% pandemic market crash! Spend a few minutes analyzing the daily chart!"
+            "text": "You're looking at the March 12-13th, 2020 ~50% pandemic market crash! Spend a few minutes analyzing the daily chart!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie schauen auf den 12-13 März 2020 ~50% pandemischen Marktcrash! Nehmen Sie sich ein paar Minuten Zeit und analysieren Sie den Tages-Chart!",
+                    "updated": 1639253128723
+                },
+                {
+                    "language": "TR",
+                    "text": "12-13 Mart 2020 ~%50 pandemik piyasa çöküşüne bakıyorsunuz! Günlük grafiği analiz etmek için birkaç dakika ayırın!",
+                    "updated": 1640948725727
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In short, we can see that the market was in a downtrend since February 25th&mdash;if we take the turning south of the moving average and the breakdown of the bands as an indication of the beginning of the trend."
+            "text": "In short, we can see that the market was in a downtrend since February 25th&mdash;if we take the turning south of the moving average and the breakdown of the bands as an indication of the beginning of the trend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kurz gesagt, wir können sehen, dass sich der Markt seit dem 25. Februar in einem Abwärtstrend befand - wenn wir die Drehung des gleitenden Durchschnitts nach Süden und den Zusammenbruch der Bänder als Hinweis auf den Beginn des Trends nehmen.",
+                    "updated": 1639253150059
+                },
+                {
+                    "language": "TR",
+                    "text": "Kısacası, hareketli ortalamanın güneyine yöneldiğini ve bantların kırılmasını trendin başlangıcının bir göstergesi olarak alırsak, piyasanın 25 Şubat'tan beri düşüş trendinde olduğunu görebiliriz.",
+                    "updated": 1640948743841
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Take a look at the lower time frames too!"
+            "text": "Take a look at the lower time frames too!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie auch einen Blick auf die unteren Zeitrahmen!",
+                    "updated": 1639253156624
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha düşük zaman dilimlerine de bir göz atın",
+                    "updated": 1640948755759
+                }
+            ]
         }
     ]
 }

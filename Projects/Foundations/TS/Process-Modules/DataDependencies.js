@@ -1,15 +1,15 @@
-﻿exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
+exports.newFoundationsProcessModulesDataDependencies = function (processIndex) {
     /*
     This module maintains a curated array of Data Dependency nodes,
     which is not exactly the ones listed at the Process Dependencies,
     but a smaller subset based on the circumstances found at the user's
     workspace. For example:
-    
+
     1. Dependencies without a Reference Parent are filtered out.
-    2. Dependencies which don't have a Data Set are filtered out. 
+    2. Dependencies which don't have a Data Set are filtered out.
 
     It also maintains an array of Data Set Modules, which are the
-    one's that ultimately know how to load a file based on the 
+    one's that ultimately know how to load a file based on the
     network configuration found at the workspace at the moment this
     Task was launched.
 
@@ -47,21 +47,21 @@
         try {
             /* Basic Validations */
             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies !== undefined) {
-                /* 
-                First we will get all the data dependencies of the bot, as defined at the Trading Mine.
+                /*
+                First we will get all the data dependencies of the bot, as defined at the Trading|Portfolio Mine.
                 */
-                thisObject.curatedDependencyNodeArray = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+                thisObject.curatedDependencyNodeArray = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
                 if (thisObject.curatedDependencyNodeArray.length === 0) {
                     TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible to not have data dependencies at all.")
                     callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE)
                     return
                 }
-                /* 
+                /*
                 We will filter out declared dependencies that are not present in the workspace.
                 This will allow the user to have less Data Mines loaded at the workspace
-                that the ones that a Trading Mine depends on.
+                that the ones that a Trading|Portfolio Mine depends on.
                 */
-                thisObject.curatedDependencyNodeArray = TS.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.curatedDependencyNodeArray)
+                thisObject.curatedDependencyNodeArray = SA.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(thisObject.curatedDependencyNodeArray)
 
             } else {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[ERROR] initialize -> onInitilized -> It is not possible not to have process dependencies, which means not data dependencies.")
@@ -89,9 +89,9 @@
             let receivedDependencyFilters = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).DEPENDENCY_FILTER
             if (receivedDependencyFilters !== undefined) {
 
-                /* 
+                /*
                 Javascript Maps can not travel stringified at ta JSON object, so we receive
-                these maps in an Array format, and here we will just convert them to Maps, 
+                these maps in an Array format, and here we will just convert them to Maps,
                 that is how we need them.
                 */
                 arrayToMap(receivedDependencyFilters.market.list, thisObject.filters.market.list)
@@ -110,7 +110,7 @@
             }
             /*
             In case we do not receive any filters, like in the case of Indicators and Sensors,
-            or simply because the Learning System is still empty, 
+            or simply because the Learning System is still empty,
             we need to add the default exchange and market to these maps in order
             for the following sections to work, and later we at least have candles at the
             Learning Simulation.
@@ -121,15 +121,19 @@
             thisObject.filters.exchange.markets.set(thisObject.defaultExchange + '-' + thisObject.defaultMarket, true)
 
             /*
-             For each dependency declared at the curatedDependencyNodeArray, we will initialize a 
+             For each dependency declared at the curatedDependencyNodeArray, we will initialize a
              DataSet as part of this initialization process.
              */
             let alreadyCalledBack = false
 
-            /* 
+            /*
+<<<<<<< HEAD
+            The current curatedDependencyNodeArray that we have includes all the dependencies daclared in the Data Mine | Trading Mine | Portfolio Mine | Learning Mine
+=======
             The current curatedDependencyNodeArray that we have includes all the dependencies declared in the Data Mine | Trading Mine | Learning Mine
+>>>>>>> upstream/develop
             process dependencies, minus the ones without reference parent, meaning that references Data Mines that are
-            not present at the workspace. From all the remaining dependencies there will be others that we need to 
+            not present at the workspace. From all the remaining dependencies there will be others that we need to
             filter out, and they are the ones which the user does not have a data product anywhere on the network where
             this task is running, that is storing the data associated to this dependency. The way we use to filter this
             out is by analyzing the response of the initialization call to the DataSet module. If it did not fail but
@@ -150,7 +154,7 @@
                     let market = marketList[m]
                     if (receivedDependencyFilters !== undefined) {
                         /*
-                        If we received a Dependency Filter from the UI, we will apply it here so 
+                        If we received a Dependency Filter from the UI, we will apply it here so
                         as not to add DataSets that we wont actually need.
                         */
                         if (thisObject.filters.exchange.markets.get(exchange + '-' + market) === true) {
@@ -195,12 +199,12 @@
                         }
                         let foundAtDependencyFilters = false
                         /*
-                        This is the product related to this Data Dependency, as the user would type it 
+                        This is the product related to this Data Dependency, as the user would type it
                         at a Condition or Formula and appear at the UI provided filter.
                         */
                         let product
-                        /* 
-                        We will filter out all the data dependencies which are not at the filters, except for candles, 
+                        /*
+                        We will filter out all the data dependencies which are not at the filters, except for candles,
                         because we will need the candles dataset to run the simulation.
                         */
                         if (dataDependency.referenceParent.parentNode.config.codeName === 'Candles') {

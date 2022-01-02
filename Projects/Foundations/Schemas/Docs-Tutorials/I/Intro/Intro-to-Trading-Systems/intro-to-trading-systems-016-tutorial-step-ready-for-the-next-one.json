@@ -7,17 +7,48 @@
             "name": "Tutorial\\tutorial",
             "project": "Foundations"
         },
-        "text": "Congratulations! You now know as much about trading systems as I do! Coming next, Defining a Trading Idea."
+        "text": "Congratulations! You now know as much about trading systems as I do! Coming next, Defining a Trading Idea.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Herzlichen Glückwunsch! Sie wissen jetzt genauso viel über Trading Systeme wie ich! ",
+                "updated": 1639148394256
+            },
+            {
+                "language": "TR",
+                "text": "Tebrikler! Artık ticaret ( Trading ) sistemleri hakkında benim kadar çok şey biliyorsun!",
+                "updated": 1640783928972
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The next tutorial in the series is about framing trading ideas into a formal hypothesis so that the trading idea may be tested. Testing a trading idea is the first step in the process of building a Trading Strategy!"
+            "text": "The next tutorial in the series is about framing trading ideas into a formal hypothesis so that the trading idea may be tested. Testing a trading idea is the first step in the process of building a Trading Strategy!",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Serideki bir sonraki öğretici, ticaret fikirlerinin test edilebilmesi için ticaret fikirlerini resmi bir varsayım haline getirmekle ilgilidir. Bir ticaret fikrini test etmek, bir Ticaret Stratejisi ( Trading Strategy ) oluşturma sürecindeki ilk adımdır!",
+                    "updated": 1640784043290
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!",
-            "updated": 1610466322417
+            "updated": 1610466322417,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Weiter\", um dieses Lernprogramm zu beenden, und wählen Sie \"Play\" im nächsten Lernprogramm, wenn Sie bereit sind!",
+                    "updated": 1639148472008
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu öğreticiyi bitirmek için İleri'ye tıklayın ve hazır olduğunuzda bir sonrakinde play'ı seçin!",
+                    "updated": 1640784474384
+                }
+            ]
         }
     ]
 }

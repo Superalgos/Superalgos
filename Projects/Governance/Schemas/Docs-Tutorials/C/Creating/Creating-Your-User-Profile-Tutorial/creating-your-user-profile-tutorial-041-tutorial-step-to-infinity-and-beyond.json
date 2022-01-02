@@ -15,6 +15,16 @@
                 "text": "¡Pongamos manos a la obra! Usaremos el comando app.contribute para enviar tu perfil.",
                 "updated": 1630899120379,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Погнали! Мы будем использовать команду app.contribute для отправки вашего профиля.",
+                "updated": 1639053568479
+            },
+            {
+                "language": "DE",
+                "text": "Los geht's! Wir werden den Befehl <i>app.contribute</i> verwenden, um Ihr Profil einzureichen.",
+                "updated": 1640082340841
             }
         ]
     },
@@ -29,13 +39,35 @@
                     "text": "Copia el comando reemplazando el marcador de posición con tu nombre de usuario de Github, pégualo en el cuadro de búsqueda y clic en Enter.",
                     "updated": 1630899305591,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте команду, убедившись, что вы заменили заполнитель своим именем пользователя Github, вставьте его в поле поиска и нажмите Enter.",
+                    "updated": 1639053625713
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie den Befehl und ersetzen Sie den Platzhalter durch Ihren Github-Benutzernamen, fügen Sie ihn in das Suchfeld ein und klicken Sie auf Enter.",
+                    "updated": 1640082358682
                 }
             ]
         },
         {
             "style": "Json",
             "text": "app.contribute User Profile [add your name]",
-            "updated": 1630751329550
+            "updated": 1630751329550,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "app.contribute User Profile [добавьте ваше имя профиля]",
+                    "updated": 1639053676246
+                },
+                {
+                    "language": "DE",
+                    "text": "app.contribute User Profile [fügen Sie hier Ihren Github-Benutzer-Namen ein]",
+                    "updated": 1640082452038
+                }
+            ]
         },
         {
             "style": "Text",
@@ -47,6 +79,16 @@
                     "text": "Si todo está configurado correctamente, deberías ver un mensaje que indica que se ha enviado tu solicitud de extracción. ¡Esto significa que su perfil ha sido enviado al repositorio principal de Superalgos y se fusionará automáticamente en solo unos minutos!",
                     "updated": 1630899224657,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если все настроено правильно, вы должны увидеть сообщение о том, что ваш запрос на перенос был отправлен. Это означает, что ваш профиль был отправлен в основной репозиторий Superalgos и будет автоматически объединен в течение нескольких часов!",
+                    "updated": 1639053703579
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alles korrekt eingerichtet ist, sollten Sie eine Nachricht sehen, die besagt, dass Ihr Pull Request eingereicht wurde. Dies bedeutet, dass Ihr Profil an das Haupt-Repository von Superalgos gesendet wurde und innerhalb weniger Stunden automatisch zusammengeführt wird!",
+                    "updated": 1640082370088
                 }
             ]
         },

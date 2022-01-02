@@ -42,7 +42,7 @@
             }
             /* 
             We will store all session keys on a map so as to be able to send an event to all 
-            of them when the task stops. 
+            of them when the task stops.
             */
             TS.projects.foundations.globals.taskVariables.SESSION_MAP.set(
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY,
@@ -512,6 +512,7 @@
             }
 
             function startBackTesting(message) {
+                
                 return true
             }
 

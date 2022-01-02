@@ -1,7 +1,15 @@
 {
     "type": "Trading Session Reference",
     "definition": {
-        "text": "A session reference establishes which session is the one which shall store data in the current location."
+        "text": "A trading session reference establishes which instance of a trading system will be the one that stores data in the current location.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Ссылка Trading Session Reference устанавливает, какой сеанс является тем, который должен хранить данные в текущем местоположении.",
+                "updated": 1639150240437
+            }
+        ],
+        "updated": 1639773244161
     },
     "paragraphs": [
         {
@@ -10,7 +18,15 @@
         },
         {
             "style": "Text",
-            "text": "A such, the session reference node must establish a reference with a trading session. Also, its offspring nodes determine precisely which data products are stored."
+            "text": "A such, the trading session reference node must establish a reference with a trading session. Also, its offspring nodes determine precisely which data products are stored.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Таким образом, узел ссылки на сеанс должен установить ссылку с торговым сеансом. Кроме того, его дочерние узлы точно определяют, какие продукты данных там хранятся.",
+                    "updated": 1639150748127
+                }
+            ],
+            "updated": 1639773263550
         }
     ]
 }

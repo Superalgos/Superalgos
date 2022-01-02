@@ -1,7 +1,7 @@
 {
     "type": "Limit Buy Order",
     "definition": {
-        "text": "A limit buy order is an instruction sent to the exchange to buy the base asset, for execution at a specific rate or better.",
+        "text": "A limit order is an order to buy or sell a security at a specific price or better. A buy limit order can only be executed at the limit price or lower, and a sell limit order can only be executed at the limit price or higher.",
         "translations": [
             {
                 "language": "ES",
@@ -13,8 +13,19 @@
                 "language": "DE",
                 "text": "Ein limit buy order ist eine an die Börse gesendete Anweisung zum Kauf des Basiswertes, die zu einem bestimmten Kurs oder besser ausgeführt werden soll.\n",
                 "updated": 1634876555681
+            },
+            {
+                "language": "RU",
+                "text": "Limit Buy Order - это ордер на покупку или продажу биржевого актива по определенной цене или выше. Лимитный ордер на покупку может быть исполнен только по предельной цене или ниже, а лимитный ордер на продажу может быть исполнен только по предельной цене или выше.",
+                "updated": 1639842196612
+            },
+            {
+                "language": "TR",
+                "text": "Limit emri, bir menkul kıymeti belirli bir fiyattan veya daha iyi bir fiyattan almak veya satmak için verilen bir emirdir. Bir limit alış emri sadece limit fiyat veya daha düşük bir fiyattan gerçekleştirilebilir ve bir satış limit emri sadece limit fiyat veya daha yüksek bir fiyattan gerçekleştirilebilir.",
+                "updated": 1639222048680
             }
-        ]
+        ],
+        "updated": 1636987695057
     },
     "paragraphs": [
         {
@@ -23,33 +34,82 @@
         },
         {
             "style": "Text",
-            "text": "Traders usually use limit orders when the priority is the rate of execution over the certainty of execution. Limit orders are much more efficient than market orders in terms of rate, particularly for larger sizes which&mdash;when executed as market orders&mdash;may suffer considerable slippage filled as fast as possible with the order book of the particular instant."
+            "text": "Traders usually use limit orders when the priority is the rate of execution over the certainty of execution. Limit orders are much more efficient than market orders in terms of rate, particularly for larger sizes which&mdash;when executed as market orders&mdash;may suffer considerable slippage filled as fast as possible with the order book of the particular instant.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Трейдеры обычно используют лимитные ордера, когда приоритетом является ставка исполнения, а не уверенность в исполнении. Лимитные ордера гораздо более эффективны, чем рыночные, с точки зрения ставки, особенно для больших размеров, которые - при исполнении в виде рыночных ордеров - могут иметь значительное проскальзывание, заполняясь настолько быстро, насколько это возможно в книге ордеров в данный момент.",
+                    "updated": 1639842406477
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also, many exchanges regard limit orders as market makers, that is, orders that bring liquidity to the market, and, therefore, may charge relatively better fees."
+            "text": "Also, many exchanges regard limit orders as market makers, that is, orders that bring liquidity to the market, and, therefore, may charge relatively better fees.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, многие биржи рассматривают лимитные ордера как маркет-мейкеров, то есть ордера, которые приносят ликвидность на рынок, и поэтому могут взимать относительно более низкие комиссии.",
+                    "updated": 1639842451676
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Limit Order Rate",
-            "updated": 1609608564902
+            "updated": 1609608564902,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ставка лимитного ордера",
+                    "updated": 1639842468503
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos users must define the rate at wish they wish the order to be filled. The exchange is responsible for not filling the order unless it can match it with bids/asks at the rate set by the user, or at a better rate."
+            "text": "Superalgos users must define the rate at wish they wish the order to be filled. The exchange is responsible for not filling the order unless it can match it with bids/asks at the rate set by the user, or at a better rate.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи Superalgos должны определить курс, по которому они хотят, чтобы ордер был исполнен. Биржа отвечает за то, чтобы не исполнять ордер, если она не может подобрать к нему предложение/спрос по курсу, установленному пользователем, или по лучшему курсу.",
+                    "updated": 1639842588551
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Small discrepancies between the actual rate and the order rate are to be expected, as not all exchanges handle decimals and other conversions involving, for example, fees, in the same manner."
+            "text": "Small discrepancies between the actual rate and the order rate are to be expected, as not all exchanges handle decimals and other conversions involving, for example, fees, in the same manner.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Следует ожидать небольших расхождений между фактическим курсом и курсом ордера, поскольку не все биржи одинаково обрабатывают десятичные дроби и другие преобразования, включающие, например, комиссионные сборы.",
+                    "updated": 1639842634235
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Limit orders must define a rate using the appropriate child node, otherwise, the target rate defined as an initial target is used. If no rate is defined at all, the system stops with an error upon execution. The configuration of the order deals with the size. "
+            "text": "Limit orders must define a rate using the appropriate child node, otherwise, the target rate defined as an initial target is used. If no rate is defined at all, the system stops with an error upon execution. The configuration of the order deals with the size. ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Лимитные ордера должны определять ставку с помощью соответствующего дочернего узла, в противном случае используется целевая ставка, определенная в качестве начальной цели. Если ставка вообще не определена, система останавливается с ошибкой при исполнении. Конфигурация ордера касается размера.",
+                    "updated": 1639842819434
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Please read the definition of Market Buy Order for relevant information about how orders in general work, in particular, the sections about Order Size, Filling, Closing, and Spawning Multiple Orders.",
-            "updated": 1609608913403
+            "updated": 1609608913403,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте определение Market Buy Order для получения соответствующей информации о том, как работают ордера в целом, в частности, разделы о размере ордера, заполнении, закрытии и порождении нескольких ордеров.",
+                    "updated": 1639842873954
+                }
+            ]
         },
         {
             "style": "Block",
@@ -58,20 +118,48 @@
         {
             "style": "Title",
             "text": "Limit Buy Order Configuration",
-            "updated": 1609608503478
+            "updated": 1609608503478,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Limit Buy Order",
+                    "updated": 1639842887749
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609608513384
+            "updated": 1609608513384,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639842897413
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного ордера. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
+                    "updated": 1639842921867
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
+                    "updated": 1639842931643
+                }
+            ]
         }
     ]
 }

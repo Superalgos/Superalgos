@@ -4,7 +4,19 @@
     "type": "Design Space Hierarchy",
     "definition": {
         "text": "Use this hierarchy to control the look, feel, and behavior of the Design Space.",
-        "updated": 1610039508226
+        "updated": 1610039508226,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте эту иерархию для управления внешним видом, ощущениями и поведением Design Space.",
+                "updated": 1638381607881
+            },
+            {
+                "language": "EL",
+                "text": "Χρησιμοποιήστε αυτήν την ιεραρχία για να ελέγξετε την εμφάνιση, την αίσθηση και τη συμπεριφορά του Χώρου Σχεδίασης.",
+                "updated": 1639092458446
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -30,7 +42,14 @@
         {
             "style": "Title",
             "text": "Space Style",
-            "updated": 1610038698256
+            "updated": 1610038698256,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Στυλ Χώρου",
+                    "updated": 1639092835221
+                }
+            ]
         },
         {
             "style": "Include",
@@ -39,7 +58,14 @@
         {
             "style": "Title",
             "text": "Space Settings",
-            "updated": 1610038707204
+            "updated": 1610038707204,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Ρυθμίσεις Χώρου",
+                    "updated": 1639092905448
+                }
+            ]
         },
         {
             "style": "Include",

@@ -2,7 +2,14 @@
     "type": "User Supporter",
     "definition": {
         "text": "A User Supporter node must establish a reference with the User Profile of your supporter. If you have more than one supporter, add more nodes! This is how you establish who your supporters are.",
-        "updated": 1630232791200
+        "updated": 1630232791200,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел User Supporter должен установить ссылку на профиль пользователя вашего помощника. Если у вас более одного помощника, добавьте больше узлов! Так вы выясняете, кто ваши помощники.",
+                "updated": 1639128606836
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,7 +20,14 @@
         {
             "style": "Warning",
             "text": "Declaring at least one User Supporter is a requirement to participate in the program. If you fail to declare at least one, you don't qualify for Tokens Bonus incentives.",
-            "updated": 1630232813838
+            "updated": 1630232813838,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для участия в программе необходимо указать хотя бы одного User Supporter. Если вы не заявите хотя бы один, вы не имеете права на получение бонусов Tokens Bonus.",
+                    "updated": 1639128683648
+                }
+            ]
         },
         {
             "style": "Block",
@@ -21,7 +35,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639128693711
+                }
+            ]
         }
     ]
 }

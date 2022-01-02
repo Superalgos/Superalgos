@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Trading Bot 'u, Limit Satın Alma Emri'ni ( Limit Buy Order ) dördüncü destek seviyesine yerleştirir! Bunun arkasındaki mantık nedir?",
                 "updated": 1636206183071
+            },
+            {
+                "language": "RU",
+                "text": "Вы поняли? Trading Bot размещает Limit Buy Order на четвертом уровне поддержки! Какая логика стоит за этим? ",
+                "updated": 1637755292494
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Bu biraz keyfi bir durumdur, ancak strateji, düşen bıçağı (fiyatın ani düşüşünü), tek bir dakika içinde en az üç destek seviyesini aşabilen ve dördüncü seviyeye ulaşabilen fiyat hareketi olarak tanımlar. İstatistiksel olarak, bu tür olaylar - bu zaman çerçevesinde - sürekli daha fazla sıçrama üretir. Emir defterindeki alış/satış farkını geçici olarak artıran büyük piyasa emirlerinden kaynaklanabilirler.",
                     "updated": 1636206270568
+                },
+                {
+                    "language": "RU",
+                    "text": "Это происходит произвольно, но стратегия определяет падающий нож как ценовое действие, способное пробить, по крайней мере, три уровня поддержки, и добраться до четвертого в течение одной минуты. По статистике, подобные явления - в этот период времени - производят больше отскоков, чем продолжений. Они могут быть вызваны крупными рыночными ордерами, которые временно увеличивают спрос/предложение в книге заказов.",
+                    "updated": 1637755586430
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Satın alma siparişlerinin dördüncü destek seviyesinde verildiğini doğrulamak için bir dakikanızı ayırın!",
                     "updated": 1636206291919
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте минуту, чтобы убедиться, что заказы на покупку размещены на четвертом уровне поддержки!",
+                    "updated": 1637755660080
                 }
             ]
         }

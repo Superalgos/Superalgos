@@ -4,27 +4,67 @@
     "type": "App Error - Update Failed",
     "definition": {
         "text": "There was a problem trying to update the Client. Check the console for errors and make sure your GitHub.com credentials are correct.",
-        "updated": 1611129344277
+        "updated": 1611129344277,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es gab ein Problem beim aktualisieren ihres client`s. Überprüfen sie die Konsole nach error-Meldungen und vergewissern sie sich, das ihre Github.com credentials korrekt sind.",
+                "updated": 1637772440444
+            },
+            {
+                "language": "RU",
+                "text": "Возникла проблема при попытке обновления клиента Client. Проверьте консоль на наличие ошибок и убедитесь, что ваши учетные данные GitHub.com верны.",
+                "updated": 1640235675711
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Check for the following section for details on what may have happened. After you fix the issue, you may try again.",
-            "updated": 1611152967185
+            "updated": 1611152967185,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте в следующем разделе подробную информацию о том, что могло произойти. После устранения проблемы вы можете повторить попытку.",
+                    "updated": 1640235693442
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Error Info",
-            "updated": 1611154641024
+            "updated": 1611154641024,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Информация об ошибке",
+                    "updated": 1640235703447
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the following section, you will find the information recorded when the error occurred."
+            "text": "In the following section, you will find the information recorded when the error occurred.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
+                    "updated": 1640235769275
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "You will only see the information if you opened this page as a result of the error actually occurring.",
-            "updated": 1611151375974
+            "updated": 1611151375974,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактической ошибки.",
+                    "updated": 1640235808864
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -33,7 +73,14 @@
         {
             "style": "Text",
             "text": "The following is the Error Message of the Exception that occurred at the Client:",
-            "updated": 1611151299633
+            "updated": 1611151299633,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведено сообщение об ошибке исключения, произошедшего на клиенте:",
+                    "updated": 1640235844652
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -46,7 +93,14 @@
         {
             "style": "Text",
             "text": "The following is the Error Stack of the Exception that occurred at the Client:",
-            "updated": 1611151427220
+            "updated": 1611151427220,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен стек ошибок исключения, произошедшего на клиенте:",
+                    "updated": 1640235857685
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -59,7 +113,14 @@
         {
             "style": "Text",
             "text": "The following is the Error Code of the Exception that occurred at the Client:",
-            "updated": 1611151443562
+            "updated": 1611151443562,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведен код ошибки исключения, возникшего у клиента:",
+                    "updated": 1640235869591
+                }
+            ]
         },
         {
             "style": "Placeholder",
@@ -71,7 +132,14 @@
         },
         {
             "style": "Text",
-            "text": "The following are all the Error details of the Exception that occurred at the Client:"
+            "text": "The following are all the Error details of the Exception that occurred at the Client:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены все детали ошибки исключения, возникшей у клиента:",
+                    "updated": 1640235916516
+                }
+            ]
         },
         {
             "style": "Placeholder",

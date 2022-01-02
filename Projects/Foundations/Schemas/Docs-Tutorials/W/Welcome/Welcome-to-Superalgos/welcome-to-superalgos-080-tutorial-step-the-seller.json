@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Artık Kapanış Aşamasındayız ( Close Stage ). Size yürütme algoritmaları hakkında başka bir örnekle daha fazla bilgi vermenin ilginç olacağını düşündüm.",
                 "updated": 1636208526405
+            },
+            {
+                "language": "RU",
+                "text": "Сейчас мы находимся на Close Stage. Я думал, что было бы интересно рассказать Вам больше об алгоритмах выполнения на другом примере.",
+                "updated": 1637757485185
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Bir Yürütme Algoritması ( Execution Algorithm ), her türden birden fazla siparişi işleyebilir. Bu durumda çoklu limit satış emirleri tanımlanır.",
                     "updated": 1636208571976
+                },
+                {
+                    "language": "RU",
+                    "text": "Execution Algorithm может обрабатывать множество ордеров всех типов. В этом случае определяется множество лимитных ордеров на продажу.",
+                    "updated": 1637757731866
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Algoritmanın menüsünde Yapılandır'ı (Configure) seçin ve bu tanımın sonuçlarını düşünün!",
                     "updated": 1636208699352
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню алгоритма и подумайте над значением этого определения!",
+                    "updated": 1637757772068
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Hem nasıl pozisyon alınacağını tanımladığınız açık aşama hem de nasıl çıkılacağını tanımladığınız kapalı aşama, her biri belirli bir miktarda sermayeyi işleyen birden fazla yürütme algoritması içerebilir.",
                     "updated": 1636208733018
+                },
+                {
+                    "language": "RU",
+                    "text": "Как на этапе открытия, где Вы определяете как открыть позицию, так и на этапе закрытия - как выйти, может быть множество алгоритмов выполнения, каждый из которых обрабатывает определенное количество капитала.",
+                    "updated": 1637757971911
                 }
             ]
         }

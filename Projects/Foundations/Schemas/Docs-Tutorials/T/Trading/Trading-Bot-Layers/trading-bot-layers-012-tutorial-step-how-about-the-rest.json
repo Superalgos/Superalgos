@@ -4,7 +4,7 @@
     "type": "Tutorial Step - How About the Rest?",
     "definition": {
         "icon": {
-            "name": "trading-episode",
+            "name": "Trading/trading-episode",
             "project": "Foundations"
         },
         "text": "Now, why don't the nodes further to the left show their values too? Say, Exit Type, Status, End Rate, Begin Rate, and so on?",
@@ -14,6 +14,11 @@
                 "text": "Nun, warum zeigen die Knoten weiter links nicht auch ihre Werte an? Zum Beispiel Exit Type, Status, End Rate, Begin Rate, und so weiter?",
                 "updated": 1623012850714,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, почему бы узлам, расположенным дальше слева, тоже не показывать свои значения? Скажем, тип выхода (Exit Type), статус (Status), конечная ставка (End Rate), начальная ставка (Begin Rate) и так далее?",
+                "updated": 1640546181925
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Ändern wir das!",
                     "updated": 1623012862833,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поменяем это!",
+                    "updated": 1640546203339
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Blätter im Trading Engine Layer Manager, bis du den Layer Current Episode findest. Schalte sie ein!",
                     "updated": 1623012960646,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутите менеджер слоев торгового движка, пока не найдете слой \"Current Episode\". Включите его!",
+                    "updated": 1640546264989
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Nun fahre wieder mit deinem Mauszeiger... et voilà!",
                     "updated": 1623013012511,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь снова проведите указателем мыши... и вуаля!",
+                    "updated": 1640546290110
                 }
             ]
         },
@@ -65,6 +85,11 @@
                     "text": "Durch das Ein- und Ausschalten von Layern schaltest du die Fähigkeit des Systems ein und aus, die Werte auf verschiedenen Abschnitten der Hierarchie der Trading Engine zu melden!",
                     "updated": 1623013079166,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Включая и выключая слои, вы включаете и выключаете способность системы сообщать значения на разных участках иерархии Trading Engine!",
+                    "updated": 1640546309831
                 }
             ]
         }

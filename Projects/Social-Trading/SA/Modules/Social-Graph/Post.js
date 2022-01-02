@@ -25,10 +25,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         timestamp: undefined,
         /* Signal Related Properties */
         signalType: undefined,
-        signalData: undefined,        
+        signalData: undefined,
         /* Maps */
         replies: undefined,
         reactions: undefined,
+        reactionsByProfile: undefined,
         /* Reaction Functions */
         addReaction: addReaction,
         removeReactions: removeReaction,
@@ -37,22 +38,12 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         finalize: finalize
     }
 
-    thisObject.replies = new Map()
-
-    thisObject.reactions = new Map()
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LIKE, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LOVE, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_HAHA, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_WOW, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_SAD, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
-
     return thisObject
 
     function finalize() {
         thisObject.replies = undefined
         thisObject.reactions = undefined
+        thisObject.reactionsByProfile = undefined
     }
 
     function initialize(
@@ -67,7 +58,24 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         signalType,
         signalData
     ) {
+        /*
+        Maps Initialization
+        */
+        thisObject.replies = new Map()
 
+        thisObject.reactions = new Map()
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LIKE, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LOVE, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_HAHA, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_WOW, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_SAD, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
+
+        thisObject.reactionsByProfile = new Map()
+        /*
+        Assimilating Parameters
+        */
         thisObject.emitterUserProfileId = emitterUserProfileId
         thisObject.targetUserProfileId = targetUserProfileId
         thisObject.emitterBotProfileId = emitterBotProfileId
@@ -77,7 +85,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.postType = postType
         thisObject.timestamp = timestamp
         thisObject.signalType = signalType
-        thisObject.signalData = signalData        
+        thisObject.signalData = signalData
         /*
         Let's find the Target Post
         */
@@ -89,7 +97,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             /*
             Validate Target User Profile.
             */
-            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }
@@ -110,7 +118,14 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         }
     }
 
-    function addReaction(reactionType) {
+    function addReaction(reactionType, profileId) {
+        /*
+        Remember who reacted
+        */
+        thisObject.reactionsByProfile.set(profileId, reactionType)
+        /*
+        Increase Counter
+        */
         let reactionCount = thisObject.reactions.get(reactionType)
 
         if (reactionCount === undefined) {
@@ -120,7 +135,14 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.reactions.set(reactionType, reactionCount + 1)
     }
 
-    function removeReaction(reactionType) {
+    function removeReaction(reactionType, profileId) {
+        /*
+        Forget who reacted
+        */
+        thisObject.reactionsByProfile.delete(profileId)
+        /*
+        Decrease Counter
+        */
         let reactionCount = thisObject.reactions.get(reactionType)
 
         if (reactionCount === undefined) {

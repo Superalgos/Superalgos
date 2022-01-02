@@ -7,20 +7,68 @@
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "When complex trading logic is split into multiple strategies, you gain the opportunity to manage the resulting trades differently!"
+        "text": "When complex trading logic is split into multiple strategies, you gain the opportunity to manage the resulting trades differently!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn komplexe Handelslogik in mehrere Strategien aufgeteilt wird, haben Sie die Möglichkeit, die daraus resultierenden Trades unterschiedlich zu verwalten!",
+                "updated": 1639148239837
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Karmaşık işlem mantığını birden fazla stratejiye böldüğünüzde, ortaya çıkan işlemleri farklı şekilde yönetme fırsatı elde edersiniz!",
+                "updated": 1640782750024
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We haven't yet got into how strategies are defined, but you do know that Superalgos allows managing the take profit and stop loss targets..."
+            "text": "We haven't yet got into how strategies are defined, but you do know that Superalgos allows managing the take profit and stop loss targets...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir sind noch nicht darauf eingegangen, wie Strategien definiert werden, aber Sie wissen, dass Superalgos die Verwaltung von Take Profit- und Stop Loss-Zielen ermöglicht...",
+                    "updated": 1639148246835
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejilerin nasıl tanımlandıklarına henüz girmedik, ancak Superalgos'un kar al (take profit) ve zararı durdur'u (stop loss) yönetmeye izin verdiğini biliyorsunuz...",
+                    "updated": 1640782959600
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Each strategy in a trading system may have its own logic for managing positions!"
+            "text": "Each strategy in a trading system may have its own logic for managing positions!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jede Strategie in einem Trading System kann ihre eigene Logik zur Verwaltung der Positionen haben!",
+                    "updated": 1639148259702
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemindeki her stratejinin pozisyonları yönetmek için kendi mantığı olabilir!",
+                    "updated": 1640782988636
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you handle multiple variations of the same logic for example, to take a position, then you will likely need to handle multiple variations for managing the position. It is easier and cleaner to do both on separate strategies."
+            "text": "If you handle multiple variations of the same logic for example, to take a position, then you will likely need to handle multiple variations for managing the position. It is easier and cleaner to do both on separate strategies.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mehrere Variationen der gleichen Logik verwenden, z.B. um eine Position zu übernehmen, dann müssen Sie wahrscheinlich auch mehrere Variationen für die Verwaltung der Position verwenden. Es ist einfacher und sauberer, beides in separaten Strategien zu tun.",
+                    "updated": 1639148274175
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin bir pozisyon almak için aynı mantığın birden fazla varyasyonunu ele alıyorsanız, pozisyonu yönetmek için muhtemelen birden fazla varyasyonu ele almanız gerekecektir. Her ikisini de ayrı stratejilerde yapmak daha kolay ve daha temizdir.",
+                    "updated": 1640783017126
+                }
+            ]
         }
     ]
 }

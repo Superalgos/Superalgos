@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El base asset es el asset cuyo precio lo determina el mercado. Por lo general, es el primer activo del par, según lo enumerado por el intercambio.",
                 "updated": 1628034596123
+            },
+            {
+                "language": "RU",
+                "text": "Base Asset - это актив, цена которого определяется рынком. Обычно это первый актив в паре, указанный биржей.",
+                "updated": 1639142116737
             }
         ]
     },
@@ -17,7 +22,14 @@
         },
         {
             "style": "Text",
-            "text": "Among other things, the parameter allows defining an initial balance of the corresponding asset, which may be used for trading with the corresponding trading system and trading session. Please see the configuration."
+            "text": "Among other things, the parameter allows defining an initial balance of the corresponding asset, which may be used for trading with the corresponding trading system and trading session. Please see the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помимо прочего, параметр позволяет определить начальный баланс соответствующего актива, который может использоваться для торговли с соответствующей торговой системой и торговой сессией. Пожалуйста, посмотрите конфигурацию.",
+                    "updated": 1639142160372
+                }
+            ]
         },
         {
             "style": "Block",
@@ -26,24 +38,59 @@
         {
             "style": "Title",
             "text": "Session Base Asset Configuration",
-            "updated": 1609674870532
+            "updated": 1609674870532,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Session Base Asset",
+                    "updated": 1639142188720
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609674879122
+            "updated": 1609674879122,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639142196966
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "initialBalance is the amount of capital you wish to allocate to the trading system."
+            "text": "initialBalance is the amount of capital you wish to allocate to the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialBalance - это сумма капитала, которую вы хотите выделить торговой системе.",
+                    "updated": 1639142210735
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "minimumBalance is the threshold of accummulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the minimumBalance as a general safety switch."
+            "text": "minimumBalance is the threshold of accummulated losses that switches off the session; when your overall balance (balanceAssetA + balanceAssetB) drops to this value, all trading stops; think of the minimumBalance as a general safety switch.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "minimumBalance - минимальный баланс, при котором сессия отключается; когда ваш общий баланс (balanceAssetA + balanceAssetB) упадет до этого значения, вся торговля остановится; думайте о минимальном балансе как об общем предохранительном выключателе.",
+                    "updated": 1639142302553
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "maximumBalance is a similar concept as with the minimumBalance but on the high side of the initialBalance."
+            "text": "maximumBalance is a similar concept as with the minimumBalance but on the high side of the initialBalance.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "maximumBalance - это концепция, аналогичная минимальному балансу, но на стороне выше начального баланса.",
+                    "updated": 1639142396245
+                }
+            ]
         }
     ]
 }

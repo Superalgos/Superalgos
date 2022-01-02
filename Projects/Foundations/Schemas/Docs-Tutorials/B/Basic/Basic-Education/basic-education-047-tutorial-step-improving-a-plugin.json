@@ -27,6 +27,11 @@
                 "text": "Zum zweiten Szenario: Nehmen wir an, Sie testen den EMA-Indikator, haben einen Fehler gefunden und wissen, wie man ihn beheben kann. Sie beabsichtigen, den Fehler zu beheben, damit alle davon profitieren!",
                 "updated": 1634589198766,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "İkinci senaryo şudur: Diyelim ki EMA göstergesini test ediyorsunuz, bir hata buldunuz ve nasıl düzeltileceğini biliyorsunuz. Herkesin bundan faydalanabilmesi için düzeltmeye katkıda bulunmayı düşünüyorsunuz!",
+                "updated": 1639818513811
             }
         ]
     },
@@ -53,6 +58,11 @@
                     "text": "Dieser Indicator Bot ist Teil der Sparta Data Mine, die normalerweise als Plugin in einigen Plugin-Workspaces enthalten ist. Um das Plugin aus der UI Benutzeroberfläche heraus zu modifizieren und die Änderungen zu speichern, haben Sie zwei Möglichkeiten:",
                     "updated": 1634589206307,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Indıcator Bot 'u, Sparta Veri Madeni'nin ( Data Mine ) bir parçasıdır. Eklentiyi kullanıcı arayüzünden ( UI ) değiştirmek ve değişiklikleri kaydetmek için iki seçeneğiniz vardır:",
+                    "updated": 1639818618736
                 }
             ]
         },
@@ -65,12 +75,17 @@
                     "language": "DE",
                     "text": "Gehen Sie zu dem entsprechenden Plugin File in der Plugins-Hierarchie und wählen Sie im Menü die Option Enable Saving With Workspace. Jetzt wird die Plugin-Datei jedes Mal aktualisiert, wenn Sie den Arbeitsbereich speichern, um die von Ihnen vorgenommenen Änderungen zu berücksichtigen!",
                     "updated": 1634819321377
+                },
+                {
+                    "language": "TR",
+                    "text": "Plugin hiyerarşisinde ilgili Plugin Dosyasına gidin ve menüden \"Enable Saving With Workspace\"seçeneğini seçin. Artık eklenti dosyası, çalışma alanını her kaydettiğinizde, yapmış olabileceğiniz değişiklikleri içerecek şekilde güncellenir!",
+                    "updated": 1639818782919
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Or use the Save Plugin option to manually save the plugin file whenever you wish to!",
+            "text": "Or use the Save Plugin File option to manually save the plugin file whenever you wish to!",
             "updated": 1629909705348,
             "translations": [
                 {
@@ -78,6 +93,11 @@
                     "text": "Oder verwenden Sie die Option \"Plugin speichern\", um die Plugin-Datei manuell zu speichern, wann immer Sie es wünschen!",
                     "updated": 1634589217431,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Veya eklenti dosyasını istediğiniz zaman manuel olarak kaydetmek için \"Save Plugin File\" seçeneğini kullanın!",
+                    "updated": 1639818865475
                 }
             ]
         }

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Es war nicht möglich, Ihre Änderungen zu speichern.",
                 "updated": 1633898126101
+            },
+            {
+                "language": "RU",
+                "text": "Не удалось сохранить изменения.",
+                "updated": 1638530091545
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Bitte prüfen Sie in der Client Konsole, ob Fehler protokolliert wurden. Sie können auch die Browser-Konsole überprüfen",
                     "updated": 1633898296285
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, проверьте клиентскую консоль Client Console, чтобы увидеть, есть ли зарегистрированные ошибки. Вы также можете проверить консоль браузера Browser Console.",
+                    "updated": 1638530147092
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633898306181
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638530164486
                 }
             ]
         },

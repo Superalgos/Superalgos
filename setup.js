@@ -4,6 +4,12 @@ const process = require("process");
 const { exec } = require("child_process");
 const systemCheck = require('./Launch-Scripts/system-check')
 const platform = require('os').platform();  // Possible values are: 'aix', 'darwin', 'freebsd', 'linux', 'openbsd', 'sunos', and 'win32'.
+const https = require("https");
+const externalScriptsDir = path.join(process.cwd(), "Platform", "WebServer", "externalScripts");
+const externalScripts = [
+    "https://code.jquery.com/jquery-3.6.0.js",
+    "https://code.jquery.com/ui/1.13.0/jquery-ui.js"
+];
 
 // Check system is set up correctly 
 systemCheck();
@@ -23,7 +29,7 @@ if (process.argv.includes("noShortcuts")) {
         console.log('')
         console.log(err)
         console.log('')
-
+        process.exit(1)
     }
 }
 
@@ -89,7 +95,7 @@ for (let dir of nodeModulesDirs) {
                     console.log("There was an error installing some dependencies error: ");
                     console.log('');
                     console.log( error );
-                    return;
+                    process.exit(1)
                 }
                 console.log('');
                 console.log( stdout );
@@ -113,7 +119,7 @@ exec( command,
             if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
                 tfjsWinInstall();
             }
-            return;
+            process.exit(1)
         }
         console.log('');
         console.log( stdout );
@@ -137,3 +143,23 @@ function tfjsWinInstall() {
     console.log("Doing this will cause a pop-up script in a new window which will install many npm/node tools and dependencies for use within the WinOS ecosystem.");
     console.log("2.) When the installations finally complete you need to navigate back to your Superalgos directory and run `node setup` again.\n");
 }
+
+// Donload external scripts
+console.log("");
+console.log("Downloading external scripts …");
+console.log("");
+
+for (let url of externalScripts) {
+    const filename = url.split("/").pop();
+    const dest = path.join(externalScriptsDir, filename);
+    https.get(url, response => {
+        if (response.statusCode !== 200) {
+            console.error(`Error downloading ${url}: HTTP response code ${response.statusCode}.`);
+            return;
+        }
+        const writeStream = fs.createWriteStream(dest);
+        response.pipe(writeStream);
+        writeStream.on("error", () => console.error("Error writing to " + path.resolve(dest)));
+        writeStream.on("finish", () => writeStream.close());
+    });
+};

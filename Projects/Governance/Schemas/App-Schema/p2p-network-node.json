@@ -11,6 +11,16 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableStorage",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Available Storage",
+            "relatedUiObject": "Available Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },  
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -30,8 +40,22 @@
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Signing Account->"
+        "compatibleTypes": "->P2P Network Nodes->"
     },
-    "childrenNodesProperties": [],
-    "propertyNameAtParent": "signingAccountChild"
+    "childrenNodesProperties": [
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        },
+        {
+            "name": "availableStorage",
+            "type": "node",
+            "childType": "Available Storage",
+            "actionProject": "Foundations",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "p2pNetworkNodes"
 }

@@ -3,18 +3,39 @@
     "pageNumber": "18",
     "type": "Problems With Computer Time",
     "definition": {
-        "text": "Some exchanges force the computer that is running your bot to be highly synchronized with their servers, and to achieve that you need that machine's time to keep itself syncronized with an Internet Time Server.",
-        "updated": 1622140103759
+        "text": "Some exchanges force the computer that is running your bot to be highly synchronized with their servers, and to achieve that you need that machine's time to keep itself synchronized with an Internet Time Server.",
+        "updated": 1622140103759,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Некоторые биржи заставляют компьютер, на котором запущен ваш бот, быть строго синхронизированным с их серверами, и для этого вам нужно, чтобы время на этом компьютере синхронизировалось с сервером времени в интернете.",
+                "updated": 1640542919725
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "How to identify this problem?",
-            "updated": 1622140152661
+            "updated": 1622140152661,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как распознать эту проблему?",
+                    "updated": 1640542935353
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you receive an error like this, you are having this type of problem:"
+            "text": "If you receive an error like this, you are having this type of problem:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы получите ошибку, подобную этой, у вас проблема такого типа:",
+                    "updated": 1640542958794
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -24,20 +45,48 @@
         {
             "style": "Title",
             "text": "How to solve this problem?",
-            "updated": 1622140378812
+            "updated": 1622140378812,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как решить эту проблему?",
+                    "updated": 1640542972361
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You can use the server time.nist.gov that has proven to work in this situation. Look for the place at your OS where you can change the Internet Time Settings and use that server there."
+            "text": "You can use the server time.nist.gov that has proven to work in this situation. Look for the place at your OS where you can change the Internet Time Settings and use that server there.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать сервер time.nist.gov, который хорошо зарекомендовал себя в этой ситуации. Найдите в вашей ОС место, где можно изменить настройки времени через интернет, и используйте этот сервер там.",
+                    "updated": 1640543022681
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Docker Users"
+            "text": "Docker Users",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи Docker",
+                    "updated": 1640543030616
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Sometimes Docker might not be in sync even though the underlying OS it is. To fix this, you can run this command, which will force Docker to restart and wsl to pickup the correct time from the OS.",
-            "updated": 1622140496709
+            "updated": 1622140496709,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иногда Docker может быть не синхронизирован, хотя в базовой ОС он синхронизирован. Чтобы исправить это, вы можете выполнить эту команду, которая заставит Docker перезагрузиться, а wsl - получить правильное время из ОС.",
+                    "updated": 1640543051123
+                }
+            ]
         },
         {
             "style": "Javascript",

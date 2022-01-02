@@ -7,21 +7,69 @@
             "project": "Foundations",
             "name": "play"
         },
-        "text": "That's all folks! We've covered it all! Now it's time to go out and play! Have fun!"
+        "text": "That's all folks! We've covered it all! Now it's time to go out and play! Have fun!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das war's, Leute! Wir haben alles besprochen! Jetzt ist es an der Zeit, rauszugehen und zu spielen! Habt Spaß!",
+                "updated": 1639146094367
+            },
+            {
+                "language": "RU",
+                "text": "Вот и все, друзья! Мы рассказали обо всем! Теперь пора выходить и поиграть! Развлекайтесь!",
+                "updated": 1640631960463
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Take some time to explore these layers, paying special attention to those you feel will be of the most use."
+            "text": "Take some time to explore these layers, paying special attention to those you feel will be of the most use.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich etwas Zeit, um diese Ebenen zu erkunden, und achten Sie dabei besonders auf die Ebenen, die Ihnen am nützlichsten erscheinen.",
+                    "updated": 1639146111430
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте некоторое время на изучение этих слоев, уделяя особое внимание тем, которые, по вашему мнению, будут наиболее полезны.",
+                    "updated": 1640631979135
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "The Trading Bot Layers are a fundamental tool when designing, testing, and debugging strategies! You will learn more about them and put them to good use in the tutorials that teach you how to build Trading Systems, available in the Trading System Design Tutorials Plugin Workspace.",
-            "updated": 1617185406035
+            "updated": 1617185406035,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Trading Bot Ebenen sind ein grundlegendes Werkzeug beim Entwerfen, Testen und Debuggen von Strategien! In den Tutorials zum Aufbau von Trading Systemen, die Sie im Trading System Design Tutorials Plugin Workspace finden, erfahren Sie mehr über sie und können sie sinnvoll einsetzen.",
+                    "updated": 1639146193374
+                },
+                {
+                    "language": "RU",
+                    "text": "Слои торгового бота - это фундаментальный инструмент при разработке, тестировании и отладке стратегий! Вы узнаете больше о них и сможете применить их на практике в учебниках, обучающих созданию торговых систем, доступных в рабочем пространстве Trading System Design Tutorials Plugin Workspace.",
+                    "updated": 1640632103029
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Drop by the documentation for more info!"
+            "text": "Drop by the documentation for more info!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie in der Dokumentation nach, um mehr zu erfahren!",
+                    "updated": 1639146184287
+                },
+                {
+                    "language": "RU",
+                    "text": "Загляните в документацию для получения дополнительной информации!",
+                    "updated": 1640632113660
+                }
+            ]
         }
     ]
 }

@@ -13,7 +13,21 @@
     <link rel="stylesheet" href="context-menu.css" type="text/css" charset="utf-8"/>
     <link rel="stylesheet" href="font-awasome.css" type="text/css"/>
     <link rel="stylesheet" href="prism.css" type="text/css"/>
+    <link rel="stylesheet" href="menu.css" type="text/css"/>
     <link rel="shortcut icon" type="image/png/ico" href="Images/favicon.ico"/>
+    <script src="externalScripts/jquery-3.6.0.js"></script>
+    <script src="externalScripts/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#tutorialDiv").draggable({ containment: "document", scroll: false, cancel: ".tutorial-content-div",
+            start: function (event, ui) {
+                $(this).css("cursor", "grabbing");
+            },
+            stop: function (event, ui) {
+                $(this).css("cursor", "grab");
+            } });
+        });
+    </script> 
     <script type="text/javascript" src="WebServer/require.js"></script>
     <script type="text/javascript" src="AppPreLoader.js"></script>
     <script src="externalScripts/CCapture.all.min.js"></script>
@@ -21,8 +35,13 @@
     <script src="externalScripts/flexsearch.bundle.js"></script>
     <script src="externalScripts/popper.min.js"></script>
     <script src="externalScripts/tippy-bundle.umd.min.js"></script>
+    <!-- Load wallet connector -->
+    <script type="text/javascript" src="externalScripts/web3.min.js"></script>
+    <script type="text/javascript" src="externalScripts/WC_index.min.js"></script>
+    <script type="text/javascript" src="externalScripts/qrcodeModal.min.js"></script>
 
     <script type="text/javascript" src="externalScripts/monaco/vs/loader.js"></script>
+
     <script>
         require.config({paths: {'vs': 'externalScripts/monaco/vs'}});
     </script>
@@ -42,6 +61,17 @@
             try {
                 drawSplashText()
                 loadSuperalgos()
+                if (window.api !== undefined) {
+                    window.api.receive('fromMaster', (data) => {
+                        if (data.newUser) {
+                            UI.projects.workspaces.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(data.newUser[0], data.newUser[1])
+                        } else if (data.submit) {
+                            UI.projects.governance.spaces.reportsSpace.commandInterface.command = data.submit[0]
+                            UI.projects.governance.spaces.reportsSpace.commandInterface.detectCommands()
+                            //const element = document.getElementsByClassName("governance-filter-input")[0]
+                        }
+                    })
+                }
             } catch (err) {
                 console.log("[ERROR] UI can not be started. Please check that WebServer is running.", err);
             }
@@ -66,6 +96,13 @@
 
         function drawSplashText() {
             const splashTextArray = [
+                {
+                    "splashTextLine1Html": '<span class="credits-red">Every month, the project distributes 10M SA tokens with an approximate market value of $500,000 among contributors. </span>'
+                    ,
+                    "splashTextLine2Html": 'The October 2021 distribution counted around 50 contributors, with an average mining reward of $10,000 each. Contributing to Superalgos today is like mining Bitcoin in 2010! Ask Community Mods how to join a team to participate in the next distribution!'
+                    ,
+                    "splashTextLine3Html": ''
+                } /*,
                 {
                     "splashTextLine1Html": '<span class="credits-red">Superalgos is open source, forever free for everyone, and is constantly improving thanks to the involvement of contributors!</span>'
                     ,
@@ -107,7 +144,7 @@
                     "splashTextLine2Html": 'Look around, find something that is missing and start coding! If you need help, ask in the chat groups to find a mentor!'
                     ,
                     "splashTextLine3Html": 'Follow our motto: Just code it!'
-                }
+                } */
             ]
 
             let arrayIndex = Math.trunc(Math.random() * splashTextArray.length)
@@ -151,33 +188,34 @@
 <div id="inputDiv" style="font-family:saira condensed;">&nbsp;</div>
 
 <!-- Tutorial Template Divs -->
-<div id="tutorialDiv" class="tutorial-step" style="position:fixed; top:100000px; left:100000px;"></div>
-<div id="tutorialFormDiv" class="tutorial-form" style="position:fixed; top:100000px; left:100000px;">
-    <form>
-        <table class="tutorial-buttonsTable">
-            <tr>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-stop-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.stop()"
-                           value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
-                </td>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-skip-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.skip()"
-                           value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
-                </td>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-previous-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
-                </td>
-                <td align="center">
-                    <label class="tutorial-font-small tutorial-next-button"
-                           onclick="UI.projects.education.spaces.tutorialSpace.next()"
-                           value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
-                </td>
-            </tr>
-        </table>
-    </form>
+<div id="tutorialDiv" class="tutorial-step" style="width:400; height:675; z-index:1; display:none">
+    <div id="tutorialFormDiv" class="tutorial-form">
+        <form>
+            <table class="tutorial-buttonsTable">
+                <tr>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-stop-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.stop()"
+                            value="">&nbsp;&nbsp;Stop&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-skip-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.skip()"
+                            value="">&nbsp;&nbsp;Skip&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-previous-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.previous()" value="">Previous</label>
+                    </td>
+                    <td align="center">
+                        <label class="tutorial-font-small tutorial-next-button"
+                            onclick="UI.projects.education.spaces.tutorialSpace.next()"
+                            value="">&nbsp;&nbsp;Next&nbsp;&nbsp;&nbsp;</label>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
 
 <div id="menu" class="docs-menu-table">
@@ -274,7 +312,6 @@
         </div>
     </div>
 </div>
-
+<div id="topMenu"></div>
 </body>
-
 </html>

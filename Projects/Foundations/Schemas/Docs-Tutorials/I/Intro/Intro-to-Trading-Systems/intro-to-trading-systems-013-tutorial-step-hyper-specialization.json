@@ -7,20 +7,68 @@
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "Specialization is a very interesting concept that may lead to designing more efficient trading systems!"
+        "text": "Specialization is a very interesting concept that may lead to designing more efficient trading systems!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Spezialisierung ist ein sehr interessantes Konzept, das zur Entwicklung effizienterer Handelssysteme führen kann!",
+                "updated": 1639148192010
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Uzmanlık, daha verimli ticaret sistemleri tasarlamaya yol açabilecek çok ilginç bir kavramdır!",
+                "updated": 1640782402866
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "It is a well-known fact that most strategies perform better on certain market conditions."
+            "text": "It is a well-known fact that most strategies perform better on certain market conditions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es ist eine bekannte Tatsache, dass die meisten Strategien unter bestimmten Marktbedingungen besser funktionieren.",
+                    "updated": 1639148200807
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu stratejinin belirli piyasa koşullarında daha iyi performans gösterdiği bilinen bir gerçektir.",
+                    "updated": 1640782429429
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Like with BB Top Bounce, a single trading system may feature multiple strategies, each specializing in specific trends, volatility ranges, or any other market parameter."
+            "text": "Like with BB Top Bounce, a single trading system may feature multiple strategies, each specializing in specific trends, volatility ranges, or any other market parameter.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie bei BB Top Bounce kann ein einziges Handelssystem mehrere Strategien enthalten, die jeweils auf bestimmte Trends, Volatilitätsbereiche oder andere Marktparameter spezialisiert sind.",
+                    "updated": 1639148210238
+                },
+                {
+                    "language": "TR",
+                    "text": "BB Top Bounce'da olduğu gibi, tek bir ticaret sistemi, her biri belirli eğilimler, oynaklık aralıkları veya başka herhangi bir piyasa parametresi konusunda uzmanlaşmış birden fazla stratejiye sahip olabilir.",
+                    "updated": 1640782461681
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Instead of designing a strategy to evaluate a range of market conditions, keep them focused!"
+            "text": "Instead of designing a strategy to evaluate a range of market conditions, keep them focused!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Entwickeln Sie eine Strategie nicht, um eine Reihe von Marktbedingungen zu bewerten, sondern konzentrieren Sie sich auf diese!",
+                    "updated": 1639148217709
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bir dizi piyasa koşulunu değerlendirmek için bir strateji tasarlamak yerine, odaklanmalarını sağlayın!",
+                    "updated": 1640782482786
+                }
+            ]
         }
     ]
 }

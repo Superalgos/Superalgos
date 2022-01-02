@@ -4,7 +4,14 @@
     "type": "Common Metrics - Hits, Fails, Hit Ratio, Profit Loss, ROI, Annualized Rate of Return",
     "definition": {
         "text": "These metrics are available in different contexts, for instance, at the level of the Episode, the Position or the Position, and both for the base and quoted assets.",
-        "updated": 1611333971023
+        "updated": 1611333971023,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Эти показатели доступны в различных контекстах, например, на уровне Episode или Position, причем как для базовых, так и для котируемых активов.",
+                "updated": 1640347853331
+            }
+        ]
     },
     "paragraphs": [
         {

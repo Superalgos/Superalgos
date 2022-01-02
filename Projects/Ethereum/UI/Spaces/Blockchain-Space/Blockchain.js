@@ -49,9 +49,9 @@ function newEthereumBlockchainSpace() {
 
         async function checkStatus() {
             try {
-                if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+                if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
 
-                let blockchain = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Ethereum Blockchain')
+                let blockchain = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Ethereum Blockchain')
                 if (blockchain === undefined) { return }
                 for (let i = 0; i < blockchain.blockchainNetworks.length; i++) {
                     let blockchainNetwork = blockchain.blockchainNetworks[i]

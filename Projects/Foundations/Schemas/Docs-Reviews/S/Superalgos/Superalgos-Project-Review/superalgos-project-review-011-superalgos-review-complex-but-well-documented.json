@@ -4,13 +4,27 @@
     "type": "Superalgos Review - Complex but Well Documented",
     "definition": {
         "text": "Superalgos is quite complex and challenging for a beginner, but the built in tutorials help ease some of the difficulty getting started.",
-        "updated": 1619353795599
+        "updated": 1619353795599,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos довольно сложный и трудный для новичка, но встроенные учебники помогают облегчить некоторые трудности в начале работы.",
+                "updated": 1640411852956
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "I look forward to learning more about this software.",
-            "updated": 1619353876272
+            "updated": 1619353876272,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я с нетерпением жду возможности узнать больше об этом программном обеспечении.",
+                    "updated": 1640411870591
+                }
+            ]
         }
     ]
 }

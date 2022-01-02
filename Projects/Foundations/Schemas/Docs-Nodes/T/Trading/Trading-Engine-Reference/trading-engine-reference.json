@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Un trading engine reference  determina cual trading engine del trading bot utilizará para estructurar los datos que procesa mientras ejecuta el trading session.",
                 "updated": 1628035017172
+            },
+            {
+                "language": "RU",
+                "text": "Ссылка Trading Engine Reference определяет, какой торговый механизм будет использовать торговый бот для структурирования данных, которые он обрабатывает во время торговой сессии.",
+                "updated": 1639141820714
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret motoru referansı, ticaret botunun ticaret oturumunu çalıştırırken işlediği verileri yapılandırmak için hangi ticaret motorunu kullanacağını belirler.",
+                "updated": 1639486388156
             }
         ]
     },
@@ -17,7 +27,14 @@
         },
         {
             "style": "Text",
-            "text": "In other words, the trading engine reference lets the process instance know which data structure to use to store information related to the trading session. This means that a workspace may have more than one trading engine."
+            "text": "In other words, the trading engine reference lets the process instance know which data structure to use to store information related to the trading session. This means that a workspace may have more than one trading engine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, ссылка на торговый движок позволяет экземпляру процесса знать, какую структуру данных использовать для хранения информации, относящейся к торговой сессии. Это означает, что в рабочем пространстве может быть более одного торгового движка.",
+                    "updated": 1639141864835
+                }
+            ]
         }
     ]
 }

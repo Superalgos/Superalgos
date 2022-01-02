@@ -7,16 +7,52 @@
             "name": "Tutorial\\tutorial",
             "project": "Foundations"
         },
-        "text": "The tutorial to the right is the next in the series about designing trading systems. Shall we keep going?"
+        "text": "The tutorial to the right is the next in the series about designing trading systems. Shall we keep going?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das Tutorial auf der rechten Seite ist das nächste in der Reihe über die Entwicklung von Trading Systemen. Sollen wir weitermachen?",
+                "updated": 1639253799245
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sağdaki öğretici, ticaret sistemleri tasarlamakla ilgili serinin bir sonraki öğreticisi. Devam elim mi?\n",
+                "updated": 1640953504830
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The next tutorial in the series is about implementing the ideas we just came up with on a Trading System so that they may be tested."
+            "text": "The next tutorial in the series is about implementing the ideas we just came up with on a Trading System so that they may be tested.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Tutorial der Serie geht es darum, die Ideen, die wir gerade entwickelt haben, in einem Trading System umzusetzen, um sie zu testen.",
+                    "updated": 1639253809021
+                },
+                {
+                    "language": "TR",
+                    "text": "Serideki bir sonraki öğretici, test edilebilmesi için yeni bulduğumuz fikirleri bir Ticaret Sisteminde ( Trading System ) uygulamakla ilgilidir.",
+                    "updated": 1640953541935
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!"
+            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Next\", um dieses Tutorial zu beenden, und wählen Sie \"Play\" im nächsten Tutorial, wenn Sie bereit sind!",
+                    "updated": 1639253837290
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu öğreticiyi bitirmek için İleri'ye tıklayın ve hazır olduğunuzda bir sonraki öğreticide Oynat'ı seçin!",
+                    "updated": 1640953581708
+                }
+            ]
         }
     ]
 }

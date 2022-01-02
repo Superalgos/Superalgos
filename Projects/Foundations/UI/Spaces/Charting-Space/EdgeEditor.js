@@ -22,6 +22,7 @@ function newEdgeEditor() {
 
     thisObject.container.isDraggeable = true
     thisObject.container.isClickeable = false
+    thisObject.container.isDoubleClickable = true
     thisObject.container.isWheelable = false
     thisObject.container.detectMouseOver = true
 
@@ -58,14 +59,13 @@ function newEdgeEditor() {
         height: 0
     }
 
-    let doubleClickCounter = 0
-
     return thisObject
 
     function finalize() {
         thisObject.container.eventHandler.stopListening(onMouseOverEventSubscriptionId)
         thisObject.container.eventHandler.stopListening(onMouseNotOverEventSubscriptionId)
         thisObject.container.eventHandler.stopListening(onDragStartedEventSubscriptionId)
+        thisObject.container.eventHandler.stopListening(onDoubleClickEventSubscriptionId)
 
         thisObject.container.finalize()
         thisObject.container = undefined
@@ -89,6 +89,7 @@ function newEdgeEditor() {
         onMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
         onMouseNotOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseNotOver', onMouseNotOver)
         onDragStartedEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDragStarted', onDragStarted)
+        onDoubleClickEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onDoubleClick', onDoubleClick)
     }
 
     function onMouseOver(event) {
@@ -117,7 +118,6 @@ function newEdgeEditor() {
     }
 
     function onDoubleClick(event) {
-        doubleClickCounter = 0
         if (UI.projects.foundations.spaces.chartingSpace.viewport.zoomLevel === UI.projects.foundations.globals.zoom.DOUBLE_CLICK_ZOOM_OUT_LEVEL) {
             UI.projects.foundations.spaces.chartingSpace.viewport.displaceToContainer(thisObject.container.parentContainer)
             UI.projects.foundations.spaces.chartingSpace.viewport.zoomAtCenter(UI.projects.foundations.globals.zoom.DOUBLE_CLICK_ZOOM_IN_LEVEL)
@@ -130,15 +130,6 @@ function newEdgeEditor() {
     }
 
     function onDragStarted(event) {
-        if (event.buttons === 1) {
-            if (doubleClickCounter > 0) {
-                onDoubleClick(event)
-                return
-            } else {
-                doubleClickCounter = 50
-            }
-        }
-
         mouseWhenDragStarted = {
             position: {
                 x: event.x,
@@ -274,20 +265,15 @@ function newEdgeEditor() {
                 case GET_CONTAINER_PURPOSE.DRAGGING:
                     return thisObject.container
                     break
+                case GET_CONTAINER_PURPOSE.DOUBLE_CLICK:
+                    return thisObject.container
+                    break
             }
         }
     }
 
     function physics() {
         draggingPhysics()
-        doubleClickPhysics()
-    }
-
-    function doubleClickPhysics() {
-        doubleClickCounter--
-        if (doubleClickCounter < 0) {
-            doubleClickCounter = 0
-        }
     }
 
     function draggingPhysics() {

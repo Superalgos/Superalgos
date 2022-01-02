@@ -7,8 +7,10 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         host: undefined,
         port: undefined,
         callerRole: undefined,
+        p2pNetworkInterface: undefined,
         p2pNetworkNode: undefined,
-        p2pNetworkIdentity: undefined,
+        p2pNetworkClientIdentity: undefined,
+        p2pNetworkClientCodeName: undefined,
         onConnectionClosedCallBack: undefined,
         sendMessage: sendMessage,
         initialize: initialize,
@@ -30,7 +32,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.port = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
-        thisObject.p2pNetworkIdentity = undefined
+        thisObject.p2pNetworkInterface = undefined
+        thisObject.p2pNetworkClientIdentity = undefined
         thisObject.onConnectionClosedCallBack = undefined
 
         web3 = undefined
@@ -38,24 +41,26 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkIdentity, p2pNetworkNode, onConnectionClosedCallBack) {
+    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode, p2pNetworkInterface, onConnectionClosedCallBack) {
 
         thisObject.callerRole = callerRole
-        thisObject.p2pNetworkIdentity = p2pNetworkIdentity
+        thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
+        thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
+        thisObject.p2pNetworkInterface = p2pNetworkInterface
         thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
         web3 = new SA.nodeModules.web3()
 
         thisObject.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
 
-        thisObject.host = JSON.parse(thisObject.p2pNetworkNode.node.config).host
-        thisObject.port = JSON.parse(thisObject.p2pNetworkNode.node.config).webSocketsPort
+        thisObject.host = thisObject.p2pNetworkNode.node.config.host
+        thisObject.port = thisObject.p2pNetworkNode.node.config.webSocketsPort
 
         thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebSocketClient()
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.isConnected = true
     }
 
@@ -100,9 +105,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             let message = {
                                 messageType: 'Handshake',
                                 callerRole: thisObject.callerRole,
-                                callerProfileHandle: SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle,
+                                callerProfileHandle: SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle,
                                 callerTimestamp: callerTimestamp,
-                                callerNode: JSON.stringify(thisObject.p2pNetworkIdentity.node),
                                 step: 'One'
                             }
                             thisObject.socket.send(JSON.stringify(message))
@@ -132,7 +136,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             the one we have on record for the user profile of the Network Node we are calling.
                             */
                             if (called.blockchainAccount !== thisObject.p2pNetworkNode.blockchainAccount) {
-                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Blockchain Account.')
                                 reject()
                                 return
                             }
@@ -153,7 +157,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
                             */
-                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.userProfileHandle) {
+                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
@@ -162,7 +166,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the profile handle we sent to the Network Node, is returned at the
                             signed message, to avoid man in the middle attacks.
                             */
-                            if (signedMessage.callerProfileHandle !== SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle) {
+                            if (signedMessage.callerProfileHandle !== SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node callerProfileHandle does not match my own userProfileHandle.')
                                 reject()
                                 return
@@ -192,7 +196,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             */
                             thisObject.socket.onmessage = socketMessage => { stepTwoResponse(socketMessage) }
 
-                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).privateKey)
+                            let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.signingAccountSecrets.map.get(thisObject.p2pNetworkClientCodeName).privateKey)
 
                             let message = {
                                 messageType: 'Handshake',
@@ -223,7 +227,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)
@@ -306,21 +310,38 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             /*
             The message received is a not response to a message sent.
             That means that is a notification received from the Network Node
-            of an event that happened at some other Client of the Network.
+            of an event or signal that happened at some other Client of the Network.
 
-            This can only happen when this module is running at an APP like the Desktop App.
+            This can only happen when this module is running at an APP like 
+            the Desktop App, Server App, Platform App, or Task Server App.
             */
-            let event
-            try {
-                event = JSON.parse(message.eventMessage)
-            } catch (err) {
-                console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
-                console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
-                thisObject.socket.close()
+            if (message.eventMessage !== undefined) {
+                let eventMessage
+                try {
+                    eventMessage = JSON.parse(message.eventMessage)
+                } catch (err) {
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
+                    thisObject.socket.close()
+                    return
+                }
+                thisObject.p2pNetworkInterface.eventReceived(eventMessage)
                 return
             }
 
-            DK.desktopApp.p2pNetworkInterface.eventReceived(event)
+            if (message.signal !== undefined) {
+                let signal
+                try {
+                    signal = JSON.parse(message.signal)
+                } catch (err) {
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
+                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
+                    thisObject.socket.close()
+                    return
+                }
+                thisObject.p2pNetworkInterface.signalReceived(signal)
+                return
+            }            
         }
     }
 }

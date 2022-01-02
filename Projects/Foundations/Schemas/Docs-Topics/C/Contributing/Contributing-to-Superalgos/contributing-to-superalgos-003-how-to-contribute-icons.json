@@ -3,14 +3,19 @@
     "pageNumber": 3,
     "type": "How to Contribute Icons",
     "definition": {
-        "text": "Superalgos' visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
-        "updated": 1613590520324,
+        "text": "Superalgos visual interface features hundreds of icons and many more icons are required with each release, as new functionality is rolled out. Designing icons is a great way to leave your mark, as it puts your work directly in front of every user!",
+        "updated": 1638485927150,
         "translations": [
             {
                 "language": "DE",
                 "text": "Die visuelle Schnittstelle von Superalgos enthält Hunderte von Icons, und mit jeder neuen Version werden viele weitere Icons benötigt, da neue Funktionen eingeführt werden. Das Entwerfen von Icons ist eine großartige Möglichkeit, Ihre Spuren zu hinterlassen, da Sie Ihre Arbeit jedem Benutzer direkt vor Augen führen können!",
                 "updated": 1634068601269,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Визуальный интерфейс Superalgos включает в себя сотни иконок, и с каждым релизом требуется все больше и больше иконок по мере развертывания новой функциональности. Разработка иконок - это отличный способ оставить свой след, ведь благодаря этому ваша работа оказывается прямо перед глазами каждого пользователя!",
+                "updated": 1640263639080
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "text": "Zuordnung",
                     "updated": 1634038894914,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Указание авторства",
+                    "updated": 1640263686377
                 }
             ]
         },
@@ -42,13 +52,18 @@
                     "text": "Der ursprüngliche Icon-Satz ist ein Webdesign-Paket von Freepik und ist verfügbar unter:",
                     "updated": 1634038855754,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Оригинальный набор иконок - это пакет для веб-дизайна, созданный Freepik и доступный по адресу:",
+                    "updated": 1640263708283
                 }
             ]
         },
         {
             "style": "Link",
-            "text": "flaticon.com->https://www.flaticon.com/packs/web-design-10?k=1596385749125",
-            "updated": 1613590565452
+            "text": "flaticon.com->www.flaticon.com/packs/web-design-10?k=1596385749125",
+            "updated": 1638484886093
         },
         {
             "style": "Text",
@@ -59,6 +74,11 @@
                     "text": "Der Rest der Serie orientiert sich an dem für die ursprüngliche Serie entwickelten Designstil.",
                     "updated": 1634038873222,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Остальные части серии выполнены в стиле дизайна, разработанного для оригинального набора.",
+                    "updated": 1640263726880
                 }
             ]
         },
@@ -72,6 +92,11 @@
                     "text": "Die Urheberschaft eines jeden Symbols, das nicht in der Originalserie enthalten ist, kann in der Historie des Repositorys nachverfolgt werden.",
                     "updated": 1634038880155,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Авторство каждого значка, не входящего в оригинальную серию, можно отследить в истории хранилища.",
+                    "updated": 1640263755346
                 }
             ]
         },
@@ -85,6 +110,11 @@
                     "text": "Koordinierung",
                     "updated": 1634038908706,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Согласование",
+                    "updated": 1640263774299
                 }
             ]
         },
@@ -98,6 +128,11 @@
                     "text": "Treten Sie der folgenden Gruppe bei, um die Arbeiten zu koordinieren:",
                     "updated": 1634039014215,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Присоединяйтесь к следующей группе для согласования работ:",
+                    "updated": 1640263798266
                 }
             ]
         },
@@ -116,6 +151,11 @@
                     "text": "Bitte stellen Sie sich vor und machen Sie sich mit der Gruppe vertraut, die derzeit an der Arbeit ist. Die wichtigste Koordinierungsaufgabe besteht darin, den Überblick darüber zu behalten, wer welchen Teil der anstehenden Arbeiten blockieren wird, damit wir keine Doppelarbeit leisten.",
                     "updated": 1634039021445,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, представьтесь и познакомьтесь с группой, которая в настоящее время выполняет эту работу. Основная координационная задача - отслеживать, кто и какую часть работы будет выполнять, чтобы мы не дублировали друг друга.",
+                    "updated": 1640263862673
                 }
             ]
         },
@@ -129,6 +169,11 @@
                     "text": "Design Briefing",
                     "updated": 1634039116341,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Краткое описание дизайна",
+                    "updated": 1640263878408
                 }
             ]
         },
@@ -141,6 +186,11 @@
                     "text": "Farbpalette",
                     "updated": 1634039166618,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Цветовая палитра",
+                    "updated": 1640263899277
                 }
             ]
         },
@@ -154,6 +204,11 @@
                     "text": "Wir verwenden eine begrenzte Palette mit einer spielerischen Auswahl von Farben, die sowohl auf schwarzem Hintergrund - im Design Space - als auch auf weißem Hintergrund - in den Dokumenten und im Charting Space - gut funktionieren.",
                     "updated": 1634039205517,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы используем ограниченную палитру, с забавным набором цветов, которые хорошо работают как на черном фоне - в Design Space - так и на белом фоне - в Docs и Charting Space.",
+                    "updated": 1640263956388
                 }
             ]
         },
@@ -172,6 +227,11 @@
                     "text": "Erscheinungsbild und Gefühl",
                     "updated": 1634039241859,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Внешний вид и ощущения",
+                    "updated": 1640263978149
                 }
             ]
         },
@@ -184,6 +244,11 @@
                     "text": "Superalgos ist ein großes und ziemlich komplexes System, das sich an alle Arten von Nutzerprofilen richtet. Das ultimative Ziel des Projekts ist es, die Nutzung des Systems zu verbreiten. Daher sollte Superalgos für eine breite Nutzerbasis zugänglich sein: von professionellen Händlern bis hin zu Krypto-Besitzern und allem dazwischen.",
                     "updated": 1634039263684,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это большая и довольно сложная система, ориентированная на всевозможные профили пользователей. Конечной целью проекта является массовое использование системы, поэтому Superalgos должен быть доступен широкому кругу пользователей: от профессиональных трейдеров до держателей криптовалют и всего, что между ними.",
+                    "updated": 1640264007186
                 }
             ]
         },
@@ -196,6 +261,11 @@
                     "text": "Die Wahl eines spielerischen Erscheinungsbildes entspricht der zugrundeliegenden Strategie zur Erreichung der Massifizierung: die Benutzererfahrung soll spielerisch sein, in dem Sinne, dass die Entwicklung profitabler Handelsstrategien zu einem Strategiespiel an und für sich werden kann.",
                     "updated": 1634039267322,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выбор игривого внешнего вида и ощущения соответствует основной стратегии достижения массовости: геймифицировать пользовательский интерфейс, в том смысле, что построение прибыльных торговых стратегий может быть превращено в стратегическую игру саму по себе.",
+                    "updated": 1640264071908
                 }
             ]
         },
@@ -208,6 +278,11 @@
                     "text": "Wir haben uns dafür entschieden, von realistischen oder unternehmerischen Stilen abzuweichen und uns stattdessen auf cartoonartige, fröhliche und lebendige Ideen zu stützen.",
                     "updated": 1634039275640,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы предпочитаем отходить от реалистичных или корпоративных стилей и склоняемся к карикатурным, радостным и энергичным идеям.",
+                    "updated": 1640264094634
                 }
             ]
         },
@@ -220,6 +295,11 @@
                     "text": "Was wir mögen",
                     "updated": 1634039295838,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что нам нравится",
+                    "updated": 1640264111403
                 }
             ]
         },
@@ -233,6 +313,11 @@
                     "text": "Nachfolgend finden Sie Beispiele für Icons, die uns aus dem vorhandenen Stapel gefallen.",
                     "updated": 1634039318570,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Ниже приведены примеры иконок, которые нам понравились из существующей партии.",
+                    "updated": 1640264126112
                 }
             ]
         },
@@ -370,6 +455,11 @@
                     "text": "Bildliche Icons",
                     "updated": 1634039499153,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Символические иконки",
+                    "updated": 1640264200562
                 }
             ]
         },
@@ -382,6 +472,11 @@
                     "text": "Manchmal kann die Beziehung zwischen der Zeichnung und dem dargestellten Konzept figurativ sein, z. B. wenn das Symbol eine alternative Interpretation des Wortes illustriert:",
                     "updated": 1634039503471,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Иногда связь между рисунком и представляемым понятием может быть образной, например, когда пиктограмма иллюстрирует альтернативное толкование слова:",
+                    "updated": 1640264223467
                 }
             ]
         },
@@ -440,6 +535,11 @@
                     "text": "Design-Tipps",
                     "updated": 1634039550249,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Советы по оформлению",
+                    "updated": 1640264247074
                 }
             ]
         },
@@ -452,6 +552,11 @@
                     "text": "Mehrere Designtricks machen den Charakter der Iconsammlung aus. Je mehr dieser Tricks Sie in Ihren Kreationen verwenden, desto besser werden sie sich in den Rest integrieren und bei den Nutzern ankommen.",
                     "updated": 1634039592247,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Несколько дизайнерских приемов составляют характер коллекции иконок. Чем больше этих приемов вы используете в своих творениях, тем лучше они будут сочетаться с остальными и находить положительный отклик со стороны пользователей.",
+                    "updated": 1640264357608
                 }
             ]
         },
@@ -464,6 +569,11 @@
                     "text": "Aufgeteilte Farben",
                     "updated": 1634039600471,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделенные цвета",
+                    "updated": 1640264376352
                 }
             ]
         },
@@ -476,6 +586,11 @@
                     "text": "Ein stilistisches Mittel, das wir bevorzugen und das dazu beiträgt, der Komposition Tiefe und Reichtum zu verleihen, ist die Teilung der Zeichnung in zwei Hälften, wobei jede Hälfte eine leichte Farbverschiebung erfährt und benachbarte Farben der Palette auf jeder Hälfte verwendet werden:",
                     "updated": 1634039657943,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Стилистический ресурс, который мы предпочитаем и который помогает создать глубину и богатство композиции, - это разделение рисунка пополам, придание каждой половине небольшого смещения цвета, использование соседних цветов в палитре на каждой половине:",
+                    "updated": 1640264407078
                 }
             ]
         },
@@ -534,6 +649,11 @@
                     "text": "Nicht-realistische Proportionen",
                     "updated": 1634039802256,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нереалистичные пропорции",
+                    "updated": 1640264425866
                 }
             ]
         },
@@ -546,6 +666,11 @@
                     "text": "Das ist eines der Merkmale des Cartoon-Looks und - Erscheinungsbild:",
                     "updated": 1634039807183,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Это одна из характеристик мультяшного вида и восприятия:",
+                    "updated": 1640264469387
                 }
             ]
         },
@@ -567,6 +692,11 @@
                     "text": "Abgerundete Ecken",
                     "updated": 1634039869418,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Закругленные углы",
+                    "updated": 1640264482948
                 }
             ]
         },
@@ -579,6 +709,11 @@
                     "text": "Wiederum ein weiteres typisches Merkmal:",
                     "updated": 1634039873152,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Опять же, еще одна характерная особенность:",
+                    "updated": 1640264523273
                 }
             ]
         },
@@ -600,6 +735,11 @@
                     "text": "Besonderheiten",
                     "updated": 1634039983062,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Изюминки",
+                    "updated": 1640264615961
                 }
             ]
         },
@@ -612,6 +752,11 @@
                     "text": "Gelegentlich kann eine einfache Zeichnung mit einem spielerischen Lichteffekt verschönert werden, der Licht in die Kreation bringt. Beachten Sie, wie eine ansonsten flache Zeichnung durch den einfachen Lichtreflexionseffekt auf der rechten Seite zum Leben erweckt wird.",
                     "updated": 1634039987174,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Иногда простой рисунок может быть украшен игривым эффектом выделения, который привносит свет в творение. Обратите внимание, как плоский рисунок оживает благодаря простому эффекту отражения света справа.",
+                    "updated": 1640264576371
                 }
             ]
         },
@@ -626,7 +771,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "Cutouts"
+            "text": "Cutouts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вырезы",
+                    "updated": 1640264790607
+                }
+            ]
         },
         {
             "style": "Text",
@@ -637,6 +789,11 @@
                     "text": "Wenn mehrere Elemente übereinander liegen, kann die Zeichnung an Klarheit verlieren, wahrscheinlich aufgrund der eingeschränkten Farbpalette. In solchen Fällen kann ein Ausschnitt auf dem Hintergrundobjekt, der einen leichten Abstand zum Vordergrundobjekt schafft, cool aussehen und die visuelle Interpretation unterstützen. Beachten Sie den 20 pts breiten Ausschnitt um den roten Pfeil.",
                     "updated": 1634040052783,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда несколько элементов накладываются друг на друга, рисунок может потерять четкость, возможно, из-за ограниченной цветовой палитры. В таких случаях вырез на фоновом объекте, создающий небольшое разделение с объектом переднего плана, может выглядеть круто и помочь визуальному восприятию. Обратите внимание на вырез шириной 20 пт вокруг красной стрелки.",
+                    "updated": 1640264780872
                 }
             ]
         },
@@ -659,6 +816,11 @@
                     "text": "Detailgenauigkeit",
                     "updated": 1634040092150,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Уровень детализации",
+                    "updated": 1640264838094
                 }
             ]
         },
@@ -672,6 +834,11 @@
                     "text": "Es ist wichtig zu beachten, dass Icons auch in kleinen Größen gut funktionieren müssen. Zu viele Details können zu Verzerrungen und Artefakten führen, wenn das Symbol verkleinert wird.",
                     "updated": 1634040128172,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Важно отметить, что пиктограммы должны хорошо работать при использовании в небольших размерах. Слишком высокая детализация может привести к появлению искажений и артефактов при уменьшении размера значка.",
+                    "updated": 1640264928478
                 }
             ]
         },
@@ -684,6 +851,11 @@
                     "text": "Als Faustregel gilt: Versuchen Sie, Linien oder Formen zu vermeiden, die in der ursprünglichen Komposition kleiner als 20 pt sind.",
                     "updated": 1634040146706,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Как правило, старайтесь избегать линий или фигур размером менее 20 pt в оригинальной композиции.",
+                    "updated": 1640264948166
                 }
             ]
         },
@@ -697,6 +869,11 @@
                     "text": "Vollformat und zentriert",
                     "updated": 1634040188101,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Полный размер и центрирование",
+                    "updated": 1640264959659
                 }
             ]
         },
@@ -709,6 +886,11 @@
                     "text": "Im Idealfall nehmen die Symbole die gesamte Leinwand ein, entweder in der horizontalen oder vertikalen Dimension oder in beiden. Von Ausnahmen abgesehen, ist dies eine Voraussetzung, da jede Abweichung von diesem Standard sehr auffällig ist.",
                     "updated": 1634040195591,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "В идеале иконки занимают весь холст либо в горизонтальном, либо в вертикальном измерении, либо в обоих. За исключением случаев, когда это является обязательным требованием, так как любое отклонение от этого стандарта довольно заметно.",
+                    "updated": 1640265012098
                 }
             ]
         },
@@ -721,6 +903,11 @@
                     "text": "Technische Anforderungen",
                     "updated": 1634040232305,
                     "style": "Title"
+                },
+                {
+                    "language": "RU",
+                    "text": "Технические требования",
+                    "updated": 1640265023889
                 }
             ]
         },
@@ -733,8 +920,14 @@
                     "text": "Die Icons werden als Vektoren im SVG-Format erstellt und verwaltet, werden aber im System und in der Dokumentation - den beiden derzeitigen Hauptanwendungsfällen - aus technischen Gründen als Rasterbilder im PNG-Format verwendet.",
                     "updated": 1634040237516,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Иконки создаются и поддерживаются в векторном виде, в формате SVG, но по техническим причинам используются в системе и документации - два основных случая использования - как растровые изображения в формате PNG.",
+                    "updated": 1640265067793
                 }
-            ]
+            ],
+            "updated": 1638486054822
         },
         {
             "style": "Important",
@@ -745,6 +938,11 @@
                     "text": "Sie müssen beide Datei-Arten bereitstellen.",
                     "updated": 1634040271424,
                     "style": "Important"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны предоставить оба типа файлов.",
+                    "updated": 1640265080751
                 }
             ]
         },
@@ -757,6 +955,11 @@
                     "text": "Vektor-Quelldateien",
                     "updated": 1634040310912,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Исходные файлы векторов",
+                    "updated": 1640265100019
                 }
             ]
         },
@@ -770,6 +973,11 @@
                     "text": "| Kriterium| Details |\n| Format | SVG |\n| Breite| 512 pt |\n| Höhe | 512 pt |\n| Erweiterung| svg (Kleinbuchstaben) |",
                     "updated": 1634040349756,
                     "style": "Table"
+                },
+                {
+                    "language": "RU",
+                    "text": "| Criterion | Details |\n| Format | SVG |\n| Width | 512 pt |\n| Height | 512 pt |\n| Extension | svg (строчными) |",
+                    "updated": 1640265140726
                 }
             ]
         },
@@ -783,6 +991,11 @@
                     "text": "Fügen Sie Vektordateien in den Ordner Icons-SVG-Sources unter dem entsprechenden Projekt hinzu.",
                     "updated": 1634040381912,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Добавьте векторные файлы в папку Icons-SVG-Sources в соответствующем проекте.",
+                    "updated": 1640265177252
                 }
             ]
         },
@@ -796,6 +1009,11 @@
                     "text": "Im Fall des Superalgos-Projekts sind die SVG-Quelldateien in Unterordnern organisiert, die sich im folgenden Verzeichnis befinden:",
                     "updated": 1634040421592,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае проекта Superalgos исходные файлы SVG организованы во вложенных папках в следующем каталоге:",
+                    "updated": 1640265198656
                 }
             ]
         },
@@ -814,6 +1032,11 @@
                     "text": "| Ordner | Beschreibung  |\n| assets | An Börsen gelistete Assets |\n| color-palette | Eine Referenzfarbpalette |\n| docs-menu | Optionen im floating-Docs-Menü |\n| exchanges | Crypto-Börsen |\n| flags | Runde Flaggen zur Identifizierung von Sprachen |\n| layers | Typen von Layern, die in einem Layer Manager dargestellt werden |\n| menu | Die Optionen im Menü der Knoten |\n| mouse | Maus- und Tastaturgrafiken, die bei Videoaufnahmen verwendet werden |\n| nodes |  Symbole für Knoten |\n| various | Elemente, die nicht in die übrigen Kategorien passen |",
                     "updated": 1634040572694,
                     "style": "Table"
+                },
+                {
+                    "language": "RU",
+                    "text": "| Folder | Description |\n| assets |\n| color-palette | Цветовая палитра |\n| docs-menu | Опции в плавающем меню Docs |\n| exchanges | Криптовалютные биржи |\n| flags | Круглые флаги, используемые для идентификации языков |\n| layers | Типы слоев, представленных в диспетчере слоев (Layer Manager) |\n| menu | Опции в меню узлов |\n| mouse | Графика мыши и клавиатуры, используемая при захвате видео |\n| nodes | Icons of nodes |\n| various | Элементы, которые не подходят к остальным категориям |",
+                    "updated": 1640266969509
                 }
             ]
         },
@@ -831,6 +1054,11 @@
                     "text": "Pixel Grafiken",
                     "updated": 1634040828765,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Растровые изображения",
+                    "updated": 1640266983348
                 }
             ]
         },
@@ -844,6 +1072,11 @@
                     "text": "| Kriterium | Details |\n| Format | PNG |\n| Größe  | 512 x 512 px |\n| Farbtiefe | 24 bits (PNG-24) |\n| Transparenz | Yes |\n| Zeilensprung | No |\n| Erweiterung | png (Kleinbuchstaben) |",
                     "updated": 1634040875690,
                     "style": "Table"
+                },
+                {
+                    "language": "RU",
+                    "text": "| Criterion | Details |\n| Format | PNG |\n| Application Size | 512 x 512 px |\n| Color Depth | 24 bits (PNG-24) |\n| Transparency | Yes |\n| Interlaced | No |\n| Extension | png (строчными) |",
+                    "updated": 1640266996732
                 }
             ]
         },
@@ -857,6 +1090,11 @@
                     "text": "Fügen Sie alle PNG-Dateien in den Ordner \"Icons\" ein.",
                     "updated": 1634040904191,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Добавьте все файлы PNG в папку Icons.",
+                    "updated": 1640267012946
                 }
             ]
         },
@@ -870,6 +1108,11 @@
                     "text": "Namensgebung",
                     "updated": 1634040968345,
                     "style": "Subtitle"
+                },
+                {
+                    "language": "RU",
+                    "text": "Соглашение о присвоении имен",
+                    "updated": 1640267072353
                 }
             ]
         },
@@ -883,6 +1126,11 @@
                     "text": "Dateien erben den Namen des Knotens, des Assets, des Austauschs oder was auch immer das Symbol repräsentiert und werden in Kleinbuchstaben benannt, wobei jedes Wort durch einen Bindestrich getrennt ist und die Erweiterung in Kleinbuchstaben angegeben wird.",
                     "updated": 1634040972888,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Файлы наследуют название узла, актива, биржи или того, что представляет иконка, и называются в нижнем регистре, каждое слово отделяется дефисом, и с расширением в нижнем регистре.",
+                    "updated": 1640267119420
                 }
             ]
         },
@@ -896,6 +1144,11 @@
                     "text": "Zum Beispiel:",
                     "updated": 1634040981984,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1640267129703
                 }
             ]
         },
@@ -909,6 +1162,11 @@
                     "text": "Bei Knoten lautet die PNG-Datei für den Knoten Managed Take Profit managed-take-profit.png",
                     "updated": 1634041080051,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае с узлами файл PNG для узла Managed Take Profit - managed-take-profit.png",
+                    "updated": 1640267146780
                 }
             ]
         },
@@ -922,6 +1180,11 @@
                     "text": "Im Falle von Vermögenswerten muss der Name der Datei der wörtliche Name des Vermögenswerts sein. Für Bitcoin lautet er beispielsweise bitcoin.png, für Tether tether.png und so weiter...",
                     "updated": 1634041097451,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае с активами имя файла должно быть буквальным именем актива. Например, для Bitcoin это bitcoin.png; для Tether - tether.png; и так далее...",
+                    "updated": 1640267185736
                 }
             ]
         },
@@ -935,6 +1198,11 @@
                     "text": "Im Falle eines Austauschs wird wiederum der wörtliche Name des Austauschs verwendet, wie er in der CCXT-Bibliothek aufgeführt ist. Zum Beispiel Binance ist binance.png.",
                     "updated": 1634041141304,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае с биржей, опять же, используется буквальное название биржи, как оно указано в библиотеке CCXT. например, Binance - binance.png.",
+                    "updated": 1640267220513
                 }
             ]
         },

@@ -15,6 +15,16 @@
                 "text": "¿Sabes quién es tu referente? ¿Su referente tiene un perfil de usuario? ¿Cómo encuentra y carga el perfil correcto? ¡Todas esas son buenas preguntas!",
                 "updated": 1630896021100,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Вы знаете, кто ваш реферер? У вашего реферера есть профиль пользователя User Profile? Как найти и загрузить нужный профиль?",
+                "updated": 1639050613920
+            },
+            {
+                "language": "DE",
+                "text": "Wissen Sie, wer Ihr Empfehler ist? Hat Ihr Referrer ein Benutzerprofil? Wie können Sie das richtige Profil finden und laden?",
+                "updated": 1640079953874
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "text": "¡Siga la guía para encontrar las respuestas!",
                     "updated": 1630896102098,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Следуйте инструкциям справа, чтобы найти ответы!",
+                    "updated": 1639050647971
+                },
+                {
+                    "language": "DE",
+                    "text": "Folgen Sie dem Leitfaden auf der rechten Seite, um die Antworten zu finden!",
+                    "updated": 1640079960019
                 }
             ]
         },
@@ -42,6 +62,16 @@
                     "text": "¡Te traje al perfil ficticio mencionado en la guía para que te sea más fácil!",
                     "updated": 1630896053331,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Я привел вас к профилю Dummy profile, упомянутому в руководстве, чтобы вам было проще!",
+                    "updated": 1639050685885
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich habe Sie zu dem in der Anleitung erwähnten Dummy-Profil geführt, um es Ihnen leichter zu machen!",
+                    "updated": 1640079967268
                 }
             ]
         },
@@ -55,6 +85,16 @@
                     "text": "Si la pregunta \"quién es tu referente\" no tiene una buena respuesta, ¡no dudes en declarar a uno de tus amigos en la comunidad! Por cierto, observa que los perfiles de los miembros de Community Mods y Core Team ya están cargados.",
                     "updated": 1630896089076,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Кстати, обратите внимание, что профили участников сообщества Community Mods и Core Team уже загружены!",
+                    "updated": 1639050725765
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachte übrigens, dass die Profile von Community Mods und Core Team Mitgliedern bereits geladen sind!",
+                    "updated": 1640079976555
                 }
             ]
         }

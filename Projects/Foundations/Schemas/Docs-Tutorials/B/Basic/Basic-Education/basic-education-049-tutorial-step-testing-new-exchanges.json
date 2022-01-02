@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn Sie ein Entwickler sind und Ihre bevorzugte Börse noch nicht getestet wurde, können Sie sich an den Bemühungen beteiligen und beim Testen helfen!",
                 "updated": 1634589557030
+            },
+            {
+                "language": "TR",
+                "text": "Bir geliştiriciyseniz ve tercih ettiğiniz değişim test edilmediyse, bize katılabilir ve teste yardımcı olabilirsiniz!",
+                "updated": 1639820286972
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Dieses Thema in den Docs erklärt, wie man den Sensor Bot debuggt, um ihn dazu zu bringen, Daten von einer Börse zu holen. Wenn die Börse die von Superalgos geforderten Grundfunktionen unterstützt, sollten Sie am Ende eine Lösung haben!",
                     "updated": 1634589564876
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar'daki bu konu, bir borsadan veri getirmesini sağlamak için Sensör Botu'nda ( Sensor Bot ) nasıl hata ayıklanılacağını açıklar. Borsa Superalgos'un gerektirdiği temel özellikleri destekliyorsa, bir çözümünüz var demektir.",
+                    "updated": 1639820492644
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "DE",
                     "text": "Das Teilen der Lösung mit der Community ist ein wertvoller Beitrag. Jeder, der als nächstes kommt, kann sich auch an seiner Lieblingsbörse erfreuen!",
                     "updated": 1634589572089
+                },
+                {
+                    "language": "TR",
+                    "text": "Çözümü Toplulukla paylaşmak değerli bir katkıdır. Gelen herkes de en sevdiği borsanın tadını çıkarabilir!",
+                    "updated": 1639820542894
                 }
             ]
         },
@@ -99,6 +114,11 @@
                     "language": "DE",
                     "text": "Wir empfehlen Ihnen dringend, Ihre Ausbildung auf Superalgos zu vervollständigen und alle Tutorials zu absolvieren, bevor Sie sich an die Einrichtung anderer Börsen machen.",
                     "updated": 1634589578473
+                },
+                {
+                    "language": "TR",
+                    "text": "Diğer borsaları kurmaya başlamadan önce tüm eğitimleri yaparak Superalgos eğitiminizi tamamlamanızı şiddetle tavsiye ederiz.",
+                    "updated": 1639820558610
                 }
             ]
         }

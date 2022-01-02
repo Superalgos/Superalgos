@@ -9,15 +9,36 @@
         {
             "style": "Text",
             "text": "It has extremely cool and intuitive GUI. However, there is a severe lack of tooltips in the main dashboard. Newcomers have to either second guess the meaning of the symbols, or go back to the tutorial/console just to double check if they remember the functionalities of each buttons correctly.",
-            "updated": 1622213049425
+            "updated": 1622213049425,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "У него чрезвычайно удобный и интуитивно понятный графический интерфейс. Тем не менее, на главной приборной панели очень не хватает всплывающих подсказок. Новичкам приходится либо догадываться о значении символов, либо возвращаться к учебнику/консоли, чтобы проверить, правильно ли они запомнили функциональность каждой кнопки.",
+                    "updated": 1640413556172
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The in-app documentation seems to be hosted together with the application itself, which unfortuantely does not allow users to use the <- and -> buttons in our native chrome browser to go back to the previous and next documentation page. Although there is an alternative back and next button provided, it is still quite clunky to use as of Beta 9."
+            "text": "The in-app documentation seems to be hosted together with the application itself, which unfortuantely does not allow users to use the <- and -> buttons in our native chrome browser to go back to the previous and next documentation page. Although there is an alternative back and next button provided, it is still quite clunky to use as of Beta 9.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Документация внутри приложения, похоже, размещена вместе с самим приложением, что, к сожалению, не позволяет пользователям использовать кнопки <- и -> в нашем родном браузере chrome для возврата к предыдущей и следующей странице документации. Хотя существует альтернативная кнопка \"Назад\" и \"Далее\", она все еще довольно неудобна в использовании по сравнению с Beta 9.",
+                    "updated": 1640413621245
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "That being said, it seems to show great potential and I look forward to designing trading bots with this tool."
+            "text": "That being said, it seems to show great potential and I look forward to designing trading bots with this tool.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тем не менее, он обладает большим потенциалом, и я с нетерпением жду возможности разработать торговых ботов с помощью этого инструмента.",
+                    "updated": 1640413662345
+                }
+            ]
         }
     ]
 }

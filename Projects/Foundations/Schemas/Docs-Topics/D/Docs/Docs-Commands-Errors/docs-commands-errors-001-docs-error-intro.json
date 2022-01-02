@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Nach dem Ausführen eines Befehls können Sie verschiedene Arten von Fehlermeldungen erhalten, die in diesem Thema beschrieben werden.",
                 "updated": 1633895551498
+            },
+            {
+                "language": "RU",
+                "text": "После выполнения команды вы можете получать сообщения об ошибках разных типов, как описано в этом разделе.",
+                "updated": 1638528935355
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Das unten stehende Inhaltsverzeichnis enthält eine vollständige Liste der Fehler, die bei der Ausführung von Docs-commands (Befehlen) auftreten können. Wenn ein Fehler auftritt, werden Sie auf die Fehlerseite weitergeleitet.",
                     "updated": 1633895701297
+                },
+                {
+                    "language": "RU",
+                    "text": "В таблице ниже приведен полный список ошибок, которые могут возникнуть при выполнении команд для документов Docs. Фактически, когда возникает ошибка, вы перенаправляетесь на страницу с ошибкой.",
+                    "updated": 1638529026001
                 }
             ]
         }

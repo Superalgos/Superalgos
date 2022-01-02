@@ -1,0 +1,43 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 75,
+    "type": "Tutorial Step - Let's Test Again!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "task"
+        },
+        "text": "After you delete the open, close, and manage stages, you are ready to run a new backtest with the same parameters used earlier.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nachdem Sie die Open, Close und Manage Stage gelöscht haben, können Sie einen neuen Backtest mit denselben Parametern wie zuvor durchführen.",
+                "updated": 1639391298071
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Let's do it! Run the task and session!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Los geht's! Starten ( Run ) Sie die Aufgabe und die Sitzung!",
+                    "updated": 1639391319380
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When you run multiple backtests on the same time frame, the earlier data is replaced. That is, a trading session stores one data set for each time frame. If you want to keep&mdash;and be able to access&mdash;different versions of the tests you should use different trading sessions, and even better, different trading systems so that you may keep the matching definitions as well!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mehrere Backtests auf demselben Zeitrahmen ausführen, werden die früheren Daten ersetzt. Das heißt, eine Handelssitzung speichert einen Datensatz für jeden Zeitrahmen. Wenn Sie verschiedene Versionen der Tests aufbewahren und darauf zugreifen wollen, sollten Sie verschiedene Trading sessions und noch besser verschiedene Trading Systeme verwenden, damit Sie auch die passenden Definitionen aufbewahren können!",
+                    "updated": 1639391329528
+                }
+            ]
+        }
+    ]
+}

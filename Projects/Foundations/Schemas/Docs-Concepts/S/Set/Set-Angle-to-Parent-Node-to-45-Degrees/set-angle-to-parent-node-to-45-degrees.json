@@ -2,12 +2,26 @@
     "type": "Set Angle to Parent Node to 45 Degrees",
     "definition": {
         "text": "The slot of the symmetry around its parent node is limited to 45 degrees, and the connection line remains orange.",
-        "updated": 1610029335201
+        "updated": 1610029335201,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Прорезь симметрии вокруг родительского узла ограничена 45 градусами, а линия соединения остается оранжевой.",
+                "updated": 1638296831418
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638296846521
+                }
+            ]
         }
     ]
 }

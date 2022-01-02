@@ -7,24 +7,84 @@
             "name": "Layer\\layer-bands",
             "project": "Foundations"
         },
-        "text": "Back in the 1H time frame, let's take a look at what happened between these dates in the context of a daily downtrend."
+        "text": "Back in the 1H time frame, let's take a look at what happened between these dates in the context of a daily downtrend.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Zurück im 1H-Zeitrahmen, lassen Sie uns einen Blick darauf werfen, was zwischen diesen Daten im Kontext eines täglichen Abwärtstrends geschah.",
+                "updated": 1639253393145
+            },
+            {
+                "language": "TR",
+                "text": "Özet: 1H zaman çerçevesine geri dönersek, günlük düşüş trendi bağlamında bu tarihler arasında neler olduğuna bir göz atalım.",
+                "updated": 1640948983504
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "March 7th, 17 hs: A breakdown after a two-day-long volatility squeeze triggers a downtrend."
+            "text": "March 7th, 17 hs: A breakdown after a two-day-long volatility squeeze triggers a downtrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "7. März, 17 Uhr: Ein Zusammenbruch nach einem zweitägigen Volatilitäts-Squeeze löst einen Abwärtstrend aus.",
+                    "updated": 1639253406227
+                },
+                {
+                    "language": "TR",
+                    "text": "7 Mart, 17 hs: İki günlük volatilite sıkışıklığının ardından bir kırılma, düşüş trendini tetikliyor",
+                    "updated": 1640949026498
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "March 8th, 15 hs: Further breakdowns accelerate the downturn."
+            "text": "March 8th, 15 hs: Further breakdowns accelerate the downturn.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "8. März, 15 Uhr: Weitere Zusammenbrüche beschleunigen den Abwärtstrend.",
+                    "updated": 1639253413244
+                },
+                {
+                    "language": "TR",
+                    "text": "8 Mart, 15 hs: Daha fazla arıza, gerilemeyi hızlandırıyor",
+                    "updated": 1640949038389
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "March 12th, 07 hs: Five hours before the biggest market crash in recent history, a series of breakdowns trigger a new downturn after three days of ranging price action."
+            "text": "March 12th, 07 hs: Five hours before the biggest market crash in recent history, a series of breakdowns trigger a new downturn after three days of ranging price action.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "12. März, 07 Uhr: Fünf Stunden vor dem größten Börsencrash der jüngeren Geschichte löst eine Reihe von Zusammenbrüchen einen neuen Abwärtstrend aus, nachdem sich die Kurse drei Tage lang in einer Bandbreite bewegt haben.",
+                    "updated": 1639253420383
+                },
+                {
+                    "language": "TR",
+                    "text": "12 Mart, 07 hs: Yakın tarihin en büyük piyasa çöküşünden beş saat önce, bir dizi arıza, üç günlük değişen fiyat hareketinden sonra yeni bir düşüşü tetikler.",
+                    "updated": 1640949055195
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Do you see the pattern? Can you formulate a hypothesis that we can test?"
+            "text": "Do you see the pattern? Can you formulate a hypothesis that we can test?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erkennen Sie das Muster? Können Sie eine Hypothese formulieren, die wir testen können?",
+                    "updated": 1639253430255
+                },
+                {
+                    "language": "TR",
+                    "text": "Deseni (pattern) görüyor musun? Test edebileceğimiz bir varsayım formüle edebilir misiniz?",
+                    "updated": 1640949145571
+                }
+            ]
         }
     ]
 }

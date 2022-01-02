@@ -7,20 +7,68 @@
             "name": "Nodes\\nodes-highlights",
             "project": "Foundations"
         },
-        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations!"
+        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lassen Sie uns unsere vorherige Hypothese wiederherstellen und eine neue Hypothese für die jüngsten Beobachtungen aufstellen!",
+                "updated": 1639253454746
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım!",
+                "updated": 1640949719690
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Hypothesis 1: In the context of an uptrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict a reversal in the intermediate trend."
+            "text": "Hypothesis 1: In the context of an uptrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict a reversal in the intermediate trend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hypothese 1: Im Rahmen eines Aufwärtstrends im Tages-Chart kann ein Durchbrechen der Bollinger Bänder im 1H-Chart eine Umkehrung des Zwischentrends vorhersagen.",
+                    "updated": 1639253473443
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayım 1: Günlük grafikte bir yükseliş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü, ara trendde bir tersine dönüşü öngörebilir.",
+                    "updated": 1640949950526
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hypothesis 2: In the context of a downtrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict an acceleration of the downtrend."
+            "text": "Hypothesis 2: In the context of a downtrend in the daily chart, a breakdown of the Bollinger Bands in the 1H chart may predict an acceleration of the downtrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Hypothese 2: Im Zusammenhang mit einem Abwärtstrend auf dem Tages-Chart kann ein Durchbruch der Bollinger Bänder auf dem 1H-Chart eine Beschleunigung des Abwärtstrends vorhersagen.",
+                    "updated": 1639253490763
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayım 2: Günlük grafikteki düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü düşüş trendinin hızlanmasını öngörebilir.",
+                    "updated": 1640949976880
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "We may think of these two as the core of two different trading ideas! But that is not all, right?"
+            "text": "We may think of these two as the core of two different trading ideas! But that is not all, right?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir können diese beiden Hypothesen als den Kern zweier unterschiedlicher Handelsideen betrachten! Aber das ist noch nicht alles, oder?",
+                    "updated": 1639253499863
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu ikisini iki farklı ticaret fikrinin özü olarak düşünebiliriz! Ama hepsi bu kadar değil, değil mi?",
+                    "updated": 1640950094991
+                }
+            ]
         }
     ]
 }

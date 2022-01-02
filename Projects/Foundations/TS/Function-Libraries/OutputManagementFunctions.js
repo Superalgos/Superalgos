@@ -22,7 +22,7 @@ exports.newFoundationsFunctionLibrariesOutputManagementFunctions = function () {
         fileStorage,
         headOfTheMarket
     ) {
-        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true) {
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES === true) {
             /*
             For Daily Files, we are going to initialize the outputs at the first execution
             if we are not resuming, but also at every following execution except when 
@@ -53,7 +53,7 @@ exports.newFoundationsFunctionLibrariesOutputManagementFunctions = function () {
         }
 
         async function initializeOutputs() {
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
                 await initializeDailyFiles()
             } else {
                 await initializeMarketFiles()
@@ -88,7 +88,7 @@ exports.newFoundationsFunctionLibrariesOutputManagementFunctions = function () {
             files in order to later append more information after the execution is over. Here in this function we are going to
             read those output files and get them ready for appending content during the simulation.
             */
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
                 await readDailyFiles()
             } else {
                 await readMarketFiles()
@@ -153,7 +153,7 @@ exports.newFoundationsFunctionLibrariesOutputManagementFunctions = function () {
         /*
         The output of files which were appended with information during the simulation execution, now needs to be saved.
         */
-        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+        if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
             await writeDailyFiles()
         } else {
             await writeMarketFiles()

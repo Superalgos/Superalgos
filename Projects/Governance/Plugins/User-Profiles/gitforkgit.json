@@ -127,11 +127,11 @@
             "id": "bdb856e9-eafc-40f8-87fe-46b95c680ca9",
             "savedPayload": {
                 "position": {
-                    "x": 31182.352941176472,
+                    "x": 34782.758620689645,
                     "y": 13700.000000000002
                 },
                 "targetPosition": {
-                    "x": 31182.352941176472,
+                    "x": 34782.758620689645,
                     "y": 14000.000000000002
                 },
                 "floatingObject": {
@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{}",
+            "config": "{\n    \"percentage\": 0\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -166,11 +166,11 @@
                         "id": "982253cd-6526-43ab-be70-b7bf7ee92f51",
                         "savedPayload": {
                             "position": {
-                                "x": 31182.352941176472,
+                                "x": 34782.758620689645,
                                 "y": 13700.000000000002
                             },
                             "targetPosition": {
-                                "x": 31482.352941176472,
+                                "x": 35082.758620689645,
                                 "y": 13700.000000000002
                             },
                             "floatingObject": {
@@ -207,11 +207,11 @@
                     "id": "5c2e9a56-5ef7-4076-8749-a40342a041d5",
                     "savedPayload": {
                         "position": {
-                            "x": 31482.352941176472,
+                            "x": 35082.758620689645,
                             "y": 13400.000000000002
                         },
                         "targetPosition": {
-                            "x": 31482.352941176472,
+                            "x": 35082.758620689645,
                             "y": 13700.000000000002
                         },
                         "floatingObject": {
@@ -234,11 +234,11 @@
                     "id": "e2493ead-e0c1-4535-a768-c2e002ab3c8d",
                     "savedPayload": {
                         "position": {
-                            "x": 31782.352941176472,
+                            "x": 35382.758620689645,
                             "y": 13700.000000000002
                         },
                         "targetPosition": {
-                            "x": 31482.352941176472,
+                            "x": 35082.758620689645,
                             "y": 13700.000000000002
                         },
                         "floatingObject": {
@@ -257,11 +257,11 @@
                 "id": "5d6f1757-ea56-4e72-a0d6-009c94c5bc7e",
                 "savedPayload": {
                     "position": {
-                        "x": 31482.352941176472,
+                        "x": 35082.758620689645,
                         "y": 13700.000000000002
                     },
                     "targetPosition": {
-                        "x": 31482.352941176472,
+                        "x": 35082.758620689645,
                         "y": 14000.000000000002
                     },
                     "floatingObject": {
@@ -291,11 +291,11 @@
                         "id": "ada671e7-03f8-4565-ac5c-d22e07f02462",
                         "savedPayload": {
                             "position": {
-                                "x": 31632.352941176472,
+                                "x": 35232.758620689645,
                                 "y": 13740.19237886467
                             },
                             "targetPosition": {
-                                "x": 31782.352941176472,
+                                "x": 35382.758620689645,
                                 "y": 14000.000000000002
                             },
                             "floatingObject": {
@@ -332,11 +332,11 @@
                         "id": "e6a1ab19-0a27-4ffc-98b2-3ff170ffe18a",
                         "savedPayload": {
                             "position": {
-                                "x": 31932.352941176472,
+                                "x": 35532.758620689645,
                                 "y": 13740.19237886467
                             },
                             "targetPosition": {
-                                "x": 31782.352941176472,
+                                "x": 35382.758620689645,
                                 "y": 14000.000000000002
                             },
                             "floatingObject": {
@@ -373,11 +373,11 @@
                         "id": "13015a17-d4db-40e8-a211-49641ea490f1",
                         "savedPayload": {
                             "position": {
-                                "x": 32082.352941176472,
+                                "x": 35682.758620689645,
                                 "y": 14000.000000000002
                             },
                             "targetPosition": {
-                                "x": 31782.352941176472,
+                                "x": 35382.758620689645,
                                 "y": 14000.000000000002
                             },
                             "floatingObject": {
@@ -414,11 +414,11 @@
                     "id": "fff18c7a-cd37-467c-8bdb-a036f2d2a9a0",
                     "savedPayload": {
                         "position": {
-                            "x": 31932.352941176472,
+                            "x": 35532.758620689645,
                             "y": 14259.807621135333
                         },
                         "targetPosition": {
-                            "x": 31782.352941176472,
+                            "x": 35382.758620689645,
                             "y": 14000.000000000002
                         },
                         "floatingObject": {
@@ -441,11 +441,11 @@
                     "id": "a2ead972-dfc5-495b-8efc-f4aaa9f0e6c0",
                     "savedPayload": {
                         "position": {
-                            "x": 31632.352941176472,
+                            "x": 35232.758620689645,
                             "y": 14259.807621135333
                         },
                         "targetPosition": {
-                            "x": 31782.352941176472,
+                            "x": 35382.758620689645,
                             "y": 14000.000000000002
                         },
                         "floatingObject": {
@@ -464,11 +464,11 @@
                 "id": "5745f70c-0d77-4ad3-9fba-907266217b69",
                 "savedPayload": {
                     "position": {
-                        "x": 31782.352941176472,
+                        "x": 35382.758620689645,
                         "y": 14000.000000000002
                     },
                     "targetPosition": {
-                        "x": 31482.352941176472,
+                        "x": 35082.758620689645,
                         "y": 14000.000000000002
                     },
                     "floatingObject": {
@@ -712,11 +712,11 @@
                 "id": "2b5206c6-7e49-4bf6-8236-01080242c851",
                 "savedPayload": {
                     "position": {
-                        "x": 31482.352941176472,
+                        "x": 35082.758620689645,
                         "y": 14300.000000000002
                     },
                     "targetPosition": {
-                        "x": 31482.352941176472,
+                        "x": 35082.758620689645,
                         "y": 14000.000000000002
                     },
                     "floatingObject": {
@@ -735,11 +735,11 @@
             "id": "bb518745-f59c-4fb6-a4e0-646ff983f503",
             "savedPayload": {
                 "position": {
-                    "x": 31482.352941176472,
+                    "x": 35082.758620689645,
                     "y": 14000.000000000002
                 },
                 "targetPosition": {
-                    "x": 31182.352941176472,
+                    "x": 34782.758620689645,
                     "y": 14000.000000000002
                 },
                 "floatingObject": {
@@ -770,24 +770,24 @@
                 "positionClaimsFolders": [
                     {
                         "type": "Position Claims Folder",
-                        "name": "Translations Team Position Class",
+                        "name": "Education Team PoW Report Position Class",
                         "config": "{}",
                         "project": "Governance",
                         "positionClaimsFolders": [],
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina Translations Team",
+                                "name": "Translation Team Token Pool Education Team PoW Report",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "4e33743b-74f3-4c52-8a79-5ae2196ece8a",
+                                "id": "990cd809-7f56-4b37-b3b9-0bab0501c846",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31782.352941176472,
-                                        "y": 14600.000000000002
+                                        "x": 35232.758620689645,
+                                        "y": 14340.19237886467
                                     },
                                     "targetPosition": {
-                                        "x": 31482.352941176472,
+                                        "x": 35082.758620689645,
                                         "y": 14600.000000000002
                                     },
                                     "floatingObject": {
@@ -803,52 +803,117 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
-                                        "id": "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
+                                        "name": "Translation Team Token Pool",
+                                        "id": "80007c46-9f19-4375-bc24-2770b9cf8ab4"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
-                                            "Superalgos",
+                                            "Teams of Contributors",
                                             "Positions",
                                             "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
-                                            "Roles Played @ Beta-12",
+                                            "Teams @ Nov 2021",
                                             "Position Class",
                                             "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
-                                            "Education Teams",
+                                            "Teams With PoW Reports",
                                             "Position Class",
                                             "Governance",
-                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
-                                            "Translations Team",
+                                            "Education Team PoW Report",
                                             "Position Class",
                                             "Governance",
-                                            "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
+                                            "c609da41-373d-46ca-b637-d45e24e9b692"
                                         ],
                                         [
-                                            "5 Team Members : EvaMaria70 gitforkgit e-Nut Lennart MarinitaMarina",
+                                            "Translation Team Token Pool",
                                             "Position",
                                             "Governance",
-                                            "6ed65be6-de6f-49a1-9c04-d2114e8763a1"
+                                            "80007c46-9f19-4375-bc24-2770b9cf8ab4"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Documentation Team Token Pool Education Team PoW Report",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "f475d795-50ec-4857-8404-1f60a9b7da87",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 35232.758620689645,
+                                        "y": 14859.807621135333
+                                    },
+                                    "targetPosition": {
+                                        "x": 35082.758620689645,
+                                        "y": 14600.000000000002
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Documentation Team Token Pool",
+                                        "id": "86dcb14e-8d6b-4a38-8ba3-5402e973399f"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions",
+                                            "Governance",
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
+                                        ],
+                                        [
+                                            "Teams @ Nov 2021",
+                                            "Position Class",
+                                            "Governance",
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class",
+                                            "Governance",
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
+                                        ],
+                                        [
+                                            "Education Team PoW Report",
+                                            "Position Class",
+                                            "Governance",
+                                            "c609da41-373d-46ca-b637-d45e24e9b692"
+                                        ],
+                                        [
+                                            "Documentation Team Token Pool",
+                                            "Position",
+                                            "Governance",
+                                            "86dcb14e-8d6b-4a38-8ba3-5402e973399f"
                                         ]
                                     ]
                                 }
                             }
                         ],
-                        "id": "63ce9bc2-d65f-416b-bf03-091ac317545e",
+                        "id": "b216c164-02f8-4925-8973-f675a32f8daa",
                         "savedPayload": {
                             "position": {
-                                "x": 31482.352941176472,
+                                "x": 35082.758620689645,
                                 "y": 14600.000000000002
                             },
                             "targetPosition": {
-                                "x": 31182.352941176472,
+                                "x": 34782.758620689645,
                                 "y": 14600.000000000002
                             },
                             "floatingObject": {
@@ -864,57 +929,57 @@
                             },
                             "referenceParent": {
                                 "type": "Position Class",
-                                "name": "Translations Team",
-                                "id": "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
+                                "name": "Education Team PoW Report",
+                                "id": "c609da41-373d-46ca-b637-d45e24e9b692"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
-                                    "Superalgos",
+                                    "Teams of Contributors",
                                     "Positions",
                                     "Governance",
-                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                 ],
                                 [
-                                    "Roles Played @ Beta-12",
+                                    "Teams @ Nov 2021",
                                     "Position Class",
                                     "Governance",
-                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                 ],
                                 [
-                                    "Education Teams",
+                                    "Teams With PoW Reports",
                                     "Position Class",
                                     "Governance",
-                                    "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
+                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                 ],
                                 [
-                                    "Translations Team",
+                                    "Education Team PoW Report",
                                     "Position Class",
                                     "Governance",
-                                    "0cd21223-d49a-45b1-af83-ec2a31f8caaf"
+                                    "c609da41-373d-46ca-b637-d45e24e9b692"
                                 ]
                             ]
                         }
                     },
                     {
                         "type": "Position Claims Folder",
-                        "name": "Docs Teams Position Class",
+                        "name": "Non-Tech-Users Community Team Position Class",
                         "config": "{}",
                         "project": "Governance",
                         "positionClaimsFolders": [],
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "2 Team Member Tentacle23 quantum8 Docs Teams",
+                                "name": "Team Members Token Pool Non-Tech-Users Community Team",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "63069768-3d5b-4e46-a3aa-b1b977d05be7",
+                                "id": "588e7a3e-8e88-4387-8fa9-40c07c8a84ad",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 31182.352941176472,
+                                        "x": 34782.758620689645,
                                         "y": 15200.000000000002
                                     },
                                     "targetPosition": {
-                                        "x": 31182.352941176472,
+                                        "x": 34782.758620689645,
                                         "y": 14900.000000000002
                                     },
                                     "floatingObject": {
@@ -930,185 +995,52 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "2 Team Member Tentacle23 quantum8",
-                                        "id": "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
+                                        "name": "Team Members Token Pool",
+                                        "id": "26c8c98f-17ae-467f-9153-ce3d9813a9d1"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
-                                            "Superalgos",
+                                            "Teams of Contributors",
                                             "Positions",
                                             "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                         ],
                                         [
-                                            "Roles Played @ Beta-12",
+                                            "Teams @ Nov 2021",
                                             "Position Class",
                                             "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                         ],
                                         [
-                                            "Education Teams",
+                                            "Teams With PoW Reports",
                                             "Position Class",
                                             "Governance",
-                                            "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
-                                        ],
-                                        [
-                                            "Docs Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "edc33bd7-55db-4e8e-82df-81c976c83088"
-                                        ],
-                                        [
-                                            "2 Team Member Tentacle23 quantum8",
-                                            "Position",
-                                            "Governance",
-                                            "3275a849-7491-4f2b-92a7-85d8e6ff87a2"
-                                        ]
-                                    ]
-                                }
-                            }
-                        ],
-                        "id": "b3561701-d5ba-4c75-a7a0-7435e1310de9",
-                        "savedPayload": {
-                            "position": {
-                                "x": 31182.352941176472,
-                                "y": 14900.000000000002
-                            },
-                            "targetPosition": {
-                                "x": 31182.352941176472,
-                                "y": 14600.000000000002
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": false,
-                                "angleToParent": 1,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            },
-                            "referenceParent": {
-                                "type": "Position Class",
-                                "name": "Docs Teams",
-                                "id": "edc33bd7-55db-4e8e-82df-81c976c83088"
-                            },
-                            "referenceParentCombinedNodePath": [
-                                [
-                                    "Superalgos",
-                                    "Positions",
-                                    "Governance",
-                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                ],
-                                [
-                                    "Roles Played @ Beta-12",
-                                    "Position Class",
-                                    "Governance",
-                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                ],
-                                [
-                                    "Education Teams",
-                                    "Position Class",
-                                    "Governance",
-                                    "2fad4da0-ad26-4ce4-a779-5571aa7d6340"
-                                ],
-                                [
-                                    "Docs Teams",
-                                    "Position Class",
-                                    "Governance",
-                                    "edc33bd7-55db-4e8e-82df-81c976c83088"
-                                ]
-                            ]
-                        }
-                    },
-                    {
-                        "type": "Position Claims Folder",
-                        "name": "Non-Tech-Users Community Team Position Class",
-                        "config": "{}",
-                        "project": "Governance",
-                        "positionClaimsFolders": [],
-                        "positionContributionClaims": [
-                            {
-                                "type": "Position Contribution Claim",
-                                "name": "3 Team Members @gitforkgit @Soligann_Prepheadrus Non-Tech-Users Community Team",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "9d746131-5816-4f11-9dc0-b54242cdc4b5",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 30582.352941176472,
-                                        "y": 14600.000000000002
-                                    },
-                                    "targetPosition": {
-                                        "x": 30882.352941176472,
-                                        "y": 14600.000000000002
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Position",
-                                        "name": "3 Team Members @gitforkgit @Soligann_Prepheadrus",
-                                        "id": "3fb8793e-5bea-4d0f-8e04-80fed71911e3"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Superalgos",
-                                            "Positions",
-                                            "Governance",
-                                            "50c68665-5da2-48a4-b229-7a1563ae82d2"
-                                        ],
-                                        [
-                                            "Roles Played @ Beta-12",
-                                            "Position Class",
-                                            "Governance",
-                                            "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
-                                        ],
-                                        [
-                                            "Other Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
-                                        ],
-                                        [
-                                            "Community Teams",
-                                            "Position Class",
-                                            "Governance",
-                                            "2c0e0545-3886-4209-ab2e-7123b89b2f03"
+                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                         ],
                                         [
                                             "Non-Tech-Users Community Team",
                                             "Position Class",
                                             "Governance",
-                                            "9a30cf3a-1f96-4f43-836b-522e856f28ef"
+                                            "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
                                         ],
                                         [
-                                            "3 Team Members @gitforkgit @Soligann_Prepheadrus",
+                                            "Team Members Token Pool",
                                             "Position",
                                             "Governance",
-                                            "3fb8793e-5bea-4d0f-8e04-80fed71911e3"
+                                            "26c8c98f-17ae-467f-9153-ce3d9813a9d1"
                                         ]
                                     ]
                                 }
                             }
                         ],
-                        "id": "bbfbc9e4-d9d8-442a-a4d8-2f92b9496e2b",
+                        "id": "a90944df-1724-4b1d-866c-c38c47152e67",
                         "savedPayload": {
                             "position": {
-                                "x": 30882.352941176472,
-                                "y": 14600.000000000002
+                                "x": 34782.758620689645,
+                                "y": 14900.000000000002
                             },
                             "targetPosition": {
-                                "x": 31182.352941176472,
+                                "x": 34782.758620689645,
                                 "y": 14600.000000000002
                             },
                             "floatingObject": {
@@ -1125,51 +1057,72 @@
                             "referenceParent": {
                                 "type": "Position Class",
                                 "name": "Non-Tech-Users Community Team",
-                                "id": "9a30cf3a-1f96-4f43-836b-522e856f28ef"
+                                "id": "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
-                                    "Superalgos",
+                                    "Teams of Contributors",
                                     "Positions",
                                     "Governance",
-                                    "50c68665-5da2-48a4-b229-7a1563ae82d2"
+                                    "862caa2e-7c05-4051-b5eb-3494174e2cd9"
                                 ],
                                 [
-                                    "Roles Played @ Beta-12",
+                                    "Teams @ Nov 2021",
                                     "Position Class",
                                     "Governance",
-                                    "8b29fcb2-3b9a-444f-b3b0-05976da9a18f"
+                                    "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
                                 ],
                                 [
-                                    "Other Teams",
+                                    "Teams With PoW Reports",
                                     "Position Class",
                                     "Governance",
-                                    "eab89bf2-76b7-4d03-ada9-9a5eb5f3cfb4"
-                                ],
-                                [
-                                    "Community Teams",
-                                    "Position Class",
-                                    "Governance",
-                                    "2c0e0545-3886-4209-ab2e-7123b89b2f03"
+                                    "90e3eeda-0a84-4338-ae03-c1b0199660ad"
                                 ],
                                 [
                                     "Non-Tech-Users Community Team",
                                     "Position Class",
                                     "Governance",
-                                    "9a30cf3a-1f96-4f43-836b-522e856f28ef"
+                                    "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
                                 ]
                             ]
                         }
                     }
                 ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "ad894c6c-7b34-465b-a0b5-7bfa7709cbc5",
+                    "savedPayload": {
+                        "position": {
+                            "x": 34482.758620689645,
+                            "y": 14600.000000000002
+                        },
+                        "targetPosition": {
+                            "x": 34782.758620689645,
+                            "y": 14600.000000000002
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
                 "id": "924b70a8-4a20-49f4-91c7-c7927e1322fc",
                 "savedPayload": {
                     "position": {
-                        "x": 31182.352941176472,
+                        "x": 34782.758620689645,
                         "y": 14600.000000000002
                     },
                     "targetPosition": {
-                        "x": 31182.352941176472,
+                        "x": 34782.758620689645,
                         "y": 14300.000000000002
                     },
                     "floatingObject": {
@@ -1188,11 +1141,11 @@
             "id": "b76844dd-4cc0-43d1-bd85-ff9cf558c8c7",
             "savedPayload": {
                 "position": {
-                    "x": 31182.352941176472,
+                    "x": 34782.758620689645,
                     "y": 14300.000000000002
                 },
                 "targetPosition": {
-                    "x": 31182.352941176472,
+                    "x": 34782.758620689645,
                     "y": 14000.000000000002
                 },
                 "floatingObject": {
@@ -1211,11 +1164,11 @@
         "id": "1a0104de-bed0-4c64-a273-3a97a7605773",
         "savedPayload": {
             "position": {
-                "x": 31182.352941176472,
+                "x": 34782.758620689645,
                 "y": 14000.000000000002
             },
             "targetPosition": {
-                "x": 30882.352941176472,
+                "x": 34482.758620689645,
                 "y": 14000.000000000002
             },
             "floatingObject": {
@@ -1238,11 +1191,11 @@
         "id": "5595fb56-7fdc-4096-b798-950ad763f8f9",
         "savedPayload": {
             "position": {
-                "x": 30582.352941176472,
+                "x": 34182.758620689645,
                 "y": 14000.000000000002
             },
             "targetPosition": {
-                "x": 30882.352941176472,
+                "x": 34482.758620689645,
                 "y": 14000.000000000002
             },
             "floatingObject": {
@@ -1261,11 +1214,11 @@
     "id": "a600818b-6702-4be1-94ea-46478a914cb4",
     "savedPayload": {
         "position": {
-            "x": 30882.352941176472,
+            "x": 34482.758620689645,
             "y": 14000.000000000002
         },
         "targetPosition": {
-            "x": 30882.352941176472,
+            "x": 34482.758620689645,
             "y": 14000.000000000002
         },
         "floatingObject": {

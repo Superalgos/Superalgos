@@ -6,7 +6,7 @@
         "text": "Let's find some more Data Products. You are gonna be a pro at finding things in the Data Storage hierarchy.",
         "updated": 1619024563334,
         "icon": {
-            "name": "Trading/trading-mines-data",
+            "name": "trading-mines-data",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Encontremos un poco más de Data Products. Serás un profesional en encontrar cosas en la jerarquía Data Storage.",
                 "updated": 1628729502686
+            },
+            {
+                "language": "RU",
+                "text": "Давайте найдем еще несколько Продуктов данных. Вы станете профессионалом в поиске вещей в иерархии хранилища данных.",
+                "updated": 1639083462415
+            },
+            {
+                "language": "DE",
+                "text": " Lassen Sie uns weitere Data Products finden. Sie werden ein Profi darin sein, Dinge in der Data Storage zu finden.",
+                "updated": 1639498409941
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Deberías notar que hay tres ramas. Uno para cada tipo de datos a los que podemos acceder en nuestros gráficos. Dado que ahora estamos interesados ​​en los datos de nuestro Trading System, necesitamos los productos de datos que se encuentran bajo la jerarquía de datos Trading Mines.",
                     "updated": 1628731297656
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны заметить, что есть три ветви. По одному для каждого типа данных, к которым мы можем обращаться в наших диаграммах. Поскольку сейчас нас интересуют данные нашей торговой системы (Trading System),нам нужны продукты данных, содержащиеся в иерархии Trading Mines Data .",
+                    "updated": 1639083534391
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie werden feststellen, dass es drei Verzweigungen gibt. Einen für jede Art von Daten, auf die wir in unseren Diagrammen zugreifen können. Da wir nun an den Daten unseres Trading System interessiert sind, benötigen wir die Datenprodukte, die in der Hierarchie der Trading Mines Data enthalten sind.",
+                    "updated": 1639498499529
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Al igual que antes, siga la jerarquía hasta encontrar el nodo Trading Mine Products.",
                     "updated": 1628731321924
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и раньше, следуйте по иерархии, пока не найдете узлы Trading Mine Products .",
+                    "updated": 1639083569550
+                },
+                {
+                    "language": "DE",
+                    "text": "Folgen Sie wie zuvor der Hierarchie, bis Sie die Knoten Trading Mine Products finden.",
+                    "updated": 1639498553923
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "Asegúrate de mirar debajo de los nodos Trading Session Reference.",
                     "updated": 1628731373973
+                },
+                {
+                    "language": "RU",
+                    "text": "Обязательно загляните в узлы справочника торговых сессий Trading Session Reference !",
+                    "updated": 1639083602613
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie unbedingt unter dem Knoten Trading Session Reference nach!",
+                    "updated": 1639498668334
                 }
             ]
         }

@@ -7,16 +7,52 @@
             "name": "Nodes\\nodes-highlights",
             "project": "Foundations"
         },
-        "text": "That's it! We finally have a proper hypothesis that we can test to decide if the idea is worth pursuing or not!"
+        "text": "That's it! We finally have a proper hypothesis that we can test to decide if the idea is worth pursuing or not!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das war's! Wir haben endlich eine richtige Hypothese, die wir testen können, um zu entscheiden, ob es sich lohnt, die Idee weiterzuverfolgen oder nicht!",
+                "updated": 1639253768165
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İşte bu! Sonunda, fikrin peşinden gitmeye değer olup olmadığına karar vermek için test edebileceğimiz uygun bir varsayımımız var!",
+                "updated": 1640952844610
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "We'll take it from there in the next tutorial!"
+            "text": "We'll take it from there in the next tutorial!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Tutorial geht es dann weiter!",
+                    "updated": 1639253774285
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir sonraki eğitimde devam edecekğiz!",
+                    "updated": 1640953399711
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "In the next tutorial in the series, we will dive into how Superalgos guides you through the process of setting up the trading idea to be tested on historical data. We'll learn about the syntax to write conditions and formulas, about how to use indicators from within strategies, and whatever else we may need along the way!"
+            "text": "In the next tutorial in the series, we will dive into how Superalgos guides you through the process of setting up the trading idea to be tested on historical data. We'll learn about the syntax to write conditions and formulas, about how to use indicators from within strategies, and whatever else we may need along the way!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Tutorial dieser Reihe werden wir uns damit beschäftigen, wie Superalgos Sie durch den Prozess der Erstellung einer Handelsidee führt, die anhand historischer Daten getestet werden soll. Wir werden etwas über die Syntax lernen, um Bedingungen und Formeln zu schreiben, über die Verwendung von Indikatoren innerhalb von Strategien und alles andere, was wir auf dem Weg dahin brauchen könnten!",
+                    "updated": 1639253781970
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Serideki bir sonraki eğitimde, Superalgos'un geçmiş veriler üzerinde test edilecek alım satım fikrini oluşturma sürecinde size nasıl rehberlik ettiğini ele alacağız. Koşullar ve formüller yazmak için sözdizimi, stratejilerin içinden göstergelerin nasıl kullanılacağı ve yol boyunca ihtiyaç duyabileceğimiz başka ne varsa öğreneceğiz!",
+                    "updated": 1640953435315
+                }
+            ]
         }
     ]
 }

@@ -8,11 +8,25 @@
         },
         {
             "style": "Text",
-            "text": "The node is created automatically when installing new markets."
+            "text": "The node is created automatically when installing new markets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел создается автоматически при установке новых рынков.",
+                    "updated": 1638973503452
+                }
+            ]
         }
     ],
     "definition": {
         "text": "The Layer Folder node is a device used to facilitate the organization of layers, particularly when a single bot produces many of them.",
-        "updated": 1609784707718
+        "updated": 1609784707718,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Layer Folder - это устройство, используемое для облегчения организации слоев Layer, особенно когда один бот создает их много.",
+                "updated": 1638973467764
+            }
+        ]
     }
 }

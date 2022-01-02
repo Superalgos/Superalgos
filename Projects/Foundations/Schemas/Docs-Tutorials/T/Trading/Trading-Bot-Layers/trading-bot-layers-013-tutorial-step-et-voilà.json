@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Et Voilà!",
     "definition": {
         "icon": {
-            "name": "trading-current",
+            "name": "Trading/trading-current",
             "project": "Foundations"
         },
         "text": "So, we turned on the \"Trading Episode Counters\" and the \"Current Episode\" layers... let's take a look at the hierarchy...",
@@ -15,6 +15,11 @@
                 "text": "Wir haben also die Zähler für die Handelsepisode und die Ebenen für die aktuelle Episode eingeschaltet... werfen wir einen Blick auf die Hierarchie...",
                 "updated": 1623013591957,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Итак, мы включили слои \" Trading Episode Counters\" и \"Current Episode\"... давайте посмотрим на иерархию...",
+                "updated": 1640546332022
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Verfolge ihren Weg in der Hierarchie nach oben, um herauszufinden, was genau wir uns die ganze Zeit angesehen haben...",
                     "updated": 1623013610150,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Следуйте по схеме иерархии, чтобы узнать, на что именно мы смотрели все это время...",
+                    "updated": 1640546396777
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Richtig! Am Anfang zeigten Periods, Strategies und Positions ihre Werte an, weil sie unter dem Knoten Trading Episode Counters der Hierarchie liegen... den wir zuerst eingeschaltet haben! Wenn du der Hierarchie stromaufwärts folgst, findest du den Knoten Trading Episode, und wenn du noch weiter stromaufwärts gehst, findest du den Knoten Trading Current. Ganz genau! Aktuelle Episode!",
                     "updated": 1623013692101,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Правильно! В начале периоды (Periods), стратегии (Strategies) и позиции (Positions) показывали свои значения, потому что они находятся в узле иерархии \" Trading Episode Counters\"... тот, который мы включили первым! Если вы проследуете по иерархии вверх по ветке, вы найдете узел Торговый эпизод, а если вы продолжите двигаться дальше вверх по ветке, вы найдете узел Trading Current. Именно! \"Текущий эпизод\"!",
+                    "updated": 1640546516255
                 }
             ]
         }

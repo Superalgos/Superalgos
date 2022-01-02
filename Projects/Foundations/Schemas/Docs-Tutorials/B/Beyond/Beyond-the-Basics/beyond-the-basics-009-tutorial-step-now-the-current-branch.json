@@ -24,8 +24,18 @@
             },
             {
                 "language": "DE",
-                "text": "Wenn alles gut gegangen ist, müssen Sie eine Bestätigung erhalten haben, dass der Beitragszweig geändert wurde! Großartig!",
-                "updated": 1634821709445
+                "text": "Wenn alles gut gegangen ist, müssen Sie eine Bestätigung erhalten haben, dass der Beitragszweig(contributions-branch) geändert wurde! Großartig!",
+                "updated": 1638831999790
+            },
+            {
+                "language": "RU",
+                "text": "Если все прошло успешно, вы должны были получить подтверждение, что ветка вкладов ( Contributions Branch) была изменена! Потрясающе!",
+                "updated": 1640155599764
+            },
+            {
+                "language": "TR",
+                "text": "Her şey yolunda gittiyse, Katkılar dalının ( Contributions Branch ) değiştirildiğine dair bir onay almış olmalısınız! Mükemmel!",
+                "updated": 1640417179001
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Als nächstes steht der Wechsel des aktuellen Zweigs an, aber vorher müssen wir noch einige Prüfungen durchführen!",
                     "updated": 1634821735341
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующим на очереди будет переключение текущей ветви Current Branch, но сначала нам нужно выполнить несколько проверок!",
+                    "updated": 1640155640902
+                },
+                {
+                    "language": "TR",
+                    "text": "Sırada Current Branch'ı değiştirmek var, ancak önce bazı kontrolleri yapmamız gerekiyor!",
+                    "updated": 1640417207945
                 }
             ]
         },
@@ -73,8 +93,18 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie den Zweig wechseln, wird die Anwendung eine Reihe von Git-Befehlen ausführen, die die Software aus dem plugins-docs-Zweig Ihres Forks herunterladen! Die aktuelle Software wird auf Ihrer Festplatte ersetzt! Aus diesem Grund müssen Sie die Anwendung nach dem Wechsel schließen. Aber lassen Sie uns noch ein paar Dinge besprechen, bevor Sie fortfahren!",
-                    "updated": 1634821752941
+                    "text": "Wenn Sie den Zweig wechseln, wird die Anwendung eine Reihe von Git-Befehlen ausführen, die die Software aus dem develop-Zweig Ihres Forks herunterladen! Die aktuelle Software wird auf Ihrer Festplatte ersetzt! Aus diesem Grund müssen Sie die Anwendung nach dem Wechsel schließen. Aber lassen Sie uns noch ein paar Dinge besprechen, bevor Sie fortfahren!",
+                    "updated": 1638832046326
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы переключаете ветку, приложение выполнит серию команд Git, которые загрузят программное обеспечение из ветки Develop вашего форка! Текущее программное обеспечение будет заменено на вашем диске! По этой причине вам нужно будет закрыть приложение после переключения. Но давайте обсудим еще несколько моментов, прежде чем вы продолжите!",
+                    "updated": 1640155669606
+                },
+                {
+                    "language": "TR",
+                    "text": "Dalları değiştirdiğinizde, uygulama yazılımı çatalınızın Geliştirme ( Develop ) dalından indirecek bir dizi Git komutu çalıştıracaktır! Mevcut yazılım diskinizde değiştirilecektir! Bu nedenle, geçiş yaptıktan sonra uygulamayı kapatmanız gerekecektir. Ama devam etmeden önce birkaç şey daha tartışalım!",
+                    "updated": 1640417255328
                 }
             ]
         }

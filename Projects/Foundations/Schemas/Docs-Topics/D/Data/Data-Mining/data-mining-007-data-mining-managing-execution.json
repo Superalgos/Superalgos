@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Bots können in ihrem eigenen Tempo ausgeführt werden oder sie können warten, bis andere Bots die Ausführung beendet haben, bevor sie beginnen.",
                 "updated": 1634828825458
+            },
+            {
+                "language": "RU",
+                "text": "Боты могут работать в своем собственном темпе или могут дождаться завершения работы других ботов перед запуском.",
+                "updated": 1639410936571
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Bot Execution Tree (Bot Ausführungsbaum):",
                     "updated": 1634828847947
+                },
+                {
+                    "language": "RU",
+                    "text": "Дерево выполнения ботов",
+                    "updated": 1639411324023
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "Eine hilfreiche Art und Weise, über die Verwaltung der Bot-Ausführung nachzudenken, ist das Bild eines Baumes. Die Wurzeln unterstützen den Stamm, der wiederum die Äste stützt. Auf die gleiche Weise verwendet Superalgos viele Bots, um Daten zu verarbeiten, wobei sich jeder auf den Output des letzten stützt, um einen Baum zu bilden. Während die Daten den Baum durchlaufen, werden die Rohdaten verarbeitet und weiterverarbeitet, um immer durchdachtere Datensätze zu erstellen.",
                     "updated": 1634832671242
+                },
+                {
+                    "language": "RU",
+                    "text": "Один из полезных способов подумать об управлении запуском бота - это представить себе дерево. Корни поддерживают ствол, который поддерживает ветви. Точно так же Superalgos использует множество ботов для обработки данных, каждый из которых полагается на вывод последнего для формирования дерева. По мере прохождения данных через дерево необработанные данные обрабатываются и перерабатываются для создания все более и более сложных наборов данных.",
+                    "updated": 1639411442575
                 }
             ]
         },
@@ -46,12 +61,24 @@
                     "language": "DE",
                     "text": "Arten des Execution (Ausführungs)/ Management:",
                     "updated": 1634832926148
+                },
+                {
+                    "language": "RU",
+                    "text": "Типы управления исполнением",
+                    "updated": 1639411522267
                 }
             ]
         },
         {
             "style": "Subtitle",
-            "text": "There are two types of execution managment:"
+            "text": "There are two types of execution managment:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть два типа управления исполнением:",
+                    "updated": 1639411536035
+                }
+            ]
         },
         {
             "style": "List",
@@ -62,6 +89,11 @@
                     "language": "DE",
                     "text": "Diese Bots sind die Wurzel des Execution Tree (Bot-Ausführungsbaums). Sie sind nicht von anderen Bots abhängig, sondern verwenden die Konfiguration ihrer Process Definition node, um nach einem vordefinierten Zeitplan (in den meisten Fällen jede Minute) zu laufen.",
                     "updated": 1634841023922
+                },
+                {
+                    "language": "RU",
+                    "text": "Автономные боты: эти боты являются корнем дерева выполнения ботов. Они не зависят от запуска какого-либо другого бота, но используют конфигурацию его узла определения процесса Process Definition для запуска по заранее определенному расписанию (в большинстве случаев каждую минуту).",
+                    "updated": 1639411632492
                 }
             ]
         },
@@ -74,6 +106,11 @@
                     "language": "DE",
                     "text": "Wenn ein Bot Rohdaten produziert, arbeitet er normalerweise als eigenständiger Bot.",
                     "updated": 1634841057033
+                },
+                {
+                    "language": "RU",
+                    "text": "Обычно, когда бот производит необработанные данные, он работает как автономный бот.",
+                    "updated": 1639411645983
                 }
             ]
         },
@@ -86,6 +123,11 @@
                     "language": "DE",
                     "text": "Execution Dependent Bots: Diese Bots sind die Zweige des Bot-Ausführungsbaums. Sie müssen warten, bis andere Bots ihre Ausführung beendet haben, um starten zu können.",
                     "updated": 1634841171154
+                },
+                {
+                    "language": "RU",
+                    "text": "Боты, зависящие от выполнения: эти боты являются ветвями дерева выполнения ботов. Им нужно дождаться, пока другие боты закончат свое выполнение, чтобы начать.",
+                    "updated": 1639411666962
                 }
             ]
         },
@@ -98,6 +140,11 @@
                     "language": "DE",
                     "text": "Einen eigenständigen Bot konfigurieren:",
                     "updated": 1634841196929
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройка автономного бота",
+                    "updated": 1639411831237
                 }
             ]
         },
@@ -110,6 +157,11 @@
                     "language": "DE",
                     "text": "Hier ein Beispiel für die Konfiguration eines Bots zur Ausführung als eigenständiger Bot In der Process Definition  eines Bots hat die Eigenschaft normalWaitTime einen Wert ungleich Null, in diesem Fall 60 Sekunden.",
                     "updated": 1634841274219
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример того, как настроить бота для работы в качестве автономного бота. В определении процесса бота свойство normalWaitTime имеет ненулевое значение, в данном случае 60 секунд.",
+                    "updated": 1639411745185
                 }
             ]
         },
@@ -127,6 +179,11 @@
                     "language": "DE",
                     "text": "Konfigurieren eines Execution Dependent Bot (ausführungsabhängigen Bots):",
                     "updated": 1634841312416
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройка бота, зависящего от выполнения",
+                    "updated": 1639411840073
                 }
             ]
         },
@@ -139,6 +196,11 @@
                     "language": "DE",
                     "text": "Um einen Bot so zu konfigurieren, dass er als Execution Dependent Bot (ausführungsabhängiger Bot) ausgeführt wird, müssen zwei Dinge vorhanden sein:",
                     "updated": 1634841400498
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы настроить бота для работы в качестве бота, зависящего от выполнения, необходимо наличие двух вещей.",
+                    "updated": 1639411854708
                 }
             ]
         },
@@ -151,6 +213,11 @@
                     "language": "DE",
                     "text": "Zunächst muss in der Definition des Bots ein Ereignis Execution Started Event definiert werden. Danach muss das Ereignis \"Execution Started Event\" einen Verweis auf das Ereignis \"Execution Finished Event\" des Bots enthalten, auf das es wartet.",
                     "updated": 1634843860022
+                },
+                {
+                    "language": "RU",
+                    "text": "Во-первых, в определении бота должно быть определено событие запуска Execution Started Event. После этого Execution Finished Event должно иметь ссылку на событие завершения Execution Finished Event того бота, которого он ожидает.",
+                    "updated": 1639411981280
                 }
             ]
         },
@@ -163,6 +230,11 @@
                     "language": "DE",
                     "text": "Zweitens benötigt die Prozessdefinition des Bots eine Null in der Eigenschaft normalWaitTime. Dadurch wird der Bot gezwungen, sofort den nächsten loop auszuführen. Da jedoch ein Ereignis  Execution Started Event  definiert ist, wird er warten, bis der referenzierte Bot fertig ist.",
                     "updated": 1634843953677
+                },
+                {
+                    "language": "RU",
+                    "text": "Во-вторых, для определения процесса Process Definition бота потребуется ноль в свойстве normalWaitTime. Это заставит бота немедленно запустить следующий цикл, но, поскольку определено событие начала выполнения Execution Started Event, оно заставит его ждать, пока бот, на который ссылается, не закончит работу.",
+                    "updated": 1639412078151
                 }
             ]
         },
@@ -180,6 +252,11 @@
                     "language": "DE",
                     "text": "Aus Sicht der Bereitstellung können sich die abhängigen Bots physisch auf demselben Rechner oder auf mehreren verschiedenen Rechnern befinden. Superalgos kümmert sich um die Syncronisierung über mehrere Maschinen hinweg.",
                     "updated": 1634844032286
+                },
+                {
+                    "language": "RU",
+                    "text": "С точки зрения развертывания зависимые боты могут физически располагаться на одной машине или на нескольких разных машинах. Superalgos выполняет синхронизацию на нескольких машинах.",
+                    "updated": 1639412101011
                 }
             ]
         }

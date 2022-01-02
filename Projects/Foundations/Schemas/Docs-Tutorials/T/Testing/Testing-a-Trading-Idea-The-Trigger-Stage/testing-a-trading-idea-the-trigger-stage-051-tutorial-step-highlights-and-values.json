@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 51,
+    "type": "Tutorial Step - Highlights and Values",
+    "definition": {
+        "icon": {
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
+        },
+        "text": "Let's move on to a brighter topic! I'll show you how to verify the validation of conditions with the highlights and values layers.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Kommen wir zu einem spannenderen Thema! Ich zeige Ihnen, wie Sie die Validierung von Bedingungen mit den Ebenen \"Highlights\" und \"Werte\" überprüfen können.",
+                "updated": 1639388506323
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Go to the Trading System layer manager and turn on the \"Trading System Highlights\" and the \"Trading System Values\" layers...",
+            "updated": 1622488043632,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ebenenmanager des Trading Systems und aktivieren Sie die Ebenen \"Trading System Highlights\" und \"Trading System Values\"...",
+                    "updated": 1639388623984
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Now slide the mouse pointer over the candle where the strategy is triggered on!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie nun den Mauszeiger über die Kerze, bei der die Strategie ausgelöst wird!",
+                    "updated": 1639388640820
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Use this resource when things are not going as you'd expect! This is how you find out why an event is not triggering when you think it should!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nutzen Sie dieses Hilfsmittel, wenn die Dinge nicht so laufen, wie Sie es erwarten würden! So können Sie herausfinden, warum ein Ereignis nicht auslöst, wenn Sie denken, dass es das sollte!",
+                    "updated": 1639388647566
+                }
+            ]
+        }
+    ]
+}

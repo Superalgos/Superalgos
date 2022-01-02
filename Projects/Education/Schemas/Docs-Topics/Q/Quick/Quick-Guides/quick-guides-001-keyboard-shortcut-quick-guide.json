@@ -3,160 +3,545 @@
     "pageNumber": 1,
     "type": "Keyboard Shortcut Quick Guide",
     "definition": {
-        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly.",
-        "updated": 1634909540261
+        "text": "Superalgos offers a number of keyboard shortcuts to make working with the platform more efficient and user friendly. Keyboard Shortcuts improve your Workflow and contain functions like recording GIF`s.\n\n",
+        "updated": 1640560120092,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos предлагает ряд сочетаний клавиш, чтобы сделать работу с платформой более эффективной и удобной для пользователя.",
+                "updated": 1639554313331
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos bietet eine Reihe von Tastenkombinationen, um die Arbeit mit der Plattform effizienter und benutzerfreundlicher zu gestalten. Shortcuts (Tastaturkürzel) verbessern Ihren Workflow und enthalten Funktionen wie die Aufnahme von GIFs.",
+                "updated": 1640560205845
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Important",
             "text": "For all Mac Users please substitute <kbd>Cmd</kbd> in place of Ctrl.",
-            "updated": 1634998306538
+            "updated": 1634998306538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для всех пользователей Mac используйте Cmd вместо Ctrl.",
+                    "updated": 1639554339445
+                },
+                {
+                    "language": "DE",
+                    "text": "Für alle Mac-Benutzer(Apple PC Betriebssystem) ersetzen Sie bitte Cmd anstelle von Ctrl.",
+                    "updated": 1640556810949
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Here is the current list of all implemented shortcuts and options for customization:"
+            "text": "Here is the current list of all implemented shortcuts and options for customization:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот текущий список всех реализованных сочетаний клавиш и параметров для настройки:",
+                    "updated": 1639554434932
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier finden Sie die aktuelle Liste aller implementierten Tastenkombinationen und Optionen zur Anpassung:",
+                    "updated": 1640556842157
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "General Shortcuts"
+            "text": "General Shortcuts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Общие",
+                    "updated": 1639554504438
+                },
+                {
+                    "language": "DE",
+                    "text": "Generelle Shortcuts (Tastenkombinationen)",
+                    "updated": 1640556861420
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Save the current workspace: Ctrl + Shift + Alt + Key-S ",
-            "updated": 1634908447626
+            "updated": 1634908447626,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сохранить текущее рабочее пространство: Ctrl + Shift + Alt + Key-S",
+                    "updated": 1639554539458
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktuellen Workspace speichern Workspace: Ctrl + Shift + Alt + Key-S",
+                    "updated": 1640556891358
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Display Reference Connections: Ctrl + Shift + Alt + Key-R",
-            "updated": 1634908480733
+            "updated": 1634908480733,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отображение ссылочных подключений: Ctrl + Shift + Alt + Key-R",
+                    "updated": 1639554630673
+                },
+                {
+                    "language": "DE",
+                    "text": "Display Reference Connections:(Display Reference Connections) Ctrl + Shift + Alt + Key-R",
+                    "updated": 1640556926853
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Display Parent Connections: Ctrl + Shift + Alt + Key-C",
-            "updated": 1634998435755
+            "updated": 1634998435755,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Показать родительские соединения: Ctrl + Shift + Alt + Key-C",
+                    "updated": 1639554647373
+                },
+                {
+                    "language": "DE",
+                    "text": "Parent Connections anzeigen: (Display Parent Connections) Ctrl + Shift + Alt + Key-C",
+                    "updated": 1640556946706
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Adjust Chart Aspect Ratio: Ctrl + Shift + Alt + Key-A",
-            "updated": 1634998443465
+            "updated": 1634998443465,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Регулирование соотношения сторон графика: Ctrl + Shift + Alt + Key-A",
+                    "updated": 1639554721455
+                },
+                {
+                    "language": "DE",
+                    "text": "Seitenverhältnis des Diagramms (Chart) anpassen: Ctrl + Shift + Alt + Key-A",
+                    "updated": 1640556971370
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Toggle Map Mode: Ctrl + Shift + Alt + Key-M",
-            "updated": 1634998451423
+            "updated": 1634998451423,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переклчение режима отображения: Ctrl + Shift + Alt + Key-M",
+                    "updated": 1639554792745
+                },
+                {
+                    "language": "DE",
+                    "text": "Kartenmodus umschalten: Ctrl + Shift + Alt + Key-M",
+                    "updated": 1640556987451
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "You can change the shortcut key for these general shortcuts by adjusting the config of your Space Settings node found under the Design Space node. See the Space Settings node page for more details.",
-            "updated": 1634909647891
+            "updated": 1634909647891,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете изменить эти настройки сочетаний клавиш, изменив конфигурацию узла Space Settings, находящегося под узлом Design Space. См. Дополнительную информацию на странице узла Space Settings.",
+                    "updated": 1639554950517
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können den shortcut für diese allgemeinen Tastenkombinationen ändern, indem Sie die Konfiguration Ihrer Node Space Settings (Raumeinstellungen) unter der Node Design Space (Designbereich) anpassen. Weitere Einzelheiten finden Sie auf der Seite der Node Raumeinstellungen (Space Settings).",
+                    "updated": 1640557127612
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Node Manipulation Shortcuts",
-            "updated": 1634909665231
+            "updated": 1634909665231,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для манипуляций с узлами",
+                    "updated": 1639555244956
+                },
+                {
+                    "language": "DE",
+                    "text": "Node Manipulation`s Shortcuts",
+                    "updated": 1640557142011
+                }
+            ]
         },
         {
             "style": "List",
             "text": "While hovering over a node: Select a Node to move Ctrl + Shift + Alt + Key-Z",
-            "updated": 1634998486627
+            "updated": 1634998486627,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При наведении указателя мыши на узел: выберите узел, который нужно переместить Ctrl + Shift + Alt + Key-Z",
+                    "updated": 1639555018843
+                },
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie den Mauszeiger über eine Node (hovering over Node): Wählen Sie eine Node zum Verschieben Ctrl + Shift + Alt + Key-Z",
+                    "updated": 1640559491228
+                }
+            ]
         },
         {
             "style": "List",
             "text": "While hovering over nothing: Clears the selected node Ctrl + Shift + Alt + Key-Z",
-            "updated": 1634998497705
+            "updated": 1634998497705,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При наведении указателя мыши: очищает выбранный узел Ctrl + Shift + Alt + Key-Z",
+                    "updated": 1639555096325
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn der Mauszeiger über nichts schwebt: Löscht die ausgewählte Node Ctrl + Shift + Alt + Key-Z",
+                    "updated": 1640557258817
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Move Selected node to current position of Mouse Pointer: Ctrl + Shift + Alt + Key-X",
-            "updated": 1634998509998
+            "updated": 1634998509998,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переместить выбранный узел в текущее положение указателя мыши: Ctrl + Shift + Alt + Key-X",
+                    "updated": 1639555112927
+                },
+                {
+                    "language": "DE",
+                    "text": "Ausgewählte Node an die aktuelle Position des Mauszeigers verschieben: Ctrl + Shift + Alt + Key-X",
+                    "updated": 1640557299417
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Node must be pinned in order to move.",
-            "updated": 1634911098847
+            "updated": 1634911098847,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел должен быть закреплен для перемещения.",
+                    "updated": 1639555139185
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Node muss angepinnt sein um sie bewegen zu können.",
+                    "updated": 1640557341869
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Retrieve a lost/out of bounds node: Ctrl + Shift + Alt + Key-K",
-            "updated": 1634998846702
+            "updated": 1634998846702,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Получение потерянного/недоступного узла: Ctrl + Shift + Alt + Key-K",
+                    "updated": 1639555172969
+                },
+                {
+                    "language": "DE",
+                    "text": "Abrufen/Wiederherstellen einer verlorenen/außerhalb der Grenzen liegenden Node: Ctrl + Shift + Alt + Key-K",
+                    "updated": 1640557434635
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Productivity Shortcuts"
+            "text": "Productivity Shortcuts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для быстродействия",
+                    "updated": 1639555235911
+                },
+                {
+                    "language": "DE",
+                    "text": "Produktivitäts Shortcuts",
+                    "updated": 1640557452286
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Capture a static PNG image: Ctrl + F8 ",
-            "updated": 1634908593022
+            "updated": 1634908593022,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Захват изображения в формате PNG: Ctrl + F8",
+                    "updated": 1639555290410
+                },
+                {
+                    "language": "DE",
+                    "text": "Erfassen Sie ein statisches PNG-Bild: : Ctrl + F8",
+                    "updated": 1640557532276
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Start capturing a GIF video: Ctrl + F9 hit the same key combination again to end the capture. ",
-            "updated": 1634908656330
+            "updated": 1634908656330,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начало захвата видео в формате GIF: Ctrl + F9 нажмите ту же комбинацию клавиш еще раз, чтобы завершить.",
+                    "updated": 1639555443884
+                },
+                {
+                    "language": "DE",
+                    "text": "Starten Sie die Aufnahme eines GIF-Videos: Ctrl + F9 Drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden.",
+                    "updated": 1640557593882
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Once the capture ends, it takes some time to process the capture and generate the final file."
+            "text": "Once the capture ends, it takes some time to process the capture and generate the final file.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По окончании захвата требуется некоторое время, чтобы обработать захват и сгенерировать окончательный файл.",
+                    "updated": 1639555422827
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
+                    "updated": 1640557608192
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Start capturing a WEBM video: Ctrl + F10 hit the same key combination again to end the capture. ",
-            "updated": 1634908707702
+            "updated": 1634908707702,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начать запись WEBM-видео: Ctrl + F10 нажмите ту же комбинацию клавиш еще раз, чтобы завершить.",
+                    "updated": 1639555488236
+                },
+                {
+                    "language": "DE",
+                    "text": "Aufnahme eines WEBM-Videos starten: Ctrl + F10 Drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden.",
+                    "updated": 1640558089086
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "WEBM videos are processed instantly."
+            "text": "WEBM videos are processed instantly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Видео WEBM обрабатываются мгновенно.",
+                    "updated": 1639555500723
+                },
+                {
+                    "language": "DE",
+                    "text": "WEBM-Videos werden sofort verarbeitet.",
+                    "updated": 1640558110491
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Display animation performance: Ctrl + Shift + Alt + F11",
-            "updated": 1634910183292
+            "updated": 1634910183292,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отображение производительности анимации: Ctrl + Shift + Alt + F11",
+                    "updated": 1639555514571
+                },
+                {
+                    "language": "DE",
+                    "text": "Animationsleistung anzeigen: (Display animation performance) Ctrl + Shift + Alt + F11",
+                    "updated": 1640558138632
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Print Node Object of current Node to browser console: Ctrl + Shift + Alt + F12",
-            "updated": 1634910470824
+            "updated": 1634910470824,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Печать объекта текущего узла в консоль браузера: Ctrl + Shift + Alt + F12",
+                    "updated": 1639555550378
+                },
+                {
+                    "language": "DE",
+                    "text": "\"Druckt\" (gibt zurück) das Node Object der aktuellen Node in die Browserkonsole: Ctrl + Shift + Alt + F12",
+                    "updated": 1640558211233
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Custom Shortcuts"
+            "text": "Custom Shortcuts to Nodes",
+            "updated": 1637691249937,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользовательские",
+                    "updated": 1639555564010
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutzerdefinierte Shortcuts für Nodes",
+                    "updated": 1640558241679
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Keyboard Shortcuts to Nodes->Custom Node Shortcuts",
+            "updated": 1637691223240
         },
         {
             "style": "List",
             "text": "It is also possible to set a custom shortcut to any node you would like. Simply hover over a node and hit Ctrl + Alt + your preferred key to assign the shortcut.",
-            "updated": 1634909920250
-        },
-        {
-            "style": "Note",
-            "text": "A more detailed walk through can be found here: Keyboard Shortcuts to Nodes"
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Также можно установить собственную клавишу для любого узла, который вам нужен. Просто наведите указатель мыши на узел и нажмите Ctrl + Alt + желаемая клавиша, чтобы назначить клавишу.",
+                    "updated": 1639555641721
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist auch möglich, einen benutzerdefinierten Shortcut zu einer beliebigen Node zu erstellen. Bewegen Sie einfach den Mauszeiger über eine Node und drücken Sie Ctrl + Alt + Ihre bevorzugte Taste, um den Shortcut zuzuweisen.",
+                    "updated": 1640558401832
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "General Navigation"
+            "text": "General Navigation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Общая навигация",
+                    "updated": 1639555663383
+                },
+                {
+                    "language": "DE",
+                    "text": "Allgemeine Navigation",
+                    "updated": 1640558656173
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You can find additional descriptions of how to use your mouse and keyboard to navigate the Charting Space and Design Space at the Basic Navigation page.",
-            "updated": 1634912820206
+            "updated": 1634912820206,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете найти дополнительные описания того, как использовать мышь и клавиатуру для навигации в пространствах Charting Space и Design Space на странице Basic Navigation.",
+                    "updated": 1639555759034
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf der Seite: Basic Navigation Seite finden Sie weitere Beschreibungen, wie Sie mit der Maus und der Tastatur im Charting Space und im Design Space navigieren können.",
+                    "updated": 1640558785356
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Shortcut Troubleshooting and Optimization"
+            "text": "Shortcut Troubleshooting and Optimization",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Устранение неполадок и оптимизация",
+                    "updated": 1639555809538
+                },
+                {
+                    "language": "DE",
+                    "text": "Shortcut Fehlerbehebung und Optimierung",
+                    "updated": 1640558809456
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "If any of these keyboard shortcuts do not function as expected, please disable any installed browser extentions while using Superalgos as they can override expected functionality.",
-            "updated": 1634999290105
+            "updated": 1634999290105,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если какие-либо из этих сочетаний клавиш не работают должным образом, отключите все установленные расширения браузера при использовании Superalgos, поскольку они могут переопределить ожидаемую функциональность.",
+                    "updated": 1639555832962
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn eine dieser Tastenkombinationen nicht wie erwartet funktioniert, deaktivieren Sie bitte alle installierten Browser-Erweiterungen, während Sie Superalgos verwenden, da diese die erwartete Funktionalität außer Kraft setzen können.",
+                    "updated": 1640558885787
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "In addition to this, many shortcuts will work without using the Alt key. For example Ctrl + Shift + Key-S. ",
-            "updated": 1634999389000
+            "updated": 1634999389000,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В дополнение к этому, многие сочетания клавиш будут работать без использования клавиши Alt. Например, Ctrl + Shift + Key-S.",
+                    "updated": 1639555885821
+                },
+                {
+                    "language": "DE",
+                    "text": "Außerdem funktionieren viele Tastenkombinationen auch ohne die Verwendung der Alt Taste. Zum Beispiel Ctrl + Shift + Key-S.",
+                    "updated": 1640558939123
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "However, on certain operating systems or browsers omitting the Alt key may cause a conflict with preset system shortcuts. Therefore, the shortcuts guaranteed to work are those using Alt. But feel free to optimize as you see fit!",
-            "updated": 1634999581536
+            "updated": 1634999581536,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако в некоторых операционных системах или браузерах отсутствие клавиши Alt может вызвать конфликт с предустановленными системными сочетаниями клавиш. Следовательно, гарантированно работают сочетания клавиш, использующие Alt. Но не стесняйтесь оптимизировать по своему усмотрению!",
+                    "updated": 1639555969409
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei bestimmten Betriebssystemen oder Browsern kann das Weglassen der Alt Taste jedoch zu Konflikten mit voreingestellten System Shortcuts führen. Daher funktionieren garantiert nur die Tastenkombinationen, die Alt verwenden. Sie können jedoch nach eigenem Ermessen optimieren!",
+                    "updated": 1640559029387
+                }
+            ]
         },
         {
             "style": "Text",

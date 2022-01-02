@@ -4,7 +4,19 @@
     "type": "Support Group",
     "definition": {
         "text": "Join this group if you need help particularly during the early stages, while getting started.",
-        "updated": 1618833931126
+        "updated": 1618833931126,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Superalgos'ta yeniyseniz, erken aşamalarda yardıma ihtiyacınız varsa bu gruba katılın.",
+                "updated": 1639393196997
+            },
+            {
+                "language": "RU",
+                "text": "Присоединяйтесь к этой группе, если вам нужна помощь, особенно на ранних стадиях, в самом начале работы.",
+                "updated": 1640353581135
+            }
+        ]
     },
     "paragraphs": [
         {

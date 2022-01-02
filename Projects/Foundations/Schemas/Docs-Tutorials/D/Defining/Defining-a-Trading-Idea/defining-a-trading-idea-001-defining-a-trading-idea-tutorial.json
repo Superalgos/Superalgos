@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "Este tutorial le enseña cómo formular una idea de trading testeable. En cierto modo, es una introducción al enfoque sistemático del trading, un concepto crucial que debe comprender para automatizar estrategias. El ejemplo presentado en este tutorial se utiliza más adelante en el resto de la serie.",
                 "updated": 1636725384415
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Lernprogramm lernen Sie, wie Sie eine überprüfbare Handelsidee formulieren können. Es ist gewissermaßen eine Einführung in den systematischen Ansatz beim Handel, ein entscheidendes Konzept, das Sie verstehen müssen, um Strategien zu automatisieren. Das Beispiel, das in diesem Tutorial vorgestellt wird, wird später im Rest der Serie verwendet.",
+                "updated": 1639251150861
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
+                "updated": 1640858379007
             }
         ]
     },

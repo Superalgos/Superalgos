@@ -26,7 +26,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     let sessionParameters
     let dynamicIndicators
 
-    let tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
+    let tradingStagesModuleObject 
+    let incomingTradingSignalsModuleObject 
+    let outgoingTradingSignalsModuleObject 
+    let portfolioManagerClient 
 
     let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -43,7 +46,15 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         tradingSystem.conditions = new Map()
         tradingSystem.formulas = new Map()
 
+        tradingStagesModuleObject = TS.projects.algorithmicTrading.botModules.tradingStages.newAlgorithmicTradingBotModulesTradingStages(processIndex)
+        incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
+        outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+        portfolioManagerClient = TS.projects.portfolioManagement.modules.portfolioManagerClient.newPortfolioManagementModulesPortfolioManagerClient(processIndex)
+
         tradingStagesModuleObject.initialize()
+        incomingTradingSignalsModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
+        portfolioManagerClient.initialize()
 
         /* Adding Functions used elsewhere to Trading System Definition */
         tradingSystem.checkConditions = function (situation, passed) {
@@ -66,16 +77,33 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             return passed
         }
 
-        tradingSystem.evalConditions = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'Conditions', descendentOfNodeType)
+        tradingSystem.evalConditions = async function (startingNode, descendentOfNodeType, signals) {
+            await evalNode(
+                startingNode,
+                'Conditions',
+                descendentOfNodeType,
+                undefined,
+                undefined,
+                signals
+            )
         }
 
-        tradingSystem.evalFormulas = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'Formulas', descendentOfNodeType)
+        tradingSystem.evalFormulas = async function (startingNode, descendentOfNodeType, parentNode) {
+            await evalNode(
+                startingNode,
+                'Formulas',
+                descendentOfNodeType,
+                undefined,
+                parentNode
+            )
         }
 
         tradingSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
-          evalNode(startingNode, 'User Codes', descendentOfNodeType);
+            evalNode(
+                startingNode,
+                'User Codes',
+                descendentOfNodeType
+            )
         }
 
         tradingSystem.addError = function (errorDataArray) {
@@ -129,6 +157,15 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
     function finalize() {
         tradingStagesModuleObject.finalize()
         tradingStagesModuleObject = undefined
+
+        portfolioManagerClient.finalize()
+        portfolioManagerClient = undefined
+
+        incomingTradingSignalsModuleObject.finalize()
+        incomingTradingSignalsModuleObject = undefined
+
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -203,13 +240,13 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             buildDynamicIndicators()
 
             /* Run the Trigger Stage */
-            tradingStagesModuleObject.runTriggerStage()
+            await tradingStagesModuleObject.runTriggerStage()
 
             /* Run the Open Stage */
             await tradingStagesModuleObject.runOpenStage()
 
             /* Run the Manage Stage */
-            tradingStagesModuleObject.runManageStage()
+            await tradingStagesModuleObject.runManageStage()
 
             /* Run the Close Stage */
             await tradingStagesModuleObject.runCloseStage()
@@ -228,13 +265,20 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             if (typeof err === 'string' || err instanceof String) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err)
             }
-            if (err.stack !== undefined) {
+            if (err !== undefined && err.stack !== undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
         }
     }
 
-    function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
+    async function evalNode(
+        node,
+        evaluating,
+        descendentOfNodeType,
+        isDescendent,
+        parentNode,
+        signals
+    ) {
         if (node === undefined) { return }
 
         /* Verify if this node is descendent of the specified node type */
@@ -248,7 +292,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         if (node.type === 'Condition' && evaluating === 'Conditions') {
             /* We will eval this condition */
             if (isDescendent === true) {
-                evalCondition(node)
+                await evalCondition(node, signals)
             }
         }
 
@@ -257,22 +301,22 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
-                    evalFormula(node)
+                    await evalFormula(node, parentNode)
                 }
             }
         }
 
         /* Here we check if there is a User Defined-Javascript Code to be evaluated: */
         if (node.type === 'Javascript Code' && evaluating === 'User Codes') {
-          if (node.code !== undefined) {
-            if (isDescendent === true) {
-              evalJSCode(node);
+            if (node.code !== undefined) {
+                if (isDescendent === true) {
+                    await evalJSCode(node);
+                }
             }
-          }
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -284,7 +328,14 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent)
+                                await evalNode(
+                                    node[property.name],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    node,
+                                    signals
+                                )
                             }
                             previousPropertyName = property.name
                         }
@@ -294,7 +345,14 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent)
+                                await evalNode(
+                                    nodePropertyArray[m],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    node,
+                                    signals
+                                )
                             }
                         }
                         break
@@ -304,7 +362,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         }
     }
 
-    function evalCondition(node) {
+    async function evalCondition(node, signals) {
         let value
         let errorMessage
         let docs
@@ -321,7 +379,10 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
                 nodeName = node.javascriptCode.name
             }
         }
-
+        /*
+        Note that the signal object is part of the objects available to the users at
+        their conditions code.
+        */
         try {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> ' + node.name + ' -> code = ' + code)
             value = eval(code)
@@ -349,6 +410,7 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         if (errorMessage !== undefined) {
             tradingSystem.addError([node.id, errorMessage, docs])
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] evalCondition -> errorMessage = ' + errorMessage)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] evalCondition -> code = ' + code)
         }
         if (value !== undefined) {
             tradingSystem.values.push([node.id, value])
@@ -357,14 +419,66 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
     }
 
-    function evalFormula(node) {
+    async function evalFormula(node, parentNode) {
         let value
         let errorMessage
         let docs
 
         try {
             TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> ' + node.name + ' -> code = ' + node.code)
+            /*
+            Here we check if we received signals at the parent of this formula. If we did,
+            users will be able to use the signals at their formula, including value of the
+            formula that triggered these signals. 
+
+            Usage Example of Formula Value:
+
+            let lastSignalFormulaValue = 0
+            for (let i = 0; i < signals.length; i++) {
+                let signal = signals[i]
+                lastSignalFormulaValue = tradingSignal.source.tradingSystem.node.formula.value
+            }
+            lastSignalFormulaValue
+
+            Usage Example of signals Context:
+            
+            let lastSignalContextValue = 0
+            for (let i = 0; i < signals.length; i++) {
+                let signal = signals[i]
+                lastSignalContextValue = tradingSignal.source.tradingSystem.node.context.roi
+            }
+            lastSignalContextValue
+
+            Usage Example of Context Formula for Outgoing Signal:
+
+            let context = {
+                profitLoss: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value,
+                hitFail: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value,
+                roi: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value
+            }
+
+            context // return the context object         
+          
+            */
+            let signals = await incomingTradingSignalsModuleObject.getAllSignals(parentNode)
+            /*
+            Here is where the Formula Code is evaluated.
+            */
             value = eval(node.code)
+            /*
+            Now that we have the value of the formula, we will check with the Porfolio Manager
+            to see if we can use this value, or we need to use something else.
+            */
+            if (parentNode.askPortfolioFormulaManager !== undefined) {
+                let response = await portfolioManagerClient.askPortfolioFormulaManager(node, parentNode, value)
+                value = response.value
+            }
+            /*
+            Now we actually have the final value. We will check if we need to broadcast a signals
+            with this value as context or not.
+            */
+            await outgoingTradingSignalsModuleObject.broadcastSignal(parentNode, value)
+
         } catch (err) {
             /*
                 One possible error is that the formula references a .previous that is undefined. This
@@ -422,30 +536,30 @@ exports.newAlgorithmicTradingBotModulesTradingSystem = function (processIndex) {
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> value = ' + value)
     }
 
-    function evalJSCode(node) {
-      let value
-      let errorMessage
-      let docs
+    async function evalJSCode(node) {
+        let value
+        let errorMessage
+        let docs
 
-      try {
-        value = eval(node.code);
+        try {
+            value = eval(node.code);
 
-      } catch (err) {
-        value = 0
-        errorMessage = err.message
-        docs = {
-            project: 'Foundations',
-            category: 'Topic',
-            type: 'TS LF Trading Bot Error - Evaluating User Code Error',
-            placeholder: {}
+        } catch (err) {
+            value = 0
+            errorMessage = err.message
+            docs = {
+                project: 'Foundations',
+                category: 'Topic',
+                type: 'TS LF Trading Bot Error - Evaluating User Code Error',
+                placeholder: {}
+            }
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
-        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
-      }
 
-      if (errorMessage !== undefined) {
-          tradingSystem.addError([node.id, errorMessage, docs])
-          TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
-          return
-      }
+        if (errorMessage !== undefined) {
+            tradingSystem.addError([node.id, errorMessage, docs])
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
+            return
+        }
     }
 }

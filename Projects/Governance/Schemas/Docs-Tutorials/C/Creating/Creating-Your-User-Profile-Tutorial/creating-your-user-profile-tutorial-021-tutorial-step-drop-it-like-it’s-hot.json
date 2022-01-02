@@ -15,6 +15,21 @@
                 "text": "¡Participar en la gobernanza es una contribución valiosa! ¡El Airdrop Program te recompensa con tokens en cada lanzamiento!",
                 "updated": 1630892035941,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Yönetişimde yer almak değerli bir katkıdır! Bu nedenle, Airdrop Programı ( Airdrop Program ) her sürümde sizi tokenlar ile ödüllendirir!",
+                "updated": 1637439852932
+            },
+            {
+                "language": "RU",
+                "text": "Участие в управлении - ценный вклад! Таким образом, программа Airdrop Program награждает вас токенами за каждый выпуск!",
+                "updated": 1639048242253
+            },
+            {
+                "language": "DE",
+                "text": "Die Teilnahme an der Governance ist ein wertvoller Beitrag! Daher belohnt das Airdrop Program Sie bei jedem Release mit Token!",
+                "updated": 1640077970895
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "No somos fanáticos de los lanzamientos aéreos sin sentido. Sin embargo, dado que te tomaste el tiempo para aprender Superalgos y crear tu User Profile, te mereces una recompensa!",
                     "updated": 1630891887084,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Biz airdropların hayranı değiliz. Ancak, Superalgos'u öğrenmek ve Kullanıcı Profilinizi ( User Profile ) oluşturmak için zaman ayırdığınızdan, bir ödülü hak ediyorsunuz!",
+                    "updated": 1637439908256
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы не фанаты бессмысленных аирдропов. Однако, поскольку вы потратили время на изучение Superalgos и создание своего профиля пользователя User Profile, вы заслуживаете награды!",
+                    "updated": 1639048290612
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir sind kein Fan von sinnlosen Airdrops. Da Sie sich jedoch die Zeit genommen haben, Superalgos zu erlernen und Ihr Benutzerprofil zu erstellen, haben Sie eine Belohnung verdient!",
+                    "updated": 1640078007186
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "En el nodo Onboarding Programs has clic en Add Airdrop Program.",
                     "updated": 1630891925798,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Onboarding Programs düğümünde Airdrop Programı Ekle'ye (Add Airdrop Program) tıklayın.",
+                    "updated": 1637439969490
+                },
+                {
+                    "language": "RU",
+                    "text": "В узле Onboarding Programs нажмите Add Airdrop Program.",
+                    "updated": 1639048326142
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf dem Knoten Onboarding Programs klicken Sie auf <i> Add Airdrop Program</i>.",
+                    "updated": 1640078064695
                 }
             ]
         },
@@ -55,6 +100,21 @@
                     "text": "Con solo implementar el programa, estás listo para obtener hasta 1,000 SA Tokens en el próximo Distribution Event y en cualquier otra versión futura, siempre que envíes tu User Profile!",
                     "updated": 1630891979252,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Yalnızca programı dağıtarak, Kullanıcı Profilinizi göndermeniz koşuluyla, bir sonraki Dağıtım Etkinliğinde ( Distribution Event ) ve gelecekteki her sürümde 1.000 adede kadar SA Jetonu almaya hazırsınız!",
+                    "updated": 1637440216341
+                },
+                {
+                    "language": "RU",
+                    "text": "Просто развернув программу, вы все настроите для получения до 1000 токенов SA на следующем Distribution Event и при каждом следующем выпуске при условии, что вы отправите свой профиль пользователя User Profile!",
+                    "updated": 1639048415520
+                },
+                {
+                    "language": "DE",
+                    "text": "Allein durch die Bereitstellung des Programms sind Sie bereit, bis zu 1.000 SA-Token beim nächsten Distribution Event und bei jeder weiteren zukünftigen Veröffentlichung zu erhalten, sofern Sie Ihr Benutzerprofil einreichen!",
+                    "updated": 1640078087677
                 }
             ]
         }

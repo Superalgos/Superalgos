@@ -6,7 +6,7 @@
         "text": "Woohoo, you did it! You have added your first custom chart. Let's see what we've got so far. Zoom all the way into your chart and take a look around.",
         "updated": 1619020412228,
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Has agregado tu primer gráfico personalizado. Veamos qué tenemos hasta ahora. Amplía todo el recorrido de tu gráfico y eche un vistazo a tu alrededor.",
                 "updated": 1628647058651
+            },
+            {
+                "language": "RU",
+                "text": "Ух ты, ты сделал это! Вы добавили свой первый пользовательский график. Давайте посмотрим, что у нас есть на данный момент. Увеличьте масштаб вашей диаграммы и осмотритесь.",
+                "updated": 1638175954140
+            },
+            {
+                "language": "DE",
+                "text": "Juhu, Sie haben es geschafft! Sie haben Ihr erstes eigenes Diagramm erstellt. Schauen wir uns an, was wir bis jetzt haben. Zoomen Sie ganz in Ihr Diagramm hinein und sehen Sie sich um.",
+                "updated": 1639151762100
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Su gráfico está bien, pero todavía es bastante aburrido.",
                     "updated": 1628646906326
+                },
+                {
+                    "language": "RU",
+                    "text": "Ваш график там есть, но он все равно довольно скучный.",
+                    "updated": 1638175975827
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihr Diagramm ist zwar da, aber es ist trotzdem ziemlich langweilig.",
+                    "updated": 1639151808547
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Encuentra el Layer Manager para el Timeline Chart tu agregaste. Utiliza tu ratón para desplazarte unas cuantas veces.",
                     "updated": 1628646968752
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите менеджер слоев (Layer Manager) для добавленной диаграммы временной шкалы (Timeline Chart). Используйте мышь, чтобы прокрутить несколько раз.",
+                    "updated": 1638176050854
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie den Layer Manager für das von Ihnen hinzugefügte Timeline Chart. Verwenden Sie Ihre Maus, um ein paar Mal zu blättern.",
+                    "updated": 1639151885292
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "No importa cuánto te desplaces, no pasa nada. ¡No te preocupes, no hay nada roto! Simplemente no lo hemos conectado a ninguno de sus datos. ¡Cambiemos eso!",
                     "updated": 1628647017081
+                },
+                {
+                    "language": "RU",
+                    "text": "Как бы вы ни старались, ничего не происходит, не так ли? Не волнуйтесь, ничего не сломано! Мы просто не подключили его к вашим данным. Давайте изменим это!",
+                    "updated": 1638176090746
+                },
+                {
+                    "language": "DE",
+                    "text": "Auch wenn Sie noch so viel blättern, es passiert nichts, oder? Keine Sorge, es ist nichts kaputt! Wir haben es nur noch nicht mit Ihren Daten verknüpft. Das wollen wir ändern!",
+                    "updated": 1639151933412
                 }
             ]
         },
@@ -63,6 +103,16 @@
                     "language": "ES",
                     "text": "Un Layer Manager hereda el nombre de su Timeline Chart. ¡Por eso era mejor un nombre corto!",
                     "updated": 1628647051230
+                },
+                {
+                    "language": "RU",
+                    "text": "Менеджер слоев (Layer Manager) наследует имя от своей временной диаграммы (Timeline Chart). Вот почему короткое имя было лучшим!",
+                    "updated": 1638176175990
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Layer Manager erbt den Namen von seinem Timeline Chart. Deshalb ist ein kurzer Name am besten!",
+                    "updated": 1639152044645
                 }
             ]
         },

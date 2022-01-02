@@ -188,13 +188,10 @@ function newUiObject() {
         thisObject.fitFunction = undefined
         thisObject.isVisibleFunction = undefined
 
-
-
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.finalize()
             thisObject.conditionEditor = undefined
         }
-
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.finalize()
@@ -241,6 +238,7 @@ function newUiObject() {
         /* Initialize the Menu */
 
         thisObject.menu = newCircularMenu()
+        thisObject.menu.isOpen = true
         thisObject.menu.initialize(menuItemsInitialValues, thisObject.payload)
         thisObject.menu.container.connectToParent(thisObject.container, false, false, true, true, false, false, true, true)
 
@@ -338,11 +336,27 @@ function newUiObject() {
         thisObject.menu.physics()
         thisObject.uiObjectMessage.physics()
 
+        /* Count how many menu's are open and expand as required */
+        let openMenuCount = 0
+
+        evaluateMenu(thisObject.menu)
+
+        function evaluateMenu(menu) {
+            if (menu !== undefined) {
+                if (menu.isOpen === true) {
+                    openMenuCount++
+                }
+                for (let i = 0; i < menu.menuItems.length; i++) {
+                    evaluateMenu(menu.menuItems[i].menu)
+                }
+            }
+        }
+
+        thisObject.payload.floatingObject.container.frame.radius = thisObject.payload.floatingObject.targetRadius + ((openMenuCount - 1) * (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
         }
-
 
         if (thisObject.listSelector !== undefined) {
             thisObject.listSelector.physics()
@@ -558,7 +572,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
+                UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -665,7 +679,7 @@ function newUiObject() {
             let THRESHOLD = 1.15
 
             if (ratio > THRESHOLD) {
-                UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
+                UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Detach', project: 'Visual-Scripting' })
             }
         }
 
@@ -1148,7 +1162,7 @@ function newUiObject() {
     async function getTargetUiObject(message) {
         let uiObject = thisObject
         if (message.event.nodeId !== undefined) {
-            let targetNode = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
+            let targetNode = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(message.event.nodeId)
             if (targetNode !== undefined) {
                 if (targetNode.payload !== undefined) {
                     if (targetNode.payload.uiObject !== undefined) {
@@ -1214,7 +1228,7 @@ function newUiObject() {
     }
 
     function iconPhysics() {
-        icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
+        icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(thisObject.payload.node.project, thisObject.payload.node.type)
         let schemaDocument = getSchemaDocument(thisObject.payload.node)
 
         /*
@@ -1230,7 +1244,8 @@ function newUiObject() {
         Finally, if the node we are pointing to does not have a config or does not have a list of 
         alternativeIcons, we will just use that node's icon for the current node.
         */
-        if (schemaDocument.alternativeIcons !== undefined) {
+        if (schemaDocument.alternativeIcons !== undefined && schemaDocument.alternativeIcons !== 'Use External Github Icon') {
+
             let nodeToUse = thisObject.payload.node
             if (schemaDocument.alternativeIcons === 'Use Parent') {
                 if (thisObject.payload.node.payload.parentNode !== undefined) {
@@ -1273,7 +1288,7 @@ function newUiObject() {
                             iconName = alternativeIcon.iconName
                         }
                     }
-                    let newIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
+                    let newIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, iconName)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
@@ -1282,16 +1297,25 @@ function newUiObject() {
                 }
             } else {
                 if (schemaDocument.icon !== undefined) {
-                    let newIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
+                    let newIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(nodeToUse.project, schemaDocument.icon)
                     if (newIcon !== undefined) {
                         icon = newIcon
                     }
                 }
             }
+        } else if (schemaDocument.alternativeIcons === 'Use External Github Icon' && icon !== undefined) {
+
+            let config = JSON.parse(thisObject.payload.node.config)
+            let url = 'https://www.github.com/' + config.codeName + '.png'
+            let image = UI.projects.workspaces.spaces.designSpace.getIconByExternalSource(thisObject.payload.node.project, url)
+
+            if (image.canDrawIcon === true) {
+                icon = image
+            }
         }
 
         thisObject.icon = icon
-        executingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
+        executingIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
     }
 
     function onFocus() {
@@ -1352,14 +1376,14 @@ function newUiObject() {
 
     function onDragFinished(event) {
         if (isChainAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
+            UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Parent Attach', project: 'Visual-Scripting', relatedNode: chainAttachToNode })
             chainAttachToNode = undefined
             isChainAttaching = false
             /* We want to avoid the situation in which we are attaching a node to its parent and at the same time referencing another node. */
             isReferenceAttaching = false
         }
         if (isReferenceAttaching === true) {
-            UI.projects.foundations.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
+            UI.projects.workspaces.spaces.designSpace.workspace.executeAction({ node: thisObject.payload.node, name: 'Reference Attach', project: 'Visual-Scripting', relatedNode: referenceAttachToNode })
             referenceAttachToNode = undefined
             isReferenceAttaching = false
         }
@@ -1601,8 +1625,6 @@ function newUiObject() {
     }
 
     function isEditorVisible() {
-
-
 
         if (thisObject.conditionEditor !== undefined) {
             if (thisObject.conditionEditor.visible === true) { return true }
@@ -2366,13 +2388,6 @@ function newUiObject() {
         if (icon !== undefined) {
             if (icon.canDrawIcon === true) {
 
-                // If this UiObject is being loaded then display at half opacity
-                if(thisObject.payload.isLoading === true) {
-                    browserCanvasContext.globalAlpha = 0.5
-                } else {
-                    browserCanvasContext.globalAlpha = 1
-                }
-
                 let additionalImageSize = 0
                 if (isRunningAtBackend === true || isReadyToReferenceAttach === true || isReadyToChainAttach === true) { additionalImageSize = 20 }
                 let totalImageSize = additionalImageSize + thisObject.payload.floatingObject.currentImageSize
@@ -2401,6 +2416,39 @@ function newUiObject() {
                     }
                 }
 
+                // If this UiObject is using an External Icon, apply a Mask to keep it Circular
+                if (schemaDocument.alternativeIcons === 'Use External Github Icon') {
+
+                    let radius = totalImageSize / 2
+
+                    let visiblePosition = {
+                        x: thisObject.container.frame.position.x,
+                        y: thisObject.container.frame.position.y
+                    }
+
+                    visiblePosition = thisObject.container.frame.frameThisPoint(visiblePosition)
+
+                    if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                        visiblePosition = UI.projects.foundations.spaces.floatingSpace.transformPointToMap(visiblePosition)
+                    } else {
+                        visiblePosition = thisObject.fitFunction(visiblePosition)
+                    }
+
+                    browserCanvasContext.save()
+
+                    browserCanvasContext.beginPath()
+                    browserCanvasContext.arc(visiblePosition.x, visiblePosition.y, radius, 0, Math.PI * 2, true)
+                    browserCanvasContext.closePath()
+                    browserCanvasContext.clip()
+                }
+
+                // If this UiObject is being loaded then display at half opacity
+                if(thisObject.payload.isLoading === true) {
+                    browserCanvasContext.globalAlpha = 0.5
+                } else {
+                    browserCanvasContext.globalAlpha = 1
+                }
+
                 browserCanvasContext.drawImage(
                     icon, position.x - totalImageSize / 2,
                     position.y - totalImageSize / 2,
@@ -2408,6 +2456,10 @@ function newUiObject() {
                     totalImageSize)
 
                 browserCanvasContext.globalAlpha = 1
+
+                if (schemaDocument.alternativeIcons === 'Use External Github Icon') {
+                    browserCanvasContext.restore()
+                }
             }
         }
 

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Docs Search Engine baut einen speicherinternen Index auf, der alle Phrasen aller Docs-Seiten inklusive der Namen, type, config und den Code aller nodes des aktuellen Workspace enthält.",
                 "updated": 1633863768061
+            },
+            {
+                "language": "RU",
+                "text": "Docs Search Engine создает индекс в памяти, который содержит все фразы всех страниц документов, а также имя, тип, конфигурацию и код всех узлов текущей рабочей области.",
+                "updated": 1638456981726
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Dieser Index wird beim Start der Benutzeroberfläche (UI) erstellt und neu aufgebaut, wenn der Benutzer den Befehl docs.reindex ausführt oder einen neuen Workspace lädt.",
                     "updated": 1633864030635
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот индекс создается при запуске пользовательского интерфейса и перестраивается, когда пользователь запускает команду docs.reindex или загружает новую рабочую область Workspace.",
+                    "updated": 1638456966013
                 }
             ]
         }

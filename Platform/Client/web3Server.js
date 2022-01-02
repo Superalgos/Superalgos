@@ -10,6 +10,7 @@ exports.newWeb3Server = function newWeb3Server() {
         signData: signData,
         hashData: hashData,
         recoverAddress: recoverAddress,
+        recoverWalletAddress: recoverWalletAddress,
         mnemonicToPrivateKey: mnemonicToPrivateKey,
         payContributors: payContributors,
         initialize: initialize,
@@ -282,6 +283,45 @@ exports.newWeb3Server = function newWeb3Server() {
         }
     }
 
+    async function recoverWalletAddress(signature, account, data) {
+        try {
+            let ethUtil = require('ethereumjs-util')
+
+            const msgBuffer = ethUtil.toBuffer(ethUtil.fromUtf8(data))
+            const msgHash = ethUtil.hashPersonalMessage(msgBuffer) // it adds the prefix
+            const signatureBuffer = ethUtil.toBuffer(signature)
+            const signatureParams = ethUtil.fromRpcSig(signatureBuffer)
+            const publicKey = ethUtil.ecrecover(
+            msgHash,
+            signatureParams.v,
+            signatureParams.r,
+            signatureParams.s
+            )
+            const addressBuffer = ethUtil.publicToAddress(publicKey)
+            const address = ethUtil.bufferToHex(addressBuffer)
+
+            // The signature verification is successful if the address found with
+            // ecrecover matches the initial account address
+            if (address.toLowerCase() === account.toLowerCase()) {
+                return {
+                    signature: {
+                        message: data,
+                        messageHash: ethUtil.bufferToHex(msgHash),
+                        v: ethUtil.bufferToHex(signatureParams.v),
+                        r: ethUtil.bufferToHex(signatureParams.r),
+                        s: ethUtil.bufferToHex(signatureParams.s),
+                        signature: ethUtil.bufferToHex(signatureBuffer),
+                    },
+                    codeName: data,
+                    //address: address,
+                    result: 'Ok'
+                }
+            } 
+        } catch (err) {
+            return { error: 'Could not recover address. ' + err.stack }
+        }
+    }
+
     async function mnemonicToPrivateKey(mnemonic) {
         try {
             const ethers = SA.nodeModules.ethers
@@ -316,7 +356,7 @@ exports.newWeb3Server = function newWeb3Server() {
             console.log('----------------------------------------------------------------------------------------------')
 
             for (let i = 0; i < paymentsArray.length; i++) {
-                await PL.projects.foundations.utilities.asyncFunctions.sleep(15000)
+                await SA.projects.foundations.utilities.asyncFunctions.sleep(15000)
                 let payment = paymentsArray[i]
                 await sendTokens(
                     i + 1,

@@ -26,7 +26,7 @@ if (
     console.log('')
     console.log('TELEGRAM COMMUNITY:    https://t.me/superalgoscommunity')
     console.log('')
-    console.log('USAGE:                 node platform [help] [noBrowser] [minMemo] [demoMode]')
+    console.log('USAGE:                 node platform [options] [project] [workspace]')
     console.log('')
     console.log('OPTIONS:')
     console.log('')
@@ -34,6 +34,9 @@ if (
     console.log('                       noBrowser:   Optional. Use it to launch Superalgos Platform Client only. The Superalgos Platform UI will not be loaded.')
     console.log('                       minMemo:     Optional. Use it when your hardware has less than 8 Gb or memory.')
     console.log('                       demoMode:    Optional. Use it to launch Superalgos in Demo Mode. Users will be able to use the UI but not run Tasks.')
+    console.log('PROJECT:               The name of the project to load on startup. (use with workspace)')
+    console.log('')
+    console.log('WORKSPACE:             The name of the workspace to load on startup.')
     console.log('')
     console.log('If you are having an error while trying to run the Superalgos Platform Client, consider this:')
 

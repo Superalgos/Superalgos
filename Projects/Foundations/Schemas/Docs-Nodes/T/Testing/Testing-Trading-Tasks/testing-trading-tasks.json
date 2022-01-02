@@ -8,24 +8,84 @@
         },
         {
             "style": "Text",
-            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria."
+            "text": "Thorough and comprehensive testing of strategies is at the core of successful trading. Superalgos strives to put you in control of the testing process providing you with flexible tools to fit your criteria.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В основе успешной торговли лежит тщательное и всестороннее тестирование стратегий. Superalgos стремится предоставить вам контроль над процессом тестирования, предоставляя вам гибкие инструменты, соответствующие вашим критериям.",
+                    "updated": 1638374450030
+                },
+                {
+                    "language": "ES",
+                    "text": "Una prueba minuciosa y exhaustiva de las estrategias es la base del éxito de las operaciones. Superalgos procura que usted tenga el control del proceso de pruebas, proporcionándole herramientas flexibles que se ajusten a sus necesidades.",
+                    "updated": 1641092569030
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Depending on how you use the system, how many markets and exchanges you work with, the number of trading systems you use, or the way you choose to test your strategies, you may find yourself with a large number of testing sessions. As explained in the sorting of tasks page, the testing environment helps you organize large numbers of tasks sorting them by exchange, market, and trading mine."
+            "text": "Depending on how you use the system, how many markets and exchanges you work with, the number of trading systems you use, or the way you choose to test your strategies, you may find yourself with a large number of testing sessions. As explained in the sorting of tasks page, the testing environment helps you organize large numbers of tasks sorting them by exchange, market, and trading mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В зависимости от того, как вы используете систему, со сколькими рынками и биржами вы работаете, с количеством торговых систем, которые вы используете, или от того, как вы решите тестировать свои стратегии, вы можете столкнуться с большим количеством сессий тестирования. Как объясняется на странице сортировки задач, среда тестирования помогает вам организовать большое количество задач, отсортировав их по биржам, рынкам и торговым шахтам.",
+                    "updated": 1638375031916
+                },
+                {
+                    "language": "ES",
+                    "text": "Dependiendo de cómo utilice el sistema, de cuántos Markets y Exchanges trabaje, del número de Trading Systems que utilice o de la forma que decida probar sus estrategias, puede encontrarse con un gran número de sesiones de prueba. Como se explica en la página de clasificación de Tasks, el entorno de pruebas le ayuda a organizar un gran número de tareas clasificándolas por Exchange, Market y Trading Mine.",
+                    "updated": 1641092737463
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos handles two types of simulated tests: backtesting and paper trading. Backtesting involves testing over historic data, while paper trading is about testing on a live data stream, but without placing orders at the exchange."
+            "text": "Superalgos handles two types of simulated tests: backtesting and paper trading. Backtesting involves testing over historic data, while paper trading is about testing on a live data stream, but without placing orders at the exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Superalgos обрабатывает моделируемые тесты двух типов: бэктестинг и бумажная торговля. Бэктестинг включает в себя тестирование на исторических данных, тогда как торговля на бумаге - это тестирование в реальном потоке данных, но без размещения ордеров на бирже.",
+                    "updated": 1638374603563
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos realiza dos tipos de pruebas simuladas: Backtesting y Paper Trading. El Backtesting consiste en realizar pruebas sobre datos históricos, mientras que el Paper Trading consiste en realizar pruebas sobre un flujo de datos en vivo, pero sin colocar órdenes en el Exchange.",
+                    "updated": 1641092815215
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Trading sessions are controlled by a number of parameters that determine how the session is run. The built-in parameters provide great control and flexibility as to how to handle data sets and how to produce the resulting simulations."
+            "text": "Trading sessions are controlled by a number of parameters that determine how the session is run. The built-in parameters provide great control and flexibility as to how to handle data sets and how to produce the resulting simulations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые сеансы контролируются рядом параметров, которые определяют способ запуска сеанса. Встроенные параметры обеспечивают отличный контроль и гибкость в отношении того, как обрабатывать наборы данных и как создавать результирующие модели.",
+                    "updated": 1638374644114
+                },
+                {
+                    "language": "ES",
+                    "text": "Las sesiones de trading se controlan mediante una serie de parámetros que determinan cómo se ejecuta la sesión. Los parámetros integrados proporcionan un gran control y flexibilidad en cuanto a cómo manejar los conjuntos de datos y cómo producir las simulaciones resultantes.",
+                    "updated": 1641092918828
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Please, read on and study the workings of the chain of nodes under the testing environment node. The investment of time is well worth it, as you will learn how to make the most out of the strategy-testing features built-in Superalgos.",
-            "updated": 1609666617978
+            "updated": 1609666617978,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочтите и изучите работу цепочки узлов в узле среды тестирования. Затраченное время того стоит, поскольку вы узнаете, как максимально эффективно использовать функции тестирования стратегий, встроенные в Superalgos.",
+                    "updated": 1638374670867
+                },
+                {
+                    "language": "ES",
+                    "text": "Por favor, siga leyendo y estudie el funcionamiento de la cadena de nodos bajo el nodo del entorno de pruebas. La inversión de tiempo merece la pena, ya que aprenderá a sacar el máximo partido a las funciones de prueba de estrategias que incorpora Superalgos.",
+                    "updated": 1641092947312
+                }
+            ]
         },
         {
             "style": "Include",
@@ -45,8 +105,13 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Тестирование торговых задач организует торговые сессии, включающие Тестирование торговых систем.",
-                "updated": 1635517242993
+                "text": "Testing Trading Tasks организует торговые сессии, включающие тестирование торговых систем.",
+                "updated": 1638356449582
+            },
+            {
+                "language": "TR",
+                "text": "Testing Trading Tasks (Ticaret Görevlerini Test)  düğümü, ticaret sistemlerinin test edilmesini içeren ticaret oturumlarını düzenler.",
+                "updated": 1639118908067
             }
         ]
     }

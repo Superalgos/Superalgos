@@ -4,13 +4,32 @@
     "type": "App Update Command",
     "definition": {
         "text": "Use this command to update your local installation of Superalgos to the latest version available. ",
-        "updated": 1610449365984
+        "updated": 1610449365984,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Zusammenfassung: Verwenden Sie diesen Befehl, um Ihre lokale Installation von Superalgos auf die neueste verfügbare Version zu aktualisieren.",
+                "updated": 1638038182879
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду для обновления локальной установки Superalgos до последней доступной версии.",
+                "updated": 1640235456216
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1610449451990
+            "updated": 1610449451990,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1640235466825
+                }
+            ]
         },
         {
             "style": "Json",
@@ -19,7 +38,19 @@
         },
         {
             "style": "Title",
-            "text": "Examples"
+            "text": "Examples",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele",
+                    "updated": 1638038191514
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1640235474571
+                }
+            ]
         },
         {
             "style": "Json",

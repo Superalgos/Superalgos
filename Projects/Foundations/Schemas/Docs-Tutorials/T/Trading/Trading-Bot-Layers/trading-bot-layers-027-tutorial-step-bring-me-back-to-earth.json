@@ -7,20 +7,68 @@
             "project": "Foundations",
             "name": "take-position-event"
         },
-        "text": "I know! This all sounds too abstract! Let me lay out a few examples!"
+        "text": "I know! This all sounds too abstract! Let me lay out a few examples!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich weiß! Das klingt alles zu abstrakt! Lassen Sie mich ein paar Beispiele anführen!",
+                "updated": 1639145205438
+            },
+            {
+                "language": "RU",
+                "text": "Я знаю! Все это звучит слишком абстрактно! Позвольте мне привести несколько примеров!",
+                "updated": 1640630620897
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "When working in sub-hour time frames and a concept or event&mdash;for example, a position&mdash;spans multiple days:"
+            "text": "When working in sub-hour time frames and a concept or event&mdash;for example, a position&mdash;spans multiple days:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie in Zeiträumen unter einer Stunde arbeiten und ein Konzept oder ein Ereignis - zum Beispiel eine Position - sich über mehrere Tage erstreckt:",
+                    "updated": 1639145224459
+                },
+                {
+                    "language": "RU",
+                    "text": "При работе с часовыми таймфреймами, когда концепция или событие - например, позиция - охватывает несколько дней:",
+                    "updated": 1640630647856
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "You may see multiple triangles! One triangle is drawn at the close of each day, and one last triangle is drawn at the close of the position, or&mdash;in case the position hasn't closed yet&mdash; at the current datetime."
+            "text": "You may see multiple triangles! One triangle is drawn at the close of each day, and one last triangle is drawn at the close of the position, or&mdash;in case the position hasn't closed yet&mdash; at the current datetime.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie können mehrere Dreiecke sehen! Ein Dreieck wird am Ende eines jeden Tages gezeichnet, und ein letztes Dreieck wird am Ende der Position oder - falls die Position noch nicht geschlossen wurde - zum aktuellen Zeitpunkt gezeichnet.",
+                    "updated": 1639145242168
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете увидеть несколько треугольников! Один треугольник рисуется при закрытии каждого дня, а последний - при закрытии позиции, или, если позиция еще не закрылась, - в текущий момент времени.Вы можете увидеть несколько треугольников! Один треугольник рисуется при закрытии каждого дня, а последний - при закрытии позиции, или, если позиция еще не закрылась, - в данный момент времени.",
+                    "updated": 1640630685321
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Statistics and metrics are fragmented too! For example, ROI, Profit Loss, and the evaluation of the position as a hit or a fail are determined daily!"
+            "text": "Statistics and metrics are fragmented too! For example, ROI, Profit Loss, and the evaluation of the position as a hit or a fail are determined daily!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Statistics und Metriken sind ebenfalls fragmentiert! Zum Beispiel werden ROI, Profit Loss und die Bewertung der Position als Hit oder Fail täglich ermittelt!",
+                    "updated": 1639145250990
+                },
+                {
+                    "language": "RU",
+                    "text": "Статистика (Statistics) и показатели тоже фрагментированы! Например, ROI, Profit Loss и оценка позиции как удачной или неудачной определяются ежедневно!",
+                    "updated": 1640630754804
+                }
+            ]
         }
     ]
 }

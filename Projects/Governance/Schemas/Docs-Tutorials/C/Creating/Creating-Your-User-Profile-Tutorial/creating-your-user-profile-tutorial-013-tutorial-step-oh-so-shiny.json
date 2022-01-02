@@ -15,6 +15,21 @@
                 "text": "Estamos casi alli. Ahora has clic enBuild Profile y ve cómo sucede la magia. Así es, ¡acabas de crear tu perfil!",
                 "updated": 1630888309658,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Neredeyse geldik. Şimdi Profil Oluştur'a ( Build Profile ) tıklayın ve sihrin gerçekleşmesini izleyin. Evet, profilinizi yeni oluşturdunuz!",
+                "updated": 1637242566507
+            },
+            {
+                "language": "RU",
+                "text": "Мы почти на месте. Теперь нажмите Build Profile и посмотрите, как происходит волшебство. Правильно, вы только что создали свой профиль!",
+                "updated": 1639047257246
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind fast am Ziel. Klicken Sie jetzt auf <i>Build Profile</i> und beobachten Sie, wie die Magie geschieht. Richtig, Sie haben gerade Ihr Profil erstellt!",
+                "updated": 1640073239787
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Si bien no tuvimos que sudar mucho para crear tu perfil, sucedieron algunas cosas asombrosas detrás de escena.",
                     "updated": 1630888348614,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Profilinizi ter dökmeden oluştururken, sahne arkasında oldukça şaşırtıcı şeyler oldu.",
+                    "updated": 1637243000359
+                },
+                {
+                    "language": "RU",
+                    "text": "Хотя нам не пришлось беспокоиться о создании вашего профиля, за кулисами происходили довольно удивительные вещи.",
+                    "updated": 1639047272620
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl wir bei der Erstellung Ihres Profils nicht ins Schwitzen gekommen sind, sind hinter den Kulissen einige erstaunliche Dinge passiert.",
+                    "updated": 1640073250598
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "TEl constructor acaba de generar su perfil de usuario y vinculó su dirección o creó un SA Token Governance Address.",
                     "updated": 1630888438347,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Constructor, kullanıcı profilinizi oluşturdu, adresinizi bağladı ve benzersiz bir SA Token Yönetim Adresi ( Governance Addrss ) oluşturdu.",
+                    "updated": 1637243124914
+                },
+                {
+                    "language": "RU",
+                    "text": "Конструктор только что сгенерировал ваш профиль пользователя и либо связал ваш адрес, либо создал уникальный адрес Governance Address токенов SA.",
+                    "updated": 1639047406304
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Konstruktor hat gerade Ihr Benutzerprofil erstellt und entweder Ihre Adresse verknüpft oder eine eindeutige SA Token Governance Address erstellt.",
+                    "updated": 1640073263975
                 }
             ]
         }

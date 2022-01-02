@@ -1,4 +1,4 @@
-# Superalgos 1.0.0
+# Superalgos 1.0.1
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -16,6 +16,7 @@
     - [Installation Notes](#installation-notes)
   - [Uninstall](#uninstall)
 - [Usage](#usage)
+  - [Partner Exchanges](#partner-exchanges)
   - [Run the Client and GUI](#run-the-client-and-gui)
     - [Using the shortcuts](#using-the-shortcuts)
     - [Using the Command Line](#using-the-command-line)
@@ -88,9 +89,9 @@ Also on windows, there is a more traditional installer that installs the applica
 
 #### MacOS Image
 
-Users of MacOS have the option of downloading a DMG package. Installation is as simple as downloading the DMG file and copying it into your Applications folder!
+Users of MacOS have the option of downloading a DMG package. Installation is as simple as downloading the DMG file, copying it into your Applications folder, and run `xattr -rd com.apple.quarantine Superalgos.app` from the Terminal (Intel/M1) or allow the app in `System Preferences > Security & Privacy > General > Open Anyway` (Intel only)!
 
-Currently, there are two types of DMG packages. The x64 variant (for Intel based Mac only), as well as the ARM64 variant for the newer Apple Silicon (M1) based machines. All data is stored in the documents folder under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
+Currently, there are two types of DMG packages. The x64 variant (for Intel based Mac only), as well as the ARM64 variant for the newer Apple Silicon (M1) based machines. All data is stored in the user's Documents folder under the Superalgos_Data folder. This way it is easier for you to backup data and not lose it between reinstallation.
 
 For a more detailed walk through of the ins and outs of Superalgos packaged installations see this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102).
 
@@ -98,11 +99,7 @@ For a more detailed walk through of the ins and outs of Superalgos packaged inst
 
 The packaged applications are by far the easiest way to install the Superalgos Platform. All of the day to day functionality of the platform is readily available, as well as the ability to create and submit a User Profile to the Governance system! 
 
-The main draw back for this type of installation comes with limitations on the ablity to add contributions.  Submitting a review, editing and translating the docs, or any kind of code contribution is not possible from a packaged installation.   
-
-> **Important Development Notes:**
-> 
-> - Please note that the ARM64 release is currently an alpha release (not fully tested). If you have one of these machines, do join us on our [developer channel](https://t.me/superalgosdevelop) to help us fully test this release! 
+The main draw back for this type of installation comes with limitations on the ablity to add contributions. Submitting a review, editing and translating the docs, or any kind of code contribution is not possible from a packaged installation.   
 
 ### Docker Installations
 
@@ -366,13 +363,18 @@ usage: node setup <options>
 > 
 > In order to avoid name conflicts between shortcuts, make sure to rename each Superalgos directory before running `node setup`.
 
+> **NOTE FOR USERS INSTALLING ON LINUX:**
+> 
+> If after running `node setup` you are prompted to address issues by running 'npm audit fix' ignore this step.
+
+
 Congratulations your installation is complete! Follow the "Running the Application" directions below.
 
 #### Troubleshooting Dependency Installation
 
 If you are having difficulty running the node setup command here are a few common issues that may be getting in the way.
 
-1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 12 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
+1. Check the version of node and npm you have installed. Make sure that you are running an updated version of node greater than version 16.6 and npm greater than version 5. You can check which version you have by typing `node -v` and `npm -v` into a command prompt or terminal. If your version numbers are below these, you can update your installation by following the instructions outlined in the "Node JS Installation" step above.
 2. If you are installing Superalgos in an administratively protected directory you will need to do one of the following:
    - For Windows start your command prompt as an administrator.
    - For Linux and Mac Systems make sure to add the sudo command to node setup.  This will look like `sudo node setup`.
@@ -417,15 +419,35 @@ Then simply delete the `Superalgos` folder to completely remove the application.
 
 ## Usage
 
+### Partner Exchanges
+
+The Superalgos Platform is exchange-agnostic, but [the project offers partner exchanges](https://superalgos.org/partner-exchanges.shtml) custom support and a curated onboarding experience for their customers. In turn, partner exchanges offer preferential trading fees and, in some cases, other benefits to Superalgos users.
+
+Find more information on how to get the benefits in the corresponding Telegram group.
+
+| Partner Exchange | Benefits | Telegram Group |
+|--- |--- |-- |
+| AscendEX | VIP 2 (7.5 bip Maker, 8.5 bip Taker) | https://t.me/superalgosascendex |
+
+Partner exchanges have custom workspaces for the onboarding of their users. The following sections cover how to use them from the get-go.
+
 ### Run the Client and GUI
 
 #### Using the shortcuts
+
+> **NOTE:** This method launches the platform with the fallback workspace only. If you wish to launch with a partner exchange workspace, use the Command Line method instead.
 
 If you ran `node setup` with no options above, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
 
 #### Using the Command Line
 
-To run Superalgos, go to the Superalgos directory/folder and run this command:
+To launch the platform with one of the Partner Exchanges custom workspaces, go to the Superalgos directory and run the command as per the following table. You will learn about other options further down this page.
+
+| Partner Exchange | Launch Command |
+|--- |--- |
+| AscendEX | `node platform Foundations 01-Onboarding-AscendEX` |
+
+To run Superalgos with the fallback workspace, go to the Superalgos directory/folder and run this command:
 
 ```sh
 node platform
@@ -434,13 +456,19 @@ node platform
 Available Options:
 
 ```sh
-usage: node platform <options>
+usage: node platform [options] [project] [workspace]
 ```
 
 | Option | Description |
 | --- | --- |
-| `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with less than 8GB of ram, like a Raspberry Pi. |
+| `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with 8GB of ram or less, like a Raspberry Pi. |
 | `noBrowser` | Do not attempt to open the WebUI in a browser. This is useful on headless servers where a UI is not available. |
+
+To load a specific workspace on launch, include any options, then the project, then the workspace. For example, to load the Blank-Template workspace of the Foundations project with no options:
+
+```sh
+node platform Foundations Blank-Template
+```
 
 The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.
 

@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Parameters son propiedades de trading sessions, definido por los usuarios, para determinar su comportamiento y mejorar la calidad de las simulaciones.",
                 "updated": 1624453669656
+            },
+            {
+                "language": "RU",
+                "text": "Trading Parameters - это свойства торговых сессий, определяемые пользователями для установления их поведения и повышения качества моделирования.",
+                "updated": 1639141931205
+            },
+            {
+                "language": "TR",
+                "text": "Parametreler, simülasyonların davranışlarını belirlemek ve  kalitesini iyileştirmek için kullanıcılar tarafından tanımlanan ticaret oturumlarının özellikleridir.",
+                "updated": 1639221855638
             }
         ]
     },
@@ -17,11 +27,25 @@
         },
         {
             "style": "Text",
-            "text": "The behavior of parameters may vary depending on the type of session."
+            "text": "The behavior of parameters may vary depending on the type of session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поведение параметров может варьироваться в зависимости от типа сеанса.",
+                    "updated": 1639141954641
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios."
+            "text": "Each testing session has its own set of parameters. This allows you to configure different trading sessions with different parameters, and go back and forth between them as required. For instance, you may have different backtesting sessions with different date ranges, different exchange fees or different slippage settings to account for different possible scenarios.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый сеанс тестирования имеет свой набор параметров. Это позволяет настраивать разные торговые сессии с разными параметрами и при необходимости переключаться между ними. Например, у вас могут быть разные сеансы тестирования на истории с разными диапазонами дат, разные торговые комиссии или разные настройки проскальзывания для разных возможных сценариев.",
+                    "updated": 1639142025160
+                }
+            ]
         }
     ]
 }

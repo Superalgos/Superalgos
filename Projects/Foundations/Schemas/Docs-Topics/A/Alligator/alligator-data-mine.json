@@ -1,0 +1,42 @@
+{
+    "topic": "Alligator Data Mine",
+    "pageNumber": 1,
+    "type": "Alliagor by @BlaaSwe",
+    "definition": {
+        "text": "This data mine consists of the Williams Alligator indicator",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Alligator",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "The alligator indicator uses three smoothed moving averages (SMA), but instead of the ordinary SMA for this one uses EMA for the lips.",
+            "updated": 1611764485658
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/alligator-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "Standard Parameters:"
+        },
+        {
+            "style": "List",
+            "text": "Lips: EMA 5"
+        },
+		{
+            "style": "List",
+            "text": "Teeth: SMA 9"
+        },		
+		{
+            "style": "List",
+            "text": "Jaw: SMA 13"
+        }
+    ]
+}

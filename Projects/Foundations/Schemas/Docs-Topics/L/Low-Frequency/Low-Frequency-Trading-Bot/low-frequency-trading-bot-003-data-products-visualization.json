@@ -4,29 +4,71 @@
     "type": "Data Products Visualization",
     "definition": {
         "text": "The Superalgos trading bot outputs several data products which may be visualized on the frontend application in multiple manners.",
-        "updated": 1611240250659
+        "updated": 1611240250659,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот Superalgos выводит несколько продуктов данных, которые могут быть визуализированы во внешнем приложении различными способами.",
+                "updated": 1640097341374
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The Low-Frequency trading bot outputs tens of data products, which are made available for others to use through the data structure provided by the Trading Engine hierarchy, the Trading System involved in the trading session, and the time machines installed to visualize the trading simulations.",
-            "updated": 1611252948830
+            "updated": 1611252948830,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Низкочастотный торговый бот выводит десятки продуктов данных, которые становятся доступными для использования другими через структуру данных, предоставляемую иерархией Trading Engine, Торговой системой, участвующей в торговой сессии, и машинами времени, установленными для визуализации торговых симуляций.",
+                    "updated": 1640097386752
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "The Trading Bot Layers interactive tutorial available in the Weak-Hands Buster v.2 plugin workspace covers all the trading bot features that enable the visualization of trading information:"
+            "text": "The Trading Bot Layers interactive tutorial available in the Weak-Hands Buster v.2 plugin workspace covers all the trading bot features that enable the visualization of trading information:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Интерактивный учебник Trading Bot Layers, доступный в рабочем пространстве плагина Weak-Hands Buster v.2, охватывает все функции торгового бота, позволяющие визуализировать торговую информацию:",
+                    "updated": 1640097410454
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Visualization of simulations over the chart for all types of trading sessions."
+            "text": "Visualization of simulations over the chart for all types of trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Визуализация симуляций на графике для всех типов торговых сессий.",
+                    "updated": 1640097434042
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Visualization of all the trading information managed by the trading bot on the trading engine hierarchy."
+            "text": "Visualization of all the trading information managed by the trading bot on the trading engine hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Визуализация всей торговой информации, управляемой торговым ботом, в иерархии торгового движка.",
+                    "updated": 1640097492702
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Visualization of event highlights, values, warnings, errors, and general information concerning the trading system."
+            "text": "Visualization of event highlights, values, warnings, errors, and general information concerning the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Визуализация основных событий, значений, предупреждений, ошибок и общей информации, касающейся торговой системы.",
+                    "updated": 1640097509184
+                }
+            ]
         }
     ]
 }

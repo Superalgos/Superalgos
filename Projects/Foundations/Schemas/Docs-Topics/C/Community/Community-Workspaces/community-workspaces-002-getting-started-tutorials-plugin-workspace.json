@@ -15,6 +15,11 @@
                 "language": "ES",
                 "text": "Este workspace es el primer punto de contacto con Superalgos. Su propósito es familiarizar a los nuevs usuarios con lo aspectos básicos de Superalgos.",
                 "updated": 1636559957769
+            },
+            {
+                "language": "TR",
+                "text": "Bu çalışma alanı, Superalgos ile ilk temas noktanızdır. Amacı, yeni kullanıcıları Superalgos'un tüm temel yönleriyle kullanıcıları tanıştırmaktır.",
+                "updated": 1639143266142
             }
         ]
     },
@@ -22,7 +27,14 @@
         {
             "style": "Title",
             "text": "Tutorials",
-            "updated": 1616151142805
+            "updated": 1616151142805,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1640236849732
+                }
+            ]
         },
         {
             "style": "List",
@@ -66,13 +78,25 @@
                     "language": "ES",
                     "text": "Es importante mantener este workspace limpio, liviano y simple, to asegurarse de que la primera experiencia no sea engorrosa o limite a los usuarios con hardware pequeño",
                     "updated": 1636560111843
+                },
+                {
+                    "language": "RU",
+                    "text": "Важно, чтобы это рабочее пространство было чистым, легким и простым, чтобы первый опыт не был громоздким и не ограничивал пользователей с маломощным оборудованием.",
+                    "updated": 1640236792739
                 }
             ]
         },
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1616151282749
+            "updated": 1616151282749,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1640236884937
+                }
+            ]
         },
         {
             "style": "Link",

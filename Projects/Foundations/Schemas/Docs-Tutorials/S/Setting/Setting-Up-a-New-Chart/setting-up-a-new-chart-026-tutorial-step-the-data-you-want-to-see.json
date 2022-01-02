@@ -6,7 +6,7 @@
         "text": "In Superalgos, you control the flow of data. Talk about control!",
         "updated": 1619024163418,
         "icon": {
-            "name": "Data/data-storage",
+            "name": "data-storage",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "En Superalgos, controlas el flujo de datos. ¡Habla de control!",
                 "updated": 1628723580912
+            },
+            {
+                "language": "RU",
+                "text": "В Superalgos вы контролируете поток данных. Поговорим о контроле!",
+                "updated": 1639075167672
+            },
+            {
+                "language": "DE",
+                "text": "In Superalgos kontrollieren Sie den Datenfluss. Apropos Kontrolle!",
+                "updated": 1639274966504
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "¿Notas alguna similitud con las otras partes de Superalgos que has visto? ¡Así es! La jerarquía está organizada según el Project, Exchange, Market, y Data Mine. Esta es la misma organización básica que encontrarás con todos los datos aquí en Superalgos.",
                     "updated": 1628723707036
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы замечаете любое сходство с другими частями Superalgos, которые вы видели? Верно! Иерархия организована в соответствии с проектом (Project), биржевым рынком (Market), и шахтами данных (Data Mine). Это та же базовая организация, которую вы найдете со всеми данными здесь, в Superalgos.",
+                    "updated": 1639075372816
+                },
+                {
+                    "language": "DE",
+                    "text": "Fällt Ihnen eine Ähnlichkeit mit den anderen Teilen von Superalgos auf, die Sie gesehen haben? Ja, das ist richtig! Die Hierarchie ist gegliedert nach Project, Exchange, Market und Data Mine. Dies ist die gleiche grundlegende Organisation, die Sie bei allen Daten hier in Superalgos finden werden.",
+                    "updated": 1639275064649
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Esta granularidad significa que puede acceder al Data Products en cualquier combinación.¿Quieres ver datos de dos exchangesen el mismo mercado? Fácilmente posible. ¿Quiere ver datos de dos mercados similares uno al lado del otro? Las combinaciones de datos que puedes ver en sus gráficos dependen realmente de tu imaginación.",
                     "updated": 1628724240511
+                },
+                {
+                    "language": "RU",
+                    "text": "Такая детализация означает, что вы можете получить доступ к Продуктам данных в любой комбинации. Вы хотите увидеть данные с двух разных бирж по одному и тому же рынку? Легко возможно. Вы хотите увидеть данные двух похожих рынков рядом друг с другом? Кусок торта! Комбинации данных, которые вы можете просматривать в своих диаграммах, зависят от вашего воображения.",
+                    "updated": 1639075154918
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Granularität bedeutet, dass Sie auf Data Products in jeder beliebigen Kombination zugreifen können. Möchten Sie Daten von zwei verschiedenen Börsen für denselben Markt sehen? Das ist ohne Weiteres möglich. Möchten Sie Daten von zwei ähnlichen Märkten nebeneinander sehen? Ein Kinderspiel! Die Kombinationen von Daten, die Sie in Ihren Charts anzeigen können, sind Ihrer Fantasie überlassen.",
+                    "updated": 1639275171014
                 }
             ]
         }

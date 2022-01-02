@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "Use este nodo para establecer una referencia con una Position Contribution Claim (solicitud de contribución de posición) colocada por un colega en la sección  Claims Program de su User Profile. Este voto significa que apoya la solicitud de su colega con el Claim Support Power que dirija a su nodo de Claim Votes!",
                 "updated": 1636112479494
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел, чтобы установить ссылку на Position Contribution Claim, размещенное вашим коллегой в разделе «Claims Program» своего профиля пользователя. Это голосование означает, что вы поддерживаете утверждение своего коллеги с помощью Claim Support Power, которую вы вводите в узел Claim Votes!",
+                "updated": 1639138239034
             }
         ]
     },
@@ -40,7 +45,14 @@
         },
         {
             "style": "Title",
-            "text": "Configuration"
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1639138254998
+                }
+            ]
         }
     ]
 }

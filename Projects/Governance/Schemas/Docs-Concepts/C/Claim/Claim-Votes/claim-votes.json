@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "En términos generales Claim Votes le permite apoyar as solicitudes de otros usuarios. El término Claim Votes es una generalización que hace referencia a cualquiera a todos los tipos de nodos existentes: Position Claim Vote, Feature Claim Vote, y Asset Claim Vote.",
                 "updated": 1636109631180
+            },
+            {
+                "language": "RU",
+                "text": "В целом, Claim Votes позволяет вам поддерживать претензии других пользователей. Термин «Claim Votes» является обобщением, относящимся к одному или ко всем существующим типам узлов: Position Claim Vote, Feature Claim Vote и Asset Claim Vote.",
+                "updated": 1639136840110
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "ES",
                     "text": "En términos generales Claim Votes le permite apoyar as solicitudes de otros usuarios. El término Claim Votes es una generalización que hace referencia a cualquiera a todos los tipos de nodos existentes: Position Claim Vote, Feature Claim Vote, y Asset Claim Vote.",
                     "updated": 1636109637753
+                },
+                {
+                    "language": "RU",
+                    "text": "В целом, Claim Votes позволяет вам поддерживать претензии других пользователей. Термин «Claim Votes» является обобщением, относящимся к одному или ко всем существующим типам узлов: Position Claim Vote, Feature Claim Vote и Asset Claim Vote.",
+                    "updated": 1639136844463
                 }
             ]
         }

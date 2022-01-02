@@ -28,54 +28,72 @@
             "actionFunction": "payload.executeAction"
         },
         {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "bot",
-            "label": "Add Sensor Bot Instance",
-            "relatedUiObject": "Sensor Bot Instance",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "bot",
-            "label": "Add API Data Fetcher Bot",
-            "relatedUiObject": "API Data Fetcher Bot Instance",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "bot",
-            "label": "Add Indicator Bot Instance",
-            "relatedUiObject": "Indicator Bot Instance",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "bot",
-            "label": "Add Trading Bot Instance",
-            "relatedUiObject": "Trading Bot Instance",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "bot",
-            "label": "Add Learning Bot Instance",
-            "relatedUiObject": "Learning Bot Instance",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "action": "Open Menu",
+            "label": "Add Bot Instance",
+            "iconPathOn": "add-bot-instance",
+            "iconPathOff": "add-bot-instance",
+            "menuItems": [
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
+                    "label": "Add Sensor Bot Instance",
+                    "relatedUiObject": "Sensor Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
+                    "label": "Add API Data Fetcher Bot",
+                    "relatedUiObject": "API Data Fetcher Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
+                    "label": "Add Indicator Bot Instance",
+                    "relatedUiObject": "Indicator Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
+                    "label": "Add Trading Bot Instance",
+                    "relatedUiObject": "Trading Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
+                    "label": "Add Portfolio Bot Instance",
+                    "relatedUiObject": "Portfolio Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "bot",
+                    "label": "Add Learning Bot Instance",
+                    "relatedUiObject": "Learning Bot Instance",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                }
+            ]
         },
         {
             "action": "Add UI Object",
@@ -86,6 +104,26 @@
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
             "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "managedTasks",
+            "label": "Add Managed Tasks",
+            "relatedUiObject": "Managed Tasks",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "taskServerAppReference",
+            "label": "Add Task Server App Reference",
+            "relatedUiObject": "Task Server App Reference",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Governance"
         },
         {
             "action": "Delete UI Object",
@@ -113,6 +151,11 @@
         {
             "name": "bot",
             "type": "node",
+            "childType": "Portfolio Bot Instance"
+        },
+        {
+            "name": "bot",
+            "type": "node",
             "childType": "Sensor Bot Instance"
         },
         {
@@ -134,6 +177,17 @@
             "name": "keyReference",
             "type": "node",
             "childType": "Key Reference"
+        },
+        {
+          "name": "managedTasks",
+          "type": "node",
+          "childType": "Managed Tasks"
+        },
+        {
+            "name": "taskServerAppReference",
+            "type": "node",
+            "childType": "Task Server App Reference",
+            "project": "Governance"
         }
     ],
     "propertyNameAtParent": "tasks"

@@ -16,6 +16,11 @@
                 "language": "RU",
                 "text": "Простая скользящая средняя (SMA) вычисляет среднее значение выбранного диапазона цен, обычно цен закрытия, по количеству периодов в этом диапазоне.",
                 "updated": 1635594765100
+            },
+            {
+                "language": "TR",
+                "text": "Basit hareketli ortalama (SMA), seçilen bir fiyat aralığında, genellikle kapanış fiyatlarının ortalamasını, bu aralıktaki dönem sayısına göre hesaplar.",
+                "updated": 1639142421942
             }
         ]
     },
@@ -28,6 +33,47 @@
         {
             "style": "Link",
             "text": "SMA - (Investopedia)->www.investopedia.com/terms/s/sma.asp"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-SMA.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The length of the Simple Moving Average indicator calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019SMA\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-SMA-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Simple Moving Average | SMA | sma |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Example:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The SMA indicator could be used to generate a buy signal when a candle closes above the SMA:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.SMA.sma",
+            "updated": 1636853769
         },
         {
             "style": "Title",

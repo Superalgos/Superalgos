@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Aşağıdaki tabloyu kontrol edin ve grafiklerde gördüğünüz destek seviyelerini yorumlayın. Her seviye ihlalinde barın rengi değişir. Örneğin Seviye 5 defa ihlal edilmişse yeşil renkli olur.",
                 "updated": 1636204496181
+            },
+            {
+                "language": "RU",
+                "text": "Проверьте таблицу ниже и посмотрите, если Вы сможете интерпретировать уровни поддержки, которые Вы видите на графиках.",
+                "updated": 1637656295257
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "language": "TR",
                     "text": "Reddedilen yeni bir destek seviyesi (noktalı çizgi ile ifade edilir), fiyatın sıçradığı tam seviyeyi gösterir. Daha sonraki retler için bloklar kullanılır ve sayıya göre renklendirilir.",
                     "updated": 1636204639724
+                },
+                {
+                    "language": "RU",
+                    "text": "Для нового уровня поддержки с одним отказом пунктирная линия отмечает точный уровень, на котором цена отскочила. Для дальнейших отказов блоки отмечают диапазоны ставок, в которых учитываются последующие отклонения.",
+                    "updated": 1637656618967
                 }
             ]
         }

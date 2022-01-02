@@ -1,7 +1,14 @@
 {
     "type": "Image",
     "definition": {
-        "text": "The image node allows overlaying an image over the charts, controlling its position, size, and when it shall be rendered."
+        "text": "The image node allows overlaying an image over the charts, controlling its position, size, and when it shall be rendered.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Image позволяет накладывать изображение на диаграммы, контролировать его положение, размер и время визуализации.",
+                "updated": 1638968921862
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,15 +17,36 @@
         },
         {
             "style": "Text",
-            "text": "The foremost requirement for images is that they are in the png format, 24 bits, with transparency, a low case extension, and are square."
+            "text": "The foremost requirement for images is that they are in the png format, 24 bits, with transparency, a low case extension, and are square.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Главное требование к изображениям - они должны быть в формате png, 24 бита, с прозрачностью, с расширением в нижнем регистре, и квадратными.",
+                    "updated": 1638969170053
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If you envision contributing your indicator so that the community may use it, then please follow the guidelines in the contribute icons page, in particular, the Technical Requirements."
+            "text": "If you envision contributing your indicator so that the community may use it, then please follow the guidelines in the contribute icons page, in particular, the Technical Requirements.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если вы планируете внести свой индикатор, чтобы сообщество могло его использовать, следуйте рекомендациям на странице значков How to Contribute Icons для внесения вкладов, в частности, техническим требованиям.",
+                    "updated": 1638969479621
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Images must the stored in the following path: \\BackendServers\\WebServer\\Images\\Icons\\style-01"
+            "text": "Images must the stored in the following path: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Изображения должны храниться по следующему пути: \\BackendServers\\WebServer\\Images\\Icons\\style-01",
+                    "updated": 1638969275843
+                }
+            ]
         },
         {
             "style": "Note",

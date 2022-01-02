@@ -1,4 +1,4 @@
-Data-Storage
+/Data-Storage
 Log-Files
 My-Workspaces
 My-Social-Trading-Data
@@ -20,3 +20,5 @@ launch.json
 package-lock.json
 .idea
 dist
+/nbproject/private/
+Platform/WebServer/externalScripts

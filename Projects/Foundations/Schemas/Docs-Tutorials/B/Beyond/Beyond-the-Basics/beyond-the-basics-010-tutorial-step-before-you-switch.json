@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Es gibt ein paar Dinge, die Sie bei jedem Wechsel des Zweigs beachten sollten! Gehen wir eine kurze Liste durch, bevor Sie fortfahren!\n",
                 "updated": 1634821919162
+            },
+            {
+                "language": "RU",
+                "text": "Есть несколько моментов, которые следует учитывать каждый раз, когда вы меняете ветку! Давайте пройдемся по краткому списку, прежде чем вы приступите к работе!",
+                "updated": 1640155691994
+            },
+            {
+                "language": "TR",
+                "text": "Her şube değiştirdiğinizde göz önünde bulundurmanız gereken birkaç şey var! Devam etmeden önce hızlıca göz atalım!",
+                "updated": 1640417403445
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Es kann vorkommen, dass die Arbeitsbereiche oder andere Datenstrukturen im Master-Zweig nicht mit denen im anderen Zweig kompatibel sind.",
                     "updated": 1634821927757
+                },
+                {
+                    "language": "RU",
+                    "text": "Может случиться так, что рабочие пространства или другие структуры данных в основной ветви не совместимы с рабочими пространствами в другой ветви.",
+                    "updated": 1640155716232
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana daldaki ( Master Branch ) çalışma alanları veya diğer veri yapıları diğer daldakilerle uyumlu olmayabilir.",
+                    "updated": 1640417455302
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Wenn der aktuelle Arbeitsbereich nicht mit der Software im anderen Zweig kompatibel ist, kann der Arbeitsbereich beim erneuten Laden der Anwendung abbrechen. Laden Sie in einem solchen Fall einen der Plugin Workspaces des neuen Zweigs.",
                     "updated": 1634821952256
+                },
+                {
+                    "language": "RU",
+                    "text": "Если текущее рабочее пространство несовместимо с программным обеспечением в другой ветке, при перезагрузке приложения рабочее пространство может сломаться. В этом случае загрузите одно из рабочих пространств Plugin Workspaces новой ветки.",
+                    "updated": 1640155742807
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut çalışma alanı diğer daldaki yazılımla uyumlu değilse, uygulama yeniden yüklendiğinde çalışma alanı bozulabilir. Böyle bir durumda yeni şubenin Plugin Workspace'lerinden birini yükleyin.",
+                    "updated": 1640417497181
                 }
             ]
         },
@@ -97,8 +127,18 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Auch die Struktur der verarbeiteten Daten kann sich geändert haben!",
-                    "updated": 1634821958505
+                    "text": "Auch die Struktur der verarbeiteten/mined Daten kann sich geändert haben! ",
+                    "updated": 1638832457386
+                },
+                {
+                    "language": "RU",
+                    "text": "Структура добытых данных могла измениться!",
+                    "updated": 1640155763009
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlenmiş verilerin ( Data Mined ) yapısı değişmiş olabilir!",
+                    "updated": 1640417605561
                 }
             ]
         },
@@ -123,6 +163,16 @@
                     "language": "DE",
                     "text": "Prüfen Sie immer die README-Datei in dem Zweig des Repositorys, auf das Sie zugreifen möchten, auf Kommentare zur Abwärtskompatibilität. Bevor Sie den Zweig wechseln, sichern Sie Ihre Arbeit!",
                     "updated": 1634821965825
+                },
+                {
+                    "language": "RU",
+                    "text": "Всегда проверяйте файл README в ветке репозитория, к которому вы хотите получить доступ, на наличие комментариев по обратной совместимости. Перед переключением ветвей делайте резервные копии своей работы!",
+                    "updated": 1640155785704
+                },
+                {
+                    "language": "TR",
+                    "text": "Geriye dönük uyumlulukla ilgili herhangi bir açıklama için her zaman geçiş yapmak istediğiniz deposunda bulunan README dosyasını kontrol edin. Şube değiştirmeden önce işinizi yedekleyin!",
+                    "updated": 1640417786420
                 }
             ]
         }

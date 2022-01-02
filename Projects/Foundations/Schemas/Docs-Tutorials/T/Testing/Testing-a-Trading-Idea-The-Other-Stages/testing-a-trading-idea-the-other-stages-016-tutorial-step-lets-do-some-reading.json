@@ -7,16 +7,37 @@
             "name": "Open\\open-execution",
             "project": "Foundations"
         },
-        "text": "Read these first few paragraphs about the Open Execution so that we may then start working on the definitions."
+        "text": "Read these first few paragraphs about the Open Execution so that we may then start working on the definitions.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Lesen Sie diese ersten Absätze über die Open Execution, damit wir dann mit der Arbeit an den Definitionen beginnen können.",
+                "updated": 1639398487234
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The point to take home is that Superalgos proposes granular definitions of orders set up within execution algorithms, which in turn are built into strategies, as the way to program both simple and complex execution logic."
+            "text": "The point to take home is that Superalgos proposes granular definitions of orders set up within execution algorithms, which in turn are built into strategies, as the way to program both simple and complex execution logic.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der springende Punkt ist, dass Superalgos granulare Definitionen von Aufträgen innerhalb von Ausführungsalgorithmen vorschlägt, die wiederum in Strategien eingebaut sind, um sowohl einfache als auch komplexe Ausführungslogik zu programmieren.",
+                    "updated": 1639398494473
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "We'll do some more reading before we bring all this down to Earth!"
+            "text": "We'll do some more reading before we bring all this down to Earth!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen!",
+                    "updated": 1639398502617
+                }
+            ]
         }
     ]
 }

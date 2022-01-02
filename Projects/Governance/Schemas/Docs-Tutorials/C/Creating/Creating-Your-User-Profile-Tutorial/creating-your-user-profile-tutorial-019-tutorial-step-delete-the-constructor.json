@@ -15,6 +15,21 @@
                 "text": "Una vez que te hayas asegurado de hacer una copia de seguridad del contenido del Profile Constructor es hora de limpiar el taller.",
                 "updated": 1630891469094,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Profil Oluşturucunun içeriğini yedeklediğinizden emin olduktan sonra dükkanı temizlemenin zamanı geldi.",
+                "updated": 1637247271679
+            },
+            {
+                "language": "RU",
+                "text": "После того, как вы сделали резервную копию содержимого Profile Constructor, пора навести порядок в магазине.",
+                "updated": 1639047943148
+            },
+            {
+                "language": "DE",
+                "text": "Nachdem Sie sich vergewissert haben, dass Sie den Inhalt des Profile Constructor gesichert haben, ist es an der Zeit, aufzuräumen.",
+                "updated": 1640077414615
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Una vez que estés satisfecho con tu copia de seguridad de la clave privada, elimina el nodo Profile Constructor.",
                     "updated": 1630891508439,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Özel anahtarı istediğiniz şekilde yedeklediyseniz, Profil Oluşturucu düğümünü silin!",
+                    "updated": 1637247304339
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы будете удовлетворены своей резервной копией закрытого ключа, удалите узел Profile Constructor!",
+                    "updated": 1639047969271
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie mit der Sicherung des privaten Schlüssels zufrieden sind, löschen Sie den Profile Constructor Knoten!",
+                    "updated": 1640077435100
                 }
             ]
         },
@@ -41,6 +71,21 @@
                     "text": "No es seguro almacenar tu clave privada en el espacio de trabajo, ya que puedes enviarla accidentalmente a GitHub.com con una de tus contribuciones. Además, recuerda que los espacios de trabajo se guardan en el disco como archivos JSON sin cifrar, sin ningún tipo de seguridad.",
                     "updated": 1630891565910,
                     "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Daha sonra Superalgos'a göndereceğiniz katkılarınızdan biriyle yanlışlıkla GitHub.com'a gönderebileceğiniz için özel anahtarınızı Çalışma Alanında saklamak güvenli değildir. Ayrıca, çalışma alanlarının hiçbir güvenlik olmaksızın diske şifrelenmemiş JSON dosyaları olarak kaydedildiğini unutmayın.",
+                    "updated": 1637247430421
+                },
+                {
+                    "language": "RU",
+                    "text": "Хранить ваш закрытый ключ в рабочем пространстве небезопасно, так как вы можете случайно отправить его на GitHub.com вместе с одним из ваших вкладов. Также помните, что рабочие пространства сохраняются на диске в виде незашифрованных файлов JSON без какой-либо защиты.",
+                    "updated": 1639048028835
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist nicht sicher, Ihren privaten Schlüssel im Workspace zu speichern, da Sie ihn versehentlich mit einem Ihrer Beiträge an GitHub.com übermitteln könnten. Denken Sie auch daran, dass Workspaces auf der Festplatte als unverschlüsselte JSON-Dateien gespeichert werden, die keinerlei Sicherheit bieten.",
+                    "updated": 1640077482550
                 }
             ]
         },

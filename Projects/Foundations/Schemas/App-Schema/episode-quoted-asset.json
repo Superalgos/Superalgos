@@ -10,6 +10,14 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Portfolio Parameters",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -23,7 +31,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Episode->"
+        "compatibleTypes": "->Trading Episode->Portfolio Episode->"
     },
     "propertyNameAtParent": "episodeQuotedAsset",
     "childrenNodesProperties": [

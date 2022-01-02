@@ -7,20 +7,68 @@
             "project": "Foundations",
             "name": "take-position-event"
         },
-        "text": "The third aspect to be defined are the rules for triggering the strategy and taking a position."
+        "text": "The third aspect to be defined are the rules for triggering the strategy and taking a position.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der dritte zu definierende Aspekt sind die Regeln für das Auslösen der Strategie und das Einnehmen einer Position.",
+                "updated": 1639251779956
+            },
+            {
+                "language": "TR",
+                "text": "Tanımlanacak üçüncü husus, stratejiyi tetikleme ve pozisyon alma kurallarıdır.",
+                "updated": 1640867430097
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Many times, the rules to trigger the strategy derive from the analysis of the context. For example, you wish the strategy to be active when a specific trend is detected by some specific method."
+            "text": "Many times, the rules to trigger the strategy derive from the analysis of the context. For example, you wish the strategy to be active when a specific trend is detected by some specific method.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In vielen Fällen ergeben sich die Regeln für die Auslösung der Strategie aus der Analyse des Kontextes. Sie möchten zum Beispiel, dass die Strategie aktiv wird, wenn ein bestimmter Trend durch eine bestimmte Methode erkannt wird.",
+                    "updated": 1639251789768
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu zaman, stratejiyi tetikleyecek kurallar, bağlamın analizinden türetilir. Örneğin, belirli bir yöntemle belirli bir eğilim tespit edildiğinde stratejinin aktif olmasını istersiniz.",
+                    "updated": 1640867458806
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The rules to take a position are usually referred to as the signal and the signal confirmation."
+            "text": "The rules to take a position are usually referred to as the signal and the signal confirmation.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Regeln zum Eingehen einer Position werden gewöhnlich als Signal und Signalbestätigung bezeichnet.",
+                    "updated": 1639251797598
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir pozisyon alma kuralları genellikle sinyal ve sinyal onayı olarak adlandırılır.",
+                    "updated": 1640867496258
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Those rules are the description of the specific event that determines when to enter a position. For example, the crossover of two specific lines, or a certain value on a specific indicator."
+            "text": "Those rules are the description of the specific event that determines when to enter a position. For example, the crossover of two specific lines, or a certain value on a specific indicator.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Regeln sind die Beschreibung des spezifischen Ereignisses, das bestimmt, wann eine Position eingegangen werden soll. Zum Beispiel das Kreuzen zweier bestimmter Linien oder ein bestimmter Wert bei einem bestimmten Indikator.",
+                    "updated": 1639251804151
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kurallar, bir pozisyona ne zaman girileceğini belirleyen belirli olayın açıklamasıdır. Örneğin, iki belirli çizginin çaprazlanması veya belirli bir göstergede belirli bir değer.",
+                    "updated": 1640867528994
+                }
+            ]
         }
     ]
 }

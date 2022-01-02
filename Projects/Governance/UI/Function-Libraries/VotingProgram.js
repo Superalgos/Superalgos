@@ -1,7 +1,6 @@
 function newGovernanceFunctionLibraryVotingProgram() {
     let thisObject = {
-        calculate: calculate,
-        installMissingVotes: installMissingVotes
+        calculate: calculate
     }
     const MAX_GENERATIONS = 3
 
@@ -331,7 +330,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
                                 let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage !== undefined && isNaN(percentage) !== true) {
+                                if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                     totalPercentage = totalPercentage + percentage
                                 } else {
                                     totalNodesWithoutPercentage++
@@ -346,7 +345,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
                                         let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage !== undefined && isNaN(percentage) !== true) {
+                                        if (percentage !== undefined && isNaN(percentage) !== true && percentage >= 0) {
                                             totalPercentage = totalPercentage + percentage
                                         } else {
                                             totalNodesWithoutPercentage++
@@ -380,7 +379,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                 if (childNode === undefined) { continue }
                                 if (childNode.type === 'Tokens Bonus') { continue }
                                 let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                if (percentage === undefined || isNaN(percentage) === true) {
+                                if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                     percentage = defaultPercentage
                                 }
                                 distributeProgramPower(
@@ -401,7 +400,7 @@ function newGovernanceFunctionLibraryVotingProgram() {
                                         if (childNode === undefined) { continue }
                                         if (childNode.type === 'Tokens Bonus') { continue }
                                         let percentage = UI.projects.visualScripting.utilities.nodeConfig.loadConfigProperty(childNode.payload, 'percentage')
-                                        if (percentage === undefined || isNaN(percentage) === true) {
+                                        if (percentage === undefined || isNaN(percentage)  || percentage < 0 === true) {
                                             percentage = defaultPercentage
                                         }
                                         distributeProgramPower(
@@ -536,140 +535,6 @@ function newGovernanceFunctionLibraryVotingProgram() {
 
                 node.payload.uiObject.setStatus(ownPowerText + ' Own Power' + ' + ' + incomingPowerText + ' Incoming Voting Power' + ' + ' + reputationPowerText + ' Reputation Power', UI.projects.governance.globals.designer.SET_STATUS_COUNTER)
             }
-        }
-    }
-
-    function installMissingVotes(node, rootNodes) {
-        if (node.payload === undefined) { return }
-        if (node.payload.referenceParent === undefined) {
-            node.payload.uiObject.setErrorMessage(
-                'To install votes you need a Reference Parent',
-                UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-            )
-            return
-        }
-        scanNodeBranch(node, node.payload.referenceParent)
-
-        function scanNodeBranch(originNode, destinationNode) {
-            if (
-                destinationNode.type === 'Pool' ||
-                destinationNode.type === 'Asset' ||
-                destinationNode.type === 'Feature' ||
-                destinationNode.type === 'Position'
-            ) {
-                originNode.name = destinationNode.name + ' ' + destinationNode.type + ' ' + ' Vote'
-            } else {
-                originNode.name = destinationNode.name
-            }
-
-            let schemaDocument = getSchemaDocument(destinationNode)
-            if (schemaDocument === undefined) { return }
-
-            if (schemaDocument.childrenNodesProperties !== undefined) {
-                for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
-                    let property = schemaDocument.childrenNodesProperties[i]
-
-                    switch (property.type) {
-                        case 'node': {
-
-                            let destinationNodeChild = destinationNode[property.name]
-
-                            let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                            let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
-
-                            if (originNodeChild === undefined) {
-                                originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
-                            }
-                            UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
-                            scanNodeBranch(originNodeChild, destinationNodeChild)
-                        }
-                            break
-                        case 'array': {
-                            let propertyArray = destinationNode[property.name]
-                            if (propertyArray !== undefined) {
-                                for (let m = 0; m < propertyArray.length; m++) {
-
-                                    let destinationNodeChild = propertyArray[m]
-
-                                    let originNodeChildType = getOriginNodeChildType(destinationNodeChild)
-                                    let originNodeChild = UI.projects.visualScripting.utilities.nodeChildren.findChildReferencingThisNode(originNode, destinationNodeChild)
-
-                                    if (originNodeChild === undefined) {
-                                        originNodeChild = UI.projects.visualScripting.functionLibraries.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
-                                    }
-                                    UI.projects.visualScripting.functionLibraries.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
-                                    scanNodeBranch(originNodeChild, destinationNodeChild)
-                                }
-                            }
-                            break
-                        }
-                    }
-                }
-            }
-        }
-
-        function getOriginNodeChildType(destinationNode) {
-            let originNodeType
-
-            switch (destinationNode.type) {
-                case 'Pool Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Asset Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Feature Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Position Class': {
-                    originNodeType = 'Weight Votes Switch'
-                    break
-                }
-                case 'Pool': {
-                    originNodeType = 'Pool Weight Vote'
-                    break
-                }
-                case 'Asset': {
-                    originNodeType = 'Asset Weight Vote'
-                    break
-                }
-                case 'Feature': {
-                    originNodeType = 'Feature Weight Vote'
-                    break
-                }
-                case 'Position': {
-                    originNodeType = 'Position Weight Vote'
-                    break
-                }
-                case 'Asset Claims Folder': {
-                    originNodeType = 'Claim Votes Switch'
-                    break
-                }
-                case 'Asset Contribution Claim': {
-                    originNodeType = 'Asset Claim Vote'
-                    break
-                }
-                case 'Feature Claims Folder': {
-                    originNodeType = 'Claim Votes Switch'
-                    break
-                }
-                case 'Feature Contribution Claim': {
-                    originNodeType = 'Feature Claim Vote'
-                    break
-                }
-                case 'Position Claims Folder': {
-                    originNodeType = 'Claim Votes Switch'
-                    break
-                }
-                case 'Position Contribution Claim': {
-                    originNodeType = 'Position Claim Vote'
-                    break
-                }
-            }
-            return originNodeType
         }
     }
 }

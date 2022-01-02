@@ -1,0 +1,43 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 70,
+    "type": "Tutorial Step - What Do We Have Here?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "help"
+        },
+        "text": "In our first backtest, the strategy triggered after the daily Feb 26th candle closes. That shouldn't change on this one!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In unserem ersten Backtest wurde die Strategie ausgelöst, nachdem die Tageskerze vom 26. Februar geschlossen wurde. Das sollte sich auch dieses Mal nicht ändern!",
+                "updated": 1639390509550
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a look! The strategy is triggered as soon as the last hourly candle of Feb 26th closes!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie nach! Die Strategie wird ausgelöst, sobald die letzte stündliche Kerze des 26. Februar schließt!",
+                    "updated": 1639390516723
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Of course, the triggering has nothing to do with the hourly candle closing, but with the daily candle (that closes at the same time) validating both trigger on conditions as true.  It doesn't matter what chart you are looking at or in what time frame the trading session runs. The trading bot validates each statement on the defined time frame.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Natürlich hat die Auslösung nichts mit dem Schließen der stündlichen Kerze zu tun, sondern damit, dass die Tageskerze (die zur gleichen Zeit schließt) beide Auslösebedingungen als wahr true bestätigt. Es spielt keine Rolle, welchen Chart Sie betrachten oder in welchem Zeitrahmen die Handelssitzung abläuft. Der Trading-Bot validiert jede Aussage für den definierten Zeitrahmen.",
+                    "updated": 1639390657711
+                }
+            ]
+        }
+    ]
+}

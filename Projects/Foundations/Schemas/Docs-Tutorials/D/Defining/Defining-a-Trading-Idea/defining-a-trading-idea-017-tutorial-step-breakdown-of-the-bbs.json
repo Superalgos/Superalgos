@@ -7,28 +7,100 @@
             "name": "Layer\\layer-candles",
             "project": "Foundations"
         },
-        "text": "Weak-hands Buster is based on the idea that a breakdown of the BB may predict a deepening of a downtrend and some reversals."
+        "text": "Weak-hands Buster is based on the idea that a breakdown of the BB may predict a deepening of a downtrend and some reversals.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Weak hands Buster basiert auf der Idee, dass ein Zusammenbruch der BB eine Vertiefung eines Abwärtstrends und einige Umkehrungen vorhersagen kann.",
+                "updated": 1639252612250
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Weak-hands Buster, BB'nin bir çöküşünün bir düşüş trendinin derinleşebileceğini ve bazı geri dönüşleri tahmin edebileceği fikrine dayanır.",
+                "updated": 1640947625302
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I just brought you to April 10th, 2020 to check a case of a breakdown of the bands. See what happens at the following candles:"
+            "text": "I just brought you to April 10th, 2020 to check a case of a breakdown of the bands. See what happens at the following candles:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe Sie gerade auf den 10. April 2020 gebracht, um einen Fall von Durchbruch der Bänder zu überprüfen. Sehen Sie, was bei den folgenden Kerzen passiert:",
+                    "updated": 1639252623606
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni 10 Nisan 2020'ye grupların bozulmasıyla ilgili bir vakayı kontrol etmen için getirdim. Aşağıdaki mumlarda neler olduğunu görün:",
+                    "updated": 1640947649403
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "04 hs: A candle closes below the lower band at 7.176 USDT."
+            "text": "04 hs: A candle closes below the lower band at 7.176 USDT.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "04 hs: Eine Kerze schließt unterhalb des unteren Bandes bei 7,176 USDT.",
+                    "updated": 1639252770468
+                },
+                {
+                    "language": "TR",
+                    "text": "04 hs: alt bandın altında bir mum 7.176 USDT'de kapanır.",
+                    "updated": 1640947665565
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "05 hs: A second candle closes below the band at 7.140 USDT."
+            "text": "05 hs: A second candle closes below the band at 7.140 USDT.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "05 hs: Eine zweite Kerze schließt unterhalb des Bandes bei 7,140 USDT.",
+                    "updated": 1639252763565
+                },
+                {
+                    "language": "TR",
+                    "text": "05 hs: Bandın altında 7.140 USDT'de ikinci bir mum kapanır.",
+                    "updated": 1640947676893
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "06 hs: A more serious drop follows, accentuating the price action seen earlier."
+            "text": "06 hs: A more serious drop follows, accentuating the price action seen earlier.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "06 hs: Es folgt ein stärkerer Rückgang, der die zuvor beobachtete Kursbewegung noch verstärkt.",
+                    "updated": 1639252780679
+                },
+                {
+                    "language": "TR",
+                    "text": "06 hs: Daha önce görülen fiyat hareketini vurgulayan daha ciddi bir düşüş.",
+                    "updated": 1640947716039
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "16 hs: Ten hours after the first breakdown, the lowest hourly close of the day marks 6.766 USDT, more than 6% below."
+            "text": "16 hs: Ten hours after the first breakdown, the lowest hourly close of the day marks 6.766 USDT, more than 6% below.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "16 hs: Zehn Stunden nach dem ersten Durchbruch liegt der niedrigste Stundenschlusskurs des Tages bei 6,766 USDT, mehr als 6 % darunter.",
+                    "updated": 1639252791455
+                },
+                {
+                    "language": "TR",
+                    "text": "16 hs: İlk kırılmadan on saat sonra, günün en düşük saatlik kapanışı 6.766 USDT'yi işaret ediyor, %6'dan fazla aşağıda.",
+                    "updated": 1640947733988
+                }
+            ]
         }
     ]
 }

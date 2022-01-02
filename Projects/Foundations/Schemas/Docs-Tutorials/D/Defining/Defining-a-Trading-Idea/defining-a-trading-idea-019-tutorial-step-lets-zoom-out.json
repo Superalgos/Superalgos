@@ -7,28 +7,100 @@
             "name": "Time\\time-frame",
             "project": "Foundations"
         },
-        "text": "We've got an idea of what's going on in the 1H time frame. Let's zoom out a bit and take a look at the intermediate-term."
+        "text": "We've got an idea of what's going on in the 1H time frame. Let's zoom out a bit and take a look at the intermediate-term.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir haben eine Vorstellung davon, was im 1-Stunden-Zeitrahmen vor sich geht. Zoomen wir ein wenig heraus und werfen einen Blick auf den mittelfristigen Bereich.",
+                "updated": 1639252880126
+            },
+            {
+                "language": "TR",
+                "text": "Özet: 1 saatlik zaman çerçevesinde neler olup bittiğine dair bir fikrimiz var. Biraz uzaklaşıp orta vadeye bir göz atalım.",
+                "updated": 1640947862345
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I just brought you to the 4H chart, on the same dates. Notice the following:"
+            "text": "I just brought you to the 4H chart, on the same dates. Notice the following:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe Sie soeben zum 4H-Chart mit denselben Daten gebracht. Beachten Sie das Folgende:",
+                    "updated": 1639252893103
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni aynı tarihlerde 4H grafiğine getirdim. Aşağıdakilere dikkat edin:",
+                    "updated": 1640947881342
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Breakdown: The breakdown we saw in the 1H chart is evident in the 4H chart too."
+            "text": "Breakdown: The breakdown we saw in the 1H chart is evident in the 4H chart too.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zusammenbruch: Der Zusammenbruch, den wir auf dem 1-Stunden-Chart gesehen haben, ist auch auf dem 4-Stunden-Chart zu erkennen.",
+                    "updated": 1639252904620
+                },
+                {
+                    "language": "TR",
+                    "text": "Arıza: 1H çizelgesinde gördüğümüz arıza, 4H çizelgesinde de belirgindir.",
+                    "updated": 1640947893385
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Immediate past: Before the breakdown on April 10th, the market had been ranging for a while."
+            "text": "Immediate past: Before the breakdown on April 10th, the market had been ranging for a while.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Unmittelbare Vergangenheit: Vor dem Zusammenbruch am 10. April bewegte sich der Markt schon eine Weile.",
+                    "updated": 1639252911166
+                },
+                {
+                    "language": "TR",
+                    "text": "Hemen geçmiş:10 Nisan'daki çöküş öncesi piyasa bir süredir hareketliydi.",
+                    "updated": 1640947908913
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Before that: The market was trending upwards&mdash;that is, the intermediate-term was in an uptrend."
+            "text": "Before that: The market was trending upwards&mdash;that is, the intermediate-term was in an uptrend.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Davor: Der Markt befand sich in einem Aufwärtstrend, d. h. der mittelfristige Trend war aufwärts gerichtet.",
+                    "updated": 1639252918205
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan önce: Piyasa yükseliş eğilimindeydi - yani orta vadeli bir yükseliş trendindeydi.",
+                    "updated": 1640947927156
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Downtrend: The breakdown on April 10th marked the start of a downtrend in the intermediate-term."
+            "text": "Downtrend: The breakdown on April 10th marked the start of a downtrend in the intermediate-term.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Abwärtstrend: Der Zusammenbruch am 10. April markierte den Beginn eines Abwärtstrends im mittelfristigen Bereich.",
+                    "updated": 1639252924187
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşüş trendi: 10 Nisan'daki kırılma, orta vadede düşüş trendinin başlangıcını işaret etti.",
+                    "updated": 1640947941113
+                }
+            ]
         }
     ]
 }

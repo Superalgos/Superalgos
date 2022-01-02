@@ -7,26 +7,81 @@
             "name": "Layer\\layer-bands",
             "project": "Foundations"
         },
-        "text": "Now that you've seen the bands on the charts, let's go through the rules that teach us how to interpret and use them!"
+        "text": "Now that you've seen the bands on the charts, let's go through the rules that teach us how to interpret and use them!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nun, da Sie die Bänder auf den Charts gesehen haben, lassen Sie uns die Regeln durchgehen, die uns lehren, wie man sie interpretiert und verwendet!",
+                "updated": 1639252227486
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Artık listelerdeki grupları gördüğünüze göre, bunları nasıl yorumlayıp kullanacağımızı öğreten kuralları gözden geçirelim!",
+                "updated": 1640871846120
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "If you are not familiar with this indicator, it's definitely worth spending a few minutes reading the rules,",
-            "updated": 1622458251795
+            "updated": 1622458251795,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mit diesem Indikator nicht vertraut sind, lohnt es sich auf jeden Fall, ein paar Minuten mit den Regeln zu verbringen,",
+                    "updated": 1639252237240
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu göstergeye aşina değilseniz, kuralları okumak için kesinlikle birkaç dakika harcamaya değer,aşağıdaki link'i inceleyebilirsiniz.",
+                    "updated": 1640871944748
+                }
+            ]
         },
         {
             "style": "Link",
             "text": "as defined by John Bollinger himself!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
-            "updated": 1622458339543
+            "updated": 1622458339543,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "wie sie von John Bollinger selbst definiert wurden!->www.bollingerbands.com/bollinger-band-rules?ref=superalgos",
+                    "updated": 1639252431140
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Please, read what John Bollinger has to say about how to interpret this popular indicator!"
+            "text": "Please, read what John Bollinger has to say about how to interpret this popular indicator!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bitte lesen Sie, was John Bollinger über die Interpretation dieses beliebten Indikators zu sagen hat!",
+                    "updated": 1639252249929
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen, John Bollinger'ın bu popüler göstergeyi nasıl yorumlanacağı hakkındaki söylediklerini okuyun!",
+                    "updated": 1640872013666
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Rules 6 to 8 are of particular significance to what we will be attempting later on!"
+            "text": "Rules 6 to 8 are of particular significance to what we will be attempting later on!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Regeln 6 bis 8 sind für das, was wir später versuchen werden, von besonderer Bedeutung!",
+                    "updated": 1639252258018
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: 6'dan 8'e kadar olan kurallar, daha sonra deneyeceğimiz şey için özel bir öneme sahiptir!",
+                    "updated": 1640872123653
+                }
+            ]
         }
     ]
 }

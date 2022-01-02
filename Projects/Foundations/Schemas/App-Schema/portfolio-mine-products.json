@@ -1,0 +1,54 @@
+{
+    "type": "Portfolio Mine Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Bot Products",
+            "relatedUiObject": "Bot Products",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add All Data Products",
+            "label": "Add All Data Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Data Product",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Portfolio Mine->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Portfolio Session Reference->"
+    },
+    "propertyNameAtParent": "portfolioMineProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "botProducts",
+            "type": "array",
+            "childType": "Bot Products",
+            "autoAdd": false
+        }
+    ]
+}

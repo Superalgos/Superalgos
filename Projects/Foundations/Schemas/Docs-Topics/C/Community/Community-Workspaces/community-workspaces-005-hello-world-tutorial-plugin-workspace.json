@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "Este workspace sirve como demostración de cómo construir una estrategia muy simple, complementando la educación brindada por el Trading System Design Tutorials Plugin Workspace, con un enfoque diferente.",
                 "updated": 1636725234290
+            },
+            {
+                "language": "RU",
+                "text": "Это рабочее пространство служит демонстрацией того, как построить очень простую стратегию, дополняя обучение, предоставляемое учебником Trading System Design Tutorials Plugin Workspace, с другим подходом.",
+                "updated": 1639056308603
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Workspace dient als Demonstration, wie man eine sehr einfache Strategie erstellt, und ergänzt die Ausbildung, die der Plugin-Workspace \"Trading System Design Tutorials\" bietet, mit einem anderen Ansatz.",
+                "updated": 1639496010559
             }
         ]
     },
@@ -17,7 +27,14 @@
         {
             "style": "Title",
             "text": "Tutorials",
-            "updated": 1616151478524
+            "updated": 1616151478524,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учебники",
+                    "updated": 1639056327304
+                }
+            ]
         },
         {
             "style": "List",
@@ -34,7 +51,19 @@
         {
             "style": "Title",
             "text": "Maintainer",
-            "updated": 1622623051979
+            "updated": 1622623051979,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Maintainer(Betreuer)",
+                    "updated": 1639496029983
+                },
+                {
+                    "language": "RU",
+                    "text": "Разработчик",
+                    "updated": 1640236929712
+                }
+            ]
         },
         {
             "style": "List",

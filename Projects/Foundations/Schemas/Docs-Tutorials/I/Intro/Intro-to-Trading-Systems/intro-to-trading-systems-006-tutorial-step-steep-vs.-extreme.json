@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "¿Encontraste la diferencia? ¡No te preocupe si no lo hiciste! ¡Hay muchas condiciones! ¡Te daré otra pista!",
                 "updated": 1629589533343
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie den Unterschied gefunden? Keine Sorge, wenn Sie es nicht getan haben! Es gibt viele Bedingungen! Ich gebe Ihnen einen weiteren Hinweis!",
+                "updated": 1639147672500
+            },
+            {
+                "language": "TR",
+                "text": "Farkı buldun mu? Bunu yapmadıysan endişelenme! Çok sayıda koşul var! Sana bir ipucu daha vereceğim!",
+                "updated": 1640698180246
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "ES",
                     "text": "Mira de nuevo y observa que las primeras siete condiciones del Trigger On Event son iguales en ambas estrategias! ¡Sin embargo, las condiciones restantes son diferentes!",
                     "updated": 1629589848429
+                },
+                {
+                    "language": "DE",
+                    "text": "Schauen Sie noch einmal hin und stellen Sie fest, dass die ersten sieben Bedingungen des Trigger On Event bei beiden Strategien gleich sind! Die restlichen Bedingungen sind jedoch unterschiedlich!",
+                    "updated": 1639147675579
+                },
+                {
+                    "language": "TR",
+                    "text": "Tekrar bakın ve Trigger On Event'in ilk yedi koşulunun her iki stratejide de aynı olduğuna dikkat edin! Kalan koşullar farklı olsa da!",
+                    "updated": 1640698370398
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "ES",
                     "text": "Puedes arrastrar el  Trigger On Event de una estrategia y fíjela más cerca del evento de la otra estrategia para facilitar la comparación.",
                     "updated": 1629589881277
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können das Trigger On Event einer Strategie ziehen und es näher an das Event der anderen Strategie anheften, um es besser vergleichen zu können!",
+                    "updated": 1639147683650
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha kolay karşılaştırma için bir stratejinin Etkinliğinde Tetikleyiciyi ( Trigger On Event ) sürükleyebilir ve diğer stratejinin olayına daha yakın bir yere sabitleyebilirsiniz!",
+                    "updated": 1640698729201
                 }
             ]
         }

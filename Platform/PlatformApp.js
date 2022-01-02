@@ -140,6 +140,7 @@ exports.newPlatformApp = function newPlatformApp() {
             HTTP_INTERFACE = HTTP_INTERFACE.newHttpInterface()
             HTTP_INTERFACE.initialize(initialWorkspace)
             console.log('Http Interface .............................................. Listening at port ' + global.env.PLATFORM_HTTP_INTERFACE_PORT)
+            console.log('Initial Workspace............................................ ' + initialWorkspace.project + ' ' + initialWorkspace.name)
 
             console.log('')
             console.log("You are running Superalgos Platform " + SA.version)

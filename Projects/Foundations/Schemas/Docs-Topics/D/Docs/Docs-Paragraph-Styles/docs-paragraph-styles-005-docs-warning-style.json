@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Stil für Schachteltexte als Warnung für die Leser.",
                 "updated": 1633952991020
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот стиль для выделения текста в рамку в качестве предупреждения для читателей.",
+                "updated": 1638533152668
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Alles, was Sie während der Bearbeitung eines Absatzes dieses Stils eingeben, wird im Warnfeld angezeigt.",
                     "updated": 1633953012204
+                },
+                {
+                    "language": "RU",
+                    "text": "Все, что вы вводите при редактировании абзаца этого стиля, будет отображаться внутри поля предупреждения.",
+                    "updated": 1638533167327
                 }
             ]
         },
@@ -32,6 +42,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633953021077
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638533763082
                 }
             ]
         },
@@ -43,6 +58,11 @@
                     "language": "DE",
                     "text": "Dies ist ein Beispiel für einen Absatz im Warnstil (warning style).",
                     "updated": 1633953043371
+                },
+                {
+                    "language": "RU",
+                    "text": "Это пример абзаца в стиле предупреждения.",
+                    "updated": 1638533179127
                 }
             ]
         }

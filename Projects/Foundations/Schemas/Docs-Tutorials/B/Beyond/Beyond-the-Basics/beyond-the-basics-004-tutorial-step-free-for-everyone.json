@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Superalgos ist ein Community-Projekt! Wir stellen die Software für jeden kostenlos zur Verfügung, aber wir bitten um eine Gegenleistung... Ihre Hilfe!",
                 "updated": 1634819982808
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos bir Topluluk ( Coımmunity ) projesidir! Yazılımı ücretsiz olarak herkesin kullanımına sunuyoruz, ancak karşılığında bir şey istiyoruz... yardımınız!",
+                "updated": 1639861662982
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos - это проект сообщества! Мы предоставляем программное обеспечение всем желающим бесплатно, но мы просим кое-что взамен... вашу помощь!",
+                "updated": 1640154468349
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Wie kann Superalgos kostenlos sein? Wo ist der Haken? Diese Fragen bekommen wir oft gestellt! Dies ist die kurze Geschichte...",
                     "updated": 1634819991250
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos nasıl özgür olabilir? Amaç ne? Bu soruları sık sık alıyoruz! Kısa bir hikaye bu...",
+                    "updated": 1639861692766
+                },
+                {
+                    "language": "RU",
+                    "text": "Как Superalgos может быть бесплатным? В чем подвох? Мы часто получаем эти вопросы! Вот краткая история...",
+                    "updated": 1640154503032
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Superalgos begann mit einer Gruppe von Freunden, die sich zusammentaten, um ihren Kryptohandel zu automatisieren!",
                     "updated": 1634820005138
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, kripto ticaretini otomatikleştirmek için bir grup arkadaşın güçlerini birleştirmesiyle başladı!",
+                    "updated": 1639861707759
+                },
+                {
+                    "language": "RU",
+                    "text": "Компания Superalgos началась с того, что группа друзей объединила усилия для автоматизации торговли криптовалютами!",
+                    "updated": 1640154520613
                 }
             ]
         },
@@ -99,6 +129,16 @@
                     "language": "DE",
                     "text": "Die Freunde erkannten bald, dass eine riesige Software-Infrastruktur erforderlich war, um mit den Top-Marktteilnehmern konkurrieren zu können. Das System musste gleichwertig oder besser sein als kommerzielle und proprietäre Software, die den Unternehmen zur Verfügung steht. Solche Anforderungen konnten von einem kleinen Team nicht erfüllt werden - zumindest nicht in einem vernünftigen Zeitrahmen.",
                     "updated": 1634820012134
+                },
+                {
+                    "language": "TR",
+                    "text": "Arkadaşlar kısa sürede en iyi piyasa oyuncularıyla rekabet edebilmek için büyük bir yazılım altyapısının gerekli olduğunu anladılar. Sistemin, firmalar için mevcut olan ticari ve tescilli yazılımlardan daha iyi veya eşit olması gerekiyordu. Bu tür gereksinimler küçük bir ekip tarafından -en azından makul bir zaman diliminde- yerine getirilemezdi.",
+                    "updated": 1639861734929
+                },
+                {
+                    "language": "RU",
+                    "text": "Вскоре друзья поняли, что для того, чтобы конкурировать с ведущими игроками рынка, необходима огромная инфраструктура программного обеспечения. Система должна была быть на уровне или даже лучше, чем коммерческое и собственное программное обеспечение, доступное компаниям. Такие требования не могли быть выполнены небольшой командой - по крайней мере, в короткие сроки.",
+                    "updated": 1640154577018
                 }
             ]
         }

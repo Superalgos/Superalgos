@@ -6,7 +6,7 @@
         "text": "This is an easy step to forget but so important. Add those layers so we can see the data in our chart!",
         "updated": 1619024347856,
         "icon": {
-            "name": "Layer/layer",
+            "name": "layer",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Este es un paso fácil de olvidar pero muy importante. ¡Agrega esas capas para que podamos ver los datos en nuestro gráfico!",
                 "updated": 1628725473598
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг легко забыть, но он так важен. Добавьте эти слои, чтобы мы могли видеть данные на нашем графике!",
+                "updated": 1639079324934
+            },
+            {
+                "language": "DE",
+                "text": "Dieser Schritt wird leicht vergessen, ist aber sehr wichtig. Fügen Sie diese Ebenen hinzu, damit wir die Daten in unserem Diagramm sehen können!",
+                "updated": 1639276287504
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "El último paso es colocar el cursor sobre el Layer Manager y clic Add All Mine Layers. ¡Asegúrate de confirmar después de hacer clic en el botón!",
                     "updated": 1628725516397
+                },
+                {
+                    "language": "RU",
+                    "text": "Последний шаг - наведите курсор на Менеджер слоев (Layer Manager) и нажмите Добавить все слои шахты (Add All Mine Layers). После нажатия кнопки обязательно подтвердите!",
+                    "updated": 1639079390661
+                },
+                {
+                    "language": "DE",
+                    "text": "Der letzte Schritt besteht darin, den Mauszeiger über den Layer Manager zu bewegen und auf <I>Add All Mine Layers</I>. zu klicken. Stellen Sie sicher, dass Sie nach dem Klicken auf die Schaltfläche bestätigen!",
+                    "updated": 1639276449610
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "ES",
                     "text": "Esto agregará automáticamente referencias a todas las capas individuales producidas por el Data Mine.",
                     "updated": 1628725533579
+                },
+                {
+                    "language": "RU",
+                    "text": "Это автоматически добавит ссылки на все отдельные слои, созданные в Data Mine.",
+                    "updated": 1639079409140
+                },
+                {
+                    "language": "DE",
+                    "text": "Dadurch werden automatisch Verweise auf alle einzelnen von der Data Mine erzeugten Ebenen hinzugefügt.",
+                    "updated": 1639276509467
                 }
             ]
         },

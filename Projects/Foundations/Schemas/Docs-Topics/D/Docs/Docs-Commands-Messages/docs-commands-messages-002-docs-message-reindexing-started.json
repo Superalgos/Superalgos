@@ -22,6 +22,11 @@
                 "language": "DE",
                 "text": "Der Befehl docs.reindex hat den Neuaufbau des Docs Search Engine Index gestartet.",
                 "updated": 1633902591060
+            },
+            {
+                "language": "RU",
+                "text": "Команда docs.reindex начала перестройку Docs Search Engine Index.",
+                "updated": 1638456250363
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Die Neuindizierung ist ein ressourcenintensiver Prozess. Während der Prozess läuft, können Sie die Benutzeroberfläche nicht verwenden, da alle CPU-Ressourcen für die schnellstmögliche Neuerstellung des Index verwendet werden.",
                     "updated": 1633902350393
+                },
+                {
+                    "language": "RU",
+                    "text": "Переиндексирование - ресурсоемкий процесс. Пока процесс запущен, вы не сможете использовать интерфейс, поскольку все ресурсы ЦП предназначены для максимально быстрого воссоздания индексов.",
+                    "updated": 1638456457857
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "DE",
                     "text": "Die Größe Ihres Arbeitsbereichs wirkt sich auf die für die Neuindizierung des Inhalts benötigte Zeit aus, da jeder Knoten im Arbeitsbereich gescannt werden muss. Der gesamte Code und alle Konfigurationen werden indiziert.",
                     "updated": 1633902429467
+                },
+                {
+                    "language": "RU",
+                    "text": "Вес вашего рабочего пространства влияет на время, необходимое для переиндексации содержимого, поскольку каждый узел в рабочем пространстве должен быть просканирован. Весь код и конфигурации проиндексированы.",
+                    "updated": 1638456366976
                 }
             ]
         },
@@ -93,6 +108,11 @@
                     "language": "DE",
                     "text": "Warten sie paar Sekunden, bis der Vorgang abgeschlossen ist. Sie erhalten eine neue Nachricht, wenn der Vorgang abgeschlossen ist.",
                     "updated": 1633902493282
+                },
+                {
+                    "language": "RU",
+                    "text": "Подождите несколько секунд, пока процесс не закончится. Когда все закончится, вы получите новое сообщение.",
+                    "updated": 1638456385366
                 }
             ]
         }

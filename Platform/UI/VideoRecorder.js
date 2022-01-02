@@ -20,12 +20,12 @@ function newVideoRecorder() {
             const DISTANCE_BETWEEN_ICONS = 35
             const ICON_SIZES = 50
 
-            let mousePointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-pointer')
-            let draggingIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'hand-drag')
+            let mousePointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-pointer')
+            let draggingIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'hand-drag')
 
-            let leftClickIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-left-click')
-            let rightClickIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-right-click')
-            let wheelClickIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-wheel-click')
+            let leftClickIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-left-click')
+            let rightClickIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-right-click')
+            let wheelClickIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-wheel-click')
 
             let imagePosition
             let buttonPressedIcon
@@ -45,10 +45,10 @@ function newVideoRecorder() {
                 case 'wheel': {
                     wheelAnimationCounter = 25
                     if (canvas.mouse.event.delta > 0) {
-                        pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-wheel-up')
+                        pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-wheel-up')
                         lastWheelPointerIcon = pointerIcon
                     } else {
-                        pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-wheel-down')
+                        pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'mouse-wheel-down')
                         lastWheelPointerIcon = pointerIcon
                     }
 
@@ -65,27 +65,27 @@ function newVideoRecorder() {
                     switch (key.toLowerCase()) {
                         case 'escape':
                             {
-                                pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-m')
+                                pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-m')
                                 break
                             }
                         case 'm':
                             {
-                                pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-m')
+                                pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-m')
                                 break
                             }
                         case 'a':
                             {
-                                pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-a')
+                                pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-a')
                                 break
                             }
                         case 'r':
                             {
-                                pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-r')
+                                pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-r')
                                 break
                             }
                         case 'c':
                             {
-                                pointerIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-r')
+                                pointerIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-r')
                                 break
                             }
                     }
@@ -139,7 +139,7 @@ function newVideoRecorder() {
             drawMousePointer(buttonPressedIcon, imagePosition, ICON_SIZES)
 
             if (canvas.mouse.event.shiftKey === true) {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-shift')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-shift')
                 imagePosition = {
                     x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 3,
                     y: canvas.mouse.position.y + firstRow
@@ -148,7 +148,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.ctrlKey === true || canvas.mouse.event.metaKey === true) {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-ctrl')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-ctrl')
                 imagePosition = {
                     x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 3,
                     y: canvas.mouse.position.y + secondRow
@@ -157,7 +157,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.altKey === true) {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-alt')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-alt')
                 imagePosition = {
                     x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 3 + ICON_SIZES * 0,
                     y: canvas.mouse.position.y + secondRow
@@ -166,7 +166,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowUp') {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-up')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-up')
                 imagePosition = {
                     x: canvas.mouse.position.x - 0,
                     y: canvas.mouse.position.y + firstRow
@@ -175,7 +175,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowDown') {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-down')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-down')
                 imagePosition = {
                     x: canvas.mouse.position.x - 0,
                     y: canvas.mouse.position.y + secondRow
@@ -184,7 +184,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowLeft') {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-left')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-left')
                 imagePosition = {
                     x: canvas.mouse.position.x - DISTANCE_BETWEEN_ICONS * 0 - ICON_SIZES * 1,
                     y: canvas.mouse.position.y + secondRow
@@ -193,7 +193,7 @@ function newVideoRecorder() {
             }
 
             if (canvas.mouse.event.code === 'ArrowRight') {
-                icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-right')
+                icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'key-right')
                 imagePosition = {
                     x: canvas.mouse.position.x + DISTANCE_BETWEEN_ICONS * 0 + ICON_SIZES * 1,
                     y: canvas.mouse.position.y + secondRow

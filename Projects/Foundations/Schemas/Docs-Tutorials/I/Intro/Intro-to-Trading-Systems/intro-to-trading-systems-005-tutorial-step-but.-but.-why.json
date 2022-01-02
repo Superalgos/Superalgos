@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "¿Por qué querría tener múltiples estrategias dentro de un Trading System, cuando solo una de ellas puede operar en cualquier momento?",
                 "updated": 1629591838961
+            },
+            {
+                "language": "DE",
+                "text": "Warum sollte ich mehrere Strategien in einem Trading System haben wollen, wenn nur eine von ihnen zu jedem Zeitpunkt handeln kann?",
+                "updated": 1639147600414
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Herhangi bir noktada sadece bir tanesi ticaret yapabilirken, neden bir ticaret sistemi içinde birden fazla stratejiye sahip olmak isteyeyim?",
+                "updated": 1640695829178
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "ES",
                     "text": "Antes de responder a la pregunta candente, echemos un vistazo a un par de ejemplos. ¡Echa un vistazo a las dos estrategias dentro del Tradiing System Weak-Hands Buster (WHB v2)!",
                     "updated": 1629598150880
+                },
+                {
+                    "language": "DE",
+                    "text": "Bevor wir diese brennende Frage beantworten, wollen wir uns ein paar Beispiele ansehen. Werfen Sie einen Blick auf die beiden Strategien innerhalb des Weak-hands Buster (WHB v2) Trading Systems!",
+                    "updated": 1639147593633
+                },
+                {
+                    "language": "TR",
+                    "text": "Can alıcı soruyu cevaplamadan önce, birkaç örneğe bakalım. Tradeing System Weak-Hands Buster (WHB v2) içindeki iki stratejiye bir göz atın!",
+                    "updated": 1640781477384
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "ES",
                     "text": "Explore las definiciones de Trigger On Event sobre el Trigger Stagey vea si nota la diferencia entre los dos.",
                     "updated": 1629598211253
+                },
+                {
+                    "language": "DE",
+                    "text": "Untersuchen Sie die Definitionen des Trigger On Event auf der Trigger Stage und sehen Sie, ob Sie den Unterschied zwischen den beiden Strategien bemerken.",
+                    "updated": 1639147584483
+                },
+                {
+                    "language": "TR",
+                    "text": "Trigger Stage'deki Trigger On Event tanımlarını keşfedin ve iki stratejinin farkına varabilecek misin bir bak.",
+                    "updated": 1640696826020
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "ES",
                     "text": "¡Hay una pista en el nombre de cada estrategia!",
                     "updated": 1629598225693
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Namen jeder Strategie ist ein Hinweis enthalten!",
+                    "updated": 1639147581203
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Her stratejinin adında bir ipucu var!",
+                    "updated": 1640698040386
                 }
             ]
         }

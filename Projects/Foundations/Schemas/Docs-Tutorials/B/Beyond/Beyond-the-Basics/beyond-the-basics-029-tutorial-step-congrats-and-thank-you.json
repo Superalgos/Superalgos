@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Das ist großartig! Du hilfst dem Projekt bereits! Wir sind dankbar für Ihren ersten Beitrag und hoffen, dass noch weitere folgen werden!",
                 "updated": 1635151669411
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'a ilgi duymak ve onu anlayıp kullanmaya çalışmakla projeye zaten yardım ediyorsunuz! İlk katkınız için minnettarız ve daha fazlasının geleceğini umuyoruz!",
+                "updated": 1640002412839
+            },
+            {
+                "language": "RU",
+                "text": "Вы уже помогаете проекту! Мы благодарны за ваш первый вклад и надеемся, что это еще не все!",
+                "updated": 1640163557924
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Wenn alles mit Ihrer Authentifizierung gut gelaufen ist, sollten Sie die Seite App Message - Contribution Done sehen!",
                     "updated": 1635151689672
+                },
+                {
+                    "language": "TR",
+                    "text": "Kimlik doğrulamanızla ilgili her şey yolunda gittiyse, \"App Message - Contribution Done page!\" mesajını görmelisiniz.",
+                    "updated": 1640002467526
+                },
+                {
+                    "language": "RU",
+                    "text": "Если все прошло успешно при аутентификации, вы должны увидеть страницу App Message - Contribution Done!",
+                    "updated": 1640163574867
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Die Projektbetreuer werden Ihren Pull Request überprüfen und entsprechend handeln. Wenn es möglich ist, ihn ohne Konflikte zusammenzuführen, sollte er bald live gehen! Behalten Sie die Benachrichtigungen von GitHub.com im Auge!",
                     "updated": 1635151697994
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje liderleri Çekme Talebinizi gözden geçirecek ve buna göre hareket edecektir. Herhangi bir uyumsuzluk yok ise birleştirilecektir.! Github.com'dan gelen bildirimleri takip edin.",
+                    "updated": 1640002725575
+                },
+                {
+                    "language": "RU",
+                    "text": "Специалисты по сопровождению проекта рассмотрят ваш Pull Request и предпримут соответствующие действия. Если его можно будет объединить без конфликтов, он будет принят в ближайшее время! Следите за уведомлениями на GitHub.com!",
+                    "updated": 1640163619040
                 }
             ]
         },
@@ -93,6 +123,16 @@
                     "language": "DE",
                     "text": "Wenn etwas mit der Git-Authentifizierung schief gelaufen ist, folgen Sie bitte den Anweisungen auf der Fehlerseite, um das Problem zu beheben, oder bitten Sie in der Develop Group um Hilfe.",
                     "updated": 1635151705982
+                },
+                {
+                    "language": "TR",
+                    "text": "Git Kimlik Doğrulaması ile ilgili bir şeyler ters giderse, sorunu gidermek veya Geliştirme Grubundan yardım istemek için lütfen hata sayfasındaki talimatları izleyin.",
+                    "updated": 1640002743864
+                },
+                {
+                    "language": "RU",
+                    "text": "Если что-то пошло не так с аутентификацией Git, пожалуйста, следуйте инструкциям на странице ошибки для устранения проблемы или обратитесь за помощью в группу разработчиков Develop Group.",
+                    "updated": 1640163658875
                 }
             ]
         }

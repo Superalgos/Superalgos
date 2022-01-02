@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Bevor Sie einen romanartigen Text verfassen, sollten Sie die Seite ab und zu speichern! Kein Grund, Ihre Prosa zu riskieren!",
                 "updated": 1635150216506
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем приступить к написанию произведений длиной в роман, не забудьте время от времени сохранять страницу! Не нужно рисковать своей прозой!",
+                "updated": 1640161925967
+            },
+            {
+                "language": "TR",
+                "text": "Roman uzunluğunda bir yazı yazmadan önce, arada bir sayfayı kaydettiğinizden emin olun! Yazdıklarınızıı riske atmaya gerek yok!",
+                "updated": 1640611553238
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Jeder Absatz, den Sie schreiben, wird auf der Ebene der Browser-Sitzung gespeichert, sobald Sie den Bearbeitungsmodus verlassen. Um die Seite jedoch auf der Festplatte zu speichern und zu vermeiden, dass die Arbeit bei einem eventuellen Browserabsturz verloren geht, führen Sie diesen Befehl im Such- und Befehlsfeld oben in den Docs aus:",
                     "updated": 1635150273083
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый написанный вами абзац сохраняется на уровне сеанса браузера, как только вы выходите из режима редактирования. Однако, чтобы сохранить страницу на диске и избежать потери работы при возможном сбое браузера, выполните следующую команду:",
+                    "updated": 1640161949196
+                },
+                {
+                    "language": "TR",
+                    "text": "Yazdığınız her paragraf, Düzenleme modundan çıkar çıkmaz tarayıcı oturumu düzeyinde saklanır. Ancak, sayfayı diske kaydetmek ve olası bir tarayıcı çökmesinde işinizi kaybetmemek için aşağıdaki şu komutu çalıştırın:",
+                    "updated": 1640611584314
                 }
             ]
         },
@@ -79,6 +99,16 @@
                     "language": "DE",
                     "text": "Sollten Sie die Seite aus irgendeinem Grund aus den Augen verlieren, führen Sie den Befehl docs.reindex aus und suchen Sie nach dem Titel, den Sie ihr beim Hinzufügen gegeben haben! Sie können auch die Schaltfläche BACK in der Fußzeile der Seite verwenden!",
                     "updated": 1635150232008
+                },
+                {
+                    "language": "RU",
+                    "text": "Если по какой-то причине вы потеряли страницу из виду, запустите команду docs.reindex и найдите название, которое вы дали ей при добавлении! Вы также можете воспользоваться кнопкой BACK в нижнем колонтитуле страницы!",
+                    "updated": 1640161980093
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir nedenle sayfayı gözden kaybederseniz, docs.reindex komutunu çalıştırın ve eklerken verdiğiniz başlığı arayın! Ayrıca sayfanın alt kısmındaki GERİ düğmesini de kullanabilirsiniz!",
+                    "updated": 1640611894985
                 }
             ]
         }

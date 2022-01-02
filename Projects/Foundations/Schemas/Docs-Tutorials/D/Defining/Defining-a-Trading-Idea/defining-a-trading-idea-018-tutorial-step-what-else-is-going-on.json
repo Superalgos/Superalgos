@@ -7,16 +7,52 @@
             "name": "Layer\\layer-candles",
             "project": "Foundations"
         },
-        "text": "We just took note of what happened after this breakdown of the bands on the 1H chart... What else is going on with the market?"
+        "text": "We just took note of what happened after this breakdown of the bands on the 1H chart... What else is going on with the market?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir haben soeben zur Kenntnis genommen, was nach diesem Zusammenbruch der Bänder auf dem 1H-Chart passiert ist... Was ist sonst noch auf dem Markt los?",
+                "updated": 1639252841552
+            },
+            {
+                "language": "TR",
+                "text": "Özet: 1H grafiğindeki grupların bu dağılımından sonra neler olduğunu not ettik... Piyasada başka neler oluyor?",
+                "updated": 1640947793962
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a look at the price action a few candles earlier!"
+            "text": "Take a look at the price action a few candles earlier!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf die Kursentwicklung ein paar Kerzen zuvor!",
+                    "updated": 1639252848647
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç mum öncesi fiyat hareketine bir bakın!",
+                    "updated": 1640947810515
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "There were two breakdowns previous to the one we checked, one on April 9th at 12 hs, and before that, another one on April 7th at 21 hs. Both breakdowns were significant, in the sense that the candles closed way lower than the lower band. However, in both cases price bounced back into the bands."
+            "text": "There were two breakdowns previous to the one we checked, one on April 9th at 12 hs, and before that, another one on April 7th at 21 hs. Both breakdowns were significant, in the sense that the candles closed way lower than the lower band. However, in both cases price bounced back into the bands.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es gab zwei Durchbrüche vor dem von uns überprüften, einen am 9. April um 12 Uhr, und davor einen weiteren am 7. April um 21 Uhr. Beide Durchbrüche waren insofern signifikant, als die Kerzen weit unter dem unteren Band schlossen. In beiden Fällen stieg der Kurs jedoch wieder in die Bänder zurück.",
+                    "updated": 1639252858517
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kontrol Ettiğimizden önce iki arıza vardı, biri 9 Nisan'da saat 12'de, diğeri 7 Nisan'da saat 21'de. Her iki arıza da, mumların alt banttan çok daha düşük kapanması anlamında önemliydi. Ancak, her iki durumda da fiyat bantlara geri döndü.",
+                    "updated": 1640947826988
+                }
+            ]
         }
     ]
 }

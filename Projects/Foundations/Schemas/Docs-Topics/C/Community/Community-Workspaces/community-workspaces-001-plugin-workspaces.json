@@ -16,6 +16,11 @@
                 "language": "RU",
                 "text": "Superalgos поставляется с несколькими рабочими областями плагинов, созданными сообществом для облегчения адаптации пользователей. Эта тема охватывает каждый из них и объясняет их назначение.",
                 "updated": 1635629505051
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, kullanıcı katılımını kolaylaştırmak için topluluk tarafından kurulan çeşitli eklenti çalışma alanları ile birlikte gelir. Bu konu bu alanların tanımlarını kapsar ve amaçlarını açıklar.",
+                "updated": 1639143664276
             }
         ]
     },
@@ -30,6 +35,16 @@
                     "text": "Cada plugin workspace incluído en Superalgos ha sido cnstruido para un propósito específico.",
                     "updated": 1633281831625,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждое рабочее пространство плагина, поставляемое с Superalgos, было создано с определенной целью.",
+                    "updated": 1639055532864
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos ile birlikte gelen her eklenti çalışma alanı, belirli bir amaç için oluşturulmuştur.",
+                    "updated": 1639759987512
                 }
             ]
         }

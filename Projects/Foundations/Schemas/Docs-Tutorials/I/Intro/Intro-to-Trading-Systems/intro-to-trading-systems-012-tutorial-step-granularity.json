@@ -7,20 +7,69 @@
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?"
+        "text": "I mentioned the concept of granularity during the Welcome tutorial... remember?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich habe das Konzept der Granularität bereits im Willkommens-Tutorial erwähnt... erinnern Sie sich?",
+                "updated": 1639148104019
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hoş Geldiniz öğreticisi sırasında parçalı yapı kavramından bahsettim... Hatırladınız mı?",
+                "updated": 1640781701548
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Granularity is a device the helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units."
+            "text": "Granularity is a device that helps in handling complexity. Instead of letting strategies grow into a complex web of rules and definitions, it is always preferable to split complex logic in pieces and deal with smaller units.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Granularität ist ein Mittel, das hilft, Komplexität zu bewältigen. Anstatt Strategien zu einem komplexen Geflecht von Regeln und Definitionen anwachsen zu lassen, ist es immer besser, komplexe Logik in Stücke zu zerlegen und mit kleineren Einheiten zu arbeiten.",
+                    "updated": 1639148158865
+                },
+                {
+                    "language": "TR",
+                    "text": "Granularity,karmaşıklığı ele almanıza yardımcı olan bir cihazdır. Stratejilerin karmaşık bir kural ve tanım ağına dönüşmesine izin vermek yerine, karmaşık mantığı parçalara ayırmak ve daha küçük birimlerle başa çıkmak her zaman tercih edilir.",
+                    "updated": 1640781986760
+                }
+            ],
+            "updated": 1640641303063
         },
         {
             "style": "Callout",
-            "text": "Splitting complex logic into multiple strategies helps in keeping strategies simple and understandable. It makes strategies easier to debug and to maintain!"
+            "text": "Splitting complex logic into multiple strategies helps in keeping strategies simple and understandable. It makes strategies easier to debug and to maintain!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Aufteilung komplexer Logik in mehrere Strategien hilft dabei, Strategien einfach und verständlich zu halten. So lassen sich Strategien leichter debuggen und warten!",
+                    "updated": 1639148161537
+                },
+                {
+                    "language": "TR",
+                    "text": "Karmaşık mantığı birden çok stratejiye bölmek, stratejilerin basit ve anlaşılır tutulmasına yardımcı olur. Bu, stratejilerin hata ayıklamasını ve bakımını kolaylaştırır!",
+                    "updated": 1640782237916
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Whenever you can, keep it simple!"
+            "text": "Whenever you can, keep it simple!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wann immer Sie können, halten Sie es einfach!",
+                    "updated": 1639148168274
+                },
+                {
+                    "language": "TR",
+                    "text": "Mümkün olduğunca, basit tutun!",
+                    "updated": 1640782275823
+                }
+            ]
         }
     ]
 }

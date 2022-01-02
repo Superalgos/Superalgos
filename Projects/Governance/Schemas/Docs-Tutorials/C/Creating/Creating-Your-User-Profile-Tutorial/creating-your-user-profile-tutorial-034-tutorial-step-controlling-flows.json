@@ -15,6 +15,16 @@
                 "text": "¡La configuración de cada nodo donde pueda entrar Token Power actúa como una compuerta! Así es como controlas Token Power Flows!",
                 "updated": 1630897279661,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Конфигурация каждого узла, в который может входить Token Power, действует как шлюз! Вот как вы управляете потоками токенов Token Power Flows!",
+                "updated": 1639051361085
+            },
+            {
+                "language": "DE",
+                "text": "Die Konfiguration eines jeden Knotens, in den Token Power einfließen kann, wirkt wie eine Schleuse! So kontrollieren Sie die Token Power Flows!",
+                "updated": 1640080729154
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "text": "Vuelve al nodo Onboarding Programs. ¿Adivina qué? Esos programas no necesitan Token Power, ¡así que cerraremos la compuerta!",
                     "updated": 1630897321614,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вернитесь в узел Onboarding Programs. Знаешь, что? Этим программам не нужен Token Power, поэтому мы закроем шлюз!",
+                    "updated": 1639051493624
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zurück zum Knoten Onboarding Programs. Raten Sie mal! Diese Programme brauchen keine Token Power, also schließen wir die Schleuse!",
+                    "updated": 1640080737966
                 }
             ]
         },
@@ -42,6 +62,16 @@
                     "text": "Copie la siguiente configuración y péguela en la configuración del nodo Onboarding Programs.",
                     "updated": 1630897367644,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте приведенную ниже конфигурацию и вставьте ее в конфигурацию узла Onboarding Programs!",
+                    "updated": 1639051532113
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie die untenstehende Konfiguration und fügen Sie sie in die Konfiguration des Knotens \" Onboarding Programs \" ein!",
+                    "updated": 1640080783653
                 }
             ]
         },

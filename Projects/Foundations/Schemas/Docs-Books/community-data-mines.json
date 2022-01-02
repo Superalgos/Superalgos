@@ -8,6 +8,11 @@
                 "language": "ES",
                 "text": "El Community Data Mines book es un compendio de minas de datos y sus indicadores aportados por la Comunidad.",
                 "updated": 1628046154075
+            },
+            {
+                "language": "TR",
+                "text": "Topluluk Veri Madenleri kitabı, Topluluk tarafından katkıda bulunulan veri madenlerinin ve göstergelerinin bir özetidir.",
+                "updated": 1639836670009
             }
         ]
     },
@@ -22,29 +27,49 @@
             "text": "II->Foundations->Topic->Buddha Data Mine->",
             "updated": 1611686389041
         },
+		{
+            "style": "Chapter",
+            "text": "III->Foundations->Topic->Delta Data Mine->",
+            "updated": 1611686389041
+        },
         {
             "style": "Chapter",
-            "text": "III->Foundations->Topic->Masters Data Mine->",
+            "text": "IV->Foundations->Topic->Heikin Data Mine->",
             "updated": 1611686401703
         },
         {
             "style": "Chapter",
-            "text": "IV->Foundations->Topic->Sparta Data Mine->",
+            "text": "V->Foundations->Topic->Masters Data Mine->",
+            "updated": 1611686401703
+        },
+		{
+            "style": "Chapter",
+            "text": "VI->Foundations->Topic->Omega One Data Mine->",
+            "updated": 1611686413735
+        },
+		{
+            "style": "Chapter",
+            "text": "VII->Foundations->Topic->Pluvtech Data Mine->",
             "updated": 1611686413735
         },
         {
             "style": "Chapter",
-            "text": "V->Foundations->Topic->Zeus Data Mine->",
+            "text": "VIII->Foundations->Topic->Sparta Data Mine->",
+            "updated": 1611686413735
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Foundations->Topic->Zeus Data Mine->",
             "updated": 1611686424488
         },
         {
             "style": "Chapter",
-            "text": "VI->Foundations->Topic->CoinGecko API Map and Mine->",
+            "text": "X->Foundations->Topic->CoinGecko API Map and Mine->",
             "updated": 1622690513016
         },
         {
-            "style": "Text",
-            "text": ""
+            "style": "Chapter",
+            "text": "XI->Foundations->Topic->quantum Data Mine->"
         }
     ]
 }

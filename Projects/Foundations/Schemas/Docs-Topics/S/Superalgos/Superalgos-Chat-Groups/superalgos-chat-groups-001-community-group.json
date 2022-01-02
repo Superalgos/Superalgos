@@ -4,7 +4,19 @@
     "type": "Community Group",
     "definition": {
         "text": "The Community Group is the international Telegram Group in which the Community meets to discuss all matters concerning the project and the software.",
-        "updated": 1618833156083
+        "updated": 1618833156083,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Topluluk Grubu, Topluluğun proje ve yazılımla ilgili tüm konuları görüşmek üzere bir araya geldiği uluslararası Telegram Grubudur.",
+                "updated": 1639389679854
+            },
+            {
+                "language": "RU",
+                "text": "Community Group - это международная группа Telegram, в которой сообщество встречается для обсуждения всех вопросов, касающихся проекта и программного обеспечения.",
+                "updated": 1640353375325
+            }
+        ]
     },
     "paragraphs": [
         {

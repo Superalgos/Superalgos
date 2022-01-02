@@ -7,20 +7,68 @@
             "project": "Foundations",
             "name": "close-stage-event"
         },
-        "text": "Layers corresponding to stages, that is, Trigger Stage, Open Stage, Close Stage, and Manage Stage are markers of spans of time."
+        "text": "Layers corresponding to stages, that is, Trigger Stage, Open Stage, Close Stage, and Manage Stage are markers of spans of time.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Ebenen, die den Stufen entsprechen, d. h. Trigger Stage, Open Stage, Close Stage und Manage Stage, sind Markierungen für Zeitspannen.",
+                "updated": 1639144697729
+            },
+            {
+                "language": "RU",
+                "text": "Слои, соответствующие этапам, а именно этапы Trigger Stage, Open Stage, Close Stage и Manage Stage, являются маркерами временных отрезков.",
+                "updated": 1640630043907
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "That is, they signal the span of time on which each stage was open."
+            "text": "That is, they signal the span of time on which each stage was open.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das heißt, sie zeigen die Zeitspanne an, in der die jeweilige Stufe geöffnet war.",
+                    "updated": 1639144706617
+                },
+                {
+                    "language": "RU",
+                    "text": "То есть, они сигнализируют о промежутке времени, в течение которого каждый этап был открыт.",
+                    "updated": 1640630056254
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Try them out! Find the layers of the different stages and turn them on!"
+            "text": "Try them out! Find the layers of the different stages and turn them on!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Probieren Sie sie aus! Finden Sie die Ebenen der verschiedenen Stufen und schalten Sie sie ein!",
+                    "updated": 1639144715319
+                },
+                {
+                    "language": "RU",
+                    "text": "Экспериментируйте с ними! Найдите слои различных этапов и включите их!",
+                    "updated": 1640630083716
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Feel free to turn off a few of the layers you have on at the moment, for clarity!"
+            "text": "Feel free to turn off a few of the layers you have on at the moment, for clarity!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie ruhig ein paar der Ebenen aus, die Sie im Moment eingeschaltet haben, um die Übersichtlichkeit zu wahren!",
+                    "updated": 1639144722831
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь отключить несколько слоев, которые у вас сейчас включены, для ясности!",
+                    "updated": 1640630105613
+                }
+            ]
         }
     ]
 }

@@ -4,23 +4,37 @@
     "type": "Trading Bots in Superalgos",
     "definition": {
         "text": "A trading bot leverages the Superalgos infrastructure to provide users with advanced trading features.",
-        "updated": 1610217988042
+        "updated": 1610217988042,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Торговый бот использует инфраструктуру Superalgos для предоставления пользователям расширенных торговых возможностей.",
+                "updated": 1640096039404
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Bot->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Bot->Definition",
             "updated": 1610218014743
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Bot->Content",
+            "text": "Algorithmic-Trading->Node->Trading Bot->Content",
             "updated": 1610218017545
         },
         {
             "style": "Callout",
             "text": "The Low-Frequency trading bot is the one and only Trading Bot shipping with Superalgos at this point in time. It is made available by the Masters Trading Mine. The bot is a robust implementation that leverages every piece of infrastructure provided by Superalgos to provide a feature-rich automated trading assistant.",
-            "updated": 1610218505400
+            "updated": 1610218505400,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Низкочастотный (Low-Frequency) торговый бот - единственный торговый бот, поставляемый с Superalgos на данный момент. Он доступен в рамках программы Masters Trading Mine. Бот представляет собой надежную реализацию, использующую все элементы инфраструктуры, предоставляемые Superalgos, для обеспечения многофункционального автоматического торгового помощника.",
+                    "updated": 1640096754832
+                }
+            ]
         }
     ]
 }

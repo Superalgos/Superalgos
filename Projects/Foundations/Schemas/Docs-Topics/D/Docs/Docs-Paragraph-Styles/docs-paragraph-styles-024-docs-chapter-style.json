@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Dieser Stil wird in Docs Books (Bücher) verwendet, um ein neues Kapitel für dieses Buch zu definieren. Der Stil gibt auf der Buchseite den Index der referenzierten Docs-Themen wieder.",
                 "updated": 1633959799753
+            },
+            {
+                "language": "RU",
+                "text": "Этот стиль используется в книге документаций для определения новой главы этой книги. Этот стиль отображает на странице книги указатель упомянутых тем документации.",
+                "updated": 1637931127565
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1610015500246
+            "updated": 1610015500246,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1637931138643
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -32,6 +44,11 @@
                     "language": "DE",
                     "text": "Parameter",
                     "updated": 1633959814572
+                },
+                {
+                    "language": "RU",
+                    "text": "Параметры",
+                    "updated": 1637931161374
                 }
             ]
         },
@@ -44,6 +61,11 @@
                     "language": "DE",
                     "text": "Chapter Number: Eine beliebige Zeichenfolge, die die anzuzeigende Kapitelnummer darstellt.",
                     "updated": 1633959840991
+                },
+                {
+                    "language": "RU",
+                    "text": "Number: любая строка, представляющая номер отображаемой главы.",
+                    "updated": 1638545532856
                 }
             ]
         },
@@ -55,6 +77,11 @@
                     "language": "DE",
                     "text": "Project: Ist das Projekt, zu dem die Docs Page gehört.",
                     "updated": 1633959863406
+                },
+                {
+                    "language": "RU",
+                    "text": "Project: это проект, которому принадлежит страница документации Docs Page.",
+                    "updated": 1638545547477
                 }
             ]
         },
@@ -67,6 +94,11 @@
                     "language": "DE",
                     "text": "Docs Page Category: Topic oder Tutorial.",
                     "updated": 1633959871172
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Page Category: тема или учебное пособие Tutorial.",
+                    "updated": 1638545559093
                 }
             ]
         },
@@ -79,6 +111,11 @@
                     "language": "DE",
                     "text": "Docs Category Name: Bei Themen ist dies der Name des Topic, bei Tutorials der Name des Tutorial.",
                     "updated": 1633959900758
+                },
+                {
+                    "language": "RU",
+                    "text": "Docs Category Name: для тем - название темы, для руководств - это название учебника.",
+                    "updated": 1638545571325
                 }
             ]
         },
@@ -91,6 +128,11 @@
                     "language": "DE",
                     "text": "Introduction Text: Es handelt sich um einen Einleitungstext, der zwischen dem Kapiteltitel und dem Kapitelindex angezeigt wird. Dieser Parameter ist optional.",
                     "updated": 1633959924482
+                },
+                {
+                    "language": "RU",
+                    "text": "Intruction Text: это текст введения, который отображается между заголовком главы и указателем главы Index. Это необязательный параметр.",
+                    "updated": 1638545588059
                 }
             ]
         },
@@ -103,6 +145,11 @@
                     "language": "DE",
                     "text": "Beispiele:",
                     "updated": 1633960032251
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1637931942649
                 }
             ]
         },

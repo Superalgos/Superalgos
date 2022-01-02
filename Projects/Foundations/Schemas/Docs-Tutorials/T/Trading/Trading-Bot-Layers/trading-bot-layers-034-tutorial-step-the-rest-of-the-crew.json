@@ -7,38 +7,122 @@
             "project": "Foundations",
             "name": "bot-layers"
         },
-        "text": "The rest of the layers are virtually self-explanatory once you understand the standard workings... so, I'll be brief!"
+        "text": "The rest of the layers are virtually self-explanatory once you understand the standard workings... so, I'll be brief!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Rest der Ebenen ist praktisch selbsterklärend, wenn man die Standardfunktionen verstanden hat... ich werde mich also kurz fassen!",
+                "updated": 1639145988511
+            },
+            {
+                "language": "RU",
+                "text": "Остальные слои практически не требуют пояснений, как только вы поймете стандартную схему работы... поэтому я буду краток!",
+                "updated": 1640631657429
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Status: for nodes which have one!",
-            "updated": 1617185025916
+            "updated": 1617185025916,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Status: für Knoten, die einen haben!",
+                    "updated": 1639145997582
+                },
+                {
+                    "language": "RU",
+                    "text": "Status: для узлов, у которых он есть!",
+                    "updated": 1640631674856
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Progress: for nodes that may feature an indication of progress!",
-            "updated": 1617185032757
+            "updated": 1617185032757,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Progress: Fortschritt für Knoten, die eine Fortschrittsanzeige haben können!",
+                    "updated": 1639146022770
+                },
+                {
+                    "language": "RU",
+                    "text": "Progress: для узлов, которые могут содержать индикацию прогресса!",
+                    "updated": 1640631688274
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Running: for nodes that are evaluated at certain points in time!",
-            "updated": 1617185039459
+            "updated": 1617185039459,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Running:  für Knoten, die zu bestimmten Zeitpunkten ausgewertet werden!",
+                    "updated": 1639146027793
+                },
+                {
+                    "language": "RU",
+                    "text": "Running: для узлов, которые вычисляются в определенные моменты времени!",
+                    "updated": 1640631706806
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Announcements: for announcements set up at the trading system, currently broadcasted over Telegram!",
-            "updated": 1617185048147
+            "updated": 1617185048147,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Announcements:  für Ankündigungen, die im Trading System eingestellt sind, derzeit über Telegram!",
+                    "updated": 1639146037820
+                },
+                {
+                    "language": "RU",
+                    "text": "Announcements: для уведомлений, установленных в торговой системе, в настоящее время транслируется через Telegram!",
+                    "updated": 1640631735981
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Warnings: when something unusual happens but is not considered an error! A verbose mode, if you will.",
-            "updated": 1617185081361
+            "updated": 1617185081361,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Warnings: wenn etwas Ungewöhnliches passiert, aber nicht als Fehler angesehen wird! Ein ausführlicher Modus, wenn man so will.",
+                    "updated": 1639146046558
+                },
+                {
+                    "language": "RU",
+                    "text": "Warnings: когда происходит что-то необычное, но это не считается ошибкой! Это, если хотите, более подробный режим.",
+                    "updated": 1640631774014
+                }
+            ]
         },
         {
             "style": "List",
             "text": "System Info: may be displayed on many nodes, sort of like a verbose mode.",
-            "updated": 1617185066702
+            "updated": 1617185066702,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "System Info: kann auf vielen Knotenpunkten angezeigt werden, eine Art ausführlicher Modus.",
+                    "updated": 1639146061686
+                },
+                {
+                    "language": "RU",
+                    "text": "Warnings: когда происходит что-то необычное, но это не считается ошибкой! Это, так сказать, подробный режим.",
+                    "updated": 1640631851496
+                }
+            ]
         }
     ]
 }

@@ -2,12 +2,26 @@
     "type": "Default Exchange",
     "definition": {
         "text": "The Default Exchange is the one referenced by the Exchange Data Tasks, Exchange Trading Tasks, and Exchange Learning Tasks nodes from which a certain Task descends. The Trading Bot Instance running under that Task will consider the referenced Crypto Exchange to be the Default Exchange for the said Task.",
-        "updated": 1617616790868
+        "updated": 1617616790868,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Default Exchange - это та биржа, на которую ссылаются узлы Exchange Data Tasks, Exchange Trading Tasks и Exchange Learning Tasks, от которых происходит определенная задача Task. Торговый бот Trading Bot Instance, работающий под этой задачей Task, будет рассматривать указанную криптобиржу (Crypto Exchange), как биржу по умолчанию (Default Exchange), для указанной задачи Task.",
+                "updated": 1638282190948
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638282222866
+                }
+            ]
         }
     ]
 }

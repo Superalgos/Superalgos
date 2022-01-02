@@ -7,20 +7,68 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "Let's advance with the definition of the trading process and the context in which these ideas should operate."
+        "text": "Let's advance with the definition of the trading process and the context in which these ideas should operate.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Beginnen wir mit der Definition des Handelsprozesses und dem Kontext, in dem diese Ideen funktionieren sollten.",
+                "updated": 1639253595335
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret sürecinin tanımıyla ve bu fikirlerin çalışması gereken bağlamla ilerleyeceğiz.",
+                "updated": 1640950911067
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
-            "text": "Trading process: Since we rely on trends in the 24H charts, this will be a swing strategy, with positions open&mdash;potentially&mdash;for several days."
+            "text": "Trading process: Since we rely on trends in the 24H charts, this will be a swing strategy, with positions open&mdash;potentially&mdash;for several days.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Handelsprozess: Da wir uns auf Trends in den 24-Stunden-Charts verlassen, wird dies eine Swing-Strategie sein, mit offenen Positionen - möglicherweise für mehrere Tage.",
+                    "updated": 1639253609069
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem süreci ( trading process ): 24 saatlik çizelgelerdeki trendlere güvendiğimiz için bu, pozisyonların -potansiyel olarak- birkaç gün boyunca açık olduğu bir salınım stratejisi olacaktır.",
+                    "updated": 1640950998948
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Context: The first hypothesis is for uptrends in the 24H chart. The second, for downtrends and likely for ranging markets as well. We will leave the definition as of how the trends are to be determined for later on, once you become familiar with the tools available in Superalgos."
+            "text": "Context: The first hypothesis is for uptrends in the 24H chart. The second, for downtrends and likely for ranging markets as well. We will leave the definition as of how the trends are to be determined for later on, once you become familiar with the tools available in Superalgos.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Kontext: Die erste Hypothese bezieht sich auf Aufwärtstrends auf dem 24-Stunden-Chart. Die zweite für Abwärtstrends und wahrscheinlich auch für schwankende Märkte. Die Definition, wie die Trends zu bestimmen sind, überlassen wir einem späteren Zeitpunkt, wenn Sie sich mit den in Superalgos verfügbaren Tools vertraut gemacht haben.",
+                    "updated": 1639253621062
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlam: İlk hipotez, 24 saatlik grafikteki yükseliş trendleri içindir. İkincisi, düşüş trendleri ve muhtemelen değişen pazarlar için. Superalgos'ta mevcut olan araçlara aşina olduğunuzda, trendlerin nasıl belirleneceğini daha sonra tanımlayacağız.",
+                    "updated": 1640951767615
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The goal of the idea is to accumulate bitcoin selling BTC to rebuy at a cheaper price."
+            "text": "The goal of the idea is to accumulate bitcoin selling BTC to rebuy at a cheaper price.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Ziel dieser Idee ist es, Bitcoin zu akkumulieren, indem man BTC verkauft, um sie zu einem günstigeren Preis wieder zu kaufen.",
+                    "updated": 1639253628676
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Fikrin amacı, bitcoin'i daha ucuz bir fiyata yeniden satın almak.",
+                    "updated": 1640951904063
+                }
+            ]
         }
     ]
 }

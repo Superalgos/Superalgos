@@ -28,6 +28,11 @@
                 "language": "TR",
                 "text": "\"docs.reindex\" komutu, Dokümanlar Arama Motoru Dizini'ni yeniden oluşturmayı tamamladı.",
                 "updated": 1635576136670
+            },
+            {
+                "language": "RU",
+                "text": "Команда docs.reindex завершила восстановление индекса поисковой системы Docs Search Engine Index.",
+                "updated": 1638461422815
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Dizin yeniden oluşturuldu ve artık kullanıcı arabirimini açtığınızdan veya docs.reindex komutunu son çalıştırdığınızdan beri yaptığınız en son değişiklikleri içeriyor. Bu, oluşturulan yeni içeriğin artık aranabilir olduğu anlamına gelir. Çalışma Alanındaki değişiklikler de dizine girilmiştir.",
                     "updated": 1635576166278
+                },
+                {
+                    "language": "RU",
+                    "text": "Индекс был перестроен и теперь включает все последние изменения, внесенные вами с момента открытия пользовательского интерфейса UI или с момента последнего запуска команды docs.reindex. Это означает, что новый созданный контент теперь доступен для поиска. Изменения в Workspace  также были внесены в индекс.",
+                    "updated": 1638461517763
                 }
             ]
         }

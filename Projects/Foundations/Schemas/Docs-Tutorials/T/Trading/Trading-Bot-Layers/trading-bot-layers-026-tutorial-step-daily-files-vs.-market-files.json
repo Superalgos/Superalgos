@@ -8,21 +8,69 @@
             "name": "dataset-definition"
         },
         "text": "Superalgos processes time frames below one hour in \"Daily Files\", meaning that the data corresponding to one day is stored in one file.",
-        "updated": 1622544106578
+        "updated": 1622544106578,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Superalgos verarbeitet Zeitrahmen unter einer Stunde in \"Daily Files\", d.h. die Daten für einen Tag werden in einer Datei gespeichert.",
+                "updated": 1639145020061
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos обрабатывает таймфреймы менее одного часа в \"Daily Files\", что означает, что данные, соответствующие одному дню, хранятся в одном файле.",
+                "updated": 1640630423274
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In contrast, data for timeframes of one hour and above are stored in \"Market Files\", meaning that data corresponding to the whole market is stored in one file.",
-            "updated": 1622544118279
+            "updated": 1622544118279,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Im Gegensatz dazu werden Daten für Zeitrahmen von einer Stunde und mehr in \"Market Files\" gespeichert, was bedeutet, dass die Daten für den gesamten Markt in einer Datei gespeichert werden.",
+                    "updated": 1639145063929
+                },
+                {
+                    "language": "RU",
+                    "text": "В отличие от этого, данные для таймфреймов от одного часа и выше хранятся в \"Market Files\", что означает, что данные, соответствующие всему рынку, хранятся в одном файле.",
+                    "updated": 1640630451137
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a result, when working in time frames below one hour, events that span multiple days generate multiple objects: one per day!"
+            "text": "As a result, when working in time frames below one hour, events that span multiple days generate multiple objects: one per day!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies hat zur Folge, dass bei der Arbeit in Zeitrahmen unter einer Stunde Ereignisse, die sich über mehrere Tage erstrecken, mehrere Objekte erzeugen: eines pro Tag!",
+                    "updated": 1639145079480
+                },
+                {
+                    "language": "RU",
+                    "text": "В результате, при работе с таймфреймами менее одного часа, события, охватывающие несколько дней, генерируют несколько таких объектов: по одному на день!",
+                    "updated": 1640630525432
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "This means that, when working in low time frames, you may run into multiple objects per concept or event, each showing the data corresponding to the close of the day!"
+            "text": "This means that, when working in low time frames, you may run into multiple objects per concept or event, each showing the data corresponding to the close of the day!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies bedeutet, dass Sie bei der Arbeit in niedrigen Zeitrahmen auf mehrere Objekte pro Konzept oder Ereignis stoßen können, die jeweils die Daten des Tagesschlusses anzeigen!",
+                    "updated": 1639145082140
+                },
+                {
+                    "language": "RU",
+                    "text": "Это означает, что при работе с небольшими таймфреймами вы можете столкнуться с несколькими объектами для каждого понятия или события, каждый из которых показывает данные, соответствующие закрытию дня!",
+                    "updated": 1640630608144
+                }
+            ]
         }
     ]
 }

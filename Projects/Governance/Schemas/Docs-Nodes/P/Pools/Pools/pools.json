@@ -2,7 +2,14 @@
     "type": "Pools",
     "definition": {
         "text": "The Superalgos Pools is the top-level hierarchy kickstarting the definition of the whole Superalgos Project. It features the definition of several Pool nodes describing the main areas of project development that the Community wishes to incentivize.",
-        "updated": 1630426598623
+        "updated": 1630426598623,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos Pools - это иерархия верхнего уровня, с которой начинается определение всего проекта Superalgos Project. Он включает определение нескольких узлов Pool, описывающих основные области развития проекта, которые сообщество Community  желает стимулировать.",
+                "updated": 1639026348991
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,49 +20,126 @@
         {
             "style": "Text",
             "text": "In essence, this hierarchy is used to determine how the tokens allocated to each release will be distributed.",
-            "updated": 1624706911544
+            "updated": 1624706911544,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "По сути, эта иерархия используется для определения того, как будут распределяться токены, выделенные для каждого выпуска.",
+                    "updated": 1640282744077
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To produce unequivocal definitions, the hierarchy uses two specific resources:"
+            "text": "To produce unequivocal definitions, the hierarchy uses two specific resources:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для выработки однозначных определений иерархия использует два конкретных ресурса:",
+                    "updated": 1640282786007
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "On one hand, the data structure represented by the hierarchy itself describes the organization of the Project, fragmenting specific incumbencies into specific distribution pools. This allows the granular allocation of tokens."
+            "text": "On one hand, the data structure represented by the hierarchy itself describes the organization of the Project, fragmenting specific incumbencies into specific distribution pools. This allows the granular allocation of tokens.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С одной стороны, структура данных, представленная иерархией, описывает организацию проекта, разбивая конкретные должности на конкретные пулы распределения. Это позволяет гранулярно распределять токены.",
+                    "updated": 1640282870925
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "On the other hand, each Pool may accept Weight Votes from User Profiles. This is how the Community determines how many tokens will go to each distribution pool."
+            "text": "On the other hand, each Pool may accept Weight Votes from User Profiles. This is how the Community determines how many tokens will go to each distribution pool.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, каждый пул может принимать весовые голоса (Weight Votes) от профилей пользователей. Таким образом, Сообщество определяет, сколько токенов попадет в каждый пул распределения.",
+                    "updated": 1640282963479
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In addition, there is a third resource characteristic to the Pool Hierarchy. Each Pool may reference a separate Pools hierarchy so that the definitions may continue on a separate hierarchy, which may be included as a plugin in the same or in separate Governance Workspaces.",
-            "updated": 1630426515819
+            "updated": 1630426515819,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, существует третий ресурс, характерный для иерархии Pool Hierarchy. Каждый пул может ссылаться на отдельную иерархию пулов, чтобы определения могли продолжаться на отдельной иерархии, которая может быть включена в качестве плагина в одно и то же или в отдельные рабочие пространства Governance Workspaces.",
+                    "updated": 1640283021860
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "A Pool may also reference other types of hierarchies, namely Positions, Assets, and Features. These hierarchies take the granularity of the definition to a whole new level! But we’ll go into those later on!",
-            "updated": 1630426529656
+            "updated": 1630426529656,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пул может также ссылаться на другие типы иерархий, а именно на Position, Assets и Features. Эти иерархии выводят гранулярность определения на совершенно новый уровень! Но об этом мы поговорим позже!",
+                    "updated": 1640283058587
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This resource allows fragmenting the definitions of how the project is organized, for readability, organizational, and logistical reasons:"
+            "text": "This resource allows fragmenting the definitions of how the project is organized, for readability, organizational, and logistical reasons:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот ресурс позволяет фрагментировать определения того, как организован проект, для удобочитаемости, по организационным и логистическим причинам:",
+                    "updated": 1640283129776
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "a single hierarchy describing the whole Superalgos Project and every other project within would grow too big and be cumbersome to deal with;"
+            "text": "a single hierarchy describing the whole Superalgos Project and every other project within would grow too big and be cumbersome to deal with;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "единая иерархия, описывающая весь проект Superalgos Project и все остальные проекты в его рамках, стала бы слишком большой и громоздкой;",
+                    "updated": 1640283169155
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "each hierarchy may be defined and maintained by different people or teams;"
+            "text": "each hierarchy may be defined and maintained by different people or teams;",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "каждая иерархия может быть определена и поддерживаться разными людьми или командами;",
+                    "updated": 1640283188312
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "each hierarchy may be better visualized in different workspaces in which they may interact with other definitions; etc."
+            "text": "each hierarchy may be better visualized in different workspaces in which they may interact with other definitions; etc.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "каждая иерархия может быть лучше визуализирована в различных рабочих пространствах, в которых они могут взаимодействовать с другими определениями и т.д.",
+                    "updated": 1640283216080
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Superalgos Pools"
+            "text": "Superalgos Pools",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пулы Superalgos",
+                    "updated": 1640283252214
+                }
+            ]
         },
         {
             "style": "Include",
@@ -75,11 +159,25 @@
         {
             "style": "Title",
             "text": "Configuration",
-            "updated": 1624706995696
+            "updated": 1624706995696,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1640283270280
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "tokens: the total number of tokens to be distributed in the next Distribution Event. Only the top-level Superalgos Pools hierarchy requires this configuration."
+            "text": "tokens: the total number of tokens to be distributed in the next Distribution Event. Only the top-level Superalgos Pools hierarchy requires this configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "tokens: общее количество токенов, которые будут распределены в следующем событии распределения (Distribution Event). Эта конфигурация требуется только для иерархии Superalgos Pools верхнего уровня.",
+                    "updated": 1640283305343
+                }
+            ]
         }
     ]
 }

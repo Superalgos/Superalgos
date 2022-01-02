@@ -35,8 +35,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der Knoten Data Tasks steuert alle für diesen Netzwerkknoten definierten Data-Mining-Aufgaben.",
-                "updated": 1634162078401,
+                "text": "Die Data Tasks node steuert alle für diese LAN-Netzwerk node definierten Data-Mining-Aufgaben (Data Mining Tasks).",
+                "updated": 1637873413099,
                 "style": "Definition"
             },
             {
@@ -47,8 +47,8 @@
             },
             {
                 "language": "TR",
-                "text": "Veri Görevleri düğümü ( Data Tasks ), bu Ağ Düğümü ( Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
-                "updated": 1635579379923
+                "text": "Veri Görevleri düğümü ( Data Tasks ), bu LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
+                "updated": 1640627348348
             }
         ],
         "updated": 1636910229969
@@ -103,7 +103,7 @@
         },
         {
             "style": "List",
-            "text": "Run a data mining operation to get data for the BTC/USDT Market from Binance.",
+            "text": "Run a data mining operation to get data for the BTC/USDT Market from the exchange.",
             "translations": [
                 {
                     "language": "IT",
@@ -143,11 +143,11 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Binance'den BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
-                    "updated": 1635579469652
+                    "text": "Borsa'dan BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
+                    "updated": 1640627207922
                 }
             ],
-            "updated": 1616414602356
+            "updated": 1640350823953
         },
         {
             "style": "List",

@@ -24,7 +24,7 @@ function newGovernanceUserProfileSpace() {
         /*
         If the workspace is not related to governance, then we exit the Initialize Function
         */
-        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        let governanceProject = UI.projects.workspaces.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
         /*
         Here we will run the distribution process, that in turn will run all the programs.
@@ -46,7 +46,7 @@ function newGovernanceUserProfileSpace() {
         /*
         We are going to collapse all User rootNodes to save processing resources at the UI
         */
-        let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+        let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -55,19 +55,21 @@ function newGovernanceUserProfileSpace() {
                 rootNode.payload.floatingObject.collapseToggle()
             }
         }
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
 
         // Initialise the isLoading parameter for each User Profile
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i]
 
-            userProfile.payload.isLoading = true
+            if (userProfile.payload.isLoading === undefined) {
+                userProfile.payload.isLoading = true
+            }
         }
         /*
-        let pools = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
-        let assets = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
-        let features = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
-        let positions = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
+        let pools = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Pools')
+        let assets = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Assets')
+        let features = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Features')
+        let positions = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('Positions')
         */
         const SPACE_WIDTH = UI.projects.foundations.spaces.floatingSpace.container.frame.width
         const SPACE_HEIGHT = UI.projects.foundations.spaces.floatingSpace.container.frame.height
@@ -173,7 +175,7 @@ function newGovernanceUserProfileSpace() {
 
         /* Find the Github Username and Token in order to activate the Github Program */
 
-        let apisNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
+        let apisNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('APIs')
         if (apisNode === undefined) {
             console.log('[WARN] Github Program Disabled because the Github Credentials are not present at this workspace. APIs node not found.')
             return
@@ -364,16 +366,16 @@ function newGovernanceUserProfileSpace() {
 
     function physics() {
 
-        if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+        if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
         /*
         If the workspace is not related to governance, then we exit the Initialize Function
         */
-        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        let governanceProject = UI.projects.workspaces.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
         /*
         Load the user profiles with Token Power.
         */
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         if (waitingForResponses !== 0) { return }
         /*
         We will get all the user Profiles tokens from the blockchain, making a call

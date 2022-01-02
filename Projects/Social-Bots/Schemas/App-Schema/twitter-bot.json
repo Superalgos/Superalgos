@@ -13,14 +13,6 @@
             "actionProject": "Foundations"
         },
         {
-            "action": "Add UI Object",
-            "label": "Add Social Bot Command",
-            "relatedUiObject": "Social Bot Command",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Social-Bots"
-        },
-        {
             "action": "Send Twitter Test Message",
             "label": "Send Twitter Test Message",
             "iconPathOn": "test-entity",

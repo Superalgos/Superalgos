@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Gehen Sie zu Ihrer Datei-Explorer-Anwendung und suchen Sie nach den folgenden Pfaden relativ zum Stammordner von Superalgos...",
                 "updated": 1634587292897
+            },
+            {
+                "language": "TR",
+                "text": "Dosya Gezgini uygulamanıza gidin ve Superalgos klasörüne göre aşağıdaki yolları arayın...",
+                "updated": 1639765842220
             }
         ]
     },
@@ -64,6 +69,11 @@
                     "language": "DE",
                     "text": "Hier finden Sie die Workspaces, die Sie möglicherweise zuvor gespeichert haben. Wenn der Ordner leer ist oder nicht existiert, bedeutet dies, dass Sie noch keine Workspaces gespeichert haben!",
                     "updated": 1634587301340
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce kaydetmiş olabileceğiniz çalışma alanlarını burada bulabilirsiniz. Klasör boşsa veya mevcut değilse, henüz herhangi bir çalışma alanı kaydetmemişsiniz demektir!",
+                    "updated": 1639765864958
                 }
             ]
         },
@@ -92,6 +102,11 @@
                     "language": "DE",
                     "text": "In diesem Ordner finden Sie die Plugin Workspaces, die mit Superalgos ausgeliefert werden. Vielleicht möchten Sie das Thema \"Community Workspaces\" in den Docs lesen, um zu erfahren, worum es bei den einzelnen Workspaces geht!",
                     "updated": 1634587316991
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu klasörde, Superalgos ile birlikte gönderilen Eklenti Çalışma Alanlarını ( Plugin Workspaces ) bulacaksınız. Her birinin ne hakkında olduğunu öğrenmek için Dokümanlar'daki \"Community Workspaces\" konusunu okuyabilirsiniz.",
+                    "updated": 1639766445410
                 }
             ]
         },

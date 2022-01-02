@@ -15,6 +15,16 @@
                 "text": "¿Estás listo para adentrarte más en la madriguera de la gobernanza? Si recién está comenzando con Superalgos, ¡no necesita ir más lejos ahora!",
                 "updated": 1630899585481,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Готовы ли вы углубиться в кроличью нору управления? Если вы только начинаете с Superalgos, вам не нужно углубляться в этот момент!",
+                "updated": 1639054031794
+            },
+            {
+                "language": "DE",
+                "text": "Sind Sie bereit, tiefer in den Governance-Kaninchenbau einzutauchen?\nWenn Sie gerade erst mit Superalgos anfangen, brauchen Sie an dieser Stelle <i>nicht</i> weiter zu gehen!",
+                "updated": 1640083299839
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "text": "Sin embargo, si has invertido en el proyecto y deseas realizar algunas reclamaciones de contribución o emitir algunos votos, ¡tienes que leer un poco!",
                     "updated": 1630899572852,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако, если вы вложили средства в проект и хотите подать несколько требований о взносах Contribution Claims или подать несколько голосов, вам нужно кое-что почитать!",
+                    "updated": 1639054094052
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie jedoch in das Projekt investiert sind und einige  Contribution Claims stellen oder Abstimmungen durchführen möchten, dann müssen Sie etwas lesen!",
+                    "updated": 1640083332328
                 }
             ]
         },
@@ -42,6 +62,16 @@
                     "text": "The Governance Project el libro de la derecha te lleva a lo más profundo de todo Governance Programs, ¡incluidos los que aún no hemos cubierto!",
                     "updated": 1630899611785,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Книга Governance Project справа познакомит вас со всеми программами управления Governance Programs, включая те, которые мы еще не рассмотрели!",
+                    "updated": 1639054160691
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Governance Projektbuch auf der rechten Seite führt Sie tief in alle Governance Programs ein, einschließlich derer, die wir noch nicht behandelt haben!",
+                    "updated": 1640083362819
                 }
             ]
         },
@@ -55,6 +85,16 @@
                     "text": "Si tiene alguna pregunta sobre la gobernanza o el token, ¡únte al Token Group en Telegram!",
                     "updated": 1630899662771,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "С этого момента ты сам по себе! Если у вас есть какие-либо вопросы по управлению или токену, присоединяйтесь к группе Token Group в Telegram!",
+                    "updated": 1639054213957
+                },
+                {
+                    "language": "DE",
+                    "text": "Von hier an sind Sie auf sich allein gestellt! Wenn Sie Fragen zu Governance oder dem Token haben, treten Sie bitte der Token Group in Telegram bei!",
+                    "updated": 1640083390498
                 }
             ]
         }

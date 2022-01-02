@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Ready to Mine.....?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "data-tasks"
+            "name": "Data/data-tasks",
+            "project": "Foundations"
         },
         "text": "We'll do some data mining so that we may then run a quick Backtesting Session and explore the resulting simulation...",
         "translations": [
@@ -14,6 +14,11 @@
                 "text": "Wir werden ein wenig Data Mining betreiben, um dann eine schnelle Backtesting Session durchzuführen und die resultierende Simulation zu erkunden…",
                 "updated": 1623011799394,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Мы проведем небольшой сбор данных, чтобы затем запустить быструю сессию бэктестинга и рассмотреть полученную симуляцию...",
+                "updated": 1640544797329
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Der Sensor Bot wird ab dem 1. Januar 2020 auf dem BTC/USDT-Markt (Binance) laufen, zusammen mit den Indikatoren, die das Weak-hands Buster Trading System benötigt.",
                     "updated": 1623011829304,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Сенсорный бот будет работать на рынке BTC/USDT (Binance) с 1 января 2020 года вместе с индикаторами, необходимыми для торговой системы Weak-hands Buster.",
+                    "updated": 1640544832506
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Wenn du Daten auf diesem Markt/Börse hast, aber in einem anderen Zeitbereich, kann dies deine Daten beeinflussen! Lies die Dokumentation des Sensor-Bots, um zu erfahren wie! Wenn die Daten, die in deinem System vorhanden sind, nicht wichtig sind, kannst du gerne weitermachen!",
                     "updated": 1623011859309,
                     "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если у вас есть данные по этому рынку / бирже, но в другом временном диапазоне, это может повлиять на ваши данные! Прочтите документацию по сенсорному боту, чтобы узнать, как это сделать! Если данные, которые у вас есть, не важны, не бойтесь двигаться дальше!",
+                    "updated": 1640544916873
                 }
             ]
         }

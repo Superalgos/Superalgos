@@ -2,23 +2,51 @@
     "type": "API Query Responses",
     "definition": {
         "text": "API calls produce responses. Under this node you can define how your map will interpret different responses from the API.",
-        "updated": 1622862463288
+        "updated": 1622862463288,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вызовы API приводят к ответам. В этом узле вы можете определить, как ваша карта будет интерпретировать различные ответы API.",
+                "updated": 1638629809185
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "For a single API Endpoint an API Server might have different possible responses. Each response type is differentiated from each other by the response code / status.",
-            "updated": 1621952454860
+            "updated": 1621952454860,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для одной конечной API Endpoint сервер API может иметь разные возможные ответы. Каждый тип ответа отличается друг от друга кодом ответа / статусом.",
+                    "updated": 1638629862353
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "A few common examples are: 200 meaning successful response, 404 meaning page not found and 429 meaning api rate limit exceeded.",
-            "updated": 1622862627312
+            "updated": 1622862627312,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот несколько распространенных примеров: 200 означает успешный ответ, 404 означает, что страница не найдена и 429 означает превышение лимита скорости API.",
+                    "updated": 1638629878876
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Each child of this node will handle a different response code / status from the API Server. Users need to add at least the most common response code (200) in order to start testing this API Endpoint. After that is recommended to add all other response codes as well, otherwise the API Data Fetcher Bot will stop when an unhandled response code is received.",
-            "updated": 1622862684442
+            "updated": 1622862684442,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый дочерний элемент этого узла будет обрабатывать другой код / ​​статус ответа от сервера API. Пользователи должны добавить как минимум наиболее распространенный код ответа (200), чтобы начать тестирование этой конечной точки API. После этого рекомендуется добавить все остальные коды ответов, в противном случае бот API Data Fetcher Bot остановится при получении необработанного кода ответа.",
+                    "updated": 1638629954280
+                }
+            ]
         }
     ]
 }

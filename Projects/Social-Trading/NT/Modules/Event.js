@@ -63,7 +63,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         if (thisObject.emitterUserProfileId === undefined) {
             throw ('Emitter User Profile Id Not Provided.')
         }
-        emitterUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.emitterUserProfileId)
+        emitterUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(thisObject.emitterUserProfileId)
         if (emitterUserProfile === undefined) {
             throw ('Emitter User Profile Not Found.')
         }
@@ -71,7 +71,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         Validate Target User Profile.
         */
         if (thisObject.targetUserProfileId !== undefined) {
-            targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(thisObject.targetUserProfileId)
+            targetUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(thisObject.targetUserProfileId)
             if (targetUserProfile === undefined) {
                 throw ('Target User Profile Not Found.')
             }
@@ -305,17 +305,21 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
 
+                let profileId 
                 if (targetBotProfile !== undefined) {
                     targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetBotProfile.botProfileId
                 } else {
                     targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetUserProfile.userProfileId
                 }
 
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.addReaction(thisObject.eventType - 100)
+                targetPost.addReaction(thisObject.eventType - 100, profileId)               
+                
                 return  true
             }
             if (
@@ -328,17 +332,21 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_CARE
             ) {
 
+                let profileId 
                 if (targetBotProfile !== undefined) {
                     targetPost = targetBotProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetBotProfile.botProfileId
                 } else {
                     targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+                    profileId = targetUserProfile.userProfileId
                 }
 
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.removeReaction(thisObject.eventType - 200)
+                targetPost.removeReaction(thisObject.eventType - 100, profileId) 
+
                 return  true
             }
         }

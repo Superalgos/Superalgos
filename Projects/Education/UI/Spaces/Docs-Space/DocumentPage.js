@@ -114,10 +114,10 @@ function newFoundationsDocsDocumentPage() {
         async function repositionWorkspace() {
             let node
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.category === 'Workspace') {
-                node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
+                node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(thisObject.docsSchemaDocument.nodeId)
             }
             if (UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId !== undefined) {
-                node = await UI.projects.foundations.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
+                node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.nodeId)
             }
             if (node === undefined) {
                 return
@@ -295,9 +295,9 @@ function newFoundationsDocsDocumentPage() {
                 /* We will test if we can draw an image here or not*/
                 let testElement
                 if (docsSchemaDocument.definition.icon !== undefined) {
-                    testElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
+                    testElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(docsSchemaDocument.definition.icon.project, docsSchemaDocument.definition.icon.name)
                 } else {
-                    testElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, type)
+                    testElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, type)
                 }
 
                 /* 
@@ -676,7 +676,7 @@ function newFoundationsDocsDocumentPage() {
                         }
                         case 'Tutorial': {
                             orderedTutorialPageIndexArray = UI.projects.education.utilities.docs.buildOrderedPageIndex(
-                                UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project,
+                                project,
                                 'Tutorial',
                                 chapterName
                             )
@@ -771,7 +771,7 @@ function newFoundationsDocsDocumentPage() {
                             equal to the Node Type.
                             */
                             let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                            imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                            imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                             if (imageElement === undefined) {
                                 console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                 continue
@@ -779,14 +779,14 @@ function newFoundationsDocsDocumentPage() {
                         } else {
                             if (imageItem.icon === undefined) {
                                 /* This is the default behaviours */
-                                imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (imageElement === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.type + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
                                 /* Here we take the image from the icon specification */
-                                imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
+                                imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.icon.project, imageItem.icon.name)
                                 if (imageElement === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.icon.project + ') with name (' + imageItem.icon.name + ') not found. As a consequence, the Docs Page will be rendered without the icon. ')
                                     continue
@@ -811,20 +811,20 @@ function newFoundationsDocsDocumentPage() {
                             let appSchemaDocument = SCHEMAS_BY_PROJECT.get(imageItem.project).map.appSchema.get(imageItem.type)
                             if (appSchemaDocument.icon === undefined) {
                                 let imageName = appSchemaDocument.type.toLowerCase().replaceAll(' ', '-')
-                                collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
+                                collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageName)
                                 if (collectionImage === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageName + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             } else {
-                                collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
+                                collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(imageItem.project, imageItem.type)
                                 if (collectionImage === undefined) {
                                     console.log('[WARN] Image for project (' + imageItem.project + ') with type (' + imageItem.type + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                     continue
                                 }
                             }
                         } else {
-                            collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
+                            collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(imageItem.project, imageItem.name)
                             if (collectionImage === undefined) {
                                 console.log('[WARN] Image for project (' + imageItem.project + ') with name (' + imageItem.name + ') not found. As a consequence, the hierarchy will be rendered without the icon. ')
                                 continue
@@ -848,7 +848,7 @@ function newFoundationsDocsDocumentPage() {
 
                 function addProjectImage() {
                     let imageName = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project.toLowerCase().replaceAll(' ', '-')
-                    let imageElement = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
+                    let imageElement = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, imageName)
                     if (imageElement !== undefined) {
                         imageElement.width = "50"
                         imageElement.height = "50"
@@ -885,7 +885,7 @@ function newFoundationsDocsDocumentPage() {
                                 } else {
                                     project = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
                                 }
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
+                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, menuItem.relatedUiObject)
                             } else {
                                 if (actionProject !== undefined) {
                                     project = actionProject
@@ -893,9 +893,9 @@ function newFoundationsDocsDocumentPage() {
                                     project = UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project
                                 }
                                 if (menuItem.iconPathOn !== undefined) {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName(project, menuItem.iconPathOn)
                                 } else {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'bitcoin')
                                 }
                             }
                         }
@@ -922,9 +922,9 @@ function newFoundationsDocsDocumentPage() {
 
                         function getIcon() {
                             if (childrenNodesProperty.project !== undefined) {
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
+                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(childrenNodesProperty.project, childrenNodesProperty.childType)
                             } else {
-                                return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
+                                return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, childrenNodesProperty.childType)
                             }
                         }
                     }
@@ -978,11 +978,11 @@ function newFoundationsDocsDocumentPage() {
                             function getIcon() {
                                 let splittedListItem = listItem.split('|')
                                 if (splittedListItem.length === 1) {
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered.project, listItem)
                                 } else {
                                     let project = splittedListItem[0]
                                     let nodeType = splittedListItem[1]
-                                    return UI.projects.foundations.spaces.designSpace.getIconByProjectAndType(project, nodeType)
+                                    return UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType(project, nodeType)
                                 }
                             }
                         }
@@ -1010,7 +1010,7 @@ function newFoundationsDocsDocumentPage() {
                     for (let i = 0; i < imageArray.length; i++) {
                         let dummyImage = imageArray[i]
                         let parentElement = dummyImage.parentNode
-                        let collectionImage = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', 'configuration')
+                        let collectionImage = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', 'configuration')
                         if (collectionImage === undefined) {
                             continue
                         }
@@ -1306,7 +1306,7 @@ function newFoundationsDocsDocumentPage() {
                     they are using and sample values for each one.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1422,7 +1422,7 @@ function newFoundationsDocsDocumentPage() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]
@@ -1525,7 +1525,7 @@ function newFoundationsDocsDocumentPage() {
                     and after that, analysing their code in order to extract examples to show.
                     */
                     /* First Step: get an array of all the nodes in the workspace of this type */
-                    let rootNodes = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes
+                    let rootNodes = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                     let allNodesFound = []
                     for (let i = 0; i < rootNodes.length; i++) {
                         let rootNode = rootNodes[i]

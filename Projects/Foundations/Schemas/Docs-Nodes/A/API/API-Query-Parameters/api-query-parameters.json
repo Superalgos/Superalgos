@@ -2,23 +2,51 @@
     "type": "API Query Parameters",
     "definition": {
         "text": "A query string is part of a uniform resource locator (URL). The query parameter is added to the base URL and assigns values to specified parameters in order to specify the request for data to the API. ",
-        "updated": 1622770771990
+        "updated": 1622770771990,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Строка запроса является частью унифицированного указателя ресурсов (URL). Параметр запроса добавляется к базовому URL-адресу и присваивает значения указанным параметрам, чтобы указать запрос данных для API.",
+                "updated": 1638629326956
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "In other words, an API Query is part of the URL used to request information from an API. These values are held after the ? in the request URL. Queries are generally used to make adjustments to the type of data the api will return. For example, if an api endpoint accepts a time query, you will be able to request data from a specific time period.",
-            "updated": 1622765459697
+            "updated": 1622765459697,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, запрос API - это часть URL-адреса, используемого для запроса информации из API. Эти значения сохраняются после символа ? в URL-адресе запроса. Запросы обычно используются для корректировки типа данных, возвращаемых API. Например, если конечная точка api принимает запрос времени, вы сможете запрашивать данные за определенный период времени.",
+                    "updated": 1638629359289
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Query Parameters in general do not need to be defined in any specific order, so feel free to add children for this node in whatever order you like.",
-            "updated": 1622765484886
+            "updated": 1622765484886,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры запроса Query Parameters , как правило, не нужно определять в каком-либо конкретном порядке, поэтому не стесняйтесь добавлять дочерние элементы для этого узла в любом порядке.",
+                    "updated": 1638629394716
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "When a API Query Parameter is found at the API Map, it will define the default values based on the value property of each API Query Parameter node. However, if the replaceBy property is used the system will pull the value from the user's system.  Examples of this are the current time, current exchange being used, etc.",
-            "updated": 1622771917666
+            "updated": 1622771917666,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда API Query Parameter найден в API Map, он определит значения по умолчанию на основе свойства value каждого узла API Query Parameter. Однако, если используется свойство replaceBy, система извлечет значение из системы пользователя. Примерами этого являются текущее время, текущий обмен и т. д.",
+                    "updated": 1638629513012
+                }
+            ]
         }
     ]
 }

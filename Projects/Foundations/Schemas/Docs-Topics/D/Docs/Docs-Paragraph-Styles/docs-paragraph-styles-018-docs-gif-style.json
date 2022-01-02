@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Es ist möglich, Gif`s in eine Docs-Seite einzubetten.",
                 "updated": 1633957460039
+            },
+            {
+                "language": "RU",
+                "text": "На страницу документов можно встраивать гифки.",
+                "updated": 1638542691143
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Das einzubettende GIF muss sich im GIFs/Docs-Ordner des Projekts befinden. Die Syntax dafür ist die folgende:",
                     "updated": 1633957492773
+                },
+                {
+                    "language": "RU",
+                    "text": "Встраиваемый gif-файл должен находиться в папке проекта GIF / Docs. Синтаксис для этого следующий:",
+                    "updated": 1638542711937
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633957502999
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638542722763
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "DE",
                     "text": "Das sieht so aus:",
                     "updated": 1633957520032
+                },
+                {
+                    "language": "RU",
+                    "text": "Выглядит так: ",
+                    "updated": 1638542735705
                 }
             ]
         },

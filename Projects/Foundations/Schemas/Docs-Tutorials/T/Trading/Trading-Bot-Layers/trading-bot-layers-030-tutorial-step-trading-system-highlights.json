@@ -7,16 +7,52 @@
             "project": "Foundations",
             "name": "bullet-info"
         },
-        "text": "Whenever something relevant happens with any given node in the trading system hierarchy, the node is highlighted!"
+        "text": "Whenever something relevant happens with any given node in the trading system hierarchy, the node is highlighted!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wann immer etwas Relevantes mit einem bestimmten Knoten in der Trading System Hierarchie passiert, wird der Knoten hervorgehoben!",
+                "updated": 1639145593359
+            },
+            {
+                "language": "RU",
+                "text": "Когда с каким-либо узлом в иерархии торговой системы происходит что-то важное, этот узел выделяется!",
+                "updated": 1640631131534
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the Trading System Highlights layer on, slide your mouse over the chart left of the position, and check these conditions and situations! Now place the mouse pointer over the candle where the strategy is triggered... (08 Mar 2020 at 01 hs)..."
+            "text": "Turn the Trading System Highlights layer on, slide your mouse over the chart left of the position, and check these conditions and situations! Now place the mouse pointer over the candle where the strategy is triggered... (08 Mar 2020 at 01 hs)...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die Ebene \"Trading System Highlights\" ein, fahren Sie mit der Maus über den Chart links von der Position, und überprüfen Sie diese Bedingungen und Situationen! Bewegen Sie nun den Mauszeiger über die Kerze, bei der die Strategie ausgelöst wird... (08. März 2020 um 01 Uhr)...",
+                    "updated": 1639145610016
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой Trading System Highlights, проведите мышью по графику слева от позиции и проверьте эти условия и ситуации! Теперь наведите указатель мыши на свечу, на которой сработала стратегия... (08 марта 2020 года в 01 час)...",
+                    "updated": 1640631185737
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Conditions are highlighted when they validate true; situations, when all conditions validate true; stages and phases, when they become active, and so on!"
+            "text": "Conditions are highlighted when they validate true; situations, when all conditions validate true; stages and phases, when they become active, and so on!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bedingungen werden hervorgehoben, wenn sie zutreffen; Situationen, wenn alle Bedingungen zutreffen; Phasen, wenn sie aktiv werden, usw.!",
+                    "updated": 1639145618354
+                },
+                {
+                    "language": "RU",
+                    "text": "Условия выделяются, когда они подтверждаются; ситуации, когда все условия подтверждаются; этапы и фазы, когда они становятся активными, и так далее!",
+                    "updated": 1640631220106
+                }
+            ]
         }
     ]
 }

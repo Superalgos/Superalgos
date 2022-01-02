@@ -6,7 +6,7 @@
         "text": "Let's take a look at your new working chart.  I hope you are as excited as I am!",
         "updated": 1619024389980,
         "icon": {
-            "name": "Trading/trading-system",
+            "name": "trading-system",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Echemos un vistazo a tu nueva tabla de trabajo. ¡Espero que estés tan emocionado como yo!",
                 "updated": 1628725847421
+            },
+            {
+                "language": "RU",
+                "text": "Давайте посмотрим на ваш новый рабочий график. Надеюсь, вы так же рады, как и я!",
+                "updated": 1639079985455
+            },
+            {
+                "language": "DE",
+                "text": "Werfen wir einen Blick auf Ihre neues Arbeitschart. Ich hoffe, Sie sind genauso begeistert wie ich!",
+                "updated": 1639453565952
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Primero asegúrate de correr todos los Data Tasks y espera a que alcancen el 100%.",
                     "updated": 1628725915506
+                },
+                {
+                    "language": "RU",
+                    "text": "Сначала запустите все Задачи данных (Data Tasks) и подождите, пока они достигнут 100%.",
+                    "updated": 1639080026546
+                },
+                {
+                    "language": "DE",
+                    "text": "Stellen Sie zunächst sicher, dass alle Data Tasks ausgeführt werden und warten Sie, bis Sie 100 % erreicht haben.",
+                    "updated": 1639453689783
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Enciende el Charting Space y echa un vistazo a tu gráfico. Diviértete y activa y desactiva algunas capas.",
                     "updated": 1628725952620
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустите программу Charting Space и посмотрите на свой график. Повеселитесь и включите и выключите несколько слоев.",
+                    "updated": 1639080153367
+                },
+                {
+                    "language": "DE",
+                    "text": "Starten Sie den Charting Space und werfen Sie einen Blick auf Ihr Chart. Machen Sie sich einen Spaß daraus und schalten Sie ein paar Ebenen ein und aus.",
+                    "updated": 1639453766087
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "Si puedes ver que aparecen capas cuando las enciendes, ¡excelente trabajo! Si no aparece nada, vuelv ea los pasos anteriores y asegúrate de que no te haya perdido nada.",
                     "updated": 1628726004784
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы видите, что слои появляются при включении, это отличная работа! Если ничего не отображается, вернитесь к предыдущим шагам и убедитесь, что вы ничего не пропустили.",
+                    "updated": 1639080169442
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie sehen, dass Ebenen angezeigt werden, wenn Sie sie einschalten, ist das sehr gut! Wenn nichts angezeigt wird, gehen Sie die vorherigen Schritte noch einmal durch und stellen Sie sicher, dass Sie nichts übersehen haben.",
+                    "updated": 1639453822359
                 }
             ]
         }

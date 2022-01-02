@@ -36,7 +36,7 @@ exports.newDesktopRoot = function newDesktopRoot() {
         /* 
         Setting up the modules that will be available, defined at the Project Schema file. 
         */
-        let MULTI_PROJECT = require('./MultiProject.js');
+        let MULTI_PROJECT = require('./MultiProject.js')
         let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
         MULTI_PROJECT_MODULE.initialize(DK, 'DK')
         MULTI_PROJECT_MODULE.initialize(SA, 'SA')
@@ -53,19 +53,16 @@ exports.newDesktopRoot = function newDesktopRoot() {
             http: require('http'),
             octokit: require("@octokit/rest"),
             simpleGit: require('simple-git'),
-            nodeFetch: require('node-fetch')
+            nodeFetch: require('node-fetch'),
+            graphql: require("@octokit/graphql"),
+            axios: require('axios')
         }
+        SA.version = require('./package.json').version
         /*
         Setting up Secrets.
         */
-        SA.secrets = {
-            array: require('./My-Secrets/Secrets.json').secrets,
-            map: new Map()
-        }
-        for (let i = 0; i < SA.secrets.array.length; i++) {
-            let secret = SA.secrets.array[i]
-            SA.secrets.map.set (secret.signingAccountChildCodeName, secret)
-        }
+        let SECRETS = require('./Secrets.js').newSecrets()
+        SECRETS.initialize()
 
         run()
 

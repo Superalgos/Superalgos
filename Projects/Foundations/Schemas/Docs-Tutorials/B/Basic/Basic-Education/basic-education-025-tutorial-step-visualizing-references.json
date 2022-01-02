@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Wenn Sie mit dem Mauszeiger über einen Knoten mit einer ausgehenden Referenz fahren, wird die Referenz sichtbar.\nEs gibt aber auch eine Möglichkeit, alle Verweise sichtbar zu machen!",
                 "updated": 1634334263709
+            },
+            {
+                "language": "TR",
+                "text": "Fare imlecini giden bir referansa sahip bir düğümün üzerine getirdiğinizde, referans görünür hale gelir.",
+                "updated": 1639485863369
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "text": "¡Hay una manera de hacer visibles todas las referencias!",
                     "updated": 1626533252874,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak tüm referansları görünür kılmanın da bir yolu var!",
+                    "updated": 1639485880901
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "DE",
                     "text": "Drücken Sie die folgende Tastenkombination: Ctrl + Shift + Key-R oder Cmd + Shift + Key-R auf einem Mac.",
                     "updated": 1634334380790
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tuş kombinasyonuna basın: Ctrl + Shift + Key-R. Maci için: Cmd + Shift + Key-R",
+                    "updated": 1639486068162
                 }
             ]
         },
@@ -94,6 +109,11 @@
                     "language": "DE",
                     "text": "Jetzt können Sie die Referenzen sehen, die sowohl vom Knoten Handelssystem-Referenz als auch vom Knoten Handelsmodul-Referenz ausgehen.",
                     "updated": 1634334332966
+                },
+                {
+                    "language": "TR",
+                    "text": "Artık hem Ticaret Sistemi Referansı ( Trading System Reference ) düğümünden hem de İşlem Motoru Referansı ( Trading Engine Reference ) düğümünden çıkan referansları görebilirsiniz.",
+                    "updated": 1639488548092
                 }
             ]
         },
@@ -118,6 +138,11 @@
                     "language": "DE",
                     "text": "Klicken Sie mit der rechten Maustaste, um auf die Design Space Map zuzugreifen und andere Referenzen zu sehen, die möglicherweise sichtbar sind.",
                     "updated": 1634334343062
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı (Design Space ) haritasına erişmek ve görünür olabilecek diğer referansları görmek için sağ tıklayın.",
+                    "updated": 1639486198724
                 }
             ]
         }

@@ -1,0 +1,65 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 78,
+    "type": "Tutorial Step - Let's Take a Closer Look!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "bot-data-dependencies"
+        },
+        "text": "We're going to take a few minutes to unpack everything we see on the chart so that you may fully understand how this works!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert!",
+                "updated": 1639391418728
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The fact that the strategy is triggering and closing five times in a row in five consecutive candles must mean the following:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Tatsache, dass die Strategie fünfmal hintereinander in fünf aufeinanderfolgenden Kerzen ausgelöst und geschlossen wird, muss Folgendes bedeuten:",
+                    "updated": 1639391427003
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The Trigger On Event validates true on each of these candles. ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Trigger On Event Ereignis ist bei jeder dieser Kerzen gültig.",
+                    "updated": 1639391461998
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "The Take Position Event also validates true on each of these candles! ",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen!",
+                    "updated": 1639391468626
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "This also means that the strategy is triggering and taking the position on the same candle! Let's go and verify if all this is true!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft!",
+                    "updated": 1639391474980
+                }
+            ]
+        }
+    ]
+}

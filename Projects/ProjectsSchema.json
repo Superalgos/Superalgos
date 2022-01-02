@@ -3,15 +3,25 @@
         "name": "Algorithmic-Trading",
         "propertyName": "algorithmicTrading",
         "UI": {
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Trading Session Functions",
                     "propertyName": "tradingSessionFunctions",
                     "functionName": "newAlgorithmicTradingFunctionLibraryTradingSessionFunctions"
                 }
-            ]
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
         },
         "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Trading Functions",
+                    "propertyName": "tradingFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibrariesTradingFunctions",
+                    "fileName": "TradingFunctions.js"
+                }
+            ],
             "botModules": [
                 {
                     "name": "Single Market Trading Bot",
@@ -152,16 +162,164 @@
         ]
     },
     {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Portfolio Session Functions",
+                    "propertyName": "portfolioSessionFunctions",
+                    "functionName": "newPortfolioManagementFunctionLibraryPortfolioSessionFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "SA": {},
+        "TS": {
+            "modules": [
+                {
+                    "name": "Portfolio Manager Client",
+                    "propertyName": "portfolioManagerClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerClient",
+                    "fileName": "PortfolioManagerClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Client",
+                    "propertyName": "portfolioManagerEventsClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsClient",
+                    "fileName": "PortfolioManagerEventsClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Interface",
+                    "propertyName": "portfolioManagerEventsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
+                    "fileName": "PortfolioManagerEventsInterface.js"
+                },
+                {
+                    "name": "Portfolio Manager Trading Bots Interface",
+                    "propertyName": "portfolioManagerTradingBotsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerTradingBotsInterface",
+                    "fileName": "PortfolioManagerTradingBotsInterface.js"
+                }
+            ],
+            "botModules": [
+                {
+                    "name": "Single Market Portfolio Bot",
+                    "propertyName": "singleMarketPortfolioBot",
+                    "functionName": "newPortfolioManagementBotModulesSingleMarketPortfolioBot",
+                    "fileName": "SingleMarketPortfolioBot.js",
+                    "folderName": "Portfolio-Bot",
+                    "botType": "Portfolio Bot"
+                },
+                {
+                    "name": "Portfolio Session",
+                    "propertyName": "portfolioSession",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSession",
+                    "fileName": "PortfolioSession.js",
+                    "folderName": "Portfolio-Bot"
+                },
+                {
+                    "name": "Portfolio Process",
+                    "propertyName": "portfolioProcess",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioProcess",
+                    "fileName": "PortfolioProcess.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Engine",
+                    "propertyName": "portfolioEngine",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEngine",
+                    "fileName": "PortfolioEngine.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Output",
+                    "propertyName": "portfolioOutput",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioOutput",
+                    "fileName": "PortfolioOutput.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Simulation",
+                    "propertyName": "portfolioSimulation",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSimulation",
+                    "fileName": "PortfolioSimulation.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Managed Trading Bots",
+                    "propertyName": "portfolioManagedTradingBots",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioManagedTradingBots",
+                    "fileName": "PortfolioManagedTradingBots.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Episode",
+                    "propertyName": "portfolioEpisode",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEpisode",
+                    "fileName": "PortfolioEpisode.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Records",
+                    "propertyName": "portfolioRecords",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioRecords",
+                    "fileName": "PortfolioRecords.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio System",
+                    "propertyName": "portfolioSystem",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSystem",
+                    "fileName": "PortfolioSystem.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Events Manager",
+                    "propertyName": "portfolioEventsManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEventsManager",
+                    "fileName": "PortfolioEventsManager.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Formulas Manager",
+                    "propertyName": "portfolioFormulasManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioFormulasManager",
+                    "fileName": "PortfolioFormulasManager.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },                
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newPortfolioManagementBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio/APIs"
+                }
+            ]
+        },
+        "plugins": [
+            "Portfolio Mines",
+            "Portfolio Systems",
+            "Portfolio Engines"
+        ],
+        "tasks": [
+            "Portfolio Tasks"
+        ]
+    },
+    {
         "name": "Machine-Learning",
         "propertyName": "machineLearning",
         "UI": {
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Learning Session Functions",
                     "propertyName": "learningSessionFunctions",
                     "functionName": "newMachineLearningFunctionLibraryLearningSessionFunctions"
                 }
-            ]
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
         },
         "TS": {
             "botModules": [
@@ -244,7 +402,7 @@
         "name": "Visual-Scripting",
         "propertyName": "visualScripting",
         "UI": {
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Shortcut Keys",
                     "propertyName": "shortcutKeys",
@@ -296,6 +454,8 @@
                     "functionName": "newVisualScriptingFunctionLibraryNodePath"
                 }
             ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
             "utilities": [
                 {
                     "name": "Branches",
@@ -329,7 +489,7 @@
                 }
             ]
         },
-        "TS": {
+        "SA": {
             "utilities": [
                 {
                     "name": "Node Functions",
@@ -344,14 +504,7 @@
         "name": "Foundations",
         "propertyName": "foundations",
         "UI": {
-            "globals": [
-                {
-                    "name": "Zoom",
-                    "propertyName": "zoom",
-                    "functionName": "newFoundationsGlobalsZoom"
-                }
-            ],
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Webhook Functions",
                     "propertyName": "webhookFunctions",
@@ -386,11 +539,15 @@
                     "name": "Charting Space Functions",
                     "propertyName": "chartingSpaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryChartingSpaceFunctions"
-                },
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [
                 {
-                    "name": "Workspace Functions",
-                    "propertyName": "workspaceFunctions",
-                    "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
+                    "name": "Zoom",
+                    "propertyName": "zoom",
+                    "functionName": "newFoundationsGlobalsZoom"
                 }
             ],
             "utilities": [
@@ -465,9 +622,9 @@
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
-                    "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 6
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 5
                 },
                 {
                     "name": "Top Space",
@@ -477,9 +634,9 @@
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 5,
                     "animationDrawIndex": 4,
-                    "onMouseOverIndex": 1,
-                    "onMouseClickIndex": 1,
-                    "onMouseDownIndex": 2
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
                 },
                 {
                     "name": "Cockpit Space",
@@ -490,21 +647,8 @@
                     "animationPhysicsIndex": 0,
                     "animationDrawIndex": 5,
                     "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 3
-                },
-                {
-                    "name": "Design Space",
-                    "folderName": "Design-Space",
-                    "propertyName": "designSpace",
-                    "functionName": "newFoundationsDesignSpace",
-                    "initializationIndex": 3,
-                    "animationPhysicsIndex": 3,
-                    "animationDrawIndex": 2,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 0,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
                     "onMouseDownIndex": 1
                 },
                 {
@@ -516,9 +660,9 @@
                     "animationPhysicsIndex": 4,
                     "animationDrawIndex": 3,
                     "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 4
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
                 },
                 {
                     "name": "Charting Space",
@@ -529,9 +673,9 @@
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 5,
-                    "onMouseOverIndex": 5,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Side Space",
@@ -542,22 +686,9 @@
                     "animationPhysicsIndex": 6,
                     "animationDrawIndex": 6,
                     "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 0
-                },
-                {
-                    "name": "Workspace Space",
-                    "folderName": "Workspace-Space",
-                    "propertyName": "workspaceSpace",
-                    "functionName": "newFoundationsWorkspaceSpace",
-                    "initializationIndex": 7,
-                    "animationPhysicsIndex": 7,
-                    "animationDrawIndex": 7,
-                    "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 0
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
                 },
                 {
                     "name": "Chat Space",
@@ -567,16 +698,16 @@
                 },
                 {
                     "name": "Code Editor Space",
-                    "initializationIndex": 8,
                     "folderName": "CodeEditor-Space",
                     "propertyName": "codeEditorSpace",
                     "functionName": "newFoundationsCodeEditorSpace",
+                    "initializationIndex": 8,
                     "animationPhysicsIndex": 8,
                     "animationDrawIndex": 8,
                     "onMouseWheelIndex": 7,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 8,
-                    "onMouseDownIndex": 8
+                    "onMouseOverIndex": 5,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
                 }
             ]
         },
@@ -775,12 +906,6 @@
         "PL": {
             "utilities": [
                 {
-                    "name": "Async Functions",
-                    "propertyName": "asyncFunctions",
-                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
-                    "fileName": "AsyncFunctions.js"
-                },
-                {
                     "name": "Web Access",
                     "propertyName": "webAccess",
                     "functionName": "newFoundationsUtilitiesWebAccess",
@@ -795,6 +920,12 @@
                     "propertyName": "timeConstants",
                     "functionName": "newFoundationsGlobalsTimeConstants",
                     "fileName": "TimeConstants.js"
+                },
+                {
+                    "name": "Schemas",
+                    "propertyName": "schemas",
+                    "functionName": "newFoundationsGlobalsSchemas",
+                    "fileName": "Schemas.js"
                 }
             ],
             "utilities": [
@@ -821,6 +952,18 @@
                     "propertyName": "httpRequests",
                     "functionName": "newFoundationsUtilitiesHttpRequests",
                     "fileName": "HttpRequests.js"
+                },
+                {
+                    "name": "Async Functions",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Encryption",
+                    "propertyName": "encryption",
+                    "functionName": "newFoundationsUtilitiesEncryption",
+                    "fileName": "Encryption.js"
                 }
             ]
         },
@@ -838,13 +981,15 @@
         "name": "Data-Mining",
         "propertyName": "dataMining",
         "UI": {
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Mine Functions",
                     "propertyName": "mineFunctions",
                     "functionName": "newDataMiningFunctionLibraryMineFunctions"
                 }
-            ]
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
         },
         "TS": {
             "botModules": [
@@ -966,16 +1111,67 @@
         ]
     },
     {
+        "name": "Workspaces",
+        "propertyName": "workspaces",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Node Action Workspace Functions",
+                    "propertyName": "workspaceFunctions",
+                    "functionName": "newWorkspacesNodeActionWorkspaceFunctions"
+                }
+            ],
+            "systemActionFunctions": [
+                {
+                    "name": "System Action Workspace Functions",
+                    "propertyName": "workspaceFunctions",
+                    "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
+                }
+            ],
+            "functionLibraries": [],
+            "spaces": [
+                {
+                    "name": "Design Space",
+                    "folderName": "Design-Space",
+                    "propertyName": "designSpace",
+                    "functionName": "newWorkspacesDesignSpace",
+                    "initializationIndex": 3,
+                    "animationPhysicsIndex": 3,
+                    "animationDrawIndex": 2,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Workspace Space",
+                    "folderName": "Workspace-Space",
+                    "propertyName": "workspaceSpace",
+                    "functionName": "newWorkspacesWorkspaceSpace",
+                    "initializationIndex": 7,
+                    "animationPhysicsIndex": 7,
+                    "animationDrawIndex": 7,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        }
+    },
+    {
         "name": "Community-Plugins",
         "propertyName": "communityPlugins",
         "UI": {
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Plugins Functions",
                     "propertyName": "pluginsFunctions",
                     "functionName": "newPluginsFunctionLibraryPluginsFunctions"
                 }
             ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
             "utilities": [
                 {
                     "name": "Plugins",
@@ -991,6 +1187,12 @@
                     "propertyName": "plugins",
                     "functionName": "newPluginsUtilitiesPlugins",
                     "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Nodes",
+                    "propertyName": "nodes",
+                    "functionName": "newPluginsUtilitiesNodes",
+                    "fileName": "Nodes.js"
                 }
             ]
         },
@@ -1000,18 +1202,20 @@
         "name": "Ethereum",
         "propertyName": "ethereum",
         "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Accounts",
+                    "propertyName": "accounts",
+                    "functionName": "newEthereumFunctionLibraryAccounts"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
             "globals": [
                 {
                     "name": "ChainIds",
                     "propertyName": "chainIds",
                     "functionName": "newEthereumGlobalsChainIds"
-                }
-            ],
-            "functionLibraries": [
-                {
-                    "name": "Accounts",
-                    "propertyName": "accounts",
-                    "functionName": "newEthereumFunctionLibraryAccounts"
                 }
             ],
             "utilities": [
@@ -1027,9 +1231,9 @@
                     "folderName": "Blockchain-Space",
                     "propertyName": "blockchainSpace",
                     "functionName": "newEthereumBlockchainSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 9,
+                    "animationPhysicsIndex": 9,
+                    "animationDrawIndex": 9,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -1040,9 +1244,9 @@
                     "folderName": "Wallet-Space",
                     "propertyName": "walletSpace",
                     "functionName": "newEthereumWalletSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 10,
+                    "animationPhysicsIndex": 10,
+                    "animationDrawIndex": 10,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -1057,8 +1261,10 @@
         "name": "TensorFlow",
         "propertyName": "tensorflow",
         "UI": {
-            "globals": [],
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
             "functionLibraries": [],
+            "globals": [],
             "utilities": [],
             "spaces": []
         },
@@ -1095,18 +1301,20 @@
         "name": "Education",
         "propertyName": "education",
         "UI": {
-            "globals": [
-                {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newEducationGlobalsDocs"
-                }
-            ],
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
             "functionLibraries": [
                 {
                     "name": "Docs Statistics Functions",
                     "propertyName": "docsStatisticsFunctions",
                     "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions"
+                }
+            ],
+            "globals": [
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationGlobalsDocs"
                 }
             ],
             "utilities": [
@@ -1127,9 +1335,9 @@
                     "folderName": "Docs-Space",
                     "propertyName": "docsSpace",
                     "functionName": "newEducationDocSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 11,
+                    "animationPhysicsIndex": 11,
+                    "animationDrawIndex": 11,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -1140,9 +1348,9 @@
                     "folderName": "Tutorial-Space",
                     "propertyName": "tutorialSpace",
                     "functionName": "newEducationTutorialSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 12,
+                    "animationPhysicsIndex": 12,
+                    "animationDrawIndex": 12,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -1171,29 +1379,35 @@
         "name": "Governance",
         "propertyName": "governance",
         "UI": {
-            "globals": [
-                {
-                    "name": "Designer",
-                    "propertyName": "designer",
-                    "functionName": "newGovernanceGlobalsDesigner"
-                },
-                {
-                    "name": "Reports",
-                    "propertyName": "reports",
-                    "functionName": "newGovernanceGlobalsReports"
-                },
-                {
-                    "name": "SA Token",
-                    "propertyName": "saToken",
-                    "functionName": "newGovernanceGlobalsSaToken"
-                }
-            ],
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Assets",
                     "propertyName": "assets",
                     "functionName": "newGovernanceFunctionLibraryAssets"
                 },
+                {
+                    "name": "Claims",
+                    "propertyName": "claims",
+                    "functionName": "newGovernanceNodeActionFunctionsClaims"
+                },
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
+                },
+                {
+                    "name": "Profile Constructor",
+                    "propertyName": "profileConstructor",
+                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
+                },
+                {
+                    "name": "Votes",
+                    "propertyName": "votes",
+                    "functionName": "newGovernanceNodeActionFunctionsVotes"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [
                 {
                     "name": "Token Power",
                     "propertyName": "tokenPower",
@@ -1235,11 +1449,6 @@
                     "functionName": "newGovernanceFunctionLibraryDistributionProcess"
                 },
                 {
-                    "name": "Plugins Functions",
-                    "propertyName": "pluginsFunctions",
-                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
-                },
-                {
                     "name": "Referral Program",
                     "propertyName": "referralProgram",
                     "functionName": "newGovernanceFunctionLibraryReferralProgram"
@@ -1270,11 +1479,6 @@
                     "functionName": "newGovernanceFunctionLibraryLiquidityProgram"
                 },
                 {
-                    "name": "Profile Constructor",
-                    "propertyName": "profileConstructor",
-                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
-                },
-                {
                     "name": "Github Program",
                     "propertyName": "githubProgram",
                     "functionName": "newGovernanceFunctionLibraryGithubProgram"
@@ -1283,6 +1487,23 @@
                     "name": "Airdrop Program",
                     "propertyName": "airdropProgram",
                     "functionName": "newGovernanceFunctionLibraryAirdropProgram"
+                }
+            ],
+            "globals": [
+                {
+                    "name": "Designer",
+                    "propertyName": "designer",
+                    "functionName": "newGovernanceGlobalsDesigner"
+                },
+                {
+                    "name": "Reports",
+                    "propertyName": "reports",
+                    "functionName": "newGovernanceGlobalsReports"
+                },
+                {
+                    "name": "SA Token",
+                    "propertyName": "saToken",
+                    "functionName": "newGovernanceGlobalsSaToken"
                 }
             ],
             "utilities": [
@@ -1338,9 +1559,9 @@
                     "folderName": "User-Profile-Space",
                     "propertyName": "userProfileSpace",
                     "functionName": "newGovernanceUserProfileSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 13,
+                    "animationPhysicsIndex": 13,
+                    "animationDrawIndex": 13,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -1351,9 +1572,9 @@
                     "folderName": "Reports-Space",
                     "propertyName": "reportsSpace",
                     "functionName": "newGobernanceReportsSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 14,
+                    "animationPhysicsIndex": 14,
+                    "animationDrawIndex": 14,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -1395,6 +1616,12 @@
                     "propertyName": "httpInterface",
                     "functionName": "newNetworkModulesHttpInterface",
                     "fileName": "HttpInterface.js"
+                },
+                {
+                    "name": "Incoming Signals",
+                    "propertyName": "incomingSignals",
+                    "functionName": "newNetworkModulesIncomingSignals",
+                    "fileName": "IncomingSignals.js"
                 }
             ],
             "utilities": []
@@ -1416,10 +1643,16 @@
                     "fileName": "WebSocketsNetworkClient.js"
                 },
                 {
-                    "name": "User Profiles",
-                    "propertyName": "userProfiles",
-                    "functionName": "newNetworkModulesUserProfiles",
-                    "fileName": "UserProfiles.js"
+                    "name": "Http Network Client",
+                    "propertyName": "webHttpNetworkClient",
+                    "functionName": "newNetworkModulesHttpNetworkClient",
+                    "fileName": "HttpNetworkClient.js"
+                },
+                {
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newNetworkModulesAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
                 },
                 {
                     "name": "P2P Network",
@@ -1440,10 +1673,16 @@
                     "fileName": "P2PNetworkPeers.js"
                 },
                 {
-                    "name": "P2P Network Client",
-                    "propertyName": "p2pNetworkClient",
-                    "functionName": "newNetworkModulesP2PNetworkClient",
-                    "fileName": "P2PNetworkClient.js"
+                    "name": "P2P Network Head",
+                    "propertyName": "p2pNetworkStart",
+                    "functionName": "newNetworkModulesP2PNetworkStart",
+                    "fileName": "P2PNetworkStart.js"
+                },
+                {
+                    "name": "P2P Network Client Identity",
+                    "propertyName": "p2pNetworkClientIdentity",
+                    "functionName": "newNetworkModulesP2PNetworkClientIdentity",
+                    "fileName": "P2PNetworkClientIdentity.js"
                 }
             ],
             "utilities": [
@@ -1539,7 +1778,7 @@
                     "propertyName": "signal",
                     "functionName": "newSocialTradingModulesSignal",
                     "fileName": "Signal.js"
-                },                
+                },
                 {
                     "name": "Client Interface",
                     "propertyName": "clientInterface",
@@ -1587,6 +1826,12 @@
                     "propertyName": "socialGraphPost",
                     "functionName": "newSocialTradingModulesSocialGraphPost",
                     "fileName": "Social-Graph/Post.js"
+                },
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
                 }
             ],
             "globals": [
@@ -1610,7 +1855,7 @@
                 },
                 {
                     "name": "Signal Types",
-                    "propertyName": "eventTypes",
+                    "propertyName": "signalTypes",
                     "functionName": "newSocialTradingGlobalsSignalTypes",
                     "fileName": "SignalTypes.js"
                 },
@@ -1650,12 +1895,6 @@
                     "fileName": "WebAppInterface.js"
                 },
                 {
-                    "name": "P2P Network Interface",
-                    "propertyName": "p2pNetworkInterface",
-                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
-                    "fileName": "P2PNetworkInterface.js"
-                },
-                {
                     "name": "Social Graph",
                     "propertyName": "socialGraph",
                     "functionName": "newSocialTradingModulesSocialGraph",
@@ -1679,14 +1918,41 @@
         "name": "Social-Bots",
         "propertyName": "socialBots",
         "UI": {
-            "functionLibraries": [
+            "nodeActionFunctions": [
                 {
                     "name": "Social Bots Functions",
                     "propertyName": "socialBotsFunctions",
                     "functionName": "newSocialBotsFunctionLibrarySocialBotsFunctions"
                 }
             ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
             "utilities": []
+        },
+        "SA": {
+            "botModules": [
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSocialBotsBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newSocialBotsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
         },
         "TS": {
             "botModules": [
@@ -1710,29 +1976,123 @@
                     "functionName": "newSocialBotsBotModulesTelegramBot",
                     "fileName": "TelegramBot.js",
                     "folderName": ""
-                },
-                {
-                    "name": "Discord Bot",
-                    "propertyName": "discordBot",
-                    "functionName": "newSocialBotsBotModulesDiscordBot",
-                    "fileName": "DiscordBot.js",
-                    "folderName": ""
-                },
-                {
-                    "name": "Slack Bot",
-                    "propertyName": "slackBot",
-                    "functionName": "newSocialBotsBotModulesSlackBot",
-                    "fileName": "SlackBot.js",
-                    "folderName": ""
-                },
-                {
-                    "name": "Twitter Bot",
-                    "propertyName": "twitterBot",
-                    "functionName": "newSocialBotsBotModulesTwitterBot",
-                    "fileName": "TwitterBot.js",
-                    "folderName": ""
                 }
             ]
         }
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Trading Signals Functions",
+                    "propertyName": "tradingSignalsFunctions",
+                    "functionName": "newSocialBotsFunctionLibraryTradingSignalsFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "modules": [
+                {
+                    "name": "Outgoing Trading Signals",
+                    "propertyName": "outgoingTradingSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingTradingSignals",
+                    "fileName": "OutgoingTradingSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Trading Signals",
+                    "propertyName": "incomingTradingSignals",
+                    "functionName": "newTradingSignalsModulesIncomingTradingSignals",
+                    "fileName": "IncomingTradingSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Outgoing Candle Signals",
+                    "propertyName": "outgoingCandleSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingCandleSignals",
+                    "fileName": "OutgoingCandleSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Candle Signals",
+                    "propertyName": "incomingCandleSignals",
+                    "functionName": "newTradingSignalsModulesIncomingCandleSignals",
+                    "fileName": "IncomingCandleSignals.js",
+                    "folderName": ""
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signal Validations",
+                    "propertyName": "signalValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
+                    "fileName": "SignalValidations.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Open-Storage",
+        "propertyName": "openStorage",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {},
+        "SA": {
+            "modules": [
+                {
+                    "name": "Open Storage Client",
+                    "propertyName": "openStorageClient",
+                    "functionName": "newOpenStorageModulesOpenStorageClient",
+                    "fileName": "OpenStorageClient.js",
+                    "folderName": ""
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Simulation",
+        "propertyName": "simulation",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Simulation Functions",
+                    "propertyName": "simulationFunctions",
+                    "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
+                    "fileName": "SimulationFunctions.js"
+                },
+                {
+                    "name": "Output Records Functions",
+                    "propertyName": "outputRecordsFunctions",
+                    "functionName": "newSimulationFunctionLibrariesOutputRecordsFunctions",
+                    "fileName": "OutputRecordsFunctions.js"
+                }
+            ]
+        },
+        "SA": {}
     }
 ]

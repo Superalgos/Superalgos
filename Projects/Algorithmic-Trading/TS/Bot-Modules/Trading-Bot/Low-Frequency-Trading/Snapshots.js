@@ -150,7 +150,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
         }
 
         /* Now we go down through all this node children */
-        let schemaDocument = TS.projects.foundations.globals.taskConstants.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
+        let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(node.project + '-' + node.type)
         if (schemaDocument === undefined) { return }
 
         if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -215,18 +215,18 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
             let instructionsArray = code.split(' ')
             for (let i = 0; i < instructionsArray.length; i++) {
                 let instruction = instructionsArray[i]
-                instruction = instruction.replace('(', '')
-                instruction = instruction.replace(')', '')
-                instruction = instruction.replace(/</g, '')
-                instruction = instruction.replace(/>/g, '')
-                instruction = instruction.replace(/<=/g, '')
-                instruction = instruction.replace(/>=/g, '')
-                instruction = instruction.replace(/!=/g, '')
-                instruction = instruction.replace(/!==/g, '')
-                instruction = instruction.replace(/==/g, '')
-                instruction = instruction.replace(/===/g, '')
-                instruction = instruction.replace(/{/g, '')
-                instruction = instruction.replace(/}/g, '')
+                instruction = instruction.replaceAll('(', '')
+                instruction = instruction.replaceAll(')', '')
+                instruction = instruction.replaceAll(/</g, '')
+                instruction = instruction.replaceAll(/>/g, '')
+                instruction = instruction.replaceAll(/<=/g, '')
+                instruction = instruction.replaceAll(/>=/g, '')
+                instruction = instruction.replaceAll(/!=/g, '')
+                instruction = instruction.replaceAll(/!==/g, '')
+                instruction = instruction.replaceAll(/==/g, '')
+                instruction = instruction.replaceAll(/===/g, '')
+                instruction = instruction.replaceAll(/{/g, '')
+                instruction = instruction.replaceAll(/}/g, '')
                 if (instruction.indexOf('chart') >= 0) {
                     let parts = instruction.split('.')
                     let timeFrame = parts[1]
@@ -300,8 +300,8 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
             TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, nodeWithCode.name, nodeWithCode.code, undefined)
 
             tradingSystem.addError([nodeWithCode.id, message, docs])
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
-            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runSimulation -> addCodeToSnapshot -> err = ' + err.stack)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] addCodeToSnapshot -> nodeWithCode.code = ' + nodeWithCode.code)
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] addCodeToSnapshot -> err = ' + err.stack)
         }
     }
 
@@ -394,6 +394,7 @@ exports.newAlgorithmicTradingBotModulesSnapshots = function(processIndex) {
                 }
 
                 function parseRecord(record) {
+                    // BUG: if a user defined record value is used in the settings then they don't come out well, don't know how to fix this. But it isn't a dealbreaker
                     // if we have undefined values, we need to extract the previous stored values for this trade and append them to the new record for completion
                     if (record[record.length - 1] === undefined && contentArray.length > 0) {
 

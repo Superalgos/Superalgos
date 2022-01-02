@@ -4,28 +4,56 @@
     "type": "Automating Actions - Using the Workspace",
     "definition": {
         "text": "The workspace object will give you access to all the hierarchies of nodes, and once there you will be able to manipulate those structures at will.",
-        "updated": 1614941811976
+        "updated": 1614941811976,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Объект рабочего пространства даст вам доступ ко всем иерархиям узлов, и, попав туда, вы сможете манипулировать этими структурами по своему усмотрению.",
+                "updated": 1640764865030
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "You can access to the workspace object in this way:",
-            "updated": 1614931075101
+            "updated": 1614931075101,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете получить доступ к объекту рабочего пространства таким образом:",
+                    "updated": 1640764880192
+                }
+            ]
         },
         {
             "style": "Javascript",
-            "text": "UI.projects.foundations.spaces.designSpace.workspace",
+            "text": "UI.projects.workspaces.spaces.designSpace.workspace",
             "updated": 1614931100393
         },
         {
             "style": "Text",
             "text": "Check for the functions defined at thisObject what can be useful in your case. ",
-            "updated": 1614931205528
+            "updated": 1614931205528,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте, какие функции, определенные в thisObject, могут быть полезны в вашем случае.",
+                    "updated": 1640764901852
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "It is not very common to use the Workspace object from an Action, since you have access to the rootNodes array directly as a parameter of your Action function. Useful Workspace function for this use case might be:",
-            "updated": 1614931466216
+            "updated": 1614931466216,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование объекта Workspace из Action не очень распространено, поскольку вы имеете доступ к массиву rootNodes непосредственно как к параметру вашей функции Action. Полезной функцией Workspace для этого случая может быть:",
+                    "updated": 1640764922490
+                }
+            ]
         },
         {
             "style": "List",

@@ -11,8 +11,13 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Задачи обмена данными организует задачи интеллектуального анализа данных по обмену. Т.е. каждая биржа, установленная в системе, умеет узел Задач обмена данными, объединяющий все задачи рыночных данных, соответствующие указанной бирже.",
-                "updated": 1635591907050
+                "text": "Узел Exchange Data Tasks организует задачи интеллектуального анализа данных по бирже. Т.е. каждая биржа, установленная в системе, умеет узел Exchange Data Tasks, объединяющий все задачи рыночных данных, соответствующие указанной бирже.",
+                "updated": 1638358984303
+            },
+            {
+                "language": "TR",
+                "text": "Borsa veri görevleri düğümü, borsaya göre veri madenciliği görevlerini düzenler. Yani, sistemde kurulu olan her borsa, söz konusu borsaya karşılık gelen tüm piyasa verileri görevlerini gruplayan bir borsa verileri görevleri düğümüne sahiptir.",
+                "updated": 1639120723421
             }
         ]
     },
@@ -23,11 +28,35 @@
         },
         {
             "style": "Text",
-            "text": "The exchange data tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange."
+            "text": "The exchange data tasks node must reference the exchange of choice. This reference constraints the rest of the definitions to the context of the said exchange.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Exchange Data Tasks должен ссылаться на выбранную биржу. Эта ссылка ограничивает остальные определения контекстом упомянутой биржи.",
+                    "updated": 1638359117939
+                },
+                {
+                    "language": "ES",
+                    "text": "El nodo de Exchange Data Tasks debe hacer referencia al Exchange elegido. Esta referencia limita el resto de definiciones al contexto de dicho Exchange.",
+                    "updated": 1641092155389
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo."
+            "text": "When representing an exchange featured in the system's icons library, the standard exchange data tasks icon is replaced by the exchange's logo.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При использовнии биржи, представленной в библиотеке значков системы, стандартный значок задач обмена данными заменяется логотипом биржи.",
+                    "updated": 1638358906400
+                },
+                {
+                    "language": "ES",
+                    "text": "Cuando se representa un Exchange que se encuentra en la biblioteca de íconos del sistema, el ícono estándar del Exchange Data Tasks se reemplaza por logo del Exchange elegido.",
+                    "updated": 1641092171894
+                }
+            ]
         },
         {
             "style": "Block",

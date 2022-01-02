@@ -8,20 +8,32 @@
         "translations": [
             {
                 "language": "RU",
-                "text": "Узлы - это объекты, которые существуют в рабочих пространствах и могут быть визуализированы в the Design Space. Узлы могут быть присоединены друг к другу, образуя иерархические структуры.\n",
-                "updated": 1635514669410
+                "text": "Nodes - это объекты (узлы), которые существуют в рабочих пространствах и могут быть визуализированы в Design Space. Узлы могут быть присоединены друг к другу, образуя иерархические структуры.",
+                "updated": 1638455705419
             },
             {
                 "language": "DE",
                 "text": "Nodes sind Objekte, die im Workspace existieren und im Design Space visualisiert werden können. Nodes können miteinander verbunden/referenziert werden, um hierarchische Strukturen zu bilden.",
                 "updated": 1636744729977
+            },
+            {
+                "language": "TR",
+                "text": "Düğümler, çalışma alanlarında bulunan ve Tasarım Alanının görselleştirilmesine yarayan nesnelerdir. Düğümler hiyerarşik yapılar oluşturarak birbirine eklenebilir.",
+                "updated": 1639119352639
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638354976902
+                }
+            ]
         }
     ]
 }

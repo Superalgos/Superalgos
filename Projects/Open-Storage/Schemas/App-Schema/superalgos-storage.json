@@ -1,0 +1,50 @@
+{
+    "type": "Superalgos Storage",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Storage Container",
+            "relatedUiObject": "Storage Container",
+            "relatedUiObjectProject": "Open-Storage"
+        },      
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->User Storage->"
+    },
+    "propertyNameAtParent": "superalgosStorage",
+    "childrenNodesProperties": [
+        {
+            "name": "storageContainers",
+            "type": "array",
+            "childType": "Storage Container",
+            "autoAdd": false
+        }
+    ]
+}

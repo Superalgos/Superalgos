@@ -7,24 +7,84 @@
             "name": "Time\\time-frame",
             "project": "Foundations"
         },
-        "text": "The 4H chart showed a clear shift in the trend after the breakdown, but... what about the long-term? Let's check the daily chart!"
+        "text": "The 4H chart showed a clear shift in the trend after the breakdown, but... what about the long-term? Let's check the daily chart!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der 4H-Chart zeigt eine klare Trendwende nach dem Zusammenbruch, aber... wie sieht es langfristig aus? Werfen wir einen Blick auf den Tages-Chart!",
+                "updated": 1639252940834
+            },
+            {
+                "language": "TR",
+                "text": "Özet: 4 saatlik grafik, düşüşten sonra trendde net bir değişim gösterdi, ancak... peki ya uzun vadeli? Günlük grafiği kontrol edelim!",
+                "updated": 1640947962763
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Find the April 10th candle and take a minute to think of what it meant&mdash;in the big picture&mdash;what we just analyzed in the lower time frames. This is what I see:"
+            "text": "Find the April 10th candle and take a minute to think of what it meant&mdash;in the big picture&mdash;what we just analyzed in the lower time frames. This is what I see:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie die Kerze vom 10. April und nehmen Sie sich eine Minute Zeit, um darüber nachzudenken, was sie im großen Bild bedeutet - was wir gerade in den unteren Zeitrahmen analysiert haben. Ich sehe das so:",
+                    "updated": 1639252957612
+                },
+                {
+                    "language": "TR",
+                    "text": "10 Nisan mumunu bulun ve daha düşük zaman dilimlerinde az önce analiz ettiğimiz şeyin büyük resimde ne anlama geldiğini düşünmek için bir dakikanızı ayırın. Benim gördüğüm şu:",
+                    "updated": 1640948082107
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The walk: The ranging period we saw from the 7th until the 10th of April was in fact a little walk on the daily upper band. By the BB rules, this means that price is relatively high in this time frame."
+            "text": "The walk: The ranging period we saw from the 7th until the 10th of April was in fact a little walk on the daily upper band. By the BB rules, this means that price is relatively high in this time frame.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Wanderung: Die Schwankungsperiode, die wir vom 7. bis zum 10. April gesehen haben, war in der Tat ein kleiner Spaziergang auf dem oberen Tagesband. Nach den BB-Regeln bedeutet dies, dass der Preis in diesem Zeitrahmen relativ hoch ist.",
+                    "updated": 1639252969821
+                },
+                {
+                    "language": "TR",
+                    "text": "İlerleyiş: 7'den 10 Nisan'a kadar gördüğümüz değişen dönem, aslında günlük üst bantta biraz ilerleme oldu. BB kurallarına göre bu, bu zaman diliminde fiyatın nispeten yüksek olduğu anlamına gelir.",
+                    "updated": 1640948168912
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Pullback: The breakdown in the lower time frames marked the pullback from the daily upper band."
+            "text": "Pullback: The breakdown in the lower time frames marked the pullback from the daily upper band.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Rückschlag: Der Zusammenbruch in den unteren Zeitrahmen markierte den Pullback vom oberen Tagesband.",
+                    "updated": 1639252984757
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri Çekilme: alt zaman dilimlerindeki kırılma, günlük üst banttan geri çekilmeyi işaret etti.",
+                    "updated": 1640948190508
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Continuation: The price action in the larger time frame ended up being a normal pullback and continuation, barely crossing the moving average."
+            "text": "Continuation: The price action in the larger time frame ended up being a normal pullback and continuation, barely crossing the moving average.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fortsetzung: Die Kursbewegung im größeren Zeitrahmen endete als normaler Rückzug und Fortsetzung, wobei der gleitende Durchschnitt kaum überschritten wurde.",
+                    "updated": 1639253028336
+                },
+                {
+                    "language": "TR",
+                    "text": "Devam: Daha geniş bir zaman dilimindeki fiyat hareketi, hareketli ortalamayı zar zor geçerek normal bir geri çekilme ve devam etme haline geldi.",
+                    "updated": 1640948209405
+                }
+            ]
         }
     ]
 }

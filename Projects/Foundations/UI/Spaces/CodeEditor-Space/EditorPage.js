@@ -85,6 +85,10 @@ function newFoundationsCodeEditorEditorPage() {
         }
 
         createCurrentEditorModel()
+        // Ensure proper code formatting
+        monacoEditor.getAction('editor.action.formatDocument').run();
+
+
     }
 
 
@@ -99,6 +103,8 @@ function newFoundationsCodeEditorEditorPage() {
                 payload.node.code = monacoEditor.getValue()
             })
         } else if (thisObject.editorType === codeEditorType.CONFIG) {
+
+            // monacoEditor.setModel(monaco.editor.createModel(JSON.stringify(payload.node.config, null, 4), "json"))
             monacoEditor.setModel(monaco.editor.createModel(payload.node.config, "json"))
             //Update config values
             monacoEditor.getModel().onDidChangeContent(function () {
@@ -232,7 +238,7 @@ function newFoundationsCodeEditorEditorPage() {
         let dot = '.'
         let numberOfPreviousSuffixes = 5
 
-        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+        UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Data Mine') {
                 // Getting all the Javascript code nodes into one single model
                 UI.projects.visualScripting.utilities.branches.nodeBranchToArray(node, 'Procedure Javascript Code').forEach(node => {
@@ -321,12 +327,12 @@ function newFoundationsCodeEditorEditorPage() {
                 })
             } else if (node.type === 'Trading Engine') {
                 // Create an object representation for the engine
-                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
+                tradingEngineObj = {tradingEngine: UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, false, false, false, false, undefined)}
             }
         })
 
         // Enrich chart data with market and exchange structure
-        UI.projects.foundations.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
+/*        UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes.forEach(node => {
             if (node.type === 'Crypto Ecosystem') {
                 node.cryptoExchanges.forEach(cxs => {
                     cxs.exchanges.forEach(exchange => {
@@ -336,19 +342,21 @@ function newFoundationsCodeEditorEditorPage() {
                             let baseAsset = marketPair.split('/')[0]
                             let quotedAsset = marketPair.split('/')[1]
                             stringObjects.forEach(chartObj => {
-                                /**
+                                /!**
                                  * We will provide auto-complete only for assets pair found in Markets
                                  * Doing so we will avoid providing completion for assets that are not used in a market
-                                 */
+                                 *!/
+
+                                    //TODO: Disabled on purpose, causes high memory consumption when multiple exchanges are loaded
                                 let market = marketPrefix + baseAsset + dot + quotedAsset + dot + chartObj
-                                stringObjects.push(market)
-                                stringObjects.push(exchangePrefix + exchangeName + dot + market)
+                                // stringObjects.push(market)
+                                // stringObjects.push(exchangePrefix + exchangeName + dot + market)
                             })
                         })
                     })
                 })
             }
-        })
+        })*/
 
         //Actually building the objects for chart, market and exchange, no need for multiple objects, as one is enough for the autocomplete to work
         stringObjects.forEach(stringRepresentation => {

@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Antes de que puedas crear una estrategia comercial, primero debe tener una idea comercial clara y comprobable.",
                 "updated": 1630376694793
+            },
+            {
+                "language": "DE",
+                "text": "Bevor Sie eine Trading Strategy entwickeln können, müssen Sie zunächst eine klare und überprüfbare Handelsidee entwickeln.",
+                "updated": 1639251297105
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Stratejisi ( Trading Strategy ) oluşturmadan önce, net ve test edilebilir bir ticaret fikri bulmanız gerekir.",
+                "updated": 1640858579634
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Una idea trading es un precursor de una estrategia comercial. Si bien una estrategia completa implica las reglas para tomar, administrar y salir de una posición, una idea trading se ocupa únicamente del primero de esos aspectos.",
                     "updated": 1630376730606
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Handelsidee ist der Vorläufer einer Trading Strategy. Während eine vollständige Strategie die Regeln für das Eingehen, Verwalten und Verlassen einer Position enthält, befasst sich eine Trading-Idee nur mit dem ersten dieser Punkte.",
+                    "updated": 1639251307779
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret fikri, bir ticaret stratejisinin habercisidir. Eksiksiz bir strateji, bir pozisyonu alma, yönetme ve pozisyondan çıkma kurallarını içerirken, bir ticaret fikri sadece bu konulardan ilkiyle ilgilenir.",
+                    "updated": 1640858655481
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Probar una idea trading antes de comprometerse a construir una estrategia completa es el enfoque lógico porque administrar y salir de las entradas fallidas no es lo que debería apuntar.",
                     "updated": 1630376759318
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist logisch, eine Handelsidee zu testen, bevor Sie eine vollständige Strategie entwickeln, denn das Verwalten und Verlassen von fehlgeschlagenen Eingängen ist nicht das, was Sie anstreben sollten!",
+                    "updated": 1639251321051
+                },
+                {
+                    "language": "TR",
+                    "text": "Eksiksiz bir strateji oluşturmaya karar vermeden önce bir ticaret fikrini test etmek mantıklı bir yaklaşımdır çünkü hedeflediğiniz şey başarısız girişleri yönetmek ve bunlardan çıkmak değildir!",
+                    "updated": 1640858741535
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "Este tutorial explica cómo formular correctamente una idea trading que luego se puede probar.",
                     "updated": 1630376776923
+                },
+                {
+                    "language": "DE",
+                    "text": "In diesem Lehrgang wird erklärt, wie man eine Handelsidee richtig formuliert, die später getestet werden kann.",
+                    "updated": 1639251327572
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu eğitim, daha sonra test edilebilecek bir ticaret fikrinin nasıl düzgün bir şekilde formüle edileceğini açıklar.",
+                    "updated": 1640858782623
                 }
             ]
         }

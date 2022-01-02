@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Wenn Sie kein Entwickler sind oder sich mit Git oder GitHub nicht auskennen, hat sich der vorherige Schritt wahrscheinlich wie Kauderwelsch angehört! Ich weiß!",
                 "updated": 1635150468856
+            },
+            {
+                "language": "RU",
+                "text": "Если вы не являетесь разработчиком или не знакомы с Git или GitHub, предыдущий шаг, вероятно, звучит как тарабарщина! Я знаю!",
+                "updated": 1640162229929
+            },
+            {
+                "language": "TR",
+                "text": "Bir geliştirici değilseniz veya Git veya GitHub'a aşina değilseniz, önceki adım muhtemelen anlamsız geldi! Biliyorum!",
+                "updated": 1640628612883
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Git ist ein Open-Source-Versionskontrollsystem, das für die Zusammenarbeit entwickelt wurde. Es ist ein Industriestandard.",
                     "updated": 1635150475794
+                },
+                {
+                    "language": "RU",
+                    "text": "Git - это система контроля версий с открытым исходным кодом, предназначенная для совместной работы. Это промышленный стандарт.",
+                    "updated": 1640162267159
+                },
+                {
+                    "language": "TR",
+                    "text": "Git, işbirliğini yönetmek için tasarlanmış açık kaynaklı bir sürüm kontrol sistemidir. Bu bir endüstri standardıdır.",
+                    "updated": 1640628667802
                 }
             ]
         },
@@ -74,6 +94,16 @@
                     "language": "DE",
                     "text": " Im vorherigen Schritt wurden die technischen Schritte beschrieben, die für eine funktionierende Zusammenarbeit erforderlich sind, und es wurden einige grundlegende Normen eingehalten, damit Ihre Arbeit nicht die Arbeit anderer Leute durcheinanderbringt!",
                     "updated": 1635150483066
+                },
+                {
+                    "language": "RU",
+                    "text": "В предыдущем шаге подробно описаны технические шаги, необходимые для совместной работы, соблюдение некоторых основных норм, чтобы ваша работа не испортила работу других людей!",
+                    "updated": 1640162289947
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir önceki adım, işbirliğinin çalışması için gerekli teknik adımların ayrıntılarını verir, bazı temel normları karşılar, böylece çalışmanız diğer insanların işlerini bozmaz!",
+                    "updated": 1640628702616
                 }
             ]
         },
@@ -98,6 +128,16 @@
                     "language": "DE",
                     "text": " Wenn Sie sich mit Git auskennen, steht es Ihnen jederzeit frei zu entscheiden, welcher Arbeitsablauf für Sie am besten geeignet ist!",
                     "updated": 1635150489801
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы понимаете Git, вы всегда можете решить, какой способ работы лучше для вас!",
+                    "updated": 1640162323336
+                },
+                {
+                    "language": "TR",
+                    "text": "Git'i anladıysanız, sizin için en iyi iş akışının hangisi olduğuna karar vermekte her zaman özgürsünüz!",
+                    "updated": 1640628735839
                 }
             ]
         },

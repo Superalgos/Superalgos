@@ -15,6 +15,16 @@
                 "text": "Si no tiene tokens en tu Governance Address, entonces tienes cero Token Power!¡Pero no te preocupes! ¡Trabajaremos en algo!",
                 "updated": 1630897494092,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Если в вашем управленческом адресе Governance Address нет токенов, значит, у вас нулевая сила токенов! Но не волнуйтесь! Мы что-нибудь придумаем!",
+                "updated": 1639052059931
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie keine Token in Ihrer Governance Address haben, dann haben Sie auch keine Token Power! Aber mach dir keine Sorgen! Wir werden uns etwas einfallen lassen!",
+                "updated": 1640080875292
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "text": "Si tienes algun Token Powero no, observe que ahora hay 0% de Token Power entrando en el Onboarding Programs y 100% entrando en el Community Building Programs! ¡Las compuertas cerradas, el flujo va a otra parte! ¡También puedes jugar con porcentajes!",
                     "updated": 1630897759311,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Независимо от того, есть ли у вас Token Power или нет, обратите внимание, что теперь 0% Token Power идет на программы Onboarding Programs и 100% идет на программы Community Building Programs! Шлюзы закрыты, поток уходит в другое место! Вы тоже можете играть с процентами!",
+                    "updated": 1639052318418
+                },
+                {
+                    "language": "DE",
+                    "text": "Ob Sie nun Token Power haben oder nicht, beachten Sie, dass jetzt 0% der Token Power in die Onboarding Programs und 100% in die Community Building Programs fließen! Die Schleusen sind geschlossen, der Strom fließt woanders hin! Sie können auch mit Prozentsätzen spielen!",
+                    "updated": 1640080911231
                 }
             ]
         },
@@ -42,6 +62,16 @@
                     "text": "Es probable que no tengas Token Power para cumplir con el tercer requisito para participar en el Community Building Programs, ¡vamos a delegar algo de poder a todos los perfiles de usuario en esta versión!",
                     "updated": 1630897892512,
                     "style": "Important"
+                },
+                {
+                    "language": "RU",
+                    "text": "А теперь вот хорошая новость... Поскольку есть вероятность, что у вас нет Token Power для выполнения третьего требования для участия в программах Community Building Programs, мы собираемся делегировать некоторые полномочия всем профилям пользователей User Profiles в этом выпуске! Я позабочусь об этом, так что забудь об этом!",
+                    "updated": 1639052440897
+                },
+                {
+                    "language": "DE",
+                    "text": "Jetzt kommt die gute Nachricht... Da die Wahrscheinlichkeit groß ist, dass Sie keine Token Power haben, um die dritte Voraussetzung für die Teilnahme an den Community Building Programs zu erfüllen, werden wir in dieser Version etwas Macht an alle Benutzerprofile delegieren! Wir kümmern uns darum, also vergesst es!",
+                    "updated": 1640080927268
                 }
             ]
         }

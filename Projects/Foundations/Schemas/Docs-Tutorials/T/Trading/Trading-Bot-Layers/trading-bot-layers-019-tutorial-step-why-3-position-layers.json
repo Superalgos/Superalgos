@@ -4,24 +4,72 @@
     "type": "Tutorial Step - Why 3 Position Layers?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "position"
+            "name": "Position/position",
+            "project": "Foundations"
         },
         "text": "Did you notice there are three different layers about positions? \"Position\", \"Position Base Asset\", and \"Position Quoted Asset\"!",
-        "updated": 1622541670733
+        "updated": 1622541670733,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Haben Sie bemerkt, dass es drei verschiedene Ebenen zu Positionen gibt? \"Position\", \"Position Base Asset\" und \"Position Quoted Asset\"!",
+                "updated": 1639142976803
+            },
+            {
+                "language": "RU",
+                "text": "Вы заметили, что есть три разных слоя о позициях? \" Position\", \"Position Base Asset\", и \"Position Quoted Asset\"!",
+                "updated": 1640547310056
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I'll give you the short version:"
+            "text": "I'll give you the short version:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich gebe Ihnen die Kurzversion:",
+                    "updated": 1639142998677
+                },
+                {
+                    "language": "RU",
+                    "text": "Я расскажу вам коротко:",
+                    "updated": 1640547333604
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The system keeps the accounts relative to both the base asset and the quoted asset. It also keeps a consolidated account of both assets (hence, position). What set of accounts is relevant to you depends on how the strategy is designed!"
+            "text": "The system keeps the accounts relative to both the base asset and the quoted asset. It also keeps a consolidated account of both assets (hence, position). What set of accounts is relevant to you depends on how the strategy is designed!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System führt die Konten sowohl in Bezug auf den Basiswert als auch auf den notierten Wert. Es führt auch ein konsolidiertes Konto für beide Vermögenswerte (daher \"Position\"). Welcher Kontensatz für Sie relevant ist, hängt davon ab, wie die Strategie konzipiert ist!",
+                    "updated": 1639143024440
+                },
+                {
+                    "language": "RU",
+                    "text": "Система ведет учет по отношению как к базовому, так и к котируемому активу. Она также ведет объединенный счет обоих активов (следовательно, позицию). Какой набор счетов актуален для вас, зависит от того, как разработана стратегия!",
+                    "updated": 1640547367408
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Reading this documentation page is a must to fully understand this concept."
+            "text": "Reading this documentation page is a must to fully understand this concept.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Die Lektüre dieser Dokumentationsseite ist ein Muss, um dieses Konzept vollständig zu verstehen.",
+                    "updated": 1639143017209
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтение этой страницы документации является обязательным для полного понимания этой концепции.",
+                    "updated": 1640547379935
+                }
+            ]
         }
     ]
 }

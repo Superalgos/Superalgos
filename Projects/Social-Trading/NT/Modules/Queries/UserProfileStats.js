@@ -18,9 +18,9 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
         Validate User Profile
         */
         if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(queryReceived.targetUserProfileId)
+            thisObject.profile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(queryReceived.targetUserProfileId)
         } else {
-            thisObject.profile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            thisObject.profile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.get(queryReceived.targetUserProfileHandle)
         }
         
         if (thisObject.profile === undefined) {

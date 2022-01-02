@@ -2,12 +2,26 @@
     "type": "Collapse Structure of Nodes",
     "definition": {
         "text": "Clicking the minus button collapses the structure, hiding offspring nodes. This also has the effect of releasing CPU resources as the system stops calculating their position and status. In general, it is good practice to keep hierarchies closed when not being actively worked on.",
-        "updated": 1610029022595
+        "updated": 1610029022595,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Нажатие кнопки «минус» сворачивает структуру, скрывая дочерние узлы. Это также приводит к высвобождению ресурсов ЦП, поскольку система перестает вычислять их положение и статус. В общем, рекомендуется держать иерархии закрытыми, когда над ними не ведется активная работа.",
+                "updated": 1638280901710
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования.",
+                    "updated": 1638280916055
+                }
+            ]
         }
     ]
 }

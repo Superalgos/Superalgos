@@ -15,6 +15,21 @@
                 "text": "¡Github.com aumenta la clasificación de búsqueda de proyectos cuando tienen muchas estrellas, bifurcaciones y personas observando el repositorio!",
                 "updated": 1630892401029,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Github.com, izleyen çok kişi olduğunda, çok sayıda yıldız verildiğinde ve çok çatallandığında projelerin arama sıralamasını yükseltir!",
+                "updated": 1637441112883
+            },
+            {
+                "language": "RU",
+                "text": "Github.com поднимает поисковый рейтинг проектов, когда у них много звезд, форков и людей, наблюдающих за репозиторием!",
+                "updated": 1639048698999
+            },
+            {
+                "language": "DE",
+                "text": "Github.com erhöht das Suchranking von Projekten, wenn sie viele Sterne, Forks und Leute haben, die das Repository beobachten!",
+                "updated": 1640078659226
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "¡Por eso les pedimos que ayuden de esta manera! Al completar esas tres tareas, está ayudando de manera efectiva a más desarrolladores a encontrar Superalgos.",
                     "updated": 1632016358401,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu yüzden sizden bu şekilde yardım etmenizi rica ediyoruz! Bu üç görevi tamamlayarak, daha fazla geliştiricinin Superalgos'u bulmasına etkili bir şekilde yardımcı olursunuz.",
+                    "updated": 1637441142172
+                },
+                {
+                    "language": "RU",
+                    "text": "Поэтому мы просим вас помочь в этом! Выполняя эти три задачи, вы эффективно помогаете большему количеству разработчиков найти Superalgos.",
+                    "updated": 1639048715523
+                },
+                {
+                    "language": "DE",
+                    "text": " Deshalb bitten wir Sie, auf diese Weise zu helfen! Indem Sie diese drei Aufgaben erfüllen, helfen Sie effektiv mehr Entwicklern, Superalgos zu finden.",
+                    "updated": 1640078669433
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Ahora, así es como funciona del lado de Superalgos:",
                     "updated": 1630892460301,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yaptığınızda Superalgos tarafında ise işler şöyle yürüyor:",
+                    "updated": 1637441187044
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот как это работает со стороны Superalgos:",
+                    "updated": 1639048771573
+                },
+                {
+                    "language": "DE",
+                    "text": "Nun, so funktioniert es auf der Seite von Superalgos:",
+                    "updated": 1640078675944
                 }
             ]
         },
@@ -55,6 +100,21 @@
                     "text": "Se verifica el repositorio y si tu cuenta de Github tiene una estrella, una bifurcación y/o un reloj.",
                     "updated": 1630892612043,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem depoyu kontrol eder ve Github hesabınızda projeye yıldız verip vermediğinizi, çatallayıp çatallamadığınızı ve izleme listenize alıp almadığınızıkontrol ederek doğrular.",
+                    "updated": 1637441329067
+                },
+                {
+                    "language": "RU",
+                    "text": "Система проверяет, есть ли у вашей учетной записи Github звездочка, форк и / или наблюдаете ли вы за репозиторием.",
+                    "updated": 1639048896415
+                },
+                {
+                    "language": "DE",
+                    "text": "Das System prüft das Repository und verifiziert, ob Ihr Github-Konto einen Stern, einen Fork und/oder eine Watch hat.",
+                    "updated": 1640078684333
                 }
             ]
         },
@@ -68,6 +128,21 @@
                     "text": "Hay un límite de 1.000 SA para cada uno de estos incentivos. Puedes obtener hasta SA 3.000.",
                     "updated": 1630892707618,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu işlemlerin her biri için 1.000 SA'lık bir üst sınır vardır. Bu, katılımınızı en üst düzeye çıkarırsanız, ( her 3 görevide tamamlarsanız ) 3.000' SA'lık bir ödül alacağınız anlamına gelir.",
+                    "updated": 1637441420349
+                },
+                {
+                    "language": "RU",
+                    "text": "Для каждого из этих стимулов существует ограничение в размере 1000 SA. Это означает, что вы можете получить до 3000 SA, если максимизируете свое участие.",
+                    "updated": 1639049367596
+                },
+                {
+                    "language": "DE",
+                    "text": "Für jeden dieser Anreize gibt es eine Obergrenze von 1.000 SA. Das bedeutet, dass Sie bis zu 3.000 SA erhalten können, wenn Sie Ihre Teilnahme maximieren.",
+                    "updated": 1640078698700
                 }
             ]
         },
@@ -80,6 +155,21 @@
                     "language": "ES",
                     "text": "Es posible que no se refleje de inmediato. Github limita la cantidad de consultas que realiza el sistema. Obtendrás tus tokens de todos modos.",
                     "updated": 1632024032825
+                },
+                {
+                    "language": "TR",
+                    "text": "Github, sistemin yaptığı sorgu sayısını sınırladığı için bu, sisteme hemen yansımayabilir. Endişelenme, yine de Token'larını alacaksın.",
+                    "updated": 1637441467662
+                },
+                {
+                    "language": "RU",
+                    "text": "Это может не сразу отразиться в системе, поскольку Github ограничивает количество запросов, которые делает система. Не волнуйтесь, вы все равно получите свои токены.",
+                    "updated": 1639049397684
+                },
+                {
+                    "language": "DE",
+                    "text": "Es kann sein, dass sich dies nicht sofort im System widerspiegelt, da Github die Anzahl der Abfragen des Systems begrenzt. Keine Sorge, Sie werden Ihre Token trotzdem erhalten.",
+                    "updated": 1640078707694
                 }
             ]
         }

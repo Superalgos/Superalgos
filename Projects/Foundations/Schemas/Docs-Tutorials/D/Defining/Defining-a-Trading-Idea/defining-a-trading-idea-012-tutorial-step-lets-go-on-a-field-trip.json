@@ -7,16 +7,52 @@
             "name": "Tutorial\\tutorial",
             "project": "Foundations"
         },
-        "text": "The rest of this tutorial is about putting into practice what we just discussed!"
+        "text": "The rest of this tutorial is about putting into practice what we just discussed!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Im weiteren Verlauf dieses Tutorials geht es darum, das eben Besprochene in die Praxis umzusetzen!",
+                "updated": 1639252008668
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu öğreticinin geri kalanı, az önce tartıştıklarımızı uygulamaya koymakla ilgilidir!",
+                "updated": 1640869463819
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "We'll take a deep dive into the charts, learn a thing or two about a specific indicator, and try to come up with a proper trading idea that we can test in the next tutorial!"
+            "text": "We'll take a deep dive into the charts, learn a thing or two about a specific indicator, and try to come up with a proper trading idea that we can test in the next tutorial!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir werden tief in die Charts eintauchen, ein oder zwei Dinge über einen bestimmten Indikator lernen und versuchen, eine richtige Handelsidee zu entwickeln, die wir im nächsten Tutorial testen können!",
+                    "updated": 1639252018026
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiklere derinlemesine bir göz atacağız, belirli bir gösterge hakkında bir iki şey öğreneceğiz ve bir sonraki öğreticide test edebileceğimiz uygun bir ticaret fikri bulmaya çalışacağız!",
+                    "updated": 1640869580201
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Buckle up! I foresee a few sharp turns ahead!"
+            "text": "Buckle up! I foresee a few sharp turns ahead!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schnallen Sie sich an! Ich sehe ein paar scharfe Kurven voraus!",
+                    "updated": 1639252025934
+                },
+                {
+                    "language": "TR",
+                    "text": " Önemli: Kemerlerinizi bağlayın! İleride birkaç keskin dönüş öngörüyorum!",
+                    "updated": 1640869613037
+                }
+            ]
         }
     ]
 }

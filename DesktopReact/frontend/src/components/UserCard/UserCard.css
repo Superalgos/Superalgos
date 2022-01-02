@@ -1,0 +1,30 @@
+.followButton {
+    margin: 0.5rem;
+    width: 7rem;
+    max-height: 1.5rem;
+}
+
+.userCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.avatar {
+    height: 3rem !important;
+    width: 3rem !important;
+}
+
+.usernameCard {
+    width: 100%;
+    max-width: 8rem;
+}
+
+.username {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

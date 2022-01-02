@@ -21,7 +21,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         /* First we setup everything so as to listen to the response from the Task Server */
         let eventSubscriptionIdOnStatus
@@ -65,7 +65,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             return
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
 
@@ -100,7 +100,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         let lightingPath = '' +
         'Portfolio System->' +
         'Events Manager->' +
-        'Raise Event Rules->Raise Event Reference->Confirm Event Rules->Confirm Event Reference->' +
+        'Set Event Rules->Set Event Reference->Confirm Event Rules->Confirm Event Reference->' +
         'Formulas Manager->Confirm Formula Rules->Confirm Formula Reference->' +
         'Set Formula Rules->Set Formula Reference->' +
         'Situation->Condition->' +
@@ -245,7 +245,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             stopManagedSessions(node.managedSessions);
         }
 
-        let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
+        let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(lanNetworkNode.id)
 
         let key = node.name + '-' + node.type + '-' + node.id
         eventsServerClient.raiseEvent(key, 'Stop Portfolio Session')

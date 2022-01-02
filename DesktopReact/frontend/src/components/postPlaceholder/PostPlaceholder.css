@@ -1,15 +1,10 @@
 .postPlaceholder {
-    width: 39rem;
-    padding: 0.5rem;
+    width: 40rem;
 }
 
 .postPlaceholderContainer {
     min-width: 100%;
     max-width: 100%;
-}
-
-.postPlaceholderInputBoxContainer {
-
 }
 
 .postPlaceholderAvatar {
@@ -27,7 +22,7 @@
 
 .postPlaceholderInputBox {
     width: auto;
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0rem;
 }
 
 .postFeedAccountCircle {

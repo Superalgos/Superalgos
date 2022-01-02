@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Beachten Sie, dass nicht alle Knoten die ganze Zeit ausgewertet werden! Nur diejenigen, die sich in der aktiven Phase befinden, werden ausgewertet!",
                 "updated": 1639145699828
+            },
+            {
+                "language": "RU",
+                "text": "Обратите внимание, что не все узлы вычисляются постоянно! Только те, которые находятся в активной стадии!",
+                "updated": 1640631384638
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Dies ist eine kurze Auffrischung der Strategiephasen! Wenn Sie die Dokumente über Handelssysteme und -strategien noch nicht gelesen haben, sollten Sie sich die Zeit nehmen und dies nachholen!",
                     "updated": 1639145715393
+                },
+                {
+                    "language": "RU",
+                    "text": "Это краткий обзор этапов стратегии! Если вы еще не читали документацию по торговым системам и стратегиям, то найдите время и сделайте это!",
+                    "updated": 1640631404560
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass diese Bedingungen für die Kerzen innerhalb der Position nicht hervorgehoben sind.",
                     "updated": 1639145727621
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что эти условия не выделены для свечей внутри позиции.",
+                    "updated": 1640631424384
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Das liegt daran, dass Sie die Trigger Stage-Definitionen betrachten. Diese Definitionen werden ausgewertet, bis eine Strategie ausgelöst wird. Sobald diese ausgelöst wurde, beginnt die Open Stage, und so weiter!",
                     "updated": 1639145749193
+                },
+                {
+                    "language": "RU",
+                    "text": "Это происходит потому, что вы смотрите на определения этапа Trigger Stage. Эти определения вычисляются до тех пор, пока не сработает стратегия. После срабатывания начинается этап Open Stage, и так далее!",
+                    "updated": 1640631499087
                 }
             ]
         }

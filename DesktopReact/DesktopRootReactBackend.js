@@ -22,7 +22,7 @@ exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
         */
         global.SA = {}
         /* Load Environment Variables */
-        let ENVIRONMENT = require('./Environment.js');
+        let ENVIRONMENT = require('../Environment.js');
         let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
         global.env = ENVIRONMENT_MODULE
 
@@ -36,7 +36,7 @@ exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
         /* 
         Setting up the modules that will be available, defined at the Project Schema file. 
         */
-        let MULTI_PROJECT = require('./MultiProject.js');
+        let MULTI_PROJECT = require('../MultiProject.js');
         let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
         MULTI_PROJECT_MODULE.initialize(DK, 'DK')
         MULTI_PROJECT_MODULE.initialize(SA, 'SA')
@@ -57,17 +57,17 @@ exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
             graphql: require("@octokit/graphql"),
             axios: require('axios')
         }
-        SA.version = require('./package.json').version
+        SA.version = require('../package.json').version
         /*
         Setting up Secrets.
         */
-        let SECRETS = require('./Secrets.js').newSecrets()
+        let SECRETS = require('../Secrets.js').newSecrets()
         SECRETS.initialize()
 
         run()
 
         async function run() {
-            DK.app = require('./DesktopReact/DesktopAppBackend.js').newDesktopAppBackend()
+            DK.app = require('./DesktopAppBackend.js').newDesktopAppBackend()
             await DK.app.run()
             console.log('Superalgos Desktop Backend App is Running!')
         }

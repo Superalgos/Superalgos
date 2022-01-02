@@ -640,12 +640,72 @@
                                     "id": "f8a56ff5-14d0-418b-a306-a7781d5db7a0",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 20169.9268621145,
-                                            "y": 44120.84229475829
+                                            "x": 21453.073051533946,
+                                            "y": 46352.63768001691
                                         },
                                         "targetPosition": {
-                                            "x": 20086.876208687045,
-                                            "y": 44409.117491341814
+                                            "x": 21134.875,
+                                            "y": 46034.43962848296
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "Lantschirky Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "8f945352-9574-4889-80bc-546718fec142",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 21134.875,
+                                            "y": 46484.43962848296
+                                        },
+                                        "targetPosition": {
+                                            "x": 21134.875,
+                                            "y": 46034.43962848296
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Position",
+                                    "name": "SSChana Team Token Pool",
+                                    "config": "{}",
+                                    "project": "Governance",
+                                    "positions": [],
+                                    "positionClasss": [],
+                                    "id": "e94ede1c-a841-439a-b6b3-d93b9da9acf6",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 20816.676948466054,
+                                            "y": 46352.63768001691
+                                        },
+                                        "targetPosition": {
+                                            "x": 21134.875,
+                                            "y": 46034.43962848296
                                         },
                                         "floatingObject": {
                                             "isPinned": false,

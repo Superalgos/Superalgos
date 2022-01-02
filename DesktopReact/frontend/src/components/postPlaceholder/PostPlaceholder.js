@@ -11,12 +11,13 @@ const PostPlaceholder = ({reloadPostCallback}) => {
 
     const onButtonClick = async () => {
         let {result} = await createPost({postText: postText}).then(response => response.json());
-        console.log({status})
         if (result === STATUS_OK) {
-            reloadPostCallback();
-        } else {
-            setOpen(true);
+            console.log(reloadPostCallback)
+            reloadPostCallback && reloadPostCallback();
+            return;
         }
+        setOpen(true);
+
     }
 
     const handleChange = (event) => {
@@ -68,7 +69,7 @@ const PostPlaceholder = ({reloadPostCallback}) => {
                     </Stack>
                 </Card>
             </div>
-            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Snackbar open={ open} autoHideDuration={6000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity="error" sx={{width: '100%'}}>
                     Failed to post message!
                 </Alert>

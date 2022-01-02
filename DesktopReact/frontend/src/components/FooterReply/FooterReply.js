@@ -3,7 +3,7 @@ import "./FooterReply.css"
 import {Avatar, Button, Collapse, Divider, Stack, TextField, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png";
 
-const FooterReply = ({show}) => {
+const FooterReply = () => {
     // review, some states may not needed
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -20,7 +20,7 @@ const FooterReply = ({show}) => {
     }
 
     return (
-        <Collapse in={show}>
+        <>
             <Divider/>
             <div className="footerReply">
                 <Stack className="footerReplyStack" direction="row">
@@ -51,7 +51,7 @@ const FooterReply = ({show}) => {
                     </Button>
                 </Stack>
             </div>
-        </Collapse>
+        </>
     );
 };
 

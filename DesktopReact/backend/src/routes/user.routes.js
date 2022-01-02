@@ -19,4 +19,8 @@ router
   .route('/profile')
   .post(userController.editProfile);
 
+  router
+  .route('/paginate-profiles')
+  .post(userController.paginateProfiles)
+
 module.exports = router;

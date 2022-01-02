@@ -8,8 +8,7 @@ const PostModal = ({show, close}) => {
         <div>
             {show ?
                 <Modal open={show}
-                       onClose={close}
-                >
+                       onClose={close}>
                     <Box className="modalContainer">
                         <PostPlaceholder/>
                     </Box>

@@ -60,7 +60,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebSocketClient()
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.isConnected = true
     }
 
@@ -157,7 +157,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
                             */
-                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.userProfileHandle) {
+                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle) {
                                 console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
                                 reject()
                                 return
@@ -227,7 +227,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)

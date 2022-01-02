@@ -75,9 +75,9 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
 
                 function onError(err) {
                     if (err !== undefined) {
-                        console.log('[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
+                        console.log('[ERROR] P2P Network Peers -> onError -> While connecting to node -> ' + peer.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name + ' -> ' + err.message)
                     } else {
-                        console.log('[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name)
+                        console.log('[WARN] P2P Network Peers -> onError -> Peer Not Available at the Moment -> ' + peer.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + peer.p2pNetworkNode.node.name)
                     }
                 }
 

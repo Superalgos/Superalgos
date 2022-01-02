@@ -373,6 +373,11 @@
                     "language": "RU",
                     "text": "Напоминание относительно вкладов",
                     "updated": 1640259487348
+                },
+                {
+                    "language": "ES",
+                    "text": "Recordatorio para las contribuciones",
+                    "updated": 1641152056362
                 }
             ]
         },
@@ -389,6 +394,11 @@
                     "language": "RU",
                     "text": "Переключение ветки и обновление перед началом работы",
                     "updated": 1640258741017
+                },
+                {
+                    "language": "ES",
+                    "text": "Cambiar de Rama y Actualizar antes de empezar",
+                    "updated": 1641152071203
                 }
             ]
         },
@@ -410,6 +420,11 @@
                     "language": "RU",
                     "text": "Все вклады в исходный код должны быть отправлены в ветку Develop. Убедитесь, что вы обновились до последней версии в новой ветке и что все, что вы отправляете, работает правильно в этой версии.",
                     "updated": 1638296052202
+                },
+                {
+                    "language": "ES",
+                    "text": "Todas las contribuciones a los Docs y Plugins deben ser remitidas a la rama Plugins-Docs. Todas las contribuciones a la base de código deben remitirse a la rama Develop. Asegúrate de actualizar a la última versión en la nueva rama y de que todo lo que estás remitiendo funciona correctamente en esa versión.",
+                    "updated": 1641152198635
                 }
             ]
         },
@@ -422,6 +437,11 @@
                     "language": "RU",
                     "text": "Ветка Plugins-Docs является УСТАРЕВШЕЙ. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram.",
                     "updated": 1640258801426
+                },
+                {
+                    "language": "ES",
+                    "text": "La rama Plugins-Docs está DESACTUALIZADA. Todas las contribuciones van ahora a la rama de desarrollo. Si tienes consultas al respecto, no dudes en preguntar en los grupos de Telegram.",
+                    "updated": 1641152280044
                 }
             ]
         },
@@ -438,6 +458,11 @@
                     "language": "RU",
                     "text": "Переключение ветки",
                     "updated": 1640258766048
+                },
+                {
+                    "language": "ES",
+                    "text": "Cambiar de Rama",
+                    "updated": 1641152319909
                 }
             ]
         },
@@ -455,6 +480,11 @@
                     "language": "RU",
                     "text": "Чтобы переключиться в ветку разработки:",
                     "updated": 1638294977472
+                },
+                {
+                    "language": "ES",
+                    "text": "Para cambiar a la rama plugins-docs(-outdated) o a la rama develop:",
+                    "updated": 1641152385697
                 }
             ]
         },
@@ -471,6 +501,11 @@
                     "language": "RU",
                     "text": "Перейти в нижний колонтитул этой страницы.",
                     "updated": 1638294992609
+                },
+                {
+                    "language": "ES",
+                    "text": "Ir al pie de esta página.",
+                    "updated": 1641152414610
                 }
             ]
         },
@@ -488,6 +523,11 @@
                     "language": "RU",
                     "text": "Выберите Develop под заголовком Contributions Branch.",
                     "updated": 1638295021031
+                },
+                {
+                    "language": "ES",
+                    "text": "Seleccione Develop o Master (sólo si se le dice específicamente que cambie a la rama Master) bajo el título Contributions Branch.",
+                    "updated": 1641152459965
                 }
             ]
         },
@@ -505,6 +545,11 @@
                     "language": "RU",
                     "text": "Затем выберите Develop под заголовком Choose the Current Branch.",
                     "updated": 1638295062350
+                },
+                {
+                    "language": "ES",
+                    "text": "A continuación, seleccione Develop o Master (sólo si se le dice específicamente que cambie a la rama Master) bajo el título Choos the Current Branch.",
+                    "updated": 1641152516623
                 }
             ]
         },
@@ -522,6 +567,11 @@
                     "language": "RU",
                     "text": "Следуйте инструкциям, чтобы закрыть и перезапустить приложение.",
                     "updated": 1638295087147
+                },
+                {
+                    "language": "ES",
+                    "text": "Siga las instrucciones para cerrar y reiniciar la App.",
+                    "updated": 1641152535058
                 }
             ]
         },
@@ -533,6 +583,11 @@
                     "language": "RU",
                     "text": "Обновление до последней версии",
                     "updated": 1640259506132
+                },
+                {
+                    "language": "ES",
+                    "text": "Actualizar a la Ultima Versión.",
+                    "updated": 1641152590734
                 }
             ]
         },
@@ -550,6 +605,11 @@
                     "language": "RU",
                     "text": "Запустите команду App Update Command, введя ее в поле поиска в верхней части документов.",
                     "updated": 1638295176725
+                },
+                {
+                    "language": "ES",
+                    "text": "Ejecute el comando de actualización de la App escribiéndolo en el campo de búsqueda en la parte superior de los Docs.",
+                    "updated": 1641152668196
                 }
             ]
         },
@@ -570,6 +630,11 @@
                     "language": "RU",
                     "text": "Закройте приложение и перезапустите.",
                     "updated": 1638295242408
+                },
+                {
+                    "language": "ES",
+                    "text": "Cierre la App y reiníciela.",
+                    "updated": 1641152712052
                 }
             ]
         },
@@ -581,6 +646,11 @@
                     "language": "RU",
                     "text": "За пределами учебника по основам",
                     "updated": 1640259660134
+                },
+                {
+                    "language": "ES",
+                    "text": "Tutorial \"Beyond the Basics\"",
+                    "updated": 1641152725909
                 }
             ]
         },
@@ -598,6 +668,11 @@
                     "language": "RU",
                     "text": "Прежде чем идти дальше, ознакомьтесь с учебником Beyond the Basics в рабочем пространстве плагина Getting Started, чтобы изучить основы работы с вкладом из приложения. Учебное пособие поможет вам правильно настроить вашу работу, чтобы ваши вклады были безупречными.",
                     "updated": 1640249646861
+                },
+                {
+                    "language": "ES",
+                    "text": "Antes de seguir avanzando, haga el tutorial \"Beyond the Basics\" en el espacio de trabajo del plugin \"Getting Started\" para aprender lo básico sobre cómo manejar las contribuciones desde la aplicación. El tutorial le ayudará a configurar correctamente las contribuciones para que sean impecables.",
+                    "updated": 1641152787057
                 }
             ]
         },

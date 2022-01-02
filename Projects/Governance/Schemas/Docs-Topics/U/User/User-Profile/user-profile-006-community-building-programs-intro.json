@@ -4,7 +4,14 @@
     "type": "Community Building Programs Intro",
     "definition": {
         "text": "Help us build a strong and healthy Community!",
-        "updated": 1630494969779
+        "updated": 1630494969779,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Ayúdanos a construir una comunidad  (Community) fuerte y saludable!",
+                "updated": 1640959012632
+            }
+        ]
     },
     "paragraphs": [
         {

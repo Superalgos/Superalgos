@@ -1,0 +1,69 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 47,
+    "type": "Tutorial Step - Deciphering Errors",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "Can not read property \"direction\" of undefined. What is that all about?",
+        "updated": 1617191618477,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Eigenschaft \"direction\" von undefined kann nicht gelesen werden. Was hat es damit auf sich?",
+                "updated": 1639267819848
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the proper procedure to unpack an error message and understand what it is about:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist das richtige Verfahren, um eine Fehlermeldung auszupacken und zu verstehen, worum es geht:",
+                    "updated": 1639267831451
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You know when the error happened: keep that in mind, as the error is solely related to the candle where it happened!",
+            "updated": 1612639274562,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie wissen, wann der Fehler aufgetreten ist: Merken Sie sich das, denn der Fehler bezieht sich ausschließlich auf die Kerze, an der er aufgetreten ist!",
+                    "updated": 1639267839307
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You know which node caused the error: it is likely the definition in the node that caused the error, either in the code of the associated Javascript Code node, the Formula, or the configuration.",
+            "updated": 1622487845254,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie wissen, welcher Knoten den Fehler verursacht hat: Es ist wahrscheinlich die Definition in dem Knoten, der den Fehler verursacht hat, entweder im Code des zugehörigen Javascript Code Knotens, der Formel ( Formula ) oder der Konfiguration.",
+                    "updated": 1639267871676
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "You know the error message: read it carefully and make the connection with the two previous clues!",
+            "updated": 1612639305533,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sie kennen die Fehlermeldung: Lesen Sie sie aufmerksam und stellen Sie die Verbindung zu den beiden vorherigen Hinweisen her!",
+                    "updated": 1639267879588
+                }
+            ]
+        }
+    ]
+}

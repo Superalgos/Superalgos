@@ -1,0 +1,43 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 80,
+    "type": "Tutorial Step - Take Position Conditions!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "bot-data-dependencies"
+        },
+        "text": "The take position conditions require that two consecutive 1H candles close below the lower Bollinger Band!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Take-Position-Bedingungen erfordern, dass zwei aufeinanderfolgende 1H-Kerzen unterhalb des unteren Bollinger Bandes schließen!",
+                "updated": 1639391585181
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That is quite easy to check! We've got the first close of the trigger stage at 9hs, after the 7hs and 8hs candles closed below the lower band. So, far, so good!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist ganz einfach zu überprüfen! Wir haben den ersten Abschluss der Trigger Stage bei 9hs, nachdem die 7hs und 8hs Kerzen unterhalb des unteren Bandes geschlossen haben. So weit, so gut!",
+                    "updated": 1639391592557
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "We have four more consecutive hourly closes below the lower band! On each of them, the condition of two consecutive closes below the lower band is true! Now that we understand what we see on this chart, let's discuss what this means for our trading idea!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir haben vier weitere aufeinanderfolgende stündliche Schlusskurse unterhalb des unteren Bandes! Bei jeder von ihnen ist die Bedingung von zwei aufeinanderfolgenden Schlusskursen unterhalb des unteren Bandes erfüllt! Nachdem wir nun verstanden haben, was wir auf diesem Chart sehen, wollen wir diskutieren, was dies für unsere Handelsidee bedeutet!",
+                    "updated": 1639391600196
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,91 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 68,
+    "type": "Tutorial Step - Let's Get On The Same Page",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "bot-data-dependencies"
+        },
+        "text": "I just brought you to the one hour chart! Before discussing what we see here, let's take a minute to organize your chart.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ich habe Sie soeben zum Stundendiagramm gebracht! Bevor wir besprechen, was wir hier sehen, sollten wir uns eine Minute Zeit nehmen, um Ihr Diagramm zu ordnen.",
+                "updated": 1639390328831
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "That way I can make sure you see the same things I see!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Auf diese Weise kann ich sicherstellen, dass Sie die gleichen Dinge sehen wie ich!",
+                    "updated": 1639390338979
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Bollinger Data layer manager: Turn everything off but the Bollinger Bands layers.",
+            "updated": 1622489215220,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bollinger Data layer manager: Schalten Sie alles aus, bis auf die Bollinger Bands Ebenen.",
+                    "updated": 1639390433103
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Simulation Objects layer manager: Turn everything off but the \"Strategies\" and \"Trigger Stages\" layers.",
+            "updated": 1622489292671,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Simulation Objects layer manager: Schalten Sie alles bis auf die Ebenen \"Strategies\" und \"Trigger Stages\" aus.",
+                    "updated": 1639390442381
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading System layer manager: Turn everything off but the \"Trading System Errors\", \"Highlights\", and \"Values\" layers.",
+            "updated": 1622489280401,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading System layer manager: Deaktivieren Sie alles bis auf die Ebenen \"Trading System Errors\", \"Highlights\" und \"Values\".",
+                    "updated": 1639390448071
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Trading Engine layer manager: Turn everything off.",
+            "updated": 1622489241076,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading System layer manager:  Schalten Sie alles aus.",
+                    "updated": 1639390456259
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The next video shows what I see... and what you should!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das nächste Video zeigt, was ich sehe... und was Sie sehen sollten!",
+                    "updated": 1639390349810
+                }
+            ]
+        }
+    ]
+}

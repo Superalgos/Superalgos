@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 45,
+    "type": "Tutorial Step - Manage and Close",
+    "definition": {
+        "icon": {
+            "name": "Position\\position",
+            "project": "Foundations"
+        },
+        "text": "Those were the trigger and open stages. Let's look into the manage and close stages!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das waren die Trigger Stage und die Open Stage. Schauen wir uns nun die Manage Stage und die Close Stage an!",
+                "updated": 1639418421799
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Manage Stage: Opens together with the open stage, and remains open while the price bounces around below the stop loss and above the take position target. When the 22 hs candle on Mar 2nd tags the stop loss target, the manage stage closes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Manage Stage: Wird zusammen mit der Open Stage eröffnet und bleibt offen, während der Kurs unter dem Stop Loss und über dem Ziel für die Positionsübernahme schwankt. Wenn die 22-Stunden-Kerze am 2. März das Stop-Loss-Ziel markiert, wird die Manage Stage geschlossen.",
+                    "updated": 1639418430645
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Close Stage: Opens after the tagging of the stop loss, and closes one hour later (!?) after placing the market buy order!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Close Stage: Eröffnet nach der Markierung des Stop Loss und schließt eine Stunde später (!?) nach der Platzierung der Marktkauforder!",
+                    "updated": 1639418438809
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "The one hour later mystery again... Take a minute to reflect on this behavior.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Geheimnis von einer Stunde später... Nehmen Sie sich eine Minute Zeit, um über dieses Verhalten nachzudenken.",
+                    "updated": 1639418446057
+                }
+            ]
+        }
+    ]
+}

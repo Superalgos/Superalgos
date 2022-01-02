@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 79,
+    "type": "Tutorial Step - Trigger On Conditions!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "bot-data-dependencies"
+        },
+        "text": "Trigger on conditions require the subchannel direction to be Down and the slope to not be Side at the current 24H candle!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Trigger-On-Bedingungen erfordern, dass die Richtung des Unterkanals abwärts gerichtet ist und die Steigung an der aktuellen 24-Stunden-Kerze nicht seitlich ist!",
+                "updated": 1639391535632
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are looking at 1H candles between 9 and 14 hs, on Feb 28th. Those are the candles on which the strategy is triggering and taking the position. Check for yourself!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir betrachten die 1H-Kerzen zwischen 9 und 14 Uhr am 28. Februar. Das sind die Kerzen, bei denen die Strategie auslöst und die Position einnimmt. Prüfen Sie selbst!",
+                    "updated": 1639391542025
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "What is the current daily candle? Think of what you learned earlier about evaluating closed candles!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was ist die aktuelle Tageskerze? Denken Sie daran, was Sie vorhin über die Bewertung von geschlossenen Kerzen gelernt haben!",
+                    "updated": 1639391550506
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The current daily candle is the one that closed last: the Feb 27th candle, because the Feb 28th candle hasn't closed yet! Go to the 24H chart and confirm that the subchannel is Down and not Side on Feb 27th!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die aktuelle Tageskerze ist diejenige, die zuletzt geschlossen wurde: die Kerze vom 27. Februar, denn die Kerze vom 28. Februar hat noch nicht geschlossen! Gehen Sie zum 24-Stunden-Chart und bestätigen Sie, dass der Unterkanal am 27. Februar nach unten und nicht zur Seite zeigt!",
+                    "updated": 1639391557611
+                }
+            ]
+        }
+    ]
+}

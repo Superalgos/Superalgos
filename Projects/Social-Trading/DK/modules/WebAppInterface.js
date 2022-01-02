@@ -247,9 +247,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
             const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
             const fetch = SA.nodeModules.nodeFetch
-            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
-
-            console.log(url)
+            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName;
 
             fetch(url)
                 .then((response) => {

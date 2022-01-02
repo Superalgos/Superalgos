@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 55,
+    "type": "Tutorial Step - What Am I Missing?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "help"
+        },
+        "text": "That, my friend, is the right question to ask! It's not... What is wrong? But... What am I missing?!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Das, mein Freund, ist die richtige Frage, die man stellen sollte! Es ist nicht... Was ist los? sondern... Was übersehe ich?!",
+                "updated": 1639388912243
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "As I said earlier, many pieces of information need to fall in the right place for things to make sense in a complex world, and algorithmic trading is complex!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie ich bereits sagte, müssen viele Informationen an der richtigen Stelle zusammenkommen, damit die Dinge in einer komplexen Welt einen Sinn ergeben, und der algorithmische Handel ist komplex!",
+                    "updated": 1639388924178
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "To succeed at building strategies, you must develop the intuition to ask yourself that question whenever things are not going your way!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um bei der Entwicklung von Strategien erfolgreich zu sein, müssen Sie die Intuition entwickeln, sich diese Frage zu stellen, wenn die Dinge nicht so laufen, wie Sie wollen!",
+                    "updated": 1639388931778
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "But don't be disheartened! I'll show you all the tricks I know so that you master algo-trading!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie sich aber nicht entmutigen! Ich zeige Ihnen alle Tricks, die ich kenne, damit Sie den Algo-Handel meistern!",
+                    "updated": 1639388940032
+                }
+            ]
+        }
+    ]
+}

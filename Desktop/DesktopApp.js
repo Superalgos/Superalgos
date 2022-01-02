@@ -1,7 +1,7 @@
 exports.newDesktopApp = function newDesktopApp() {
 
     let thisObject = {
-        userProfiles: undefined,
+        appBootstrapingProcess: undefined,
         p2pNetworkClientIdentity: undefined,
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
@@ -30,8 +30,8 @@ exports.newDesktopApp = function newDesktopApp() {
             /*
             We will read all user profiles plugins and get from there our network identity.
             */
-            thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-            await thisObject.userProfiles.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClientIdentity)
+            thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
+            await thisObject.appBootstrapingProcess.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClientIdentity)
             /*
             We set up the P2P Network.
             */

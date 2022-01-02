@@ -4,7 +4,14 @@
     "type": "The Airdrop Program",
     "definition": {
         "text": "Superalgos does an airdrop on each release of the software! We wish to welcome you and everyone in the Community onboard and grant you your first few tokens so that you may participate in governance.",
-        "updated": 1630487391797
+        "updated": 1630487391797,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos hace un airdrop en cada versión del software. Deseamos darle la bienvenida a usted y a todos en su llegada a la Community y le otorguams sus primeros tokens para que pueda participar en la gobernanza.",
+                "updated": 1640958895537
+            }
+        ]
     },
     "paragraphs": [
         {

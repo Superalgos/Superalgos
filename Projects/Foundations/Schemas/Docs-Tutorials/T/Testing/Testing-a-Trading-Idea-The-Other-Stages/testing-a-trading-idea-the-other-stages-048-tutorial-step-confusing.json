@@ -1,0 +1,46 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Confusing?",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
+        },
+        "text": "Don't worry! You'll get used to this level of feedback from the LF Trading Bot, and will certainly get to appreciate it!",
+        "updated": 1612715858929,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Aber keine Sorge! Sie werden sich an dieses Maß an Feedback vom LF Trading Bot gewöhnen und es sicherlich zu schätzen lernen!",
+                "updated": 1639418531967
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "With this level of feedback, you won't ever need to dive into obscure log files or bang your head against the wall trying to figure out what the bot is doing, or why things don't happen as you would expect.",
+            "updated": 1612715954517,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Mit diesem Maß an Feedback müssen Sie nie wieder in obskuren Logdateien stöbern oder mit dem Kopf gegen die Wand schlagen, um herauszufinden, was der Bot tut oder warum Dinge nicht so ablaufen, wie Sie es erwarten würden.",
+                    "updated": 1639418543437
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "Intuitions about what the Trading Bot should or should not do are often simplistic. It took deep analysis and several iterations to get the bot to handle orders consistently in the myriads of situations that may emerge while trading.",
+            "updated": 1612716228900,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Intuitionen darüber, was der Trading Bot tun oder nicht tun sollte, sind oft zu einfach. Es bedurfte einer gründlichen Analyse und mehrerer Iterationen, um den Bot dazu zu bringen, Aufträge in den unzähligen Situationen, die beim Handel auftreten können, konsistent abzuwickeln.",
+                    "updated": 1639418553222
+                }
+            ]
+        }
+    ]
+}

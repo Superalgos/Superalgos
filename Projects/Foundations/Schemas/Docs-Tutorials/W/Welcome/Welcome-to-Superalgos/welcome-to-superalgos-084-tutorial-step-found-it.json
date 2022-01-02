@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Auf diese Weise macht die Trading Engine alle vom Trading Bot verarbeiteten Informationen für Handelssysteme verfügbar.",
                 "updated": 1634226260355
+            },
+            {
+                "language": "TR",
+                "text": "Alım Satım Motoru (Trading Engine ), Alım Satım Botu ( Trading Bot ) tarafından işlenen her türlü bilgiyi alım satım sistemlerine bu şekilde aktarır.",
+                "updated": 1636377270492
             }
         ]
     },
@@ -49,12 +54,17 @@
                     "language": "DE",
                     "text": "Es gibt einen Pfad zu jedem Datenelement, und wenn Sie den Pfad kennen, können Sie von jeder Formula oder Condition in einer Trading Strategy auf die Daten zugreifen. Lassen Sie uns einen kurzen Test durchführen:",
                     "updated": 1634226270054
+                },
+                {
+                    "language": "TR",
+                    "text": "Her veri parçasının bir yolu vardır ve bu yol ile bir Ticaret Stratejisindeki ( Trading Strategy ) herhangi bir Formül ( Formula ) veya Koşuldan ( Condition ) verilere erişebilirsiniz. Hızlı bir kontrol yapalım:",
+                    "updated": 1639225101766
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Open the menu of the Exit Target Rate node to the left, and click Copy Node Path. Now, open a text editor and paste what you copied.",
+            "text": "Access the menu of the Exit Target Rate node to the left, and click \"Copy node path\". Now, open an external text editor and paste what you copied.",
             "translations": [
                 {
                     "language": "IT",
@@ -72,8 +82,14 @@
                     "language": "DE",
                     "text": "Öffnen Sie das Menü des Knotens Exit Target Rate auf der linken Seite, und klicken Sie auf Copy Node Path. Öffnen Sie nun einen Texteditor und fügen Sie den kopierten Text ein.",
                     "updated": 1634226278604
+                },
+                {
+                    "language": "TR",
+                    "text": "Soldaki Çıkış Hedef Hızı düğümünün (Exit Target Rate) menüsüne erişin ve \"Düğüm yolunu kopyala\"yı tıklayın. Şimdi harici bir metin düzenleyici açın ve kopyaladığınızı yapıştırın.",
+                    "updated": 1639225333761
                 }
-            ]
+            ],
+            "updated": 1636911911813
         },
         {
             "style": "Text",
@@ -95,6 +111,11 @@
                     "language": "DE",
                     "text": "Fertig! So greifen Formeln und Bedingungen auf die Informationen zu... Wie sieht es mit Menschen aus?",
                     "updated": 1634226301372
+                },
+                {
+                    "language": "TR",
+                    "text": "Tamam! Formüller ve koşullar bilgiye böyle ulaşır... Peki ya insanlar?",
+                    "updated": 1636377423892
                 }
             ]
         }

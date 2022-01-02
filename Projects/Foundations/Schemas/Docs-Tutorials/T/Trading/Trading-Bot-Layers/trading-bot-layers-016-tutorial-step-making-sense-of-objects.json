@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Making Sense of Objects",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "layer"
+            "name": "Layer/layer",
+            "project": "Foundations"
         },
         "text": "The layers in the Simulation Objects layer manager feature visual representations of the data that makes up simulations.",
         "translations": [
@@ -14,6 +14,11 @@
                 "text": "Die Layer im Simulationsobjekte Layer-Manager enthalten visuelle Darstellungen der Daten, aus denen die Simulationen bestehen.",
                 "updated": 1623014535902,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Слои в менеджере слоев Simulation Objects содержат визуальные представления данных, из которых состоят симуляции.",
+                "updated": 1640546939644
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Mit anderen Worten: Jeder dieser Layer rendert Grafiken über die Charts, die uns helfen, die Vorgänge während einer Trading Session zu visualisieren und somit besser zu verstehen.",
                     "updated": 1623014566732,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Другими словами, каждый из этих слоев отображает графические изображения на графиках, которые помогают нам визуализировать - а значит, лучше понять - то, что происходит во время торговой сессии.",
+                    "updated": 1640546987970
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Jeder Layer kann Plotter Panels enthalten, die normalerweise die harten Daten anzeigen, die mit dem Konzept verbunden sind, das durch den jeweiligen Layer dargestellt wird.",
                     "updated": 1623014589613,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждый слой может иметь панели плоттера, которые обычно отображают сложные данные, связанные с концепцией, представленной конкретным слоем.",
+                    "updated": 1640547067597
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Beachte, dass die Daten im Plotter Panel nur dann sichtbar werden, wenn der Mauszeiger innerhalb der vom Objekt umschlossenen Kerzen liegt.",
                     "updated": 1623014615169,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что данные на панели становятся видимыми только тогда, когда указатель мыши находится в пределах свечи, охваченной объектом.",
+                    "updated": 1640628266138
                 }
             ]
         }

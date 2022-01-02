@@ -2,23 +2,51 @@
     "type": "API Path Parameters",
     "definition": {
         "text": "API Path Parameters are embedded as part of an URL path. They allow you to specify the unique path to your endpoint.",
-        "updated": 1622771530317
+        "updated": 1622771530317,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "API Path Parameters встроены как часть пути URL. Они позволяют указать уникальный путь к вашей конечной точке.",
+                "updated": 1638628818802
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "How to identify API Path Parameters",
-            "updated": 1622772536805
+            "updated": 1622772536805,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как определить API Path Parameters",
+                    "updated": 1638628858672
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The API you are trying to map should have it's API Path Parameters documented. If not, check any examples they may provide for how to request the data and see if there are inner folders below the main folder of the API Enpoint. Each one of these folders are an API Path Parameter that needs to be defined.",
-            "updated": 1622772590217
+            "updated": 1622772590217,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "API, который вы пытаетесь сопоставить, должен иметь задокументированные параметры пути API. Если нет, проверьте любые примеры, которые они могут предоставить для запроса данных, и посмотрите, есть ли внутренние папки под основной папкой API Enpoint. Каждая из этих папок представляет собой параметр пути к API, который необходимо определить.",
+                    "updated": 1638628888293
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "As with everything else in Superalgos, node children are considered clockwise. This is important because it will affect the order in which Superalgos builds the URL request you will send to the API.",
-            "updated": 1622773291926
+            "updated": 1622773291926,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и во всем остальном в Superalgos, дочерние узлы рассматриваются по часовой стрелке. Это важно, потому что это повлияет на порядок, в котором Superalgos создает URL-запрос, который вы отправите в API.",
+                    "updated": 1638628966941
+                }
+            ]
         },
         {
             "style": "Text",

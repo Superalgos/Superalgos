@@ -201,7 +201,7 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                 if (recordProperty.apiResponseFieldReference !== undefined) {
                                     if (recordProperty.apiResponseFieldReference.referenceParent !== undefined) {
                                         let apiResponseField = recordProperty.apiResponseFieldReference.referenceParent
-                                        let endpointNodeFound = TS.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
+                                        let endpointNodeFound = SA.projects.visualScripting.utilities.nodeFunctions.findNodeInNodeMesh(apiResponseField, 'API Endpoint')
                                         /*
                                         Every Record Property with an apiResponseFieldReference must be on the path 
                                         to a certain endpoint.

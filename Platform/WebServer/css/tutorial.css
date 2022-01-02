@@ -9,6 +9,7 @@ background-color: #fdfdfd;
 -webkit-transition-duration: 1s;
 transition-duration: 1s;
 caret-color: transparent;
+cursor: grab;
 }
 
 .tutorial-summary {
@@ -28,6 +29,7 @@ font-weight: bold;
 .tutorial-content-div {
     overflow-y: auto;
     overflow-x: clip;
+    cursor: auto;
 }
 
 ::-webkit-scrollbar {
@@ -238,11 +240,11 @@ min-width: 100px;
 }
 
 .tutorial-form {
-padding: 5px;
+padding: 0px;
 border: solid 0px;
 margin-left: auto;
 margin-right: auto;
-margin-bottom: 20px;
+margin-top: 15px;
 width: 100%;
 -webkit-transition-duration: 1s;
 transition-duration: 1s;

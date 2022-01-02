@@ -1,0 +1,65 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 58,
+    "type": "Tutorial Step - Candle Properties",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
+        },
+        "text": "We have direct access to the properties of candles, and the value of the close is available at the close property.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir haben direkten Zugriff auf die Eigenschaften von Kerzen, und der Wert des Schlusskurses ist über die Eigenschaft close verfügbar.",
+                "updated": 1639389239481
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This makes accessing the close value of the candle quite straightforward:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies macht den Zugriff auf den Close-Wert der Kerze recht einfach:",
+                    "updated": 1639389247382
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Declare the time frame: <br/>chart.at01hs.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Deklarieren Sie den Zeitrahmen: chart.at01hs.",
+                    "updated": 1639389258126
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Followed by product and property: <br/>candle.close",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gefolgt von Produkt und Eigenschaft: candle.close",
+                    "updated": 1639389274487
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "That was the easy bit! Let's tackle the Bollinger Bands bit!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das war der einfache Teil! Jetzt geht's an die Bollinger Bands!",
+                    "updated": 1639389284404
+                }
+            ]
+        }
+    ]
+}

@@ -15,6 +15,21 @@
                 "text": "The Referral Program incentiva la promoción del proyecto, ya sea de boca en boca o \"en masa\" a través de artículos, publicaciones en redes sociales, videos y otras formas de marketing de influencia.",
                 "updated": 1630895504666,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Referans Programı ( Referral Program ), makaleler, sosyal medya gönderileri, videolar ve diğer etkileyici pazarlama biçimleri aracılığıyla ağızdan ağza veya “topluca” projenin tanıtımını teşvik eder!",
+                "updated": 1637444132208
+            },
+            {
+                "language": "RU",
+                "text": "Реферальная программа Referral Program стимулирует продвижение проекта из уст в уста или «массово» через статьи, сообщения в социальных сетях, видео и другие формы влиятельного маркетинга!",
+                "updated": 1639050000505
+            },
+            {
+                "language": "DE",
+                "text": "Das Empfehlungsprogramm ( Referral Program ) bietet Anreize für die Werbung für das Projekt, entweder durch Mundpropaganda oder \"in Masse\" durch Artikel, Beiträge in sozialen Medien, Videos und andere Formen des Influencer-Marketings!",
+                "updated": 1640079326751
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "Ve a el nodo Community Building Programs y has clic Add Referral Program.",
                     "updated": 1630895549783,
                     "style": "Callout"
+                },
+                {
+                    "language": "TR",
+                    "text": "Topluluk Oluşturma Programları ( Community Building Programs ) düğümüne gidin ve Referans Programı Ekle'yi ( Add Referral Program ) tıklayın.",
+                    "updated": 1637444420032
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в узел Community Building Programs и нажмите Add Referral Program.",
+                    "updated": 1639050045885
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Knoten Community Building Programs und klicken Sie auf <i>Add Referral Program</i>.",
+                    "updated": 1640079348295
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "Primero, aclaremos qué reglas debe cumplir para ganar su Tokens Bonus",
                     "updated": 1630895569223,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Öncelikle, Token Bonusunuzu ( Tokens  Bonus ) kazanmak için hangi kuralları yerine getirmeniz gerektiğini açıklayalım!",
+                    "updated": 1637445298630
+                },
+                {
+                    "language": "RU",
+                    "text": "Во-первых, давайте выясним, какие правила вы должны выполнить, чтобы заработать свой бонус в виде токенов!",
+                    "updated": 1639050059573
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns zunächst klären, welche Regeln Sie erfüllen müssen, um Ihren Token Bonus zu erhalten!",
+                    "updated": 1640079366144
                 }
             ]
         },
@@ -55,6 +100,21 @@
                     "text": "You must deploy the program: ¡Hecho!",
                     "updated": 1630895585097,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Programı dağıtmalısınız: Bitti!",
+                    "updated": 1637445330084
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны развернуть программу: Готово!",
+                    "updated": 1639050074195
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen das Programm bereitstellen: Erledigt!",
+                    "updated": 1640079431424
                 }
             ]
         },
@@ -68,6 +128,21 @@
                     "text": "You must declare your referrer: A continuación.",
                     "updated": 1630895663229,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Seni Superalgos'ayönlendireni beyan etmelisin: Onu sonra yapacağız!",
+                    "updated": 1637445418801
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны указать своего реферера: мы сделаем это дальше!",
+                    "updated": 1639050089422
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen Ihren Referenzgeber angeben: Das machen wir als nächstes!",
+                    "updated": 1640079463169
                 }
             ]
         },
@@ -81,6 +156,21 @@
                     "text": "You must drive Token Power to the program: Wooh .. Token Power... ¿suena genial? ¡Apuesta!",
                     "updated": 1630895638750,
                     "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Token Gücünü ( Token Power ) programa yönlendirmelisiniz: Wayy... jeton gücü...Kulağa hoş geliyor...",
+                    "updated": 1637445579392
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны вбить Token Power в программу: Ух ... сила токена ... звучит аккуратно? Вы делаете ставку!",
+                    "updated": 1639050128437
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie müssen Token Power in das Programm einbringen: Wooh... Token Power... klingt das nicht toll? Und ob!",
+                    "updated": 1640079480513
                 }
             ]
         }

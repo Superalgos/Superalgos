@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Es ist möglich, in eine Dokumentseite eine Hierarchie von nodes einzufügen, die mit einer bestimmten node beginnt und das System herausfinden lässt, welche seine decendents (Nachkommen) sind.",
                 "updated": 1633956472155
+            },
+            {
+                "language": "RU",
+                "text": "На страницу документов можно ввести иерархию узлов, начиная с указанного узла и позволяя системе определить, какие из них являются ее потомками.",
+                "updated": 1638540433364
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Wenn Sie einen Absatz eines Hierarchiestils bearbeiten, erwartet das System, dass Sie dieser Syntax folgen:",
                     "updated": 1633956491604
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы редактируете абзац в стиле иерархии, система ожидает, что вы будете следовать этому синтаксису:",
+                    "updated": 1638540451241
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "project: bezieht sich auf jedes der bereits in Superalgos integrierten Projekte, einschließlich Superalgos selbst.",
                     "updated": 1633956542609
+                },
+                {
+                    "language": "RU",
+                    "text": "Project: относится к любому из проектов, уже интегрированных в Superalgos, включая сам Superalgos.",
+                    "updated": 1638540469634
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Node Type: jeder gültige node-Typ im Kontext des angegebenen Projekts.",
                     "updated": 1633956576457
+                },
+                {
+                    "language": "RU",
+                    "text": "Node Type: любой допустимый тип узла в контексте указанного проекта.",
+                    "updated": 1638540484606
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Levels: die Anzahl der Generationen, die ab dem angegebenen node-typ auf der Dokumentseite dargestellt werden. Die maximale Anzahl von Levels ist 8.",
                     "updated": 1633956653825
+                },
+                {
+                    "language": "RU",
+                    "text": "Levels: количество поколений ниже по потоку, начиная с указанного типа узла, которое будет отображаться на странице документов. Максимальное количество уровней - 8.",
+                    "updated": 1638540575415
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633956666963
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638540585632
                 }
             ]
         },
@@ -84,6 +114,11 @@
                     "language": "DE",
                     "text": "erzeugt das Folgende auf der Docs-Seite:",
                     "updated": 1633956700379
+                },
+                {
+                    "language": "RU",
+                    "text": "на странице документов создает следующее:",
+                    "updated": 1638540704929
                 }
             ]
         },

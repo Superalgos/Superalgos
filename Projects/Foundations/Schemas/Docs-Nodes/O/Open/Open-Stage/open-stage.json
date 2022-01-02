@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "El open stage se ocupa de las definiciones que componen la lógica para ingresar a una posición, incluida la tasa y el tamaño objetivo, y la ejecución de la orden.",
                 "updated": 1624459561011
+            },
+            {
+                "language": "RU",
+                "text": "На стадии Open Stage рассматриваются определения, которые составляют логику входа в позицию, включая целевую ставку и размер, а также исполнение ордеров.",
+                "updated": 1639563932656
+            },
+            {
+                "language": "TR",
+                "text": "Açık aşama, hedef oran,  büyüklük ve emir yürütme dahil olmak üzere bir pozisyona girme mantığını oluşturan tanımlardır.",
+                "updated": 1639224861043
             }
         ]
     },
@@ -17,31 +27,80 @@
         },
         {
             "style": "Text",
-            "text": "The open stage comes into play once the take position event is triggered."
+            "text": "The open stage comes into play once the take position event is triggered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Cтадия открытия Open Stage вступает в игру, как только запуска события Take Position Event.",
+                    "updated": 1639564060390
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Conceptually, the open stage deals with the details concerning how the position shall be opened once the decision to take a position has been made. That is, the open stage does not participate in the process of deciding whether a position should be open or not."
+            "text": "Conceptually, the open stage deals with the details concerning how the position shall be opened once the decision to take a position has been made. That is, the open stage does not participate in the process of deciding whether a position should be open or not.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Концептуально стадия открытия касается деталей, касающихся того, как должна быть открыта позиция после принятия решения о ее открытии. То есть стадия открытая не участвует в процессе принятия решения о том, открывать позицию или нет.",
+                    "updated": 1639564136123
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "To take a position, several definitions are required. In particular, those concerning targets, such as the rate and size of the position, and the logic of the execution strategy, that is, how many of which orders shall be placed at the exchange&mdash;and when&mdash;to enter the position."
+            "text": "To take a position, several definitions are required. In particular, those concerning targets, such as the rate and size of the position, and the logic of the execution strategy, that is, how many of which orders shall be placed at the exchange&mdash;and when&mdash;to enter the position.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы занять позицию, требуется несколько определений. В частности, те, которые касаются целей, таких как ставка и размер позиции, а также логика стратегии исполнения, то есть, сколько ордеров должно быть размещено на бирже и когда входить позицию.",
+                    "updated": 1639564372267
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The open stage closes as soon as one of the following events happen:"
+            "text": "The open stage closes as soon as one of the following events happen:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Стадия открытия завершается, как только произойдет одно из следующих событий:",
+                    "updated": 1639564838893
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "the target size gets filled,"
+            "text": "the target size gets filled,",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "целевой размер заполняется,",
+                    "updated": 1639564582296
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "the close stage event is triggered,"
+            "text": "the close stage event is triggered,",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "запускается событие стадии закрытия,",
+                    "updated": 1639564825000
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "the take profit or stop loss targets are hit."
+            "text": "the take profit or stop loss targets are hit.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "достигнуты целевые значения тейк-профита или стоп-лосса.",
+                    "updated": 1639564862412
+                }
+            ]
         },
         {
             "style": "Include",

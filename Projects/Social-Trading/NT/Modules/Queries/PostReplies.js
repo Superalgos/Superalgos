@@ -63,6 +63,14 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         return response
 
         function addToResponse(post) {
+
+            let profileId
+            if (thisObject.profile.botProfileId !== undefined) {
+                profileId = thisObject.profile.botProfileId
+            } else {
+                profileId = thisObject.profile.userProfileId
+            }
+
             let postResponse = {
                 emitterUserProfileId: post.emitterUserProfileId,
                 targetUserProfileId: post.targetUserProfileId,
@@ -72,8 +80,11 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
+                signalType: post.signalType,
+                signalData: post.signalData,
                 repliesCount: post.replies.size,
-                reactions: Array.from(post.reactions)
+                reactions: Array.from(post.reactions),
+                reaction: post.reactionsByProfile.get(profileId)
             }
             response.push(postResponse)
         }

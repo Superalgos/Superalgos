@@ -1,0 +1,34 @@
+{
+    "topic": "MACD R1 & R2 Data Mine",
+    "pageNumber": 2,
+    "type": "MACD R1 indicator",
+    "definition": {
+        "text": "This indicator produces the MACD R1 buy signals",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MACD R1",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "The MACD R1, of refinement 1 does the following:",
+            "updated": 1611764485658
+        },
+        {
+            "style": "List",
+            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/MACDR1-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "Because of the delayed nature of the indicator it is recommended to use a Take-Proft incase price falls quickly, of course this is up to the user. The underlying calculations uses the standard MACD settings, 12-26-9"
+        }
+    ]
+}

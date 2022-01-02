@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 43,
+    "type": "Tutorial Step - The First Position",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer",
+            "project": "Foundations"
+        },
+        "text": "Remember the Feb 28th case we analyzed in the previous tutorial? This is it! This is the position we got from the rules defined!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Erinnern Sie sich an den Fall vom 28. Februar, den wir im vorigen Lehrgang analysiert haben? Das ist er! Dies ist die Position, die wir durch die definierten Regeln erhalten haben!",
+                "updated": 1639418325323
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Take a moment to study what the simulation object layers show!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich einen Moment Zeit, um zu sehen, was die Simulationsobjektebenen zeigen!",
+                    "updated": 1639418340766
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's turn on a few more Simulation Object layers: Trigger, Open, Manage, and Close Stages!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten wir ein paar weitere Simulationsobjektebenen ein: Trigger, Open, Manage, und Close Stages!",
+                    "updated": 1639418349269
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "We can now see the four stages in action. Take a minute to read and interpret the graphics. Try to follow the timeline implicit in the drawings of the stages. See when and why each stage opens and closes...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Jetzt können wir die vier Phasen in Aktion sehen. Nehmen Sie sich eine Minute Zeit, um die Grafiken zu lesen und zu interpretieren. Versuchen Sie, der Zeitachse zu folgen, die in den Zeichnungen der Phasen enthalten ist. Sehen Sie, wann und warum sich jede Stufe öffnet und schließt...",
+                    "updated": 1639418359279
+                }
+            ]
+        }
+    ]
+}

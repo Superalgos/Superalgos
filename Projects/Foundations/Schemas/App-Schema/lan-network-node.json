@@ -10,44 +10,72 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "dataTasks",
-            "label": "Add Data Tasks",
-            "relatedUiObject": "Data Tasks",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "learningTasks",
-            "label": "Add Learning Tasks",
-            "relatedUiObject": "Learning Tasks",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "testingTradingTasks",
-            "label": "Add Testing Trading Tasks",
-            "relatedUiObject": "Testing Trading Tasks",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
-        },
-        {
-            "action": "Add UI Object",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "productionTradingTasks",
-            "label": "Add Production Trading Tasks",
-            "relatedUiObject": "Production Trading Tasks",
-            "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "action": "Open Menu",
+            "label": "Add Tasks",
+            "iconPathOn": "add-tasks",
+            "iconPathOff": "add-tasks",
+            "menuItems": [
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "dataTasks",
+                    "label": "Add Data Tasks",
+                    "relatedUiObject": "Data Tasks",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "learningTasks",
+                    "label": "Add Learning Tasks",
+                    "relatedUiObject": "Learning Tasks",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "testingTradingTasks",
+                    "label": "Add Testing Trading Tasks",
+                    "relatedUiObject": "Testing Trading Tasks",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "productionTradingTasks",
+                    "label": "Add Production Trading Tasks",
+                    "relatedUiObject": "Production Trading Tasks",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "testingPortfolioTasks",
+                    "label": "Add Testing Portfolio Tasks",
+                    "relatedUiObject": "Testing Portfolio Tasks",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                },
+                {
+                    "action": "Add UI Object",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "productionPortfolioTasks",
+                    "label": "Add Production Portfolio Tasks",
+                    "relatedUiObject": "Production Portfolio Tasks",
+                    "actionFunction": "payload.executeAction",
+                    "actionProject": "Visual-Scripting",
+                    "relatedUiObjectProject": "Foundations"
+                }
+            ]
         },
         {
             "action": "Add UI Object",
@@ -105,6 +133,18 @@
             "name": "productionTradingTasks",
             "type": "node",
             "childType": "Production Trading Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "testingPortfolioTasks",
+            "type": "node",
+            "childType": "Testing Portfolio Tasks",
+            "autoAdd": true
+        },
+        {
+            "name": "productionPortfolioTasks",
+            "type": "node",
+            "childType": "Production Portfolio Tasks",
             "autoAdd": true
         },
         {

@@ -4,23 +4,71 @@
     "type": "Tutorial Step - Remember Flexibility!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "nodes-highlights"
+            "name": "Nodes/nodes-highlights",
+            "project": "Foundations"
         },
-        "text": "A corollary to the previous step is that not everything will make sense to you!"
+        "text": "A corollary to the previous step is that not everything will make sense to you!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Eine logische Folge des vorherigen Schritts ist, dass nicht alles für Sie Sinn machen wird!",
+                "updated": 1639143531263
+            },
+            {
+                "language": "RU",
+                "text": "Следствием предыдущего шага является то, что не все будет иметь для вас смысл!",
+                "updated": 1640627534299
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos is designed and built with flexibility in mind. Different users, different approaches to trading, different strategies, they all have different needs!"
+            "text": "Superalgos is designed and built with flexibility in mind. Different users, different approaches to trading, different strategies, they all have different needs!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos wurde mit dem Gedanken an Flexibilität entwickelt und aufgebaut. Unterschiedliche Nutzer, unterschiedliche Handelsansätze, unterschiedliche Strategien, sie alle haben unterschiedliche Bedürfnisse!",
+                    "updated": 1639143535579
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos разработан и построен по принципу гибкости. Разные пользователи, разные подходы к торговле, разные стратегии - у всех разные потребности!",
+                    "updated": 1640627586981
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "The system doesn't know what your intent is. It provides a set of tools that you need to use wisely for them to make sense!"
+            "text": "The system doesn't know what your intent is. It provides a set of tools that you need to use wisely for them to make sense!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System weiß nicht, was Sie vorhaben. Es stellt Ihnen eine Reihe von Werkzeugen zur Verfügung, die Sie klug einsetzen müssen, damit sie einen Sinn ergeben!",
+                    "updated": 1639143546076
+                },
+                {
+                    "language": "RU",
+                    "text": "Система не знает, каково ваше намерение. Она предоставляет набор инструментов, которые нужно использовать с умом, чтобы они имели смысл!",
+                    "updated": 1640627600923
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Learn to pay attention to the information that is relevant to you and discard what is not!"
+            "text": "Learn to pay attention to the information that is relevant to you and discard what is not!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lernen Sie, auf die Informationen zu achten, die für Sie relevant sind, und verwerfen Sie, was nicht relevant ist!",
+                    "updated": 1639143555745
+                },
+                {
+                    "language": "RU",
+                    "text": "Научитесь обращать внимание на ту информацию, которая имеет для вас значение, и отбрасывать то, что не имеет!",
+                    "updated": 1640627615295
+                }
+            ]
         }
     ]
 }

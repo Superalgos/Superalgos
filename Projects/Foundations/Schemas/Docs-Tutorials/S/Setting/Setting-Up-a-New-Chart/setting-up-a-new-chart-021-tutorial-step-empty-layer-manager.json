@@ -8,7 +8,19 @@
         "icon": {
             "name": "",
             "project": "Foundations"
-        }
+        },
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1638177001607
+            },
+            {
+                "language": "DE",
+                "text": "Mit diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1639152131594
+            }
+        ]
     },
     "paragraphs": [
         {

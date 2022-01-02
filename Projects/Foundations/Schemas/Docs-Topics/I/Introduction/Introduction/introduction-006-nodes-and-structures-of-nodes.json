@@ -4,37 +4,133 @@
     "type": "Nodes and Structures of Nodes",
     "definition": {
         "text": "A node is a small data structure containing information that may be related to market information, trading intelligence, the operation of the system, or other concepts. They are visually represented by icons in the design space.",
-        "updated": 1609946951589
+        "updated": 1609946951589,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Чтобы отсоединить узел, нажмите кнопку отсоединения в меню узла.",
+                "updated": 1638346526207
+            },
+            {
+                "language": "EL",
+                "text": "Για να αποσυνδέσετε έναν κόμβο, κάντε κλικ στο κουμπί αποσύνδεσης στο μενού του κόμβου. Για να επισυνάψετε έναν κόμβο, κάντε δεξί κλικ στον κόμβο και σύρετέ τον πιο κοντά στον κόμβο στον οποίο θέλετε να τον προσαρτήσετε. Αφήστε το δεξί κλικ όταν επισημανθεί ο κόμβος προορισμού.",
+                "updated": 1639092024022
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Structure of Nodes",
-            "updated": 1609946982728
+            "updated": 1609946982728,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Структура узлов",
+                    "updated": 1638274159024
+                },
+                {
+                    "language": "EL",
+                    "text": "Δομή Κόμβων",
+                    "updated": 1638972581810
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Nodes may be chained together forming structures of nodes. In every structure of nodes there is a parent node with offsprings. That is, a structure of nodes is a data structure composed of any node and its offspring."
+            "text": "Nodes may be chained together forming structures of nodes. In every structure of nodes there is a parent node with offsprings. That is, a structure of nodes is a data structure composed of any node and its offspring.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы могут быть связаны вместе, образуя структуры узлов. В каждой структуре узлов есть родительский узел с потомками. То есть структура узлов - это структура данных, состоящая из любого узла и его потомков.",
+                    "updated": 1638274181825
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι μπορούν να συνδεθούν αλυσιδωτά σχηματίζοντας δομές κόμβων. Σε κάθε δομή κόμβων υπάρχει ένας γονικός κόμβος με απογόνους. Δηλαδή, μια δομή κόμβων είναι μια δομή δεδομένων που αποτελείται από οποιονδήποτε κόμβο και τους απογόνους του.",
+                    "updated": 1638972663600
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As a consequence, structures of nodes are hierarchical structures, and a logical representation of how the concepts embodied by each node relate to each other."
+            "text": "As a consequence, structures of nodes are hierarchical structures, and a logical representation of how the concepts embodied by each node relate to each other.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как следствие, структуры узлов являются иерархическими структурами и логическим представлением того, как концепции, воплощенные в каждом узле, соотносятся друг с другом.",
+                    "updated": 1638274209845
+                },
+                {
+                    "language": "EL",
+                    "text": "Κατά συνέπεια, οι δομές των κόμβων είναι ιεραρχικές δομές και μια λογική αναπαράσταση του τρόπου με τον οποίο οι έννοιες που ενσωματώνονται από κάθε κόμβο σχετίζονται μεταξύ τους.",
+                    "updated": 1638972685549
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Parent-Offspring Relationships"
+            "text": "Parent-Offspring Relationships",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отношения между родителями и потомками",
+                    "updated": 1638274225756
+                },
+                {
+                    "language": "EL",
+                    "text": "Σχέσεις Κόμβων Γονέων και Κόμβων Απογόνων",
+                    "updated": 1638972737153
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Nodes in structures of nodes are chained to each other by so-called parent-offspring relationships. These relationships are visually represented by orange dotted lines, which may turn yellow or blue depending on certain visualization properties that the user may control. When nodes are chained together they form structures of nodes."
+            "text": "Nodes in structures of nodes are chained to each other by so-called parent-offspring relationships. These relationships are visually represented by orange dotted lines, which may turn yellow or blue depending on certain visualization properties that the user may control. When nodes are chained together they form structures of nodes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы в структурах узлов связаны друг с другом так называемыми отношениями родитель-потомок. Эти отношения визуально представлены оранжевыми пунктирными линиями, которые могут стать желтыми или синими в зависимости от определенных свойств визуализации, которыми может управлять пользователь. Когда узлы связаны вместе, они образуют структуры узлов.",
+                    "updated": 1638274257862
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι κόμβοι στις δομές των κόμβων συνδέονται μεταξύ τους με τις λεγόμενες σχέσεις γονέα-απογόνου. Αυτές οι σχέσεις αντιπροσωπεύονται οπτικά με πορτοκαλί διακεκομμένες γραμμές, οι οποίες μπορεί να γίνουν κίτρινες ή μπλε ανάλογα με ορισμένες ιδιότητες οπτικοποίησης που μπορεί να ελέγξει ο χρήστης. Όταν οι κόμβοι συνδέονται μεταξύ τους, σχηματίζουν δομές κόμβων.",
+                    "updated": 1638972800112
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The direction of the relationship is determined, in most cases, by the ability of a node to produce the offspring node. That is, the parent node is the one which, by software design, may produce the offspring node."
+            "text": "The direction of the relationship is determined, in most cases, by the ability of a node to produce the offspring node. That is, the parent node is the one which, by software design, may produce the offspring node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Направление взаимосвязи в большинстве случаев определяется способностью узла производить потомок. То есть родительский узел - это тот, который, по замыслу программного обеспечения, может создавать дочерний узел.",
+                    "updated": 1638274291618
+                },
+                {
+                    "language": "EL",
+                    "text": "Η κατεύθυνση της σχέσης καθορίζεται, στις περισσότερες περιπτώσεις, από την ικανότητα ενός κόμβου να παράγει τον κόμβο απόγονο. Δηλαδή, ο γονικός κόμβος είναι αυτός που, από τη σχεδίαση λογισμικού, μπορεί να παράγει τον κόμβο απόγονο.",
+                    "updated": 1638972853901
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "How to Detach and Attach Nodes"
+            "text": "How to Detach and Attach Nodes",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как отсоединить и присоединить узлы",
+                    "updated": 1638274360582
+                },
+                {
+                    "language": "EL",
+                    "text": "Πώς να Αποσυνδέσετε και να Συνδέσετε Κόμβους",
+                    "updated": 1638976596429
+                }
+            ]
         },
         {
             "style": "Include",

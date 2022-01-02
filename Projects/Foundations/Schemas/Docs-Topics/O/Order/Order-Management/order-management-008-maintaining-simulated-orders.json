@@ -4,38 +4,94 @@
     "type": "Maintaining Simulated Orders",
     "definition": {
         "text": "The maintenance of simulated orders follows the same kind of logic as the maintenance of real orders, using definitions in the trading session parameters and in the trading system to complete the required assumption",
-        "updated": 1610222218174
+        "updated": 1610222218174,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Обслуживание смоделированных ордеров следует той же логике, что и обслуживание реальных ордеров, используя определения в параметрах торговой сессии и в торговой системе для выполнения требуемого задания.",
+                "updated": 1640331712057
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The pages in this section describe how the trading bot simulates the maintenance of orders in the case of backtesting and paper trading sessions.",
-            "updated": 1610222228462
+            "updated": 1610222228462,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На страницах этого раздела описано, как торговый бот имитирует сопровождение ордеров в случае бэктестинга и бумажных торговых сессий.",
+                    "updated": 1640331733571
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "It is highly recommended that you read the Maintaining Live Orders section first, as the explanations on what is calculated and why are more extensive and detailed there.",
-            "updated": 1610222251113
+            "updated": 1610222251113,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Настоятельно рекомендуется сначала прочитать раздел Maintaining Live Orders, так как там более подробно и детально объясняется, что и зачем вычисляется.",
+                    "updated": 1640331789105
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When on backtesting or paper trading sessions, there is no exchange involved as orders are not actually placed, but live within the simulation only."
+            "text": "When on backtesting or paper trading sessions, there is no exchange involved as orders are not actually placed, but live within the simulation only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При проведении бэктестинга или бумажных торговых сессий биржа не участвует, так как ордера не размещаются в реальности, а живут только в рамках симуляции.",
+                    "updated": 1640331811318
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, to make simulations as realistic and as accurate as possible, the system goes through a similar process as when it’s interacting with an exchange, performs similar checks, does similar calculations, and keeps similar accounts—while simulating the response from the exchange according to the definitions in the trading system."
+            "text": "However, to make simulations as realistic and as accurate as possible, the system goes through a similar process as when it’s interacting with an exchange, performs similar checks, does similar calculations, and keeps similar accounts—while simulating the response from the exchange according to the definitions in the trading system.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако, чтобы сделать моделирование максимально реалистичным и точным, система проходит через аналогичный процесс, как при взаимодействии с биржей, выполняет аналогичные проверки, производит аналогичные расчеты и ведет аналогичные счета, имитируя при этом ответ биржи в соответствии с определениями в торговой системе.",
+                    "updated": 1640331836275
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The definitions that affect simulations directly are:"
+            "text": "The definitions that affect simulations directly are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определения, которые непосредственно влияют на моделирование, следующие:",
+                    "updated": 1640331848949
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The slippage and fee structure parameters at the level of the trading session."
+            "text": "The slippage and fee structure parameters at the level of the trading session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Параметры проскальзывания и структуры комиссии на уровне торговой сессии.",
+                    "updated": 1640331886551
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The simulated exchange events at the level of the trading system, where a simulated partial fill, a simulated actual rate, and a simulated fees paid may be defined."
+            "text": "The simulated exchange events at the level of the trading system, where a simulated partial fill, a simulated actual rate, and a simulated fees paid may be defined.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имитация биржевых событий на уровне торговой системы, где могут быть определены имитация частичного заполнения, имитация фактического курса и имитация уплаченных комиссий.",
+                    "updated": 1640331907384
+                }
+            ]
         }
     ]
 }

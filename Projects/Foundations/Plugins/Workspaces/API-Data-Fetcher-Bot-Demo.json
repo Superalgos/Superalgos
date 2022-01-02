@@ -90,7 +90,9 @@
                                                                                             "referenceParentCombinedNodePath": [
                                                                                                 [
                                                                                                     "Messari",
-                                                                                                    "API Map"
+                                                                                                    "API Map",
+                                                                                                    "Foundations",
+                                                                                                    "c9a1b881-8675-4496-946f-31ccb6818b9f"
                                                                                                 ]
                                                                                             ]
                                                                                         }
@@ -124,15 +126,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "News",
-                                                                                                "API Data Fetcher Bot"
+                                                                                                "API Data Fetcher Bot",
+                                                                                                "Data-Mining",
+                                                                                                "506efd80-4a1b-46ec-93b8-ca44457491c4"
                                                                                             ],
                                                                                             [
                                                                                                 "Fetching Process",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "ff19f126-c96e-4b7e-ab82-ef412441f87f"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -231,7 +239,9 @@
                                                                                             "referenceParentCombinedNodePath": [
                                                                                                 [
                                                                                                     "Messari",
-                                                                                                    "API Map"
+                                                                                                    "API Map",
+                                                                                                    "Foundations",
+                                                                                                    "c9a1b881-8675-4496-946f-31ccb6818b9f"
                                                                                                 ]
                                                                                             ]
                                                                                         }
@@ -265,15 +275,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "One Min Asset Metrics",
-                                                                                                "API Data Fetcher Bot"
+                                                                                                "API Data Fetcher Bot",
+                                                                                                "Data-Mining",
+                                                                                                "0dc8726f-c9aa-4a51-a25f-6704e1804e00"
                                                                                             ],
                                                                                             [
                                                                                                 "Fetching Process",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "0199dd82-1e9c-4d15-9b9f-5cfd08508fe5"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -368,15 +384,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Asset Metrics",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "8e7ebaed-5f62-4935-a719-7a4d377cde03"
                                                                                             ],
                                                                                             [
                                                                                                 "From-One-Min-To-Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "b8e047f4-b70b-4006-a578-69d7657c7552"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -414,15 +436,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Asset Metrics",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "8e7ebaed-5f62-4935-a719-7a4d377cde03"
                                                                                             ],
                                                                                             [
                                                                                                 "From-One-Min-To-Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "585aa249-bfab-4d6b-8a43-5f80c95d6131"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -517,15 +545,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "All Time High",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "7b5e5a40-c25e-406d-a40b-7d1028549c89"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "90af4909-9300-406b-befc-110abd1ec29d"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -563,15 +597,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "All Time High",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "7b5e5a40-c25e-406d-a40b-7d1028549c89"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "ce169e16-ef0f-4181-a221-12005e8f9c69"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -666,15 +706,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Market Data",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "3a573ef2-e6cb-445b-a0ed-92b4c4490b4f"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "0240c339-5874-46bc-a065-730d7681a108"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -712,15 +758,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Market Data",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "3a573ef2-e6cb-445b-a0ed-92b4c4490b4f"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "58418b67-1763-48b7-9ac1-e962b7cecfa0"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -815,15 +867,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Supply",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "a6f03c73-9f3c-4ec3-b283-360d72f10f80"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "dc4b84f4-97d0-4260-893f-ce45aa69c0ba"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -861,15 +919,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Supply",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "a6f03c73-9f3c-4ec3-b283-360d72f10f80"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "2f6f7500-7be0-4127-abdd-87d51afb6d01"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -964,15 +1028,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Blockchain Stats",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "d56cdc9a-844c-4cf6-b64c-5ccd3b92abe3"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "a13ed5e4-dad0-4b04-bac6-f11b309742a1"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1010,15 +1080,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Messari",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                             ],
                                                                                             [
                                                                                                 "Blockchain Stats",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "d56cdc9a-844c-4cf6-b64c-5ccd3b92abe3"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "626ca95e-754c-436c-8cbe-aead8cf51365"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1124,7 +1200,9 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Messari",
-                                                                    "Data Mine"
+                                                                    "Data Mine",
+                                                                    "Data-Mining",
+                                                                    "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                 ]
                                                             ]
                                                         }
@@ -1182,15 +1260,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Candle Channels",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "65b75522-f522-4bd8-90ef-aa640833814d"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "e523b5fb-a60c-430f-8151-d06d60370089"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1228,15 +1312,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Candle Channels",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "65b75522-f522-4bd8-90ef-aa640833814d"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "55aa76d8-9329-464b-b6b6-9d0eadb40337"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1331,15 +1421,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Resistances and Supports",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "d88356a2-36cc-4bdc-ac10-01b8643352c2"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "d474d196-bedd-4fdd-8d65-9eaf4725d6ea"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1377,15 +1473,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Resistances and Supports",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "d88356a2-36cc-4bdc-ac10-01b8643352c2"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "a4122e12-4925-46c8-9d45-77299af9cb69"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1480,15 +1582,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Volume Analysis",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "edd40711-1f17-4703-a66f-fbb300412bb3"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "831e86d5-e13b-492d-a89b-f566d650457b"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1526,15 +1634,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Volume Analysis",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "edd40711-1f17-4703-a66f-fbb300412bb3"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "ce6dca7c-1d3b-4b61-8b44-71f2045fea03"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1629,15 +1743,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Candle Analysis",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "7cecc755-8e19-423b-a86d-18a35b8748f8"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "4f7a822a-13b3-4b22-ab2a-c067e0de5de5"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1675,15 +1795,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Masters",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                             ],
                                                                                             [
                                                                                                 "Candle Analysis",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "7cecc755-8e19-423b-a86d-18a35b8748f8"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "b64b603e-b3b1-4125-b09b-bfb5e50d34d6"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1789,7 +1915,9 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Masters",
-                                                                    "Data Mine"
+                                                                    "Data Mine",
+                                                                    "Data-Mining",
+                                                                    "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                 ]
                                                             ]
                                                         }
@@ -1847,15 +1975,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Bollinger",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                             ],
                                                                                             [
                                                                                                 "Bollinger Bands",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "1b7ecdbd-82e9-4a27-8fdd-467c0ca6bf23"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "941a0543-0cc0-4a5d-a782-728d2835c100"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1893,15 +2027,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Bollinger",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                             ],
                                                                                             [
                                                                                                 "Bollinger Bands",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "1b7ecdbd-82e9-4a27-8fdd-467c0ca6bf23"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "e598ee86-1e18-4aa1-95c2-64aaf66776ca"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -1996,15 +2136,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Bollinger",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                             ],
                                                                                             [
                                                                                                 "Bollinger Channels",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "bd0f325d-6f98-468b-8b7b-99a42a175d80"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "28be432d-80ca-46b3-859a-55541e24b2b4"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -2042,15 +2188,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Bollinger",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                             ],
                                                                                             [
                                                                                                 "Bollinger Channels",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "bd0f325d-6f98-468b-8b7b-99a42a175d80"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "bc15b49d-4547-4bac-a28b-193eb0158fe3"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -2156,7 +2308,9 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Bollinger",
-                                                                    "Data Mine"
+                                                                    "Data Mine",
+                                                                    "Data-Mining",
+                                                                    "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                 ]
                                                             ]
                                                         }
@@ -2214,15 +2368,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Candles",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                             ],
                                                                                             [
                                                                                                 "Exchange Raw Data",
-                                                                                                "Sensor Bot"
+                                                                                                "Sensor Bot",
+                                                                                                "Data-Mining",
+                                                                                                "af924204-66a2-47d4-9910-66ab78acb06f"
                                                                                             ],
                                                                                             [
                                                                                                 "Historic-OHLCVs",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "5eb11d6a-022e-4f60-97c4-d6cf90b249dc"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -2317,15 +2477,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Candles",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                             ],
                                                                                             [
                                                                                                 "Candles Volumes",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Market",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "9f683143-a33f-42c1-9fa8-c601f01ee4e1"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -2363,15 +2529,21 @@
                                                                                         "referenceParentCombinedNodePath": [
                                                                                             [
                                                                                                 "Candles",
-                                                                                                "Data Mine"
+                                                                                                "Data Mine",
+                                                                                                "Data-Mining",
+                                                                                                "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                             ],
                                                                                             [
                                                                                                 "Candles Volumes",
-                                                                                                "Indicator Bot"
+                                                                                                "Indicator Bot",
+                                                                                                "Data-Mining",
+                                                                                                "285a4618-0423-4ac9-9df9-7a78be6fd915"
                                                                                             ],
                                                                                             [
                                                                                                 "Multi-Time-Frame-Daily",
-                                                                                                "Process Definition"
+                                                                                                "Process Definition",
+                                                                                                "Foundations",
+                                                                                                "980ceb1d-7be6-454f-90d9-01ba1fd4a65d"
                                                                                             ]
                                                                                         ]
                                                                                     }
@@ -2477,7 +2649,9 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Candles",
-                                                                    "Data Mine"
+                                                                    "Data Mine",
+                                                                    "Data-Mining",
+                                                                    "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                 ]
                                                             ]
                                                         }
@@ -2512,23 +2686,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "My Crypto Ecosystem",
-                                                            "Crypto Ecosystem"
+                                                            "Crypto Ecosystem",
+                                                            "Foundations",
+                                                            "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                         ],
                                                         [
                                                             "Tested",
-                                                            "Crypto Exchanges"
+                                                            "Crypto Exchanges",
+                                                            "Foundations",
+                                                            "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                         ],
                                                         [
                                                             "Binance",
-                                                            "Crypto Exchange"
+                                                            "Crypto Exchange",
+                                                            "Foundations",
+                                                            "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                         ],
                                                         [
                                                             "New Exchange Markets",
-                                                            "Exchange Markets"
+                                                            "Exchange Markets",
+                                                            "Foundations",
+                                                            "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                         ],
                                                         [
                                                             "BTC/USDT",
-                                                            "Market"
+                                                            "Market",
+                                                            "Foundations",
+                                                            "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                         ]
                                                     ]
                                                 }
@@ -2563,15 +2747,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "My Crypto Ecosystem",
-                                                    "Crypto Ecosystem"
+                                                    "Crypto Ecosystem",
+                                                    "Foundations",
+                                                    "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                 ],
                                                 [
                                                     "Tested",
-                                                    "Crypto Exchanges"
+                                                    "Crypto Exchanges",
+                                                    "Foundations",
+                                                    "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                 ],
                                                 [
                                                     "Binance",
-                                                    "Crypto Exchange"
+                                                    "Crypto Exchange",
+                                                    "Foundations",
+                                                    "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                 ]
                                             ]
                                         }
@@ -2606,11 +2796,15 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "New Data-Mining Project",
-                                            "Data-Mining Project"
+                                            "Data-Mining Project",
+                                            "Data-Mining",
+                                            "c77b3b86-b418-4083-ab20-6e4ae46235fd"
                                         ],
                                         [
                                             "Data-Mining",
-                                            "Project Definition"
+                                            "Project Definition",
+                                            "Foundations",
+                                            "810ea2f4-dd94-4f79-b160-bfeb7ed62cd3"
                                         ]
                                     ]
                                 }
@@ -2688,23 +2882,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "My Crypto Ecosystem",
-                                                            "Crypto Ecosystem"
+                                                            "Crypto Ecosystem",
+                                                            "Foundations",
+                                                            "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                         ],
                                                         [
                                                             "Tested",
-                                                            "Crypto Exchanges"
+                                                            "Crypto Exchanges",
+                                                            "Foundations",
+                                                            "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                         ],
                                                         [
                                                             "Binance",
-                                                            "Crypto Exchange"
+                                                            "Crypto Exchange",
+                                                            "Foundations",
+                                                            "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                         ],
                                                         [
                                                             "New Exchange Markets",
-                                                            "Exchange Markets"
+                                                            "Exchange Markets",
+                                                            "Foundations",
+                                                            "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                         ],
                                                         [
                                                             "BTC/USDT",
-                                                            "Market"
+                                                            "Market",
+                                                            "Foundations",
+                                                            "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                         ]
                                                     ]
                                                 }
@@ -2739,15 +2943,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "My Crypto Ecosystem",
-                                                    "Crypto Ecosystem"
+                                                    "Crypto Ecosystem",
+                                                    "Foundations",
+                                                    "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                 ],
                                                 [
                                                     "Tested",
-                                                    "Crypto Exchanges"
+                                                    "Crypto Exchanges",
+                                                    "Foundations",
+                                                    "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                 ],
                                                 [
                                                     "Binance",
-                                                    "Crypto Exchange"
+                                                    "Crypto Exchange",
+                                                    "Foundations",
+                                                    "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                 ]
                                             ]
                                         }
@@ -2782,11 +2992,15 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "New Machine-Learning Project",
-                                            "Machine-Learning Project"
+                                            "Machine-Learning Project",
+                                            "Machine-Learning",
+                                            "42062067-8a1b-4115-873a-fc74d8f4532d"
                                         ],
                                         [
                                             "Machine-Learning",
-                                            "Project Definition"
+                                            "Project Definition",
+                                            "Foundations",
+                                            "06d40e7b-a27f-47d4-8a26-9ae99e666d14"
                                         ]
                                     ]
                                 }
@@ -2864,23 +3078,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "My Crypto Ecosystem",
-                                                            "Crypto Ecosystem"
+                                                            "Crypto Ecosystem",
+                                                            "Foundations",
+                                                            "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                         ],
                                                         [
                                                             "Tested",
-                                                            "Crypto Exchanges"
+                                                            "Crypto Exchanges",
+                                                            "Foundations",
+                                                            "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                         ],
                                                         [
                                                             "Binance",
-                                                            "Crypto Exchange"
+                                                            "Crypto Exchange",
+                                                            "Foundations",
+                                                            "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                         ],
                                                         [
                                                             "New Exchange Markets",
-                                                            "Exchange Markets"
+                                                            "Exchange Markets",
+                                                            "Foundations",
+                                                            "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                         ],
                                                         [
                                                             "BTC/USDT",
-                                                            "Market"
+                                                            "Market",
+                                                            "Foundations",
+                                                            "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                         ]
                                                     ]
                                                 }
@@ -2915,15 +3139,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "My Crypto Ecosystem",
-                                                    "Crypto Ecosystem"
+                                                    "Crypto Ecosystem",
+                                                    "Foundations",
+                                                    "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                 ],
                                                 [
                                                     "Tested",
-                                                    "Crypto Exchanges"
+                                                    "Crypto Exchanges",
+                                                    "Foundations",
+                                                    "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                 ],
                                                 [
                                                     "Binance",
-                                                    "Crypto Exchange"
+                                                    "Crypto Exchange",
+                                                    "Foundations",
+                                                    "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                 ]
                                             ]
                                         }
@@ -2958,11 +3188,15 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "New Algorithmic-Trading Project",
-                                            "Algorithmic-Trading Project"
+                                            "Algorithmic-Trading Project",
+                                            "Algorithmic-Trading",
+                                            "449e570a-ee9e-4de0-841d-94cd047fa0bb"
                                         ],
                                         [
                                             "Algorithmic-Trading",
-                                            "Project Definition"
+                                            "Project Definition",
+                                            "Foundations",
+                                            "f3363754-47dc-4ad3-bd34-06fc2ad69848"
                                         ]
                                     ]
                                 }
@@ -3040,23 +3274,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "My Crypto Ecosystem",
-                                                            "Crypto Ecosystem"
+                                                            "Crypto Ecosystem",
+                                                            "Foundations",
+                                                            "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                         ],
                                                         [
                                                             "Tested",
-                                                            "Crypto Exchanges"
+                                                            "Crypto Exchanges",
+                                                            "Foundations",
+                                                            "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                         ],
                                                         [
                                                             "Binance",
-                                                            "Crypto Exchange"
+                                                            "Crypto Exchange",
+                                                            "Foundations",
+                                                            "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                         ],
                                                         [
                                                             "New Exchange Markets",
-                                                            "Exchange Markets"
+                                                            "Exchange Markets",
+                                                            "Foundations",
+                                                            "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                         ],
                                                         [
                                                             "BTC/USDT",
-                                                            "Market"
+                                                            "Market",
+                                                            "Foundations",
+                                                            "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                         ]
                                                     ]
                                                 }
@@ -3091,15 +3335,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "My Crypto Ecosystem",
-                                                    "Crypto Ecosystem"
+                                                    "Crypto Ecosystem",
+                                                    "Foundations",
+                                                    "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                 ],
                                                 [
                                                     "Tested",
-                                                    "Crypto Exchanges"
+                                                    "Crypto Exchanges",
+                                                    "Foundations",
+                                                    "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                 ],
                                                 [
                                                     "Binance",
-                                                    "Crypto Exchange"
+                                                    "Crypto Exchange",
+                                                    "Foundations",
+                                                    "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                 ]
                                             ]
                                         }
@@ -3134,11 +3384,15 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "New Algorithmic-Trading Project",
-                                            "Algorithmic-Trading Project"
+                                            "Algorithmic-Trading Project",
+                                            "Algorithmic-Trading",
+                                            "449e570a-ee9e-4de0-841d-94cd047fa0bb"
                                         ],
                                         [
                                             "Algorithmic-Trading",
-                                            "Project Definition"
+                                            "Project Definition",
+                                            "Foundations",
+                                            "f3363754-47dc-4ad3-bd34-06fc2ad69848"
                                         ]
                                     ]
                                 }
@@ -3235,15 +3489,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "News",
-                                                                                        "API Data Fetcher Bot"
+                                                                                        "API Data Fetcher Bot",
+                                                                                        "Data-Mining",
+                                                                                        "506efd80-4a1b-46ec-93b8-ca44457491c4"
                                                                                     ],
                                                                                     [
                                                                                         "News",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "6c5ad3ee-1591-4e8c-9edc-7e9ad198f346"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3311,15 +3571,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "One Min Asset Metrics",
-                                                                                        "API Data Fetcher Bot"
+                                                                                        "API Data Fetcher Bot",
+                                                                                        "Data-Mining",
+                                                                                        "0dc8726f-c9aa-4a51-a25f-6704e1804e00"
                                                                                     ],
                                                                                     [
                                                                                         "One Min Asset Metrics",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "84653fa8-75d7-42c1-b01f-b9902ccf0f94"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3387,15 +3653,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "Asset Metrics",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "8e7ebaed-5f62-4935-a719-7a4d377cde03"
                                                                                     ],
                                                                                     [
                                                                                         "Asset Metrics",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "18819542-5c36-4351-bbfe-78873a01021a"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3463,15 +3735,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "All Time High",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "7b5e5a40-c25e-406d-a40b-7d1028549c89"
                                                                                     ],
                                                                                     [
                                                                                         "All Time High",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "08480c69-a126-421b-8a7b-91f7f7d6173b"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3539,15 +3817,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "Market Data",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "3a573ef2-e6cb-445b-a0ed-92b4c4490b4f"
                                                                                     ],
                                                                                     [
                                                                                         "Market Data",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "e2062aba-be17-4a5e-b8fe-ff6c01557d32"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3615,15 +3899,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "Supply",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "a6f03c73-9f3c-4ec3-b283-360d72f10f80"
                                                                                     ],
                                                                                     [
                                                                                         "Supply",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "b5d769ec-880d-404f-8e37-fe0a7d53c842"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3691,15 +3981,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Messari",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                                     ],
                                                                                     [
                                                                                         "Blockchain Stats",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "d56cdc9a-844c-4cf6-b64c-5ccd3b92abe3"
                                                                                     ],
                                                                                     [
                                                                                         "Blockchain Stats",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "14d5dc94-bee4-47df-81b0-c388441fb84c"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3759,7 +4055,9 @@
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Messari",
-                                                                        "Data Mine"
+                                                                        "Data Mine",
+                                                                        "Data-Mining",
+                                                                        "641883e6-844f-492b-afcc-16b4c31ff721"
                                                                     ]
                                                                 ]
                                                             }
@@ -3807,15 +4105,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Candle Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "65b75522-f522-4bd8-90ef-aa640833814d"
                                                                                     ],
                                                                                     [
                                                                                         "Candles Channels",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "1757bade-f02b-4137-b06c-7de0e3e18e3f"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3853,15 +4157,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Candle Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "65b75522-f522-4bd8-90ef-aa640833814d"
                                                                                     ],
                                                                                     [
                                                                                         "Candles Channels Objects",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "94d9c25e-dbb7-4893-8a6a-f55571d58467"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3899,15 +4209,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Candle Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "65b75522-f522-4bd8-90ef-aa640833814d"
                                                                                     ],
                                                                                     [
                                                                                         "New Product Definition",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "ac18ea63-0c71-469e-bc52-24addb47e949"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -3975,15 +4291,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Resistances and Supports",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "d88356a2-36cc-4bdc-ac10-01b8643352c2"
                                                                                     ],
                                                                                     [
                                                                                         "Resistances",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "1ab5040b-9b2f-4fad-aeb5-1f5a71ad9b50"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4021,15 +4343,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Resistances and Supports",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "d88356a2-36cc-4bdc-ac10-01b8643352c2"
                                                                                     ],
                                                                                     [
                                                                                         "Supports",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "64979dd8-97a3-496a-92b0-d16ae12b1e12"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4097,15 +4425,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Volume Analysis",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "edd40711-1f17-4703-a66f-fbb300412bb3"
                                                                                     ],
                                                                                     [
                                                                                         "Volume Analysis",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "ffc244b9-bbda-4f12-b307-2eb36623360d"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4173,15 +4507,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Masters",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                                     ],
                                                                                     [
                                                                                         "Candle Analysis",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "7cecc755-8e19-423b-a86d-18a35b8748f8"
                                                                                     ],
                                                                                     [
                                                                                         "Candle Analysis",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "9757f8e0-d082-4427-8c22-e43b09b360af"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4241,7 +4581,9 @@
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Masters",
-                                                                        "Data Mine"
+                                                                        "Data Mine",
+                                                                        "Data-Mining",
+                                                                        "66c79ece-5a7e-4a2b-be0d-0374f61086ba"
                                                                     ]
                                                                 ]
                                                             }
@@ -4289,15 +4631,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Bollinger",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Bands",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "1b7ecdbd-82e9-4a27-8fdd-467c0ca6bf23"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Bands",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "29088877-8d63-4217-8d34-8742afc262f4"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4335,15 +4683,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Bollinger",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Bands",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "1b7ecdbd-82e9-4a27-8fdd-467c0ca6bf23"
                                                                                     ],
                                                                                     [
                                                                                         "Percentage Bandwidth",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "3b7885a0-cd72-4a3f-a38b-3dc8c47bd068"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4411,15 +4765,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Bollinger",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "bd0f325d-6f98-468b-8b7b-99a42a175d80"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Channels Objects",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "1f111f72-624f-4166-9f99-ab8d785d5267"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4457,15 +4817,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Bollinger",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "bd0f325d-6f98-468b-8b7b-99a42a175d80"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Channels",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "94bc3958-cc85-43a1-a178-103e84f42910"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4503,15 +4869,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Bollinger",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "bd0f325d-6f98-468b-8b7b-99a42a175d80"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Sub-Channels Objects",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "080c87fc-4546-4482-ab11-180a33f6d9ab"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4549,15 +4921,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Bollinger",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Channels",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "bd0f325d-6f98-468b-8b7b-99a42a175d80"
                                                                                     ],
                                                                                     [
                                                                                         "Bollinger Sub-Channels",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "79ce9c05-8a4c-4b58-850f-288037acc702"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4617,7 +4995,9 @@
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Bollinger",
-                                                                        "Data Mine"
+                                                                        "Data Mine",
+                                                                        "Data-Mining",
+                                                                        "14c6fdfe-aa25-4754-a0c5-a859be6399d7"
                                                                     ]
                                                                 ]
                                                             }
@@ -4665,15 +5045,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Candles",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                     ],
                                                                                     [
                                                                                         "Exchange Raw Data",
-                                                                                        "Sensor Bot"
+                                                                                        "Sensor Bot",
+                                                                                        "Data-Mining",
+                                                                                        "af924204-66a2-47d4-9910-66ab78acb06f"
                                                                                     ],
                                                                                     [
                                                                                         "Candles",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "2443883b-6959-42a3-ae3b-ef3102ffcdcc"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4711,15 +5097,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Candles",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                     ],
                                                                                     [
                                                                                         "Exchange Raw Data",
-                                                                                        "Sensor Bot"
+                                                                                        "Sensor Bot",
+                                                                                        "Data-Mining",
+                                                                                        "af924204-66a2-47d4-9910-66ab78acb06f"
                                                                                     ],
                                                                                     [
                                                                                         "Volumes",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "3a43c6f3-bac0-404e-865f-822eb48c8660"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4787,15 +5179,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Candles",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                     ],
                                                                                     [
                                                                                         "Candles Volumes",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "285a4618-0423-4ac9-9df9-7a78be6fd915"
                                                                                     ],
                                                                                     [
                                                                                         "Candles",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "fe6065ec-4d2d-47a0-bae0-8647f0e195d7"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4833,15 +5231,21 @@
                                                                                 "referenceParentCombinedNodePath": [
                                                                                     [
                                                                                         "Candles",
-                                                                                        "Data Mine"
+                                                                                        "Data Mine",
+                                                                                        "Data-Mining",
+                                                                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                                     ],
                                                                                     [
                                                                                         "Candles Volumes",
-                                                                                        "Indicator Bot"
+                                                                                        "Indicator Bot",
+                                                                                        "Data-Mining",
+                                                                                        "285a4618-0423-4ac9-9df9-7a78be6fd915"
                                                                                     ],
                                                                                     [
                                                                                         "Volumes",
-                                                                                        "Product Definition"
+                                                                                        "Product Definition",
+                                                                                        "Foundations",
+                                                                                        "1a366aef-efef-470e-88e0-2a6fbe4dd91f"
                                                                                     ]
                                                                                 ]
                                                                             }
@@ -4901,7 +5305,9 @@
                                                                 "referenceParentCombinedNodePath": [
                                                                     [
                                                                         "Candles",
-                                                                        "Data Mine"
+                                                                        "Data Mine",
+                                                                        "Data-Mining",
+                                                                        "70c7eea3-a786-4dda-b526-0514e2cb14cc"
                                                                     ]
                                                                 ]
                                                             }
@@ -4936,23 +5342,33 @@
                                                         "referenceParentCombinedNodePath": [
                                                             [
                                                                 "My Crypto Ecosystem",
-                                                                "Crypto Ecosystem"
+                                                                "Crypto Ecosystem",
+                                                                "Foundations",
+                                                                "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                             ],
                                                             [
                                                                 "Tested",
-                                                                "Crypto Exchanges"
+                                                                "Crypto Exchanges",
+                                                                "Foundations",
+                                                                "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                             ],
                                                             [
                                                                 "Binance",
-                                                                "Crypto Exchange"
+                                                                "Crypto Exchange",
+                                                                "Foundations",
+                                                                "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                             ],
                                                             [
                                                                 "New Exchange Markets",
-                                                                "Exchange Markets"
+                                                                "Exchange Markets",
+                                                                "Foundations",
+                                                                "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                             ],
                                                             [
                                                                 "BTC/USDT",
-                                                                "Market"
+                                                                "Market",
+                                                                "Foundations",
+                                                                "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                             ]
                                                         ]
                                                     }
@@ -4987,15 +5403,21 @@
                                                 "referenceParentCombinedNodePath": [
                                                     [
                                                         "My Crypto Ecosystem",
-                                                        "Crypto Ecosystem"
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                     ],
                                                     [
                                                         "Tested",
-                                                        "Crypto Exchanges"
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                     ],
                                                     [
                                                         "Binance",
-                                                        "Crypto Exchange"
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                     ]
                                                 ]
                                             }
@@ -5030,11 +5452,15 @@
                                         "referenceParentCombinedNodePath": [
                                             [
                                                 "New Foundations Project",
-                                                "Foundations Project"
+                                                "Foundations Project",
+                                                "Foundations",
+                                                "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6"
                                             ],
                                             [
                                                 "Foundations",
-                                                "Project Definition"
+                                                "Project Definition",
+                                                "Foundations",
+                                                "a2a04e12-604e-43f8-a986-1b8ca3b043cb"
                                             ]
                                         ]
                                     }
@@ -5112,23 +5538,33 @@
                                                         "referenceParentCombinedNodePath": [
                                                             [
                                                                 "My Crypto Ecosystem",
-                                                                "Crypto Ecosystem"
+                                                                "Crypto Ecosystem",
+                                                                "Foundations",
+                                                                "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                             ],
                                                             [
                                                                 "Tested",
-                                                                "Crypto Exchanges"
+                                                                "Crypto Exchanges",
+                                                                "Foundations",
+                                                                "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                             ],
                                                             [
                                                                 "Binance",
-                                                                "Crypto Exchange"
+                                                                "Crypto Exchange",
+                                                                "Foundations",
+                                                                "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                             ],
                                                             [
                                                                 "New Exchange Markets",
-                                                                "Exchange Markets"
+                                                                "Exchange Markets",
+                                                                "Foundations",
+                                                                "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                             ],
                                                             [
                                                                 "BTC/USDT",
-                                                                "Market"
+                                                                "Market",
+                                                                "Foundations",
+                                                                "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                             ]
                                                         ]
                                                     }
@@ -5163,15 +5599,21 @@
                                                 "referenceParentCombinedNodePath": [
                                                     [
                                                         "My Crypto Ecosystem",
-                                                        "Crypto Ecosystem"
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                     ],
                                                     [
                                                         "Tested",
-                                                        "Crypto Exchanges"
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                     ],
                                                     [
                                                         "Binance",
-                                                        "Crypto Exchange"
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                     ]
                                                 ]
                                             }
@@ -5206,11 +5648,15 @@
                                         "referenceParentCombinedNodePath": [
                                             [
                                                 "New Foundations Project",
-                                                "Foundations Project"
+                                                "Foundations Project",
+                                                "Foundations",
+                                                "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6"
                                             ],
                                             [
                                                 "Foundations",
-                                                "Project Definition"
+                                                "Project Definition",
+                                                "Foundations",
+                                                "a2a04e12-604e-43f8-a986-1b8ca3b043cb"
                                             ]
                                         ]
                                     }
@@ -5288,23 +5734,33 @@
                                                         "referenceParentCombinedNodePath": [
                                                             [
                                                                 "My Crypto Ecosystem",
-                                                                "Crypto Ecosystem"
+                                                                "Crypto Ecosystem",
+                                                                "Foundations",
+                                                                "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                             ],
                                                             [
                                                                 "Tested",
-                                                                "Crypto Exchanges"
+                                                                "Crypto Exchanges",
+                                                                "Foundations",
+                                                                "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                             ],
                                                             [
                                                                 "Binance",
-                                                                "Crypto Exchange"
+                                                                "Crypto Exchange",
+                                                                "Foundations",
+                                                                "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                             ],
                                                             [
                                                                 "New Exchange Markets",
-                                                                "Exchange Markets"
+                                                                "Exchange Markets",
+                                                                "Foundations",
+                                                                "2fd80894-900e-44ac-a1a7-56c14124f7a1"
                                                             ],
                                                             [
                                                                 "BTC/USDT",
-                                                                "Market"
+                                                                "Market",
+                                                                "Foundations",
+                                                                "9a867bf0-a71d-445c-b99a-75b60bbdce09"
                                                             ]
                                                         ]
                                                     }
@@ -5339,15 +5795,21 @@
                                                 "referenceParentCombinedNodePath": [
                                                     [
                                                         "My Crypto Ecosystem",
-                                                        "Crypto Ecosystem"
+                                                        "Crypto Ecosystem",
+                                                        "Foundations",
+                                                        "7217b56c-e854-4c06-8b8a-d5d3c05a153d"
                                                     ],
                                                     [
                                                         "Tested",
-                                                        "Crypto Exchanges"
+                                                        "Crypto Exchanges",
+                                                        "Foundations",
+                                                        "e3879d63-6f8f-41a3-8ac3-0349c4361722"
                                                     ],
                                                     [
                                                         "Binance",
-                                                        "Crypto Exchange"
+                                                        "Crypto Exchange",
+                                                        "Foundations",
+                                                        "61ef0b8d-de6e-4e76-bdd5-996836760a4b"
                                                     ]
                                                 ]
                                             }
@@ -5382,11 +5844,15 @@
                                         "referenceParentCombinedNodePath": [
                                             [
                                                 "New Foundations Project",
-                                                "Foundations Project"
+                                                "Foundations Project",
+                                                "Foundations",
+                                                "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6"
                                             ],
                                             [
                                                 "Foundations",
-                                                "Project Definition"
+                                                "Project Definition",
+                                                "Foundations",
+                                                "a2a04e12-604e-43f8-a986-1b8ca3b043cb"
                                             ]
                                         ]
                                     }
@@ -10833,15 +11299,21 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "My LAN Network",
-                                        "LAN Network"
+                                        "LAN Network",
+                                        "Foundations",
+                                        "3c165071-7558-4708-9999-8ffe71d346b1"
                                     ],
                                     [
                                         "My Computer",
-                                        "LAN Network Node"
+                                        "LAN Network Node",
+                                        "Foundations",
+                                        "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
                                     ],
                                     [
                                         "New Learning Tasks",
-                                        "Learning Tasks"
+                                        "Learning Tasks",
+                                        "Foundations",
+                                        "0818dfbe-61ea-40b8-8544-bee25d7f45be"
                                     ]
                                 ]
                             }
@@ -10880,15 +11352,21 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "My LAN Network",
-                                        "LAN Network"
+                                        "LAN Network",
+                                        "Foundations",
+                                        "3c165071-7558-4708-9999-8ffe71d346b1"
                                     ],
                                     [
                                         "My Computer",
-                                        "LAN Network Node"
+                                        "LAN Network Node",
+                                        "Foundations",
+                                        "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
                                     ],
                                     [
                                         "New Testing Trading Tasks",
-                                        "Testing Trading Tasks"
+                                        "Testing Trading Tasks",
+                                        "Foundations",
+                                        "8117db0a-e418-4f56-8fe4-fda2ddac1cbb"
                                     ]
                                 ]
                             }
@@ -10927,15 +11405,21 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "My LAN Network",
-                                        "LAN Network"
+                                        "LAN Network",
+                                        "Foundations",
+                                        "3c165071-7558-4708-9999-8ffe71d346b1"
                                     ],
                                     [
                                         "My Computer",
-                                        "LAN Network Node"
+                                        "LAN Network Node",
+                                        "Foundations",
+                                        "e452cf65-2b2b-44f2-9e67-bdd9d3c008e4"
                                     ],
                                     [
                                         "New Production Trading Tasks",
-                                        "Production Trading Tasks"
+                                        "Production Trading Tasks",
+                                        "Foundations",
+                                        "673caa5f-511d-4688-9305-e5f0f0f780cd"
                                     ]
                                 ]
                             }
@@ -10970,11 +11454,15 @@
                         "referenceParentCombinedNodePath": [
                             [
                                 "New Foundations Project",
-                                "Foundations Project"
+                                "Foundations Project",
+                                "Foundations",
+                                "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6"
                             ],
                             [
                                 "Foundations",
-                                "Project Definition"
+                                "Project Definition",
+                                "Foundations",
+                                "a2a04e12-604e-43f8-a986-1b8ca3b043cb"
                             ]
                         ]
                     }
@@ -12101,12 +12589,12 @@
             "id": "cf9f8b3b-77c6-43c6-b01f-95cf366a91f6",
             "savedPayload": {
                 "position": {
-                    "x": 13928.406844106465,
-                    "y": 10801.643288084464
+                    "x": 5000,
+                    "y": 10000
                 },
                 "targetPosition": {
-                    "x": 13928.406844106465,
-                    "y": 10801.643288084464
+                    "x": 5000,
+                    "y": 10000
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -12156,12 +12644,12 @@
             "id": "449e570a-ee9e-4de0-841d-94cd047fa0bb",
             "savedPayload": {
                 "position": {
-                    "x": 14030.338403041826,
-                    "y": 18638.259678230268
+                    "x": 5000,
+                    "y": 17500
                 },
                 "targetPosition": {
-                    "x": 14030.338403041826,
-                    "y": 18638.259678230268
+                    "x": 5000,
+                    "y": 17500
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -12211,12 +12699,12 @@
             "id": "42062067-8a1b-4115-873a-fc74d8f4532d",
             "savedPayload": {
                 "position": {
-                    "x": 14020.475285171102,
-                    "y": 30989.634238310708
+                    "x": 5000,
+                    "y": 32500
                 },
                 "targetPosition": {
-                    "x": 14020.475285171102,
-                    "y": 30989.634238310708
+                    "x": 5000,
+                    "y": 32500
                 },
                 "floatingObject": {
                     "isPinned": true,
@@ -12266,12 +12754,39 @@
             "id": "c77b3b86-b418-4083-ab20-6e4ae46235fd",
             "savedPayload": {
                 "position": {
-                    "x": 13988.486692015209,
-                    "y": 24999.345651080945
+                    "x": 5000,
+                    "y": 25000
                 },
                 "targetPosition": {
-                    "x": 13988.486692015209,
-                    "y": 24999.345651080945
+                    "x": 5000,
+                    "y": 25000
+                },
+                "floatingObject": {
+                    "isPinned": true,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Workspaces Project",
+            "name": "New Workspaces Project",
+            "project": "Workspaces",
+            "id": "680001f8-64a8-453e-ae6f-9c415d9d10b4",
+            "savedPayload": {
+                "position": {
+                    "x": 5000,
+                    "y": 40000
+                },
+                "targetPosition": {
+                    "x": 5000,
+                    "y": 40000
                 },
                 "floatingObject": {
                     "isPinned": true,

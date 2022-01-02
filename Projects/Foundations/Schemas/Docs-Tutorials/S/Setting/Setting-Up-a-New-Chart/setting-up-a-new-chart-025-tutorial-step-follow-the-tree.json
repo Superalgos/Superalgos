@@ -5,7 +5,7 @@
     "definition": {
         "text": "Follow the Data Mines Data hierarchy and find the Data Mine Products.",
         "icon": {
-            "name": "Data/data-mines-data",
+            "name": "data-mines-data",
             "project": "Foundations"
         },
         "updated": 1617849486659,
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Sigue la jerarquía Data Mines Data y encontrar el Data Mine Products.",
                 "updated": 1628722952923
+            },
+            {
+                "language": "RU",
+                "text": "Следуйте иерархии данных (Data Mines Data) и найдите продукты (Data Mine Products).",
+                "updated": 1639074890872
+            },
+            {
+                "language": "DE",
+                "text": "Folgen Sie der Data Mines Data Hierarchie und finden Sie die Data Mine Products.",
+                "updated": 1639274215204
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Sigue la jerarquía. Ve si puedes encontrar el nodos Data Mine Products por tu cuenta.",
                     "updated": 1628723096593
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте следовать иерархии. Попробуйте самостоятельно найти узлы (Data Mine Products).",
+                    "updated": 1639074964709
+                },
+                {
+                    "language": "DE",
+                    "text": "Folgen Sie weiter der Hierarchie. Versuchen Sie, die Data Mine Products Knoten selbst zu finden.",
+                    "updated": 1639274281211
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "¿Lo encontraste? ¡Sigue descendiendo en la jerarquía hasta que los veas! Deberías ver tres nodo data mine products. Uno para cada uno Data Mine instalado dentro de este Workspace.",
                     "updated": 1628723233701
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы нашли его? Продолжайте двигаться дальше по иерархии, пока не увидите их! Вы должны увидеть три узла продуктов шахты данных. По одному для каждой шахты данных (Data Mine)  установленной в этом рабочем пространстве (Workspace).",
+                    "updated": 1639075075609
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie in der Hierarchie weiter nach unten, bis Sie sie sehen! Sie sollten drei Data-Mine-Produkt-Knoten sehen. Einen für jede Data Mine, die in diesem Workspace installiert ist.",
+                    "updated": 1639274436878
                 }
             ]
         },
@@ -55,6 +85,16 @@
                     "language": "ES",
                     "text": "Estas estructuras de datos se instalaron automáticamente durante el proceso de instalación del mercado.",
                     "updated": 1628723262128
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти структуры данных были автоматически установлены в процессе установки рынка.",
+                    "updated": 1639075112122
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Datenstrukturen wurden bei der Marktinstallation automatisch installiert.",
+                    "updated": 1639274498752
                 }
             ]
         }

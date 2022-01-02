@@ -10,7 +10,7 @@
         },
         {
             "action": "Delete UI Object",
-"actionProject": "Visual-Scripting",
+            "actionProject": "Visual-Scripting",
             "askConfirmation": true,
             "confirmationLabel": "Confirm to Delete",
             "label": "Delete",
@@ -28,9 +28,6 @@
         "config": true
     },
     "level": 3,
-    "referencingRules": {
-        "compatibleTypes": "->Exchange Account Asset->"
-    },
     "attachingRules": {
         "compatibleTypes": "->Trading Parameters->"
     },

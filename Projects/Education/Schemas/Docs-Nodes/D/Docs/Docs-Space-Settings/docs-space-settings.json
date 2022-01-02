@@ -2,7 +2,14 @@
     "type": "Docs Space Settings",
     "definition": {
         "text": "This node allows the user to determine how the docs space will be loaded by the current workspace.",
-        "updated": 1631587592724
+        "updated": 1631587592724,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел позволяет пользователю определить, как пространство документов будет загружено текущей рабочей областью.",
+                "updated": 1638526506560
+            }
+        ]
     },
     "paragraphs": [
         {

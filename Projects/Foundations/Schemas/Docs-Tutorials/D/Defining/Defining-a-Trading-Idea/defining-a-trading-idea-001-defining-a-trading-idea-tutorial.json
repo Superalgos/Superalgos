@@ -4,7 +4,24 @@
     "type": "Defining a Trading Idea Tutorial",
     "definition": {
         "text": "This tutorial teaches you how to formulate a testable trading idea. In a way, it is an introduction to the systematic approach to trading, a crucial concept that you must grasp to automate strategies. The example laid out in this tutorial is later used in the rest of the series.",
-        "updated": 1617115041307
+        "updated": 1617115041307,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este tutorial le enseña cómo formular una idea de trading testeable. En cierto modo, es una introducción al enfoque sistemático del trading, un concepto crucial que debe comprender para automatizar estrategias. El ejemplo presentado en este tutorial se utiliza más adelante en el resto de la serie.",
+                "updated": 1636725384415
+            },
+            {
+                "language": "DE",
+                "text": "In diesem Lernprogramm lernen Sie, wie Sie eine überprüfbare Handelsidee formulieren können. Es ist gewissermaßen eine Einführung in den systematischen Ansatz beim Handel, ein entscheidendes Konzept, das Sie verstehen müssen, um Strategien zu automatisieren. Das Beispiel, das in diesem Tutorial vorgestellt wird, wird später im Rest der Serie verwendet.",
+                "updated": 1639251150861
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
+                "updated": 1640858379007
+            }
+        ]
     },
     "paragraphs": [
         {

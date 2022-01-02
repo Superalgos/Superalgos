@@ -14,6 +14,11 @@
                 "language": "RU",
                 "text": "UI - это аббревиатура пользовательского интерфейса, которая относится к экрану управления и способу работы программного обеспечения. В Superalgos пользовательский интерфейс представляет собой веб-приложение, которое запускается в Интернет-браузере.",
                 "updated": 1635580805809
+            },
+            {
+                "language": "TR",
+                "text": "UI, yazılımın çalışma ekranı ve çalışma yöntemini ifade eden Kullanıcı Arayüzü'nün kısaltmasıdır ve internet tarayıcısında çalışan bir web Uygulamasıdır.",
+                "updated": 1639119430661
             }
         ]
     },

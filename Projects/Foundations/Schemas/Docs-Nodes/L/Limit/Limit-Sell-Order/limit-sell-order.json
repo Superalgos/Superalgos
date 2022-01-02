@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Un limit sell order es una instrucción enviada al exchange para comprar el asset base, para su ejecución a una tasa específica o mejor.",
                 "updated": 1624457049736
+            },
+            {
+                "language": "RU",
+                "text": "Limit Sell Order - это ордер, отправленный на биржу для продажи базового актива, для исполнения по определенному курсу или выше.",
+                "updated": 1639841806509
+            },
+            {
+                "language": "TR",
+                "text": "Limit satış emri, belirli bir fiyattan veya daha iyi bir fiyattan baz varlığın satılması için borsaya gönderilen bir talimattır.",
+                "updated": 1639222173017
             }
         ]
     },
@@ -18,7 +28,14 @@
         {
             "style": "Success",
             "text": "Please read the definition of Limit Buy Order for relevant information about how limit orders work. Also, please read the definition of Market Buy Order for relevant information about how orders in general work, in particular, the section about Size, Filling, Closing, and Spawning Multiple Orders.",
-            "updated": 1609608882268
+            "updated": 1609608882268,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте определение Limit Buy Order для получения соответствующей информации о том, как работают лимитные ордера. Также, пожалуйста, прочитайте определение Market Buy Order для получения соответствующей информации о том, как работают ордера в целом, в частности, раздел о размере, заполнении, закрытии и порождении нескольких ордеров.",
+                    "updated": 1639842017893
+                }
+            ]
         },
         {
             "style": "Block",
@@ -27,20 +44,48 @@
         },
         {
             "style": "Title",
-            "text": "Limit Sell Order Configuration"
+            "text": "Limit Sell Order Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Limit Sell Order",
+                    "updated": 1639842030438
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Properties",
-            "updated": 1609608623308
+            "updated": 1609608623308,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639842037254
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed."
+            "text": "percentageOfAlgorithmSize is the definition of how much of the size handled by the algorithm shall be allocated to this particular order. Posible values are real numbers between 0 and 100, including the extremes. If you set the value to 0, the order will not be executed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "percentageOfAlgorithmSize - это определение того, какая часть размера, обрабатываемого алгоритмом, должна быть выделена для данного конкретного заказа. Возможные значения - вещественные числа от 0 до 100, включая крайние значения. Если вы установите значение 0, ордер не будет выполнен.",
+                    "updated": 1639842058582
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false)."
+            "text": "spawnMultipleOrders is the parameter that indicates whether additional spawned orders are allowed (true) or not (false).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "spawnMultipleOrders - это параметр, который указывает, разрешены ли дополнительные порожденные ордера (true) или нет (false).",
+                    "updated": 1639842068315
+                }
+            ]
         }
     ]
 }

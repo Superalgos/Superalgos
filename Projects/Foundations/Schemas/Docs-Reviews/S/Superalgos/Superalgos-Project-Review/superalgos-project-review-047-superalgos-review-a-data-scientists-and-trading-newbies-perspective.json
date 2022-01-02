@@ -1,0 +1,19 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 47,
+    "type": "Superalgos Review - A data scientist's and trading newbie's perspective",
+    "definition": {
+        "text": "Short review"
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "While doing the tutorials I was very impressed about the flexibility and (apprently) endless possibilities that could be achieved by this tool. The idea and concept of the platform bought me in quite early.",
+            "updated": 1640888133148
+        },
+        {
+            "style": "Text",
+            "text": "However, there are still many bugs and room for improvement. Especially for someone like me who isn't super firm in coding, contributing etc. For instance, I was writing a very detailed review, saved it with docs.save but in the end all was gone. Makes you furious. Nevertheless, looking forward to dig deeper and maybe help making the tool more accessible for noobs like me."
+        }
+    ]
+}

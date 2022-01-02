@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Verwenden Sie diesen Befehl, um die Änderungen zu speichern, die Sie beim Hinzufügen, Löschen oder Bearbeiten von Absätzen in den Docs oder beim Hinzufügen oder Löschen von Seiten vorgenommen haben.",
                 "updated": 1633894161377
+            },
+            {
+                "language": "RU",
+                "text": "Используйте эту команду для сохранения изменений, внесенных вами при добавлении, удалении или редактировании абзацев в документах или добавление / удаление страниц.",
+                "updated": 1638528419678
             }
         ]
     },
@@ -23,12 +28,24 @@
                     "language": "DE",
                     "text": "Wichtig: Die von Ihnen erstellten oder geänderten Seiten bleiben im Kontext der Browsersitzung nur im Speicher, bis Sie diesen Befehl ausführen. Nur wenn Sie diesen Befehl ausführen, werden die Änderungen auf der Festplatte gespeichert. Wenn Sie die Seite aktualisieren oder den Browser schließen, bevor Sie den Befehl Docs Save Command ausführen, gehen die Änderungen verloren. Die Änderungen werden erst dann in den Docs Search Engine Index übernommen, wenn Sie den Docs Reindex Command ausgeführt haben.",
                     "updated": 1633894311891
+                },
+                {
+                    "language": "RU",
+                    "text": "Страницы, которые вы создаете или изменяете, остаются только в памяти в контексте сеанса браузера, пока вы не запустите эту команду. Только после того, как вы запустите эту команду, изменения сохраняются на диск. Если вы обновите страницу или закроете браузер перед запуском команды Docs Save Command, изменения будут потеряны. Изменения применяются к индексу поисковой системы Docs Search Engine Index только после того, как вы запустите команду Docs Reindex Command.",
+                    "updated": 1638528600294
                 }
             ]
         },
         {
             "style": "Title",
-            "text": "Syntax"
+            "text": "Syntax",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1637927604772
+                }
+            ]
         },
         {
             "style": "Javascript",

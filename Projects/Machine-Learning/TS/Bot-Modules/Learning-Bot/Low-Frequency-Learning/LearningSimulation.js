@@ -50,7 +50,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 await learningSystemModuleObject.loadModel()
 
             } else {
-                if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES === true) {
+                if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES === true) {
                     /*
                     For Daily Files, we are going to load the model from disk at the first execution
                     (first day) only if the user used the Session Resume option. We will load it from 
@@ -84,7 +84,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
             let propertyName = 'at' + sessionParameters.timeFrame.config.label.replace('-', '')
             let candles = chart[propertyName].candles
 
-            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+            if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
                 /*
                 We need to purge from the candles array all the candles from the previous day 
                 that comes when processing daily files.
@@ -209,7 +209,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 We check if we need to stop before appending the records so that the stop 
                 reason is also properly recorded.
                 */
-                checkIfWeNeedToStopBetweenCycles()
+                checkIfWeNeedToStopTheSimulation()
 
                 /* Add new records to the process output */
                 learningRecordsModuleObject.appendRecords()
@@ -249,7 +249,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                     await learningSystemModuleObject.run()
                 }
 
-                function checkIfWeNeedToStopBetweenCycles() {
+                function checkIfWeNeedToStopTheSimulation() {
                     if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_STOPPING === true) {
                         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
                             '[INFO] runSimulation -> controlLoop -> We are going to stop here because we were requested to stop processing this session.')
@@ -381,11 +381,11 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                 }
 
                 function positionChart(chart) {
-                    let dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
-                    dataDependencies = TS.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
+                    let dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.processDependencies, 'Data Dependency')
+                    dataDependencies = SA.projects.visualScripting.utilities.nodeFunctions.filterOutNodeWihtoutReferenceParentFromNodeArray(dataDependencies)
 
                     /* Finding the Current Element on Market Files */
-                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES) {
+                    if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES) {
                         for (let j = 0; j < TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray().length; j++) {
                             let mapKey = TS.projects.foundations.globals.timeFrames.dailyTimeFramesArray()[j][1]
                             let propertyName = 'at' + mapKey.replace('-', '')
@@ -504,7 +504,7 @@ exports.newMachineLearningBotModulesLearningSimulation = function (processIndex)
                     */
                     let candlesPerDay = SA.projects.foundations.globals.timeConstants.ONE_DAY_IN_MILISECONDS / sessionParameters.timeFrame.config.value
                     if (
-                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_PROCESSING_DAILY_FILES &&
+                        TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).ARE_WE_PROCESSING_DAILY_FILES &&
                         learningEngine.learningCurrent.learningEpisode.candle.index.value + 1 + 1 === candlesPerDay
                     ) {
                         /*

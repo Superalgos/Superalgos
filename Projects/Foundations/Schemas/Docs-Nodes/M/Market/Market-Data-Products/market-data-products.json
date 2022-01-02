@@ -1,7 +1,14 @@
 {
     "type": "Market Data Products",
     "definition": {
-        "text": "A market data products node represents the group of data products generated in a specific market."
+        "text": "A market data products node represents the group of data products generated in a specific market.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Market Data Products представляет группу продуктов с данными, созданных на определенном рынке.",
+                "updated": 1639493197581
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,11 +17,25 @@
         },
         {
             "style": "Text",
-            "text": "The market data products node must reference a market defined in the Crypto Ecosystem hierarchy."
+            "text": "The market data products node must reference a market defined in the Crypto Ecosystem hierarchy.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел продуктов с рыночными данными должен ссылаться на рынок, определенный в иерархии Crypto Ecosystem.",
+                    "updated": 1639148663987
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details."
+            "text": "This node may spawn individual data products or may deploy data products in bulk organized by data mine and by bots. See the data products node for the details.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот узел может порождать отдельные продукты данных или может массово развертывать продукты данных, организованные добычей данных и ботами. См. Подробности в узле Data Product.",
+                    "updated": 1639493242287
+                }
+            ]
         }
     ]
 }

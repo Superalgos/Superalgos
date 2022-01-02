@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "This seems to work well for the reversals of February 25th and April 1st, right?"
+        "text": "This seems to work well for the reversals of February 25th and April 1st, right?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies scheint für die Umkehrungen vom 25. Februar und 1. April gut zu funktionieren, oder?",
+                "updated": 1639262524455
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Pan the chart to the right and check the period between May 24th and July 16th!"
+            "text": "Pan the chart to the right and check the period between May 24th and July 16th!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schwenken Sie das Diagramm nach rechts und prüfen Sie den Zeitraum zwischen dem 24. Mai und dem 16. Juli!",
+                    "updated": 1639262540419
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The market is clearly moving sideways in a narrowing range, and the indicator switches back and forth between Up and Down directions erratically."
+            "text": "The market is clearly moving sideways in a narrowing range, and the indicator switches back and forth between Up and Down directions erratically.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Markt bewegt sich eindeutig seitwärts in einer enger werdenden Spanne, und der Indikator wechselt unregelmäßig zwischen Auf- und Abwärtsrichtung hin und her.",
+                    "updated": 1639262547864
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "This is not the ultimate solution to determine the trend!"
+            "text": "This is not the ultimate solution to determine the trend!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist nicht die ultimative Lösung, um den Trend zu bestimmen!",
+                    "updated": 1639262556947
+                }
+            ]
         }
     ]
 }

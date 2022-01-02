@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "\nDie Seite existiert, ist aber leer.",
                 "updated": 1633896898784
+            },
+            {
+                "language": "RU",
+                "text": "Страница существует, но пуста.",
+                "updated": 1638529668036
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Bitte helfen Sie uns, diese Seite zu reparieren!",
                     "updated": 1633897014155
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, помогите нам исправить эту страницу!",
+                    "updated": 1638529697705
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633897024464
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638529734071
                 }
             ]
         },

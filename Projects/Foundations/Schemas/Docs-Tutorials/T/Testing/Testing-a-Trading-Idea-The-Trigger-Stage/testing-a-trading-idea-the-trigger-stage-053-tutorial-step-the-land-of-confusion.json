@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 53,
+    "type": "Tutorial Step - The Land of Confusion",
+    "definition": {
+        "icon": {
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
+        },
+        "text": "Indeed, it is logical that the trading bot evaluates only the definitions that make sense evaluating at any point in time!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In der Tat ist es logisch, dass der Trading-Bot nur die Definitionen auswertet, deren Auswertung zu einem bestimmten Zeitpunkt sinnvoll ist!",
+                "updated": 1639388751881
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "However, this is sometimes a source of confusion! Let's set up a hypothetical scenario!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Allerdings ist dies manchmal eine Quelle der Verwirrung! Lassen Sie uns ein hypothetisches Szenario aufstellen!",
+                    "updated": 1639388758590
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Turn off the \"Strategies\" and the \"Trigger Stages\" layers in the Simulation Objects layer manager!",
+            "updated": 1622488349304,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die Ebenen \"Strategies\" und \"Trigger Stages\" im Ebenenmanager der Simulationsobjekte aus!",
+                    "updated": 1639388774569
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Now slide the pointer over the candles around March 1st! Imagine that you are trying to verify your conditions, but for some reason, they show values and highlights for some candles, but not for others! Something is wrong with Superalgos! Not really, right?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bewegen Sie nun den Mauszeiger über die Kerzen um den 1. März! Stellen Sie sich vor, dass Sie versuchen, Ihre Bedingungen zu überprüfen, aber aus irgendeinem Grund werden Werte und Hervorhebungen für einige Kerzen angezeigt, aber nicht für andere! Irgendetwas stimmt nicht mit Superalgos! Nicht wirklich, oder?",
+                    "updated": 1639388783218
+                }
+            ]
+        }
+    ]
+}

@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "Un situation se refiere a un estado específico del mercado en el que debe tener lugar un determinado evento, definido por una serie de condiciones.",
                 "updated": 1624496155342
+            },
+            {
+                "language": "RU",
+                "text": "Ситуация Situation относится к определенному состоянию, в котором должно произойти определенное событие, поределяемое любым количеством условий.",
+                "updated": 1639849564610
+            },
+            {
+                "language": "TR",
+                "text": "Durum, herhangi bir sayıda koşulla tanımlanabilecek bir olayın gerçekleşmesi beklenen piyasa durumunu ifade eder.",
+                "updated": 1639222488073
             }
         ]
     },
@@ -17,15 +27,36 @@
         },
         {
             "style": "Text",
-            "text": "In other words, you define situations in which you wish a certain event to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of conditions that need to be met for the event to be triggered."
+            "text": "In other words, you define situations in which you wish a certain event to happen (i.e.: trigger on the strategy, take a position, etc.) and each situation is described as a set of conditions that need to be met for the event to be triggered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, вы определяете ситуации, в которых вы хотите, чтобы произошло определенное событие (т.е.: срабатывание стратегии, занятие позиции и т.д.), и каждая ситуация описывается как набор условий, которые должны быть выполнены, чтобы событие произошло.",
+                    "updated": 1639849590913
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A situation gets validated when all conditions under it are true."
+            "text": "A situation gets validated when all conditions under it are true.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ситуация подтверждается, когда все условия в ней истинны ( true).",
+                    "updated": 1639849625992
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "An event may have more than one situation attached to it. In such a case, when any of the situations gets validated, the event gets triggered. That is, events may be triggered in different circumstances, meaning that you are free to define different situations upon which the same event would be triggered. In such a case, when any of the situations evaluate true, then the event is triggered."
+            "text": "An event may have more than one situation attached to it. In such a case, when any of the situations gets validated, the event gets triggered. That is, events may be triggered in different circumstances, meaning that you are free to define different situations upon which the same event would be triggered. In such a case, when any of the situations evaluate true, then the event is triggered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Событие может иметь более одной ситуации, связанной с ним. В этом случае, когда любая из ситуаций подтверждается, событие срабатывает. То есть события могут срабатывать при различных обстоятельствах, что означает, что вы можете определить различные ситуации, при которых будет срабатывать одно и то же событие. В этом случае, когда любая из ситуаций становится истинной (true), событие срабатывает.",
+                    "updated": 1639849702978
+                }
+            ]
         }
     ]
 }

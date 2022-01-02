@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let’s build the mother of all trading strategies: The Moving Average Cross!",
         "icon": {
-            "name": "Tutorial\\tutorial",
+            "name": "tutorial",
             "project": "Foundations"
         },
         "updated": 1629342747241,
@@ -26,6 +26,21 @@
                 "language": "FR",
                 "text": "Construisons la mère de toutes les stratégies de trading : Le croisement des moyennes mobiles !",
                 "updated": 1630680395371
+            },
+            {
+                "language": "IT",
+                "text": "Una semplice strategia basata sull'incrocio delle Medie Mobili",
+                "updated": 1639072742670
+            },
+            {
+                "language": "TR",
+                "text": "Gelin, tüm ticaret stratejilerinin anasını oluşturalım: Hareketli Çapraz Ortalama!",
+                "updated": 1640615768659
+            },
+            {
+                "language": "RU",
+                "text": "Давайте построим основную торговую стратегию: пересечение скользящих средних!",
+                "updated": 1640632690992
             }
         ]
     },
@@ -51,6 +66,21 @@
                     "language": "FR",
                     "text": "Pour ce tuto nous partirons du principe que:",
                     "updated": 1630680728706
+                },
+                {
+                    "language": "IT",
+                    "text": "Per seguire al meglio questo tutorial vi consiglio di:",
+                    "updated": 1639072514502
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu ders için aşağıdakileri yapabileceğinizi varsayıyorum:",
+                    "updated": 1640615851824
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом учебнике я предполагаю, что:",
+                    "updated": 1640632703163
                 }
             ]
         },
@@ -74,6 +104,21 @@
                     "language": "FR",
                     "text": "Vous avez fait le Welcome Tutorial à l'intérieur du Getting Started Workspace",
                     "updated": 1630680751819
+                },
+                {
+                    "language": "IT",
+                    "text": "Aver completato il tutorial di benvenuto che trovate nel Getting Started Workspace",
+                    "updated": 1639071983775
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlarken Çalışma Alanı dersini ( Workspace ) , Hoş Geldiniz Eğitimini ( Tutorial ) gerçekleştirdiniz",
+                    "updated": 1640615868998
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы прошли урок Welcome to Superalgos Tutorial в рабочем пространстве Getting Started Workspace",
+                    "updated": 1640632786502
                 }
             ],
             "updated": 1629342770748
@@ -98,6 +143,21 @@
                     "language": "FR",
                     "text": "Vous êtes à l'aise afin de vous déplacer dans les workspaces ainsi que sur les graphiques",
                     "updated": 1630680807222
+                },
+                {
+                    "language": "IT",
+                    "text": "Sentirvi a vostro agio nel muovervi nel workspace e nelle chart/grafici di SA",
+                    "updated": 1639072036068
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma Alanında ( Workspace ) ve Grafiklerde rahat hareket edersiniz",
+                    "updated": 1640615882183
+                },
+                {
+                    "language": "RU",
+                    "text": "Вам удобно перемещаться по рабочему пространству и графикам.",
+                    "updated": 1640632808287
                 }
             ],
             "updated": 1629342792390
@@ -123,6 +183,21 @@
                     "language": "FR",
                     "text": "Vous possédez une compréhension basique de ce qu'est un Trading Bot et une stratégie",
                     "updated": 1630680872076
+                },
+                {
+                    "language": "IT",
+                    "text": "Avere una conoscenza almeno basilare di cosa è un bot e di come può usare indicatori come la media mobile per costruire strategie di trading",
+                    "updated": 1639072557033
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım Satım Botu ( Trading Bot ) ve stratejinin ne olduğu hakkında temel bilgilere sahipsiniz",
+                    "updated": 1640615896038
+                },
+                {
+                    "language": "RU",
+                    "text": "У вас есть базовое понимание того, что такое торговый бот и стратегия",
+                    "updated": 1640632820606
                 }
             ]
         },
@@ -147,6 +222,21 @@
                     "language": "FR",
                     "text": "Nous allons construire un bot afin de Backtester une stratégi basée sur le croisement des moyennes mobiles SMA50 et SMA200 sur une période de 4heures, un classique!",
                     "updated": 1630680963598
+                },
+                {
+                    "language": "IT",
+                    "text": "Creeremo un bot di trading basato sull'incrocio delle medie mobili SMA50 e SMA200 e faremo un backtest della strategia, un classico!",
+                    "updated": 1639072264191
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bir klasik olan 4h TF'de SMA50 ve SMA200 arasındaki Basit Hareketli Ortalama ( Simple Moving Average ) Çaprazına dayalı bir stratejiyi geriye dönük test etmek için bir bot oluşturacağız!",
+                    "updated": 1640615931216
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы создадим бота для бэктестинга стратегии, основанной на пересечении простых скользящих средних SMA50 и SMA200 на 4-часовом таймфрейме, классика!",
+                    "updated": 1640632859656
                 }
             ]
         },

@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El trigger-on event define el conjunto de reglas que deben cumplirse para que se active la estrategia correspondiente. Una estrategia que se activa puede utilizar todo el capital disponible para el sistema de trading y evita que se activen otras estrategias en el sistema.",
                 "updated": 1629580618624
+            },
+            {
+                "language": "RU",
+                "text": "Trigger On Event (событие включения) определяет набор правил, которые должны быть выполнены для включения соответствующей стратегии. Сработавшая стратегия может использовать весь капитал, доступный торговой системе, и препятствует срабатыванию других стратегий в системе.",
+                "updated": 1639734975463
             }
         ]
     },
@@ -17,11 +22,25 @@
         },
         {
             "style": "Text",
-            "text": "In conceptual terms, the trigger-on event is the mechanism you use to define the specific situations in which you would consider trading with the corresponding strategy. Think of the trigger-on event as the definition of the scenario in which the trading idea behind the strategy should be carefully considered."
+            "text": "In conceptual terms, the trigger-on event is the mechanism you use to define the specific situations in which you would consider trading with the corresponding strategy. Think of the trigger-on event as the definition of the scenario in which the trading idea behind the strategy should be carefully considered.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В концептуальном плане событие включения - это механизм, который вы используете для определения конкретных ситуаций, в которых вы будете рассматривать возможность торговли с помощью соответствующей стратегии. Воспринимайте событие включения как определение сценария, в котором торговая идея, лежащая в основе стратегии, должна быть тщательно продумана.",
+                    "updated": 1639736452767
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Once a strategy is triggered-on, the system starts evaluating the take position event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal and that it should carefully monitor the market for the opportunity to take a position."
+            "text": "Once a strategy is triggered-on, the system starts evaluating the take position event. In conceptual terms, it means that the system has been alerted that the trading idea behind the corresponding trading strategy has produced a signal and that it should carefully monitor the market for the opportunity to take a position.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как только стратегия срабатывает, система начинает оценивать событие открытия позиции. В концептуальном плане это означает, что система получила сигнал о том, что торговая идея, лежащая в основе соответствующей торговой стратегии, дала сигнал и что она должна внимательно следить за рынком в поисках возможности открыть позицию.",
+                    "updated": 1639736510224
+                }
+            ]
         }
     ]
 }

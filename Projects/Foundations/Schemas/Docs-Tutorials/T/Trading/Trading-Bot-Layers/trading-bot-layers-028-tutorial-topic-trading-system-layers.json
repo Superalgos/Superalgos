@@ -7,20 +7,68 @@
             "project": "Foundations",
             "name": "trading-system"
         },
-        "text": "The last layer manager is about the Trading System that features the trading rules for the simulation!"
+        "text": "The last layer manager is about the Trading System that features the trading rules for the simulation!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der letzte Layer-Manager betrifft das Trading System, das die Handelsregeln für die Simulation enthält!",
+                "updated": 1639145284876
+            },
+            {
+                "language": "RU",
+                "text": "Последний менеджер слоя - это Trading System, в котором представлены торговые правила для симуляции!",
+                "updated": 1640630902150
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "These layers work similar to those in the Trading Engine layer manager: they show information on the design space, not on the charts. The difference is that these show stuff on the trading system hierarchy!"
+            "text": "These layers work similar to those in the Trading Engine layer manager: they show information on the design space, not on the charts. The difference is that these show stuff on the trading system hierarchy!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Ebenen funktionieren ähnlich wie die im Ebenenmanager der Trading Engine: Sie zeigen Informationen im design space, nicht in den Diagrammen. Der Unterschied besteht darin, dass sie Informationen über die Trading System-Hierarchie anzeigen!",
+                    "updated": 1639145315536
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти слои работают аналогично слоям в менеджере слоев Trading Engine: они показывают информацию на пространстве проектирования, а не на графиках. Разница в том, что они показывают информацию на иерархии торговой системы!",
+                    "updated": 1640630948637
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "These layers are particularly useful when designing, testing, and debugging strategies! Just wait and see!"
+            "text": "These layers are particularly useful when designing, testing, and debugging strategies! Just wait and see!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Diese Ebenen sind besonders nützlich beim Entwerfen, Testen und Debuggen von Strategien! Warten Sie einfach ab!",
+                    "updated": 1639145322431
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти слои особенно полезны при разработке, тестировании и отладке стратегий! Просто подождите и посмотрите!",
+                    "updated": 1640630962915
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "Before continuing, turn some Simulation Objects layers off to avoid cluttering up the screen!"
+            "text": "Before continuing, turn some Simulation Objects layers off to avoid cluttering up the screen!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bevor Sie fortfahren, schalten Sie einige Ebenen der Simulationsobjekte aus, um den Bildschirm nicht zu überladen!",
+                    "updated": 1639145329257
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем продолжить, отключите некоторые слои Simulation Objects, чтобы не загромождать экран!",
+                    "updated": 1640631012311
+                }
+            ]
         }
     ]
 }

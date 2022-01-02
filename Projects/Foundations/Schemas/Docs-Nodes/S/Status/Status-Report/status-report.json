@@ -2,7 +2,14 @@
     "type": "Status Report",
     "definition": {
         "text": "\nA status report serves as a temporal annotation that bots read every time they run to know what was done in the previous cycle and what the state of affairs is at present. They are dynamic and change constantly, with updates after every cycle of the associated process.",
-        "updated": 1609788111201
+        "updated": 1609788111201,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Status Report служит временной аннотацией, которую боты читают при каждом запуске, чтобы узнать, что было сделано в предыдущем цикле и каково положение дел в настоящее время. Они динамичны и постоянно меняются, с обновлениями после каждого цикла соответствующего процесса.",
+                "updated": 1639577291206
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -11,11 +18,25 @@
         },
         {
             "style": "Text",
-            "text": "Bots do not run continuously. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record processed."
+            "text": "Bots do not run continuously. Instead, they run in cycles. A cycle usually lasts until there is no more data to process, and once they finish, they shut down until the next cycle is due. A status report is a file every bot writes at the end of each cycle with information about the last run, including the datetime of the run and the last record processed.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Боты не работают постоянно. Вместо этого они работают циклично. Цикл обычно длится до тех пор, пока не закончатся данные для обработки, и по завершении они отключаются до наступления следующего цикла. Отчет о состоянии Status Report - это файл, который каждый бот записывает в конце каждого цикла с информацией о последнем запуске, включая дату и время выполнения и последнюю обработанную запись.",
+                    "updated": 1639577327317
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "A status report may be consumed by the same bot producing it, or by other bots."
+            "text": "A status report may be consumed by the same bot producing it, or by other bots.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отчет о состоянии может использоваться тем же ботом, который его создает, или другими ботами.",
+                    "updated": 1639577341517
+                }
+            ]
         }
     ]
 }

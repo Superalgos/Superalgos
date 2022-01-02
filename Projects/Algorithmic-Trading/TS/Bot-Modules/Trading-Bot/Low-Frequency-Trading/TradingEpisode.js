@@ -82,7 +82,7 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
     }
 
     function resetEpisode() {
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.learningEpisode)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.learningEpisode)
     }
 
     function updateEnds() {
@@ -108,7 +108,7 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
 
     function updateStatistics() {
 
-        /* Daus Calculation */
+        /* Days Calculation */
         tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value =
             tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeCounters.periods.value *
             sessionParameters.timeFrame.config.value /
@@ -261,7 +261,7 @@ exports.newAlgorithmicTradingBotModulesTradingEpisode = function (processIndex) 
     }
 
     function updateDistanceToTradingEventsCounters() {
-        /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
+        /* Keeping Distance Counters Up-to-date while avoiding counting before the first event happens. */
         if (
             tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.triggerOn.value > 0
         ) {

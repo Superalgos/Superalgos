@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "La función share funciona casi de la misma manera que la función de copia de seguridad, pero descarta información personal como exchanges keys.",
                 "updated": 1628037037100
+            },
+            {
+                "language": "TR",
+                "text": "Paylaşım özelliği, yedekleme özelliğiyle hemen hemen aynı şekilde çalışır, ancak değişim anahtarları gibi kişisel bilgiler göz ardı edilir, tutulmaz.",
+                "updated": 1639735123944
+            },
+            {
+                "language": "RU",
+                "text": "Функция общего доступа работает почти так же, как и функция резервного копирования, но при этом отбрасывается личная информация, например, ключи от биржи.",
+                "updated": 1640436713134
             }
         ]
     },
@@ -17,28 +27,100 @@
         {
             "style": "Text",
             "text": "The share feature works almost the same as the back up feature, with the sole difference that shares do not store personal information, like exchange API keys.",
-            "updated": 1611490600062
+            "updated": 1611490600062,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Paylaşım özelliği, yedekleme özelliği ile hemen hemen aynı şekilde çalışır, tek fark, Borsa API anahtarları gibi kişisel bilgileri saklamamasıdır.",
+                    "updated": 1639735157497
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция общего доступа работает почти так же, как и функция резервного копирования, с той лишь разницей, что в общем доступе не хранится личная информация, например, ключи API обмена.",
+                    "updated": 1640436699759
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "On that note, we will not analyze this feature further, other than reminding the user that it is recommended to develop the habit to only share shares and not backups, to avoid the potential accidental dissemination of exchange keys."
+            "text": "On that note, we will not analyze this feature further, other than reminding the user that it is recommended to develop the habit to only share shares and not backups, to avoid the potential accidental dissemination of exchange keys.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Bu noktada,  borsa anahtarlarının olası kazara yayılmasını önlemek için kullanıcıya yedeklerini ( Backups ) değil, yalnızca paylaşımları ( Shares ) paylaşma alışkanlığını geliştirmesinin tavsiye ettiğimizi hatırlatmak dışında çok fazla konuşmayacağız.",
+                    "updated": 1639735315149
+                },
+                {
+                    "language": "RU",
+                    "text": "В связи с этим мы не будем анализировать эту функцию дальше, кроме напоминания пользователям, что рекомендуется выработать привычку делиться только общими ресурсами, а не резервными копиями, чтобы избежать возможного случайного распространения ключей от биржи.",
+                    "updated": 1640436758965
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "On a different note, it is also critical to bring one more issue to your attention regarding sharing work and—what’s more more important— using other people’s work."
+            "text": "On a different note, it is also critical to bring one more issue to your attention regarding sharing work and—what’s more more important— using other people’s work.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Önemli bir husus olarak  diğer insanların çalışmalarını kullanma konusuna dikkat çekmek istiyoruz.",
+                    "updated": 1639735438977
+                },
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, крайне важно обратить ваше внимание еще на один вопрос, касающийся обмена работой и - что еще важнее - использования чужой работы.",
+                    "updated": 1640436780760
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "You may have noticed that the system accepts JavaScript code in a multitude of input forms such as configurations, conditions, formulas and more. At this point, there is no restriction to the code that may be used. This is a design feature, as we wish advanced users to be able to use their programing skills to make the most out of the system."
+            "text": "You may have noticed that the system accepts JavaScript code in a multitude of input forms such as configurations, conditions, formulas and more. At this point, there is no restriction to the code that may be used. This is a design feature, as we wish advanced users to be able to use their programing skills to make the most out of the system.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Sistemde, konfigürasyonlar, koşullar, formüller ve daha pek çok sayıda giriş formunda JavaScript kodunun kullanıldığını farketmişsinizdir.. Bu noktada, kullanılabilecek kod için herhangi bir kısıtlama yoktur. Bu bir tasarım özelliğidir, çünkü ileri düzey kullanıcıların sistemden en iyi şekilde yararlanmak için programlama becerilerini kullanabilmelerini istiyor ve bekliyoruz.",
+                    "updated": 1639736487883
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы могли заметить, что система принимает код JavaScript во многих формах ввода, таких как конфигурации, условия, формулы и многое другое. На данный момент нет никаких ограничений на код, который может быть использован. Это особенность проекта, так как мы хотим, чтобы опытные пользователи могли использовать свои навыки программирования для получения максимальной отдачи от системы.",
+                    "updated": 1640436840945
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, this also means that using workspaces or any other data structure coming from untrusted sources is not free of risks. On the contrary, it may be a high-risk choice, as it is possible to introduce malicious code that may, for example, attempt to steal people’s API keys."
+            "text": "However, this also means that using workspaces or any other data structure coming from untrusted sources is not free of risks. On the contrary, it may be a high-risk choice, as it is possible to introduce malicious code that may, for example, attempt to steal people’s API keys.",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Ancak bu, güvenilir olmayan kaynaklardan gelen çalışma alanlarını veya diğer herhangi bir veri yapısını kullanmanın risksiz olmadığı anlamına da gelir. Aksine, örneğin insanların API anahtarlarını çalmaya çalışabilecek kötü amaçlı kodlar dahil etmek mümkün olduğundan yüksek riskli bir seçim olabilir.",
+                    "updated": 1639737927519
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако это также означает, что использование рабочих пространств или любых других структур данных, полученных из ненадежных источников, не лишено рисков. Напротив, это может быть выбором с высокой степенью риска, поскольку возможно внедрение вредоносного кода, который, например, может попытаться украсть API-ключи пользователей.",
+                    "updated": 1640436876909
+                }
+            ]
         },
         {
             "style": "Warning",
             "text": "Beware of using shared data structures from untrusted sources as they may contain malicious code that could, for example, steal your exchange keys.",
-            "updated": 1611490613530
+            "updated": 1611490613530,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Örneğin, değişim anahtarlarınızı çalabilecek kötü amaçlı kodlar içerebileceğinden, güvenilmeyen kaynaklardan paylaşılan veri yapılarını kullanmamaya dikkat edin.",
+                    "updated": 1639737999751
+                },
+                {
+                    "language": "RU",
+                    "text": "Остерегайтесь использования общих структур данных из ненадежных источников, поскольку они могут содержать вредоносный код, который может, например, украсть ваши ключи к биржам.",
+                    "updated": 1640436906319
+                }
+            ]
         },
         {
             "style": "Text",

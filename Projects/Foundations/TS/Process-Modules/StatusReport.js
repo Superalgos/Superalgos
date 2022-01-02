@@ -2,9 +2,9 @@
 
     /*
 
-    A Status Report is a file that every bot reads at the begining of its execution 
+    A Status Report is a file that every bot reads at the beginning of its execution
     and saves after it finishes its job. The purpose of the file is to record checkpoint information 
-    of what was the last thing done by the bot and helpfull enough to start the next execution.
+    of what was the last thing done by the bot and helpful enough to start the next execution.
     It usually does not include business related context data.
 
     */
@@ -48,7 +48,7 @@
             }
 
             if (statusDependencyNode.referenceParent.parentNode.config.codeName === undefined) {
-                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition witn no codeName defined.")
+                validationFailed(statusDependencyNode.referenceParent.parentNode, "Process Definition with no codeName defined.")
                 return
             }
 
@@ -98,7 +98,8 @@
                 }
             }
 
-            if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined && statusDependencyNode.bottype === "Trading Bot") {
+            if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined &&
+                (statusDependencyNode.bottype === "Trading Bot" || statusDependencyNode.bottype === "Portfolio Bot") ) {
                 sessionPath = TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_FOLDER_NAME + "/"
             }
 
@@ -112,6 +113,8 @@
                 if (checkThisDataBranch(lanNetworkNode.dataTasks) === true) { return }
                 if (checkThisTradingBranch(lanNetworkNode.testingTradingTasks) === true) { return }
                 if (checkThisTradingBranch(lanNetworkNode.productionTradingTasks) === true) { return }
+                if (checkThisPortfolioBranch(lanNetworkNode.testingPortfolioTasks) === true) { return }
+                if (checkThisPortfolioBranch(lanNetworkNode.productionPortfolioTasks) === true) { return }
                 if (checkThisLearningBranch(lanNetworkNode.learningTasks) === true) { return }
 
                 function checkThisDataBranch(branch) {
@@ -191,6 +194,58 @@
                                                 let processDefinition = process.referenceParent
                                                 if (processThisDependsOn.id === processDefinition.id) {
                                                     if (process.type === 'Trading Process Instance') {
+                                                        if (process.session !== undefined) {
+                                                            if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id !== process.session.id) {
+                                                                continue
+                                                            }
+                                                        } else {
+                                                            continue
+                                                        }
+                                                    }
+                                                    /* 
+                                                    We found where the task that runs the process definition this status report depends on 
+                                                    and where it is located on the network. 
+                                                    */
+                                                    thisObject.lanNetworkNode = lanNetworkNode
+                                                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, "[INFO] initialize -> Retrieving status report from " + lanNetworkNode.name + " -> host = " + lanNetworkNode.config.host + ' -> port = ' + lanNetworkNode.config.webPort + '.')
+
+                                                    fileStorage = TS.projects.foundations.taskModules.fileStorage.newFileStorage(processIndex, lanNetworkNode.config.host, lanNetworkNode.config.webPort)
+                                                    callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_OK_RESPONSE)
+                                                    return true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function checkThisPortfolioBranch(branch) {
+                    if (branch === undefined) { return }
+                    for (let z = 0; z < branch.projectPortfolioTasks.length; z++) {
+                        let projectPortfolioTasks = branch.projectPortfolioTasks[z]
+                        for (let j = 0; j < projectPortfolioTasks.exchangePortfolioTasks.length; j++) {
+                            let exchangeTasks = projectPortfolioTasks.exchangePortfolioTasks[j]
+                            for (let p = 0; p < exchangeTasks.marketPortfolioTasks.length; p++) {
+                                let marketTasks = exchangeTasks.marketPortfolioTasks[p]
+                                if (marketTasks.referenceParent === undefined) { continue }
+                                if (marketTasks.referenceParent.id !== TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.id) { continue }
+                                for (let q = 0; q < marketTasks.portfolioMineTasks.length; q++) {
+                                    let mineTasks = marketTasks.portfolioMineTasks[q]
+                                    for (let k = 0; k < mineTasks.taskManagers.length; k++) {
+                                        let taskManager = mineTasks.taskManagers[k]
+                                        for (let m = 0; m < taskManager.tasks.length; m++) {
+                                            let task = taskManager.tasks[m]
+                                            if (task.bot === undefined) { continue }
+                                            if (task.bot.processes === undefined) { continue }
+                                            for (let n = 0; n < task.bot.processes.length; n++) {
+                                                let process = task.bot.processes[n]
+                                                if (process.referenceParent === undefined) { continue }
+                                                let processDefinition = process.referenceParent
+                                                if (processThisDependsOn.id === processDefinition.id) {
+                                                    if (process.type === 'Portfolio Process Instance') {
                                                         if (process.session !== undefined) {
                                                             if (TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id !== process.session.id) {
                                                                 continue
@@ -332,11 +387,11 @@
 
             let canUserPrevious
             /*
-            If we are funning Trading Engines, we can not allow ourselves to use a Status Report that is not 
-            the latest one, because it might contain transactioinal information related to the context of the 
+            If we are running Trading Engines, we can not allow ourselves to use a Status Report that is not
+            the latest one, because it might contain transactional information related to the context of the
             operations the trading engine is doing.
 
-            On the contraty, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necesary, 
+            On the contrary, if we are running a Sensor bot, API Data Fetcher, or an Indicator we might, if necessary,
             use a previous version of a Status Report since there will be no big impact, just some reprocessing.
             */
             if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE !== undefined) {

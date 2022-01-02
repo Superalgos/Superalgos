@@ -7,6 +7,11 @@
                 "language": "ES",
                 "text": "El time frame determina la colección de velas que se analizarán durante una sesión de backtesting y la frecuencia con la que el robot comercial se ejecuta en papel trading, forward testing, y live trading sessions.",
                 "updated": 1628903433039
+            },
+            {
+                "language": "RU",
+                "text": "Time Frame определяют набор свечей, которые будут проанализированы во время сеанса тестирования на истории, и частоту, с которой торговый бот запускает торговлю на бумаге, форвард-тестирование и торговые сессии в реальном времени.",
+                "updated": 1639143104418
             }
         ]
     },
@@ -17,68 +22,166 @@
         },
         {
             "style": "Title",
-            "text": "In Live Sessions"
+            "text": "In Live Sessions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В живых сессиях",
+                    "updated": 1639143116237
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In the context of live sessions, that is, paper trading, forward testing, and live trading, you may want to run the session on the 01-min time frame so that the trading bot reacts fast when the price tags the take profit or stop loss targets.",
-            "updated": 1611866615974
+            "updated": 1611866615974,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте живых сессий, то есть бумажной торговли, форвард-тестирования и живой торговли, вы можете захотеть запустить сессию на 01-минутном таймфрейме, чтобы торговый бот быстро реагировал, когда цена пересекает цели тейк-профита или стоп-лосса.",
+                    "updated": 1640852502129
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "Remember that Superalgos does not place stop or take profit orders at the time of entering the position. Instead, the trading bot checks the current price upon each execution Cycle and determines whether Managed Stop Loss or Managed Take Profit targets have been hit or not. If targets are hit, the Close Stage opens and orders are placed on the next cycle, which happens to be on the next candle."
+            "text": "Remember that Superalgos does not place stop or take profit orders at the time of entering the position. Instead, the trading bot checks the current price upon each execution Cycle and determines whether Managed Stop Loss or Managed Take Profit targets have been hit or not. If targets are hit, the Close Stage opens and orders are placed on the next cycle, which happens to be on the next candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что Superalgos не размещает стоп-приказы или приказы о фиксации прибыли во время входа в позицию. Вместо этого торговый бот проверяет текущую цену в каждом цикле исполнения и определяет, были ли достигнуты цели по управляемому стоп-лоссу Managed Stop Loss или управляемому тейк-профиту Managed Take Profit. Если цели поражены, открывается стадия закрытия Close Stage, и ордера размещаются в следующем цикле, который происходит на следующей свече.",
+                    "updated": 1639143379106
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If for whatever reason you don't need to minimize the potential for slippage when hitting stop or take profit targets, you may choose whatever time frame you like, taking into account the explanations below."
+            "text": "If for whatever reason you don't need to minimize the potential for slippage when hitting stop or take profit targets, you may choose whatever time frame you like, taking into account the explanations below.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если по каким-либо причинам вам не нужно минимизировать возможность проскальзывания при достижении целей стоп или тейк-профит, вы можете выбрать любой таймфрейм, который вам нравится, с учетом пояснений, приведенных ниже.",
+                    "updated": 1640852689435
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "In Backtesting Sessions",
-            "updated": 1611864433090
+            "updated": 1611864433090,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В сеансах бэктестинга",
+                    "updated": 1639144896965
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In the context of backtesting sessions, what time frame you decide to run the session depends on the trading system being tested. If the trading system makes decisions based on the 1-hour candle and above, then 01-hs may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time frame accordingly."
+            "text": "In the context of backtesting sessions, what time frame you decide to run the session depends on the trading system being tested. If the trading system makes decisions based on the 1-hour candle and above, then 01-hs may be the best choice. However, if decisions are influenced by sub-hour candles then you should match the time frame accordingly.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте бэктестинга сессий, то, на каком таймфрейме вы решите проводить сессию, зависит от тестируемой торговой системы. Если торговая система принимает решения на основе 1-часовой свечи и выше, то лучшим выбором может быть 01-hs. Однако если на решения влияют субчасовые свечи, то следует подобрать соответствующий таймфрейм.",
+                    "updated": 1640852826379
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In other words, in backtesting sessions, you should match the time frame to the smallest period on which the trading system makes decisions."
+            "text": "In other words, in backtesting sessions, you should match the time frame to the smallest period on which the trading system makes decisions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, в сеансах тестирования на истории вы должны сопоставить таймфрейм с наименьшим периодом, в течение которого торговая система принимает решения.",
+                    "updated": 1639145068524
+                }
+            ]
         },
         {
             "style": "Important",
             "text": "The above, however, is only partially correct. Setting the time frame to match the decision-making criteria of the Trading System is desirable to save time in backtests. You save time because the smallest reasonable collection of candles is evaluated. However, the time-saving may come at the cost of precision!",
-            "updated": 1611864503880
+            "updated": 1611864503880,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако вышесказанное верно лишь отчасти. Установка таймфрейма в соответствии с критериями принятия решений торговой системы желательна для экономии времени при тестировании на истории. Вы экономите время, потому что оценивается наименьший разумный набор свечей. Однако экономия времени может быть достигнута за счет точности!",
+                    "updated": 1639145121677
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Remember what was said about stop loss and take profit orders earlier: they do not exist in Superalgos. When a target is hit, orders are placed in the following Cycle, which happens to be on the next candle!",
-            "updated": 1611867434260
+            "updated": 1611867434260,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вспомните, что было сказано ранее об ордерах стоп-лосс и тейк-профит: их нет в Superalgos. Когда цель достигнута, ордеры размещаются в следующем цикле Cycle, который происходит на следующей свече!",
+                    "updated": 1640852855944
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Let's take a minute to reflect on the implications of the above! If targets are hit on one candle and orders are placed on the next candle, there is the potential for huge Slippage if the session is run on higher time frames! This is the cost in precision mentioned earlier.",
-            "updated": 1611867460626
+            "updated": 1611867460626,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давайте на минутку поразмышляем над последствиями вышеизложенного! Если цели достигаются на одной свече, а ордера размещаются на следующей свече, существует вероятность огромного проскальзывания, если сессия проводится на более высоких таймфреймах! Это стоимость точности, о которой говорилось ранее.",
+                    "updated": 1639145252511
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The above explanation seems to point in the following direction: if you want backtesting simulations to be comparable to live sessions run on the 01-min time frame, then you should run the backtesting session on the 01-min time frame as well. There is, however, a workaround.",
-            "updated": 1611865962360
+            "updated": 1611865962360,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приведенное выше объяснение, похоже, указывает в следующем направлении: если вы хотите, чтобы симуляции бэктестинга были сопоставимы с живыми сессиями, запущенными на 01-минутном таймфрейме, тогда вы должны запустить сессию бэктестинга также на 01-минутном таймфрейме. Однако существует обходной путь.",
+                    "updated": 1640852953745
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Workaround",
-            "updated": 1611865696092
+            "updated": 1611865696092,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обходное решение",
+                    "updated": 1639145358452
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You may use the Simulated Exchange Events structure of nodes to arbitrarily define the exit rate of the position.",
-            "updated": 1611866026489
+            "updated": 1611866026489,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете использовать структуру узлов Simulated Exchange Events для произвольного определения ценового уровня для выхода из позиции.",
+                    "updated": 1640853086280
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example, you may use the following formula in the Simulated Actual Rate node as well as in the Target Rate of the Close Stage:",
-            "updated": 1611866230721
+            "updated": 1611866230721,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, вы можете использовать следующую формулу в узле Simulated Actual Rate, а также в Target Rate на стадии Close Stage:",
+                    "updated": 1639145422388
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -88,89 +191,222 @@
         {
             "style": "Text",
             "text": "The formula sets the Simulated Actual Rate to be the last known takeProfit rate if the exit was triggered by hitting of the Managed Take Profit, or the last known stopLoss in case it was the Managed Stop Loss target.",
-            "updated": 1611866508554
+            "updated": 1611866508554,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула устанавливает Simulated Actual Rate как последнюю известную ставку тейк-профита, если выход был вызван достижением управляемого тейк-профита Managed Take Profit, или последнего известного стоп-лосса, если это был управляемый стоп-лосс Managed Stop Loss цели.",
+                    "updated": 1640853150912
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "Why the Time Frame Matters",
-            "updated": 1609675221484
+            "updated": 1609675221484,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Почему так важен таймфрейм",
+                    "updated": 1639147024875
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Running trading sessions of any given trading system on different time frames may produce different results. This is because the behavior of a trading session may vary depending on how well the time frame matches the logic of the strategy.",
-            "updated": 1611867546138
+            "updated": 1611867546138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проведение торговых сессий любой торговой системы на разных таймфреймах может дать разные результаты. Это связано с тем, что поведение торговой сессии может варьироваться в зависимости от того, насколько хорошо таймфрейм соответствуют логике стратегии.",
+                    "updated": 1639147063554
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading bot evaluates closed candles only. At any given point in time, the current candle in each time frame is the candle that closed last."
+            "text": "The trading bot evaluates closed candles only. At any given point in time, the current candle in each time frame is the candle that closed last.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый бот оценивает только закрытые свечи. В любой момент времени текущая свеча в каждом таймфрейме - это свеча, которая закрылась последней.",
+                    "updated": 1639147088400
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "For example, let's say it's 11 hours, 39 minutes and 30 seconds of June 11th, 2020. This is how the system determines which is the current candle:",
-            "updated": 1609676164831
+            "updated": 1609676164831,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например, предположим, что это 11 часов 39 минут и 30 секунд 11 июня 2020 года. Вот как система определяет текущую свечу:",
+                    "updated": 1639147105545
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-minute candle: it is the one that closed at 11:38:59.999.",
-            "updated": 1609675822811
+            "updated": 1609675822811,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-минутная свеча: это та, которая закрылась на 11: 38: 59.999.",
+                    "updated": 1639147120630
+                }
+            ]
         },
         {
             "style": "List",
             "text": "5-minute candle: it is the one that closed at 11:34:59.999.",
-            "updated": 1609675843830
+            "updated": 1609675843830,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "5-минутная свеча: это та, которая закрылась на 11:34: 59.999.",
+                    "updated": 1639147132460
+                }
+            ]
         },
         {
             "style": "List",
             "text": "30-minute candle: it is the one that closed at 11:29:59.999.",
-            "updated": 1609675857707
+            "updated": 1609675857707,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "30-минутная свеча: это та, которая закрылась на 11: 29: 59.999.",
+                    "updated": 1639147141775
+                }
+            ]
         },
         {
             "style": "List",
             "text": "1-hour candle: it is the one that closed at 10:59:59.999.",
-            "updated": 1609675872973
+            "updated": 1609675872973,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "1-часовая свеча: это та, которая закрылась на отметке 10: 59: 59.999.",
+                    "updated": 1639147151714
+                }
+            ]
         },
         {
             "style": "List",
             "text": "2-hour candle: it is the one that closed at 09:59:59.999.",
-            "updated": 1609675887917
+            "updated": 1609675887917,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "2-часовая свеча: это та, которая закрылась в 09: 59: 59.999.",
+                    "updated": 1639147160784
+                }
+            ]
         },
         {
             "style": "List",
             "text": "6-hour candle: it is the one that closed at 05:59:59.999.",
-            "updated": 1609675901312
+            "updated": 1609675901312,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "6-часовая свеча: это та, которая закрылась на 05: 59: 59.999.",
+                    "updated": 1639147169908
+                }
+            ]
         },
         {
             "style": "List",
             "text": "24-hour candle: it is the one that closed at 23:59:59.999 of June 10th!",
-            "updated": 1609675923840
+            "updated": 1609675923840,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "24-часовая свеча: это та, которая закрылась в 23: 59: 59.999 10 июня!",
+                    "updated": 1639147180293
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let's say the trading system implements conditions that evaluate 30-minute and 1-hour candles."
+            "text": "Let's say the trading system implements conditions that evaluate 30-minute and 1-hour candles.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Допустим, торговая система реализует условия, оценивающие 30-минутные и 1-часовые свечи.",
+                    "updated": 1639147194459
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If a session is run at the 30-minutes time frame, all 30-minutes candles are evaluated. Also, all 1-hour candles are evaluated twice."
+            "text": "If a session is run at the 30-minutes time frame, all 30-minutes candles are evaluated. Also, all 1-hour candles are evaluated twice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если сессия проводится на 30-минутном таймфрейме, оцениваются все 30-минутные свечи. Кроме того, все 1-часовые свечи оцениваются дважды.",
+                    "updated": 1639147210837
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, if the session is run at the 1-hour time frame, only one out of two 30-minute candles are evaluated."
+            "text": "However, if the session is run at the 1-hour time frame, only one out of two 30-minute candles are evaluated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако, если сессия проводится на 1-часовом таймфрейме, оценивается только одна из двух 30-минутных свечей.",
+                    "updated": 1639147224126
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "And if the session is run at the 2-hour time frame, only one out of four 30-minute candles and one out of two 1-hour candles are evaluated."
+            "text": "And if the session is run at the 2-hour time frame, only one out of four 30-minute candles and one out of two 1-hour candles are evaluated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "И если сессия проводится на 2-часовом таймфрейме, оценивается только одна из четырех 30-минутных свечей и одна из двух 1-часовых свечей.",
+                    "updated": 1639147237312
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This means that running the session (for this particular trading system) at the 30-minute time frame has higher probabilities of conditions evaluating 30-minute candles to be true during the session."
+            "text": "This means that running the session (for this particular trading system) at the 30-minute time frame has higher probabilities of conditions evaluating 30-minute candles to be true during the session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что запуск сессии (для данной конкретной торговой системы) на 30-минутном таймфрейме имеет более высокую вероятность того, что условия, оценивающие 30-минутные свечи, будут истинными в течение сессии.",
+                    "updated": 1640853819298
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "In other words, when running the session on time frames higher than the time frame on which decisions are made, chances are the bot will eventually skip candles on which conditions would have evaluated true, potentially skipping trading opportunities."
+            "text": "In other words, when running the session on time frames higher than the time frame on which decisions are made, chances are the bot will eventually skip candles on which conditions would have evaluated true, potentially skipping trading opportunities.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, при запуске сеанса на таймфреймах выше, чем таймфреймы, на которых принимаются решения, есть вероятность, что бот в конечном итоге пропустит свечи, на которых условия были бы оценены как истинные, потенциально пропуская торговые возможности.",
+                    "updated": 1639147394774
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The above is true for all types of trading sessions."
+            "text": "The above is true for all types of trading sessions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сказанное выше верно для всех типов торговых сессий.",
+                    "updated": 1639147382235
+                }
+            ]
         },
         {
             "style": "Block",
@@ -179,7 +415,14 @@
         {
             "style": "Title",
             "text": "Time Frame Configuration",
-            "updated": 1609676252035
+            "updated": 1609676252035,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Time Frame",
+                    "updated": 1639147421170
+                }
+            ]
         },
         {
             "style": "Subtitle",

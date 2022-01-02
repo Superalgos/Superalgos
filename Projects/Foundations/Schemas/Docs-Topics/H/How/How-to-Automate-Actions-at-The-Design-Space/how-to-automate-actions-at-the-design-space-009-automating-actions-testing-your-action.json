@@ -4,28 +4,88 @@
     "type": "Automating Actions - Testing your Action",
     "definition": {
         "text": "To test your new Action you just need to reload the UI, locate the node with the new Menu Item, and click on it...",
-        "updated": 1614941791574
+        "updated": 1614941791574,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Um Ihre neue Aktion zu testen, müssen Sie nur die UI (Benutzeroberfläche) neu laden, die Node mit dem neuen Menüpunkt suchen und darauf klicken...",
+                "updated": 1640211945897
+            },
+            {
+                "language": "RU",
+                "text": "Чтобы проверить новое действие, нужно просто перезагрузить пользовательский интерфейс, найти узел с новым пунктом меню и щелкнуть на нем...",
+                "updated": 1640766350734
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Debug",
-            "updated": 1614939140622
+            "updated": 1614939140622,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Debug (Fehlersuche)",
+                    "updated": 1640211964715
+                },
+                {
+                    "language": "RU",
+                    "text": "Отладка",
+                    "updated": 1640766359987
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "In order to debug your action, you will need to open the developer tool, and at the Sources tab, locate the Function Library file where you added your action, place a breakpoint at the beginning of your function and go and click at the node Menu Item you added.",
-            "updated": 1628261072790
+            "updated": 1628261072790,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um Ihre Aktion zu debuggen, müssen Sie das Entwicklertool öffnen und auf der Registerkarte Quellen (Sources tab) den Function Library file (Funktionsbibliotheksdatei) suchen, in die Sie Ihre Aktion eingefügt haben, einen breakpoint (Haltepunkt) am Anfang Ihrer Funktion setzen und auf den von Ihnen hinzugefügten Node-Menüpunkt klicken.",
+                    "updated": 1640212140447
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы сделать отладку вашего действия (Action), вам нужно открыть инструмент разработчика (\"Developer Tool\") и на вкладке \"Sources\" найти файл Function Library, в который вы добавили ваше действие, поставить точку останова в начале вашей функции, перейти и щелкнуть на добавленном вами узле Menu Item.",
+                    "updated": 1640766436465
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "If you change the code of your function, reload the UI and you can debug it again with the new changes.",
-            "updated": 1614939195464
+            "updated": 1614939195464,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Code Ihrer Funktion ändern, laden Sie die UI neu und Sie können sie mit den neuen Änderungen erneut debuggen.",
+                    "updated": 1640212165859
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы измените код своей функции, перезагрузите пользовательский интерфейс (UI) и вы сможете проводить отладку снова с новыми изменениями.",
+                    "updated": 1640766490565
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "You can find more information about setting up and debugging in this topic:",
-            "updated": 1631371694241
+            "updated": 1631371694241,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Weitere Informationen zum Einrichten und Debuggen finden Sie in diesem Thema:",
+                    "updated": 1640212196310
+                },
+                {
+                    "language": "RU",
+                    "text": "Более подробную информацию о настройке и отладке вы можете найти в этой теме:",
+                    "updated": 1640766525631
+                }
+            ]
         },
         {
             "style": "List",

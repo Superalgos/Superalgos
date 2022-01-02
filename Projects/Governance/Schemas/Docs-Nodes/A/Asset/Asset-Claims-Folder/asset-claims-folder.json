@@ -2,7 +2,19 @@
     "type": "Asset Claims Folder",
     "definition": {
         "text": "Use this node as an organizational device, to spawn Asset Contribution Claim nodes, and to map entire structures in an Assets hierarchy to place multiple Contribution Claims at once.",
-        "updated": 1630352114041
+        "updated": 1630352114041,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Use este nodo como un dispositivo organizacional, para crear nodos de Asset Contribution Claim, y a mapear estructuras enteras en una jerarquía de Assets ( activo) para colocar múltiples solicitudes de contrbucion al mismo tiempo.",
+                "updated": 1636111484600
+            },
+            {
+                "language": "RU",
+                "text": "Используйте этот узел в качестве организационного устройства, чтобы порождать узлы Asset Contribution Claim и отображать целые структуры в иерархии Assets для одновременного размещения нескольких Contribution Claims.",
+                "updated": 1639133821099
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -43,7 +43,7 @@
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Learning Mine Tasks->"
+        "compatibleTypes": "->Data Mine Tasks->Trading Mine Tasks->Portfolio Mine Tasks->Learning Mine Tasks->"
     },
     "childrenNodesProperties": [
         {

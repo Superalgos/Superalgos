@@ -7,6 +7,16 @@
                 "language": "ES",
                 "text": "A trading engine la referencia determina cual trading system será evaluado por el bot de trading para ejecutar la sesión trading.",
                 "updated": 1628034798275
+            },
+            {
+                "language": "RU",
+                "text": "Ссылка Trading System Reference определяет, какая торговая система должна быть оценена торговым ботом для запуска торговой сессии.",
+                "updated": 1639141725781
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret motoru referansı, ticaret oturumunu çalıştırmak için ticaret botu tarafından hangi ticaret sisteminin değerlendirileceğini belirler.",
+                "updated": 1639486349166
             }
         ]
     },
@@ -17,7 +27,14 @@
         },
         {
             "style": "Text",
-            "text": "In other words, the trading system reference lets the process instance know which trading rules to process for the given session."
+            "text": "In other words, the trading system reference lets the process instance know which trading rules to process for the given session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, ссылка на торговую систему позволяет экземпляру процесса знать, какие торговые правила обрабатывать для данной сессии.",
+                    "updated": 1639141758500
+                }
+            ]
         }
     ]
 }

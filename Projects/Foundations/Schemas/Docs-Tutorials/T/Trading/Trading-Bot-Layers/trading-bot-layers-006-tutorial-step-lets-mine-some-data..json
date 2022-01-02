@@ -14,6 +14,11 @@
                 "text": "Jetzt, da du die Auswirkungen der Ausführung dieser Data-Mining-Operation verstanden hast, lass uns loslegen!",
                 "updated": 1623012038673,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда вы понимаете значения операции по добыче данных, давайте приступим к делу!",
+                "updated": 1640545023576
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Wähle \"Run All Project Data Tasks\" im \"Data Tasks\" Knotenmenü!",
                     "updated": 1623012059116,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите пункт \"Run All Project Data Tasks\" в меню узла Data Tasks!",
+                    "updated": 1640545061717
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Wenn du dieses Tutorial nach dem Tutorial \"Erste Schritte\" durchführst, besteht die Möglichkeit, dass du bereits einen Teil der benötigten Daten hast, was die Sache beschleunigen kann!",
                     "updated": 1623012091678,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы проходите этот урок после изучения учебника Getting Started, то, скорее всего, у вас уже есть часть необходимых данных, что может ускорить процесс!",
+                    "updated": 1640545123676
                 }
             ]
         }

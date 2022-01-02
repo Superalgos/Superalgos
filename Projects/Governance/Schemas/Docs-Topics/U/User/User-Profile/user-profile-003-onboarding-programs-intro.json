@@ -4,7 +4,14 @@
     "type": "Onboarding Programs Intro",
     "definition": {
         "text": "Get on board and earn your first few tokens just by setting up and submitting your User Profile!",
-        "updated": 1630487139929
+        "updated": 1630487139929,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Sube a bordo y gana tus primeros tokens con solo configurar y enviar tu User Profile!",
+                "updated": 1640958707050
+            }
+        ]
     },
     "paragraphs": [
         {

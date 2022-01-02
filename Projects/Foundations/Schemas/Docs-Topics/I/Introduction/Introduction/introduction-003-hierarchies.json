@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "Un hierarchyes una estructura de datos que representa un concepto general de nivel superior, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico.",
                 "updated": 1628044685355
+            },
+            {
+                "language": "RU",
+                "text": "Иерархия - это структура данных, представляющая всеобъемлющую концепцию верхнего уровня, приводящую к длинной цепочке узлов, обычно с множеством ответвлений. Система управляет разными типами иерархий, каждая из которых имеет определенную направленность.",
+                "updated": 1638271428517
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία είναι μια δομή δεδομένων που αντιπροσωπεύει μια γενική έννοια ανώτατου επιπέδου, με αποτέλεσμα μια μακρά αλυσίδα κόμβων, συνήθως με πολλές διακλαδώσεις. Το σύστημα διαχειρίζεται διαφορετικούς τύπους ιεραρχιών, καθένας από αυτούς με μια συγκεκριμένη εστίαση.",
+                "updated": 1638970331511
             }
         ]
     },
@@ -17,12 +27,36 @@
         {
             "style": "Text",
             "text": " In the design space, the head or parent node of each hierarchy is represented by the corresponding icon surrounded by an ever-present white ring, so that they are easier to locate within the workspace.",
-            "updated": 1609944331184
+            "updated": 1609944331184,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В пространстве дизайна головной или родительский узел каждой иерархии представлен соответствующим значком, окруженным вездесущим белым кольцом, чтобы их было легче найти в рабочей области.",
+                    "updated": 1638271513449
+                },
+                {
+                    "language": "EL",
+                    "text": "Στον χώρο σχεδίασης, η κεφαλή ή ο γονικός κόμβος κάθε ιεραρχίας αντιπροσωπεύεται από το αντίστοιχο εικονίδιο που περιβάλλεται από έναν πάντα παρόντα λευκό δακτύλιο, έτσι ώστε να είναι ευκολότερος ο εντοπισμός τους εντός του χώρου εργασίας.",
+                    "updated": 1638970391081
+                }
+            ]
         },
         {
             "style": "Important",
             "text": " Hierarchies included in the workspace as plugins are not saved at the workspace level. As such, changes made in those hierarchies do not persist. If you wish to modify a plugin and keep working with the modified version in the future, you must either clone or backup the plugin and work on the resulting copy instead.",
-            "updated": 1609945802943
+            "updated": 1609945802943,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иерархии, включенные в рабочую область как плагины, не сохраняются на уровне рабочей области. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
+                    "updated": 1638271545874
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι ιεραρχίες που περιλαμβάνονται στον χώρο εργασίας ως πρόσθετα δεν αποθηκεύονται σε επίπεδο χώρου εργασίας. Ως εκ τούτου, οι αλλαγές που έγιναν σε αυτές τις ιεραρχίες δεν παραμένουν. Εάν θέλετε να τροποποιήσετε ένα πρόσθετο και να συνεχίσετε να εργάζεστε με την τροποποιημένη έκδοση στο μέλλον, πρέπει είτε να κλωνοποιήσετε είτε να δημιουργήσετε αντίγραφα ασφαλείας του πρόσθετου και να εργαστείτε στο αντίγραφο που προκύπτει.",
+                    "updated": 1638970488797
+                }
+            ]
         },
         {
             "style": "Title",
@@ -31,12 +65,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Superalgos Project->Definition",
+            "text": "Foundations->Node->Foundations Project->Definition",
             "updated": 1609944933341
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Superalgos Project->Content",
+            "text": "Foundations->Node->Foundations Project->Content",
             "updated": 1609944944285
         },
         {
@@ -105,12 +139,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Definition",
+            "text": "Algorithmic-Trading->Node->Trading System->Definition",
             "updated": 1609945942207
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading System->Content",
+            "text": "Algorithmic-Trading->Node->Trading System->Content",
             "updated": 1609945952584
         },
         {
@@ -119,12 +153,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Mine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Mine->Definition",
             "updated": 1609945981528
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Mine->Content",
+            "text": "Algorithmic-Trading->Node->Trading Mine->Content",
             "updated": 1609945984960
         },
         {
@@ -134,12 +168,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Definition",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Definition",
             "updated": 1609945998216
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Trading Engine->Content",
+            "text": "Algorithmic-Trading->Node->Trading Engine->Content",
             "updated": 1609946001567
         },
         {
@@ -149,12 +183,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Definition",
+            "text": "Data-Mining->Node->Data Mine->Definition",
             "updated": 1609946022992
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Data Mine->Content",
+            "text": "Data-Mining->Node->Data Mine->Content",
             "updated": 1609946026584
         },
         {
@@ -164,12 +198,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Plugins->Definition",
+            "text": "Community-Plugins->Node->Plugins->Definition",
             "updated": 1609946038957
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Plugins->Content",
+            "text": "Community-Plugins->Node->Plugins->Content",
             "updated": 1609946042538
         },
         {
@@ -179,12 +213,12 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Tutorial->Definition",
+            "text": "Education->Node->Tutorial->Definition",
             "updated": 1609946067573
         },
         {
             "style": "Include",
-            "text": "Foundations->Node->Tutorial->Content",
+            "text": "Education->Node->Tutorial->Content",
             "updated": 1609946070683
         },
         {

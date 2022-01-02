@@ -48,10 +48,10 @@ function newEthereumWalletSpace() {
 
         async function checkBalances() {
             try {
-                if (UI.projects.foundations.spaces.designSpace.workspace === undefined) { return }
+                if (UI.projects.workspaces.spaces.designSpace.workspace === undefined) { return }
 
                 let wallets = []
-                let hierarchyHeads = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeads()
+                let hierarchyHeads = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeads()
                 for (let i = 0; i < hierarchyHeads.length; i++) {
                     let hierarchyHead = hierarchyHeads[i]
                     if (hierarchyHead.type === 'Ethereum Wallet') {
@@ -93,7 +93,7 @@ function newEthereumWalletSpace() {
                         'Ethereum Token->Smart Contract->' +
                         'ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->'
 
-                    route.params.walletDefinition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
+                    route.params.walletDefinition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(wallet, false, true, true, false, false, lightingPath)
 
                     httpRequest(JSON.stringify(route.params), route.url, onResponse)
 

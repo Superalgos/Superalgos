@@ -18,6 +18,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
     let exchangeAPIModuleObject = TS.projects.algorithmicTrading.botModules.exchangeAPI.newAlgorithmicTradingBotModulesExchangeAPI(processIndex)
     let announcementsModuleObject = TS.projects.socialBots.botModules.announcements.newSocialBotsBotModulesAnnouncements(processIndex)
+    let outgoingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.outgoingTradingSignals.newTradingSignalsModulesOutgoingTradingSignals(processIndex)
+    let incomingTradingSignalsModuleObject = TS.projects.tradingSignals.modules.incomingTradingSignals.newTradingSignalsModulesIncomingTradingSignals(processIndex)
 
     return thisObject
 
@@ -28,6 +30,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
         exchangeAPIModuleObject.initialize()
         announcementsModuleObject.initialize()
+        outgoingTradingSignalsModuleObject.initialize()
+        incomingTradingSignalsModuleObject.initialize()        
     }
 
     function finalize() {
@@ -40,6 +44,12 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
         announcementsModuleObject.finalize()
         announcementsModuleObject = undefined
+
+        outgoingTradingSignalsModuleObject.finalize()
+        outgoingTradingSignalsModuleObject = undefined
+
+        incomingTradingSignalsModuleObject.finalize()
+        incomingTradingSignalsModuleObject = undefined
     }
 
     function mantain() {
@@ -90,7 +100,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     if (tradingSystemOrder.referenceParent === undefined) {
                         badDefinitionUnhandledException(undefined, 'Order Reference Missing', tradingSystemOrder)
                     }
-                    let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
+                    let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
 
                     if (tradingEngineOrder.status === undefined) {
                         badDefinitionUnhandledException(undefined, 'Status Node Missing', tradingEngineOrder)
@@ -114,7 +124,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
             let tradingSystemOrder = orders[i]
             tradingSystemValidations(tradingSystemOrder)
-            let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
+            let tradingEngineOrder = TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.getNodeById(tradingSystemOrder.referenceParent.id)
             tradingEngineValidations(tradingEngineOrder)
 
             switch (tradingEngineOrder.status.value) {
@@ -145,6 +155,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                             }
                         }
                         /* Check if we need to Create this Order */
+                        let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemOrder.createOrderEvent)
+                        await tradingSystem.evalConditions(tradingSystemOrder.createOrderEvent, 'Create Order Event', signals)
                         let situationName = await checkOrderEvent(tradingSystemOrder.createOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
                         if (situationName !== undefined) {
 
@@ -199,11 +211,11 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     if (tradingEngineOrder.status.value === 'Closed') {
                         switch (tradingEngineOrder.type) {
                             case 'Market Order': {
-                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.marketOrders)
+                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.marketOrders)
                                 break
                             }
                             case 'Limit Order': {
-                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.limitOrders)
+                                TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngineOrder, tradingEngine.tradingLast.limitOrders)
                                 break
                             }
                         }
@@ -223,10 +235,12 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         if (tradingEngineStage.status.value !== 'Closing' && tradingEngineOrder.status.value === 'Open') {
 
             /* Check if we need to Cancel this Order */
+            let signals = await incomingTradingSignalsModuleObject.getAllSignals(tradingSystemOrder.cancelOrderEvent)
+            await tradingSystem.evalConditions(tradingSystemOrder.cancelOrderEvent, 'Cancel Order Event', signals)
             let situationName = await checkOrderEvent(tradingSystemOrder.cancelOrderEvent, tradingSystemOrder, executionAlgorithm, executionNode)
             if (situationName !== undefined) {
 
-                /* Simulate Order Cancelation, if needed. */
+                /* Simulate Order Cancellation, if needed. */
                 simulateCancelOrder(tradingEngineStage, tradingSystemOrder, tradingEngineOrder, 'Cancel Event')
 
                 /* Cancel the order at the Exchange, if needed. */
@@ -376,6 +390,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                 if (tradingSystemOrder.orderRate === undefined) { badDefinitionUnhandledException(undefined, 'Order Rate Node Missing', tradingSystemOrder) }
                 if (tradingSystemOrder.orderRate.formula === undefined) { badDefinitionUnhandledException(undefined, 'Formula Node Missing', tradingSystemOrder) }
 
+                /* Calculate the order rate formula */
+                await tradingSystem.evalFormulas(tradingSystemOrder.orderRate.formula, 'Formula', tradingSystemOrder.orderRate)
                 /* Extract the rate value from the user-defined formula */
                 tradingEngineOrder.rate.value = tradingSystem.formulas.get(tradingSystemOrder.orderRate.formula.id)
 
@@ -731,8 +747,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             /* Close this Order */
             tradingEngineOrder.status.value = 'Closed'
             /* 
-            We must be carefull here not to overide an already defined exitType. It can happen
-            for instance that the order was cancellerd from the but veryfing the cancellation
+            We must be carefully here not to override an already defined exitType. It can happen
+            for instance that the order was cancelled from the but verifying the cancellation
             was not possible because of a connection to the exchange problem. In that case
             the exit type was defined but the order was kept open until the verification could be done.
             */
@@ -764,7 +780,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
         }
 
         /*
-        If the order happens to be at least partially filled, there is a syncronization work 
+        If the order happens to be at least partially filled, there is a synchronization work
         we need to do, that includes discovering which is the Actual Rate the order is being filled,
         the Fees Paid and many other thing we need to account for.
         */
@@ -1118,7 +1134,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
             if (order.status === 'NotFound') {
                 /*
                 Some exchanges, like Coinbase Pro, deletes orders after being cancelled, and when we request information
-                about them, it returns null. We will interprate this as ORDER NOT FOUND.
+                about them, it returns null. We will interpret this as ORDER NOT FOUND.
                 */
                 const message = 'Order Not Found at the Exchange'
                 let docs = {
@@ -1136,8 +1152,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     ]
                 )
                 /*
-                We must be carefull here not to overide an already defined exitType. It can happen
-                for instance that the order was cancellerd from the but veryfing the cancellation
+                We must be carefully here not to overide an already defined exitType. It can happen
+                for instance that the order was cancelled from the but verifying the cancellation
                 was not possible because of a connection to the exchange problem. In that case
                 the exit type was defined but the order was kept open until the verification could be done.
                 */
@@ -1148,7 +1164,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
 
             /* 
             Close this Order. Note that we are not closing the order until we have the exchange 
-            response with the order details that we can use to syncronize with our accoounting.
+            response with the order details that we can use to synchronize with our accounting.
             Otherwise if the connection to the exchange fails, we would have a closed order not 
             accounted in any way. 
             */
@@ -1182,8 +1198,8 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     async function recalculateStageSize(tradingEngineStage, tradingEngineOrder) {
         /* 
         Since the order is Cancelled, we need to adjust the stage sizePlaced. Remember that the Stage 
-        Size Placed accumulates for each asset, the order size placed at the exchange. A cancelation means that 
-        only the part filled can be considered placed, so we need to substract from the stage size 
+        Size Placed accumulates for each asset, the order size placed at the exchange. A cancellation means that
+        only the part filled can be considered placed, so we need to subtract from the stage size
         the remainder. To achieve this with the information we currently have, we are going first 
         to unaccount the order actual size, and the account only the sizeFilled + the feesPaid.
         */
@@ -1262,6 +1278,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
                     tradingSystem.highlights.push(executionAlgorithm.id)
                     tradingSystem.highlights.push(executionNode.id)
 
+                    await outgoingTradingSignalsModuleObject.broadcastSignal(event)
                     announcementsModuleObject.makeAnnouncements(event)
                     return situation.name  // if the event is triggered, we return the name of the situation that passed
                 }
@@ -1293,7 +1310,7 @@ exports.newAlgorithmicTradingBotModulesTradingOrders = function (processIndex) {
     function resetTradingEngineDataStructure(tradingEngineOrder, tradingSystemOrder, stageStatus) {
         if (tradingEngineOrder.status.value === 'Closed') {
             /* We reset the order data structure inside the Trading Engine to its initial value */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngineOrder)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngineOrder)
             if (tradingSystemOrder.config.spawnMultipleOrders !== true) {
                 /* 
                 We close the lock so as to prevent this data structure to be used again during this same stage execution.

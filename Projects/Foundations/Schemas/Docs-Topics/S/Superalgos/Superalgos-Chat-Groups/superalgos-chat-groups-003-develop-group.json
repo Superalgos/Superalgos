@@ -10,6 +10,16 @@
                 "language": "ES",
                 "text": "Aquí es donde los desarrolladores se reúnen para discutir los indicadores de construcción, las estrategias o la mejora del sistema.",
                 "updated": 1628205506466
+            },
+            {
+                "language": "TR",
+                "text": "Burası, geliştiricilerin göstergeleri, stratejileri veya sistemi iyileştirmeyi tartışmak için buluştuğu yerdir.",
+                "updated": 1639389720764
+            },
+            {
+                "language": "RU",
+                "text": "Именно здесь разработчики встречаются для обсуждения разработки индикаторов, стратегий или улучшения системы.",
+                "updated": 1640353528520
             }
         ]
     },

@@ -15,6 +15,21 @@
                 "text": "¡Superalgos no recompensa el aprovechamiento gratuito! Las contribuciones reales al proyecto y a la comunidad son las que se recompensan con tokens y Token Power.",
                 "updated": 1630873417226,
                 "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, sizi, onu yükleyip kulandığınız için ödüllendirmez! Projeye ve topluluğa gerçek katkılar, token ve Token Gücü ( Token Power ) ile ödüllendirilen şeydir.",
+                "updated": 1637147592544
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos не вознаграждает на халяву! Реальный вклад в проект и сообщество - это то, что вознаграждается токенами и Token Power.",
+                "updated": 1639045123160
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos belohnt keine Trittbrettfahrer! Echte Beiträge zum Projekt und zur Gemeinschaft werden mit Token und Token Power belohnt.",
+                "updated": 1640072591163
             }
         ]
     },
@@ -29,6 +44,21 @@
                     "text": "La palabra elegante para este tipo de gobernanza de proyectos es meritocracia. En otras palabras, cuanto más contribuyas a la mejora de Superalgos y al apoyo de nuestra Community, cuanto mas Token Power y Reputation ganas para influir en el futuro del proyecto.",
                     "updated": 1630873470291,
                     "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tür proje yönetişimleri meritokrasidir. Başka bir deyişle, Superalgos'un geliştirilmesine ve Topluluğumuzun desteğine ne kadar çok katkıda bulunursanız, projenin geleceğini etkilemek için o kadar çok Token Gücü ( Token Power ) ve İtibar kazanırsınız.",
+                    "updated": 1637159424216
+                },
+                {
+                    "language": "RU",
+                    "text": "Модное слово для такого типа управления проектами - меритократия. Другими словами, чем больше вы вносите свой вклад в улучшение Superalgos и поддержку нашего сообщества Community, тем больше Token Power и репутации Reputation вы зарабатываете, чтобы повлиять на будущее проекта.",
+                    "updated": 1639045308908
+                },
+                {
+                    "language": "DE",
+                    "text": "Das schicke Wort für diese Art der Projektführung ist Meritokratie. Mit anderen Worten, je mehr Sie zur Verbesserung von Superalgos und zur Unterstützung unserer Community beitragen, desto mehr Token Power und Reputation verdienen Sie, um die Zukunft des Projekts zu beeinflussen.",
+                    "updated": 1640072402925
                 }
             ]
         },
@@ -42,6 +72,21 @@
                     "text": "¡Esta es una colaboración! Solo juntos podemos continuar haciendo de Superalgos el cambio de juego que es hoy, sin importar lo que depare el futuro.",
                     "updated": 1630873528737,
                     "style": "Note"
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu bir işbirliğidir! Gelecek ne getirirse getirsin, Superalgos'u bugün olduğu gibi oyunu değiştirici yapmaya ancak birlikte devam edebiliriz.",
+                    "updated": 1637147709307
+                },
+                {
+                    "language": "RU",
+                    "text": "Это сотрудничество! Только вместе мы сможем сделать Superalgos революционным в сегодняшнем мире, независимо от того, что может принести нам будущее.",
+                    "updated": 1639045347306
+                },
+                {
+                    "language": "DE",
+                    "text": "Dies ist eine Zusammenarbeit! Nur gemeinsam können wir Superalgos weiterhin zu dem Spielveränderer machen, der es heute ist, egal, was die Zukunft bringen mag.",
+                    "updated": 1640072411877
                 }
             ]
         }

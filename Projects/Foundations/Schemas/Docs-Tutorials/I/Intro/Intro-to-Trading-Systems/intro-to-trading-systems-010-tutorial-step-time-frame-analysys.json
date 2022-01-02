@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "¡Cada estrategia se especializa en condiciones específicas del mercado analizando el estado del mercado en diferentes marcos de tiempo!",
                 "updated": 1629598321603
+            },
+            {
+                "language": "DE",
+                "text": "Jede Strategie ist auf bestimmte Marktbedingungen spezialisiert, indem sie den Zustand des Marktes in verschiedenen Zeitrahmen analysiert!",
+                "updated": 1639147994367
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Her strateji, farklı zaman dilimlerinde piyasanın durumunu analiz ederek belirli piyasa koşullarında uzmanlaşmıştır!",
+                "updated": 1640780494699
             }
         ]
     },
@@ -25,30 +35,62 @@
                     "language": "ES",
                     "text": "Echa un vistazo al nombre de cada estrategia... 3H Down, 2H Down, 4H Up...",
                     "updated": 1629598582815
+                },
+                {
+                    "language": "DE",
+                    "text": "Werfen Sie einen Blick auf die Namen der einzelnen Strategien... 3H Down, 2H Down, 4H Up...",
+                    "updated": 1639148002395
+                },
+                {
+                    "language": "TR",
+                    "text": "Her stratejinin adına bir göz atın... 3H Down, 2H Down, 4H Up...",
+                    "updated": 1640780577332
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "If you study the conditions that define the trigger on event, you will notice that 3H Down referes to the fact that the particular strategy is triggered when the 3-hour time frame is in a downtrend.",
+            "text": "If you study the conditions that define the trigger on event, you will notice that 3H Down refers to the fact that the particular strategy is triggered when the 3-hour time frame is in a downtrend.",
             "translations": [
                 {
                     "language": "ES",
                     "text": "Si estudias las condiciones que definen el desencadenante del evento, notarás que 3H Down se refiere al hecho de que la estrategia particular se desencadena cuando el marco de tiempo de 3 horas está en una tendencia bajista.",
                     "updated": 1629598574248
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Bedingungen studieren, die den Auslöser für das Event definieren, werden Sie feststellen, dass 3H Down sich auf die Tatsache bezieht, dass die spezielle Strategie ausgelöst wird, wenn sich der 3-Stunden-Zeitrahmen in einem Abwärtstrend befindet.",
+                    "updated": 1639148015477
+                },
+                {
+                    "language": "TR",
+                    "text": "Olay tetikleyicisini (the trigger on event) tanımlayan koşulları incelerseniz, 3H Down, 3 saatlik zaman dilimi düşüş trendindeyken belirli stratejinin tetiklendiğini ifade ettiğini fark edeceksiniz.",
+                    "updated": 1640780697748
                 }
-            ]
+            ],
+            "updated": 1640641128265
         },
         {
             "style": "Note",
-            "text": "Each of the strategies speciallizes on a certain time frame and trend!",
+            "text": "Each of the strategies specializes on a certain time frame and trend!",
             "translations": [
                 {
                     "language": "ES",
                     "text": "¡Cada una de las estrategias se especializa en un cierto marco de tiempo y tendencia!",
                     "updated": 1629598547193
+                },
+                {
+                    "language": "DE",
+                    "text": "Jede der Strategien ist auf einen bestimmten Zeitrahmen und Trend spezialisiert!",
+                    "updated": 1639148034333
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Stratejilerin her biri belirli bir zaman diliminde ve trendde uzmanlaşmıştır!",
+                    "updated": 1640780716542
                 }
-            ]
+            ],
+            "updated": 1640641202569
         }
     ]
 }

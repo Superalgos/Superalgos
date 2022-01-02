@@ -1,7 +1,19 @@
 {
     "type": "Open Execution",
     "definition": {
-        "text": "The open execution node groups all execution algorithms involved in the process of opening a position."
+        "text": "The open execution node groups all execution algorithms involved in the process of opening a position.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Die Node für die offene Ausführung fasst alle execution algorithms (Ausführungsalgorithmen) zusammen, die an der Eröffnung einer Position beteiligt sind.",
+                "updated": 1639571784140
+            },
+            {
+                "language": "RU",
+                "text": "Узел Open Execution группирует все алгоритмы выполнения, участвующие в процессе открытия позиции.",
+                "updated": 1639838197611
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -10,23 +22,84 @@
         },
         {
             "style": "Text",
-            "text": "One of the crucial elements that make up trading intelligence is the capacity to control every aspect of order execution, as the execution itself entails strategic elements that directly affect performance."
+            "text": "One of the crucial elements that make up trading intelligence is the capacity to control every aspect of order execution, as the execution itself entails strategic elements that directly affect performance.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eines der entscheidenden Elemente, die die trading intelligence (Handelsintelligenz) ausmachen, ist die Fähigkeit, jeden Aspekt der order execution (Auftragsausführung) zu kontrollieren, da die Ausführung selbst strategische Elemente beinhaltet, die sich direkt auf die Performance auswirken.",
+                    "updated": 1639571859073
+                },
+                {
+                    "language": "RU",
+                    "text": "Одним из важнейших элементов, составляющих торговый интеллект, является способность контролировать каждый аспект исполнения ордеров, поскольку само исполнение включает в себя стратегические элементы, которые непосредственно влияют на производительность.",
+                    "updated": 1639838234028
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Superalgos' trading engine is designed as a generic infrastructure that allows building execution logic from the ground up, with as much simplicity or complexity as may be required."
+            "text": "Superalgos trading engine is designed as a generic infrastructure that allows building execution logic from the ground up, with as much simplicity or complexity as may be required.",
+            "updated": 1639571905476,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Superalgos Trading Engine ist als generische Infrastruktur konzipiert, die es ermöglicht, die Ausführungslogik (execution logic) von Grund auf zu entwickeln, und zwar so einfach oder komplex, wie es erforderlich ist.",
+                    "updated": 1639571965439
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый движок Superalgos разработан как общая инфраструктура, которая позволяет создавать логику исполнения с нуля, с той степенью простоты или сложности, которая может потребоваться.",
+                    "updated": 1639838468524
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The trading system splits the definitions of the execution logic by trading strategy. That is, each strategy in a trading system may have its execution logic."
+            "text": "The trading system splits the definitions of the execution logic by trading strategy. That is, each strategy in a trading system may have its execution logic.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das trading sytem teilt die Definitionen der execution logic nach trading strategys auf. Das heißt, jede Strategie in einem trading system kann ihre eigene execution logic haben.",
+                    "updated": 1639572066230
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговая система разделяет определения логики исполнения по торговым стратегиям. То есть, каждая стратегия в торговой системе может иметь свою логику исполнения.",
+                    "updated": 1639838499315
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The next layer of control comes in the form of execution algorithms. Each strategy may have as many algorithms as required, and each algorithm may have as many instructions as required."
+            "text": "The next layer of control comes in the form of execution algorithms. Each strategy may have as many algorithms as required, and each algorithm may have as many instructions as required.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die nächste Ebene der Kontrolle besteht in der Form von execution algorithms (Ausführungsalgorithmen). Jede Strategie kann so viele Algorithmen wie nötig und jeder Algorithmus so viele Anweisungen wie nötig haben.",
+                    "updated": 1639572105476
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующий уровень управления приходит в виде алгоритмов исполнения. Каждая стратегия может иметь столько алгоритмов, сколько требуется, и каждый алгоритм может иметь столько инструкций, сколько требуется.",
+                    "updated": 1639838637975
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This model allows the granular control of orders with which you may build algorithms that may interact with other algorithms, and so on."
+            "text": "This model allows the granular control of orders with which you may build algorithms that may interact with other algorithms, and so on.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dieses Modell ermöglicht die granulare Steuerung (granular control) von Aufträgen (orderds), mit denen Sie Algorithmen erstellen können, die mit anderen Algorithmen interagieren können, usw.",
+                    "updated": 1639572166521
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта модель позволяет детально управлять порядком, с помощью которого вы можете строить алгоритмы, которые могут взаимодействовать с другими алгоритмами, и так далее.",
+                    "updated": 1639838904402
+                }
+            ]
         }
     ]
 }

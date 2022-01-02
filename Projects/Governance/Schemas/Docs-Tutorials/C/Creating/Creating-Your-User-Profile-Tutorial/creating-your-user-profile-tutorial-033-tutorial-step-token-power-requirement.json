@@ -15,6 +15,16 @@
                 "text": "Recuerda el tercer requisito para ganar tu Tokens Bonus, \"Debes llevar Token Power al programa \". ¿De qué se trata todo eso?",
                 "updated": 1630897032249,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Помните третье требование для получения бонуса Tokens Bonus? «Вы должны вбить Token Power в программу». Что все это значит?",
+                "updated": 1639051056388
+            },
+            {
+                "language": "DE",
+                "text": "Erinnern Sie sich an die dritte Voraussetzung, um Ihren Token Bonus zu verdienen? \"Sie müssen Token Power in das Programm einbringen\". Was hat es damit auf sich?",
+                "updated": 1640080530166
             }
         ]
     },
@@ -29,6 +39,16 @@
                     "text": "Probablemente nos estemos metiendo en la maleza aquí, ¡pero intentaré que sea simple!",
                     "updated": 1630897050223,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, мы здесь зарастаем сорняками, но я постараюсь, чтобы все было просто!",
+                    "updated": 1639051094755
+                },
+                {
+                    "language": "DE",
+                    "text": "Hier wird es wahrscheinlich zu kompliziert, aber ich werde versuchen, es einfach zu halten!",
+                    "updated": 1640080538738
                 }
             ]
         },
@@ -41,6 +61,16 @@
                     "text": "Cuando tu Governance Address tiene algunos tokens en su saldo, entonces obtienes la misma cantidad de Token Power en tu User Profile.",
                     "updated": 1630897088486,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда на балансе вашего управленческого адреса Governance Address есть несколько токенов, вы получаете такое же количество Token Power в своем профиле пользователя User Profile.",
+                    "updated": 1639051172758
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihre Governance Address einige Token auf ihrem Guthaben hat, dann erhalten Sie die gleiche Menge Token Power in Ihrem Benutzerprofil.",
+                    "updated": 1640080641384
                 }
             ]
         },
@@ -54,6 +84,16 @@
                     "text": "Token Power fluye por la jerarquía como un río. La cantidad de Token Power que ingresa en cada Programa de Gobernanza determina la intensidad con la que desea participar en el programa y afecta las Token Rewards que puedes obtener de él.",
                     "updated": 1630897159932,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Token Power течет по иерархии рекой! Количество токенов, которые вы вкладываете в каждую программу управления, определяет, насколько сильно вы хотите участвовать в программе, и влияет на количество токенов Token Rewards, которые вы можете получить от нее.",
+                    "updated": 1639051267520
+                },
+                {
+                    "language": "DE",
+                    "text": "Token Power fließt in der Hierarchie nach unten wie ein Fluss! Die Menge an Token Power, die Sie in jedes Governance-Programm einfließen lassen, bestimmt, wie stark Sie sich an dem Programm beteiligen möchten und wirkt sich auf die Token Rewards aus, die Sie daraus erhalten können.",
+                    "updated": 1640080672410
                 }
             ]
         },
@@ -67,6 +107,16 @@
                     "text": "Por defecto, Token Power fluye en cantidades iguales a todos los nodos descendientes! ¡Puedes cambiar esto difícil!",
                     "updated": 1630897224172,
                     "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "По умолчанию Token Power течет в равных количествах ко всем дочерним узлам! Вы можете это изменить!",
+                    "updated": 1639051313076
+                },
+                {
+                    "language": "DE",
+                    "text": "Standardmäßig fließt Token Power zu gleichen Teilen an alle Nachfolgeknoten! Sie können dies jedoch ändern!",
+                    "updated": 1640080684513
                 }
             ]
         }

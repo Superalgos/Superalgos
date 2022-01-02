@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die Daten, die Sie von den Börsen herunterladen und mit den Indikatoren verarbeiten, sind übergreifend verfügbar und von jedem Workspace und jeder Strategie aus zugänglich.",
                 "updated": 1634589901473
+            },
+            {
+                "language": "TR",
+                "text": "Borsalardan indirdiğiniz ve göstergelerle işlediğiniz verilere herhangi bir çalışma alanından ve stratejiden erişilebilirsiniz. Yani çalışma alanını değiştrisenizde yeni alanınızda daha önce indirilmiş bu verileri kullanırsınız. Her çalışma alanı için tekrardan indirmenize gerek yoktur..",
+                "updated": 1639825082061
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Die Daten werden auf der Festplatte im Ordner Data-Storage gespeichert und sind nach Project, Data Mine, Bot und Market geordnet. Es spielt keine Rolle, in welchem Workspace Sie die Daten gewonnen oder die Indikatoren verarbeitet haben.",
                     "updated": 1634589981672
+                },
+                {
+                    "language": "TR",
+                    "text": "Veriler, Data-Storage klasörü altında diske depolanır ve Project, Data Mine, bot ve Market tarafından düzenlenir. Verileri veya süreç göstergelerini çıkarmak için hangi çalışma alanını kullandığınızın bir önemi yoktur.",
+                    "updated": 1639825127007
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Alle Daten stehen in allen Workspaces zur Verfügung, so dass Sie unabhängig von Ihrer Tätigkeit mit denselben Datenquellen arbeiten können.",
                     "updated": 1634589990093
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir borsadan çektiğiniz verilerin hepis tüm çalışma alanlarında mevcuttur, böylece ne yapıyor olursanız olun aynı veri kaynaklarıyla çalışabilirsiniz.",
+                    "updated": 1639825202230
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Es gibt keine integrierte Datenverwaltung in der App. Verwenden Sie stattdessen Ihr Dateisystem!",
                     "updated": 1634589996758
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamada yerleşik veri yönetimi yoktur. Bunun yerine dosya sisteminizi kullanın!",
+                    "updated": 1639825229337
                 }
             ]
         }

@@ -4,7 +4,14 @@
     "type": "Open Stage Execution",
     "definition": {
         "text": "This section of the Open Stage handles the logic and orders used to enter a Position.",
-        "updated": 1610187656657
+        "updated": 1610187656657,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот раздел стадии открытия Open Stage обрабатывает логику и приказы, используемые для входа в позицию Position.",
+                "updated": 1639830936979
+            }
+        ]
     },
     "paragraphs": [
         {

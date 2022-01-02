@@ -165,32 +165,32 @@ function newAutoScaleButton() {
         switch (axis) {
             case 'X': {
                 if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-manual')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-manual')
                 }
                 if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-auto-min')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-auto-min')
                 }
                 if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-auto-max')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-auto-max')
                 }
                 if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-auto-min-max')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-time-scale-auto-min-max')
                 }
                 UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
                 break
             }
             case 'Y': {
                 if (thisObject.autoMinScale === false && thisObject.autoMaxScale === false) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-manual')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-manual')
                 }
                 if (thisObject.autoMinScale === true && thisObject.autoMaxScale === false) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-auto-min')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-auto-min')
                 }
                 if (thisObject.autoMinScale === false && thisObject.autoMaxScale === true) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-auto-max')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-auto-max')
                 }
                 if (thisObject.autoMinScale === true && thisObject.autoMaxScale === true) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-auto-min-max')
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName( 'Foundations', 'toggle-auto-scale-auto-min-max')
                 }
                 UI.projects.foundations.utilities.drawPrint.drawIcon(icon, 0, 0, 0, 0, ICON_SIZE, thisObject.container)
                 break

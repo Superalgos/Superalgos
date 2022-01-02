@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "Si no necesitas una condición, configúrela en False o True!",
                 "updated": 1629352241171
+            },
+            {
+                "language": "IT",
+                "text": "Se non hai bisogno di una condizione, impostala su False o True!",
+                "updated": 1639077650052
+            },
+            {
+                "language": "TR",
+                "text": "Bir koşula ihtiyacınız yoksa, onu Yanlış (false) veya Doğru (true) olarak ayarlamanız yeterlidir!",
+                "updated": 1640617057356
+            },
+            {
+                "language": "RU",
+                "text": "Если вам не нужно условие, просто установите его в False или True!",
+                "updated": 1640855968420
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "Para mi backtest no necesito un Trigger Off condición, así que solo escribo false en codigo Javascript",
                     "updated": 1629354481694
+                },
+                {
+                    "language": "IT",
+                    "text": "Per il mio backtest non ho bisogno di una condizione Trigger Off, quindi scrivo solo false nel codice Javascript",
+                    "updated": 1639077681031
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri testim için Tetikleme Kapalı ( Trigger Off ) koşuluna ihtiyacım yok, bu yüzden Javascript kodunda yanlış ( false ) yazıyorum",
+                    "updated": 1640617070236
+                },
+                {
+                    "language": "RU",
+                    "text": "Для моего бэктеста мне не нужно условие отключения триггера (Trigger Off), поэтому я просто пишу false в коде Javascript",
+                    "updated": 1640856059315
                 }
             ]
         },
@@ -57,6 +87,21 @@
                     "language": "ES",
                     "text": "Recuerda que Conditions puede ser solo True o False. Cuando escribo código Javascript dentro de este tipo de nodos, deben evaluar True o False porque esencialmente lo que estoy escribiendo es una prueba.",
                     "updated": 1629354487276
+                },
+                {
+                    "language": "IT",
+                    "text": "Ricorda che le condizioni possono essere solo true o false. Quando scrivo del codice Javascript all'interno di questo tipo di nodi, viene valutato True o False perché essenzialmente quello che sto scrivendo è un test.",
+                    "updated": 1639077755545
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Koşulların yalnızca Doğru (false) veya Yanlış (true) olabileceğini unutmayın. Bu tür düğümlerin içine bazı Javascript kodları yazdığımda, Doğru veya Yanlış değerlendirmeleri gerekir çünkü aslında yazdığım şey bir testtir.",
+                    "updated": 1640617083909
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что условия могут принимать значения True или False. Когда я пишу код Javascript внутри узлов такого типа, они должны вычислять True или False, потому что, по сути, то, что я пишу, является тестом.",
+                    "updated": 1640856112075
                 }
             ]
         }

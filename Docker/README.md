@@ -16,9 +16,9 @@
 
 ## Introduction
 
-This walkthrough is broken up into to parts: a quick-start guide to running [Superalgos](https://github.com/Superalgos/Superalgos) with Docker and a deeper, more theoretical dive into containers with the hopes of explaining some of the design decisions.
+This walk through is broken up into to parts: a quick-start guide to running [Superalgos](https://github.com/Superalgos/Superalgos) with Docker and a deeper, more theoretical dive into containers with the hopes of explaining some of the design decisions.
 
-[Superalgos](https://github.com/Superalgos/Superalgos), at its core, is a web application which also means it can be deployed inside a container like many other web applications. One of the leading platforms for operating containers is Docker. Docker can run on many different operatng systems and compute platforms. The containers provide an easy, fast, repeatable, and secure way to deploy and distribute applications. While it doesn't take much experience to run containers or Docker, there are some basics that any user should learn in order to use the technology effectively.
+[Superalgos](https://github.com/Superalgos/Superalgos), at its core, is a web application which also means it can be deployed inside a container like many other web applications. One of the leading platforms for operating containers is Docker. Docker can run on many different operating systems and compute platforms. The containers provide an easy, fast, repeatable, and secure way to deploy and distribute applications. While it doesn't take much experience to run containers or Docker, there are some basics that any user should learn in order to use the technology effectively.
 
 Before getting started, be aware that Docker is not the originally intended method of running the [Superalgos](https://github.com/Superalgos/Superalgos) application and as such there are some drawbacks to doing so. Namely, you won't be able contribute back to the project or configure your Governance profile. We'll discuss this more later. Therefore, you should only consider using the Docker container for production deployments.
 
@@ -55,7 +55,7 @@ Docker should automatically start after installation. If you don't see the whale
 
 ### Linux and BSD
 
-On Linux and BSD systems, Docker can be installed using the prefered package manager. [Step by step instructions for many different distributions](https://docs.docker.com/engine/install/debian/) of Linux can be found in the official Docker Docs. Since [Superalgos](https://github.com/Superalgos/Superalgos) runs well on Raspberry Pi 4 single-board computers, I'm going to illustrate the commands necessary to run [Superalgos](https://github.com/Superalgos/Superalgos) on the Raspbian Linux distribution.
+On Linux and BSD systems, Docker can be installed using the preferred package manager. [Step by step instructions for many different distributions](https://docs.docker.com/engine/install/debian/) of Linux can be found in the official Docker Docs. Since [Superalgos](https://github.com/Superalgos/Superalgos) runs well on Raspberry Pi 4 single-board computers, I'm going to illustrate the commands necessary to run [Superalgos](https://github.com/Superalgos/Superalgos) on the Raspbian Linux distribution.
 
 ```shell
 # install the requirements
@@ -70,7 +70,7 @@ sudo apt-get install \
 # add the gpg keys to verify the packages
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-# confgure the official repository
+# configure the official repository
 echo \
   "deb [arch=arm64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
@@ -84,7 +84,7 @@ Docker should automatically start when it is done installing. You can check its 
 
 ## Running Superalgos
 
-Now that we have Docker installed and running, we can run the container. The option `--rm` will remove the isntance of the container when it is exited.
+Now that we have Docker installed and running, we can run the container. The option `--rm` will remove the instance of the container when it is exited.
 
 ```shell
 docker run --rm ghcr.io/superalgos/superalgos:latest
@@ -101,7 +101,7 @@ We'll need to expose some ports so we can actually connect to it from our browse
 
 ```shell
 # create the data directories
-mkdir -p Data-Storage Log-Files My-Workspaces
+mkdir -p My-Data-Storage My-Log-Files My-Workspaces
 
 # run the container with the extra options
 docker run \
@@ -111,8 +111,8 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
+  -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```
@@ -135,8 +135,8 @@ docker run \
   --user $(id -u):$(id -g) \
   -p 18041:18041 \
   -p 34248:34248 \
-  -v $(pwd)/Data-Storage:/app/Platform/Data-Storage \
-  -v $(pwd)/Log-Files:/app/Platform/Log-Files \
+  -v $(pwd)/My-Data-Storage:/app/Platform/My-Data-Storage \
+  -v $(pwd)/My-Log-Files:/app/Platform/My-Log-Files \
   -v $(pwd)/My-Workspaces:/app/Platform/My-Workspaces \
   ghcr.io/superalgos/superalgos:latest
 ```
@@ -147,7 +147,7 @@ Continue reading the [Docker Command Line documentation](https://docs.docker.com
 
 ### Using Docker-Compose
 
-Docker-compose is a wrapper for the Docker API which makes it a little easier to maintain a declaritive configuration for an application instead of using the direct command line commands. There is a sample docker-compose configuration included in the [Superalgos](https://github.com/Superalgos/Superalgos) which you can as the basis for your own configuration.
+Docker-compose is a wrapper for the Docker API which makes it a little easier to maintain a declarative configuration for an application instead of using the direct command line commands. There is a sample docker-compose configuration included in the [Superalgos](https://github.com/Superalgos/Superalgos) which you can as the basis for your own configuration.
 
 Let's download the sample and edit it. If you don't use `vim`, change that command for your preferred editor.
 
@@ -169,8 +169,8 @@ services:
       - '34248:34248'
       - '18041:18041'
     volumes:
-      - ./Data-Storage:/app/Platform/Data-Storage
-      - ./Log-Files:/app/Platform/Log-Files
+      - ./My-Data-Storage:/app/Platform/My-Data-Storage
+      - ./My-Log-Files:/app/Platform/My-Log-Files
       - ./My-Workspaces:/app/Platform/My-Workspaces
     restart: on-failure
 ```
@@ -178,7 +178,7 @@ services:
 You can see we have the same ports and volumes mapped. We also get a few extra settings like `command`, `environment`, and `restart`.
 
 - `command` adds an extra setting to the main startup, so the application ends up running with the full command `node platform noBrowser minMemo`. The base of that command is defined as the `ENTRYPOINT` in the `Dockerfile` that builds the container.
-- `user` defines the UID and GID the container should run as so that the data can be persisted with the correct permissions in the Data-Storage, Log-Files, and My-Workspaces directories that we created on the host. If you leave this out, the container will use the built in `superalgos` user which has `uid: 1001` and `gid: 1001`.  Instead of using variables, you could also hard-code these UID and GID numbers into the configuration.
+- `user` defines the UID and GID the container should run as so that the data can be persisted with the correct permissions in the My-Data-Storage, My-Log-Files, and My-Workspaces directories that we created on the host. If you leave this out, the container will use the built in `superalgos` user which has `uid: 1001` and `gid: 1001`.  Instead of using variables, you could also hard-code these UID and GID numbers into the configuration.
 - `restart` tells Docker to restart the container if an error occurs.
 
 Save the file and exit the editor. If you are using `vim`, hit escape and then type `:wq!` or press `shift + Z + Z` (two capital Z's).
@@ -187,7 +187,7 @@ Now, start the container with `docker-compose up`. This will start the container
 
 ```shell
 # some preliminary configuration to set up the persistent data directories
-mkdir -p Data-Storage Log-Files My-Workspaces
+mkdir -p My-Data-Storage My-Log-Files My-Workspaces
 export UID=$(id -u)
 export GID=$(id -g)
 
@@ -236,10 +236,10 @@ Docker has many advantages which can aid in every step from development through 
 Docker maintains a list of [Dockerfile best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) in their main documentation. These tips dictate many of the decisions around the Superalgos Dockerfile. Some of the tips that are used by [Superalgos](https://github.com/Superalgos/Superalgos) are listed below.
 
 - Use `.dockerignore` to prevent unwanted data from entering the container. This keeps the container small but also enhances security to prevent secrets from leaking into a container by accident.
-- Don't install unneccesary packages. In lieu of multi-stage builds, build caches and build dependencies are removed before finalizing the container. Only packages that are necessary for the execution of the application are installed. This is why `git` is not present.
+- Don't install unnecessary packages. In lieu of multi-stage builds, build caches and build dependencies are removed before finalizing the container. Only packages that are necessary for the execution of the application are installed. This is why `git` is not present.
 - Minimize the number of layers. Many `RUN` commands are combined into one using `&&` in order to reduce the number of layers.
 - Sort multiline arguments. This mostly enhances readability and maintainability.
-- Leverage build cache. When testing locally, several of the tips above help levarage the build cache and speed up build times.
+- Leverage build cache. When testing locally, several of the tips above help leverage the build cache and speed up build times.
 
 ### Twelve Factor App
 

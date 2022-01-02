@@ -8,22 +8,70 @@
             "project": "Foundations"
         },
         "text": "There's one layer left... Episodes! It marks the duration of the episode and features several plotter panels...",
-        "updated": 1617184086263
+        "updated": 1617184086263,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Es ist noch eine Ebene übrig... Episoden! Sie markiert die Dauer der Episode und enthält mehrere Plotter-Panels...",
+                "updated": 1639144855883
+            },
+            {
+                "language": "RU",
+                "text": "Остался один слой... Эпизоды! Он обозначает продолжительность эпизода и содержит несколько панелей плоттера...",
+                "updated": 1640630164191
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
             "text": "Turn the \"Episodes\" layer on!",
-            "updated": 1622542043043
+            "updated": 1622542043043,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schalten Sie die Ebene \"Episodes\" ein!",
+                    "updated": 1639144873296
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой \"Episodes\"!",
+                    "updated": 1640630183428
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In this case, the episode is six months long, so all you will see is a line at the bottom of the screen, and the episode icon on both sides, signaling the episode is longer than the period represented on screen."
+            "text": "In this case, the episode is six months long, so all you will see is a line at the bottom of the screen, and the episode icon on both sides, signaling the episode is longer than the period represented on screen.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In diesem Fall ist die Episode sechs Monate lang. Sie sehen also nur eine Linie am unteren Rand des Bildschirms und das Episodensymbol auf beiden Seiten, das anzeigt, dass die Episode länger ist als der auf dem Bildschirm dargestellte Zeitraum.",
+                    "updated": 1639144889284
+                },
+                {
+                    "language": "RU",
+                    "text": "В данном случае эпизод длится шесть месяцев, поэтому все, что вы увидите, это линию в нижней части экрана и значок эпизода с обеих сторон, сигнализирующий о том, что эпизод длится дольше, чем период, представленный на экране.",
+                    "updated": 1640630233254
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "As usual, the plotter panels feature information that is explained on the Trading Engine section of the documentation.",
-            "updated": 1622542023901
+            "updated": 1622542023901,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wie üblich enthalten die Plotter-Panels Informationen, die im Abschnitt \"Trading Engine\" in der Dokumentation erläutert werden.",
+                    "updated": 1639144895542
+                },
+                {
+                    "language": "RU",
+                    "text": "Как обычно, панели плоттера содержат информацию, которая объясняется в разделе документации Trading Engine.",
+                    "updated": 1640630255998
+                }
+            ]
         }
     ]
 }

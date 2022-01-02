@@ -4,7 +4,19 @@
     "type": "The Delegation Program",
     "definition": {
         "text": "Help your colleagues place their first few claims!",
-        "updated": 1630500145104
+        "updated": 1630500145104,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Помогите своим коллегам заявить о своих первых претензиях!",
+                "updated": 1639139866828
+            },
+            {
+                "language": "ES",
+                "text": "Ayude a sus colegas a realizar sus primeras declaraciones!",
+                "updated": 1640960645858
+            }
+        ]
     },
     "paragraphs": [
         {

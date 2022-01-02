@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Ein Paragraph (Absatz) ist die kleinste Informationseinheit, die von den Docs verwaltet wird. In gewisser Weise besteht eine Docs Page (Docs-Seite) aus Absätzen.",
                 "updated": 1633861084822
+            },
+            {
+                "language": "RU",
+                "text": "Абзац - это наименьшая единица информации, управляемая документами Docs. В некотором смысле Docs Page состоит из абзацев.",
+                "updated": 1638463955937
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Ein Absatz kann einen Stil haben, wie auf der Seite Docs Paragraph Styles in den Docs erläutert ist.",
                     "updated": 1633861189703
+                },
+                {
+                    "language": "RU",
+                    "text": "Абзац может иметь стиль, как описано на странице Docs Paragraph Styles в документах Docs.",
+                    "updated": 1638464048788
                 }
             ]
         }

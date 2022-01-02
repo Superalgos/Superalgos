@@ -47,7 +47,7 @@ function newUiObjectConstructor() {
         When this object is created based on a backup, share or clone, 
         we will have a savedPayload that we will use to set the initial properties.
         If it is a new object being created out of the user interface, 
-        we jusst continue with the construction process.
+        we just continue with the construction process.
         */
         if (userAddingNew === false && payload.node.type !== 'Workspace') {
             let position = {
@@ -224,7 +224,7 @@ function newUiObjectConstructor() {
         return
     }
 
-    function addLeftIcons(menuItemsInitialValues, floatingObject, isPersonalData) {
+    function addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument) {
         menuItemsInitialValues.push(
             {
                 action: 'Pin / Unpin',
@@ -348,7 +348,7 @@ function newUiObjectConstructor() {
                 ring: 2
             }
         )
-        if (isPersonalData !== true) {
+        if (schemaDocument.isPersonalData !== true) {
             menuItemsInitialValues.push(
                 {
                     action: 'Share',
@@ -431,6 +431,23 @@ function newUiObjectConstructor() {
                 ring: 3
             }
         )
+        if (schemaDocument.referencingRules !== undefined) {
+            menuItemsInitialValues.push(
+                {
+                    action: 'Create Reference',
+                    actionFunction: floatingObject.payload.executeAction,
+                    actionProject: 'Visual-Scripting',
+                    label: undefined,
+                    visible: true,
+                    iconPathOn: 'create-reference',
+                    iconPathOff: 'create-reference',
+                    rawRadius: 12,
+                    targetRadius: 0,
+                    currentRadius: 0,
+                    ring: 3
+                }
+            )
+        }
 
         menuItemsInitialValues.push(
             {
@@ -457,21 +474,21 @@ function newUiObjectConstructor() {
             if (schemaDocument.editors !== undefined) {
                 if (schemaDocument.editors.config === true) {
                     uiObject.configEditor = newConfigEditor()
-                    uiObject.configEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.configEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.configEditor.initialize()
                 }
                 if (schemaDocument.editors.code === true) {
                     uiObject.codeEditor = newCodeEditor()
-                    uiObject.codeEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.codeEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.codeEditor.initialize()
                 }
                 if (schemaDocument.editors.formula === true) {
                     uiObject.formulaEditor = newFormulaEditor()
-                    uiObject.formulaEditor.isVisibleFunction = uiObject.isVisibleFunction
-                    uiObject.formulaEditor.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
                     uiObject.formulaEditor.initialize()
+                }
+                if (schemaDocument.editors.list === true) {
+                    uiObject.listSelector = newListSelector()
+                    uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                    uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                    uiObject.listSelector.initialize()
                 }
                 if (schemaDocument.editors.condition === true) {
                     uiObject.conditionEditor = newConditionEditor()
@@ -480,8 +497,14 @@ function newUiObjectConstructor() {
                     uiObject.conditionEditor.initialize()
                 }
             }
+            if (schemaDocument.referencingRules !== undefined) {
+                uiObject.listSelector = newListSelector()
+                uiObject.listSelector.isVisibleFunction = uiObject.isVisibleFunction
+                uiObject.listSelector.container.connectToParent(uiObject.container, false, false, true, true, false, false, false, false)
+                uiObject.listSelector.initialize()
+            }
             if (schemaDocument.addLeftIcons === true) {
-                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument.isPersonalData)
+                addLeftIcons(menuItemsInitialValues, floatingObject, schemaDocument)
             }
             if (schemaDocument.isPinned === true) {
                 floatingObject.isPinned = true
@@ -490,42 +513,52 @@ function newUiObjectConstructor() {
                 floatingObject.positionLocked = true
             }
 
-            for (let i = 0; i < schemaDocument.menuItems.length; i++) {
-                let menutItemDefinition = schemaDocument.menuItems[i]
-                let newMenuItem = JSON.parse(JSON.stringify(menutItemDefinition))
+            processMenuItems(schemaDocument.menuItems, menuItemsInitialValues)
 
-                /* We need to reference the real function based on its name */
-                if (menutItemDefinition.actionFunction !== undefined) {
-                    try {
-                        newMenuItem.actionFunction = eval(menutItemDefinition.actionFunction)
-                    } catch (err) {
-                        console.log('Error at Menu Item Action Function: ' + menutItemDefinition.actionFunction + ' ' + err.stack)
-                        continue
+            function processMenuItems(menuItems, array) {
+
+                for (let i = 0; i < menuItems.length; i++) {
+
+                    let menuItemDefinition = menuItems[i]
+                    let newMenuItem = JSON.parse(JSON.stringify(menuItemDefinition))
+
+                    /* We need to reference the real function based on its name */
+                    if (menuItemDefinition.actionFunction !== undefined) {
+                        try {
+                            newMenuItem.actionFunction = eval(menuItemDefinition.actionFunction)
+                        } catch (err) {
+                            console.log('Error at Menu Item Action Function: ' + menuItemDefinition.actionFunction + ' ' + err.stack)
+                        }
                     }
-                }
 
-                /* Adding default values */
-                if (newMenuItem.visible === undefined) {
-                    newMenuItem.visible = true
-                }
+                    /* Adding default values */
+                    if (newMenuItem.visible === undefined && menuItemsInitialValues === array) {
+                        newMenuItem.visible = true
+                    }
 
-                if (newMenuItem.rawRadius === undefined) {
-                    newMenuItem.rawRadius = 12
-                }
+                    if (newMenuItem.rawRadius === undefined) {
+                        newMenuItem.rawRadius = 12
+                    }
 
-                if (newMenuItem.targetRadius === undefined) {
-                    newMenuItem.targetRadius = 0
-                }
+                    if (newMenuItem.targetRadius === undefined) {
+                        newMenuItem.targetRadius = 0
+                    }
 
-                if (newMenuItem.currentRadius === undefined) {
-                    newMenuItem.currentRadius = 0
-                }
+                    if (newMenuItem.currentRadius === undefined) {
+                        newMenuItem.currentRadius = 0
+                    }
 
-                if (newMenuItem.actionProject === undefined) {
-                    newMenuItem.actionProject = payload.node.project
-                }
+                    if (newMenuItem.actionProject === undefined) {
+                        newMenuItem.actionProject = payload.node.project
+                    }
 
-                menuItemsInitialValues.push(newMenuItem)
+                    if (menuItemDefinition.menuItems !== undefined) {
+                        newMenuItem.menuItems = []
+                        processMenuItems(menuItemDefinition.menuItems, newMenuItem.menuItems)
+                    }
+
+                    array.push(newMenuItem)
+                }
             }
         } else {
             if (ERROR_LOG === true) { logger.write('[ERROR] getMenuItemsInitialValues -> UI Object Type not Recognized -> type = ' + payload.node.type) }

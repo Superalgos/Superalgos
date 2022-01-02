@@ -3,7 +3,7 @@
     "pageNumber": "5",
     "type": "TS Trading Session Error - Label Property Missing",
     "definition": {
-        "text": "A property called label is expeceted at the Time Frame Node config, but it is missing.",
+        "text": "A property called label is expected at the Time Frame Node config, but it is missing.",
         "updated": 1611332389501
     },
     "paragraphs": [

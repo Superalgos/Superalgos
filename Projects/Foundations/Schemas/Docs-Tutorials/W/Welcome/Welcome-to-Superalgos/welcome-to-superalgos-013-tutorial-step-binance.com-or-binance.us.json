@@ -42,8 +42,9 @@
             {
                 "language": "RU",
                 "text": "Прежде, чем мы начнем data mining, у меня к Вам есть небольшой вопрос: торгуете ли Вы на binance.com или binance.us, или ни на одном из них?\n",
-                "updated": 1635584552207},
-                {
+                "updated": 1635584552207
+            },
+            {
                 "language": "TR",
                 "text": "Veri madenciliğine başlamadan önce size küçük bir sorum var: binance.com'da mı, binance.us'ta mı işlem yapıyorsunuz yoksa hiçbirinde mi?",
                 "updated": 1635582493156
@@ -89,8 +90,9 @@
                 {
                     "language": "RU",
                     "text": " Если Вы торгуете на binance.com или вообще не торгуете на Binance, то пропустите этот шаг и перейдите к следующему.",
-                    "updated": 1635584632228},
-                    {
+                    "updated": 1635584632228
+                },
+                {
                     "language": "TR",
                     "text": "Binance.com'da işlem yapıyorsanız veya Binance ile hiç işlem yapmıyorsanız, bu ve sonraki adımı atlayabilirsiniz!",
                     "updated": 1635582549143
@@ -135,8 +137,9 @@
                 {
                     "language": "RU",
                     "text": "Если Вы торгуете на binance.us, то необходимо настроить узел Binance справа! Видео на следующем шаге покажет Вам как это сделать!",
-                    "updated": 1635584907910},
-                    {
+                    "updated": 1635584907910
+                },
+                {
                     "language": "TR",
                     "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımdaki video size nasıl olduğunu gösteriyor!",
                     "updated": 1635582592953
@@ -145,8 +148,8 @@
         },
         {
             "style": "List",
-            "text": "Access the configuration and change the codeName to \"binanceus\". Move the mouse pointer out of the configuration bubble and it will close and save automatically.",
-            "updated": 1622189775201,
+            "text": "Access the configuration and change the codeName to \"binanceus\". Exit the editor and it will save automatically.",
+            "updated": 1636910295110,
             "translations": [
                 {
                     "language": "IT",
@@ -181,8 +184,9 @@
                 {
                     "language": "RU",
                     "text": "Перейдите в настройки и измените codeName на \"binanceus\". Переместите указатель мыши из пузырька конфигурации и он закроется и сохранится автоматически.",
-                    "updated": 1635585138540},
-                    {
+                    "updated": 1635585138540
+                },
+                {
                     "language": "TR",
                     "text": "Yapılandırmaya (Configure) erişin ve kod adını \"binanceus\" olarak değiştirin. Fare işaretçisini yapılandırma balonunun dışına çıkarın, otomatik olarak kapanacak ve kaydedilecektir.",
                     "updated": 1635582755655
@@ -227,8 +231,9 @@
                 {
                     "language": "RU",
                     "text": "Отредактируйте метку узла, чтобы прочитать \"Binanceus\".",
-                    "updated": 1635585248449},
-                    {
+                    "updated": 1635585248449
+                },
+                {
                     "language": "TR",
                     "text": "Şimdi düğüm etiketini \"Binanceus\" olarak görüyor olmalısın.",
                     "updated": 1635582726102

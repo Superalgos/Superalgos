@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "Un Trading System rige las estrategias trading proporciona un marco flexible, pero estructurado, para desarrollarlas.",
                 "updated": 1629587546135
+            },
+            {
+                "language": "DE",
+                "text": "Ein Trading System regelt die Handelsstrategien und bietet einen flexiblen, aber strukturierten Rahmen, um sie aufzubauen.",
+                "updated": 1639147285749
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir Ticaret Sistemi ( Trading System ) , ticaret stratejilerini yönetir ve bunları oluşturmak için esnek, ancak yapılandırılmış bir çerçeve sağlar.",
+                "updated": 1640692400531
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "ES",
                     "text": "Por favor, lea esta página para ponerse al día con el funcionamiento de los sistemas comerciales.",
                     "updated": 1629587573430
+                },
+                {
+                    "language": "DE",
+                    "text": "Bitte lesen Sie diese Seite, um zu erfahren, wie Trading Systeme funktionieren!",
+                    "updated": 1639147295415
+                },
+                {
+                    "language": "TR",
+                    "text": "Lütfen, ticaret sistemlerinin nasıl çalıştığını hızlıca öğrenmen için bu sayfayı okuyun!",
+                    "updated": 1640692866775
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "ES",
                     "text": "¡No hay sustituto para el conocimiento, por lo que tendrás que leer un poco antes de que me ensucie las manos con la buena lógica del trading!",
                     "updated": 1629587618899
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt keinen Ersatz für Wissen, also müssen Sie etwas lesen, bevor ich Ihre Hände mit der guten alten Handelslogik schmutzig mache!",
+                    "updated": 1639147361194
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bilginin yerini tutamaz, bu yüzden mantığınızı iyi bir akıl yürütme ile kirletmeden önce biraz okuma yapmanız gerekecek!",
+                    "updated": 1640693379485
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "ES",
                     "text": "Saltarse la lectura puede resultar en un deterioro neurológico permanente. ¡Tu llamada!",
                     "updated": 1629587887766
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Überspringen der Lektüre kann zu dauerhaften neurologischen Beeinträchtigungen führen. Ihre Entscheidung!",
+                    "updated": 1639147370087
+                },
+                {
+                    "language": "TR",
+                    "text": "Uyarı: Okumanın atlanması kalıcı nörolojik bozuklukla sonuçlanabilir. Yinede senin kararın!",
+                    "updated": 1640693515242
                 }
             ]
         }

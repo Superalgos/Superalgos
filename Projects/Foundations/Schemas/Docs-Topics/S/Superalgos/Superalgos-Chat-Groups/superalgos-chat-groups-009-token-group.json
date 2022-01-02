@@ -4,7 +4,19 @@
     "type": "Token Group",
     "definition": {
         "text": "Are you interested in helping drive value to the Superalgos SA Token? Join this group to help the project in that direction of development.",
-        "updated": 1618851859645
+        "updated": 1618851859645,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Superalgos SA Token'nine değer kazandırmakla ilgileniyor musunuz? Projeye yardımcı olmak için bu gruba katılın.",
+                "updated": 1639393241776
+            },
+            {
+                "language": "RU",
+                "text": "Вы заинтересованы в том, чтобы помочь повысить ценность токена Superalgos SA Token? Присоединяйтесь к этой группе, чтобы помочь проекту в этом направлении развития.",
+                "updated": 1640353809551
+            }
+        ]
     },
     "paragraphs": [
         {

@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "¡Permítanme informarles sobre algunos asuntos que deben considerar antes de comenzar!",
                 "updated": 1630376946171
+            },
+            {
+                "language": "DE",
+                "text": "Bevor wir beginnen, möchte ich Sie auf einige Dinge hinweisen, die Sie beachten sollten!",
+                "updated": 1639251358018
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Başlamadan önce göz önünde bulundurmanız gereken birkaç konuda size bilgi vereyim!",
+                "updated": 1640859451125
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "ES",
                     "text": "¡Toma cualquier información relacionada con el comercio por lo que vale! Cuando comparta conceptos comerciales, ¡tómelos con un grano de sal! ¡Soy solo un tutorial, no su asesor financiero! ¡Estoy aquí para enseñarte Superalgos, no para decirte cómo comerciar! Si no es un comerciante, puede adquirir algo de valor, ¡pero asegúrese siempre de hacer su propia investigación!",
                     "updated": 1630376997809
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie jede handelsbezogene Information für das, was sie wert ist! Wenn ich Handelskonzepte mit Ihnen teile, sollten Sie diese mit Vorsicht genießen! Ich bin nur ein Tutorial, nicht Ihr Finanzberater! Ich bin hier, um Ihnen Superalgos beizubringen, nicht um Ihnen zu sagen, wie Sie handeln sollen! Wenn Sie kein Trader sind, können Sie vielleicht etwas von Wert mitnehmen, aber stellen Sie immer sicher, dass Sie Ihre eigenen Nachforschungen anstellen!",
+                    "updated": 1639251394203
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne kadar değerli olursa olsun, ticaretle ilgili her bir bilgiyi alın! Ticaret kavramlarını paylaştığımda, onları en küçük zerresine kadar aklınıza kazıyın! Ben sadece bir öğreticiyim, mali danışmanın değil! Buraya size Superalgo'u öğretmeye geldim, nasıl takas yapılacağını söylemeye değil! Bir tüccar değilseniz, değerli bir şey alabilirsiniz, ancak her zaman kendi araştırmanızı yaptığınızdan emin olun!",
+                    "updated": 1640862680133
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "ES",
                     "text": " Me lo tomaré con calma y expondré conceptos para que todos puedan entenderlos. Si eres es un comerciante experimentado, puede sentir que algunas explicaciones son demasiado básicas. En ese caso, no dudes en omitir este tutorial y pasar al siguiente de la serie.",
                     "updated": 1630377193083
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Tutorial ist für ein breites Publikum gedacht! Ich werde es einfach halten und die Konzepte so darlegen, dass jeder sie verstehen kann. Wenn Sie ein erfahrener Händler sind, werden Sie vielleicht das Gefühl haben, dass einige Erklärungen zu grundlegend sind. In diesem Fall können Sie diesen Lehrgang überspringen und zum nächsten der Reihe übergehen.",
+                    "updated": 1639251376690
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğretici geniş bir kitleye yöneliktir! Herkesin anlayabileceği kavramlar hazırladım, böylece herkes onları anlayabilir. Tecrübeli bir trader, bazı açıklamaların çok temel olduğunu hissedebilirsiniz. Bu durumda, bu öğreticiyi atlamaktan ve serideki bir sonrakine geçmekten çekinmeyin.",
+                    "updated": 1640863034548
                 }
             ]
         }

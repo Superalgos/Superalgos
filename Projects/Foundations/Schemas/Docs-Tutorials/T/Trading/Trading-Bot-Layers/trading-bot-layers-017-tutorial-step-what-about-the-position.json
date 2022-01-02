@@ -4,8 +4,8 @@
     "type": "Tutorial Step - What About the Position?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "position"
+            "name": "Position/position",
+            "project": "Foundations"
         },
         "text": "As you very clearly pointed out, the episode counters showed a strategy, but also a position... what about that?",
         "translations": [
@@ -14,6 +14,11 @@
                 "text": "Wie du festgestellt hast, zeigten die Episodenzähler eine Strategie, aber auch eine Position... was ist damit?",
                 "updated": 1623014668190,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Как вы очень четко отметили, счетчики эпизодов показали стратегию, но также и позицию... как насчет этого?",
+                "updated": 1640547167033
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Scrolle im Simulationsobjekte Layer-Manager nach unten und schalte den Layer \"Position Base Asset\" ein!",
                     "updated": 1623014685669,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Прокрутите вниз менеджер слоев объектов Simulation Objects и включите слой \"Position Base Asset\"!",
+                    "updated": 1640628234334
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Sehr schön! Ein grünes Dreieck bedeutet, dass die Position ein Treffer war! Sonst wäre es rot!",
                     "updated": 1623014705334,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Отлично! Зеленый треугольник означает, что позиция была удачной! В противном случае он был бы красным!",
+                    "updated": 1640547198546
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "text": "Die horizontale Seite des Dreiecks markiert den Einstiegszielkurs. Die vertikale Seite markiert das Datum, an dem die Position geschlossen wurde. Der Eckpunkt, der von der horizontalen Seite entfernt ist, ist die \"Exit Target Rate\".",
                     "updated": 1623014744537,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Горизонтальная сторона треугольника обозначает целевую ставку входа. Вертикальная сторона обозначает дату, когда позиция была закрыта. Вершина, отстоящая от горизонтальной стороны, является целевой ставкой на выход.",
+                    "updated": 1640547223693
                 }
             ]
         }

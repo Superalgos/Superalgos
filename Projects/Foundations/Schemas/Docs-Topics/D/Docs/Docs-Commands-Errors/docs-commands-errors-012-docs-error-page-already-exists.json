@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Seite, die Sie hinzufügen möchten, existiert bereits.",
                 "updated": 1633898374701
+            },
+            {
+                "language": "RU",
+                "text": "Страница, которую вы пытаетесь добавить, уже существует.",
+                "updated": 1638530231184
             }
         ]
     },
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie den Docs Page Name, den Sie für den Befehl verwendet haben. Es scheint, dass eine Seite mit demselben Namen bereits existiert.",
                     "updated": 1633898560092
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте название страницы документов Docs Page Name, которое вы использовали в команде. Кажется, что страница с таким именем уже существует.",
+                    "updated": 1638530309100
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Gilt für",
                     "updated": 1633898579157
+                },
+                {
+                    "language": "RU",
+                    "text": "Относится к",
+                    "updated": 1638530337456
                 }
             ]
         },

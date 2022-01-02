@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "Hemos cubierto dos ejemplos de trading systems con múltiples estrategias ... ¿qué podemos aprender de ellos?",
                 "updated": 1629679940921
+            },
+            {
+                "language": "DE",
+                "text": "Wir haben uns mit zwei Beispielen von Trading Systemen beschäftigt, die mehrere Strategien beinhalten... was können wir von ihnen lernen?",
+                "updated": 1639148066353
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Birden fazla strateji içeren ticaret sistemlerinin iki örneğini ele aldık... Onlardan ne öğrenebiliriz?",
+                "updated": 1640781128057
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "ES",
                     "text": "En el caso de Weak-Hands Buster, cada estrategia representa un caso particular de la misma idea trading. En el caso de BB Top Bounce, cada estrategia se especializa en condiciones específicas del mercado.",
                     "updated": 1629680691160
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Fall von Weak-hands Buster stellt jede Strategie einen besonderen Fall der gleichen Handelsidee dar. Im Fall von BB Top Bounce ist jede Strategie auf bestimmte Marktbedingungen spezialisiert.",
+                    "updated": 1639148074263
+                },
+                {
+                    "language": "TR",
+                    "text": "Weak-hands Buster durumunda, her strateji aynı ticaret fikrinin belirli bir durumunu temsil eder. BB Top Bounce durumunda, her strateji belirli piyasa koşullarında uzmanlaşmıştır.",
+                    "updated": 1640781585878
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "ES",
                     "text": "En los próximos pasos, analizaremos las implicaciones de usar múltiples estrategias dentro del mismo trading system y, finalmente, responderemos la pregunta candente: ¿por qué querríamos usar una configuración de este tipo?",
                     "updated": 1629680767976
+                },
+                {
+                    "language": "DE",
+                    "text": "In den nächsten Schritten werden wir die Auswirkungen der Verwendung mehrerer Strategien innerhalb desselben Handelssystems erläutern und schließlich die brennende Frage beantworten: Warum sollten wir ein solches Setup verwenden?",
+                    "updated": 1639148082982
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımda, aynı ticaret sistemi içinde birden fazla strateji kullanmanın etkilerini ortaya çıkaracağız ve son olarak, can alıcı soruyu yanıtlayacağız: neden böyle bir kurulumu kullanmak isteyelim?",
+                    "updated": 1640781381357
                 }
             ]
         }

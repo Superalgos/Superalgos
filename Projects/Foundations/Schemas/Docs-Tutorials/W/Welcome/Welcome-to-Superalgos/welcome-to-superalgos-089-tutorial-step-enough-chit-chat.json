@@ -25,6 +25,11 @@
                 "language": "DE",
                 "text": "Ok, mein Freund... Es ist Zeit für das echte Geschäft! Sind Sie bereit für eine kleine Live Trading Session?",
                 "updated": 1634226761390
+            },
+            {
+                "language": "TR",
+                "text": "Tamam dostum... Zamanı geldi! Küçük bir Canlı İşlem Seansına hazır mısınız?",
+                "updated": 1636403624650
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "DE",
                     "text": "Ich werde Ihnen bei den drei Hauptanforderungen helfen:",
                     "updated": 1634226773215
+                },
+                {
+                    "language": "TR",
+                    "text": "Size üç ana gereksinim konusunda yardımcı olacağım:",
+                    "updated": 1636403650823
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie Ihre Parameter, insbesondere entscheiden Sie, wie viel Kapital Sie für die Sitzung bereitstellen möchten.",
                     "updated": 1634226804180
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikle parametrelerinizi kontrol edin, seansa ne kadar sermaye atamak istediğinize karar verin.",
+                    "updated": 1636403672375
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Richten Sie einen Exchange Account Key ein, damit die App auf Ihr Konto bei der Börse zugreifen kann.",
                     "updated": 1634226810813
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamanın borsadaki hesabınıza erişebilmesi için bir Borsa Hesap Anahtarı ( Exchange Account Key ) ayarlayın.",
+                    "updated": 1636403721574
                 }
             ]
         },
@@ -119,6 +139,11 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass ein Live-Datenfeed, das heißt die Data-Mining-Operation mit den vom Trading System benötigten Indikatoren, läuft und auf dem neuesten Stand ist.",
                     "updated": 1634226827105
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı bir veri akışı sağlayın, yani sisteminin gerektirdiği göstergelerle veri madenciliği operasyonunun çalışır durumda ve güncel olması gerekir.",
+                    "updated": 1636403773416
                 }
             ]
         },
@@ -143,6 +168,11 @@
                     "language": "DE",
                     "text": "Wenn Sie aus irgendeinem Grund noch nicht bereit sind, live zu handeln, machen Sie einfach weiter. Sie werden auf jeden Fall lernen, wie die Dinge funktionieren!",
                     "updated": 1634226835104
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir nedenle canlı ticaret yapmaya hazır değilseniz, endişelenmeyin, devam edin. En azından işlerin nasıl yürüdüğünü öğreneceksin!",
+                    "updated": 1636403901281
                 }
             ]
         }

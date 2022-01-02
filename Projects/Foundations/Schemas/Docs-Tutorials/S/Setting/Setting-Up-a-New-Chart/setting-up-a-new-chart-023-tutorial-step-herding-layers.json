@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let's get into the nitty gritty of layer managment.",
         "icon": {
-            "name": "Layer/layer-manager",
+            "name": "layer-manager",
             "project": "Foundations"
         },
         "updated": 1617640657348,
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "Entremos en el meollo de la gestión de capas.",
                 "updated": 1628647389478
+            },
+            {
+                "language": "RU",
+                "text": "Давайте разберемся в тонкостях управления слоями.",
+                "updated": 1639074079606
+            },
+            {
+                "language": "DE",
+                "text": "Kommen wir nun zu den Feinheiten vom Ebenenmanager.",
+                "updated": 1639153250655
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Layer Managers realizan un seguimiento de todas las capas conectadas debajo de ellos. También son los nodos que aceptan referencias a una variedad de Data Mine Products. Al establecer referencias con una Mina en particular, podemos agregar fácilmente todos los datos asociados a ella. Los tres tipos principales de datos son:",
                     "updated": 1628647451469
+                },
+                {
+                    "language": "RU",
+                    "text": "Layer Managers отслеживают все слои, подключенные под ними. Они также являются узлами, которые принимают ссылки на различные продукты Data Mine Products. Установив ссылки на конкретный рудник, мы можем легко добавить все данные, связанные с ним. Три основных типа данных:",
+                    "updated": 1639074177276
+                },
+                {
+                    "language": "DE",
+                    "text": "Layer Managers behalten den Überblick über alle unter ihnen angeschlossenen Ebenen. Sie sind auch die Knoten, die Verweise auf eine Vielzahl von Data Mine Products akzeptieren. Indem wir Verweise auf eine bestimmte Mine herstellen, können wir alle mit ihr verbundenen Daten leicht hinzufügen. Die drei Haupttypen von Daten sind:",
+                    "updated": 1639153530097
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "ES",
                     "text": "Data Mine Products – para datos e indicadores de mercado.",
                     "updated": 1628647463823
+                },
+                {
+                    "language": "RU",
+                    "text": "Data Mine Products – для получения рыночных данных и индикаторов.",
+                    "updated": 1639074192406
+                },
+                {
+                    "language": "DE",
+                    "text": "Data Mine Products – für Marktdaten und Indikatoren.",
+                    "updated": 1639153565042
                 }
             ]
         },
@@ -50,6 +80,16 @@
                     "language": "ES",
                     "text": "Trading Mine Products – para los resultados de las trading sessions.",
                     "updated": 1628647492153
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Mine Products – для результатов торговых сессий.",
+                    "updated": 1639074215323
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Mine Products – für die Ergebnisse von Handelssitzungen.",
+                    "updated": 1639153578002
                 }
             ]
         },
@@ -61,6 +101,16 @@
                     "language": "ES",
                     "text": "Learning Mine Products – para la salida de datos de algoritmos de aprendizaje.",
                     "updated": 1628647505306
+                },
+                {
+                    "language": "RU",
+                    "text": "Learning Mine Products – для вывода данных из алгоритмов обучения.",
+                    "updated": 1639074228916
+                },
+                {
+                    "language": "DE",
+                    "text": "Learning Mine Products – für Daten, die von Lernalgorithmen ausgegeben werden.",
+                    "updated": 1639153592657
                 }
             ]
         },

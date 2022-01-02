@@ -5,7 +5,7 @@
     "definition": {
         "text": "Let's build the mother of all strategies!",
         "icon": {
-            "name": "Strategy\\strategy",
+            "name": "strategy",
             "project": "Foundations"
         },
         "updated": 1614241902261,
@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "¡Construyamos la madre de todas las estrategias!",
                 "updated": 1629347747877
+            },
+            {
+                "language": "IT",
+                "text": "Costruiamo la nostra strategia!",
+                "updated": 1639073736630
+            },
+            {
+                "language": "TR",
+                "text": "Tüm stratejilerin anasını oluşturalım!",
+                "updated": 1640616263549
+            },
+            {
+                "language": "RU",
+                "text": "Давайте создадим материнскую стратегию!",
+                "updated": 1640854438221
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "Para realizar una prueba retrospectiva de una estrategia, primero debemos escribirla o tenerla clara en nuestra mente. Así que estas son las piedras angulares en las que se basa nuestra prueba:",
                     "updated": 1629347848333
+                },
+                {
+                    "language": "IT",
+                    "text": "Per testare una strategia, prima dobbiamo scriverla o averla chiaramente in mente:",
+                    "updated": 1639074134645
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir stratejiyi geriye dönük test etmek için önce onu yazmamız veya zihnimizde net bir şekilde oluşturmanız gerekir. Dolayısıyla aşağıdakiler, testimizin dayandığı temel taşlardır:",
+                    "updated": 1640616279114
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы протестировать стратегию, сначала нужно написать ее или четко представить ее в уме. Таким образом, это ключевые моменты, на которых основывается наш тест:",
+                    "updated": 1640854130229
                 }
             ]
         },
@@ -56,6 +86,21 @@
                     "language": "ES",
                     "text": "Strategy usa SMA50 y SMA200",
                     "updated": 1629347862168
+                },
+                {
+                    "language": "IT",
+                    "text": "La strategia usa 2 medie mobili semplici, rispettivamente SMA50 e SMA200",
+                    "updated": 1639073807049
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji ( Strategy ), SMA50 ve SMA200'ü kullanır",
+                    "updated": 1640616295110
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия использует SMA50 и SMA200",
+                    "updated": 1640854147037
                 }
             ]
         },
@@ -73,6 +118,21 @@
                     "language": "ES",
                     "text": "Strategy está basado en 4H TF",
                     "updated": 1629347891997
+                },
+                {
+                    "language": "IT",
+                    "text": "Il Time Frame usato è di 4H",
+                    "updated": 1639073824134
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji ( Strategy ) 4H TF'ye dayalıdır",
+                    "updated": 1640616306545
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегия основана на 4H TF",
+                    "updated": 1640854168176
                 }
             ]
         },
@@ -90,6 +150,21 @@
                     "language": "ES",
                     "text": "El bot comprará el asset cuando SMA50 cruzar hasta SMA200",
                     "updated": 1629347952235
+                },
+                {
+                    "language": "IT",
+                    "text": "Il bot compra a market l'asset scelto quando la SMA50 incrocia verso l'alto la SMA200",
+                    "updated": 1639074531653
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA50, SMA200'ü geçtiğinde varlığı satın alacak",
+                    "updated": 1640616318507
+                },
+                {
+                    "language": "RU",
+                    "text": "Бот будет покупать актив, когда SMA50 пересечет снизу вверх SMA200",
+                    "updated": 1640854277674
                 }
             ]
         },
@@ -107,6 +182,21 @@
                     "language": "ES",
                     "text": "Stop Loss está fijado en 20% desde la entrada",
                     "updated": 1629348020213
+                },
+                {
+                    "language": "IT",
+                    "text": "Lo Stop Loss è settato al 20%",
+                    "updated": 1639073940750
+                },
+                {
+                    "language": "TR",
+                    "text": "Kaybı durdur ( Stop Loss ) girişten noktasından %20 olarak ayarlandı",
+                    "updated": 1640616332642
+                },
+                {
+                    "language": "RU",
+                    "text": "Стоп-лосс устанавливается на уровне 20% от входа",
+                    "updated": 1640854291612
                 }
             ]
         },
@@ -124,6 +214,21 @@
                     "language": "ES",
                     "text": "Take Profit está fijado en 100% o en SMA50 cruzar abajo SMA200",
                     "updated": 1629348082752
+                },
+                {
+                    "language": "IT",
+                    "text": "Il Take Profit è settato al 100% ma può  funzionare anche da Stop Loss in quanto la posizione viene chiusa se la SMA50 incrocia verso il basso la SMA200",
+                    "updated": 1639074585392
+                },
+                {
+                    "language": "TR",
+                    "text": "%100'de Kârı Al ( Take Profit ) veya SMA50 aşağı çaprazda SMA200'e ayarlandı",
+                    "updated": 1640616352964
+                },
+                {
+                    "language": "RU",
+                    "text": "Тейк-профит устанавливается на уровне 100% или при пересечении SMA50 сверху вниз SMA200",
+                    "updated": 1640854324507
                 }
             ]
         }

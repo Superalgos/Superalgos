@@ -2,17 +2,38 @@
     "type": "App Schema",
     "definition": {
         "text": "A set of low level definitions placed at a JSON file that defines which types of nodes are made available by a certain Project to be used at the Design Space.",
-        "updated": 1614784939148
+        "updated": 1614784939148,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Набор низкоуровневых определений, помещенных в файл JSON, который определяет, какие типы узлов предоставляются определенным проектом Project для использования в пространстве дизайна Design Space.",
+                "updated": 1638278549743
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The App Schema file is an array of objects, each object defines a certain node type.",
-            "updated": 1614785082978
+            "updated": 1614785082978,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файл App Schema представляет собой массив объектов, каждый из которых определяет определенный тип узла.",
+                    "updated": 1638278618390
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Example"
+            "text": "Example",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пример",
+                    "updated": 1638278626072
+                }
+            ]
         },
         {
             "style": "Json",
@@ -22,11 +43,25 @@
         {
             "style": "Title",
             "text": "Properties",
-            "updated": 1614785297833
+            "updated": 1614785297833,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638278658128
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each object can have a pre-defined set of properties, which you can see here:"
+            "text": "Each object can have a pre-defined set of properties, which you can see here:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый объект может иметь предопределенный набор свойств, которые вы можете увидеть здесь:",
+                    "updated": 1638278677269
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -35,7 +70,14 @@
         {
             "style": "Text",
             "text": "The Type of the node is the key by which each node is identified within the context of a certain Project. The naming convention here is that all words must be capitalized.",
-            "updated": 1614785486944
+            "updated": 1614785486944,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Тип узла - это ключ, по которому каждый узел идентифицируется в контексте определенного проекта Project. Согласно соглашению об именах все слова должны начинаться с заглавной буквы.",
+                    "updated": 1638278782720
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -44,7 +86,14 @@
         {
             "style": "Text",
             "text": "It is an integer from 0 to 5, representing the importance of this type of node. 0 is the most important. The more important the node type, the bigger is rendered at the Design Space. The difference between level is barely noticeable.",
-            "updated": 1614785595122
+            "updated": 1614785595122,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это целое число от 0 до 5, представляющее важность этого типа узла. 0 - самое главное. Чем важнее тип узла, тем крупнее отображается в пространстве Design Space. Разница между уровнями едва заметна.",
+                    "updated": 1638278881729
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -52,7 +101,14 @@
         },
         {
             "style": "Text",
-            "text": "Nodes are usually child of other nodes. Each Node might also have children. At runtime children references are stored at some property of the Node object, but that property is not unique or pre-defined. Instead, each Node Type declares at its own definition at the App Schema, which will be the name of the property that will host it's own reference at it's parent node.  "
+            "text": "Nodes are usually child of other nodes. Each Node might also have children. At runtime children references are stored at some property of the Node object, but that property is not unique or pre-defined. Instead, each Node Type declares at its own definition at the App Schema, which will be the name of the property that will host it's own reference at it's parent node.  ",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы обычно являются дочерними по отношению к другим узлам. У каждого узла также могут быть дочерние элементы. Во время выполнения дочерние ссылки хранятся в некотором свойстве объекта Node, но это свойство не является уникальным или предопределенным. Вместо этого каждый тип узла объявляет свое собственное определение в App Scheme, который будет именем свойства, которое будет размещать его собственную ссылку на родительском узле.",
+                    "updated": 1638279224579
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -62,7 +118,14 @@
         {
             "style": "Text",
             "text": "Nodes also declare an array of property names that will be used to define which type of children the node can have. For example:",
-            "updated": 1614786054299
+            "updated": 1614786054299,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узлы также объявляют массив имен свойств, который будет использоваться для определения того, какой тип дочерних узлов может иметь узел. Например:",
+                    "updated": 1638279285883
+                }
+            ]
         },
         {
             "style": "Json",
@@ -72,42 +135,105 @@
         {
             "style": "Text",
             "text": "Each array item represent one type of children node this node can have. ",
-            "updated": 1614786149174
+            "updated": 1614786149174,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый элемент массива представляет один тип дочернего узла, который может иметь этот узел.",
+                    "updated": 1638279302533
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Each object can have 4 properties:"
+            "text": "Each object can have 4 properties:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Каждый объект может иметь 4 свойства:",
+                    "updated": 1638279315877
+                }
+            ]
         },
         {
             "style": "List",
             "text": "name: means name of the property that will hold the reference to the child node at runtime.",
-            "updated": 1614786293774
+            "updated": 1614786293774,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "name: означает имя свойства, которое будет содержать ссылку на дочерний узел во время выполнения.",
+                    "updated": 1638279338674
+                }
+            ]
         },
         {
             "style": "List",
             "text": "type: possible values are node or array. See details below.",
-            "updated": 1614786239139
+            "updated": 1614786239139,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "type: возможные значения: узел или массив. Подробности см. Ниже.",
+                    "updated": 1638279360593
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "childType: means the type of the child node."
+            "text": "childType: means the type of the child node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "childType: означает тип дочернего узла.",
+                    "updated": 1638279375028
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "autoAdd: optional, means if one instance of this children will be automatically created when this Node type is created."
+            "text": "autoAdd: optional, means if one instance of this children will be automatically created when this Node type is created.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "autoAdd: необязательный, означает, что один экземпляр этих дочерних элементов будет автоматически создан при создании этого типа узла.",
+                    "updated": 1638279396835
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The type property, can either be node or array, meaning:",
-            "updated": 1614786331079
+            "updated": 1614786331079,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойство type может быть узлом или массивом, что означает:",
+                    "updated": 1638279416753
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "node: means that can have only one instance of this type of children."
+            "text": "node: means that can have only one instance of this type of children.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "node: означает, что может быть только один экземпляр этого типа потомков.",
+                    "updated": 1638279490221
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "array: means that it can have more than one instance of this type of children."
+            "text": "array: means that it can have more than one instance of this type of children.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "array: означает, что у него может быть более одного экземпляра дочерних элементов этого типа.",
+                    "updated": 1638279519517
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -115,7 +241,14 @@
         },
         {
             "style": "Text",
-            "text": "This property defines to which nodes the current one being defined can attach to, considering those nodes as possible parents. The values are expressed in a string with a list of Node Types like in the following example:"
+            "text": "This property defines to which nodes the current one being defined can attach to, considering those nodes as possible parents. The values are expressed in a string with a list of Node Types like in the following example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство определяет, к каким узлам может подключаться текущий определяемый узел, считая эти узлы возможными родителями. Значения выражаются в строке со списком типов узлов, как в следующем примере:",
+                    "updated": 1638279549919
+                }
+            ]
         },
         {
             "style": "Json",
@@ -125,7 +258,14 @@
         {
             "style": "Note",
             "text": "incompatibleTypes property can also be used to explicitly define which nodes can not be parents.",
-            "updated": 1614786596412
+            "updated": 1614786596412,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойство incompatibleTypes также можно использовать для явного определения узлов, которые не могут быть родительскими.",
+                    "updated": 1638279584965
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -134,7 +274,14 @@
         {
             "style": "Text",
             "text": "This property defines to which nodes the current one being defined can reference to, considering those nodes as possible reference parents. The values are expressed in a string with a list of Node Types like in the following example:",
-            "updated": 1614786699311
+            "updated": 1614786699311,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство определяет, на какие узлы может ссылаться текущий определяемый узел, учитывая эти узлы в качестве возможных ссылочных родителей. Значения выражаются в строке со списком типов узлов, как в следующем примере:",
+                    "updated": 1638279615218
+                }
+            ]
         },
         {
             "style": "Json",
@@ -144,7 +291,14 @@
         {
             "style": "Note",
             "text": "incompatibleTypes property can also be used to explicitly define which nodes can not be parents.",
-            "updated": 1614786714357
+            "updated": 1614786714357,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойство incompatibleTypes также можно использовать для явного определения узлов, которые не могут быть родительскими.",
+                    "updated": 1638279633289
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -152,7 +306,14 @@
         },
         {
             "style": "Text",
-            "text": "This property allow you to define the menu of this Node Type at the Design Space. This menu will be an array of Menu Items objects like in the example below:"
+            "text": "This property allow you to define the menu of this Node Type at the Design Space. This menu will be an array of Menu Items objects like in the example below:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство позволяет вам определять меню этого типа узла Node Type в пространстве Design Space. Это меню будет массивом объектов Menu Items, как в примере ниже:",
+                    "updated": 1638279740182
+                }
+            ]
         },
         {
             "style": "Json",
@@ -162,19 +323,47 @@
         {
             "style": "Text",
             "text": "Although you are free to add any menu item you like, there are a few that have already become standardized. These standard Menu Items are also placed at a certain position within the menu for consistency.",
-            "updated": 1614787035329
+            "updated": 1614787035329,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя вы можете добавить любой понравившийся пункт меню, некоторые из них уже стандартизированы. Эти стандартные пункты меню также помещаются в определенное место в меню для единообразия.",
+                    "updated": 1638279775037
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "configure: always go as the first item"
+            "text": "configure: always go as the first item",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "configure: всегда идти первым",
+                    "updated": 1638279791582
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "run: after the configure if there is one"
+            "text": "run: after the configure if there is one",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "run: после настройки, если есть",
+                    "updated": 1638279811797
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "delete: it is always the last one"
+            "text": "delete: it is always the last one",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "delete: это всегда последний",
+                    "updated": 1638279831140
+                }
+            ]
         },
         {
             "style": "Text",
@@ -186,7 +375,14 @@
         },
         {
             "style": "Text",
-            "text": "This property is needed when the Node Type being defined will have a configuration. In those cases this property will set the initial value for that config. Example:"
+            "text": "This property is needed when the Node Type being defined will have a configuration. In those cases this property will set the initial value for that config. Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство необходимо, когда определяемый тип узла Node Type будет иметь конфигурацию. В таких случаях это свойство будет устанавливать начальное значение для этой конфигурации. Пример:",
+                    "updated": 1638279873643
+                }
+            ]
         },
         {
             "style": "Json",
@@ -199,7 +395,14 @@
         },
         {
             "style": "Text",
-            "text": "This property will tell the system which editor will be available for this type of node. Example:"
+            "text": "This property will tell the system which editor will be available for this type of node. Example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это свойство сообщит системе, какой редактор будет доступен для этого типа узла. Пример:",
+                    "updated": 1638279892074
+                }
+            ]
         },
         {
             "style": "Json",
@@ -208,28 +411,70 @@
         },
         {
             "style": "Text",
-            "text": "There are a few existing editors:"
+            "text": "There are a few existing editors:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Есть несколько существующих редакторов:",
+                    "updated": 1638279904218
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "config: editor for node configurations."
+            "text": "config: editor for node configurations.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "config: редактор конфигураций узлов.",
+                    "updated": 1638279924602
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "code: editor for javascript code."
+            "text": "code: editor for javascript code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "code: редактор для кода javascript.",
+                    "updated": 1638279944275
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "formula: formulas expressed in javascript."
+            "text": "formula: formulas expressed in javascript.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "formula: формулы, выраженные в javascript.",
+                    "updated": 1638279957482
+                }
+            ]
         },
         {
             "style": "List",
             "text": "condition: conditions editor.",
-            "updated": 1614787624722
+            "updated": 1614787624722,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "condition: редактор условий.",
+                    "updated": 1638279974968
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "In order for the user to actually be able to open the editor configured here, there must be a Menu Item than has an action = \"Configure\"."
+            "text": "In order for the user to actually be able to open the editor configured here, there must be a Menu Item than has an action = \"Configure\".",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы пользователь действительно мог открыть настроенный здесь редактор, должен быть пункт меню Menu Item, у которого есть действие = \"Configure\".",
+                    "updated": 1638280037119
+                }
+            ]
         },
         {
             "style": "Text",

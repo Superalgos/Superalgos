@@ -20,6 +20,21 @@
                 "language": "ES",
                 "text": "Trigger Stagees es nuestro talento scout",
                 "updated": 1629348587860
+            },
+            {
+                "language": "IT",
+                "text": "Il Trigger Stage è il nostro Talent Scout",
+                "updated": 1639077137307
+            },
+            {
+                "language": "TR",
+                "text": "Tetik Aşaması ( Trigger Stage ) Yetenek Avcımızdır",
+                "updated": 1640616679711
+            },
+            {
+                "language": "RU",
+                "text": "Trigger Stage - наш разведчик талантов",
+                "updated": 1640854684418
             }
         ]
     },
@@ -39,6 +54,21 @@
                     "language": "ES",
                     "text": "Nuestra estrategia se basa en el cruce de SMA y es en este nodo donde podemos instruir al bot para que busque las condiciones que deben cumplirse para realizar una operación.",
                     "updated": 1629348884906
+                },
+                {
+                    "language": "IT",
+                    "text": "La nostra strategia si basa sull'incrocio di 2 medie. Ed è in questo nodo che inseriamo le informazioni da dare al nostro bot per decidere quando entrare nel mercato.",
+                    "updated": 1639076778420
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejimiz SMA çaprazına dayalıdır ve bu düğümde bota bir ticaret yapmak için karşılanması gereken koşulları aramasını söyleyebiliriz.",
+                    "updated": 1640616693744
+                },
+                {
+                    "language": "RU",
+                    "text": "Наша стратегия основана на пересечении SMA, и именно в этом узле мы можем поручить боту поиск условий, которые должны быть выполнены для совершения сделки.",
+                    "updated": 1640854793725
                 }
             ]
         },
@@ -56,6 +86,21 @@
                     "language": "ES",
                     "text": "¡Esta etapa se trata de verificar el mercado y decidir si algunas condiciones valen la pena o no!",
                     "updated": 1629348903247
+                },
+                {
+                    "language": "IT",
+                    "text": "In questa fase il mercato viene studiato per verificare se e quando le nostre condizioni iniziali vengano soddisfatte.",
+                    "updated": 1639077044786
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Bu aşama tamamen piyasayı kontrol etmek ve bazı koşulların ticarete değip değmeyeceğine karar vermekle ilgilidir!",
+                    "updated": 1640616728982
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот этап заключается в проверке рынка и принятии решения о том, соответствуют ли некоторые условия для совершения сделки или нет!",
+                    "updated": 1640854776134
                 }
             ]
         },
@@ -74,6 +119,21 @@
                     "language": "ES",
                     "text": "¡Echemos un vistazo a sus 3 descendientes y te muestro algunos pequeños trucos para implementar la estrategia de la manera más rápida posible!",
                     "updated": 1629348921004
+                },
+                {
+                    "language": "IT",
+                    "text": "Diamo un'occhiata ai 3 figli del Trigger Stage, vi mostrerò alcuni piccoli trucchi per implementare la strategia nel modo più veloce possibile!",
+                    "updated": 1639077107348
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi 3 ürüne bir göz atalım ve size stratejiyi mümkün olan en hızlı şekilde uygulayabilmeniz için bazı küçük püf noktaları göstereceğim!",
+                    "updated": 1640616739975
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте посмотрим на три его потомка, и я покажу вам несколько маленьких хитростей, чтобы реализовать эту стратегию самым быстрым способом!",
+                    "updated": 1640854844167
                 }
             ]
         }

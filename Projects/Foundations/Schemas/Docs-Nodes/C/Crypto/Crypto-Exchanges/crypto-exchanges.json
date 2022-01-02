@@ -1,28 +1,88 @@
 {
     "type": "Crypto Exchanges",
     "definition": {
-        "text": "The crypto exchanges node groups definitions of the different exchanges the user may interact with."
+        "text": "The crypto exchanges node groups definitions of the different exchanges the user may interact with.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Los grupos de nodos  de los exchanges cripto  definen los diferentes exchanges con los que el usuario puede interactuar.",
+                "updated": 1636365203486
+            },
+            {
+                "language": "RU",
+                "text": "Узел Crypto Exchanges группирует определения различных бирж, с которыми может взаимодействовать пользователь.",
+                "updated": 1638648933625
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The default workspace features several nodes of this type, each with a purpose:",
-            "updated": 1609771412437
+            "updated": 1609771412437,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El workspace (espacio de trabajo) predeterminado presenta varios tipos de nodos, cada uno con un propósito:",
+                    "updated": 1636365369249
+                },
+                {
+                    "language": "RU",
+                    "text": "В рабочем пространстве по умолчанию есть несколько узлов этого типа, каждый из которых предназначен для:",
+                    "updated": 1638648949414
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Tested: features Crypto Exchange nodes of exchanges that have been thoroughly tested.",
-            "updated": 1609771181080
+            "updated": 1609771181080,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Tested ( testeados): Crypto Exchange caracteriza a nodos de exchanges que ya han sido testados minuciosamente.",
+                    "updated": 1636365489754
+                },
+                {
+                    "language": "RU",
+                    "text": "Tested:  особенности узлов Crypto Exchange, которые были тщательно протестированы.",
+                    "updated": 1638649035681
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Untested: features a collection of Crypto Exchange nodes of untested exchanges that comply with the set of API requirements of the CCXT library that Superalgos needs to function.",
-            "updated": 1609771650992
+            "updated": 1609771650992,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Untested ( sin testear): presenta una colección de nodos de Crypto Exchange de exchangesno testeados que cumplen con el conjunto de requisitos de la API de la CCXT library que Superalgos necesita para funcionar function.",
+                    "updated": 1640977707849
+                },
+                {
+                    "language": "RU",
+                    "text": "Untested: содержит набор узлов Crypto Exchange непроверенных бирж, которые соответствуют набору требований API библиотеки CCXT, необходимых Superalgos для работы.",
+                    "updated": 1638649058992
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Testing Queue: you may use this node to deploy Crypto Exchange nodes while testing them.",
-            "updated": 1609771442675
+            "updated": 1609771442675,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Testing Queue (fila de testeo): puede usar este nodo para implementar nodos Crypto Exchange mientras los testea.",
+                    "updated": 1636365750538
+                },
+                {
+                    "language": "RU",
+                    "text": "Testing Queue: вы можете использовать этот узел для развертывания узлов Crypto Exchange во время их тестирования.",
+                    "updated": 1638649074711
+                }
+            ]
         },
         {
             "style": "Text",

@@ -59,11 +59,11 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
             Any of the above happening, means that indeed it is related.
             */
-            let emitterUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(event.emitterUserProfileId)
+            let emitterUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(event.emitterUserProfileId)
             let emitterBotProfile = emitterUserProfile.bots.get(event.emitterBotProfileId)
             let emitterPost = emitterUserProfile.posts.get(event.emitterPostHash)
 
-            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.get(event.targetUserProfileId)
+            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(event.targetUserProfileId)
             let targetBotProfile
             let targetPost
 
@@ -256,6 +256,14 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 response.push(eventResponse)
 
                 function addPost(post) {
+
+                    let profileId
+                    if (thisObject.profile.botProfileId !== undefined) {
+                        profileId = thisObject.profile.botProfileId
+                    } else {
+                        profileId = thisObject.profile.userProfileId
+                    }
+
                     let postResponse = {
                         emitterUserProfileId: post.emitterUserProfileId,
                         targetUserProfileId: post.targetUserProfileId,
@@ -266,7 +274,8 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                         postType: post.postType,
                         timestamp: post.timestamp,
                         repliesCount: post.replies.size,
-                        reactions: Array.from(post.reactions)
+                        reactions: Array.from(post.reactions),
+                        reaction: post.reactionsByProfile.get(profileId)
                     }
                     return postResponse
                 }

@@ -28,6 +28,16 @@
                 "language": "DE",
                 "text": "Der Befehl docs.save war erfolgreich und alle Änderungen wurden auf dem Superalgos Client gespeichert.",
                 "updated": 1633901325278
+            },
+            {
+                "language": "RU",
+                "text": "Команда docs.save была выполнена успешно, и все изменения были сохранены в клиенте Superalgos Client.",
+                "updated": 1637925175363
+            },
+            {
+                "language": "TR",
+                "text": "docs.save komutu başarılı oldu ve tüm değişiklikler Superalgos İstemcisine kaydedildi",
+                "updated": 1640002778163
             }
         ]
     },
@@ -53,6 +63,16 @@
                     "language": "DE",
                     "text": "Alle aktuellen Änderungen an node, concept, topic, tutorial, review, and book pages wurden auf der Festplatte gespeichert.",
                     "updated": 1633901444521
+                },
+                {
+                    "language": "RU",
+                    "text": "Все последние изменения узла, концепций, тем, учебной пособии, обзоров и страниц книги были сохранены на диск.",
+                    "updated": 1637925337735
+                },
+                {
+                    "language": "TR",
+                    "text": "Node, concept, topic, tutorial, review, and dokümanlar sayfalarındaki en son değişikliklerin tümü diske kaydedildi.",
+                    "updated": 1640002830025
                 }
             ]
         }

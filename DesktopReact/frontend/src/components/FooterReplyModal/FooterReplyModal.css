@@ -1,0 +1,25 @@
+.replyModal {
+    position: absolute;
+    justify-content: normal;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40rem;
+    height: 22.5rem;
+    background-color: white;
+    border: 1px solid #000;
+    box-shadow: 24px 24px 100px black;
+}
+
+.replyFeedContainer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    padding: 0.50rem;
+}
+
+.replyModalFooter{
+    position: relative;
+    padding: 0.50rem;
+}

@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Compartmentalize It!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bot-layers"
+            "name": "Layer/bot-layers",
+            "project": "Foundations"
         },
         "text": "The reason why the access to values in the hierarchy is compartmentalized in layers is that layers correspond to data products output by the bot.",
         "translations": [
@@ -14,6 +14,11 @@
                 "text": "Der Grund, warum der Zugriff auf Werte in der Hierarchie in Layer aufgegliedert ist, ist, dass die Layer den vom Bot ausgegebenen Datenprodukten entsprechen.",
                 "updated": 1623013715544,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Причина, по которой доступ к значениям в иерархии разделен на слои, заключается в том, что слои соответствуют продуктам данных, выводимым ботом.",
+                "updated": 1640546584969
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Die Aufgliederung von Definitionen - und von Informationen im Allgemeinen - ist ein Thema für sich im gesamten System, da sie einer der Mechanismen ist, mit denen die Komplexität erfolgreich verwaltet wird.",
                     "updated": 1623013735708,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделение определений и информации в целом - это самостоятельная тема всей системы, поскольку это один из механизмов, с помощью которого успешно управляется сложная информация.",
+                    "updated": 1640546666472
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "text": "Wenn du diese Funktion nutzen musst, um Werte in der Trading Engine Hierarchie zu verfolgen, kannst du mehrere Layer auf einmal einschalten... sogar alle, wenn du willst! Denke nur daran, dass je mehr Layer du einschaltest, desto mehr Dateien liest das UI, also desto mehr forderst du deine Hardware!",
                     "updated": 1623013805354,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вам нужно использовать эту функцию для отслеживания значений на иерархии Trading Engine, вы можете включить несколько слоев одновременно... даже все, если хотите! Только имейте в виду, что чем больше слоев вы включаете, тем больше файлов считывает пользовательский интерфейс (UI), а значит, тем больше нагрузка на ваше оборудование!",
+                    "updated": 1640546732387
                 }
             ]
         }

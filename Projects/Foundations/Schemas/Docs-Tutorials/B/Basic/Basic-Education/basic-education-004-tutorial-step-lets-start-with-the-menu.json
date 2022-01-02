@@ -26,6 +26,11 @@
                 "language": "DE",
                 "text": "Die linke Seite des Menüs eines Knotens ist für die meisten Knoten gleich. Die rechte Seite ist jedoch spezifisch für den Typ des Knotens!",
                 "updated": 1634297081552
+            },
+            {
+                "language": "TR",
+                "text": "Bir düğüm menüsünde sol taraftaki öğreler, çoğu düğüm için ortaktır. Ancak sağ taraftak öğeler düğüm tipine özeldir!",
+                "updated": 1636699172648
             }
         ]
     },
@@ -51,6 +56,11 @@
                     "language": "DE",
                     "text": "Schauen wir uns die linke Seite genau an!",
                     "updated": 1634297088928
+                },
+                {
+                    "language": "TR",
+                    "text": "Sol tarafa yakından bakalım!",
+                    "updated": 1636699207312
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "DE",
                     "text": "Der Design Space funktioniert nach dem Paradigma eines sich selbst organisierenden Workspace, in dem die Knoten dazu neigen, ihren Platz zu finden, geleitet von bestimmten Anordnungseigenschaften, die Sie über das Menü des Knotens steuern können.",
                     "updated": 1634297127960
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı, düğümlerin, düğüm menüsünden kontrol edebileceğiniz belirli düzenleme özelliklerini bünyesinde barındıran, kendi kendini organize eden bir çalışma alanı paradigması altında işlev görür.",
+                    "updated": 1636699360931
                 }
             ]
         },
@@ -98,6 +113,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf die Schaltfläche \"Pin/Unpin\" in der oberen linken Ecke des Knotens \"Session Base Asset\". Ziehen Sie nun den Knoten weg und lassen Sie ihn los! Ziehen Sie nun einen beliebigen anderen Knoten weg, ohne ihn anzuheften. Sehen Sie den Unterschied?",
                     "updated": 1634297180198
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturum Temel Varlık ( Session Base Asset ) düğümünün sol üst köşesindeki sabitle düğmesini tıklayarak düğümü uzağa sürükleyin ve bırakın! Şimdi başka bir düğümü sabitlemeden sürükleyip bırakın. Farkı gördünüz mü?",
+                    "updated": 1636699433193
                 }
             ]
         }

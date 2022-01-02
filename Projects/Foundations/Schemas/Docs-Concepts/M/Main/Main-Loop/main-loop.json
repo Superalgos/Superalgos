@@ -2,12 +2,26 @@
     "type": "Main Loop",
     "definition": {
         "text": "Most Bots in Superalgos are not awake all the time. As a strategy to preserve hardware resourses, they run and go to sleep for a configurable amount of time, or until they are woken up by the finishing of some other task they are waiting for. Each cycle of running and sleeping is a loop at the Main Loop of a Bot.",
-        "updated": 1621955130672
+        "updated": 1621955130672,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Большинство ботов в Superalgos не спят все время. В качестве стратегии сохранения аппаратных ресурсов они запускаются и переходят в спящий режим в течение настраиваемого количества времени или до тех пор, пока они не будут разбужены завершением какой-либо другой задачи, которую они ждут. Каждый цикл работы и сна - это цикл в основном цикле бота.",
+                "updated": 1638285721759
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository."
+            "text": "Right click and Edit to enter edit mode and change this text. ENTER to write new paragraphs. ESC to exit edit mode. Then you can use docs.save to save your changes and app.contribute to send it to the main repository.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши и выберите Edit, чтобы войти в режим редактирования и изменить этот текст. ENTER, чтобы написать новые абзацы. ESC для выхода из режима редактирования. Затем вы можете использовать docs.save для сохранения изменений и app.contribute для отправки их в основной репозиторий.",
+                    "updated": 1638285735882
+                }
+            ]
         }
     ]
 }

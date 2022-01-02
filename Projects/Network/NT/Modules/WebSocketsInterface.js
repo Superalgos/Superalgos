@@ -2,7 +2,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     /*
     This module represents the websockets interface of the Network Node.
 
-    A Network Nodes is epected to receive conections request from 2 different types
+    A Network Nodes is expected to receive connection request from 2 different types
     of entities:
 
     1. Other Network Nodes.
@@ -12,18 +12,18 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     and sending messages to those entities.
     */
     let thisObject = {
+        socketServer: undefined,
+        clientInterface: undefined,
+        peerInterface: undefined,
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
+        broadcastToClients: broadcastToClients,
         initialize: initialize,
         finalize: finalize
     }
 
-    let socketServer
-    let clientInterface
-    let peerInterface
-
-    let web3 = new SA.nodeModules.web3()
+    let web3
 
     return thisObject
 
@@ -32,17 +32,22 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         thisObject.networkPeers = undefined
         callersMap = undefined
 
-        socketServer = undefined
-        clientInterface = undefined
-        peerInterface = undefined
+        thisObject.socketServer = undefined
+        thisObject.clientInterface = undefined
+        thisObject.peerInterface = undefined
 
         web3 = undefined
     }
 
     function initialize() {
-        socketServer = new SA.nodeModules.ws.Server({ port: global.env.NETWORK_WEB_SOCKETS_INTERFACE_PORT })
-        clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
-        peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
+
+        web3 = new SA.nodeModules.web3()
+
+        let port = NT.networkNode.p2pNetworkNode.node.config.webSocketsPort
+
+        thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
+        thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
+        thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
         thisObject.networkClients = []
         thisObject.networkPeers = []
@@ -53,17 +58,18 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
     function setUpWebSocketServer() {
         try {
-            socketServer.on('connection', onConnectionOpened)
+            thisObject.socketServer.on('connection', onConnectionOpened)
 
             function onConnectionOpened(socket)
             /*
             This function is executed every time a new Websockets connection
-            is stablished.  
+            is established.
             */ {
                 let caller = {
                     socket: socket,
                     userProfile: undefined,
-                    role: undefined
+                    role: undefined,
+                    node: undefined
                 }
 
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
@@ -84,6 +90,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 message: 'messageHeader Not Coorrect JSON Format.'
                             }
                             caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
                             return
                         }
                         /*
@@ -95,6 +102,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 message: 'messageType Not Provided.'
                             }
                             caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
                             return
                         }
 
@@ -112,25 +120,26 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     }
                                     response.messageId = messageHeader.messageId
                                     caller.socket.send(JSON.stringify(response))
+                                    caller.socket.close()
                                     return
                                 }
 
                                 let response
                                 switch (caller.role) {
                                     case 'Network Client': {
-                                        response = await clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                        response = await thisObject.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
                                         response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                     case 'Network Peer': {
-                                        response = await peerInterface.messageReceived(messageHeader.payload)
+                                        response = await thisObject.peerInterface.messageReceived(messageHeader.payload)
                                         response.messageId = messageHeader.messageId
                                         caller.socket.send(JSON.stringify(response))
                                         break
                                     }
                                 }
-                                if (response.result === 'Ok' && messageHeader.payload.requestType === 'Event') {
+                                if (response.result === 'Ok' && JSON.parse(messageHeader.payload).requestType === 'Event') {
                                     broadcastToPeers(messageHeader, caller)
                                     broadcastToClients(messageHeader, caller)
                                 }
@@ -142,6 +151,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     message: 'messageType Not Supported.'
                                 }
                                 caller.socket.send(JSON.stringify(response))
+                                caller.socket.close()
                                 break
                             }
                         }
@@ -159,7 +169,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
             function handshakeProducedure(caller, calledTimestamp, messageHeader) {
                 /*
-                The handshage producedure have 2 steps, we need to know 
+                The handshake procedure have 2 steps, we need to know
                 now which one we are at. 
                 */
                 if (messageHeader.step === undefined) {
@@ -168,6 +178,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         message: 'step Not Provided.'
                     }
                     caller.socket.send(JSON.stringify(response))
+                    caller.socket.close()
                     return
                 }
                 if (messageHeader.step !== 'One' && messageHeader.step !== 'Two') {
@@ -176,6 +187,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         message: 'step Not Supported.'
                     }
                     caller.socket.send(JSON.stringify(response))
+                    caller.socket.close()
                     return
                 }
                 switch (messageHeader.step) {
@@ -198,6 +210,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerRole Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
@@ -207,10 +220,40 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerRole Not Supported.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
                     caller.role = messageHeader.callerRole
+                    /*
+                    We will check that we have not exeeded the max amount of callers.
+                    */
+                    switch (caller.role) {
+                        case 'Network Client': {
+                            if (thisObject.networkClients.length >= global.env.P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS) {
+                                let response = {
+                                    result: 'Error',
+                                    message: 'P2P_NETWORK_NODE_MAX_INCOMING_CLIENTS reached.'
+                                }
+                                caller.socket.send(JSON.stringify(response))
+                                caller.socket.close()
+                                return
+                            }
+                            break
+                        }
+                        case 'Network Peer': {
+                            if (thisObject.networkPeers.length >= global.env.P2P_NETWORK_NODE_MAX_INCOMING_PEERS) {
+                                let response = {
+                                    result: 'Error',
+                                    message: 'P2P_NETWORK_NODE_MAX_INCOMING_PEERS reached.'
+                                }
+                                caller.socket.send(JSON.stringify(response))
+                                caller.socket.close()
+                                return
+                            }
+                            break
+                        }
+                    }
                     /*
                     The caller needs to provide it's User Profile Handle.
                     */
@@ -220,9 +263,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerProfileHandle Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
-
                     caller.userProfileHandle = messageHeader.callerProfileHandle
                     /*
                     The caller needs to provide a callerTimestamp.
@@ -233,6 +276,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerTimestamp Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -244,6 +288,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerTimestamp Too Old.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -252,11 +297,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     */
                     let signedMessage = {
                         callerProfileHandle: messageHeader.callerProfileHandle,
-                        calledProfileHandle: SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
+                        calledProfileHandle: SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
                         callerTimestamp: messageHeader.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
-                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
+                    let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
 
                     let response = {
                         result: 'Ok',
@@ -268,7 +313,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 function handshakeStepTwo() {
                     /*
-                    We will check that the caller role has beed defined at Step One. 
+                    We will check that the caller role has been defined at Step One.
                     */
                     if (caller.role === undefined) {
                         let response = {
@@ -276,6 +321,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'Handshake Step One Not Completed.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -287,6 +333,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'signature Not Provided.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
 
@@ -299,12 +346,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'Bad Signature.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
                     if (witnessUserProfile === undefined) {
                         let response = {
@@ -312,6 +360,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'userProfile Not Found.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     let signedMessage = JSON.parse(signature.message)
@@ -327,6 +376,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'signature.message Hashed Does Not Match signature.messageHash.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -339,18 +389,20 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'callerProfileHandle Does Not Match witnessUserProfile.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
                     We will check that the signature includes this Network Node handle, to avoid
-                    man in the middle attackts.
+                    man in the middle attacks.
                     */
-                    if (signedMessage.calledProfileHandle !== SA.secrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
+                    if (signedMessage.calledProfileHandle !== SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle) {
                         let response = {
                             result: 'Error',
                             message: 'calledProfileHandle Does Not Match This Network Node Handle.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
@@ -362,10 +414,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             message: 'calledTimestamp Does Not Match calledTimestamp On Record.'
                         }
                         caller.socket.send(JSON.stringify(response))
+                        caller.socket.close()
                         return
                     }
                     /*
-                    All validations have been completed, the Handshake Prcedure finished well.
+                    All validations have been completed, the Handshake Procedure finished well.
                     */
                     /*
                     We will remember the user profile behind this caller.
@@ -442,31 +495,46 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             }
 
             function broadcastToPeers(messageHeader, caller) {
+                /*
+                The Boradcast to network peers is not done via 
+                the network peers incomming connections, but
+                on the outgoing connections only.
+                */
                 let callerIdToAVoid
                 if (caller.role === 'Network Peer') {
-                    callerIdToAVoid = caller.socket.id
+                    callerIdToAVoid = caller.node.id
                 }
-                for (let i = 0; i < thisObject.networkPeers.length; i++) {
-                    let networkPeer = thisObject.networkPeers[i]
-                    if (networkPeer.socket.id === callerIdToAVoid) { continue }
-                    networkPeer.socket.send(messageHeader)
-                }
-            }
+                for (let i = 0; i < NT.networkNode.p2pNetworkPeers.peers.length; i++) {
+                    let peer = NT.networkNode.p2pNetworkPeers.peers[i]
+                    if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
+                    peer.webSocketsClient.sendMessage(messageHeader.payload)
+                        .catch(onError)
 
-            function broadcastToClients(messageHeader, caller) {
-                let callerIdToAVoid
-                if (caller.role === 'Network Client') {
-                    callerIdToAVoid = caller.socket.id
-                }
-                for (let i = 0; i < thisObject.networkClients.length; i++) {
-                    let networkClient = thisObject.networkClients[i]
-                    if (networkClient.socket.id === callerIdToAVoid) { continue }
-                    networkClient.socket.send(messageHeader)
+                    function onError() {
+                        console.log('[ERROR] Web Sockets Interface -> broadcastToPeers -> Sending Message Failed.')
+                    }
                 }
             }
 
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> setUpWebSocketServer -> err.stack = ' + err.stack)
+        }
+    }
+
+    function broadcastToClients(messageHeader, caller) {
+        try {
+            let callerIdToAVoid
+            if (caller !== undefined && caller.role === 'Network Client') {
+                callerIdToAVoid = caller.socket.id
+            }
+            for (let i = 0; i < thisObject.networkClients.length; i++) {
+                let networkClient = thisObject.networkClients[i]
+                if (networkClient.socket.id === callerIdToAVoid) { continue }
+                networkClient.socket.send(messageHeader.payload)
+            }
+            return true
+        } catch (err) {
+            console.log('[ERROR] Web Sockets Interface -> broadcastToClients -> err.stack = ' + err.stack)
         }
     }
 }

@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 76,
+    "type": "Tutorial Step - Are Errors Gone?",
+    "definition": {
+        "icon": {
+            "name": "Trading\\trading-strategy",
+            "project": "Foundations"
+        },
+        "text": "Ok! As expected, we can see that the strategy closes after the trigger stage closes! The video in the next step shows what I see!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Gut! Wie erwartet, können wir sehen, dass die Strategie nach dem Schließen der Trigger Stage geschlossen wird! Das Video im nächsten Schritt zeigt, was ich sehe!",
+                "updated": 1639391354520
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's unpack what happens after the trigger stage closes!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns auspacken, was passiert, nachdem die Trigger Stage geschlossen wurde!",
+                    "updated": 1639391363968
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Can you see the strategy triggering five times in a row starting on Feb 28th, at 9 hs?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Können Sie sehen, dass die Strategie ab dem 28. Februar um 9 Uhr fünfmal hintereinander ausgelöst wird?",
+                    "updated": 1639391377797
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "This happens because as soon as the strategy closes, the bot goes back to evaluating the Trigger On Event. That is what it usually does after a position is closed... look for more trading opportunities! This behavior is part of the normal functioning of the system, and a consequence of not defining the open, close, and manage stages.",
+            "updated": 1610471951252,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies geschieht, weil der Bot, sobald die Strategie geschlossen ist, wieder das Trigger On Event auswertet. Das ist es, was er normalerweise tut, nachdem eine Position geschlossen wurde... er sucht nach weiteren Handelsmöglichkeiten! Dieses Verhalten ist Teil der normalen Funktionsweise des Systems und eine Folge davon, dass die Open-, Close- und Manage-Stages nicht definiert wurden.",
+                    "updated": 1639391387922
+                }
+            ]
+        }
+    ]
+}

@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zusammenfassung: Jede Node, die im Kontext eines Project (Projekts) definiert ist, verfügt über eine Docs Node Page, die erklärt, was die Node ist und wie sie verwendet wird.",
                 "updated": 1633861809755
+            },
+            {
+                "language": "RU",
+                "text": "Каждый узел Node, определенный в контексте проекта Project, имеет страницу Docs Node Page, объясняющую, что такое узел и как он используется.",
+                "updated": 1638464382567
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Diese Seite öffnet sich wenn Sie im Menü der Node auf die Schaltfläche Hilfe klicken.",
                     "updated": 1633861892801
+                },
+                {
+                    "language": "RU",
+                    "text": "Это страница, которая открывается при нажатии кнопки справки в меню узла.",
+                    "updated": 1638464483607
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "DE",
                     "text": "Eine Docs Node Page hat folgende Eigenschaften:",
                     "updated": 1633861917667
+                },
+                {
+                    "language": "RU",
+                    "text": "Функции Docs Node Page:",
+                    "updated": 1638464528762
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "DE",
                     "text": "Definition: eine kurze Beschreibung, was die Node ist und was sie in der Hierarchie darstellt. Die Definition wird links neben dem Symbol der Node angezeigt.",
                     "updated": 1633862084130
+                },
+                {
+                    "language": "RU",
+                    "text": "Определение: краткое описание того, что представляет собой узел и что он представляет в иерархии. Определение отображается слева от значка узла.",
+                    "updated": 1638464553314
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Content: alle Informationen, die sich auf die Node beziehen, wie die Node verwendet wird, wie sie sich auf die Operationen auswirkt oder wie sie sich zu anderen Nodes verhält.",
                     "updated": 1633862317778
+                },
+                {
+                    "language": "RU",
+                    "text": "Содержимое: вся информация, относящаяся к узлу, с точки зрения того, как узел используется, как он влияет на операции или как он относится к другим узлам.",
+                    "updated": 1638464573425
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Configuration: ein Abschnitt, der die Elemente der Konfigurationsdatei der Node beschreibt.",
                     "updated": 1633862311713
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация: раздел, описывающий элементы файла конфигурации узла.",
+                    "updated": 1638464588762
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "DE",
                     "text": "Auto-generated content: Informationen, die aus dem system, dem workspace usw. extrahiert werden, um den technischen Kontext zu liefern, in dem die Node existiert.",
                     "updated": 1633862392733
+                },
+                {
+                    "language": "RU",
+                    "text": "Автоматически сгенерированный контент: информация, извлеченная из системы, рабочей области и т.д., для обеспечения технического контекста, в котором существует узел.",
+                    "updated": 1638464694797
                 }
             ]
         },

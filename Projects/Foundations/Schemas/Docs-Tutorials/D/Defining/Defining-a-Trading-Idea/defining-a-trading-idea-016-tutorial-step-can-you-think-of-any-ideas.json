@@ -7,20 +7,68 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "You've seen the Bollinger Bands and you know how to read them... Can you think of a trading idea to build a strategy with?"
+        "text": "You've seen the Bollinger Bands and you know how to read them... Can you think of a trading idea to build a strategy with?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sie haben die Bollinger Bands gesehen und wissen, wie man sie liest... Fällt Ihnen eine Handelsidee ein, mit der Sie eine Strategie aufbauen können?",
+                "updated": 1639252535020
+            },
+            {
+                "language": "TR",
+                "text": "Bollinger Bantlarını gördünüz ve onları nasıl okuyacağınızı biliyorsunuz... Bir strateji oluşturmak için bir ticaret fikri düşünebilir misiniz?",
+                "updated": 1640947506140
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a few minutes roaming around this chart and see if you can come up with something!"
+            "text": "Take a few minutes roaming around this chart and see if you can come up with something!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um in diesem Diagramm herumzustöbern und sehen Sie, ob Ihnen etwas einfällt!",
+                    "updated": 1639252544363
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çizelgede birkaç dakika dolaşın ve bir şeyler bulabilecek misiniz bir bakın!",
+                    "updated": 1640947545847
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Indicators are usually built by analysts and traders to mathematically describe trading ideas."
+            "text": "Indicators are usually built by analysts and traders to mathematically describe trading ideas.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indikatoren werden normalerweise von Analysten und Händlern entwickelt, um Handelsideen mathematisch zu beschreiben.",
+                    "updated": 1639252553967
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Göstergeler genellikle ticaret fikirlerini matematiksel olarak tanımlamak için analistler ve trader'lar tarafından oluşturulur.",
+                    "updated": 1640947566429
+                }
+            ]
         },
         {
             "style": "Success",
-            "text": "The idea we will discuss next has to do with breakouts! But that is just one of the four or five popular ideas using this indicator!"
+            "text": "The idea we will discuss next has to do with breakouts! But that is just one of the four or five popular ideas using this indicator!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Idee, die wir als nächstes besprechen werden, hat mit Ausbrüchen zu tun! Aber das ist nur eine der vier oder fünf beliebten Ideen, die dieser Indikator liefert!",
+                    "updated": 1639252562061
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha sonra tartışacağımız fikir, kırılmalarla ilgili! Ancak bu, bu göstergeyi kullanan dört veya beş popüler fikirden yalnızca biri!",
+                    "updated": 1640947587516
+                }
+            ]
         }
     ]
 }

@@ -9,6 +9,11 @@
                 "language": "DE",
                 "text": "Die Anwendung dieses Stils auf einen Absatz ist der Weg, um einen Link zu einer externen Website zu erstellen.",
                 "updated": 1633956920062
+            },
+            {
+                "language": "RU",
+                "text": "Применение этого стиля к абзацу - это способ создать ссылку на внешний веб-сайт.",
+                "updated": 1638540801018
             }
         ]
     },
@@ -21,6 +26,11 @@
                     "language": "DE",
                     "text": "Es gibt eine bestimmte Syntax, die Sie befolgen müssen, wenn Sie einen Link zu einer externen Website erstellen möchten. Die Syntax lautet:",
                     "updated": 1633956942436
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы хотите создать ссылку на внешний веб-сайт, необходимо соблюдать следующий синтаксис:",
+                    "updated": 1638540845123
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Beispiel:",
                     "updated": 1633956953359
+                },
+                {
+                    "language": "RU",
+                    "text": "Пример:",
+                    "updated": 1638540855547
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "DE",
                     "text": "erzeugt den folgenden HTML-Link zur Homepage von Google:",
                     "updated": 1633956975459
+                },
+                {
+                    "language": "RU",
+                    "text": "создает следующую HTML-ссылку на главную страницу Google:",
+                    "updated": 1638540872431
                 }
             ]
         },
@@ -66,6 +86,11 @@
                     "language": "DE",
                     "text": "Es ist nicht möglich, weiteren Text im selben Absatz zu verwenden.",
                     "updated": 1633957006238
+                },
+                {
+                    "language": "RU",
+                    "text": "Невозможно иметь какой-либо другой текст в том же абзаце.",
+                    "updated": 1638540947173
                 }
             ]
         },

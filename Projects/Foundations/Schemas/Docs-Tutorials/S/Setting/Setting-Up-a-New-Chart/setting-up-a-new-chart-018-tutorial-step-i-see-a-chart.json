@@ -6,7 +6,7 @@
         "text": "Did you find the Time Machine you added? Don't forget to move around the Charting Space, I know it's here!",
         "updated": 1620264964599,
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "¿Encontraste el Time Machine que agregaste? No olvides moverte por el Charting Space, ¡Sé que está aquí!",
                 "updated": 1628646486524
+            },
+            {
+                "language": "RU",
+                "text": "Вы нашли \"Машину времени\" (Time Machine),которую добавили? Не забывайте перемещаться по пространству чартов (Charting Space), я знаю, что оно здесь!",
+                "updated": 1638175402508
+            },
+            {
+                "language": "DE",
+                "text": "Hast du die Time Machine gefunden, die du hinzugefügt hast? Vergessen Sie nicht, sich im Charting Space zu bewegen, ich weiß, dass sie hier ist!",
+                "updated": 1639113202408
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "Debería ver tres gráficos dentro del Charting Space.",
                     "updated": 1628646517644
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы должны увидеть три графика в пространстве графиков (Charting Space).",
+                    "updated": 1638175440080
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie sollten drei Charts im Charting Space sehen.",
+                    "updated": 1639113247073
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "¡Lee los títulos y encuentra el que agregaste!",
                     "updated": 1628646530332
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте названия и найдите то, что вы добавили!",
+                    "updated": 1638175465519
+                },
+                {
+                    "language": "DE",
+                    "text": "Lesen Sie die Titel und finden Sie den Titel, den Sie hinzugefügt haben!",
+                    "updated": 1639113292655
                 }
             ]
         },
@@ -51,6 +81,16 @@
                     "language": "ES",
                     "text": "Si amplía, no hay mucho que ver todavía. Pero eso está bien. Estamos en camino a su propia carta personalizada. ¡Guau! Sigamos y agreguemos algunos datos a su nuevo Time Machine.",
                     "updated": 1628646548672
+                },
+                {
+                    "language": "RU",
+                    "text": "Если увеличить масштаб, то пока не на что смотреть. Но это нормально. Мы на пути к созданию вашей собственной индивидуальной диаграммы. Ух ты! Давайте продолжим и добавим некоторые данные в вашу новую машину времени (Time Machine).",
+                    "updated": 1638175495560
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie heranzoomen, gibt es noch nicht viel zu sehen. Aber das ist in Ordnung. Wir sind auf dem Weg zu Ihrem ganz persönlichen Diagramm. Hurra! Machen wir weiter und fügen wir Ihrer neuen Time Machine einige Daten hinzu.",
+                    "updated": 1639113345756
                 }
             ]
         },

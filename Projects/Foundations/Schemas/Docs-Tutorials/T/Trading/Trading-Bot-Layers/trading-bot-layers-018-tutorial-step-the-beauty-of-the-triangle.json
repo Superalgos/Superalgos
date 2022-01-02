@@ -4,8 +4,8 @@
     "type": "Tutorial Step - The Beauty of the Triangle",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-warning"
+            "name": "Bullet/bullet-warning",
+            "project": "Foundations"
         },
         "text": "I'm sure you would agree that the triangle is a quick visual clue to grasp how the trade went in a glimpse!",
         "translations": [
@@ -14,6 +14,11 @@
                 "text": "Ich bin sicher, du stimmst zu, dass das Dreieck ein schneller visueller Anhaltspunkt ist, um auf einen Blick zu erfassen, wie der Handel gelaufen ist!",
                 "updated": 1623015063479,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Уверен, вы согласитесь, что треугольник - это быстрая визуальная подсказка, позволяющая понять, как шла торговля!",
+                "updated": 1640547240970
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "text": "Das ist eine der Kernideen hinter diesen Visualisierungsfunktionen: schnelle und effektive Kommunikation.",
                     "updated": 1623015082083,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Это одна из основных идей, лежащих в основе этих функций визуализации: быстрая и эффективная коммуникация.",
+                    "updated": 1640547254889
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "text": "Die zweite Kernidee ist, dass - indem Sie sehen können, wie der Handel gelaufen ist - es einfacher ist, die Schwächen Ihrer Strategien zu erkennen und wie Sie sie möglicherweise verbessern können!",
                     "updated": 1623015094127,
                     "style": "Note"
+                },
+                {
+                    "language": "RU",
+                    "text": "Вторая основная идея заключается в том, что, имея возможность видеть, что происходило во время сессии, легче заметить слабые места в своих стратегиях и понять, как их можно улучшить!",
+                    "updated": 1640547270886
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "text": "Beachte, dass die in den Panels angezeigten Daten dieselben sind, die auch in der Trading Engine Hierarchie verfügbar sind.",
                     "updated": 1623015119105,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Попутно заметим, что данные, отображаемые на панелях, - это те же данные, которые доступны в иерархии Trading Engine.",
+                    "updated": 1640547285254
                 }
             ]
         }

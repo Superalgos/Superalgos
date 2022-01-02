@@ -5,7 +5,7 @@
     "definition": {
         "text": "Today we will learn how to add your own custom Charts! By the end of this tutorial you will have the basic knowledge you need to unlock the power of the Charting Space.",
         "icon": {
-            "name": "Charting-Space/chart-points",
+            "name": "chart-points",
             "project": "Foundations"
         },
         "updated": 1628362693593,
@@ -14,19 +14,39 @@
                 "language": "ES",
                 "text": "Hoy aprenderemos cómo agregar tus propios gráficos personalizados! Tendrás los conocimientos básicos que necesitas para desbloquear el poder de la Charting Space.",
                 "updated": 1628637486011
+            },
+            {
+                "language": "DE",
+                "text": "Heute werden wir lernen, wie Sie Ihre eigenen benutzerdefinierten Diagramme hinzufügen können! Am Ende dieses Tutorials werden Sie über die grundlegenden Kenntnisse verfügen, die Sie benötigen, um die Möglichkeiten des Charting Space zu nutzen.",
+                "updated": 1637608290435
+            },
+            {
+                "language": "RU",
+                "text": "Сегодня мы узнаем, как добавить свои собственные пользовательские диаграммы! К концу этого урока у вас будут базовые знания, необходимые для раскрытия возможностей Charting Space.",
+                "updated": 1637913040668
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The charting system within Superalgos is powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place. As you may have figured out, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see.",
-            "updated": 1628362713134,
+            "text": "The charting system is powerful! It pulls together information from across the entire system so that you can conveniently visualize it in one place. As you may have figured out, there are a lot of moving pieces within Superalgos. The Charting Space lets you tap into the specific information you want to see.",
+            "updated": 1636907861826,
             "translations": [
                 {
                     "language": "ES",
                     "text": "¡El sistema de gráficos dentro de Superalgos es poderoso! Reúne información de todo el sistema para que puedas visualizarla cómodamente en un solo lugar. Como habrás descubierto, hay muchas piezas móviles dentro de Superalgos. The Charting Space te permite acceder a la información específica que desea ver.",
                     "updated": 1628637309713
+                },
+                {
+                    "language": "DE",
+                    "text": "Das charting system ist leistungsstark! Es fasst Informationen aus dem gesamten System zusammen, so dass Sie sie bequem an einem Ort visualisieren können. Wie Sie vielleicht schon gemerkt haben, gibt es bei Superalgos eine Menge beweglicher Teile. Mit dem Charting Space können Sie die spezifischen Informationen abrufen, die Sie sehen möchten.",
+                    "updated": 1637608487988
+                },
+                {
+                    "language": "RU",
+                    "text": "Система построения графиков очень мощная! Она собирает информацию из всей системы, чтобы вы могли удобно визуализировать ее в одном месте. Как вы уже догадались, в Superalgos очень много движущихся частей. Charting Space позволяет получить конкретную информацию, которую вы хотите увидеть.",
+                    "updated": 1637913209029
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "Puedes ver diferentes combinaciones de indicadores, backtesting y resultados de operaciones en vivo, ¡y datos de diferentes mercados y exchanges! Esta flexibilidad hace posible personalizar gráficos.",
                     "updated": 1628637909692
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie können verschiedene Kombinationen von Indikatoren, Backtesting- und Live Trading Ergebnissen und sogar Daten von verschiedenen Markets (Märkten) und Exchanges (Börsen) betrachten! Dank dieser Flexibilität können Sie die Charts nach Herzenslust anpassen. Ziemlich cool, oder?",
+                    "updated": 1637608620263
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете просматривать различные комбинации индикаторов, результаты бэктестинга и реальной торговли Trading , даже данные с разных рынков и бирж! Такая гибкость позволяет настраивать графики по своему усмотрению. Очень круто!",
+                    "updated": 1637913366764
                 }
             ]
         }

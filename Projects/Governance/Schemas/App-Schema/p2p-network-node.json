@@ -11,6 +11,16 @@
             "actionFunction": "uiObject.configEditor.activate"
         },
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableStorage",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Available Storage",
+            "relatedUiObject": "Available Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },  
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -25,13 +35,27 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webSocketsPort\": \"18042\"\n}"
+        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Signing Account->"
+        "compatibleTypes": "->P2P Network Nodes->"
     },
-    "childrenNodesProperties": [],
-    "propertyNameAtParent": "signingAccountChild"
+    "childrenNodesProperties": [
+        {
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "autoAdd": false
+        },
+        {
+            "name": "availableStorage",
+            "type": "node",
+            "childType": "Available Storage",
+            "actionProject": "Foundations",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "p2pNetworkNodes"
 }

@@ -4,22 +4,50 @@
     "type": "Investigating Issues - On-Screen Errors and Warnings",
     "definition": {
         "text": "When running a task or working on a strategy, errors in the session or the syntax of conditions and formulas are signaled at the offending node.",
-        "updated": 1611515342007
+        "updated": 1611515342007,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "При запуске задачи или работе над стратегией, ошибки в сессии или синтаксисе усл��вий и формул сигнализируются на нарушающем узле.",
+                "updated": 1640538737242
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The frontend application marks errors by drawing a red ring around the offending node and offers a brief description of the error on-screen. At the same time, a page describing the error details is made available on the documentation tab.",
-            "updated": 1611515405270
+            "updated": 1611515405270,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Приложение фронтенда отмечает ошибки, рисуя красное кольцо вокруг нарушившего узла и выводит краткое описание ошибки на экран. В то же время на вкладке документации становится доступной страница с подробным описанием ошибки.",
+                    "updated": 1640538811833
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When running a trading session, the session node is usually the one featuring the error notice."
+            "text": "When running a trading session, the session node is usually the one featuring the error notice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При запуске торговой сессии узел сессии обычно показывает уведомление об ошибке.",
+                    "updated": 1640538834519
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "When working on a strategy, errors in the syntax or logic of conditions and formulas are displayed similarly. In such a context, make sure you turn on the Trading System Errors and Trading System Warnings layers of the corresponding session and look around within your workspace. Hover the mouse pointer over the node with a red ring and you should get a description of what is that is causing the unexpected behavior.",
-            "updated": 1611515450259
+            "updated": 1611515450259,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При работе над стратегией ошибки в синтаксисе или логике условий и формул отображаются аналогичным образом. В таком контексте обязательно включите слои Trading System Errors и Trading System Warnings соответствующей сессии и осмотритесь в своем рабочем пространстве. Наведите указатель мыши на узел с красным кольцом, и вы получите описание того, что является причиной неожиданного поведения.",
+                    "updated": 1640538876894
+                }
+            ]
         }
     ]
 }

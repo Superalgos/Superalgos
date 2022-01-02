@@ -4,13 +4,27 @@
     "type": "Debugging - Download and Install Visual Studio Code",
     "definition": {
         "text": "This process details how to use an Integrated Development Environment (IDE) to identify and fix bugs in the Superalgos code and help contribute! ",
-        "updated": 1623400412309
+        "updated": 1623400412309,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот процесс подробно описывает, как использовать интегрированную среду разработки (IDE) для выявления и исправления ошибок в коде Superalgos и помочь внести свой вклад!",
+                "updated": 1640280338543
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "For the following steps, we are going to show the concept of debugging using Visual Studio Code. You may use any other Integrated Development Environment (IDE) that you feel comfortable with. ",
-            "updated": 1623400449204
+            "updated": 1623400449204,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В следующих шагах мы покажем концепцию отладки с помощью Visual Studio Code. Вы можете использовать любую другую интегрированную среду разработки (IDE), с которой вам удобно работать.",
+                    "updated": 1640280361880
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -19,7 +33,14 @@
         },
         {
             "style": "Subtitle",
-            "text": "\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\" -Thomas Edison"
+            "text": "\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\" -Thomas Edison",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "\"Наша самая большая слабость заключается в том, что мы сдаемся. Самый верный путь к успеху - это попробовать еще раз\". -Томас Эдисон",
+                    "updated": 1640280385387
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -28,12 +49,26 @@
         {
             "style": "Text",
             "text": "So, you've run into issues creating an indicator, seen an error in the console or have encountered a Task that just won't run. Grab some coffee and mosquito repellent - we're going bug hunting!",
-            "updated": 1623400585649
+            "updated": 1623400585649,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Итак, вы столкнулись с проблемой при создании индикатора, увидели ошибку в консоли или столкнулись с задачей Task, которая просто не запускается. Захватите кофе и средство от комаров - мы отправляемся на охоту за жуками!",
+                    "updated": 1640280431147
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The first step is to download Microsoft Visual Studio Code, this is available for free at the link below:",
-            "updated": 1623401539321
+            "updated": 1623401539321,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первым шагом будет загрузка Microsoft Visual Studio Code, которую можно получить бесплатно по ссылке ниже:",
+                    "updated": 1640280445725
+                }
+            ]
         },
         {
             "style": "Link",
@@ -48,7 +83,14 @@
         {
             "style": "Text",
             "text": "After you've installed Visual Studio Code, click Next to go through the process of configuring it so that you can access the Superalgos directory.",
-            "updated": 1623407789702
+            "updated": 1623407789702,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После установки Visual Studio Code нажмите Next (\"Далее\"), чтобы пройти процесс настройки, чтобы получить доступ к каталогу Superalgos.",
+                    "updated": 1640280492128
+                }
+            ]
         }
     ]
 }

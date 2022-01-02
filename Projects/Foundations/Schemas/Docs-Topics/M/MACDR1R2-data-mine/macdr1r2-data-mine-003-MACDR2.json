@@ -1,0 +1,38 @@
+{
+    "topic": "MACD R1 & R2 Data Mine",
+    "pageNumber": 3,
+    "type": "MACD R2 indicator",
+    "definition": {
+        "text": "This indicator produces the MACD R2 buy and sell signals",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "MACD R2",
+            "updated": 1611661332955
+        },
+        {
+            "style": "Text",
+            "text": "The MACD R2, or refinement 2, further recduces false signals by doing the the following:",
+            "updated": 1611764485658
+        },
+        {
+            "style": "List",
+            "text": "Wait for three (3) periods after the crossover to take a position, if during that period another crossover happens then it waits for another crossover"
+        },
+        {
+            "style": "List",
+            "text": "Checks the difference between the MACD line and the Signal, if the difference is larger than predetermined value (standard set to 2%) then it indicates a buy signal"
+        },		
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/MACDR2-on-the-chart.png",
+            "updated": 1611661370646
+        },
+        {
+            "style": "Text",
+            "text": "The opposite is true for the sell indications, it is of course possible to alter these settings in the data mine. The underlying calculations uses the standard MACD settings, 12-26-9"
+        }
+    ]
+}

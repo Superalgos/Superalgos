@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 73,
+    "type": "Tutorial Step - Target Rate Error",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "Did you find the error? You must have tracked it deep into the Open Stage, on the formula of the Target Rate definition!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Haben Sie den Fehler gefunden? Sie müssen ihn tief in der Open Stage gefunden haben, in der Formel für die Definition der Target Rate !",
+                "updated": 1639390939387
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let me explain what this is about.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie mich erklären, worum es hier geht.",
+                    "updated": 1639390949595
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "When the Take Position Event validates true, the Trigger Stage is closed, and both the Open Stage and the Manage Stage are opened!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn das Take Position Event den Wert \"true\" annimmt, wird die Trigger Stage geschlossen, und sowohl die Open Stage als auch die Manage Stage werden geöffnet!",
+                    "updated": 1639390991595
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "We are getting an error on the first node of the open stage the trading bot evaluates. That is, if we fix that error, more errors will pop up when the trading bot attempts to evaluate the rest of the nodes that are also undefined.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir erhalten einen Fehler im ersten Knoten der Open Stage, den der Trading Bot auswertet. Das heißt, wenn wir diesen Fehler beheben, werden weitere Fehler auftreten, wenn der Trading-Bot versucht, die restlichen Knoten auszuwerten, die ebenfalls undefiniert sind.",
+                    "updated": 1639390999770
+                }
+            ]
+        }
+    ]
+}

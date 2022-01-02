@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "¡Esto es importante para cuando salgas a promocionar Superalgos! ¡Asegúrate de que la gente sepa cómo encontrarte!",
                 "updated": 1632025337077
+            },
+            {
+                "language": "RU",
+                "text": "Это важно, когда вы собираетесь продвигать Superalgos! Убедитесь, что вы даете людям знать, как вас найти!",
+                "updated": 1639050310402
+            },
+            {
+                "language": "DE",
+                "text": "Dies ist wichtig, wenn Sie für Superalgos werben wollen! Stellen Sie sicher, dass Sie die Leute wissen lassen, wie sie Sie finden können!",
+                "updated": 1640079756863
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "¡Deja que las personas sepan tu nombre de User Profile para que puedan encontrarte fácilmente!",
                     "updated": 1632025446729
+                },
+                {
+                    "language": "RU",
+                    "text": "Сообщите людям ваше имя в профиле пользователя User Profile, чтобы они могли легко вас найти!",
+                    "updated": 1639050367232
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie es mich noch einmal sagen! Teilen Sie den Leuten Ihren Profilnamen ( User Profile ) mit, damit sie Sie leicht finden können!",
+                    "updated": 1640079776124
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "ES",
                     "text": "¿Qué pasa si ninguna persona te refirió a Superalgos? Nos encontraste de alguna manera, ¿verdad? Estos son algunos escenarios comunes y el perfil que lo refirió:",
                     "updated": 1632025548369
+                },
+                {
+                    "language": "RU",
+                    "text": "Что, если ни один конкретный человек не направил вас в Superalgos? Ну ... ты как-то нашёл нас, да? Вот несколько распространенных сценариев и профиль, который вас рекомендовал:",
+                    "updated": 1639050542139
+                },
+                {
+                    "language": "DE",
+                    "text": "Was ist, wenn keine bestimmte Person Sie auf Superalgos hingewiesen hat? Nun... Sie haben uns irgendwie gefunden, richtig? Dies sind ein paar häufige Szenarien und das Profil, das Sie empfohlen hat:",
+                    "updated": 1640079810108
                 }
             ]
         },
@@ -51,6 +81,11 @@
                     "language": "ES",
                     "text": "El sitio web de Superalgos.org: Julian-Molina",
                     "updated": 1632025569175
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Website Superalgos.org: Julian-Molina",
+                    "updated": 1640079864821
                 }
             ]
         },
@@ -62,6 +97,11 @@
                     "language": "ES",
                     "text": "El repositorio de Github.com: Luis-Fernando-Molina",
                     "updated": 1632025589933
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Github.com Repo: Luis-Fernando-Molina",
+                    "updated": 1640079873027
                 }
             ]
         },
@@ -73,6 +113,11 @@
                     "language": "ES",
                     "text": "La mayoría de los videos de YouTube: Julian-Molina",
                     "updated": 1632025607190
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten YouTube-Videos: Julian-Molina",
+                    "updated": 1640079879816
                 }
             ]
         },
@@ -85,6 +130,16 @@
                     "language": "ES",
                     "text": "Artículos de Blog: Some by Julian-Molina, Luis-Fernando-Molina,... Por favor, comprueba el autor!",
                     "updated": 1632025647858
+                },
+                {
+                    "language": "RU",
+                    "text": "Blog Articles: Некоторые из авторов Julian-Molina, Luis-Fernando-Molina, ... пожалуйста, проверьте автора!",
+                    "updated": 1639050576838
+                },
+                {
+                    "language": "DE",
+                    "text": "Blog-Artikel: Einige von Julian-Molina, Luis-Fernando-Molina,... bitte überprüfen Sie den Autor!",
+                    "updated": 1640079890154
                 }
             ]
         },
@@ -96,6 +151,11 @@
                     "language": "ES",
                     "text": "Redes sociales: Julian-Molina",
                     "updated": 1632025677568
+                },
+                {
+                    "language": "DE",
+                    "text": "Offizielle Social Media Beiträge: Julian-Molina",
+                    "updated": 1640079897447
                 }
             ]
         }

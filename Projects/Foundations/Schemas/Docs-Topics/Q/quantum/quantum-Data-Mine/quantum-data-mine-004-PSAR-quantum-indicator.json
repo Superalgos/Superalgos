@@ -1,0 +1,68 @@
+{
+    "topic": "quantum Data Mine",
+    "pageNumber": 4,
+    "type": "Parabolic Stop and Return (PSAR) - quantum Indicator",
+    "definition": {
+        "text": "The indicator produces the parabolic SAR indicator.",
+        "updated": 1636853769
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Parabolic SAR On the Charts",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "According to Investopedia, “The parabolic SAR is a technical indicator used to determine the price direction of an asset, as well as draw attention to when the price direction is changing. Sometimes known as the stop and reversal system. ”"
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-PSAR-on-the-chart.png",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "The chart for this indicator shows a series of marks placed either above or below the price bars. A dot below the price is deemed to be a bullish signal. Conversely, a dot above the price is used to illustrate the bears are in control and the momentum is likely to remain downward."
+        },
+        {
+            "style": "Text",
+            "text": "As the price of an asset rises, the marks will rise as well, first slowly and then picking up speed and accelerating with the trend. The SAR starts to move a little faster as the trend develops, and the marks soon catch up to the price, indicating a possible trend reversal."
+        },
+        {
+            "style": "Text",
+            "text": "The indicator can produce false signals when in a consolidating/sideways trend, so it's best to use it with another indicator to provide confluence such as RSI or the chop index."
+        },
+        {
+            "style": "Title",
+            "text": "Parabolic SAR Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "To change the parameters needed for the calculation as per your needs, locate and open the Javascript Code under Data Building Procedure -> Procedure Loop under “PSAR” Product Definition."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/quantum-PSAR-params.png",
+            "updated": 1636853769
+        },
+		{
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| PSAR | PSAR | psar, af |",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "Examples:"
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.PSAR.psar < chart.at01hs.candle.close",
+            "updated": 1636853769
+        },
+        {
+            "style": "Text",
+            "text": "PSAR is below the candle price action."
+        }
+    ]
+}

@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Sie fragen sich, wie Sie in CCXT Daten aus anderen Quellen als Börsen erhalten können? Messari? Twitter? Wir haben die Lösung für Sie!",
                 "updated": 1634590563604
+            },
+            {
+                "language": "TR",
+                "text": "CCXT'de borsalar dışındaki kaynaklardan nasıl veri alacağınızı merak ediyor musunuz? Messari? Twitter? Bunu da düşündük!",
+                "updated": 1639836892838
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Superalgos ermöglicht es Ihnen, Daten von jeder beliebigen API im Internet abzurufen, und Sie müssen dafür nicht programmieren! Stattdessen können Sie eine API Map entwerfen oder die mit dem System mitgelieferten verwenden!",
                     "updated": 1634590573292
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, İnternet'teki herhangi bir API'den veri almanızı sağlar ve bunu yapmak için kod yazmanıza gerek yoktur! Bunun yerine, bir API Haritası ( API Map ) tasarlayabilir veya sistemle birlikte gönderilenleri kullanabilirsiniz!",
+                    "updated": 1639836924296
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "DE",
                     "text": "Eine API Map ist eine Reihe von Definitionen, die festlegen, wie ein Bot auf eine bestimmte API zugreifen kann und wie die Antworten des Servers zu interpretieren sind.",
                     "updated": 1634590580114
+                },
+                {
+                    "language": "TR",
+                    "text": "API Haritası ( API Map ), bir botun belirli bir API'ye nasıl erişebileceğini ve sunucudan gelen yanıtların nasıl yorumlanacağını belirleyen bir dizi tanımdır.",
+                    "updated": 1639836950345
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "DE",
                     "text": "Tauchen Sie in diesen Abschnitt des Data-Mining-Themas ein, wenn Sie bereit sind, die API-Landschaft zu erkunden!",
                     "updated": 1634590587052
+                },
+                {
+                    "language": "TR",
+                    "text": "API ortamını keşfetmeye hazır olduğunuzda Veri Madenciliği konusunun bu bölümüne dalın!",
+                    "updated": 1639836993378
                 }
             ]
         }

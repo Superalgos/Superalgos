@@ -6,7 +6,7 @@
         "text": "Did you notice the three nodes automatically added to your Time Machine?",
         "updated": 1620262899688,
         "icon": {
-            "name": "Time/time-scale",
+            "name": "time-scale",
             "project": "Foundations"
         },
         "translations": [
@@ -14,6 +14,16 @@
                 "language": "ES",
                 "text": "¿Notaste que los tres nodos se agregaron automáticamente a su Time Machine?",
                 "updated": 1628646024325
+            },
+            {
+                "language": "RU",
+                "text": "Вы заметили, что три узла автоматически добавляются в вашу Машину Времени ?",
+                "updated": 1637939216157
+            },
+            {
+                "language": "DE",
+                "text": "Haben Sie die drei Knoten bemerkt, die automatisch zu Ihrer Time Machine hinzugefügt wurden?",
+                "updated": 1639107451557
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "ES",
                     "text": "¡Estas son las escalas! Siempre que agregues un time machine, vendrá equipado con tres escalas (Rate Scale, Time Scale, and Time Frame Scale). Estas son las mismas escalas que ha utilizado para interactuar con gráficos en el Charting Space.",
                     "updated": 1628646097018
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот шкалы! Каждый раз, когда вы добавляете машину времени, она оснащается тремя шкалами (Rate Scale, Time Scale, and Time Frame Scale). Это те же шкалы, которые вы использовали для взаимодействия с графиками в Charting Space.",
+                    "updated": 1637940137857
+                },
+                {
+                    "language": "DE",
+                    "text": "Das sind die Skalen! Jedes Mal, wenn Sie eine Zeitmaschine hinzufügen, wird diese mit drei Skalen ausgestattet (Rate Scale, Time Scale und Time Frame ). Dies sind die gleichen Skalen, die Sie für die Interaktion mit Diagrammen im Charting Space verwendet haben.",
+                    "updated": 1639107664371
                 }
             ]
         },
@@ -38,6 +58,16 @@
                     "language": "ES",
                     "text": "En otro tutorial, cubriremos la personalización de estas escalas para lograr configuraciones de gráficos más complejas. Pero por ahora es importante que sepas que su máquina del tiempo necesita los tres para funcionar correctamente.",
                     "updated": 1628646139121
+                },
+                {
+                    "language": "RU",
+                    "text": "В другом уроке мы рассмотрим настройку этих шкал для достижения более сложных настроек диаграмм. Но сейчас вам важно знать, что ваша машина времени нуждается во всех трех, чтобы работать правильно.",
+                    "updated": 1637939243076
+                },
+                {
+                    "language": "DE",
+                    "text": "In einem anderen Tutorial werden wir uns mit der Anpassung dieser Skalen befassen, um komplexere Chart-Setups zu erreichen. Im Moment ist es jedoch wichtig, dass Sie wissen, dass Ihre Zeitmaschine alle drei Skalen benötigt, um korrekt zu funktionieren.",
+                    "updated": 1639108735086
                 }
             ]
         },

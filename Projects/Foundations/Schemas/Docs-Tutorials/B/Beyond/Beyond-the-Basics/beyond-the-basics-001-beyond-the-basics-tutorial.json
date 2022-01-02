@@ -10,6 +10,11 @@
                 "language": "ES",
                 "text": "Este tutorial cubre la configuración para permitir que la aplicación interactúe con tu fork de Github, los comandos para actualizar la aplicación, cambiar de rama y cómo contribuir al proyecto.",
                 "updated": 1628204964884
+            },
+            {
+                "language": "RU",
+                "text": "В этом руководстве рассматриваются настройки, позволяющие приложению взаимодействовать с вашим форком на Github, команды для обновления приложения, переключение веток, а также способы внесения вклада в проект.",
+                "updated": 1640153991289
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617111531823
+            "updated": 1617111531823,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "О данном учебнике",
+                    "updated": 1640154036258
+                }
+            ]
         },
         {
             "style": "List",

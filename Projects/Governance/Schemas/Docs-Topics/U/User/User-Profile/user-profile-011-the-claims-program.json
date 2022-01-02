@@ -4,7 +4,14 @@
     "type": "The Claims Program",
     "definition": {
         "text": "Tell us what you've done for the project and how we should reward you!",
-        "updated": 1630495910859
+        "updated": 1630495910859,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Díganos que ha hecho por el proyecto y como deberíamos recompensarlo!",
+                "updated": 1636281513982
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -19,7 +26,14 @@
         {
             "style": "Title",
             "text": "Three Types of Claim Folders",
-            "updated": 1630496493305
+            "updated": 1630496493305,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три типа Claim Folders",
+                    "updated": 1639133107079
+                }
+            ]
         },
         {
             "style": "Include",
@@ -55,7 +69,14 @@
         {
             "style": "Title",
             "text": "Three Types of Contribution Claims",
-            "updated": 1630496650088
+            "updated": 1630496650088,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Три типа Contribution Claims",
+                    "updated": 1639133414363
+                }
+            ]
         },
         {
             "style": "Include",

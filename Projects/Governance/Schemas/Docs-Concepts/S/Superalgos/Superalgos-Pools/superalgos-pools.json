@@ -2,7 +2,19 @@
     "type": "Superalgos Pools",
     "definition": {
         "text": "Superalgos Pools is the top-level hierarchy kickstarting the definition of the whole Superalgos Project. It features the definition of several Pool nodes describing the main areas of project development that the Community wishes to incentivize.",
-        "updated": 1630426704558
+        "updated": 1630426704558,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Superalgos Pools es la jerarquía de nivel superior que inicia la definición de todo el Superalgos Project. ICuenta con la definición de varios nodos Pool que describe las principales áreas de desarrollo del proyecto que la Community desea incentivar.",
+                "updated": 1640632624719
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos Pools - это иерархия верхнего уровня, с которой начинается определение всего проекта Superalgos. Она включает в себя определение нескольких узлов Pool, описывающих основные области развития проекта, которые Community желает стимулировать.",
+                "updated": 1640235079298
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -13,17 +25,53 @@
         {
             "style": "Text",
             "text": "Because this is the highest level definition of how tokens will be distributed, the Superalgos Pools hierarchy is present in all Governance Workspaces.",
-            "updated": 1630426648511
+            "updated": 1630426648511,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Debido a que esta es la definición de más alto nivel de cómo se distribuirán los tokens, la jerarquía de Superalgos Pools está presente en todos los Governance Workspaces.",
+                    "updated": 1640632658883
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку это самый высокий уровень определения того, как будут распределяться токены, иерархия Superalgos Pools присутствует во всех рабочих пространствах Governance Workspaces.",
+                    "updated": 1640235100463
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "Many of the Pool nodes defined in this hierarchy link to further definitions on other hierarchies, some of which may exist on other workspaces. To learn more about project definitions, read the Introduction to Governance Definitions page.",
-            "updated": 1630170330253
+            "updated": 1630170330253,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Muchos de los nodos Pool definido en este enlace de jerarquía a más definiciones en otras jerarquías, algunas de las cuales pueden existir en otros espacios de trabajo. Para obtener más información sobre las definiciones de proyectos, lea la página de la Introducción a las efiniciones de gobernanza (Introduction to Governance Definitions).",
+                    "updated": 1640632780979
+                },
+                {
+                    "language": "RU",
+                    "text": "Многие из узлов Pool, определенных в этой иерарх��и, ссылаются на дальнейшие определения в других иерархиях, некоторые из которых могут существовать в других рабочих пространствах. Чтобы узнать больше об определениях проекта, прочитайте страницу Introduction to Governance Definitions.",
+                    "updated": 1640283341599
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The configuration of the top-level node in the hierarchy determines how many tokens are distributed in the Distribution Event.",
-            "updated": 1630426722866
+            "updated": 1630426722866,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "La configuración del nodo de nivel superior en la jerarquía determina cuántos tokens se distribuyen en el evento de distribución. (Distribution Event).",
+                    "updated": 1640632824713
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация узла верхнего уровня в иерархии определяет, сколько токенов будет распределено во время события распределения Distribution Event.",
+                    "updated": 1640235205970
+                }
+            ]
         }
     ]
 }

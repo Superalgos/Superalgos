@@ -13,6 +13,16 @@
                 "language": "ES",
                 "text": "Hay algunos aprendizajes clave en la lectura anterior: estrategias múltiples, posiciones únicas y precedencia.",
                 "updated": 1629588118888
+            },
+            {
+                "language": "DE",
+                "text": "In der vorangegangenen Lektüre haben wir einige wichtige Dinge gelernt: mehrere Strategien, einzelne Positionen und Vorrang.",
+                "updated": 1639147424807
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki okumada bazı temel dersler vardı: çoklu stratejiler, tek pozisyonlar ve öncelik.",
+                "updated": 1640695041498
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "ES",
                     "text": "Tomemos algunas notas mentales para lo que viene a continuación:",
                     "updated": 1629588135560
+                },
+                {
+                    "language": "DE",
+                    "text": "Machen wir uns ein paar Notizen für das, was jetzt kommt:",
+                    "updated": 1639147454816
+                },
+                {
+                    "language": "TR",
+                    "text": "Bundan sonra ne olacağına dair bazı zihinsel notlar alalım:",
+                    "updated": 1640695075073
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "ES",
                     "text": "Pueden coexistir múltiples estrategias dentro de un sistema trading, tantas como desees.",
                     "updated": 1629588192365
+                },
+                {
+                    "language": "DE",
+                    "text": "In einem Trading System können mehrere Strategien nebeneinander bestehen - so viele, wie Sie möchten.",
+                    "updated": 1639147465524
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sisteminde birden fazla strateji bir arada bulunabilir - istediğiniz kadar.",
+                    "updated": 1640695353160
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "ES",
                     "text": "Solo se permite una estrategia activa con una posición abierta en un momento dado.",
                     "updated": 1629588175743
+                },
+                {
+                    "language": "DE",
+                    "text": "Es ist jedoch nur eine aktive Strategie mit einer offenen Position zu einem bestimmten Zeitpunkt erlaubt.",
+                    "updated": 1639147472356
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir anda bir açık pozisyona sahip yalnızca bir aktif stratejiye izin verilir.",
+                    "updated": 1640695386636
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "ES",
                     "text": "La precedencia viene dada por el orden en el que se definen las estrategias alrededor del nodo Trading System. ¡Puedes cambiar el orden!",
                     "updated": 1629588262008
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Vorrang ergibt sich aus der Reihenfolge, in der die Strategien um den Knoten Trading System herum definiert sind. Sie können die Reihenfolge natürlich ändern!",
+                    "updated": 1639147480926
+                },
+                {
+                    "language": "TR",
+                    "text": "Öncelik, Ticaret Sistemi ( Trading System ) düğümü etrafında stratejilerin tanımlandığı sırayla verilir. Elbette sırayı değiştirebilirsin!",
+                    "updated": 1640695499601
                 }
             ]
         },
@@ -69,6 +119,16 @@
                     "language": "ES",
                     "text": "Probablemente te estés preguntando.. ¿por qué estas reglas suenan arbitrarias? ¡Lo son!",
                     "updated": 1629588865354
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie fragen sich wahrscheinlich, warum? Klingen diese Regeln willkürlich? Das sind sie, und zwar aus gutem Grund!",
+                    "updated": 1639147490934
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Muhtemelen nedenini soruyorsundur? Bu kurallar, keyfi mi? İyi bir sebepten dolayı öyle!",
+                    "updated": 1640695584520
                 }
             ]
         }

@@ -2,58 +2,142 @@
     "type": "API Query Parameter",
     "definition": {
         "text": "This node represent a single query parameter. For a full definition of what a query parameter is please see the API Query Parameters page.",
-        "updated": 1622771217708
+        "updated": 1622771217708,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот узел представляет собой один параметр запроса. Для полного определения того, что такое параметр запроса, пожалуйста, смотрите страницу API Query Parameters.",
+                "updated": 1638629037370
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Success",
             "text": "Even if you are not using every query parameter offered for an endpoint.  For the sake of completeness, it is a good idea to add it to the map and delete the value property.",
-            "updated": 1622765045028
+            "updated": 1622765045028,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Даже если вы не используете все параметры запроса, предлагаемые для конечной точки. Для полноты картины рекомендуется добавить его на карту и удалить свойство value.",
+                    "updated": 1638629079552
+                }
+            ]
         },
         {
             "style": "Title",
             "text": "API Query Parameter Configuration",
-            "updated": 1622895734675
+            "updated": 1622895734675,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация API Query Parameter",
+                    "updated": 1638629101825
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Properties"
+            "text": "Properties",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638629109290
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "codeName: This must match with the name of the query parameter defined at the API docs."
+            "text": "codeName: This must match with the name of the query parameter defined at the API docs.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "codeName: Оно должно совпадать с именем параметра запроса, определенным в документации API.",
+                    "updated": 1638629123379
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "isString: Define if the path parameter is a string or not."
+            "text": "isString: Define if the path parameter is a string or not.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isString: Определите, является ли параметр пути строкой или нет.",
+                    "updated": 1638629144731
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "isOptional: Define if this path parameter is optional or not."
+            "text": "isOptional: Define if this path parameter is optional or not.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "isOptional: Определите, является ли этот параметр пути необязательным или нет.",
+                    "updated": 1638629155812
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "description: Define a basic description of what this path parameter accomplishes."
+            "text": "description: Define a basic description of what this path parameter accomplishes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "description: Определите базовое описание того, что выполняет этот параметр пути.",
+                    "updated": 1638629167455
+                }
+            ]
         },
         {
             "style": "List",
             "text": "value: This is the value to be used by the parameter. ",
-            "updated": 1622764598076
+            "updated": 1622764598076,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "value: Это значение, которое будет использоваться параметром.",
+                    "updated": 1638629181285
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "The value you type into the API Map will be considered the default value. The same parameter can be dynamically pulled from a users system using the replaceBy property.  When the replaceBy property is used the default value will be overwritten.",
-            "updated": 1622771817973
+            "updated": 1622771817973,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Значение, которое вы вводите в API Map, будет считаться значением по умолчанию. Тот же параметр может быть динамически извлечен из пользовательской системы с помощью свойства replaceBy. Когда используется свойство replaceBy, значение по умолчанию будет перезаписано.",
+                    "updated": 1638629220709
+                }
+            ]
         },
         {
             "style": "List",
             "text": "replaceBy: [Optional] This property allows you to instruct the API Fetcher Bot to set a value to this parameter replacing the current default and using contextual information available only at runtime.",
-            "updated": 1622863577107
+            "updated": 1622863577107,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "replaceBy: [Необязательно] Это свойство позволяет указать боту API Fetcher Bot установить значение этого параметра, заменяя текущее значение по умолчанию и используя контекстную информацию, доступную только во время выполнения.",
+                    "updated": 1638629270861
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Here is an example config setting a query option to false:",
-            "updated": 1622764541685
+            "updated": 1622764541685,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот пример конфигурации, устанавливающей для параметра запроса значение false:",
+                    "updated": 1638629284976
+                }
+            ]
         },
         {
             "style": "Json",

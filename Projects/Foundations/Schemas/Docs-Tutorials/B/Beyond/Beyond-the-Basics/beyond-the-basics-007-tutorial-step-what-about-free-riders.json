@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Trittbrettfahren ist nicht cool! Wir wissen, dass Sie, sobald Sie einen Beitrag leisten, mehr Leute dazu inspirieren werden, Ihrem Beispiel zu folgen!",
                 "updated": 1634820436879
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u sadece kullanmak asla havalı değil! Bir kez katkıda bulunmaya başladığınızda, daha fazla kişiye ulaşarak, liderliğinizi takip etmeleri için onlara fırsat vereceğinizi ve Superalgos'a katkıda bulunmaları için cesaretlendireceğinizi biliyoruz!",
+                "updated": 1639869188287
+            },
+            {
+                "language": "RU",
+                "text": "Фрирайдинг - это не круто! Мы знаем, что как только вы начнете вносить свой вклад, вы вдохновите еще больше людей последовать вашему примеру!",
+                "updated": 1640155387123
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "Das Projekt hat ein starkes Anreizsystem eingeführt, um das gewünschte Verhalten zu fördern und eine Kultur der Zusammenarbeit zu unterstützen. Wir verteilen den Superalgos (SA) Token ausschließlich an Mitwirkende!",
                     "updated": 1634820476632
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje, katkı sağlayabilecek insanları bir araya getirebilmek,bu davranışı teşvik etmek ve bir işbirliği kültürünü geliştirmek için güçlü bir teşvik planı uygular. Superalgos (SA) jetonunu yalnızca katkıda bulunanlar arasında dağıtır!",
+                    "updated": 1639869321051
+                },
+                {
+                    "language": "RU",
+                    "text": "В проекте реализована мощная система поощрений для стимулирования желаемого поведения и формирования культуры сотрудничества. Мы распространяем токен Superalgos (SA) исключительно среди участников проекта!",
+                    "updated": 1640155406805
                 }
             ]
         },
@@ -86,6 +106,16 @@
                     "language": "DE",
                     "text": "Wir bekämpfen Trittbrettfahren mit Anreizen!",
                     "updated": 1634820484905
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece kullanıcı olmaya karşı, sizleri SA Token ile teşvik ediyoruz",
+                    "updated": 1639869392599
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы боремся с фрирайдерством с помощью стимулов!",
+                    "updated": 1640155437390
                 }
             ]
         },
@@ -110,6 +140,16 @@
                     "language": "DE",
                     "text": "Lassen Sie uns Ihren ersten Beitrag ins Rollen bringen! Zuerst zeige ich Ihnen, wie Sie den Zweig wechseln können!",
                     "updated": 1634820492671
+                },
+                {
+                    "language": "TR",
+                    "text": "Haydi ilk katkınızı yayınlayalım! İlk önce, sana dalları ( Branches ) nasıl değiştireceğini öğreteceğim!",
+                    "updated": 1639869434737
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте сделаем ваш первый вклад! Сначала я научу вас, как переключать ветки!",
+                    "updated": 1640155450271
                 }
             ]
         }

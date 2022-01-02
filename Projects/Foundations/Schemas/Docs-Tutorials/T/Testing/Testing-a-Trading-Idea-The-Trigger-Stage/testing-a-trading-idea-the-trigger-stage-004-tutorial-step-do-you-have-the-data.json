@@ -4,23 +4,51 @@
     "type": "Tutorial Step - Do You Have The Data?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "data-tasks"
+            "name": "Data\\data-tasks",
+            "project": "Foundations"
         },
-        "text": "If you didn't do the second tutorial in the series, chances are you are missing the data you need to do this one!"
+        "text": "If you didn't do the second tutorial in the series, chances are you are missing the data you need to do this one!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wenn Sie das zweite Tutorial der Reihe nicht gemacht haben, fehlen Ihnen wahrscheinlich die Daten, die Sie für dieses Tutorial brauchen!",
+                "updated": 1639254628470
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "If you did the second tutorial, you can skip the data mining! If you didn't, then proceed!"
+            "text": "If you did the second tutorial, you can skip the data mining! If you didn't, then proceed!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie das zweite Tutorial gemacht haben, können Sie das Data Mining überspringen! Wenn nicht, dann fahre fort!",
+                    "updated": 1639254659315
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The sensor bot will run on the BTC/USDT market (Binance) from January 1st, 2020."
+            "text": "The sensor bot will run on the BTC/USDT market (Binance) from January 1st, 2020.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Sensor-Bot wird ab dem 1. Januar 2020 auf dem BTC/USDT-Markt (Binance) laufen.",
+                    "updated": 1639254666883
+                }
+            ]
         },
         {
             "style": "Warning",
-            "text": "If you have data on this market but on a different time range, this may affect your data! Read the sensor bot documentation to learn how!"
+            "text": "If you have data on this market but on a different time range, this may affect your data! Read the sensor bot documentation to learn how!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Daten auf diesem Markt, aber in einem anderen Zeitbereich haben, kann dies Ihre Daten beeinflussen! Lesen Sie die Dokumentation des Sensor-Bots, um zu erfahren, wie das geht!",
+                    "updated": 1639254674621
+                }
+            ]
         }
     ]
 }

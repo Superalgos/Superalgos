@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Die Docs bieten eine Kommandozeilenschnittstelle, die Sie verwenden können, um zu den Docs beizutragen. Der Befehl Docs Help bietet eine Liste aller verfügbaren Befehle.",
                 "updated": 1633892565775
+            },
+            {
+                "language": "RU",
+                "text": "Документы предоставляют интерфейс командной строки, который вы можете использовать для внесения вклада в документы. Команда Docs Help Command предоставляет список всех доступных команд.",
+                "updated": 1638527226449
             }
         ]
     },
@@ -17,7 +22,14 @@
         {
             "style": "Title",
             "text": "Syntax",
-            "updated": 1609150394630
+            "updated": 1609150394630,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Синтаксис",
+                    "updated": 1638527250442
+                }
+            ]
         },
         {
             "style": "Json",
@@ -33,6 +45,11 @@
                     "language": "DE",
                     "text": "Verfügbare Commands",
                     "updated": 1633892592932
+                },
+                {
+                    "language": "RU",
+                    "text": "Доступные команды",
+                    "updated": 1638527512693
                 }
             ]
         },
@@ -65,6 +82,11 @@
                     "language": "DE",
                     "text": "Hilfe zu Commands",
                     "updated": 1633892650643
+                },
+                {
+                    "language": "RU",
+                    "text": "Справка по командам",
+                    "updated": 1638527294593
                 }
             ]
         },
@@ -77,6 +99,11 @@
                     "language": "DE",
                     "text": "Eine andere Möglichkeit, diesen Befehl zu verwenden, besteht darin, den Namen eines Befehls anzugeben, zu dem Sie Hilfe-Informationen sehen möchten.",
                     "updated": 1633892686697
+                },
+                {
+                    "language": "RU",
+                    "text": "Другой способ использования этой команды - указать название команды, для которой вы хотели бы видеть справочную информацию.",
+                    "updated": 1638527331039
                 }
             ]
         },
@@ -89,6 +116,11 @@
                     "language": "DE",
                     "text": "Beispiele",
                     "updated": 1633892700479
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры",
+                    "updated": 1638527517513
                 }
             ]
         },
@@ -116,6 +148,11 @@
                     "language": "DE",
                     "text": "Eingaben in der Eingabeaufforderung, die nicht als Befehl erkannt sind, werden wie eine Suchanfrage behandelt.",
                     "updated": 1633892759681
+                },
+                {
+                    "language": "RU",
+                    "text": "Записи в командной строке, не идентифицированные как команда, обрабатываются как поисковый запрос.",
+                    "updated": 1638527383576
                 }
             ]
         }

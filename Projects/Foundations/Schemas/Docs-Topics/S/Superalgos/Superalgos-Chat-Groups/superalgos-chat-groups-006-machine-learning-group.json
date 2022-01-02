@@ -4,7 +4,19 @@
     "type": "Machine Learning Group",
     "definition": {
         "text": "If you are interested in Trading AIs join this group to discuss and test ongoing implementations.",
-        "updated": 1618846023299
+        "updated": 1618846023299,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Makine öğrenimi ve akıllı ticaret ile ilgileniyorsanız, devam eden uygulamaları tartışmak ve test etmek için bu gruba katılın.",
+                "updated": 1639393369453
+            },
+            {
+                "language": "RU",
+                "text": "Если вы заинтересованы в торговых ИИ (\"Искуственный интеллект\"), присоединяйтесь к этой группе для обсуждения и тестирования текущих реализаций.",
+                "updated": 1640353724317
+            }
+        ]
     },
     "paragraphs": [
         {

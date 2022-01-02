@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Elephant? What Elephant?",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "strategy"
+            "name": "Strategy/strategy",
+            "project": "Foundations"
         },
         "text": "Will someone please acknowledge the elephant in the room? Why did those counters point to one or two strategies and one position?",
         "translations": [
@@ -14,6 +14,11 @@
                 "text": "Würde bitte jemand den Elephanten im Raum benennen? Warum haben diese Zähler auf eine oder zwei Strategien und eine Position hingewiesen?",
                 "updated": 1623014190902,
                 "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Может, кто-нибудь обратит внимание на слона в комнате? Почему эти счетчики указали на одну или две стратегии и одну позицию?",
+                "updated": 1640546772939
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "text": "Gehe zum Simulation Objects Layer Manager und schalte den Layer Strategies an.",
                     "updated": 1623014259203,
                     "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев Simulation Objects и включите слой \"Strategies\".",
+                    "updated": 1640546787159
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "text": "Was ist das? Das ist eine Strategie! Wir befinden uns in einer Simulation! Die Ebene \"Strategien\" markiert die Zeitspanne, in der eine Strategie aktiv ist.",
                     "updated": 1623014311425,
                     "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Что это? Это стратегия! Мы находимся в симуляции! Слой \"Strategies\" отмечает промежуток времени, в течение которого стратегия активна.",
+                    "updated": 1640546813750
                 }
             ]
         },
@@ -53,6 +68,11 @@
                     "text": "Beachte das Plotter Panel, das in die Ecke gedriftet ist, als du die Ebene eingeschaltet hast. Zeige nun mit der Maus auf die Zeitspanne zwischen den Strategie Klammern und sieh, was passiert...",
                     "updated": 1623014486967,
                     "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание на панель плоттера (Plotter Panel), которая сместилась в угол при включении слоя. Теперь наведите мышь на промежуток времени между маркерами стратегии и посмотрите, что произойдет...",
+                    "updated": 1640546892721
                 }
             ]
         }

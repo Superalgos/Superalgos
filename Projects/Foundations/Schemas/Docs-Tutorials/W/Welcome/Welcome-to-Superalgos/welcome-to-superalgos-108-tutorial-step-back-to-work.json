@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Superalgos, uygulama içi, düzenlenebilir ve çok dilli bir dokümantasyon sitesi ve yerleşik bir komut satırı içerir! Bunları kullanmayı öğrenin.",
                 "updated": 1636662471831
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos memiliki situs dokumentasi dalam aplikasi, dapat diedit, dan multi-bahasa, dan command line bawaan! Belajarlah menggunakan itu dan kamu akan menjadi masternya!",
+                "updated": 1640599441676
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Sağdaki Dokümanlar panelinde daha önce zaten birkaç belge sayfası kullandınız, ancak bu sadece buzdağının görünen kısmı!",
                     "updated": 1636662497865
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu sudah menggunakan beberapa halaman documentation di panel Docs di sebelah kanan, tapi itu hanya puncak gunung es!",
+                    "updated": 1640599491971
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Hadi deneyelim! Ağ ( Network )kelimesini arayın.",
                     "updated": 1636662526502
+                },
+                {
+                    "language": "ID",
+                    "text": "Ayo kita coba! Cari kata... network.",
+                    "updated": 1640599527316
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Övünmek için değil ama, arama motorunun hızı Google'a rakip olacak kadar yeteneklidir ;-)",
                     "updated": 1636662590376
+                },
+                {
+                    "language": "ID",
+                    "text": "Bukan untuk menyombongkan diri, tetapi kecepatan mesin pencari menyaingi mesin pencarian Google ;-)",
+                    "updated": 1640599583507
                 }
             ]
         },

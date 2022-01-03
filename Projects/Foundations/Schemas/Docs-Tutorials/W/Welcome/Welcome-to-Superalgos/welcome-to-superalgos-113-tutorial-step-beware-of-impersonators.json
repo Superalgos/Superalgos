@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Superalgos Yöneticileri, Çekirdek Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmedikçe sizinle asla doğrudan iletişime geçmeyecektir!",
                 "updated": 1636663081508
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos Admins, the Core Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu!",
+                "updated": 1640600512829
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Dolandırıcılar pusuda! Dikkat! Ticaretle ilgili grupların her türlü dolandırıcıyı cezbetmesi yeni bir haber değil ve her türlü numarayı deneyerek gruplarımızdaki insanlarla iletişim kurduklarının farkındayız. Sizden asla API anahtarları, coin veya nakit para istemeyeceğiz. Projeyle veya proje için çalıştığını iddia eden biri sizinle doğrudan iletişime geçerse, bunun bir dolandırıcılık olduğunu açıkça belirtmek isteriz. Lütfen Topluluk grubundaki dolandırıcıları yasaklanabilmeleri ve sorunun farkındalığını artırmak için rapor edin, ancak aynı zamanda onları engelleyin ve onları Telegram'a bildirin.",
                     "updated": 1636663176342
+                },
+                {
+                    "language": "ID",
+                    "text": "Scammers mengintai! Waspadalah! Bukan berita bahwa kelompok terkait trading menarik semua jenis scammers, dan kami sadar bahwa mereka menghubungi orang-orang di kelompok kami yang mencoba segala macam trik. Kami tidak akan pernah meminta API keys, koin, atau uang tunai. Faktanya, kami tidak akan pernah meminta kamu untuk mempercayai kami dengan cara apa pun! Kami ingin memperjelas bahwa jika seseorang menghubungi kamu secara langsung mengaku bekerja dengan atau untuk proyek, itu adalah penipuan. Silakan laporkan scammers dalam Community group sehingga mereka dapat dilarang, dan untuk meningkatkan kesadaran akan masalah tersebut, tetapi juga memblokir mereka dan melaporkannya ke Telegram jika opsi tersedia.",
+                    "updated": 1640600616757
                 }
             ]
         }

@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Сейчас мы находимся на Close Stage. Я думал, что было бы интересно рассказать Вам больше об алгоритмах выполнения на другом примере.",
                 "updated": 1637757485185
+            },
+            {
+                "language": "ID",
+                "text": "Kita sekarang berada di Close Stage. Aku pikir akan menarik untuk memberi tahu kamu lebih banyak tentang execution algorithms, dengan contoh berbeda.",
+                "updated": 1640565537409
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Execution Algorithm может обрабатывать множество ордеров всех типов. В этом случае определяется множество лимитных ордеров на продажу.",
                     "updated": 1637757731866
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebuah Execution Algorithm dapat menangani  multiple orders, dari semua tipe. Dalam hal ini, multiple limit sell orders ditentukan.",
+                    "updated": 1640565667772
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Выберите Configure в меню алгоритма и подумайте над значением этого определения!",
                     "updated": 1637757772068
+                },
+                {
+                    "language": "ID",
+                    "text": "Pilih Configure pada menu algorithm dan reflect implikasi dari definisi ini!",
+                    "updated": 1640565742692
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "RU",
                     "text": "Как на этапе открытия, где Вы определяете как открыть позицию, так и на этапе закрытия - как выйти, может быть множество алгоритмов выполнения, каждый из которых обрабатывает определенное количество капитала.",
                     "updated": 1637757971911
+                },
+                {
+                    "language": "ID",
+                    "text": "Baik open stage, tempat kamu menentukan cara mengambil posisi, dan close stage, tempat kamu menentukan cara keluar, dapat menampilkan multiple execution algorithms, masing-masing menangani sejumlah modal tertentu.",
+                    "updated": 1640565889214
                 }
             ]
         }

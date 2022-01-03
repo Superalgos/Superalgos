@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım!",
                 "updated": 1636573370550
+            },
+            {
+                "language": "ID",
+                "text": "Kita telah melalui 3-point checklist dan kita siap berangkat, jadi mari kita lanjutkan!",
+                "updated": 1640576693623
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Lightning Strike Görevini ( Lightning Strike Task ) çalıştırın ve ardından Lightning Strike Live Trading Seansını çalıştırın (Hiyerarşinin daha aşağısında göreceksiniz)",
                     "updated": 1636573921437
+                },
+                {
+                    "language": "ID",
+                    "text": "Run Lightning Strike Task, dan kemudian jalankan Lightning Strike Live Trading Session lebih jauh ke bawah hierarchy!",
+                    "updated": 1640576740486
                 }
             ],
             "updated": 1622233324259
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Oturumu çalıştırdığınızda, işlem botunun son göstergenin işlemeyi bitirmesi için 60 saniyeye kadar beklemesi gerekebilir. Bunu yaptıktan sonra, Trading Process Instance düğümü altında geçerli tarihi ve %0 ilerleme bildirimini göreceksiniz, bu, oturum için bir zaman sınırı belirlemediğimizden çalışma boyunca böyle kalacaktır.",
                     "updated": 1636574569129
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu menjalankan session, trading bot mungkin harus menunggu hingga 60 detik untuk indikator terakhir menyelesaikan pemrosesan. Setelah itu, kamu akan melihat tanggal saat ini dan pemberitahuan kemajuan 0% di bawah Trading Process Instance, yang akan tetap seperti itu sepanjang perjalanan, karena kita tidak menetapkan time limit untuk session tersebut.",
+                    "updated": 1640576857077
                 }
             ],
             "updated": 1622233370311

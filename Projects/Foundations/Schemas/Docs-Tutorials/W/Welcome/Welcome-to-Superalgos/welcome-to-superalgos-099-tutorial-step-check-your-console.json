@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "İşlem Süreci Eşgörünümünde ( Trading Process Instance ) herhangi bir hata görmüyorsanız, muhtemelen her şey yolunda gidiyor demektir!",
                 "updated": 1636575842336
+            },
+            {
+                "language": "ID",
+                "text": "Jika kamu tidak melihat error pada Trading Process Instance, kemungkinan semuanya berjalan dengan baik!",
+                "updated": 1640576908731
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Ancak, konsol uygulamanıza bir göz atmak ve normların dışında bir şey fark edip etmediğinizi görmek isteyebilirsiniz.",
                     "updated": 1636575862276
+                },
+                {
+                    "language": "ID",
+                    "text": "Namun, kamu mungkin ingin melihat console application kamu dan melihat apakah kamu melihat sesuatu yang tidak normal.",
+                    "updated": 1640576964490
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Konsol uygulamanıza bir göz atın!",
                     "updated": 1636575893503
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah console app-mu!",
+                    "updated": 1640576979252
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Düşük Frekanslı Ticaret Botu ( Low-Fequency Trading Bot ) ile Mumlar-Hacimler (Candles-Volumes) ve Dirençler-Destekler (Resistance And Support) göstergelerinin alternatif uygulamalarını görebilmeniz gerekir.",
                     "updated": 1636576040494
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu harus dapat melihat eksekusi bergantian dari Candles-Volume dan indikator Resistances-And-Support, dengan Low-Frequency Trading Bot.",
+                    "updated": 1640577043848
                 }
             ]
         }

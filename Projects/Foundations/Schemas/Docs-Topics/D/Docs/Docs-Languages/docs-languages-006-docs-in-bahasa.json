@@ -63,6 +63,11 @@
                     "language": "DE",
                     "text": "enn Sie Übersetzungen beisteuern möchten, lesen Sie die Seite: How to Contribute Translations.",
                     "updated": 1636750495638
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu ingin berkontribusi dalam menterjemahkan, baca How to Contribute Translations page.",
+                    "updated": 1640594434067
                 }
             ]
         },
@@ -75,6 +80,11 @@
                     "language": "DE",
                     "text": "Um die Sprache zu wechseln, klicken Sie auf die Flaggen in der Fußzeile der Docs.",
                     "updated": 1636750521606
+                },
+                {
+                    "language": "ID",
+                    "text": "Pengguna dapat beralih antar bahasa menggunakan tautan links/Bendera yang disediakan di footer setiap halaman di Docs.",
+                    "updated": 1640594483297
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "DE",
                     "text": "Sie können nur Seiten zu den Docs hinzufügen oder löschen, wenn die Sprache auf Englisch eingestellt ist. Für die Übersetzung müssen Sie die Sprache auswählen, in die Sie übersetzen möchten. ",
                     "updated": 1636750535105
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu hanya dapat menambah atau menghapus halaman ke Docs ketika bahasa diatur ke bahasa Inggris. Untuk terjemahan kamu harus memilih bahasa yang ingin kamu terjemahkan. (Dalam hal ini bahasa Indonesia)",
+                    "updated": 1640594540905
                 }
             ]
         }

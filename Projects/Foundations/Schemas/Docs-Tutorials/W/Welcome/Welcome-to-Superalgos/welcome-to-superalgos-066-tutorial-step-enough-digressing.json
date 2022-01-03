@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Мы запустим Backtesting Session с несколькими предварительно настроенными параметрами, чтобы Вы могли быстро взглянуть на то, как работает моделирование.",
                 "updated": 1636928151422
+            },
+            {
+                "language": "ID",
+                "text": "Kami akan menjalankan Backtesting Session dengan sekumpulan parameter yang telah dikonfigurasi sebelumnya sehingga kamu dapat melihat sekilas cara kerja simulasi yang ada.",
+                "updated": 1639747175560
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Как видете",
                     "updated": 1636987830548
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang kamu lihat di sebelah kanan, trading session memiliki referensi ke Trading System. Artinya, Trading Bot akan menerapkan aturan sistem trading yang direferensikan untuk mengambil keputusan. Ada juga referensi ke Trading Engine, subjek yang memiliki chapter tersendiri, jadi aku akan membiarkannya untuk nanti!",
+                    "updated": 1639747323161
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "RU",
                     "text": "На торговую сессию влияет несколько параметров. Быстро взгляните на их конфигурации, выбрав Configure в меню!",
                     "updated": 1636928483525
+                },
+                {
+                    "language": "ID",
+                    "text": "trading session dipengaruhi oleh beberapa parameter. Lihat sekilas konfigurasi mereka dengan memilih Konfigurasi pada menu!",
+                    "updated": 1639747356806
                 }
             ]
         }

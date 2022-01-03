@@ -393,7 +393,7 @@ function newEducationDocSpace() {
             UI.projects.education.spaces.docsSpace.currentBookBeingRendered = {
                 project: project,
                 category: category,
-                type: type.replace('AMPERSAND', '\''),
+                type: type.replaceAll('AMPERSAND', '\''),
                 anchor: anchor,
                 nodeId: nodeId,
                 placeholder: placeholder
@@ -403,7 +403,7 @@ function newEducationDocSpace() {
         UI.projects.education.spaces.docsSpace.currentDocumentBeingRendered = {
             project: project,
             category: category,
-            type: type.replace('AMPERSAND', '\''),
+            type: type.replaceAll('AMPERSAND', '\''),
             anchor: anchor,
             nodeId: nodeId,
             placeholder: placeholder

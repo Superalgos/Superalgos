@@ -95,12 +95,12 @@
                                     "id": "461dc6c0-6507-4c74-9da5-cae2f3f59907",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21066.45460147279,
-                                            "y": 45409.68868166782
+                                            "x": 21996.770977248296,
+                                            "y": 45697.91038654823
                                         },
                                         "targetPosition": {
-                                            "x": 20636.830211543944,
-                                            "y": 45543.56505590266
+                                            "x": 21550.62078963008,
+                                            "y": 45756.647173047255
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -125,42 +125,12 @@
                                     "id": "5f5e040c-63e2-4634-9c5b-2cefe3673dc3",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 21035.285423087887,
-                                            "y": 45752.69048332236
+                                            "x": 21824.563432684005,
+                                            "y": 46113.65617617831
                                         },
                                         "targetPosition": {
-                                            "x": 20636.830211543944,
-                                            "y": 45543.56505590266
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Position",
-                                    "name": "Infrastructure Team Token Pool",
-                                    "config": "{}",
-                                    "project": "Governance",
-                                    "positions": [],
-                                    "positionClasss": [],
-                                    "id": "45774a1e-2952-40f4-9797-7b2b52669cec",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 20770.706585778786,
-                                            "y": 45973.18944583151
-                                        },
-                                        "targetPosition": {
-                                            "x": 20636.830211543944,
-                                            "y": 45543.56505590266
+                                            "x": 21550.62078963008,
+                                            "y": 45756.647173047255
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -1236,7 +1206,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

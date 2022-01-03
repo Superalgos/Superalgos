@@ -28,7 +28,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     async function initialize(userAppCodeName, p2pNetworkClientIdentity) {
 
         await loadAppSchemas()
-        await loadProfiles()
+        await loadUserProfilesPlugins()
 
         async function loadAppSchemas() {
 
@@ -68,11 +68,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             return promise
         }
 
-        async function loadProfiles() {
+        async function loadUserProfilesPlugins() {
             /*
             User Profiles are plugins of the Governance System. Besides the info they carry, we also 
             need to get the blockchain account for each one in order to later calculate their ranking.
-            */           
+            */
             let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
                 'Governance',
                 'User-Profiles'
@@ -119,58 +119,91 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
 
-                let signingAccounts = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile, 'Signing Account')
+                loadSigningAccounts()
+                loadStorageContainers()
 
-                for (let j = 0; j < signingAccounts.length; j++) {
-                    
-                    let signingAccount = signingAccounts[j]
-                    let networkClient = signingAccount.parentNode
-                    let config = signingAccount.config
-                    let signatureObject = config.signature
-                    let web3 = new SA.nodeModules.web3()
-                    let blockchainAccount = web3.eth.accounts.recover(signatureObject)
+                function loadSigningAccounts(){
                     /*
-                    We will build a map of user profiles by blockchain account that we will when we receive messages signed
-                    by different network clients.
-                    */
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
-                    /*
-                    If the Signing Account is for a P2P node, we will add the node to the array of available nodes at the p2p network.
-                    */
-                    if (
-                        networkClient.type === "P2P Network Node" &&
-                        networkClient.config !== undefined
-                    ) {
-                        if (networkClient.config.host === undefined) {
-                            continue
-                        }
-                        if (networkClient.config.webSocketsPort === undefined) {
-                            continue
-                        }
+                    For each User Profile Plugin, we will check all the Signing Accounts
+                    and load them in memory to easily find them when needed.
 
-                        let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                        p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount)
-                        SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
-                    }
-                    /*
-                    Now, we will extract the information from the User Profile, specifically the user app that it is being used.
+                    Some of these Signing Accounts will belong to P2P Network Nodes, so 
+                    we will also load them to have them accesible.
+
+                    One of these Signing Account will be our own identity as a Network Client.
                     */
-                    if (
-                        networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
-                    ) {
-                        p2pNetworkClientIdentity.node = networkClient
-                        p2pNetworkClientIdentity.blockchainAccount = blockchainAccount
-                        p2pNetworkClientIdentity.userSocialProfile = userSocialProfile
+                    let signingAccounts = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile, 'Signing Account')
+
+                    for (let j = 0; j < signingAccounts.length; j++) {
+    
+                        let signingAccount = signingAccounts[j]
+                        let networkClient = signingAccount.parentNode
+                        let config = signingAccount.config
+                        let signatureObject = config.signature
+                        let web3 = new SA.nodeModules.web3()
+                        let blockchainAccount = web3.eth.accounts.recover(signatureObject)
+                        /*
+                        We will build a map of user profiles by blockchain account that we will when we receive messages signed
+                        by different network clients.
+                        */
+                        SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
+    
+                        loadP2PNetworkNodes()
+                        setupNetworkClientIdentity()
+    
+                        function loadP2PNetworkNodes() {
+                            /*
+                            If the Signing Account is for a P2P node, we will add the node to the array of available nodes at the p2p network.
+                            */
+                            if (
+                                networkClient.type === "P2P Network Node" &&
+                                networkClient.config !== undefined
+                            ) {
+                                if (networkClient.config.host === undefined) {
+                                    return
+                                }
+                                if (networkClient.config.webSocketsPort === undefined) {
+                                    return
+                                }
+    
+                                let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
+                                p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount)
+                                SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
+                            }
+                        }                    
+    
+                        function setupNetworkClientIdentity() {
+                            /*
+                            At the governance system, you might declare that you have for instance
+                            3 P2P Network Nodes. They way to tell this particular instance which 
+                            one of the 3 it is, is by configuring at the Environment.js which one
+                            I want it to be by putting there the codeName of the P2P Network node 
+                            I want this to be. With that codename we then get from the Secrets file
+                            the NodeId of the P2P Network node defined at the User Profile, and once 
+                            we match it with a node of the user profiles we are scanning, then we
+                            store that node as our P2P Network Client Identity. 
+                            */
+                            if (
+                                networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
+                            ) {
+                                p2pNetworkClientIdentity.node = networkClient
+                                p2pNetworkClientIdentity.blockchainAccount = blockchainAccount
+                                p2pNetworkClientIdentity.userSocialProfile = userSocialProfile
+                            }
+                        }
                     }
                 }
-                /*
-                Identify Storage Containers of each profiles and load them to memory.
-                */
-                let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
+            
+                function loadStorageContainers() {
+                    /*
+                    Identify Storage Containers of each profiles and load them to memory.
+                    */
+                    let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
 
-                for (let j = 0; j < storageContainers.length; j++) { 
-                    let storageContainer = storageContainers[j]
-                    SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                    for (let j = 0; j < storageContainers.length; j++) {
+                        let storageContainer = storageContainers[j]
+                        SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                    }
                 }
             }
         }

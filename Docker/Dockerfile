@@ -3,7 +3,8 @@ WORKDIR /app
 COPY . .
 RUN apk add --no-cache --virtual .build-deps make g++ \
     && apk add --no-cache python3 \
-    && npm ci \
+    && node setup \
+    && node tf_setup.js \
     && mkdir -p ./Platform/My-Data-Storage ./Platform/My-Log-Files ./Platform/My-Workspaces \
     && addgroup superalgos \
     && adduser --disabled-password --no-create-home --ingroup superalgos superalgos \

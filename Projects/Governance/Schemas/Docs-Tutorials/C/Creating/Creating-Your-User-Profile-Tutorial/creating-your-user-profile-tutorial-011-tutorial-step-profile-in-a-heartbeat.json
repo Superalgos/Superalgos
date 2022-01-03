@@ -110,6 +110,11 @@
                     "language": "RU",
                     "text": "Ваш адрес управления Governance Address позволит вам получать заработанные вами токены SA. Superalgos прочитает баланс этого адреса, чтобы узнать количество токенов SA, которые у вас есть, и назначит вашему профилю эквивалентное количество Token Power.",
                     "updated": 1639047055474
+                },
+                {
+                    "language": "DE",
+                    "text": "Ihre Governance Address ermöglicht es Ihnen, die SA-Token zu erhalten, die Sie verdienen. Superalgos liest den Kontostand dieser Adresse aus, um die Anzahl der von Ihnen gehaltenen SA-Token zu erfahren, und weist Ihrem Profil eine entsprechende Menge an Token Power zu.",
+                    "updated": 1640900909908
                 }
             ]
         }

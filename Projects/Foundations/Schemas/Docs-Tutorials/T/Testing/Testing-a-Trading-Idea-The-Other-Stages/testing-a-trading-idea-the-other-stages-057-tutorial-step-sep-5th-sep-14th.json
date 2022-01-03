@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 57,
+    "type": "Tutorial Step - Sep 5th - Sep 14th",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "fails"
+        },
+        "text": "These are the last few trades in the period tested, and all three of them are clear fails.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies sind die letzten Abschlüsse im Testzeitraum, und alle drei sind eindeutig fehlgeschlagen.",
+                "updated": 1639418894073
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Time to check the context in the 24H time frame!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zeit, den Kontext im 24-Stunden-Zeitrahmen zu überprüfen!",
+                    "updated": 1639418902033
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "To me, it looks unclear whether the context is suitable for a swing short or not!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für mich sieht es unklar aus, ob der Kontext für einen Swing-Short geeignet ist oder nicht!",
+                    "updated": 1639418908604
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "So, what do we make of this first test? Let's compare the results with the hypothesis' predictions.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was soll man von diesem ersten Test halten? Vergleichen wir die Ergebnisse mit den Vorhersagen der Hypothese.",
+                    "updated": 1639418914932
+                }
+            ]
+        }
+    ]
+}

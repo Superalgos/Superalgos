@@ -1649,10 +1649,10 @@
                     "fileName": "HttpNetworkClient.js"
                 },
                 {
-                    "name": "User Profiles",
-                    "propertyName": "userProfiles",
-                    "functionName": "newNetworkModulesUserProfiles",
-                    "fileName": "UserProfiles.js"
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newNetworkModulesAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
                 },
                 {
                     "name": "P2P Network",

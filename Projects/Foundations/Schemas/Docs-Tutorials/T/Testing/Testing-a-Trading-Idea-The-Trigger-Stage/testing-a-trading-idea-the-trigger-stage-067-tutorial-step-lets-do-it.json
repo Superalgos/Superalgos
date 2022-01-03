@@ -1,0 +1,43 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 67,
+    "type": "Tutorial Step - Let's Do It!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "task"
+        },
+        "text": "This is going to take a bit longer than the first backtest, as we are now testing on the 1H time frame.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies wird etwas länger dauern als der erste Backtest, da wir jetzt auf dem 1H-Zeitrahmen testen.",
+                "updated": 1639390161827
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "If your trading task is still running, select Run on the Backtesting Session menu. If not, select Run on the Task menu first.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Ihre Handelsaufgabe noch läuft, wählen Sie Run im Menü \"Backtesting Session\" . Wenn nicht, wählen Sie zunächst Run im Task Menü.",
+                    "updated": 1639390264606
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When the progress notice of the Trading Process Instance gets to the 100% mark, stop the task and click Next.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn die Fortschrittsanzeige der Trading Process Instance die 100 %-Marke erreicht, halten Sie die Aufgabe an und klicken Sie auf Weiter.",
+                    "updated": 1639390297061
+                }
+            ]
+        }
+    ]
+}

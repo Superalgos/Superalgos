@@ -1,0 +1,56 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 52,
+    "type": "Tutorial Step - A Note on Event-Evaluation",
+    "definition": {
+        "icon": {
+            "name": "Nodes\\nodes-highlights",
+            "project": "Foundations"
+        },
+        "text": "Did you notice that once the trigger stage is active, the conditions of the Trigger On Event are no longer evaluated?",
+        "updated": 1617191896544,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ist Ihnen aufgefallen, dass die Bedingungen des Trigger On Event nicht mehr ausgewertet werden, sobald die Trigger Stage aktiv ist?",
+                "updated": 1639388703415
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The opposite goes for the Trigger Off Event conditions: they are not evaluated before the stage is active. See for yourself!",
+            "updated": 1617191916250,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Gegenteil gilt für die Bedingungen des Trigger Off Event: Sie werden nicht ausgewertet, bevor die Stufe aktiv ist. Überzeugen Sie sich selbst!",
+                    "updated": 1639388713512
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The trading bot follows the protocol that governs trading systems and only evaluates the events that are required at any moment in time!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Trading-Bot folgt dem Protokoll, das für Handelssysteme gilt, und wertet nur die Ereignisse aus, die zu einem bestimmten Zeitpunkt erforderlich sind!",
+                    "updated": 1639388721386
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "It's logical, right? The bot aims to be as efficient as possible and does only what needs to be done!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das ist doch logisch, oder? Der Bot ist bestrebt, so effizient wie möglich zu sein und tut nur das, was getan werden muss!",
+                    "updated": 1639388729488
+                }
+            ]
+        }
+    ]
+}

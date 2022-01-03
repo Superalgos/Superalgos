@@ -1,7 +1,7 @@
 exports.newNetworkNode = function newNetworkNode() {
 
     let thisObject = {
-        userProfiles: undefined,
+        appBootstrapingProcess: undefined,
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
         p2pNetworkNode: undefined,
@@ -23,22 +23,26 @@ exports.newNetworkNode = function newNetworkNode() {
 
         async function setupNetwork() {
             /*
-            We set up ourselves as a Network Node.
+            We set up ourselves as a Network Node and store there
+            an object representing ourselves (this instance). The properties of this object
+            are going to be set afterwards at the bootstrapping process.
             */
             thisObject.p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-            await thisObject.p2pNetworkNode.initialize()
             /*
             We will read all user profiles plugins and get from there our network identity.
+            This is what we call the bootstrap process.
             */
-            thisObject.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-            await thisObject.userProfiles.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
+            thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
+            await thisObject.appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
             /*
-            Let's discover who is at the p2p network.
+            Let's discover which are the nodes at the p2p network and have an array of nodes
+            to which we can connect to. This module will run the rules of who we can connect to.
             */
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
             await thisObject.p2pNetwork.initialize('Network Peer')
             /*
-            Set up the connections to network nodes.
+            Set up a pool of connections to different network nodes, so that later
+            we can send a message to any of them.
             */
             thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
             await thisObject.p2pNetworkPeers.initialize(
@@ -53,6 +57,7 @@ exports.newNetworkNode = function newNetworkNode() {
         async function setupServices() {
             /*
             The Social Graph Service is the first and for now, the only service this Network Node provides.
+            TODO: Only if the service is configured at the User Profile.
             */
             thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
             await thisObject.socialGraphService.initialize()

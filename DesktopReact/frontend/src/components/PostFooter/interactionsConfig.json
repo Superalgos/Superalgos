@@ -2,27 +2,33 @@
     "actionsNav":[
         {
             "id": 1,
-            "name": "Love"
+            "name": "Love",
+            "icon": "FavoriteBorder"
         },
         {
             "id": 2,
-            "name": "Haha"
+            "name": "Haha",
+            "icon": "Mood"
         },
         {
             "id": 3,
-            "name": "Wow"
+            "name": "Wow",
+            "icon": "OutletOutlined"
         },
         {
             "id": 4,
-            "name": "Sad"
+            "name": "Sad",
+            "icon": "SentimentVeryDissatisfied"
         },
         {
             "id": 5,
-            "name": "Angry"
+            "name": "Angry",
+            "icon": "SentimentVeryDissatisfiedOutlined"
         },
         {
             "id": 6,
-            "name": "Care"
+            "name": "Care",
+            "icon": "AccessibilityNewOutlined"
         }
     ]
 }

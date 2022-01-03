@@ -34,6 +34,11 @@
                     "language": "RU",
                     "text": "В Superalgos торговый бот - это компьютерная программа, разработанная для использования инфраструктуры Superalgos с целью предоставления интеллектуальных торговых функций пользователям, создающим, тестирующим и развертывающим торговые системы. Торговый бот сам по себе не содержит торговой логики. Вместо этого он выполняет логику, определенную в торговых системах.",
                     "updated": 1640096156616
+                },
+                {
+                    "language": "ES",
+                    "text": "En Superalgos, un Trading Bot es un programa informático diseñado para aprovechar la infraestructura de Superalgos y proporcionar funciones de trading inteligente a los usuarios que desarrollan, prueban y despliegan Trading System. Como tal, un Trading Bot no incorpora una lógica de trading en sí mismo. Lo que hace es ejecutar la lógica definida en los Trading System.",
+                    "updated": 1641156095039
                 }
             ]
         },
@@ -45,6 +50,11 @@
                     "language": "RU",
                     "text": "Другими словами, когда пользователи Superalgos определяют торговые системы и торговые стратегии в них, они не создают торгового бота. Вместо этого они определяют набор инструкций, которые торговый бот будет интерпретировать и выполнять.",
                     "updated": 1640096177055
+                },
+                {
+                    "language": "ES",
+                    "text": "En otras palabras, cuando los usuarios de Superalgos definen los Trading System y las estrategias de trading que contienen, no están construyendo un bot de trading. Más bien, están definiendo un conjunto de instrucciones que un bot de trading interpretará y ejecutará.",
+                    "updated": 1641156163821
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "RU",
                     "text": "Торговые боты имеют доступ ко всем объектам инфраструктуры, построенным в Superalgos. Одним из примечательных разделов инфраструктуры, имеющих отношение к торговым ботам, являются Trading Mine. Торговые боты могут быть довольно сложным программным обеспечением. Назовем две наиболее заметные характеристики: бот должен учитывать множество аспектов информации и должен быть очень надежным, поскольку его деятельность связана с денежными операциями.",
                     "updated": 1640096345578
+                },
+                {
+                    "language": "ES",
+                    "text": "Los Trading Bot tienen acceso a cada parte de la infraestructura construida en Superalgos. Una de las secciones más destacadas de la infraestructura relevante para los Trading Bot son las propias Trading Mine. Los Trading Bot pueden ser elementos de software bastante complejos. Por nombrar dos de las características más destacadas: el bot necesita tener en cuenta múltiples dimensiones de información y necesita ser altamente fiable, ya que su actividad implica transacciones monetarias.",
+                    "updated": 1641156264017
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Торговые шахты делают создание торговых ботов более доступным делом, предоставляя основу для создания разделенных определений для процессов и продуктов бота, подобно тому, как шахты данных делают это для датчиков и индикаторов.",
                     "updated": 1640096608834
+                },
+                {
+                    "language": "ES",
+                    "text": "Las Trading Mines hacen que la construcción de Trading Bots sea una labor más sencilla, proporcionando un entorno para producir definiciones segmentadas para los procesos y productos de los bots, al igual que las Data Mines lo hacen para los sensores e indicadores.",
+                    "updated": 1641156335613
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Конфигурация Trading Bot",
                     "updated": 1640096625334
+                },
+                {
+                    "language": "ES",
+                    "text": "Conmfiguración del Trading Bot",
+                    "updated": 1641156355024
                 }
             ]
         }

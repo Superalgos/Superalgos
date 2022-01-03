@@ -1,0 +1,43 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 61,
+    "type": "Tutorial Step - What's Next....?",
+    "definition": {
+        "icon": {
+            "name": "Tutorial\\tutorial",
+            "project": "Foundations"
+        },
+        "text": "In the next tutorial, we'll keep working on this idea, incorporating a few more fundamental considerations left out until now.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Im nächsten Tutorial werden wir an dieser Idee weiterarbeiten und einige weitere grundlegende Überlegungen einbeziehen, die wir bisher ausgelassen haben.",
+                "updated": 1639419054035
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We are also going to test the idea in a more favorable environment, that is, a real bear market, so that we may better evaluate it's potential.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Außerdem werden wir die Idee in einem günstigeren Umfeld testen, d. h. in einem echten Bärenmarkt, damit wir ihr Potenzial besser einschätzen können.",
+                    "updated": 1639419064627
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "At this point, you have covered the very basics of building and testing strategies. While more tutorials will become available eventually, nothing stops you from pushing the envelope and keep learning on your own! The documentation is your friend, and covers the workings of Superalgos at a depth that tutorials can't reach!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "An dieser Stelle haben Sie die Grundlagen der Entwicklung und des Testens von Strategien kennengelernt. Auch wenn mit der Zeit weitere Tutorials zur Verfügung stehen werden, hält Sie nichts davon ab, an die Grenzen zu gehen und selbst weiter zu lernen! Die Dokumentation ist Ihr Freund und deckt die Funktionsweise von Superalgos in einer Tiefe ab, die Tutorials nicht erreichen können!",
+                    "updated": 1639419072089
+                }
+            ]
+        }
+    ]
+}

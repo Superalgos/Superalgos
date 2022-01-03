@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 83,
+    "type": "Tutorial Step - Not So Great Right?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "hit-fail"
+        },
+        "text": "That first entry doesn't look great if you ask me! Let's carry on with the same speculation game on the second potential entry!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der erste Eintrag sieht nicht gut aus, wenn ihr mich fragt! Lassen Sie uns das gleiche Spekulationsspiel mit dem zweiten potenziellen Einstieg fortsetzen!",
+                "updated": 1639391764529
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "This is the next instance of the trigger stage after the time range we analyzed earlier.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Dies ist die nächste Instanz der Trigger Stage nach der Zeitspanne, die wir zuvor analysiert haben.",
+                    "updated": 1639391774605
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Looks a lot more promising, right? It's the prelude to the March 12th crash, and there are good entries ahead of it!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Sieht doch vielversprechender aus, oder? Es ist das Vorspiel zum Crash am 12. März, und es gibt gute Einstiegsmöglichkeiten davor!",
+                    "updated": 1639391782222
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The first is at the close of the 15hs candle on March 8th. The second, at the close of the 8hs candle on March 12th. This is exactly what we were expecting from the analysis we did in the second tutorial.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der erste ist der Schluss der 15h-Kerze am 8. März. Der zweite beim Schluss der 8-Stunden-Kerze am 12. März. Das ist genau das, was wir bei der Analyse im zweiten Tutorial erwartet haben.",
+                    "updated": 1639391789390
+                }
+            ]
+        }
+    ]
+}

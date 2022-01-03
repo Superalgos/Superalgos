@@ -1,0 +1,50 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 64,
+    "type": "Tutorial Step - The Previous Close",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "javascript-code"
+        },
+        "text": "Two consecutive closes means that the current and the previous candle close below the lower band!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wo aufeinanderfolgende Schlusskurse bedeuten, dass die aktuelle und die vorherige Kerze unterhalb der unteren Bandbreite schließen!",
+                "updated": 1639389956813
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To describe the close of the previous candle, we need to use the previous property to modify each property of each indicator used on both sides of the statement:",
+            "updated": 1610471485501,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Um den Schluss der vorherigen Kerze zu beschreiben, müssen wir die Eigenschaft \"previous\" verwenden, um jede Eigenschaft jedes Indikators zu ändern, der auf beiden Seiten der Anweisung verwendet wird:",
+                    "updated": 1639389978319
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.previous.close < \nchart.at01hs.bollingerBand.previous.movingAverage - \nchart.at01hs.bollingerBand.previous.deviation",
+            "updated": 1610471501818
+        },
+        {
+            "style": "Callout",
+            "text": "Create a new condition under the same situation and use the code above!",
+            "updated": 1610471548093,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine neue Bedingung unter der gleichen Situation und verwenden Sie den obigen Code!",
+                    "updated": 1639389985428
+                }
+            ]
+        }
+    ]
+}

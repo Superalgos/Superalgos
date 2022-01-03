@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Говоря о блочном строительстве, мы сейчас находимся в пределах шахты Masters Data Mine. Слева от Вас - определение одного из ботов, которого Вы отправили на майнинг несколько минут назад.",
                 "updated": 1636569166410
+            },
+            {
+                "language": "ID",
+                "text": "Berbicara tentang pembangunan blok, kita sekarang berada dalam batas-batas Masters Data Mine. Di sebelah kiri, definisi salah satu bot yang kamu kirim untuk mining  beberapa menit yang lalu.",
+                "updated": 1639709000796
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Как и в случае с определениями Charting Space, очень похожими на Lego, боты слишком четко выделяются в визуальной среде.",
                     "updated": 1636569602975
+                },
+                {
+                    "language": "ID",
+                    "text": "Hampir mirip dengan definisi Charting Space yang mirip Lego, bot akan ditentukan pada visual environment.",
+                    "updated": 1639709076112
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Все, что разработчикам нужно для программирования - это фактическая Data Building Procedure.",
                     "updated": 1636569663881
+                },
+                {
+                    "language": "ID",
+                    "text": "Semua developers diminta mengcoding agar mendapatkan Data Building Procedure yang actual.",
+                    "updated": 1639709197859
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "RU",
                     "text": "Все остальное определяется визуальной настройкой: процессы с их зависимостями, данными на выходе и т.п., а также продукты с их определениями записей, наборы данных и т.д.",
                     "updated": 1636569954401
+                },
+                {
+                    "language": "ID",
+                    "text": "Segala sesuatu yang lain didefinisikan pada visual setting: proses dengan dependensinya, output dan sebagainya, serta produk, dengan definisi record dan datasetnya, dll.",
+                    "updated": 1639709617027
                 }
             ]
         }

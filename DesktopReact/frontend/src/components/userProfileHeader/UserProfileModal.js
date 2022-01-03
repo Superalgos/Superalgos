@@ -16,13 +16,11 @@ import {CloseOutlined, Input} from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
+import pfp from "../../images/superalgos.png";
 
-
-const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
+const UserProfileModal = ({user, close, updateProfileCallback}) => {
     useEffect(() => {
-        return () => {
-            setUserInfo(user);
-        };
+        return () => setUserInfo(user);
     }, []);
 
     const Input = styled('input')({
@@ -31,7 +29,6 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
 
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
-    const [changed, setChanged] = useState(false);
 
     const toBase64 = file => new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -59,34 +56,31 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
     }
 
     const handleChange = (event) => {
-        if (userInfo[name]) {
-            setErrorState(true);
-        } else {
-            setErrorState(false);
-            setUserInfo({
-                ...userInfo,
-                [event.target.id]: event.target.value
-            });
-        }
-        setChanged(user === userInfo)
+        let newValue = event.target.value;
+        let field = event.target.id;
+        setErrorState(field === 'name' && (!newValue));
+        setUserInfo({
+            ...userInfo,
+            [field]: newValue
+        });
     }
 
     const saveProfile = async () => {
-        console.log(userInfo)
         let {result} = await updateProfile(userInfo).then(response => response.json());
         if (result === STATUS_OK) {
-            setTimeout(() => {
-                updateProfileCallback();
-                close();
-            }, 5000)
-            console.log('profile should be updated')
-            //todo show a toast that the profile saved
+            updateProfileCallback();
+            close();
         }
     }
 
-    return (<>
-        {show ? <Modal open={show}
-                       onClose={close}>
+    const isEquals = () => {
+        let differentKey = Object.keys(user).find(key => user[key] !== userInfo[key]);
+        return !differentKey;
+    }
+
+    return (
+        <Modal open
+               onClose={close}>
             <Box className="editUserBox" component="form" noValidate autoComplete="off">
                 <CardContent className="userSection">
                     <div className="editProfileHeader">
@@ -100,24 +94,41 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                         </div>
                     </div>
                     <div className="editBannerAvatarContainer">
-                        <CardMedia className="banner"
-                                   component="img"
-                                   src={`${userInfo.bannerPic}`}
-                                   alt="PP"
-                        />
+                        {userInfo.bannerPic ?
+                            (
+                                <CardMedia className="banner"
+                                           component="img"
+                                           src={`${userInfo.bannerPic}`}
+                                           alt="PP"/>
+                            ) :
+                            (
+                                <CardMedia className="banner"
+                                           component="img"
+                                           image={pfp}
+                                           alt="PP"
+                                />
+                            )}
                         <div className="editAvatar">
                             <div className="profileCard">
                                 <div className="profilePicBG">
-                                    <CardMedia className="profileAvatar"
-                                               component="img"
-                                               src={`${userInfo.profilePic}`}
-                                               alt="ProfilePic"
-                                    />
+                                    {userInfo.profilePic ?
+                                        (
+                                            <CardMedia className="profileAvatar"
+                                                       component="img"
+                                                       src={`${userInfo.profilePic}`}
+                                                       alt="ProfilePic"/>
+                                        ) :
+                                        (
+                                            <CardMedia className="profileAvatar"
+                                                       component="img"
+                                                       image={pfp}
+                                                       alt="ProfilePic"/>
+                                        )}
                                 </div>
                                 <label htmlFor="profilePic">
                                     <Input className="input" accept="image/*" id="profilePic" multiple type="file"
                                            onChange={selectProfilePic}/>
-                                    <Button variant="contained" component="span">
+                                    <Button variant="outlined" component="span">
                                         Upload Profile Picture
                                     </Button>
                                 </label>
@@ -125,7 +136,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     <label htmlFor="bannerPic">
                                         <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
                                                onChange={selectBannerPic}/>
-                                        <Button variant="contained" component="span">
+                                        <Button variant="outlined" component="span">
                                             Upload Banner Picture
                                         </Button>
                                     </label>
@@ -151,7 +162,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     id="bio"
                                     value={userInfo.bio}
                                     onChange={handleChange}
-                                    label="bio"
+                                    label="Bio"
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -160,7 +171,7 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     id="location"
                                     value={userInfo.location}
                                     onChange={handleChange}
-                                    label="location"
+                                    label="Location"
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -169,17 +180,18 @@ const UserProfileModal = ({user, show, close, updateProfileCallback}) => {
                                     id="web"
                                     value={userInfo.web}
                                     onChange={handleChange}
-                                    label="web"
+                                    label="Web"
                                 />
                             </FormControl></div>
                         <div className="editProfileFooter">
-                            <Button disabled={changed} onClick={saveProfile} variant="outlined">Save</Button>
+                            <Button disabled={errorState || isEquals()} onClick={saveProfile}
+                                    variant="outlined">Save</Button>
                         </div>
                     </div>
                 </CardContent>
             </Box>
-        </Modal> : null}
-    </>);
+        </Modal>
+    );
 };
 
 export default UserProfileModal;

@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Вы видите зеленые круги с буквой L в центре? Это те лимитные ордера на покупку, о которых я упоминал.",
                 "updated": 1637594382201
+            },
+            {
+                "language": "ID",
+                "text": "Apakah kamu melihat bullets hijau dengan huruf L di tengah? Itulah limit order beli yang aku maksud.",
+                "updated": 1639748865441
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Обратите внимание как ордер размещается каждую минуту и отменяется перед размещением нового ордера. Вы узнаете символ отмены заказа? Это меньший, более темный круг с белой горизонтальной полосой по середине!",
                     "updated": 1637594519493
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana pesanan dilakukan setiap menit dan dibatalkan sebelum pesanan baru dilakukan. Apakah kamu mengenali simbol untuk pembatalan pesanan? Ini adalah bullet yang lebih kecil dan lebih gelap dengan garis horizontal putih di tengahnya!",
+                    "updated": 1639748921691
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Посмотрите на нож, падающий в 00:21 утра! Цена упала значительно ниже ставки лимитного ордера, следовательно, заказ был выполнен! Это обозначено на большом закрашенном зеленом круге.",
                     "updated": 1637594840545
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan knife falling pada 00:21 AM! Harga turun jauh di bawah tingkat pesanan terbatas, oleh karena itu, pesanan dipenuhi! Itulah yang ditunjukkan yang lebih besar — ​​terisi — oleh bullet hijau!",
+                    "updated": 1639749027127
                 }
             ]
         },
@@ -131,6 +146,11 @@
                     "language": "RU",
                     "text": "Итак... Что происходит после?",
                     "updated": 1637594867407
+                },
+                {
+                    "language": "ID",
+                    "text": "Jadi... apa yang terjadi setelahnya?",
+                    "updated": 1639749041658
                 }
             ]
         }

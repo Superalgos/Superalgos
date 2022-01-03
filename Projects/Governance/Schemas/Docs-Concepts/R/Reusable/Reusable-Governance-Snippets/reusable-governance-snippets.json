@@ -347,6 +347,11 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass Sie genug Claim Power zur Node bringen, damit Sie die verdiente Belohnung erhalten! Und vergessen Sie nicht, die Personen, die Ihre Arbeit kennen, zu bitten, mit ihren Stimmen für Ihre Ansprüche zu bürgen. Auf diese Weise wird Ihr Beitrag (contribution) validiert und Sie erhalten die entsprechenden Belohnungen.",
                     "updated": 1640093915013
+                },
+                {
+                    "language": "ES",
+                    "text": "Asegúrate de conducir lo suficiente de Claim Power al nodo para que pueda obtener la recompensa que se merece! Y recuerde pedir a las personas que conocen su trabajo que respondan por sus declaraciones con sus Claim Votes. Así es como se valida su contribución y cómo obtiene las recompensas asociadas.",
+                    "updated": 1640961394925
                 }
             ]
         },
@@ -363,6 +368,11 @@
                     "language": "DE",
                     "text": "Erfahren Sie mehr darüber, wie Forderungen geklärt werden",
                     "updated": 1640093994550
+                },
+                {
+                    "language": "ES",
+                    "text": "Más información sobre cómo las declaraciones se resuelven (HowClaims are Resolved)!",
+                    "updated": 1640961450130
                 }
             ]
         },
@@ -407,6 +417,11 @@
                     "language": "DE",
                     "text": "Die Claim Support Power, die Sie in die Claim Votes Node einbringen, ist wichtig, da sie ein Maß für Ihre Unterstützung des Claims ist. Im Idealfall erhält die Partei(Person), die den Anspruch (claim) einreicht, genügend Claim Votes (Anspruchsstimmen) mit einer ausreichenden Anspruchsunterstützungskraft (Claim Support Power), die der Anspruchsstärke (Claim Power) des Anspruchs entspricht.",
                     "updated": 1640094231417
+                },
+                {
+                    "language": "ES",
+                    "text": "El Claim Support Power que dirija hacia los nodos de Claim Voteses significativo, ya que es una medida de su apoyo al reclamo. El escenario ideal para la parte que presenta el reclamo es que el reclamo recibe suficientes Claim Votes con suficiente Claim Support Powerpara que coincida con el Claim Power el reclamo lleva.",
+                    "updated": 1640961610754
                 }
             ]
         },
@@ -423,6 +438,11 @@
                     "language": "DE",
                     "text": "Vielleicht möchten Sie mehr über die Lösung von Ansprüchen erfahren, wie sie Resolved werden!",
                     "updated": 1640094264256
+                },
+                {
+                    "language": "ES",
+                    "text": "Es posible que desee obtener más información sobre How Claims are Resolved!",
+                    "updated": 1640961629473
                 }
             ]
         },

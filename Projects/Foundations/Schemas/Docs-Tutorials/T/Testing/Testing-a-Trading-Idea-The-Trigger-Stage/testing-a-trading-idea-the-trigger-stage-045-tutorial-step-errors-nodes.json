@@ -1,0 +1,90 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 45,
+    "type": "Tutorial Step - Errors & Nodes",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "Touch the error bullet again and notice how the design space repositions at the node most related to the error, in this case, a Condition node. This is a crucial piece of information!",
+        "updated": 1622487759414,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Tippen Sie erneut auf die Fehlerkugel und beachten Sie, wie sich der design space an dem Knoten neu positioniert, der am meisten mit dem Fehler zu tun hat, in diesem Fall ein Bedingungsknoten. Dies ist eine wichtige Information!",
+                "updated": 1639267705419
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "Check the condition node!",
+            "updated": 1612696339712,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Überprüfen Sie den Bedingungsknoten (Condition Node)!",
+                    "updated": 1639267723901
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "So far, we got good information about:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bis jetzt haben wir gute Informationen über:",
+                    "updated": 1639267734609
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "when the error happened;",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "wann der Fehler aufgetreten ist;",
+                    "updated": 1639267741300
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "what the error is about;",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "worum es sich bei dem Fehler handelt;",
+                    "updated": 1639267746964
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "and where it happened!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "und wo er aufgetreten ist!",
+                    "updated": 1639267752727
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "It seems like we have all the pieces of the puzzle! Let's take a few minutes to analyze the evidence!",
+            "updated": 1612639178963,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es scheint, als hätten wir alle Teile des Puzzles! Nehmen wir uns nun ein paar Minuten Zeit, um die Beweise zu analysieren!",
+                    "updated": 1639267760509
+                }
+            ]
+        }
+    ]
+}

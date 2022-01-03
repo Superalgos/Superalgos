@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Superalgos, çok projeli bir platformdur. TensorFlow'dan sonra sıradaki Ethereum entegrasyonudur...",
                 "updated": 1636636198144
+            },
+            {
+                "language": "ID",
+                "text": "Superalgos adalah platform multi-proyek, dan — setelah TensorFlow — integrasi Ethereum adalah yang berikutnya...",
+                "updated": 1640598195833
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Ethereum'u entegre etmek ne anlama geliyor? Bu, gelecekteki sürümlerde şunları yapabileceğiniz anlamına gelir:",
                     "updated": 1636636318950
+                },
+                {
+                    "language": "ID",
+                    "text": "Apa arti mengintegrasikan Ethereum, Kamu bertanya? Ini berarti bahwa — dalam versi yang akan datang — kamu akan dapat :",
+                    "updated": 1640598245063
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Görsel arayüzü kullanarak Superalgos'un içinden bir Ethereum düğümüne bağlanırsınız.",
                     "updated": 1636637433751
+                },
+                {
+                    "language": "ID",
+                    "text": "Terhubung ke Ethereum node langsung dari dalam Superalgos menggunakan interface visual.",
+                    "updated": 1640598284459
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "De-Fi veya neye sahipseniz, tüm Ethereum tabanlı projeler için coin ve sözleşme bilgilerine erişmek için blok zinciri verilerini çıkarabilir, grafiklerdeki verileri görselleştirebilir, göstergeler oluşturabilir ve Superalgos altyapısının geri kalanından yararlanabilirsiniz.",
                     "updated": 1636637425615
+                },
+                {
+                    "language": "ID",
+                    "text": "Tambang data blockchain untuk mengakses informasi koin dan kontrak untuk semua proyek berbasis Ethereum, termasuk De-Fi atau apa pun yang kamu miliki, memvisualisasikan data pada charts, membangun indikator, dan memanfaatkan sisa infrastruktur Superalgos.",
+                    "updated": 1640598383369
                 }
             ]
         },
@@ -146,6 +166,11 @@
                     "language": "TR",
                     "text": "Ticaret sistemlerinden ilgili göstergeleri kullanarak ticaret yapmak için verileri kullanabilirsiniz.",
                     "updated": 1636637596993
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan data untuk trade dengan menggunakan indikator terkait dari dalam trading systems!",
+                    "updated": 1640598452709
                 }
             ]
         }

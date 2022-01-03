@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Новости о Time Frame Scale: автоматического режима - нет!",
                 "updated": 1636560925509
+            },
+            {
+                "language": "ID",
+                "text": "Berita-terkini tentang Time Frame Scale: tidak ada mode otomatis!",
+                "updated": 1639586122486
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Вы можете переключать все доступные временные рамки с помощью колесика мыши или стрелок ↑ ↓ — в порядке убывания: 24, 12, 8, 6, 4, 3, 2 и 1 час, а также  45, 40, 30, 20, 15, 10, 5, 4, 3, 2  и  1 минута.",
                     "updated": 1636561140588
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat beralih melalui semua time frame yang tersedia menggunakan mouse wheel atau panah atas dan bawah  ↑ ↓ — Dalam urutan menurun: 24, 12, 8, 6, 4, 3, 2, dan 1 jam, dan 45, 40, 30, 20 , 15, 10, 5, 4, 3, 2, dan 1 menit.",
+                    "updated": 1639586232911
                 }
             ],
             "updated": 1616505407890
@@ -103,6 +113,11 @@
                     "language": "RU",
                     "text": "Будьте осторожны, когда Вы переключаете шкалу временных рамок на более низкий временной диапазон! Слишком быстрое понижение, а тем более без настройки шкалы времени, может привести к одновременному отображению на экране слишком большого количества информации, которая замедлит работу Вашего компьютера. Плотность информации, которая может обрабатываться Вашим устройством, зависит от производительности центрального и графического процессоров.",
                     "updated": 1636562310221
+                },
+                {
+                    "language": "ID",
+                    "text": "Berhati-hatilah saat kamu mengganti skala time frame ke time frame yang lebih rendah! Menurunkan time frame terlalu cepat tanpa menyesuaikan skala waktu dapat menyebabkan terlalu banyak informasi ditampilkan di layar, sehingga memperlambat komputermu. Seberapa banyak kepadatan informasi yang dapat ditangani perangkat keras bergantung pada kinerja CPU dan GPU yang ada.",
+                    "updated": 1639586398669
                 }
             ]
         }

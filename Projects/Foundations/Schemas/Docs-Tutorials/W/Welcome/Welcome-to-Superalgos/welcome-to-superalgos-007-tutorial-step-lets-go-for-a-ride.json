@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ID",
-                "text": "Sebelum aku memperlihatkan bagian lain dari menu, ayo kebeberapa hirarki lain seperti Network.",
-                "updated": 1614425404268,
+                "text": "Sebelum aku menunjukkan kepada kamu menu lainnya, mari kita lihat hierarki lain: LAN Network.",
+                "updated": 1640568256268,
                 "style": "Definition"
             },
             {
@@ -66,8 +66,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Network merupakan hirarki yang mengatur ruang kendali sistem. Di sinilah kamu bisa mengontrol Data Tasks, Testing Trading Tasks, dan Production Trading Tasks.",
-                    "updated": 1614425530127,
+                    "text": "Hirarki LAN Network adalah ruang kontrol sistem. Di sinilah kamu mengontrol  Data Tasks, Testing Trading Tasks, dan Production Trading Tasks kamu.",
+                    "updated": 1640568177240,
                     "style": "Text"
                 },
                 {

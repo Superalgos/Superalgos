@@ -64,8 +64,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Jika kamu menjalankan Client dari mesin remote, kamu harus mengkonfigurasi node Network sebelum melanjutkannya.",
-                    "updated": 1614427153780,
+                    "text": "Jika kamu mengakses Client dari remote machine, kamu harus menyesuaikan konfigurasi LAN Network Node.",
+                    "updated": 1640568925485,
                     "style": "Text"
                 },
                 {
@@ -118,8 +118,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Click Configure disebelah kanan atas dari node menu Network.",
-                    "updated": 1614427190110,
+                    "text": "Click Configure disebelah kanan atas dari LAN Network Node menu.",
+                    "updated": 1640568633375,
                     "style": "List"
                 },
                 {
@@ -176,8 +176,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Ubah host parameter IP Address dari mesin yang berjalan di backend.",
-                    "updated": 1614429595918,
+                    "text": "Ubah host parameter untuk IP Address dari mesin yang berjalan di backend.",
+                    "updated": 1640568700553,
                     "style": "List"
                 },
                 {
@@ -232,6 +232,11 @@
                     "language": "RU",
                     "text": "Если Вы используете обратный прокси-сервер, добавьте этот параметр...",
                     "updated": 1637439507774
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menggunakan reverse proxy, tambahkan parameter ini...",
+                    "updated": 1640568742574
                 }
             ]
         },
@@ -245,8 +250,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Keluar dari konfigurasi dengan mengeluarkan pointer mouse dari gelembung konfigurasi!. JIka konfigurasi benar, pesan error di Network Node akan hilang dalam beberapa menit!",
-                    "updated": 1614429527142,
+                    "text": "Sekarang tutup editor. Jika konfigurasinya benar, pesan error akan hilang dengan cepat!",
+                    "updated": 1640568845885,
                     "style": "List"
                 },
                 {

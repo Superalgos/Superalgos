@@ -11,8 +11,8 @@
         "translations": [
             {
                 "language": "ID",
-                "text": "Superalgos bisa dijalankan secara Clients, melalui mesin dan mengakses dengan Chrome dengan mesin dari jaringan yang berbeda.",
-                "updated": 1614426387929,
+                "text": "Superalgos memungkinkan menjalankan Client pada mesin dan mengaksesnya melalui browser dari mesin lain di jaringan.",
+                "updated": 1640568321973,
                 "style": "Definition"
             },
             {
@@ -65,8 +65,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Banyak pengguna memilih untuk menjalankan Client di cloud, juga di mesin single-board seperti Raspberry Pi, atau di PC khusus yang dapat mereka tinggalkan setiap saat dengan trading tetap berlangsung. Node My Computer Network merepresentasikan Client yang dijalankan sekarang.",
-                    "updated": 1614426753535,
+                    "text": "Banyak pengguna memilih untuk menjalankan Client dari cloud, pada mesin single-board seperti Raspberry Pi, atau pada PC khusus yang dapat mereka tinggalkan setiap saat ketika trading berlangsung. My Computer LAN Network Node mewakili mesin yang dijalankan Client.",
+                    "updated": 1640568553636,
                     "style": "Text"
                 },
                 {

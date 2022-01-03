@@ -1,11 +1,11 @@
 exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage() {
     /*
-    This module represents the Network Node Physical Storage.
+    This module represents the Social Graph Physical Storage.
     It is used to save the in-memory events and also to load
     them when the node is starting. 
 
-    Each node has a github repository to store its social graph. 
-    That Github repository can be used by any other node to get the history of
+    Each node has a github repository to store its social graph.                        TODO: Integrate this with Open Storage Project
+    That Github repository can be used by any other node to get the history of          TODO: Build the mechanism to retrieve information form other node's storage
     events that can build the social graph.
     
     Each Network Node saves locally all unsaved events, every one minute,

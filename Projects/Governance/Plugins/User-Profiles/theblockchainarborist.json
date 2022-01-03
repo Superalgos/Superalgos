@@ -127,12 +127,12 @@
             "id": "9bf0495b-fa9b-4619-a05f-12ae46f22df3",
             "savedPayload": {
                 "position": {
-                    "x": 7103.846625825447,
-                    "y": 23314.683045111455
+                    "x": 11857.780338580718,
+                    "y": 37714.68304511145
                 },
                 "targetPosition": {
-                    "x": 7196.551724137931,
-                    "y": 23600
+                    "x": 11950.485436893203,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -487,12 +487,12 @@
             "id": "fef9f46d-9951-4faa-9dce-da55db55e790",
             "savedPayload": {
                 "position": {
-                    "x": 7439.256822450416,
-                    "y": 23423.664424312257
+                    "x": 12193.190535205687,
+                    "y": 37823.66442431226
                 },
                 "targetPosition": {
-                    "x": 7196.551724137931,
-                    "y": 23600
+                    "x": 11950.485436893203,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -524,45 +524,12 @@
                         "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
-                        "claimVotesSwitch": [
-                            {
-                                "type": "Claim Votes Switch",
-                                "name": "New Claim Votes Switch",
-                                "config": "{}",
-                                "project": "Governance",
-                                "claimVotesSwitch": [],
-                                "positionClaimVotes": [],
-                                "assetClaimVotes": [],
-                                "featureClaimVotes": [],
-                                "id": "429f77e3-0ee7-47df-ac22-283bf982d8d5",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 7987.384097035976,
-                                        "y": 23532.293589842266
-                                    },
-                                    "targetPosition": {
-                                        "x": 7956.02555805568,
-                                        "y": 23830.650158452747
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 1,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            }
-                        ],
+                        "claimVotesSwitch": [],
                         "weightVotesSwitch": [
                             {
                                 "type": "Weight Votes Switch",
                                 "name": "New Weight Votes Switch",
-                                "config": "{\r\n    \"percentage\": 65\r\n}",
+                                "config": "{\r\n    \"percentage\":\r\n}",
                                 "project": "Governance",
                                 "weightVotesSwitch": [],
                                 "poolWeightVotes": [
@@ -574,12 +541,12 @@
                                         "id": "6c89cef4-da4f-4243-8dc7-38131c156cce",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8495.037158546706,
-                                                "y": 23960.05539462842
+                                                "x": 13091.533292967322,
+                                                "y": 37828.55503758084
                                             },
                                             "targetPosition": {
-                                                "x": 8198.730656368165,
-                                                "y": 24006.98573414049
+                                                "x": 12984.022908103732,
+                                                "y": 38108.62916553
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -600,23 +567,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Pools"
+                                                    "Pools",
+                                                    "Governance",
+                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                 ],
                                                 [
                                                     "Governance Programs",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "5188df27-f816-48bd-86e8-0a6af59d9d7e"
                                                 ],
                                                 [
                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "9bc8f08a-af81-42a6-bd43-56e1097c252d"
                                                 ],
                                                 [
                                                     "Liquidity Program",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "055b0d96-ae5e-4442-9788-a00d87a28666"
                                                 ],
                                                 [
                                                     "Liquidity Rewards BUSD",
-                                                    "Pool"
+                                                    "Pool",
+                                                    "Governance",
+                                                    "80359557-1ac5-4112-908a-679d3617167c"
                                                 ]
                                             ]
                                         }
@@ -629,12 +606,12 @@
                                         "id": "69171506-bec0-4211-9c51-0cc55969cb67",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8441.43575468065,
-                                                "y": 24183.321309828232
+                                                "x": 13258.086545396513,
+                                                "y": 37986.60817260726
                                             },
                                             "targetPosition": {
-                                                "x": 8198.730656368165,
-                                                "y": 24006.98573414049
+                                                "x": 12984.022908103732,
+                                                "y": 38108.62916553
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -655,23 +632,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Pools"
+                                                    "Pools",
+                                                    "Governance",
+                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                 ],
                                                 [
                                                     "Governance Programs",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "5188df27-f816-48bd-86e8-0a6af59d9d7e"
                                                 ],
                                                 [
                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "9bc8f08a-af81-42a6-bd43-56e1097c252d"
                                                 ],
                                                 [
                                                     "Liquidity Program",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "055b0d96-ae5e-4442-9788-a00d87a28666"
                                                 ],
                                                 [
                                                     "Liquidity Rewards BNB",
-                                                    "Pool"
+                                                    "Pool",
+                                                    "Governance",
+                                                    "bdef6a71-1f21-4cc2-8acd-7987273a63a0"
                                                 ]
                                             ]
                                         }
@@ -684,12 +671,12 @@
                                         "id": "f238ee9b-4166-497a-99cc-54e2f203502c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8245.660995880235,
-                                                "y": 24303.29223631903
+                                                "x": 13264.097036052894,
+                                                "y": 38216.13955039359
                                             },
                                             "targetPosition": {
-                                                "x": 8198.730656368165,
-                                                "y": 24006.98573414049
+                                                "x": 12984.022908103732,
+                                                "y": 38108.62916553
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -710,23 +697,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Pools"
+                                                    "Pools",
+                                                    "Governance",
+                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                 ],
                                                 [
                                                     "Governance Programs",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "5188df27-f816-48bd-86e8-0a6af59d9d7e"
                                                 ],
                                                 [
                                                     "Incentives for Providing Liquidity to SA Markets",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "9bc8f08a-af81-42a6-bd43-56e1097c252d"
                                                 ],
                                                 [
                                                     "Liquidity Program",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "055b0d96-ae5e-4442-9788-a00d87a28666"
                                                 ],
                                                 [
                                                     "Liquidity Rewards BTCB",
-                                                    "Pool"
+                                                    "Pool",
+                                                    "Governance",
+                                                    "7c9bbfc7-44a9-49e9-9611-90e4c5a566af"
                                                 ]
                                             ]
                                         }
@@ -738,12 +735,12 @@
                                 "id": "021fac3d-3d61-48cd-9242-1a79e75a1327",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 8198.730656368165,
-                                        "y": 24006.98573414049
+                                        "x": 12984.022908103732,
+                                        "y": 38108.62916553
                                     },
                                     "targetPosition": {
-                                        "x": 7956.02555805568,
-                                        "y": 23830.650158452747
+                                        "x": 12709.959270810952,
+                                        "y": 38230.65015845274
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -763,12 +760,12 @@
                         "id": "78acca9a-6b4b-4bdc-9d62-507247676fe5",
                         "savedPayload": {
                             "position": {
-                                "x": 7956.02555805568,
-                                "y": 23830.650158452747
+                                "x": 12709.959270810952,
+                                "y": 38230.65015845274
                             },
                             "targetPosition": {
-                                "x": 7681.9619207629,
-                                "y": 23952.671151375485
+                                "x": 12435.895633518172,
+                                "y": 38352.671151375485
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -791,12 +788,12 @@
                     "id": "e567ce00-c2de-4d78-944e-72301d494f45",
                     "savedPayload": {
                         "position": {
-                            "x": 7650.603381782605,
-                            "y": 24251.027719985967
+                            "x": 12404.537094537876,
+                            "y": 38651.02771998597
                         },
                         "targetPosition": {
-                            "x": 7681.9619207629,
-                            "y": 23952.671151375485
+                            "x": 12435.895633518172,
+                            "y": 38352.671151375485
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -814,12 +811,12 @@
                 "id": "104325f1-f22a-4c7b-95ce-0273830e810b",
                 "savedPayload": {
                     "position": {
-                        "x": 7681.9619207629,
-                        "y": 23952.671151375485
+                        "x": 12435.895633518172,
+                        "y": 38352.671151375485
                     },
                     "targetPosition": {
-                        "x": 7439.256822450416,
-                        "y": 23776.335575687743
+                        "x": 12193.190535205687,
+                        "y": 38176.33557568774
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -837,12 +834,12 @@
             "id": "527eb4c6-3e86-4990-a8b8-e017c9b5dba2",
             "savedPayload": {
                 "position": {
-                    "x": 7439.256822450416,
-                    "y": 23776.335575687743
+                    "x": 12193.190535205687,
+                    "y": 38176.33557568774
                 },
                 "targetPosition": {
-                    "x": 7196.551724137931,
-                    "y": 23600
+                    "x": 11950.485436893203,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1032,12 +1029,12 @@
             "id": "8b7f6e66-1c55-4d06-9128-2a7c07dd8f09",
             "savedPayload": {
                 "position": {
-                    "x": 7057.494076669205,
-                    "y": 24027.97543233282
+                    "x": 11811.427789424477,
+                    "y": 38427.975432332816
                 },
                 "targetPosition": {
-                    "x": 7196.551724137931,
-                    "y": 23600
+                    "x": 11950.485436893203,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1055,12 +1052,12 @@
         "id": "04ef86c5-ff08-4478-99e6-5ee7f27249da",
         "savedPayload": {
             "position": {
-                "x": 7196.551724137931,
-                "y": 23600
+                "x": 11950.485436893203,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 6896.551724137931,
-                "y": 23600
+                "x": 11650.485436893203,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1082,12 +1079,12 @@
         "id": "be4a5b81-0ab4-4080-a44c-a937a45bf9b5",
         "savedPayload": {
             "position": {
-                "x": 6596.551724137931,
-                "y": 23600
+                "x": 11350.485436893203,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 6896.551724137931,
-                "y": 23600
+                "x": 11650.485436893203,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1105,12 +1102,12 @@
     "id": "4f18c127-098f-4695-aed6-90632d3db544",
     "savedPayload": {
         "position": {
-            "x": 6896.551724137931,
-            "y": 23600
+            "x": 11650.485436893203,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 6896.551724137931,
-            "y": 23600
+            "x": 11650.485436893203,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": false,

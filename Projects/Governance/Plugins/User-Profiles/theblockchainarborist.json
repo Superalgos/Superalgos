@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "theblockchainarborist",
-    "config": "{\r\n    \"signature\": {\r\n        \"message\": \"theblockchainarborist\",\r\n        \"messageHash\": \"0x2b96d84519ace41f3130b6c0816df64dbedeaebfedb5208f82ae3e5aab409600\",\r\n        \"v\": \"0x1c\",\r\n        \"r\": \"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e880\",\r\n        \"s\": \"0x6750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec8\",\r\n        \"signature\": \"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e8806750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec81c\"\r\n    },\r\n    \"codeName\": \"theblockchainarborist\"\r\n}",
+    "config": "{\"signature\":{\"message\":\"theblockchainarborist\",\"messageHash\":\"0x2b96d84519ace41f3130b6c0816df64dbedeaebfedb5208f82ae3e5aab409600\",\"v\":\"0x1c\",\"r\":\"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e880\",\"s\":\"0x6750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec8\",\"signature\":\"0x515c8471c3261cbe63caa53245c688331a81e3c00f145cb23362dfe40a17e8806750f97fb5f354a7dd2c72a2b453a987352ccbc5bebe4c11fc1128c8ea629ec81c\"},\"codeName\":\"theblockchainarborist\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -127,12 +127,12 @@
             "id": "9bf0495b-fa9b-4619-a05f-12ae46f22df3",
             "savedPayload": {
                 "position": {
-                    "x": 7025.4767198693335,
-                    "y": 18514.683045111455
+                    "x": 7103.846625825447,
+                    "y": 23314.683045111455
                 },
                 "targetPosition": {
-                    "x": 7118.181818181818,
-                    "y": 18800
+                    "x": 7196.551724137931,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -317,7 +317,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Julian-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                 ]
                             ]
                         }
@@ -356,7 +358,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "PLuv",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                 ]
                             ]
                         }
@@ -395,7 +399,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Luis-Fernando-Molina",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                 ]
                             ]
                         }
@@ -481,12 +487,12 @@
             "id": "fef9f46d-9951-4faa-9dce-da55db55e790",
             "savedPayload": {
                 "position": {
-                    "x": 7360.886916494303,
-                    "y": 18623.664424312257
+                    "x": 7439.256822450416,
+                    "y": 23423.664424312257
                 },
                 "targetPosition": {
-                    "x": 7118.181818181818,
-                    "y": 18800
+                    "x": 7196.551724137931,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -518,12 +524,45 @@
                         "config": "{}",
                         "project": "Governance",
                         "votesSwitch": [],
-                        "claimVotesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "429f77e3-0ee7-47df-ac22-283bf982d8d5",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 7987.384097035976,
+                                        "y": 23532.293589842266
+                                    },
+                                    "targetPosition": {
+                                        "x": 7956.02555805568,
+                                        "y": 23830.650158452747
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
                         "weightVotesSwitch": [
                             {
                                 "type": "Weight Votes Switch",
                                 "name": "New Weight Votes Switch",
-                                "config": "{}",
+                                "config": "{\r\n    \"percentage\": 65\r\n}",
                                 "project": "Governance",
                                 "weightVotesSwitch": [],
                                 "poolWeightVotes": [
@@ -535,12 +574,12 @@
                                         "id": "6c89cef4-da4f-4243-8dc7-38131c156cce",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8259.229674255937,
-                                                "y": 18628.55503758085
+                                                "x": 8495.037158546706,
+                                                "y": 23960.05539462842
                                             },
                                             "targetPosition": {
-                                                "x": 8151.7192893923475,
-                                                "y": 18908.62916553001
+                                                "x": 8198.730656368165,
+                                                "y": 24006.98573414049
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -556,7 +595,7 @@
                                             "referenceParent": {
                                                 "type": "Pool",
                                                 "name": "Liquidity Rewards BUSD",
-                                                "id": "ee095642-5357-4c59-bd85-76058005f93f"
+                                                "id": "80359557-1ac5-4112-908a-679d3617167c"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -590,12 +629,12 @@
                                         "id": "69171506-bec0-4211-9c51-0cc55969cb67",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8425.782926685128,
-                                                "y": 18786.60817260727
+                                                "x": 8441.43575468065,
+                                                "y": 24183.321309828232
                                             },
                                             "targetPosition": {
-                                                "x": 8151.7192893923475,
-                                                "y": 18908.62916553001
+                                                "x": 8198.730656368165,
+                                                "y": 24006.98573414049
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -611,7 +650,7 @@
                                             "referenceParent": {
                                                 "type": "Pool",
                                                 "name": "Liquidity Rewards BNB",
-                                                "id": "052ca867-1093-4d24-9a18-738cadfc11af"
+                                                "id": "bdef6a71-1f21-4cc2-8acd-7987273a63a0"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -645,12 +684,12 @@
                                         "id": "f238ee9b-4166-497a-99cc-54e2f203502c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 8431.793417341509,
-                                                "y": 19016.1395503936
+                                                "x": 8245.660995880235,
+                                                "y": 24303.29223631903
                                             },
                                             "targetPosition": {
-                                                "x": 8151.7192893923475,
-                                                "y": 18908.62916553001
+                                                "x": 8198.730656368165,
+                                                "y": 24006.98573414049
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -666,7 +705,7 @@
                                             "referenceParent": {
                                                 "type": "Pool",
                                                 "name": "Liquidity Rewards BTCB",
-                                                "id": "52b41f1b-7b7f-4bdb-bc8f-96f23288b5fe"
+                                                "id": "7c9bbfc7-44a9-49e9-9611-90e4c5a566af"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -699,12 +738,12 @@
                                 "id": "021fac3d-3d61-48cd-9242-1a79e75a1327",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 8151.7192893923475,
-                                        "y": 18908.62916553001
+                                        "x": 8198.730656368165,
+                                        "y": 24006.98573414049
                                     },
                                     "targetPosition": {
-                                        "x": 7877.655652099567,
-                                        "y": 19030.650158452747
+                                        "x": 7956.02555805568,
+                                        "y": 23830.650158452747
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -724,12 +763,12 @@
                         "id": "78acca9a-6b4b-4bdc-9d62-507247676fe5",
                         "savedPayload": {
                             "position": {
-                                "x": 7877.655652099567,
-                                "y": 19030.650158452747
+                                "x": 7956.02555805568,
+                                "y": 23830.650158452747
                             },
                             "targetPosition": {
-                                "x": 7603.592014806787,
-                                "y": 19152.671151375485
+                                "x": 7681.9619207629,
+                                "y": 23952.671151375485
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -752,12 +791,12 @@
                     "id": "e567ce00-c2de-4d78-944e-72301d494f45",
                     "savedPayload": {
                         "position": {
-                            "x": 7572.2334758264915,
-                            "y": 19451.027719985967
+                            "x": 7650.603381782605,
+                            "y": 24251.027719985967
                         },
                         "targetPosition": {
-                            "x": 7603.592014806787,
-                            "y": 19152.671151375485
+                            "x": 7681.9619207629,
+                            "y": 23952.671151375485
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -775,17 +814,17 @@
                 "id": "104325f1-f22a-4c7b-95ce-0273830e810b",
                 "savedPayload": {
                     "position": {
-                        "x": 7603.592014806787,
-                        "y": 19152.671151375485
+                        "x": 7681.9619207629,
+                        "y": 23952.671151375485
                     },
                     "targetPosition": {
-                        "x": 7360.886916494303,
-                        "y": 18976.335575687743
+                        "x": 7439.256822450416,
+                        "y": 23776.335575687743
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 1,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -798,17 +837,17 @@
             "id": "527eb4c6-3e86-4990-a8b8-e017c9b5dba2",
             "savedPayload": {
                 "position": {
-                    "x": 7360.886916494303,
-                    "y": 18976.335575687743
+                    "x": 7439.256822450416,
+                    "y": 23776.335575687743
                 },
                 "targetPosition": {
-                    "x": 7118.181818181818,
-                    "y": 18800
+                    "x": 7196.551724137931,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -993,12 +1032,12 @@
             "id": "8b7f6e66-1c55-4d06-9128-2a7c07dd8f09",
             "savedPayload": {
                 "position": {
-                    "x": 6979.124170713092,
-                    "y": 19227.97543233282
+                    "x": 7057.494076669205,
+                    "y": 24027.97543233282
                 },
                 "targetPosition": {
-                    "x": 7118.181818181818,
-                    "y": 18800
+                    "x": 7196.551724137931,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1016,12 +1055,12 @@
         "id": "04ef86c5-ff08-4478-99e6-5ee7f27249da",
         "savedPayload": {
             "position": {
-                "x": 7118.181818181818,
-                "y": 18800
+                "x": 7196.551724137931,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 6818.181818181818,
-                "y": 18800
+                "x": 6896.551724137931,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1043,12 +1082,12 @@
         "id": "be4a5b81-0ab4-4080-a44c-a937a45bf9b5",
         "savedPayload": {
             "position": {
-                "x": 6518.181818181818,
-                "y": 18800
+                "x": 6596.551724137931,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 6818.181818181818,
-                "y": 18800
+                "x": 6896.551724137931,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1066,12 +1105,12 @@
     "id": "4f18c127-098f-4695-aed6-90632d3db544",
     "savedPayload": {
         "position": {
-            "x": 6818.181818181818,
-            "y": 18800
+            "x": 6896.551724137931,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 6818.181818181818,
-            "y": 18800
+            "x": 6896.551724137931,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,

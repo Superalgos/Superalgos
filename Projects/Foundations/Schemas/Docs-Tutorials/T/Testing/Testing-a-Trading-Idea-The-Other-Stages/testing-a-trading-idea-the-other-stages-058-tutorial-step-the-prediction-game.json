@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 58,
+    "type": "Tutorial Step - The Prediction Game",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "hit-ratio"
+        },
+        "text": "We expect the idea to trade at least twice per month, with a 50% hit ratio. That was our prediction! How did we do?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir gehen davon aus, dass die Idee mindestens zweimal pro Monat gehandelt wird, mit einer Trefferquote von 50 %. Das war unsere Vorhersage! Wie haben wir abgeschnitten?",
+                "updated": 1639418929482
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Trading frequency: There were less than two months' worth of downtrends in the tested period and a total of 9 trades. In terms of trading frequency, the idea passed the test.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading frequency: Im Testzeitraum gab es weniger als zwei Monate mit Abwärtstrends und insgesamt 9 Trades. Was die Handelshäufigkeit angeht, hat die Idee den Test bestanden.",
+                    "updated": 1639418937652
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Hit ratio: We've got 9 trades in total, with 2 hits and 7 fails, strictly speaking. That's a 22% hit ratio. In strict terms, the idea failed the test.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trefferquote (Hit ratio): Wir haben insgesamt 9 Trades, mit 2 Treffern und 7 Fehlschlägen, genau genommen. Das ist eine Trefferquote von 22 %. Streng genommen hat die Idee den Test also nicht bestanden.",
+                    "updated": 1639418944474
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Is there room for nuance in our analysis? Should we look past the hard numbers?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gibt es Raum für Nuancen in unserer Analyse? Sollten wir über die harten Zahlen hinwegsehen?",
+                    "updated": 1639418952754
+                }
+            ]
+        }
+    ]
+}

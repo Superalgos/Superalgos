@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Это - иерархия Charting Space, установленная в Time Machine, с котороый мы тренировались на графиках.",
                 "updated": 1636568000964
+            },
+            {
+                "language": "ID",
+                "text": "Ini adalah pengaturan hierarki Charting Space dari Time Machine yang telah kita gunakan di Chart.",
+                "updated": 1639708430258
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Потратьте несколько минут на изучение этих определений. Взгляните на меню различных узлов!",
                     "updated": 1636568053572
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan beberapa menit untuk menjelajahi hal ini! Intip semua menu-menu node yang berbeda-beda.",
+                    "updated": 1639708498693
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "RU",
                     "text": "Я надеюсь, что структура узлов достаточно интуитивно понятна, насколько является мощной концепция Design Space. Вы настраиваете машину времени, добавляя узлы Timeline Chart и нужные масштабы. Затем настройте менеджеры слоев и слои, ссылающиееся на соответствующие Data Mine Products, чтобы нужные данные стали доступны в определенном менеджере слоев на диаграмме. Это похоже на торговый график Legoland®! Вы научитесь настраивать диаграммы позже!",
                     "updated": 1636568388288
+                },
+                {
+                    "language": "ID",
+                    "text": "Saya harap struktur node cukup intuitif untuk memahami betapa kuatnya konsep Design Space. Kamu bisa mengatur time machine dengan menambahkan node Timeline Chart dan skala yang diinginkan. Kemudian atur layer managers dan layers yang mereferensikan Data Mine Products yang sesuai sehingga data yang diinginkan tersedia pada layer managers tertentu pada charts. Ini seperti trading charts di Legoland®! Kamu akan belajar mengkostumisasi chart nantinya!",
+                    "updated": 1639708702613
                 }
             ]
         }

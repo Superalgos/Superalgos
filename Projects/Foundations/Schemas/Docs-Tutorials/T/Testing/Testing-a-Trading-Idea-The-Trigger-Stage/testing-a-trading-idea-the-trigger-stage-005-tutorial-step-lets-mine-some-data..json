@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Nun, da Sie die Auswirkungen dieser Data-Mining-Operation verstanden haben, können wir loslegen!",
                 "updated": 1639254691946
+            },
+            {
+                "language": "TR",
+                "text": "Artık bu veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
+                "updated": 1641062954800
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Wenn Sie das zweite Tutorial der Serie nicht gemacht haben, wählen Sie \"Run All Project Data Tasks\" im Data Tasks node Menü!",
                     "updated": 1639254741699
+                },
+                {
+                    "language": "TR",
+                    "text": "Serideki ikinci öğreticiyi yapmadıysanız, Veri Görevleri ( Data Tasks ) düğüm menüsünden \"Tüm Proje Veri Görevlerini Çalıştır ( All Project Data Tasks )\" ı seçin!",
+                    "updated": 1641063044508
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Wenn Sie dieses Lernprogramm nach anderen Lernprogrammen durchführen, haben Sie vielleicht schon einen Teil der benötigten Daten, was die Sache beschleunigen kann! In jedem Fall brauchen Sie nicht zu warten, bis die Datenerfassung zum jetzigen Zeitpunkt abgeschlossen ist... Sie können mit dem Lernprogramm fortfahren!",
                     "updated": 1639254750312
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğretici ile devam edebilirsiniz!",
+                    "updated": 1641063083080
                 }
             ]
         }

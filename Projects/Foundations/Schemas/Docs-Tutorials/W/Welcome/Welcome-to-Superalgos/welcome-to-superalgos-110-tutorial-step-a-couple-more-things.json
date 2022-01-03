@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Gitmene izin vermeden önce sana söylemek istediğim birkaç şey daha var! Benimle kal.",
                 "updated": 1636643056079
+            },
+            {
+                "language": "ID",
+                "text": "Ada beberapa hal lagi yang ingin aku ceritakan sebelum aku membiarkan kamu pergi! Bersabarlah!",
+                "updated": 1640599954167
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Superalgos'un gelecek sürümleri için üzerinde çalıştığımız şeyler hakkında size hızlı bir giriş yapacağım! Makine Öğrenimi ( Machine Learning) algoritmalarından bahsetmiştim ama dahası da var! Çok daha fazla!",
                     "updated": 1636643093703
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku akan memberi kamu pengantar singkat tentang apa yang kami kerjakan untuk versi Superalgos yang akan datang! Aku menyebutkan Machine Learning algorithms, tetapi masih ada lagi! Lebih banyak lagi!",
+                    "updated": 1640600007573
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Ayrıca, yaptığımız şeyi takdir ediyorsanız, yardımcı olabileceğinizi de bilmenizi isterim! Superalgos'u inşa etmek ve onu mevcut durumuna getirmek için on binlerce saatlik sıkı çalışma yapıldı. Umarım birkaç dakikanızı ayırıp geri bildirim verebilirsiniz. Size nereden başlayacağınızı söylemekten mutluluk duyacağım!",
                     "updated": 1636643137813
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku juga ingin memberi tahu kamu bahwa — jika kamu menghargai apa yang kami lakukan — kamu dapat membantu! Puluhan ribu jam kerja keras telah dilakukan untuk membangun Superalgos dan membawanya ke kondisi saat ini. Aku harap kamu dapat mengambil beberapa menit dari waktumu untuk memberi kembali, dan aku akan dengan senang hati memberi tahu kamu di mana harus memulai!",
+                    "updated": 1640600075612
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Hadi devam edelim!",
                     "updated": 1636643263166
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita kesana!",
+                    "updated": 1640600086753
                 }
             ]
         }

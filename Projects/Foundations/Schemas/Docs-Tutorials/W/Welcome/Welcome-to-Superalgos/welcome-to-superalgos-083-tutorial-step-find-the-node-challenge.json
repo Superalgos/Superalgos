@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Alım Satım Motoru ( Trading Engine ), bilgileri kullanıcılar ve alım satım sistemleri için erişilebilir hale getirerek otomatik alım satımın gerektirdiği karmaşıklığı yönetir.",
                 "updated": 1636211481328
+            },
+            {
+                "language": "ID",
+                "text": "The Trading Engine mengelola kompleksitas yang disyaratkan dalam automated trading dengan membuat informasi dapat diakses oleh pengguna dan trading systems.",
+                "updated": 1640566966022
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "Ayrıntı düzeyi hakkındaki yorumlarımı hatırlıyor musunuz? Ticaret sistemindeki formülün çıkış hedef oranının değerini nasıl aldığını hatırlıyor musunuz? İşte kısa bir hatırlatma:",
                     "updated": 1636211506020
+                },
+                {
+                    "language": "ID",
+                    "text": "Ingat komentar saya tentang granularity? Ingat bagaimana formula pada trading system mengambil nilai dari exit target rate? Ini pengingat singkat :",
+                    "updated": 1640567056696
                 }
             ]
         },
@@ -93,6 +103,11 @@
                     "language": "TR",
                     "text": "Bu dizi, Trading Engine hiyerarşisinin veri yapısındaki o bilgi parçasının yolunu tutar! Çıkış Hedef Hızı ( Exit Target Rate ) düğümünü bulabilir misiniz? Hiyerarşiyi genişletin ve izini takip edin!",
                     "updated": 1636211761179
+                },
+                {
+                    "language": "ID",
+                    "text": "String ini memegang jalur ke informasi itu dalam data structure dari Trading Engine hierarchy! Bisakah kamu menemukan  Exit Target Rate node? Expand hierarki dan ikuti breadcrumb trail!",
+                    "updated": 1640567181383
                 }
             ]
         }

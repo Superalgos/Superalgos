@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Ticaret sisteminden ayrılmadan önce, bu emirlerden birine hızlıca bir göz atalım ve neyin ilgi çekici olabileceğini görelim.",
                 "updated": 1636211034839
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kita meninggalkan trading system, mari kita lihat dengan cepat salah satu pesanan ini dan lihat mungkin ada yang menarik.",
+                "updated": 1640566644087
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Profit 0.6'yı genişletin ve Sipariş Oranı düğümünün formülünü kontrol edin. (Düğümün üzerine geldiğinizde sol altta bulunan  ( + )butonu ile genişletebilirsiniz.)",
                     "updated": 1636211159570
+                },
+                {
+                    "language": "ID",
+                    "text": "Expand Profit 0.6 dan periksa formula Order Rate node.",
+                    "updated": 1640566727451
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Formülün bu gizemli parçasına odaklanalım:",
                     "updated": 1636211171683
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita fokus pada sedikit formula misterius ini :",
+                    "updated": 1640566761290
                 }
             ]
         },
@@ -121,6 +136,11 @@
                     "language": "TR",
                     "text": "Formül, başka bir yerde tanımlanan Çıkış Hedef Oranının ( Exit Target Rate ) değerini getiriyor. Bu hedef oranın ne olabileceğine odaklanmayalım. Bunun yerine, bir Alım Satım Sisteminin ( Trading System ) Alım Satım Botu tarafından işlenen bilgilere erişme mekanizmasına bir göz atalım.",
                     "updated": 1636211282034
+                },
+                {
+                    "language": "ID",
+                    "text": "Formula ini mengambil nilai dari Exit Target Rate, yang ditentukan di tempat lain. Jangan fokus pada tingkat target ini. Sebagai gantinya, mari kita lihat mekanisme di mana Trading System dapat memiliki akses ke informasi yang diproses oleh Trading Bot.",
+                    "updated": 1640566862084
                 }
             ]
         }

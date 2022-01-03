@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 49,
+    "type": "Tutorial Step - Counting Candles!",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-candles",
+            "project": "Foundations"
+        },
+        "text": "Take a good look at the first few candles in the data set. Do you see anything unusual?",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Schauen Sie sich die ersten paar Kerzen im Datensatz genau an. Sehen Sie etwas Ungewöhnliches?",
+                "updated": 1639268011211
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "The Bollinger SubChannels does not exist for the first 19 candles! Hence, the object is undefined!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Bollinger SubChannels existieren für die ersten 19 Kerzen nicht! Das Objekt ist also undefiniert!",
+                    "updated": 1639268020854
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The indicator derives from the Bollinger Bands, and the bands require at least 20 periods of historic data to be calculated. That is why it's undefined for 19 candles.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Indikator leitet sich von den Bollinger Bands ab, und die Bänder benötigen mindestens 20 Perioden historischer Daten, um berechnet zu werden. Deshalb ist er für 19 Kerzen undefiniert.",
+                    "updated": 1639268048706
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If we want to test a certain time range, we must make sure that all indicators we use in our trading system are calculated for the full range!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn wir einen bestimmten Zeitbereich testen wollen, müssen wir sicherstellen, dass alle Indikatoren, die wir in unserem Trading System verwenden, für den gesamten Bereich berechnet werden!",
+                    "updated": 1639268041196
+                }
+            ]
+        }
+    ]
+}

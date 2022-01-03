@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 44,
+    "type": "Tutorial Step - Chronology of a Position",
+    "definition": {
+        "icon": {
+            "name": "Position\\position",
+            "project": "Foundations"
+        },
+        "text": "Let's take a few minutes to dissect this position, looking particularly into what makes each stage tick...",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nehmen wir uns ein paar Minuten Zeit, um diese Position zu analysieren und insbesondere zu untersuchen, was die einzelnen Phasen ausmacht...",
+                "updated": 1639418370671
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Trigger Stage: Opens on Feb 27th at 0 hs because the 24H Bollinger SubChannel turned Down and not Side. Go check if that is the case! The stage closes on Feb 28th at 9 hs, after the second breakdown triggers the Take Position Event.",
+            "updated": 1622549831232,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trigger Stage: Eröffnet am 27. Februar um 0 Uhr, weil der 24-Stunden-Bollinger-Sub-Channel nach unten und nicht zur Seite gedreht hat. Prüfen Sie, ob das der Fall ist! Die Stage schließt am 28. Februar um 9 Uhr, nachdem der zweite Breakdown das Take Position Event auslöst.",
+                    "updated": 1639418386548
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Open Stage: Opens when the trigger stage closes, and closes one hour later (!?) after the market sell order is placed.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Open Stage: Eröffnet, wenn die Trigger Stage schließt, und schließt eine Stunde später (!?), nachdem der Marktverkaufsauftrag erteilt wurde.",
+                    "updated": 1639418398689
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "One hour later? Yes! Remember we are running the simulation on the 1H time frame! We'll discuss this matter in depth later on!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Eine Stunde später? Ja! Denken Sie daran, dass wir die Simulation auf dem Zeitrahmen von 1 Stunde laufen lassen! Wir werden diese Angelegenheit später noch eingehend besprechen!",
+                    "updated": 1639418407571
+                }
+            ]
+        }
+    ]
+}

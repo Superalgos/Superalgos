@@ -1,0 +1,56 @@
+{
+    "tutorial": "Testing a Trading Idea - The Other Stages",
+    "pageNumber": 50,
+    "type": "Tutorial Step - Actual Size",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "actual-size"
+        },
+        "text": "What happens if the actual rate of the order is different than the rate established as a target? Time for the bot to do some calculations!",
+        "updated": 1612715192513,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Was passiert, wenn die tatsächliche Rate des Auftrags von der als Ziel festgelegten Rate abweicht? Zeit für den Bot, einige Berechnungen anzustellen!",
+                "updated": 1639418608025
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "When the trading bot adjusts a variable in an order, there's a ripple effect of further adjustments.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn der Trading-Bot eine Variable in einem Auftrag anpasst, kommt es zu einem Ripple-Effekt mit weiteren Anpassungen.",
+                    "updated": 1639418622821
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Hover the mouse over the second warning on Feb 28th and read!",
+            "updated": 1622557906751,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Fahren Sie mit der Maus über die zweite Warnung am 28. Februar und lesen Sie!",
+                    "updated": 1639418629843
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "For the open stage, we defined the target size in the base asset. However, the system must keep track of variables in both assets! Because the order rate was adjusted, the size of the order in the quoted asset must be adjusted too!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Für die Open Stage haben wir die Zielgröße im Basiswert definiert. Das System muss jedoch die Variablen in beiden Anlagen im Auge behalten! Da der Auftragssatz angepasst wurde, muss auch die Größe des Auftrags im börsennotierten Vermögenswert angepasst werden!",
+                    "updated": 1639418637950
+                }
+            ]
+        }
+    ]
+}

@@ -44,6 +44,11 @@
                 "language": "RU",
                 "text": "Пользователи предоставляют переводы для выбора предпочитаемого языка. Это потрясающее Community! ",
                 "updated": 1635453127908
+            },
+            {
+                "language": "ID",
+                "text": "Pengguna saling berkontribusi dalam menerjemahkan sehingga kamu dapat memilih bahasa pilihanmu! Community ini luarbiasa!",
+                "updated": 1639582383650
             }
         ]
     },
@@ -87,6 +92,11 @@
                     "language": "RU",
                     "text": "Как это работает: английский - язык по умолчанию. В случае, если Вы выберете какой-нибудь другой язык, где существует перевод текущей страницы, у Вас появится возможность перевода на данном предпочитаемом языке. В обратном случае, язык остается  - английский.",
                     "updated": 1635448551187
+                },
+                {
+                    "language": "ID",
+                    "text": "Begini cara kerjanya: bahasa utama adalah bahasa Inggris. Jika kamu pilih bahasa lain dan ada terjemahannya, maka kamu sudah berada di bahasa yang diinginkan. Jika tidak, Kamu akan membacanya dalam bahasa Inggris!",
+                    "updated": 1639582032428
                 }
             ]
         },
@@ -129,6 +139,11 @@
                     "language": "RU",
                     "text": "Используйте колесико мыши, чтобы прокрутить страницу в правильном направлении вниз. Нажмите на флажок, чтобы изменить предпочитаемый язык, если Вы желаете.",
                     "updated": 1635448656834
+                },
+                {
+                    "language": "ID",
+                    "text": "Gunakan mouse wheel untuk menggulir halaman di kanan bawah. Click bendera sesuai bahasa yang kamu inginkan!",
+                    "updated": 1639582298058
                 }
             ]
         },
@@ -171,6 +186,11 @@
                     "language": "RU",
                     "text": "Только документы и учебное пособие могут быть переведены, но не интерфейс, ни заголовки.",
                     "updated": 1635448708836
+                },
+                {
+                    "language": "ID",
+                    "text": "Hanya Docs dan tutorials yang akan diterjemahkan, bukan interface, ataupun titles!",
+                    "updated": 1639582361956
                 }
             ]
         }

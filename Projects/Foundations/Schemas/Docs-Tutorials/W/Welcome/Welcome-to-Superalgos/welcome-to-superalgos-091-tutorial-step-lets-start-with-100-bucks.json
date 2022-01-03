@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Varsayılan initialBalance, Binance tarafından desteklenen minimum işlem boyutunun çok üzerinde, 100 USDT'ye ayarlanmıştır.",
                 "updated": 1636404457948
+            },
+            {
+                "language": "ID",
+                "text": "Hal utama initialBalance diatur ke 100 USDT, jauh di atas ukuran transaksi minimum yang didukung oleh Binance.",
+                "updated": 1640575059904
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "initialBalance, Session Quoted Asset yapılandırmasında tanımlanır. Kontrol edin ve değiştirmek isteyip istemediğinize kendiniz karar verin!",
                     "updated": 1636404734897
+                },
+                {
+                    "language": "ID",
+                    "text": "Saldo awal initialBalance didefinisikan dalam konfigurasi Session Quoted Asset. Lihat dan putuskan sendiri jika kamu ingin mengubahnya!",
+                    "updated": 1640575114280
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Binance, minimum işlem boyutunu BTC olarak tanımlar. (İlerleyen zamanlarda USDT yada diğer pair'ler ile de işlem yapmayı öğreneceğiz) Bu nedenle USDT'deki gereksinim zamanla çok değişir. Hatalarla karşılaşmamanız için tutarı 100 USDT olarak belirledim. Daha küçük bir miktarla denemekte özgürsünüz. Çok küçükse hata alırsınız, ancak gerektiği kadar tekrar deneyebilirsiniz. Görevi durdurun, Session Quoted Asset başlangıç değerini değiştirin ve yeniden deneyin!",
                     "updated": 1636404699851
+                },
+                {
+                    "language": "ID",
+                    "text": "Binance menentukan ukuran transaksi minimum dalam BTC, sehingga persyaratan dalam USDT sangat bervariasi seiring waktu. Saya mengatur jumlahnya menjadi 100 USDT hanya untuk memastikan kamu tidak mengalami kesalahan. Kamu bebas mencoba dengan jumlah yang lebih kecil. kamu akan mendapatkan kesalahan jika terlalu kecil tetapi dapat mencoba lagi sebanyak yang diperlukan. Hentikan saja taskmya, ubah initialBalance dalam Session Quoted Asset, dan coba lagi!",
+                    "updated": 1640575200976
                 }
             ]
         }

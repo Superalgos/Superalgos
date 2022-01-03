@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 71,
+    "type": "Tutorial Step - Take Position Event",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "take-position-event"
+        },
+        "text": "Let's do a quick check on the take position event and then address the elephant in the room: we have errors!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Überprüfen wir kurz das Take-Position-Ereignis und gehen wir dann auf das Problem ein, das im Raum steht: Wir haben Fehler!",
+                "updated": 1639390692837
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "We mentioned earlier that when either the take position event or the trigger off event validates true, the trigger stage closes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wir haben bereits erwähnt, dass die Trigger Stage geschlossen wird, wenn entweder das Take-Position-Ereignis oder das Trigger-Off-Ereignis als wahr true bestätigt wird.",
+                    "updated": 1639390741408
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Well, we can see the Trigger Stage closing on Feb 28th, at 9 hs... right after two consecutive hourly closes below the lower band! So far so good!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Nun, wir können sehen, dass die Trigger Stage am 28. Februar um 9 Uhr schließt... direkt nach zwei aufeinanderfolgenden stündlichen Schlusskursen unterhalb des unteren Bandes! So weit, so gut!",
+                    "updated": 1639390757768
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "But we have errors immediately after that! Can you figure out what's going on?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Aber unmittelbar danach treten Fehler auf! Können Sie herausfinden, was hier los ist?",
+                    "updated": 1639390764149
+                }
+            ]
+        }
+    ]
+}

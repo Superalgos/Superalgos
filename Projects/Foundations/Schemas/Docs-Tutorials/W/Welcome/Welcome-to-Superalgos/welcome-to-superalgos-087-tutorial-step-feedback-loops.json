@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Devam etmeden önce sabit geri besleme döngüsü kavramının anlaşılması için başka bir örneğe bakalım!",
                 "updated": 1636403007502
+            },
+            {
+                "language": "ID",
+                "text": "Mari kita lihat contoh lain untuk membiarkan constant feedback loop dipahami sebelum kita melanjutkan!",
+                "updated": 1640574155481
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Limitli alış emirleri ile ilgili bilgilerin tutulduğu veri yapısıdır.",
                     "updated": 1636403126356
+                },
+                {
+                    "language": "ID",
+                    "text": "Ini adalah data structure di mana informasi tentang limit buy orders disimpan.",
+                    "updated": 1640574196992
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Grafiklerdeki Trading Engine katmanları yöneticisine gidin (soldan ikinci). Aşağı kaydırın ve Satın Alma Siparişlerini Sınırla ( Limit Buy Order )katmanını açın. Şimdi fare imlecini birkaç satın alma siparişinin üzerine kaydırın ve tasarım alanındaki düğümler üzerindeki etkisini kontrol edin.",
                     "updated": 1636403375825
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke Trading Engine layers manager di charts (penghitungan kedua dari kiri). Scroll ke bawah dan nyalakan Limit Buy Orders layer. Sekarang geser mouse pointer ke beberapa buy orders dan periksa efeknya pada node pada design space.",
+                    "updated": 1640574308968
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Ticaret botu tarafından yönetilen veriler üzerinde bu düzeyde bir kontrole sahip olmanın etkilerini hayal edebiliyor musun?",
                     "updated": 1636403403085
+                },
+                {
+                    "language": "ID",
+                    "text": "Bisakah kamu membayangkan implikasi dari memiliki tingkat kontrol ini atas data yang dikelola oleh trading bot?",
+                    "updated": 1640574395517
                 }
             ]
         }

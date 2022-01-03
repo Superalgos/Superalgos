@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Не удивляйтесь, если Вы найдете над этой конструкцией знак \"Здесь и там\"...",
                 "updated": 1636749753795
+            },
+            {
+                "language": "ID",
+                "text": "Jangan heran jika kamu menemukan tanda under construction di sana-sini...",
+                "updated": 1639746541722
             }
         ],
         "updated": 1622200773527
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Как я упоминал ранее, Superalgos постоянно растет и инфраструктура выстраивается для предстоящей версии, иногда может быть объединена с текущей версией в пакете обновления вместе  с необходимыми исправлениями и незначительными улучшениями.",
                     "updated": 1636749912452
+                },
+                {
+                    "language": "ID",
+                    "text": "Seperti yang aku sebutkan sebelumnya, Superalgos terus berkembang, dan infrastruktur yang dirancang untuk versi mendatang terkadang dapat digabungkan ke versi saat ini dalam paket layanan, bersama dengan perbaikan yang diperlukan dan peningkatan kecil.",
+                    "updated": 1639747370491
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "RU",
                     "text": "Если Вам интересно, что готовится к предстоящему выпуску Superalgos, присоединяйтесь к группе в телеграмме SuperalgosDevelop.",
                     "updated": 1636750362265
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu ingin tahu tentang apa yang sedang dikerjakan untuk perilisan Superalgos yang akan datang, bergabunglah dengan grup Superalgos Develop Telegram.",
+                    "updated": 1639746959028
                 }
             ],
             "updated": 1636750158168

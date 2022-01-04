@@ -654,7 +654,7 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "EvaMaria70 Tokens Pool EvaMaria70 Team PoW Report",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404",
@@ -680,39 +680,29 @@
                                     },
                                     "referenceParent": {
                                         "type": "Position",
-                                        "name": "Team Creator EvaMaria70 Token Pool",
-                                        "id": "8bfad32e-ec6e-4fc7-97a5-8edaf4146076"
+                                        "name": "EvaMaria70 Tokens Pool",
+                                        "id": "3940f893-53da-4b45-a03a-34dd16d4a657"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions",
-                                            "Governance",
-                                            "862caa2e-7c05-4051-b5eb-3494174e2cd9"
+                                            "Positions"
                                         ],
                                         [
-                                            "Teams @ Nov 2021",
-                                            "Position Class",
-                                            "Governance",
-                                            "4d8fd5e7-76dc-4a81-8a78-d1e3d12a8244"
+                                            "Teams @ Dec 2021",
+                                            "Position Class"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class",
-                                            "Governance",
-                                            "90e3eeda-0a84-4338-ae03-c1b0199660ad"
+                                            "Position Class"
                                         ],
                                         [
-                                            "Non-Tech-Users Community Team",
-                                            "Position Class",
-                                            "Governance",
-                                            "16dca1fb-10a0-4ff3-9d29-efca11ad421d"
+                                            "EvaMaria70 Team PoW Report",
+                                            "Position Class"
                                         ],
                                         [
-                                            "Team Creator EvaMaria70 Token Pool",
-                                            "Position",
-                                            "Governance",
-                                            "8bfad32e-ec6e-4fc7-97a5-8edaf4146076"
+                                            "EvaMaria70 Tokens Pool",
+                                            "Position"
                                         ]
                                     ]
                                 }

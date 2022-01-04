@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Необходимо ли мне рассказать Вам, как работает Rate Scale, или Вы можете разобраться в этом самостоятельно? Хорошо... Я дам Вам подсказку...",
                 "updated": 1636206915335
+            },
+            {
+                "language": "ID",
+                "text": "Apakah aku perlu memberi tahu cara kerja  Rate Scale atau kamu bisa mengetahuinya? Ok... aku kasih petunjuknya...",
+                "updated": 1639585090968
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Шкала ставок работает так же, как и шкала времени, но при использовании клавиатуры, Вам необходимо поменять местами клавиши со стрелками. Используйте стрелки ← → для переключения между автоматическими режимами и стрелки ↑ ↓ - для изменения масштаба! Проверьте следующее видео для большей ясности!",
                     "updated": 1636207110611
+                },
+                {
+                    "language": "ID",
+                    "text": "Skala kecepatan berfungsi seperti skala waktu, tetapi —saat menggunakan keyboard—Kamu harus membalik tombol panah! Gunakan panah kiri dan kanan ← → untuk beralih melalui mode otomatis dan panah atas dan bawah ↑ ↓ untuk mengubah skalanya! Lihatlah video berikutnya agar lebih jelas!",
+                    "updated": 1639585260696
                 }
             ],
             "updated": 1616505192799
@@ -103,6 +113,11 @@
                     "language": "RU",
                     "text": "Поиграйте с полуавтоматическими масштабными моделями! Вы знаете, когда один крошечный треугольник остается видимым после нескольких щелчков колесика мыши.",
                     "updated": 1636207203334
+                },
+                {
+                    "language": "ID",
+                    "text": "Mainkan juga dengan mode skala semi-otomatis! Yaitu, ketika sebuah segitiga kecil tetap terlihat setelah beberapa gerakan mouse wheel.",
+                    "updated": 1639585366854
                 }
             ]
         }

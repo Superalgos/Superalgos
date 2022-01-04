@@ -29,7 +29,7 @@ function firstRun() {
     fs.writeFileSync(configPath, '');
   } catch (error) {
     if (error.code === 'ENOENT') {
-      fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/FirstRun'));
+      fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/'), {recursive: true});
       return firstRun();
     }
 
@@ -237,7 +237,7 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  if (BrowserWindow.getAllWindows().length === 0) openMain()
 })
 
 function createMainMenus() { 

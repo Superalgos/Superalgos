@@ -183,8 +183,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Setelah semua tasks berhenti kamu harus menutup console app.",
-                    "updated": 1616932273154,
+                    "text": "Ketika semua tasks berhenti, Kamu dapat menutup aplikasi konsol atau proses dengan Ctrl + Key-C.",
+                    "updated": 1639745211165,
                     "style": "List"
                 },
                 {

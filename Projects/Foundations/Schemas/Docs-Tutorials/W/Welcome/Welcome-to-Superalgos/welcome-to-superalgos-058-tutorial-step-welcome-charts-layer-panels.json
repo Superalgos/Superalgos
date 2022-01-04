@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Этот шаг воспроизводит видео в полноэкранном режиме.",
                 "updated": 1636567631982
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582640987
             }
         ]
     },

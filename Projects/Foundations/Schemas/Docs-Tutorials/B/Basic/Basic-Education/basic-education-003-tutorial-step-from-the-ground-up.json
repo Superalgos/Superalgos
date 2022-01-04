@@ -14,6 +14,11 @@
                 "language": "TR",
                 "text": "Dürüst olmak gerekirse, konuksever arkadaşım, arayüzde gezinmek ve rahat hissetmek için bilmeniz gereken birçok temel işlemi size öğretti...",
                 "updated": 1636700031937
+            },
+            {
+                "language": "ID",
+                "text": "Sebenarnya, temanku telah mengajari kamu banyak operasi dasar yang perlu kamu ketahui untuk berputar-putar dan merasa nyaman dengan interface bot...",
+                "updated": 1641093294776
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "TR",
                     "text": "Benimle temel eğitiminizi tamamlayacaksınız! Bu öğreticiyi bitirdikten sonra, kendi Ticaret Sisteminizi ( Trading System ) nasıl kuracağınızı öğrenmeye başlamaya hazır olacaksınız... Amacımız da değil mi?",
                     "updated": 1636700088723
+                },
+                {
+                    "language": "ID",
+                    "text": "Bersamaku, Kamu akan menyelesaikan edukasi dasar-mu! Setelah Kamu menyelesaikan tutorial ini, Kamu akan siap untuk mulai belajar bagaimana membangun Trading System -mu sendiri... Lagipula tujuan ini semua untuk itu, benar?",
+                    "updated": 1641093411250
                 }
             ]
         },
@@ -39,13 +49,25 @@
                     "language": "TR",
                     "text": "Arayüzün genel görünümü, çalışma alanları, yedeklemeler, eklentiler ve daha fazlasına odaklanacağız!",
                     "updated": 1636700135746
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi!",
+                    "updated": 1641093480726
                 }
             ]
         },
         {
             "style": "Success",
             "text": "Let's get on with it!",
-            "updated": 1615311356804
+            "updated": 1615311356804,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Mari kita lanjutkan!",
+                    "updated": 1641093517301
+                }
+            ]
         }
     ]
 }

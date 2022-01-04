@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Мы провели обратное тестирование, но мы не обсуждали Trading System, которую мы тестируем! Давайте пройдемся по основам!",
                 "updated": 1636931402487
+            },
+            {
+                "language": "ID",
+                "text": "Kita telah menjalankan backtest tetapi kita belum membahas Trading System yang kita uji! Mari kita pergi melalui dasar-dasar!",
+                "updated": 1639748602660
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "RU",
                     "text": "Торговая система заключается в том, чтобы купить \"падающий нож\" и продать \"отскок\". Стратегия размещает Limit Buy Order на расстоянии ниже цены. Если заказ не будет выполнен в течение следующей минуты, то он отменяется и размещается новый, возможно, по скорректированной ставке. Если цена внезапно упадет, есть шансы, что заказ будет выполнен. Если это произойдет, то стратегия попытается продать его по более высокой цене.",
                     "updated": 1636931763305
+                },
+                {
+                    "language": "ID",
+                    "text": "trading idea adalah membeli \"the falling knife\" dan menjual \"rebound\". Strategi menempatkan Limit Buy Order pada jarak di bawah harga. Jika pesanan tidak dipenuhi pada menit berikutnya, pesanan dibatalkan dan pesanan baru ditempatkan, berpotensi pada tingkat yang disesuaikan. Jika harga turun tiba-tiba, kemungkinan order akan terisi. Jika itu terjadi, maka strategi mencoba menjual dengan harga lebih tinggi.",
+                    "updated": 1639748809480
                 }
             ]
         },
@@ -108,6 +118,11 @@
                     "language": "RU",
                     "text": "Давайте обсудим не достоинства торговой системы, а ее реализацию. Это всего лишь выставленная на показ демонстрация возможностей Trading Bot, а не стратегии как таковой.",
                     "updated": 1636933888559
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita tidak membahas manfaat dari trading idea tetapi implementasinya. Ini hanya demo untuk memamerkan kapasitas Trading Bot, bukan strateginya sendiri.",
+                    "updated": 1639748659157
                 }
             ]
         }

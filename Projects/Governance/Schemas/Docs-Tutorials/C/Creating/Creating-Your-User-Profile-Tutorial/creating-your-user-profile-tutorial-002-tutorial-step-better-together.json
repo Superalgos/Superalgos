@@ -82,6 +82,11 @@
                     "language": "RU",
                     "text": "Перейдите в нижний колонтитул и переключите ветвь Contributions и Current Branch на Develop. Теперь запустите команду app.update, чтобы получить последнюю версию Develop, перезапустите клиент Client и пользовательский интерфейс UI, и только после этого вы можете продолжить изучение этого руководства!",
                     "updated": 1639043421197
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zur Fußzeile und schalten Sie sowohl den Beitragszweig als auch den aktuellen Zweig auf Develop um.<br><br>Führen Sie nun den Befehl app.update aus, um Develop auf den neuesten Stand zu bringen, starten Sie den Client und die Benutzeroberfläche ( UI ) neu, und erst dann können Sie mit diesem Tutorial fortfahren!",
+                    "updated": 1640901184246
                 }
             ]
         },

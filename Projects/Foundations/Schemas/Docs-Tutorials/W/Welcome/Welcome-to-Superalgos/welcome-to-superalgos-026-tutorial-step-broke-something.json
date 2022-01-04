@@ -64,8 +64,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "... ada cara mudah untuk memulai kembali dengan workspace baru!",
-                    "updated": 1616770151572,
+                    "text": "Kamu dapat dengan mudah memulai kembali dengan Getting Started Tutorials Plugin Workspace!",
+                    "updated": 1639744807414,
                     "style": "Callout"
                 },
                 {
@@ -111,8 +111,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "yang kamu butuhkan yaitu menarik tab yang ada di sisi kiri dari layarmu dan click pada Getting-Started plugin workspace.",
-                    "updated": 1616770232356,
+                    "text": "Dalam kasus seperti itu, cukup tarik tab di sisi kiri, gulir, temukan plugin Getting Started Tutorials, dan klik! Plugin Workspace dasar akan dimuat dan tutorial akan muncul lagi, baru dari awal!",
+                    "updated": 1639744920683,
                     "style": "Text"
                 },
                 {
@@ -178,6 +178,11 @@
                     "language": "NL",
                     "text": "Plugin Workspaces horen bij het systeem, laten we eens kijken of je ze eigen kan maken of zelfs nieuwe kan creëeren!",
                     "updated": 1636978365070
+                },
+                {
+                    "language": "ID",
+                    "text": "Plugin Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru!",
+                    "updated": 1639744717855
                 }
             ]
         }

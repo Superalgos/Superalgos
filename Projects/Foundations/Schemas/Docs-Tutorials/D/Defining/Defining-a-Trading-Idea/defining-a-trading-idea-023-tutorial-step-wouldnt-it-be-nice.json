@@ -43,6 +43,11 @@
             "text": "A safer approach to trading is predicting the continuation of a trend that is already established! <br/><br/>Remember Rule 8? Closes outside the Bollinger Bands are initially continuation signals!",
             "translations": [
                 {
+                    "language": "DE",
+                    "text": "Ein sicherer Ansatz für den Handel ist die Vorhersage der Fortsetzung eines Trends, der sich bereits etabliert hat!<br><br>Erinnern Sie sich an Regel 8? Schlusskurse außerhalb der Bollinger Bänder sind zunächst Signale für die Fortsetzung des Trends!",
+                    "updated": 1640903079150
+                  },
+                  {
                     "language": "TR",
                     "text": "Ticarete daha güvenli bir yaklaşım, halihazırda kurulmuş olan bir trendin devamını tahmin etmektir!     Kural 8'i hatırlıyor musun? Bollinger Bantlarının dışındaki kapanışlar başlangıçta devam sinyalleridir!",
                     "updated": 1640949333106

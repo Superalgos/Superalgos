@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bir düğüm sabitlendiğinizde, o düğüm diğer düzenleme özelliklerinin ayarından bağımsız olarak bir konuma sabitlenir!",
                 "updated": 1636699565557
+            },
+            {
+                "language": "ID",
+                "text": "Ketika sebuah node disematkan, ia menjadi tetap pada suatu posisi terlepas dari aturan terhadap properti pengaturan lainnya!",
+                "updated": 1641095066263
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bir düğümü, bir düğüm yapısını ve hatta tüm hiyerarşiyi sabitleyebilirsiniz. Başka bir şey deneyelim...",
                     "updated": 1636699582052
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat menyematkan node, structure nodes, dan bahkan hierarchy lengkap. Mari kita coba yang lain...",
+                    "updated": 1641095118415
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "İşlem Parametreleri ( Trading Parameters ) düğümünü sabitleyin ve sürükleyin!",
                     "updated": 1636699715298
+                },
+                {
+                    "language": "ID",
+                    "text": "Sematkan Trading Parameters node dan seret!",
+                    "updated": 1641095154161
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Tüm yavru düğümlerin ana düğümü nasıl takip ettiğine dikkat edin. Ancak, Oturum Temel Varlık ( Session Base Asset ) düğümü konumunda kalır! Devam etmeden önce, çalışma alanını düzenli tutmak için tüm düğümlerin sabitlemesini kaldırın!",
                     "updated": 1636699753332
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana semua nodes keturunan mengikuti node induk. Namun, Session Base Asset node tetap dalam posisi! Sebelum kita melanjutkan, unpin semua node untuk menjaga workspace  tetap rapi!",
+                    "updated": 1641095251482
                 }
             ]
         }

@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 14243.103448275862,
-                    "y": 23340.192378864667
+                    "y": 28140.192378864667
                 },
                 "targetPosition": {
                     "x": 14093.103448275862,
-                    "y": 23600
+                    "y": 28400
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -182,11 +182,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 14993.103448275862,
-                                                "y": 23080.384757729335
+                                                "y": 27880.384757729335
                                             },
                                             "targetPosition": {
                                                 "x": 14843.103448275862,
-                                                "y": 23340.192378864667
+                                                "y": 28140.192378864667
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -207,15 +207,21 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Superalgos",
-                                                    "Pools"
+                                                    "Pools",
+                                                    "Governance",
+                                                    "8b627c23-1c7c-4a96-9406-0a83ac9005bf"
                                                 ],
                                                 [
                                                     "Teams Work",
-                                                    "Pool Class"
+                                                    "Pool Class",
+                                                    "Governance",
+                                                    "e934acef-1206-4761-8214-81d7949b4161"
                                                 ],
                                                 [
                                                     "Team Positions",
-                                                    "Pool"
+                                                    "Pool",
+                                                    "Governance",
+                                                    "1267e4b0-e520-4cf1-be05-b0daa9f862b1"
                                                 ]
                                             ]
                                         }
@@ -228,11 +234,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 14843.103448275862,
-                                        "y": 23340.192378864667
+                                        "y": 28140.192378864667
                                     },
                                     "targetPosition": {
                                         "x": 14693.103448275862,
-                                        "y": 23600
+                                        "y": 28400
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -253,11 +259,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 14693.103448275862,
-                                "y": 23600
+                                "y": 28400
                             },
                             "targetPosition": {
                                 "x": 14543.103448275862,
-                                "y": 23859.807621135333
+                                "y": 28659.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -281,11 +287,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 14693.103448275862,
-                            "y": 24119.615242270665
+                            "y": 28919.615242270665
                         },
                         "targetPosition": {
                             "x": 14543.103448275862,
-                            "y": 23859.807621135333
+                            "y": 28659.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -304,11 +310,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 14543.103448275862,
-                        "y": 23859.807621135333
+                        "y": 28659.807621135333
                     },
                     "targetPosition": {
                         "x": 14243.103448275862,
-                        "y": 23859.807621135333
+                        "y": 28659.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -347,11 +353,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 14393.103448275862,
-                                        "y": 24639.23048454133
+                                        "y": 29439.23048454133
                                     },
                                     "targetPosition": {
                                         "x": 14243.103448275862,
-                                        "y": 24379.422863406
+                                        "y": 29179.422863406
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -372,23 +378,33 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "383267d6-8e9a-4ad2-bd18-6392544ed2e6"
                                         ],
                                         [
                                             "Teams @ Dec 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "73186214-c12d-4f41-be2f-567861de897a"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "ffe60194-2b00-4f3c-b1a6-0abf94b2914c"
                                         ],
                                         [
                                             "Desktop Team PoW Report",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "d5995cb4-6faf-4672-8abc-1f59dd909782"
                                         ],
                                         [
                                             "Desktop Team Token Pool",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "12890416-8f7f-49a1-b78d-d2d28722ab94"
                                         ]
                                     ]
                                 }
@@ -398,11 +414,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 14243.103448275862,
-                                "y": 24379.422863406
+                                "y": 29179.422863406
                             },
                             "targetPosition": {
                                 "x": 14093.103448275862,
-                                "y": 24119.615242270665
+                                "y": 28919.615242270665
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -426,11 +442,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 13793.103448275862,
-                            "y": 24119.615242270665
+                            "y": 28919.615242270665
                         },
                         "targetPosition": {
                             "x": 14093.103448275862,
-                            "y": 24119.615242270665
+                            "y": 28919.615242270665
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -449,11 +465,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 14093.103448275862,
-                        "y": 24119.615242270665
+                        "y": 28919.615242270665
                     },
                     "targetPosition": {
                         "x": 14243.103448275862,
-                        "y": 23859.807621135333
+                        "y": 28659.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -472,11 +488,11 @@
             "savedPayload": {
                 "position": {
                     "x": 14243.103448275862,
-                    "y": 23859.807621135333
+                    "y": 28659.807621135333
                 },
                 "targetPosition": {
                     "x": 14093.103448275862,
-                    "y": 23600
+                    "y": 28400
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -495,11 +511,11 @@
         "savedPayload": {
             "position": {
                 "x": 14093.103448275862,
-                "y": 23600
+                "y": 28400
             },
             "targetPosition": {
                 "x": 13793.103448275862,
-                "y": 23600
+                "y": 28400
             },
             "floatingObject": {
                 "isPinned": false,
@@ -522,11 +538,11 @@
         "savedPayload": {
             "position": {
                 "x": 13793.103448275862,
-                "y": 23900
+                "y": 28700
             },
             "targetPosition": {
                 "x": 13793.103448275862,
-                "y": 23600
+                "y": 28400
             },
             "floatingObject": {
                 "isPinned": false,
@@ -544,7 +560,7 @@
     "userApps": {
         "type": "User Apps",
         "name": "New User Apps",
-        "config": "{}",
+        "config": "{\"percentage\":0}",
         "project": "Governance",
         "desktopApps": {
             "type": "Desktop Apps",
@@ -637,11 +653,11 @@
         "savedPayload": {
             "position": {
                 "x": 13493.103448275862,
-                "y": 23600
+                "y": 28400
             },
             "targetPosition": {
                 "x": 13793.103448275862,
-                "y": 23600
+                "y": 28400
             },
             "floatingObject": {
                 "isPinned": false,
@@ -659,7 +675,7 @@
     "p2pNetworkNodes": {
         "type": "P2P Network Nodes",
         "name": "New P2P Network Nodes",
-        "config": "{}",
+        "config": "{\"percentage\":0}",
         "project": "Governance",
         "p2pNetworkNodes": [
             {
@@ -723,11 +739,11 @@
         "savedPayload": {
             "position": {
                 "x": 13793.103448275862,
-                "y": 23300
+                "y": 28100
             },
             "targetPosition": {
                 "x": 13793.103448275862,
-                "y": 23600
+                "y": 28400
             },
             "floatingObject": {
                 "isPinned": false,
@@ -746,11 +762,11 @@
     "savedPayload": {
         "position": {
             "x": 13793.103448275862,
-            "y": 23600
+            "y": 28400
         },
         "targetPosition": {
             "x": 13793.103448275862,
-            "y": 23600
+            "y": 28400
         },
         "floatingObject": {
             "isPinned": false,

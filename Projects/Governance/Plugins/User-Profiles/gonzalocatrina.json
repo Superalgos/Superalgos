@@ -136,7 +136,7 @@
                     {
                         "type": "Position Claims Folder",
                         "name": "New Position Claims Folder",
-                        "config": "",
+                        "config": "{\r\n    \"percentage\": 86\r\n}",
                         "project": "Governance",
                         "positionClaimsFolders": [],
                         "positionContributionClaims": [
@@ -174,23 +174,33 @@
                                     "referenceParentCombinedNodePath": [
                                         [
                                             "Teams of Contributors",
-                                            "Positions"
+                                            "Positions",
+                                            "Governance",
+                                            "383267d6-8e9a-4ad2-bd18-6392544ed2e6"
                                         ],
                                         [
                                             "Teams @ Dec 2021",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "73186214-c12d-4f41-be2f-567861de897a"
                                         ],
                                         [
                                             "Teams With PoW Reports",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "ffe60194-2b00-4f3c-b1a6-0abf94b2914c"
                                         ],
                                         [
                                             "Desktop Team PoW Report",
-                                            "Position Class"
+                                            "Position Class",
+                                            "Governance",
+                                            "d5995cb4-6faf-4672-8abc-1f59dd909782"
                                         ],
                                         [
                                             "Desktop Team Token Pool",
-                                            "Position"
+                                            "Position",
+                                            "Governance",
+                                            "12890416-8f7f-49a1-b78d-d2d28722ab94"
                                         ]
                                     ]
                                 }

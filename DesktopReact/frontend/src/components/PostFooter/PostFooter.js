@@ -13,7 +13,6 @@ import {
     ThumbUp
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
-import {actionsNav} from './interactionsConfig.json';
 import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 import {dialStyle} from "./reactionsStyle";
 import {reactedPost} from "../../api/post.httpService";
@@ -30,7 +29,40 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
+
 const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props needed? review
+    const actionsNav = [
+        {
+            "id": 1,
+            "name": "Love",
+            "icon": "FavoriteBorder"
+        },
+        {
+            "id": 2,
+            "name": "Haha",
+            "icon": "Mood"
+        },
+        {
+            "id": 3,
+            "name": "Wow",
+            "icon": "OutletOutlined"
+        },
+        {
+            "id": 4,
+            "name": "Sad",
+            "icon": "SentimentVeryDissatisfied"
+        },
+        {
+            "id": 5,
+            "name": "Angry",
+            "icon": "SentimentVeryDissatisfiedOutlined"
+        },
+        {
+            "id": 6,
+            "name": "Care",
+            "icon": "AccessibilityNewOutlined"
+        }
+    ]
     //console.log(actualReaction)
 
     // gets values from httpService.js array reactToPost function
@@ -40,7 +72,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const dispatch = useDispatch();
     const BadgeCounterValue = () => {
         setLikeBadgeValue(reactions[0][1]) // need an callback
-        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
+        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
         setBadgeValues(reactionsValue)
 
     }
@@ -69,8 +101,8 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         //console.log(`click on button ${name}, id ${id}`)
     }
 
-    const getIcon = (icon) =>{
-        switch(icon){
+    const getIcon = (icon) => {
+        switch (icon) {
             case "FavoriteBorder":
                 return <FavoriteBorder/>
             case "Mood":
@@ -114,7 +146,8 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                             onClick={(e) => e.stopPropagation(HandleCommentContainer)}> {/* need review, correct way?*/}
                     <MessageOutlined/>
                 </IconButton>
-                {replyModal ? <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>: null } {/* todo pass postData to the modal from props */}
+                {replyModal ? <FooterReplyModal show={replyModal}
+                                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
             </Stack>
             {/*<Stack className="postFooterRepost" direction="row"> todo not implemented yet
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">

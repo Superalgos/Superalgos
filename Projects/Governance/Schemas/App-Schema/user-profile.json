@@ -100,7 +100,7 @@
             "action": "Save Plugin",
             "actionProject": "Community-Plugins",
             "askConfirmation": true,
-            "confirmationLabel": "Confirm to Install",
+            "confirmationLabel": "Confirm to Save",
             "label": "Save Plugin",
             "iconPathOn": "configuration",
             "iconPathOff": "configuration",

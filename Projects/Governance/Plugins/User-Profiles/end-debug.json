@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 35101.456310679605,
-                    "y": 32940.19237886467
+                    "y": 37739.19237886467
                 },
                 "targetPosition": {
                     "x": 35251.456310679605,
-                    "y": 33200
+                    "y": 37999
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1476,11 +1476,11 @@
             "savedPayload": {
                 "position": {
                     "x": 35401.456310679605,
-                    "y": 32940.19237886467
+                    "y": 37739.19237886467
                 },
                 "targetPosition": {
                     "x": 35251.456310679605,
-                    "y": 33200
+                    "y": 37999
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1572,35 +1572,51 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "cozed-gh",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                                         ],
                                                                         [
                                                                             "Teams @ Dec 2021 Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
                                                                         ],
                                                                         [
                                                                             "Teams With PoW Reports Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "04d80995-9144-4081-b286-a898fef68083"
                                                                         ],
                                                                         [
                                                                             "Marketing Teams PoW Report Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "9cfc8f24-4206-4eef-a397-895d9835ad90"
                                                                         ],
                                                                         [
                                                                             "Telegram Team Token Pool Marketing Teams PoW Report",
-                                                                            "Position Contribution Claim"
+                                                                            "Position Contribution Claim",
+                                                                            "Governance",
+                                                                            "e26e3117-98dd-46be-a0de-0865145940fa"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1637,31 +1653,45 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "cozed-gh",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                                 ],
                                                                 [
                                                                     "Teams @ Dec 2021 Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "0377d112-8545-4694-9c74-5205b2919ac3"
                                                                 ],
                                                                 [
                                                                     "Teams With PoW Reports Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "04d80995-9144-4081-b286-a898fef68083"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "9cfc8f24-4206-4eef-a397-895d9835ad90"
                                                                 ]
                                                             ]
                                                         }
@@ -1707,35 +1737,51 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "cozed-gh",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                                         ],
                                                                         [
                                                                             "Teams @ Dec 2021 Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
                                                                         ],
                                                                         [
                                                                             "Teams With PoW Reports Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "04d80995-9144-4081-b286-a898fef68083"
                                                                         ],
                                                                         [
                                                                             "Exchange Testing Team PoW Report Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "b4644adb-5538-4e2f-8f74-5c4b5999b663"
                                                                         ],
                                                                         [
                                                                             "Exchange Testing Team Token Pool Exchange Testing Team PoW Report",
-                                                                            "Position Contribution Claim"
+                                                                            "Position Contribution Claim",
+                                                                            "Governance",
+                                                                            "2753ca4a-1c67-4c9a-a653-1491fb75407b"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1772,31 +1818,45 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "cozed-gh",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                                 ],
                                                                 [
                                                                     "Teams @ Dec 2021 Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "0377d112-8545-4694-9c74-5205b2919ac3"
                                                                 ],
                                                                 [
                                                                     "Teams With PoW Reports Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "04d80995-9144-4081-b286-a898fef68083"
                                                                 ],
                                                                 [
                                                                     "Exchange Testing Team PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "b4644adb-5538-4e2f-8f74-5c4b5999b663"
                                                                 ]
                                                             ]
                                                         }
@@ -1834,27 +1894,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "cozed-gh",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                         ],
                                                         [
                                                             "Teams @ Dec 2021 Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "0377d112-8545-4694-9c74-5205b2919ac3"
                                                         ],
                                                         [
                                                             "Teams With PoW Reports Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "04d80995-9144-4081-b286-a898fef68083"
                                                         ]
                                                     ]
                                                 }
@@ -1866,12 +1938,12 @@
                                         "id": "3121f0c5-31db-482a-a05d-1654a4a04b25",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 35424.684169595064,
-                                                "y": 32194.2601797392
+                                                "x": 35455.0839298158,
+                                                "y": 36929.525757034586
                                             },
                                             "targetPosition": {
                                                 "x": 35844.7953615188,
-                                                "y": 32355.525757034586
+                                                "y": 37154.525757034586
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1892,23 +1964,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "cozed-gh",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "07f0b13a-a50f-4488-8a2c-a3f8f08e889d"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "e0ed557e-bd72-458f-9f88-f7a8aeb20905"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "638049d6-5c82-47ce-8837-7c6f8e461cff"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "f1bb5d1d-5d33-46d3-a223-c8103a4b2bb6"
                                                 ],
                                                 [
                                                     "Teams @ Dec 2021 Position Class",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "0377d112-8545-4694-9c74-5205b2919ac3"
                                                 ]
                                             ]
                                         }
@@ -1954,27 +2036,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "PLuv",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "142f5de2-3762-4f55-a839-22eac5c03c8f"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "9b72df20-a4f0-4023-ae17-c46a64920716"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "704ea112-7592-4d37-b300-9227448bfe9f"
                                                         ],
                                                         [
                                                             "Day4 - Contribution Claims",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "b966f4ff-3f36-49d4-b9e5-3a49def05092"
                                                         ],
                                                         [
                                                             "PLUV Positions",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "67a1ebcb-cdb7-4746-b9b9-0b57e73ed97d"
                                                         ],
                                                         [
                                                             "Portfolio Management Team Token Pool Portfolio Management Team PoW Report",
-                                                            "Position Contribution Claim"
+                                                            "Position Contribution Claim",
+                                                            "Governance",
+                                                            "3188e817-a21c-44e8-85c2-d805004b934c"
                                                         ]
                                                     ]
                                                 }
@@ -1985,12 +2079,12 @@
                                         "id": "17d3aed3-0c2d-44ad-bfb9-ad0527d95434",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 35599.70779576204,
-                                                "y": 31978.124001459146
+                                                "x": 35728.326791222666,
+                                                "y": 36719.859135204504
                                             },
                                             "targetPosition": {
                                                 "x": 35844.7953615188,
-                                                "y": 32355.525757034586
+                                                "y": 37154.525757034586
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -2044,135 +2138,6 @@
                                     },
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "alex",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "claimVotesSwitch": [],
-                                        "positionClaimVotes": [
-                                            {
-                                                "type": "Position Claim Vote",
-                                                "name": "alexandrustefan ",
-                                                "config": "{}",
-                                                "project": "Governance",
-                                                "id": "677a2c95-9bca-4061-ac87-b7492b40490d",
-                                                "savedPayload": {
-                                                    "position": {
-                                                        "x": 36294.7953615188,
-                                                        "y": 31576.102893628587
-                                                    },
-                                                    "targetPosition": {
-                                                        "x": 36069.7953615188,
-                                                        "y": 31965.814325331587
-                                                    },
-                                                    "floatingObject": {
-                                                        "isPinned": false,
-                                                        "isFrozen": false,
-                                                        "isCollapsed": false,
-                                                        "angleToParent": 2,
-                                                        "distanceToParent": 3,
-                                                        "arrangementStyle": 0
-                                                    },
-                                                    "uiObject": {
-                                                        "isRunning": false
-                                                    },
-                                                    "referenceParent": {
-                                                        "type": "Position Contribution Claim",
-                                                        "name": "",
-                                                        "id": "f1df33a9-6d4a-40cd-b82d-ae4dc8b303a4"
-                                                    },
-                                                    "referenceParentCombinedNodePath": [
-                                                        [
-                                                            "alexandrustefan",
-                                                            "User Profile"
-                                                        ],
-                                                        [
-                                                            "New Token Power Switch",
-                                                            "Token Power Switch"
-                                                        ],
-                                                        [
-                                                            "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
-                                                        ],
-                                                        [
-                                                            "New Claims Program",
-                                                            "Claims Program"
-                                                        ],
-                                                        [
-                                                            "One-Man Team PoW Report Position Class",
-                                                            "Position Claims Folder"
-                                                        ],
-                                                        [
-                                                            "",
-                                                            "Position Contribution Claim"
-                                                        ]
-                                                    ]
-                                                }
-                                            }
-                                        ],
-                                        "assetClaimVotes": [],
-                                        "featureClaimVotes": [],
-                                        "id": "64b2f659-15eb-4c77-90ba-35af1550fec1",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 35868.34654182813,
-                                                "y": 31906.142466395027
-                                            },
-                                            "targetPosition": {
-                                                "x": 35844.7953615188,
-                                                "y": 32355.525757034586
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": true,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "Position Claims Folder",
-                                                "name": "One-Man Team PoW Report Position Class",
-                                                "id": "f0bcb90c-a030-4757-a564-6197417d0995"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "alexandrustefan",
-                                                    "User Profile",
-                                                    "Governance",
-                                                    "4c987083-b506-4f26-9821-e678dd3880d1"
-                                                ],
-                                                [
-                                                    "New Token Power Switch",
-                                                    "Token Power Switch",
-                                                    "Governance",
-                                                    "32edddeb-10a4-4e67-8ebc-518ae17b60e0"
-                                                ],
-                                                [
-                                                    "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs",
-                                                    "Governance",
-                                                    "ee5ffc96-e933-4775-bd4c-6c7f6856a147"
-                                                ],
-                                                [
-                                                    "New Claims Program",
-                                                    "Claims Program",
-                                                    "Governance",
-                                                    "91e48ec1-f2c4-49b5-a92c-d30b9f0a4a00"
-                                                ],
-                                                [
-                                                    "One-Man Team PoW Report Position Class",
-                                                    "Position Claims Folder",
-                                                    "Governance",
-                                                    "f0bcb90c-a030-4757-a564-6197417d0995"
-                                                ]
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "Claim Votes Switch",
                                         "name": "Julian-Molina",
                                         "config": "{}",
                                         "project": "Governance",
@@ -2218,31 +2183,45 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "4749cd9e-8c2c-431c-ba9e-4e78b0e46887"
                                                                 ],
                                                                 [
                                                                     "Superalgos.org Website Team Token Pool Marketing Teams PoW Report",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "3edce910-caf6-4c24-8f42-e749f3945329"
                                                                 ]
                                                             ]
                                                         }
@@ -2279,27 +2258,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Julian-Molina",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                         ],
                                                         [
                                                             "Marketing Teams PoW Report Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "4749cd9e-8c2c-431c-ba9e-4e78b0e46887"
                                                         ]
                                                     ]
                                                 }
@@ -2345,31 +2336,45 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "0cadf75d-7f39-43cb-bf2d-4b75178075fc"
                                                                 ],
                                                                 [
                                                                     "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "74b11898-bbcf-4054-a3d4-c8b2b6bfdbf0"
                                                                 ]
                                                             ]
                                                         }
@@ -2406,27 +2411,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Julian-Molina",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                         ],
                                                         [
                                                             "Marketing Teams PoW Report Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "0cadf75d-7f39-43cb-bf2d-4b75178075fc"
                                                         ]
                                                     ]
                                                 }
@@ -2472,31 +2489,45 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "f056fe27-62d7-4f50-90bb-ff8239b85336"
                                                                 ],
                                                                 [
                                                                     "Social Network Teams Token Pool Marketing Teams PoW Report",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "7ab69b8f-7c2a-4da0-b169-d74a9004e541"
                                                                 ]
                                                             ]
                                                         }
@@ -2533,27 +2564,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Julian-Molina",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                         ],
                                                         [
                                                             "Marketing Teams PoW Report Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "f056fe27-62d7-4f50-90bb-ff8239b85336"
                                                         ]
                                                     ]
                                                 }
@@ -2599,31 +2642,45 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "4e8fc3c6-18ce-4406-9fcb-660fa8c7d380"
                                                                 ],
                                                                 [
                                                                     "Telegram Team Token Pool Marketing Teams PoW Report",
-                                                                    "Position Contribution Claim"
+                                                                    "Position Contribution Claim",
+                                                                    "Governance",
+                                                                    "b908bdc3-b57c-48fc-acc6-2f204aaf0f32"
                                                                 ]
                                                             ]
                                                         }
@@ -2660,27 +2717,39 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Julian-Molina",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                         ],
                                                         [
                                                             "Marketing Teams PoW Report Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                         ],
                                                         [
                                                             "New Position Claims Folder",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "4e8fc3c6-18ce-4406-9fcb-660fa8c7d380"
                                                         ]
                                                     ]
                                                 }
@@ -2692,12 +2761,12 @@
                                         "id": "c367d1be-a9fe-47fd-8682-b800398686f1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 36127.98953749123,
-                                                "y": 32005.810074378947
+                                                "x": 36069.7953615188,
+                                                "y": 36764.81432533159
                                             },
                                             "targetPosition": {
                                                 "x": 35844.7953615188,
-                                                "y": 32355.525757034586
+                                                "y": 37154.525757034586
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -2718,23 +2787,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Julian-Molina",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                 ],
                                                 [
                                                     "Marketing Teams PoW Report Position Class",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                 ]
                                             ]
                                         }
@@ -2746,16 +2825,16 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 35844.7953615188,
-                                        "y": 32355.525757034586
+                                        "y": 37154.525757034586
                                     },
                                     "targetPosition": {
                                         "x": 35961.26393181494,
-                                        "y": 32790.19237886467
+                                        "y": 37589.19237886467
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 4,
                                         "arrangementStyle": 0
@@ -4667,11 +4746,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 36111.26393181494,
-                                        "y": 32530.384757729335
+                                        "y": 37329.384757729335
                                     },
                                     "targetPosition": {
                                         "x": 35961.26393181494,
-                                        "y": 32790.19237886467
+                                        "y": 37589.19237886467
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6776,11 +6855,11 @@
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36975.48604941846,
-                                                        "y": 32518.432381507017
+                                                        "y": 37317.43238150702
                                                     },
                                                     "targetPosition": {
                                                         "x": 36540.81942758838,
-                                                        "y": 32634.900951803153
+                                                        "y": 37433.90095180315
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -6829,11 +6908,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 36540.81942758838,
-                                                "y": 32634.900951803153
+                                                "y": 37433.90095180315
                                             },
                                             "targetPosition": {
                                                 "x": 36251.04167970166,
-                                                "y": 32712.54666533391
+                                                "y": 37511.54666533391
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -6876,11 +6955,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 36251.04167970166,
-                                        "y": 32712.54666533391
+                                        "y": 37511.54666533391
                                     },
                                     "targetPosition": {
                                         "x": 35961.26393181494,
-                                        "y": 32790.19237886467
+                                        "y": 37589.19237886467
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -6914,11 +6993,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 35961.26393181494,
-                                "y": 32790.19237886467
+                                "y": 37589.19237886467
                             },
                             "targetPosition": {
                                 "x": 35811.26393181494,
-                                "y": 33050
+                                "y": 37849
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6942,11 +7021,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 36071.07155295027,
-                            "y": 33200
+                            "y": 37999
                         },
                         "targetPosition": {
                             "x": 35811.26393181494,
-                            "y": 33050
+                            "y": 37849
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -6965,11 +7044,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 35811.26393181494,
-                        "y": 33050
+                        "y": 37849
                     },
                     "targetPosition": {
                         "x": 35551.456310679605,
-                        "y": 33200
+                        "y": 37999
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7026,11 +7105,11 @@
                                                         "savedPayload": {
                                                             "position": {
                                                                 "x": 36480.8791740856,
-                                                                "y": 33909.80762113533
+                                                                "y": 38708.80762113533
                                                             },
                                                             "targetPosition": {
                                                                 "x": 36383.45131615985,
-                                                                "y": 33853.55762113533
+                                                                "y": 38652.55762113533
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -7087,11 +7166,11 @@
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 36383.45131615985,
-                                                        "y": 33853.55762113533
+                                                        "y": 38652.55762113533
                                                     },
                                                     "targetPosition": {
                                                         "x": 36286.0234582341,
-                                                        "y": 33797.30762113533
+                                                        "y": 38596.30762113533
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -7143,11 +7222,11 @@
                                         "savedPayload": {
                                             "position": {
                                                 "x": 36286.0234582341,
-                                                "y": 33797.30762113533
+                                                "y": 38596.30762113533
                                             },
                                             "targetPosition": {
                                                 "x": 36091.167742382604,
-                                                "y": 33684.80762113533
+                                                "y": 38483.80762113533
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -7193,11 +7272,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 36091.167742382604,
-                                        "y": 33684.80762113533
+                                        "y": 38483.80762113533
                                     },
                                     "targetPosition": {
                                         "x": 35961.26393181494,
-                                        "y": 33609.80762113533
+                                        "y": 38408.80762113533
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -7237,11 +7316,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 35961.26393181494,
-                                "y": 33609.80762113533
+                                "y": 38408.80762113533
                             },
                             "targetPosition": {
                                 "x": 35701.456310679605,
-                                "y": 33459.80762113533
+                                "y": 38258.80762113533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7265,11 +7344,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 35701.456310679605,
-                            "y": 33759.80762113533
+                            "y": 38558.80762113533
                         },
                         "targetPosition": {
                             "x": 35701.456310679605,
-                            "y": 33459.80762113533
+                            "y": 38258.80762113533
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7288,11 +7367,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 35701.456310679605,
-                        "y": 33459.80762113533
+                        "y": 38258.80762113533
                     },
                     "targetPosition": {
                         "x": 35551.456310679605,
-                        "y": 33200
+                        "y": 37999
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7311,11 +7390,11 @@
             "savedPayload": {
                 "position": {
                     "x": 35551.456310679605,
-                    "y": 33200
+                    "y": 37999
                 },
                 "targetPosition": {
                     "x": 35251.456310679605,
-                    "y": 33200
+                    "y": 37999
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -7348,11 +7427,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 35701.456310679605,
-                            "y": 33979.422863406
+                            "y": 38778.422863406
                         },
                         "targetPosition": {
                             "x": 35551.456310679605,
-                            "y": 33719.615242270665
+                            "y": 38518.615242270665
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7371,11 +7450,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 35551.456310679605,
-                        "y": 33719.615242270665
+                        "y": 38518.615242270665
                     },
                     "targetPosition": {
                         "x": 35401.456310679605,
-                        "y": 33459.80762113533
+                        "y": 38258.80762113533
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7394,11 +7473,11 @@
             "savedPayload": {
                 "position": {
                     "x": 35401.456310679605,
-                    "y": 33459.80762113533
+                    "y": 38258.80762113533
                 },
                 "targetPosition": {
                     "x": 35251.456310679605,
-                    "y": 33200
+                    "y": 37999
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -7534,11 +7613,11 @@
             "savedPayload": {
                 "position": {
                     "x": 35101.456310679605,
-                    "y": 33459.80762113533
+                    "y": 38258.80762113533
                 },
                 "targetPosition": {
                     "x": 35251.456310679605,
-                    "y": 33200
+                    "y": 37999
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -7557,11 +7636,11 @@
         "savedPayload": {
             "position": {
                 "x": 35251.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7584,11 +7663,11 @@
         "savedPayload": {
             "position": {
                 "x": 35138.50325123723,
-                "y": 33434.549444740405
+                "y": 38233.549444740405
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7986,11 +8065,11 @@
         "savedPayload": {
             "position": {
                 "x": 34884.70003049271,
-                "y": 33492.47837365455
+                "y": 38291.47837365455
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8328,11 +8407,11 @@
         "savedPayload": {
             "position": {
                 "x": 34681.16565030888,
-                "y": 33330.16512173527
+                "y": 38129.16512173527
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8357,11 +8436,11 @@
         "savedPayload": {
             "position": {
                 "x": 34681.16565030888,
-                "y": 33069.83487826473
+                "y": 37868.83487826473
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8386,11 +8465,11 @@
         "savedPayload": {
             "position": {
                 "x": 34884.70003049271,
-                "y": 32907.52162634545
+                "y": 37706.52162634545
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8414,11 +8493,11 @@
         "savedPayload": {
             "position": {
                 "x": 35138.50325123723,
-                "y": 32965.45055525959
+                "y": 37764.45055525959
             },
             "targetPosition": {
                 "x": 34951.456310679605,
-                "y": 33200
+                "y": 37999
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8437,11 +8516,11 @@
     "savedPayload": {
         "position": {
             "x": 34951.456310679605,
-            "y": 33200
+            "y": 37999
         },
         "targetPosition": {
             "x": 34951.456310679605,
-            "y": 33200
+            "y": 37999
         },
         "floatingObject": {
             "isPinned": false,

@@ -274,7 +274,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "gitforkgit",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a600818b-6702-4be1-94ea-46478a914cb4"
                                 ]
                             ]
                         }
@@ -313,7 +315,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "slow-crypto",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a798e42e-205a-4ba4-bbb5-f9cd6a0d63d6"
                                 ]
                             ]
                         }
@@ -352,7 +356,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "NicN11",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "a884f5c0-2ffb-4a31-8edc-349430071fbe"
                                 ]
                             ]
                         }
@@ -438,7 +444,7 @@
             "supportProgram": {
                 "type": "Support Program",
                 "name": "New Support Program",
-                "config": "{\n    \"percentage\": 30\n}",
+                "config": "{\n    \"percentage\": 45\n}",
                 "project": "Governance",
                 "userSupporters": [
                     {
@@ -516,7 +522,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "NAmorim",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "d611eda3-4202-438a-af65-8981a90e742a"
                                 ]
                             ]
                         }
@@ -555,7 +563,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "mARTin-B78",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "6b027e4e-32c9-4847-8f74-90aac9c738c0"
                                 ]
                             ]
                         }
@@ -641,7 +651,7 @@
             "mentorshipProgram": {
                 "type": "Mentorship Program",
                 "name": "New Mentorship Program",
-                "config": "{\n    \"percentage\": 30\n}",
+                "config": "{\n    \"percentage\": 20\n}",
                 "project": "Governance",
                 "userMentors": [
                     {
@@ -1037,7 +1047,7 @@
         "financialPrograms": {
             "type": "Financial Programs",
             "name": "New Financial Programs",
-            "config": "{\n    \"percentage\": 40\n}",
+            "config": "{\n    \"percentage\": 30\n}",
             "project": "Governance",
             "stakingProgram": {
                 "type": "Staking Program",

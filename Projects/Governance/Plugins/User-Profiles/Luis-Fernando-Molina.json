@@ -127,12 +127,12 @@
             "id": "f4d39b02-4324-438d-9f74-2bea2b7272ef",
             "savedPayload": {
                 "position": {
-                    "x": 37950,
-                    "y": 18540.192378864667
+                    "x": 29576.213592233,
+                    "y": 32940.19237886467
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 29426.213592233,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -516,12 +516,12 @@
             "id": "b6e3c87d-a11b-4b2a-b6a6-edc96375f5da",
             "savedPayload": {
                 "position": {
-                    "x": 38059.80762113533,
-                    "y": 18650
+                    "x": 29686.021213368334,
+                    "y": 33050
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 29426.213592233,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -565,12 +565,12 @@
                                 "id": "2571cea1-2b6d-40f5-9331-8786bf57c184",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38727.23108255281,
-                                        "y": 18282.57653858252
+                                        "x": 30353.444674785813,
+                                        "y": 32682.57653858252
                                     },
                                     "targetPosition": {
-                                        "x": 38649.585369022054,
-                                        "y": 18572.354286469243
+                                        "x": 30275.798961255055,
+                                        "y": 32972.35428646924
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -605,12 +605,12 @@
                                         "id": "94e9ee8d-7c75-4848-8b4f-b5ee438167f6",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 39059.39299015739,
-                                                "y": 18162.54666533391
+                                                "x": 30685.60658239039,
+                                                "y": 32562.54666533391
                                             },
                                             "targetPosition": {
-                                                "x": 38909.39299015739,
-                                                "y": 18422.354286469243
+                                                "x": 30535.60658239039,
+                                                "y": 32822.35428646924
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -646,18 +646,18 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "",
+                                                                "name": "Julian-Molina Superalgos.org Website Team Token Pool Marketing Teams PoW Report",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "aec258c0-74d8-4cbb-9985-09db2b0b3d28",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 39531.917689253314,
-                                                                        "y": 17675.64114924828
+                                                                        "x": 31158.131281486316,
+                                                                        "y": 32075.64114924828
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 39500.55915027302,
-                                                                        "y": 17973.99771785876
+                                                                        "x": 31126.77274250602,
+                                                                        "y": 32373.99771785876
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -678,31 +678,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Julian-Molina",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                         ],
                                                                         [
                                                                             "Marketing Teams PoW Report Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "4749cd9e-8c2c-431c-ba9e-4e78b0e46887"
                                                                         ],
                                                                         [
                                                                             "Superalgos.org Website Team Token Pool Marketing Teams PoW Report",
-                                                                            "Position Contribution Claim"
+                                                                            "Position Contribution Claim",
+                                                                            "Governance",
+                                                                            "3edce910-caf6-4c24-8f42-e749f3945329"
                                                                         ]
                                                                     ]
                                                                 }
@@ -713,12 +727,12 @@
                                                         "id": "0a0711df-475e-45e9-a172-942f277af4e4",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 39500.55915027302,
-                                                                "y": 17973.99771785876
+                                                                "x": 31126.77274250602,
+                                                                "y": 32373.99771785876
                                                             },
                                                             "targetPosition": {
-                                                                "x": 39469.20061129272,
-                                                                "y": 18272.354286469243
+                                                                "x": 31095.41420352572,
+                                                                "y": 32672.354286469243
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -739,27 +753,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "4749cd9e-8c2c-431c-ba9e-4e78b0e46887"
                                                                 ]
                                                             ]
                                                         }
@@ -773,18 +799,18 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "",
+                                                                "name": "Julian-Molina Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "1ce5a0c9-e847-48a4-a48b-25fb4800c392",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 39870.678975108036,
-                                                                        "y": 17826.467391182807
+                                                                        "x": 31496.892567341038,
+                                                                        "y": 32226.467391182807
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 39669.93979320038,
-                                                                        "y": 18049.410838826025
+                                                                        "x": 31296.15338543338,
+                                                                        "y": 32449.410838826025
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -805,31 +831,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Julian-Molina",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                         ],
                                                                         [
                                                                             "Marketing Teams PoW Report Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "0cadf75d-7f39-43cb-bf2d-4b75178075fc"
                                                                         ],
                                                                         [
                                                                             "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
-                                                                            "Position Contribution Claim"
+                                                                            "Position Contribution Claim",
+                                                                            "Governance",
+                                                                            "74b11898-bbcf-4054-a3d4-c8b2b6bfdbf0"
                                                                         ]
                                                                     ]
                                                                 }
@@ -840,12 +880,12 @@
                                                         "id": "d9a27a5b-084e-47f2-a49c-fd5f03f1f3e2",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 39669.93979320038,
-                                                                "y": 18049.410838826025
+                                                                "x": 31296.15338543338,
+                                                                "y": 32449.410838826025
                                                             },
                                                             "targetPosition": {
-                                                                "x": 39469.20061129272,
-                                                                "y": 18272.354286469243
+                                                                "x": 31095.41420352572,
+                                                                "y": 32672.354286469243
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -866,27 +906,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "0cadf75d-7f39-43cb-bf2d-4b75178075fc"
                                                                 ]
                                                             ]
                                                         }
@@ -900,18 +952,18 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "",
+                                                                "name": "Julian-Molina Social Network Teams Token Pool Marketing Teams PoW Report",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "7912edc9-72d6-4b5a-af16-24bd01f1dfb4",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 40056.08917173301,
-                                                                        "y": 18147.607271978588
+                                                                        "x": 31682.302763966003,
+                                                                        "y": 32547.607271978588
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 39762.644891512864,
-                                                                        "y": 18209.980779223915
+                                                                        "x": 31388.858483745862,
+                                                                        "y": 32609.980779223915
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -932,31 +984,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Julian-Molina",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                         ],
                                                                         [
                                                                             "Marketing Teams PoW Report Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "f056fe27-62d7-4f50-90bb-ff8239b85336"
                                                                         ],
                                                                         [
                                                                             "Social Network Teams Token Pool Marketing Teams PoW Report",
-                                                                            "Position Contribution Claim"
+                                                                            "Position Contribution Claim",
+                                                                            "Governance",
+                                                                            "7ab69b8f-7c2a-4da0-b169-d74a9004e541"
                                                                         ]
                                                                     ]
                                                                 }
@@ -967,12 +1033,12 @@
                                                         "id": "4177e060-ea27-4f31-890d-a2f68379ae58",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 39762.644891512864,
-                                                                "y": 18209.980779223915
+                                                                "x": 31388.858483745862,
+                                                                "y": 32609.980779223915
                                                             },
                                                             "targetPosition": {
-                                                                "x": 39469.20061129272,
-                                                                "y": 18272.354286469243
+                                                                "x": 31095.41420352572,
+                                                                "y": 32672.354286469243
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -993,27 +1059,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "f056fe27-62d7-4f50-90bb-ff8239b85336"
                                                                 ]
                                                             ]
                                                         }
@@ -1027,18 +1105,18 @@
                                                         "positionClaimVotes": [
                                                             {
                                                                 "type": "Position Claim Vote",
-                                                                "name": "",
+                                                                "name": "Julian-Molina Telegram Team Token Pool Marketing Teams PoW Report",
                                                                 "config": "{}",
                                                                 "project": "Governance",
                                                                 "id": "74b2dc56-ee58-43d5-a616-f3a7962457da",
                                                                 "savedPayload": {
                                                                     "position": {
-                                                                        "x": 40017.32788587829,
-                                                                        "y": 18516.39627231472
+                                                                        "x": 31643.54147811128,
+                                                                        "y": 32916.39627231473
                                                                     },
                                                                     "targetPosition": {
-                                                                        "x": 39743.2642485855,
-                                                                        "y": 18394.37527939198
+                                                                        "x": 31369.4778408185,
+                                                                        "y": 32794.375279391985
                                                                     },
                                                                     "floatingObject": {
                                                                         "isPinned": false,
@@ -1059,31 +1137,45 @@
                                                                     "referenceParentCombinedNodePath": [
                                                                         [
                                                                             "Julian-Molina",
-                                                                            "User Profile"
+                                                                            "User Profile",
+                                                                            "Governance",
+                                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                         ],
                                                                         [
                                                                             "New Token Power Switch",
-                                                                            "Token Power Switch"
+                                                                            "Token Power Switch",
+                                                                            "Governance",
+                                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                         ],
                                                                         [
                                                                             "New Votes And Claims Programs",
-                                                                            "Votes And Claims Programs"
+                                                                            "Votes And Claims Programs",
+                                                                            "Governance",
+                                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                         ],
                                                                         [
                                                                             "New Claims Program",
-                                                                            "Claims Program"
+                                                                            "Claims Program",
+                                                                            "Governance",
+                                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                         ],
                                                                         [
                                                                             "Marketing Teams PoW Report Position Class",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                         ],
                                                                         [
                                                                             "New Position Claims Folder",
-                                                                            "Position Claims Folder"
+                                                                            "Position Claims Folder",
+                                                                            "Governance",
+                                                                            "4e8fc3c6-18ce-4406-9fcb-660fa8c7d380"
                                                                         ],
                                                                         [
                                                                             "Telegram Team Token Pool Marketing Teams PoW Report",
-                                                                            "Position Contribution Claim"
+                                                                            "Position Contribution Claim",
+                                                                            "Governance",
+                                                                            "b908bdc3-b57c-48fc-acc6-2f204aaf0f32"
                                                                         ]
                                                                     ]
                                                                 }
@@ -1094,12 +1186,12 @@
                                                         "id": "6865ae05-0948-4cef-8a9e-70f9a21b316a",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 39743.2642485855,
-                                                                "y": 18394.37527939198
+                                                                "x": 31369.4778408185,
+                                                                "y": 32794.375279391985
                                                             },
                                                             "targetPosition": {
-                                                                "x": 39469.20061129272,
-                                                                "y": 18272.354286469243
+                                                                "x": 31095.41420352572,
+                                                                "y": 32672.354286469243
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1120,27 +1212,39 @@
                                                             "referenceParentCombinedNodePath": [
                                                                 [
                                                                     "Julian-Molina",
-                                                                    "User Profile"
+                                                                    "User Profile",
+                                                                    "Governance",
+                                                                    "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                                 ],
                                                                 [
                                                                     "New Token Power Switch",
-                                                                    "Token Power Switch"
+                                                                    "Token Power Switch",
+                                                                    "Governance",
+                                                                    "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                                 ],
                                                                 [
                                                                     "New Votes And Claims Programs",
-                                                                    "Votes And Claims Programs"
+                                                                    "Votes And Claims Programs",
+                                                                    "Governance",
+                                                                    "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                                 ],
                                                                 [
                                                                     "New Claims Program",
-                                                                    "Claims Program"
+                                                                    "Claims Program",
+                                                                    "Governance",
+                                                                    "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                                 ],
                                                                 [
                                                                     "Marketing Teams PoW Report Position Class",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                                 ],
                                                                 [
                                                                     "New Position Claims Folder",
-                                                                    "Position Claims Folder"
+                                                                    "Position Claims Folder",
+                                                                    "Governance",
+                                                                    "4e8fc3c6-18ce-4406-9fcb-660fa8c7d380"
                                                                 ]
                                                             ]
                                                         }
@@ -1152,17 +1256,17 @@
                                                 "id": "12a9b655-cebc-40e4-9cc8-53a221fd9f94",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 39469.20061129272,
-                                                        "y": 18272.354286469243
+                                                        "x": 30950.411612099917,
+                                                        "y": 32545.190426715857
                                                     },
                                                     "targetPosition": {
-                                                        "x": 39209.39299015739,
-                                                        "y": 18422.354286469243
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
                                                         "isFrozen": false,
-                                                        "isCollapsed": false,
+                                                        "isCollapsed": true,
                                                         "angleToParent": 2,
                                                         "distanceToParent": 3,
                                                         "arrangementStyle": 0
@@ -1178,23 +1282,33 @@
                                                     "referenceParentCombinedNodePath": [
                                                         [
                                                             "Julian-Molina",
-                                                            "User Profile"
+                                                            "User Profile",
+                                                            "Governance",
+                                                            "1beb2eb4-f4fa-4d0f-a466-e3df634df6d9"
                                                         ],
                                                         [
                                                             "New Token Power Switch",
-                                                            "Token Power Switch"
+                                                            "Token Power Switch",
+                                                            "Governance",
+                                                            "257fd3d6-7c0a-439b-ba1d-b98b2786432d"
                                                         ],
                                                         [
                                                             "New Votes And Claims Programs",
-                                                            "Votes And Claims Programs"
+                                                            "Votes And Claims Programs",
+                                                            "Governance",
+                                                            "23632f93-e9a2-4565-a8db-ce3e3c22f11e"
                                                         ],
                                                         [
                                                             "New Claims Program",
-                                                            "Claims Program"
+                                                            "Claims Program",
+                                                            "Governance",
+                                                            "59810b29-dda4-4313-9043-ef8b0df4bc8f"
                                                         ],
                                                         [
                                                             "Marketing Teams PoW Report Position Class",
-                                                            "Position Claims Folder"
+                                                            "Position Claims Folder",
+                                                            "Governance",
+                                                            "457a46ef-5147-4a8a-89d4-10b08da6342f"
                                                         ]
                                                     ]
                                                 }
@@ -1203,18 +1317,18 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "",
+                                                "name": "SSChana SSChana Team Token Pool Luis’ Team PoW Report",
                                                 "config": "{\r\n    \"percentage\": 5\r\n}",
                                                 "project": "Governance",
                                                 "id": "2ce75101-bdeb-4985-b5c1-8b3477320be2",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 39469.20061129272,
-                                                        "y": 18572.354286469243
+                                                        "x": 31047.738616746352,
+                                                        "y": 32610.22225211328
                                                     },
                                                     "targetPosition": {
-                                                        "x": 39209.39299015739,
-                                                        "y": 18422.354286469243
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1271,6 +1385,305 @@
                                                         ]
                                                     ]
                                                 }
+                                            },
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "Lantschirky Lantschirky Team Token Pool Luis’ Team PoW Report",
+                                                "config": "{\r\n    \"percentage\": 5\r\n}",
+                                                "project": "Governance",
+                                                "id": "1ee236e2-6558-4d38-b4e2-4e694c60a5ad",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 31112.770442143774,
+                                                        "y": 32707.549256759718
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Lantschirky Team Token Pool Luis’ Team PoW Report",
+                                                        "id": "32ca5599-7eab-4526-b857-cfcb73a53a30"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Lantschirky",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Lantschirky Team Token Pool Luis’ Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "whtv WHTV Team Token Pool WHTV Team PoW Report",
+                                                "config": "{\r\n    \"percentage\": 5\r\n}",
+                                                "project": "Governance",
+                                                "id": "d40fb890-0ff5-49bf-8776-178d49d40d28",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 31135.60658239039,
+                                                        "y": 32822.35428646924
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "WHTV Team Token Pool WHTV Team PoW Report",
+                                                        "id": "9a72103e-191d-41bb-9ca0-617e6e88aea8"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "whtv",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "WHTV Team Token Pool WHTV Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "Loui-Molina Desktop Team Token Pool Desktop Team PoW Report",
+                                                "config": "{\r\n    \"percentage\": 2.5\r\n}",
+                                                "project": "Governance",
+                                                "id": "997a0869-533f-4844-abd0-6c5c791f6d00",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 31112.770442143774,
+                                                        "y": 32937.15931617877
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                                        "id": "0b57fa74-4cf0-4e46-940c-84d48cfeea9b"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Loui-Molina",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Desktop Team Token Pool Desktop Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "gonzalocatrina Desktop Team Token Pool Desktop Team PoW Report",
+                                                "config": "{\r\n    \"percentage\": 2.5\r\n}",
+                                                "project": "Governance",
+                                                "id": "cd705a07-3948-43fc-8588-84d509ee8d6c",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 31047.738616746352,
+                                                        "y": 33034.486320825206
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                                        "id": "2cc3c007-2617-4167-bfc9-48e680010c3f"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "gonzalocatrina",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Desktop Team Token Pool Desktop Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "PLuv Portfolio Management Team Token Pool Portfolio Management Team PoW Report",
+                                                "config": "{\r\n    \"percentage\": 2.5\r\n}",
+                                                "project": "Governance",
+                                                "id": "2d082c05-5e3d-48c7-a215-059d28dabac4",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 30950.411612099913,
+                                                        "y": 33099.51814622263
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 30835.60658239039,
+                                                        "y": 32822.35428646924
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Portfolio Management Team Token Pool Portfolio Management Team PoW Report",
+                                                        "id": "2e957195-9eab-42b4-9134-3c992e110c7b"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "PLuv",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "Day4 - Contribution Claims",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "PLUV Positions",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Portfolio",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Portfolio Management Team Token Pool Portfolio Management Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
                                             }
                                         ],
                                         "assetClaimVotes": [],
@@ -1278,12 +1691,12 @@
                                         "id": "142ae6c7-d91c-48c9-91ed-31bde0fee9dd",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 39209.39299015739,
-                                                "y": 18422.354286469243
+                                                "x": 30835.60658239039,
+                                                "y": 32822.35428646924
                                             },
                                             "targetPosition": {
-                                                "x": 38909.39299015739,
-                                                "y": 18422.354286469243
+                                                "x": 30535.60658239039,
+                                                "y": 32822.35428646924
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -1305,12 +1718,12 @@
                                 "id": "75487f1d-1ec0-4431-8693-ce9653018e81",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38909.39299015739,
-                                        "y": 18422.354286469243
+                                        "x": 30535.60658239039,
+                                        "y": 32822.35428646924
                                     },
                                     "targetPosition": {
-                                        "x": 38649.585369022054,
-                                        "y": 18572.354286469243
+                                        "x": 30275.798961255055,
+                                        "y": 32972.35428646924
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3845,12 +4258,12 @@
                                 "id": "1d398124-3f36-40a1-8b3b-6c77ad489b92",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38939.363116908775,
-                                        "y": 18650
+                                        "x": 30565.576709141777,
+                                        "y": 33050
                                     },
                                     "targetPosition": {
-                                        "x": 38649.585369022054,
-                                        "y": 18572.354286469243
+                                        "x": 30275.798961255055,
+                                        "y": 32972.35428646924
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -3871,12 +4284,12 @@
                         "id": "2b8d3ce7-515c-44ad-8d80-3c2be6d7736f",
                         "savedPayload": {
                             "position": {
-                                "x": 38649.585369022054,
-                                "y": 18572.354286469243
+                                "x": 30275.798961255055,
+                                "y": 32972.35428646924
                             },
                             "targetPosition": {
-                                "x": 38389.77774788672,
-                                "y": 18722.354286469243
+                                "x": 30015.991340119723,
+                                "y": 33122.35428646924
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -3899,12 +4312,12 @@
                     "id": "e9c0e495-7985-4381-bf75-865d87289038",
                     "savedPayload": {
                         "position": {
-                            "x": 38689.77774788672,
-                            "y": 18722.354286469243
+                            "x": 30315.991340119723,
+                            "y": 33122.35428646924
                         },
                         "targetPosition": {
-                            "x": 38389.77774788672,
-                            "y": 18722.354286469243
+                            "x": 30015.991340119723,
+                            "y": 33122.35428646924
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -3922,12 +4335,12 @@
                 "id": "d5ed432e-78bf-432e-be3b-8649932f7a65",
                 "savedPayload": {
                     "position": {
-                        "x": 38389.77774788672,
-                        "y": 18722.354286469243
+                        "x": 30015.991340119723,
+                        "y": 33122.35428646924
                     },
                     "targetPosition": {
-                        "x": 38100,
-                        "y": 18800
+                        "x": 29726.213592233,
+                        "y": 33200
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -3965,18 +4378,18 @@
                                 "id": "3797a2cb-8af4-41d1-8cb6-758a8dee5809",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 30605.769088006444,
-                                        "y": 14000.000000000002
+                                        "x": 30575.798961255055,
+                                        "y": 33127.64571353076
                                     },
                                     "targetPosition": {
                                         "x": 30315.991340119723,
-                                        "y": 14077.645713530757
+                                        "y": 33277.64571353076
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 3,
+                                        "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -4030,18 +4443,18 @@
                                 "id": "2f998fbd-08fa-447b-b6ab-97f807c8923d",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 30605.769088006444,
-                                        "y": 14155.291427061513
+                                        "x": 30575.798961255055,
+                                        "y": 33427.64571353076
                                     },
                                     "targetPosition": {
                                         "x": 30315.991340119723,
-                                        "y": 14077.645713530757
+                                        "y": 33277.64571353076
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 3,
+                                        "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -4092,11 +4505,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 30315.991340119723,
-                                "y": 14077.645713530757
+                                "y": 33277.64571353076
                             },
                             "targetPosition": {
                                 "x": 30015.991340119723,
-                                "y": 14077.645713530757
+                                "y": 33277.64571353076
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4120,11 +4533,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 30275.798961255055,
-                            "y": 14227.645713530757
+                            "y": 33427.64571353076
                         },
                         "targetPosition": {
                             "x": 30015.991340119723,
-                            "y": 14077.645713530757
+                            "y": 33277.64571353076
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4142,12 +4555,12 @@
                 "id": "796dd30f-c90d-4b8d-a63d-89867347407b",
                 "savedPayload": {
                     "position": {
-                        "x": 38389.77774788672,
-                        "y": 18877.645713530757
+                        "x": 30015.991340119723,
+                        "y": 33277.64571353076
                     },
                     "targetPosition": {
-                        "x": 38100,
-                        "y": 18800
+                        "x": 29726.213592233,
+                        "y": 33200
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4165,12 +4578,12 @@
             "id": "bb390957-b8a2-4a8a-9fbf-963ea20f6eaf",
             "savedPayload": {
                 "position": {
-                    "x": 38100,
-                    "y": 18800
+                    "x": 29726.213592233,
+                    "y": 33200
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 29426.213592233,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4205,18 +4618,18 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "end-debug",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "eb82fa61-58f0-4665-83f4-f5196d81f87d",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30453.036260233537,
-                                        "y": 13989.18288976231
+                                        "y": 33189.182889762305
                                     },
                                     "targetPosition": {
                                         "x": 30219.892471796447,
-                                        "y": 14177.979007077261
+                                        "y": 33377.97900707726
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4246,18 +4659,18 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "EvaMaria70",
                                 "config": "{\r\n    \"percentage\": 25\r\n}",
                                 "project": "Governance",
                                 "id": "005c150d-a9f8-42af-9e30-beb1b7f43c18",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30516.198973974988,
-                                        "y": 14131.048667565192
+                                        "y": 33331.04866756519
                                     },
                                     "targetPosition": {
                                         "x": 30219.892471796447,
-                                        "y": 14177.979007077261
+                                        "y": 33377.97900707726
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4290,11 +4703,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 30219.892471796447,
-                                "y": 14177.979007077261
+                                "y": 33377.97900707726
                             },
                             "targetPosition": {
                                 "x": 29945.828834503667,
-                                "y": 14300.000000000002
+                                "y": 33500
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4318,18 +4731,18 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "SSChana",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "6b060bcd-6950-45b7-9493-035d43b8ab00",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30538.86197515018,
-                                        "y": 14346.672720372446
+                                        "y": 33546.672720372444
                                     },
                                     "targetPosition": {
                                         "x": 30239.27311472381,
-                                        "y": 14362.37350724533
+                                        "y": 33562.37350724533
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4359,18 +4772,18 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "Lantschirky",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "12de5122-af84-42b7-ab9d-44596349780e",
                                 "savedPayload": {
                                     "position": {
                                         "x": 30506.575071980318,
-                                        "y": 14498.570657167193
+                                        "y": 33698.57065716719
                                     },
                                     "targetPosition": {
                                         "x": 30239.27311472381,
-                                        "y": 14362.37350724533
+                                        "y": 33562.37350724533
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4403,11 +4816,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 30239.27311472381,
-                                "y": 14362.37350724533
+                                "y": 33562.37350724533
                             },
                             "targetPosition": {
                                 "x": 29945.828834503667,
-                                "y": 14300.000000000002
+                                "y": 33500
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -4431,18 +4844,18 @@
                         "userDelegates": [
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "Loui-Molina",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "4c9e5254-3292-40e2-ae8f-e294e8de63f7",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21823.74606583817,
-                                        "y": 19172.354286469243
+                                        "x": 30444.924585021807,
+                                        "y": 33691.584908662924
                                     },
                                     "targetPosition": {
-                                        "x": 21533.96831795145,
-                                        "y": 19250
+                                        "x": 30146.568016411326,
+                                        "y": 33722.94344764322
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4472,18 +4885,18 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "gonzalocatrina",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "1ef198b7-8387-461a-8efc-e4db940fe699",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21793.775939086783,
-                                        "y": 19400
+                                        "x": 30406.37563754666,
+                                        "y": 33872.94344764322
                                     },
                                     "targetPosition": {
-                                        "x": 21533.96831795145,
-                                        "y": 19250
+                                        "x": 30146.568016411326,
+                                        "y": 33722.94344764322
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4513,18 +4926,18 @@
                             },
                             {
                                 "type": "User Delegate",
-                                "name": "",
+                                "name": "claudioLopezSA",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "e5dd7629-64fb-4fa0-999b-a2c126b5b7ea",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 21611.614031482208,
-                                        "y": 19539.77774788672
+                                        "x": 30268.589009334064,
+                                        "y": 33997.007084936005
                                     },
                                     "targetPosition": {
-                                        "x": 21533.96831795145,
-                                        "y": 19250
+                                        "x": 30146.568016411326,
+                                        "y": 33722.94344764322
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4551,22 +4964,61 @@
                                         ]
                                     ]
                                 }
+                            },
+                            {
+                                "type": "User Delegate",
+                                "name": "whtv",
+                                "config": "{\r\n    \"percentage\": 50\r\n}",
+                                "project": "Governance",
+                                "id": "1ca2c80d-2a4c-4d63-ac82-266d6d64e6a5",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 30084.194509165998,
+                                        "y": 34016.387727863366
+                                    },
+                                    "targetPosition": {
+                                        "x": 30146.568016411326,
+                                        "y": 33722.94344764322
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "User Profile",
+                                        "name": "whtv",
+                                        "id": "7f72eb67-67b6-46c4-b780-41f46a2c1182"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "whtv",
+                                            "User Profile"
+                                        ]
+                                    ]
+                                }
                             }
                         ],
                         "id": "72332ed3-98e3-48c9-a3b3-d7be6add4944",
                         "savedPayload": {
                             "position": {
                                 "x": 30146.568016411326,
-                                "y": 14522.94344764322
+                                "y": 33722.94344764322
                             },
                             "targetPosition": {
                                 "x": 29945.828834503667,
-                                "y": 14300.000000000002
+                                "y": 33500
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -4585,11 +5037,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 29977.187373483965,
-                            "y": 14598.356568610483
+                            "y": 33798.356568610485
                         },
                         "targetPosition": {
                             "x": 29945.828834503667,
-                            "y": 14300.000000000002
+                            "y": 33500
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -4608,11 +5060,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 29945.828834503667,
-                        "y": 14300.000000000002
+                        "y": 33500
                     },
                     "targetPosition": {
                         "x": 29686.021213368334,
-                        "y": 14150.000000000002
+                        "y": 33350
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -4630,17 +5082,17 @@
             "id": "ed112539-01ea-4937-85cf-69612ee6115d",
             "savedPayload": {
                 "position": {
-                    "x": 38059.80762113533,
-                    "y": 18950
+                    "x": 29686.021213368334,
+                    "y": 33350
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 29426.213592233,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": true,
+                    "isCollapsed": false,
                     "angleToParent": 2,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -4825,12 +5277,12 @@
             "id": "ba3bc469-3c94-444d-a5d0-8ed851aa3778",
             "savedPayload": {
                 "position": {
-                    "x": 37950,
-                    "y": 19059.807621135333
+                    "x": 29576.213592233,
+                    "y": 33459.80762113533
                 },
                 "targetPosition": {
-                    "x": 37800,
-                    "y": 18800
+                    "x": 29426.213592233,
+                    "y": 33200
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -4848,12 +5300,12 @@
         "id": "f8182a9c-f830-4ec1-a238-ac3a5efd69e6",
         "savedPayload": {
             "position": {
-                "x": 37800,
-                "y": 18800
+                "x": 29426.213592233,
+                "y": 33200
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -4875,12 +5327,12 @@
         "id": "9870ca2a-cefc-484b-b7fc-206d62782ebc",
         "savedPayload": {
             "position": {
-                "x": 37712.132034355964,
-                "y": 19012.132034355964
+                "x": 29338.345626588965,
+                "y": 33412.132034355964
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -5389,12 +5841,12 @@
         "id": "c57bd931-a0e1-4cf2-9270-b33f08839484",
         "savedPayload": {
             "position": {
-                "x": 37500,
-                "y": 19100
+                "x": 29126.213592233,
+                "y": 33500
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7436,12 +7888,12 @@
         "id": "54ced611-b518-435f-a284-935666ef47db",
         "savedPayload": {
             "position": {
-                "x": 37287.867965644036,
-                "y": 19012.132034355964
+                "x": 28914.081557877038,
+                "y": 33412.132034355964
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7714,12 +8166,12 @@
         "id": "e453990c-57e2-4886-9dc1-060cd2750467",
         "savedPayload": {
             "position": {
-                "x": 37200,
-                "y": 18800
+                "x": 28826.213592233,
+                "y": 33200
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -7753,12 +8205,12 @@
                     "id": "4124d9cd-3037-4080-9dfd-7923ee0a4598",
                     "savedPayload": {
                         "position": {
-                            "x": 36738.28259662198,
-                            "y": 18660.22225211328
+                            "x": 28364.496188854984,
+                            "y": 33060.22225211328
                         },
                         "targetPosition": {
-                            "x": 36998.090217757315,
-                            "y": 18510.22225211328
+                            "x": 28624.303809990317,
+                            "y": 32910.22225211328
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7775,17 +8227,17 @@
                 },
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
-                    "name": "Testnet",
+                    "name": "",
                     "project": "Governance",
                     "id": "f365a1bf-b51d-4314-ac4d-686237aa2ab3",
                     "savedPayload": {
                         "position": {
-                            "x": 36708.312469870594,
-                            "y": 18432.57653858252
+                            "x": 28334.526062103596,
+                            "y": 32832.57653858252
                         },
                         "targetPosition": {
-                            "x": 36998.090217757315,
-                            "y": 18510.22225211328
+                            "x": 28624.303809990317,
+                            "y": 32910.22225211328
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7826,12 +8278,12 @@
                         "id": "105dbd35-ec24-4476-bfe4-473bb3ce76c3",
                         "savedPayload": {
                             "position": {
-                                "x": 36588.28259662198,
-                                "y": 18100.414630977946
+                                "x": 28214.496188854984,
+                                "y": 32500.414630977946
                             },
                             "targetPosition": {
-                                "x": 36848.090217757315,
-                                "y": 18250.414630977946
+                                "x": 28474.303809990317,
+                                "y": 32650.414630977946
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7854,12 +8306,12 @@
                         "id": "bacc8e95-8bbc-4580-9cd4-1617b4ce57f2",
                         "savedPayload": {
                             "position": {
-                                "x": 36848.090217757315,
-                                "y": 17950.414630977946
+                                "x": 28474.303809990317,
+                                "y": 32350.414630977946
                             },
                             "targetPosition": {
-                                "x": 36848.090217757315,
-                                "y": 18250.414630977946
+                                "x": 28474.303809990317,
+                                "y": 32650.414630977946
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7877,12 +8329,12 @@
                     "id": "182399ca-4652-4acb-98f4-c1a9a655b407",
                     "savedPayload": {
                         "position": {
-                            "x": 36848.090217757315,
-                            "y": 18250.414630977946
+                            "x": 28474.303809990317,
+                            "y": 32650.414630977946
                         },
                         "targetPosition": {
-                            "x": 36998.090217757315,
-                            "y": 18510.22225211328
+                            "x": 28624.303809990317,
+                            "y": 32910.22225211328
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7900,12 +8352,12 @@
                 "id": "56cc0c90-4a58-4e25-a63f-4f9a6921d0f3",
                 "savedPayload": {
                     "position": {
-                        "x": 36998.090217757315,
-                        "y": 18510.22225211328
+                        "x": 28624.303809990317,
+                        "y": 32910.22225211328
                     },
                     "targetPosition": {
-                        "x": 37287.867965644036,
-                        "y": 18587.867965644036
+                        "x": 28914.081557877038,
+                        "y": 32987.867965644036
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -7933,12 +8385,12 @@
                     "id": "e5e307f8-1cb6-4e24-903f-ab1469fc373b",
                     "savedPayload": {
                         "position": {
-                            "x": 36950.414630977946,
-                            "y": 18148.090217757315
+                            "x": 28576.628223210948,
+                            "y": 32548.090217757315
                         },
                         "targetPosition": {
-                            "x": 37210.22225211328,
-                            "y": 18298.090217757315
+                            "x": 28836.43584434628,
+                            "y": 32698.090217757315
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -7955,17 +8407,17 @@
                 },
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
-                    "name": "Testnet",
+                    "name": "",
                     "project": "Governance",
                     "id": "1594ddfa-28df-4cc4-a4e0-5574445beb86",
                     "savedPayload": {
                         "position": {
-                            "x": 37132.57653858252,
-                            "y": 18008.312469870594
+                            "x": 28758.790130815523,
+                            "y": 32408.312469870594
                         },
                         "targetPosition": {
-                            "x": 37210.22225211328,
-                            "y": 18298.090217757315
+                            "x": 28836.43584434628,
+                            "y": 32698.090217757315
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8006,12 +8458,12 @@
                         "id": "85862434-9ee9-49f7-b1d6-40207c4dc02d",
                         "savedPayload": {
                             "position": {
-                                "x": 37360.22225211328,
-                                "y": 17738.282596621983
+                                "x": 28986.43584434628,
+                                "y": 32138.282596621983
                             },
                             "targetPosition": {
-                                "x": 37360.22225211328,
-                                "y": 18038.282596621983
+                                "x": 28986.43584434628,
+                                "y": 32438.282596621983
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8034,12 +8486,12 @@
                         "id": "e2142319-adec-4a2b-a7dc-0690b10b654a",
                         "savedPayload": {
                             "position": {
-                                "x": 37620.02987324861,
-                                "y": 17888.282596621983
+                                "x": 29246.243465481613,
+                                "y": 32288.282596621983
                             },
                             "targetPosition": {
-                                "x": 37360.22225211328,
-                                "y": 18038.282596621983
+                                "x": 28986.43584434628,
+                                "y": 32438.282596621983
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8057,12 +8509,12 @@
                     "id": "1b884871-99d5-4486-9fd5-c9949f386295",
                     "savedPayload": {
                         "position": {
-                            "x": 37360.22225211328,
-                            "y": 18038.282596621983
+                            "x": 28986.43584434628,
+                            "y": 32438.282596621983
                         },
                         "targetPosition": {
-                            "x": 37210.22225211328,
-                            "y": 18298.090217757315
+                            "x": 28836.43584434628,
+                            "y": 32698.090217757315
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8080,12 +8532,12 @@
                 "id": "352cd906-c36c-48c7-8f01-728ff78b78e9",
                 "savedPayload": {
                     "position": {
-                        "x": 37210.22225211328,
-                        "y": 18298.090217757315
+                        "x": 28836.43584434628,
+                        "y": 32698.090217757315
                     },
                     "targetPosition": {
-                        "x": 37287.867965644036,
-                        "y": 18587.867965644036
+                        "x": 28914.081557877038,
+                        "y": 32987.867965644036
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -8104,17 +8556,17 @@
         "id": "da779e56-cb36-4825-bcd5-06692175a982",
         "savedPayload": {
             "position": {
-                "x": 37287.867965644036,
-                "y": 18587.867965644036
+                "x": 28914.081557877038,
+                "y": 32987.867965644036
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8327,12 +8779,12 @@
         "id": "2b6209a4-5149-4e58-bcc4-322814ea50f0",
         "savedPayload": {
             "position": {
-                "x": 37500,
-                "y": 18500
+                "x": 29126.213592233,
+                "y": 32900
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
@@ -8366,12 +8818,12 @@
                     "id": "51548a10-7f67-4850-8687-e34a9e49ab4e",
                     "savedPayload": {
                         "position": {
-                            "x": 38136.39610306789,
-                            "y": 18163.60389693211
+                            "x": 29762.609695300893,
+                            "y": 32563.60389693211
                         },
                         "targetPosition": {
-                            "x": 37924.26406871193,
-                            "y": 18375.735931288073
+                            "x": 29550.47766094493,
+                            "y": 32775.73593128807
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8390,12 +8842,12 @@
             "id": "f141613b-ea77-425c-8e3b-9874a638fcab",
             "savedPayload": {
                 "position": {
-                    "x": 37924.26406871193,
-                    "y": 18375.735931288073
+                    "x": 29550.47766094493,
+                    "y": 32775.73593128807
                 },
                 "targetPosition": {
-                    "x": 37712.132034355964,
-                    "y": 18587.867965644036
+                    "x": 29338.345626588965,
+                    "y": 32987.867965644036
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -8413,17 +8865,17 @@
         "id": "70d2d75b-ad84-4386-93f5-13ad56c111f7",
         "savedPayload": {
             "position": {
-                "x": 37712.132034355964,
-                "y": 18587.867965644036
+                "x": 29338.345626588965,
+                "y": 32987.867965644036
             },
             "targetPosition": {
-                "x": 37500,
-                "y": 18800
+                "x": 29126.213592233,
+                "y": 33200
             },
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8436,12 +8888,12 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 37500,
-            "y": 18800
+            "x": 29126.213592233,
+            "y": 33200
         },
         "targetPosition": {
-            "x": 37500,
-            "y": 18800
+            "x": 29126.213592233,
+            "y": 33200
         },
         "floatingObject": {
             "isPinned": true,

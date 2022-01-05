@@ -7776,8 +7776,8 @@
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
                     "name": "Testnet",
-                    "project": "Open-Storage",
-                    "id": "90fd0c74-f077-429a-ba7a-344ee03b34d9",
+                    "project": "Governance",
+                    "id": "f365a1bf-b51d-4314-ac4d-686237aa2ab3",
                     "savedPayload": {
                         "position": {
                             "x": 36785.95818340135,
@@ -7870,8 +7870,8 @@
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
                     "name": "Testnet",
-                    "project": "Open-Storage",
-                    "id": "adce1646-5a95-4bb1-a074-d95a03dfa7b0",
+                    "project": "Governance",
+                    "id": "1594ddfa-28df-4cc4-a4e0-5574445beb86",
                     "savedPayload": {
                         "position": {
                             "x": 37287.867965644036,
@@ -7942,7 +7942,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -7979,7 +7979,7 @@
                                 "permissionsGranted": [
                                     {
                                         "type": "Permission Granted",
-                                        "name": "New Permission Granted",
+                                        "name": "Luis-Fernando-Molina",
                                         "config": "{}",
                                         "project": "Governance",
                                         "id": "47631a23-1280-4ba6-b11c-592edaab72ea",
@@ -8011,7 +8011,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Luis-Fernando-Molina",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                                                 ]
                                             ]
                                         }

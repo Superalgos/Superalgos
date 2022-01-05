@@ -582,12 +582,12 @@
                                     "id": "7c9bbfc7-44a9-49e9-9611-90e4c5a566af",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 16721.512212896778,
-                                            "y": 45224.827304290884
+                                            "x": 17265.726323490715,
+                                            "y": 44993.20258368287
                                         },
                                         "targetPosition": {
-                                            "x": 16447.448575603994,
-                                            "y": 45346.848297213626
+                                            "x": 16975.948575603994,
+                                            "y": 45070.848297213626
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -612,12 +612,12 @@
                                     "id": "bdef6a71-1f21-4cc2-8acd-7987273a63a0",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 16740.89285582414,
-                                            "y": 45409.22180445895
+                                            "x": 17235.756196739327,
+                                            "y": 45220.848297213626
                                         },
                                         "targetPosition": {
-                                            "x": 16447.448575603994,
-                                            "y": 45346.848297213626
+                                            "x": 16975.948575603994,
+                                            "y": 45070.848297213626
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -642,42 +642,12 @@
                                     "id": "80359557-1ac5-4112-908a-679d3617167c",
                                     "savedPayload": {
                                         "position": {
-                                            "x": 16648.187757511652,
-                                            "y": 45569.79174485685
+                                            "x": 17053.59428913475,
+                                            "y": 45360.62604510035
                                         },
                                         "targetPosition": {
-                                            "x": 16447.448575603994,
-                                            "y": 45346.848297213626
-                                        },
-                                        "floatingObject": {
-                                            "isPinned": false,
-                                            "isFrozen": false,
-                                            "isCollapsed": false,
-                                            "angleToParent": 2,
-                                            "distanceToParent": 3,
-                                            "arrangementStyle": 0
-                                        },
-                                        "uiObject": {
-                                            "isRunning": false
-                                        }
-                                    }
-                                },
-                                {
-                                    "type": "Pool",
-                                    "name": "Liquidity Rewards ETH",
-                                    "config": "{\n    \"codeName\": \"Liquidity-Rewards-ETH\"\n}",
-                                    "project": "Governance",
-                                    "poolClasses": [],
-                                    "pools": [],
-                                    "id": "99665eab-ecb7-421c-95ff-17aebb71ce4b",
-                                    "savedPayload": {
-                                        "position": {
-                                            "x": 16478.80711458429,
-                                            "y": 45645.20486582411
-                                        },
-                                        "targetPosition": {
-                                            "x": 16447.448575603994,
-                                            "y": 45346.848297213626
+                                            "x": 16975.948575603994,
+                                            "y": 45070.848297213626
                                         },
                                         "floatingObject": {
                                             "isPinned": false,
@@ -696,12 +666,12 @@
                             "id": "055b0d96-ae5e-4442-9788-a00d87a28666",
                             "savedPayload": {
                                 "position": {
-                                    "x": 16447.448575603994,
-                                    "y": 45346.848297213626
+                                    "x": 16975.948575603994,
+                                    "y": 45070.848297213626
                                 },
                                 "targetPosition": {
-                                    "x": 16187.640954468663,
-                                    "y": 45196.848297213626
+                                    "x": 16716.14095446866,
+                                    "y": 44920.848297213626
                                 },
                                 "floatingObject": {
                                     "isPinned": false,

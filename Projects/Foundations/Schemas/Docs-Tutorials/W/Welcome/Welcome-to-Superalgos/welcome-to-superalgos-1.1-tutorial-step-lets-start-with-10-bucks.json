@@ -1,0 +1,46 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "91.1",
+    "type": "Tutorial Step - Let's Start With 10 Bucks!",
+    "definition": {
+        "text": "The default initialBalance is set to 10 USDT, which is the minimum transaction size supported by the exchange.",
+        "updated": 1640438628005,
+        "icon": {
+            "name": "session-quoted-asset",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Hal utama initialBalance diatur ke 5 USDT, yang merupakan ukuran transaksi minimum yang didukung oleh exchange.",
+                "updated": 1640575251466
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The initialBalance is defined in the configuration of the Session Quoted Asset. Check it out and decide for yourself if you wish to change it!",
+            "updated": 1640438640272,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Saldo awal initialBalance didefinisikan dalam konfigurasi Session Quoted Asset. Lihat dan putuskan sendiri jika kamu ingin mengubahnya!",
+                    "updated": 1640575274140
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "There is no need to change the configuration to complete this tutorial, but you're free to do so if you wish!",
+            "updated": 1640438738382,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Tidak perlu mengubah konfigurasi untuk menyelesaikan tutorial ini, tetapi kamu bebas melakukannya jika mau!",
+                    "updated": 1640575307830
+                }
+            ]
+        }
+    ]
+}

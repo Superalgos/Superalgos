@@ -421,17 +421,17 @@
                 "id": "664b8235-5e68-4b5f-aed1-6ef74d8b2d31",
                 "savedPayload": {
                     "position": {
-                        "x": 3887.5280285554754,
-                        "y": 27520.444504226558
+                        "x": 3718.801361222432,
+                        "y": 27740.33337816992
                     },
                     "targetPosition": {
-                        "x": 3732.2366014939635,
-                        "y": 28100
+                        "x": 3602.332790926298,
+                        "y": 28175
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -455,12 +455,12 @@
                         "id": "0b686ca0-1ed1-4aa8-a8ca-708a6dfa4818",
                         "savedPayload": {
                             "position": {
-                                "x": 7771.256139894003,
-                                "y": 28173.43055234624
+                                "x": 4110.39648245897,
+                                "y": 27216.913059005874
                             },
                             "targetPosition": {
-                                "x": 7601.334268816554,
-                                "y": 28420.668408932845
+                                "x": 4251.851843764626,
+                                "y": 27800
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -496,12 +496,12 @@
                         "id": "ff5e92d5-fd71-43a6-be90-fb51ed5d4746",
                         "savedPayload": {
                             "position": {
-                                "x": 7852.9354392001815,
-                                "y": 28257.276698428337
+                                "x": 4280.4009932588715,
+                                "y": 27200.679596490194
                             },
                             "targetPosition": {
-                                "x": 7601.334268816554,
-                                "y": 28420.668408932845
+                                "x": 4251.851843764626,
+                                "y": 27800
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -537,12 +537,12 @@
                         "id": "63525c77-1f6c-443a-9aab-ca855fe4b385",
                         "savedPayload": {
                             "position": {
-                                "x": 7896.31074108574,
-                                "y": 28365.997751285202
+                                "x": 4448.09262175508,
+                                "y": 27232.999508771198
                             },
                             "targetPosition": {
-                                "x": 7601.334268816554,
-                                "y": 28420.668408932845
+                                "x": 4251.851843764626,
+                                "y": 27800
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -578,12 +578,12 @@
                         "id": "7d3d40bb-b4d6-4765-9649-5969be600704",
                         "savedPayload": {
                             "position": {
-                                "x": 7894.778549036696,
-                                "y": 28483.041916178172
+                                "x": 4599.885989507346,
+                                "y": 27311.2544287698
                             },
                             "targetPosition": {
-                                "x": 7601.334268816554,
-                                "y": 28420.668408932845
+                                "x": 4251.851843764626,
+                                "y": 27800
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -619,12 +619,12 @@
                         "id": "feef0c23-04a5-40e5-b08c-af7d4b26b184",
                         "savedPayload": {
                             "position": {
-                                "x": 7848.572125403159,
-                                "y": 28590.590280010296
+                                "x": 4723.483700610298,
+                                "y": 27429.104608267637
                             },
                             "targetPosition": {
-                                "x": 7601.334268816554,
-                                "y": 28420.668408932845
+                                "x": 4251.851843764626,
+                                "y": 27800
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -651,6 +651,123 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "mARTin-B78",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "c73bc956-3f63-45cc-a0b5-216f0fd86388",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4808.87260357427,
+                                "y": 27577.002526603803
+                            },
+                            "targetPosition": {
+                                "x": 4251.851843764626,
+                                "y": 27800
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "mARTin-B78",
+                                "id": "6b027e4e-32c9-4847-8f74-90aac9c738c0"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "mARTin-B78",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "end-debug",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "f69910e8-d8de-4276-9566-e193c1b6049d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4849.134997308477,
+                                "y": 27742.96637401749
+                            },
+                            "targetPosition": {
+                                "x": 4251.851843764626,
+                                "y": 27800
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "end-debug",
+                                "id": "2ba902c6-59f4-40f4-91f5-44d12f807061"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "end-debug",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Supporter",
+                        "name": "superharoun",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "cc2c1fe5-22f7-475b-a59e-60be6af4f991",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4841.009062122251,
+                                "y": 27913.550746616245
+                            },
+                            "targetPosition": {
+                                "x": 4251.851843764626,
+                                "y": 27800
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "superharoun",
+                                "id": "47c64eac-831d-4277-b9ce-4bd3d7e803c1"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "superharoun",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -660,12 +777,12 @@
                     "id": "944ee0dd-8ad3-48ec-a6d0-8d69d73a3bf3",
                     "savedPayload": {
                         "position": {
-                            "x": 7764.725979321062,
-                            "y": 28672.26957931647
+                            "x": 4785.153112957581,
+                            "y": 28074.935913036446
                         },
                         "targetPosition": {
-                            "x": 7601.334268816554,
-                            "y": 28420.668408932845
+                            "x": 4251.851843764626,
+                            "y": 27800
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -687,12 +804,12 @@
                     "id": "77122e78-3933-4963-ad2c-41e18d9232a4",
                     "savedPayload": {
                         "position": {
-                            "x": 7656.004926464198,
-                            "y": 28715.64488120203
+                            "x": 4686.092266627668,
+                            "y": 28214.047406889265
                         },
                         "targetPosition": {
-                            "x": 7601.334268816554,
-                            "y": 28420.668408932845
+                            "x": 4251.851843764626,
+                            "y": 27800
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -710,12 +827,12 @@
                 "id": "024db197-f7e2-419a-a86e-790752ffd205",
                 "savedPayload": {
                     "position": {
-                        "x": 4251.851843764626,
-                        "y": 27800
+                        "x": 3992.0442226292953,
+                        "y": 27950
                     },
                     "targetPosition": {
-                        "x": 3732.2366014939635,
-                        "y": 28100
+                        "x": 3602.332790926298,
+                        "y": 28175
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -744,8 +861,8 @@
                         "id": "32fd5d70-2a3e-4e8a-9f11-e333d4280f4a",
                         "savedPayload": {
                             "position": {
-                                "x": 4703.164544034277,
-                                "y": 27800.508393174237
+                                "x": 4655.937959078033,
+                                "y": 27763.800200488116
                             },
                             "targetPosition": {
                                 "x": 4311.792097267405,
@@ -785,8 +902,8 @@
                         "id": "51107dc7-5154-4e03-a45f-5674212b9d8c",
                         "savedPayload": {
                             "position": {
-                                "x": 4861.72945078939,
-                                "y": 28015.356212469665
+                                "x": 4803.283323840799,
+                                "y": 27911.145565250885
                             },
                             "targetPosition": {
                                 "x": 4311.792097267405,
@@ -826,8 +943,8 @@
                         "id": "4b22e3cb-8ed7-433e-9f19-291e64f20199",
                         "savedPayload": {
                             "position": {
-                                "x": 4911.372520140444,
-                                "y": 28277.726143627307
+                                "x": 4891.347593040846,
+                                "y": 28100
                             },
                             "targetPosition": {
                                 "x": 4311.792097267405,
@@ -867,8 +984,8 @@
                         "id": "42c3b2a2-030f-406f-a198-46a9363b229d",
                         "savedPayload": {
                             "position": {
-                                "x": 4842.26133337017,
-                                "y": 28535.65260402535
+                                "x": 4909.508916122452,
+                                "y": 28307.584872710107
                             },
                             "targetPosition": {
                                 "x": 4311.792097267405,
@@ -899,6 +1016,84 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "User Mentor",
+                        "name": "mARTin-B78",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "2fc11ed6-8a9d-47ff-a5a5-0d60d6a638be",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4855.576769489395,
+                                "y": 28508.86238410593
+                            },
+                            "targetPosition": {
+                                "x": 4311.792097267405,
+                                "y": 28255.29142706151
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "mARTin-B78",
+                                "id": "6b027e4e-32c9-4847-8f74-90aac9c738c0"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "mARTin-B78",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
+                    },
+                    {
+                        "type": "User Mentor",
+                        "name": "harrellbm",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "05d87062-93e2-4886-8acc-c4b857eddee3",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4736.056165979333,
+                                "y": 28679.55549577344
+                            },
+                            "targetPosition": {
+                                "x": 4311.792097267405,
+                                "y": 28255.29142706151
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "harrellbm",
+                                "id": "3af73d3b-7c0e-4de7-a1e1-a72238081740"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "harrellbm",
+                                    "User Profile"
+                                ]
+                            ]
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -908,8 +1103,8 @@
                     "id": "957f8d6e-ea78-4564-ad8f-0b418ac7b338",
                     "savedPayload": {
                         "position": {
-                            "x": 4668.084208611506,
-                            "y": 28738.050094921513
+                            "x": 4565.363054311824,
+                            "y": 28799.076099283502
                         },
                         "targetPosition": {
                             "x": 4311.792097267405,
@@ -935,8 +1130,8 @@
                     "id": "d3d0bfa3-e5f8-4230-bbbd-845df8c0789f",
                     "savedPayload": {
                         "position": {
-                            "x": 4423.339061565154,
-                            "y": 28844.831311001482
+                            "x": 4364.085542916,
+                            "y": 28853.008245916557
                         },
                         "targetPosition": {
                             "x": 4311.792097267405,
@@ -958,17 +1153,17 @@
                 "id": "b6c43178-9f86-4c0d-833f-4486c81a8df8",
                 "savedPayload": {
                     "position": {
-                        "x": 4311.792097267405,
-                        "y": 28255.29142706151
+                        "x": 4036.9994127563787,
+                        "y": 28291.468570296132
                     },
                     "targetPosition": {
-                        "x": 3732.2366014939635,
-                        "y": 28100
+                        "x": 3602.332790926298,
+                        "y": 28175
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -981,8 +1176,8 @@
             "id": "eade5e40-0f8a-454f-88aa-7b38b0ed4444",
             "savedPayload": {
                 "position": {
-                    "x": 3732.2366014939635,
-                    "y": 28100
+                    "x": 3602.332790926298,
+                    "y": 28175
                 },
                 "targetPosition": {
                     "x": 3212.6213592233007,
@@ -991,9 +1186,9 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 2,
-                    "distanceToParent": 5,
+                    "distanceToParent": 4,
                     "arrangementStyle": 0
                 },
                 "uiObject": {
@@ -1085,12 +1280,12 @@
                                 "id": "96a2939e-87ef-469f-bc91-d2d9aa7d4114",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 4372.4289803586325,
-                                        "y": 28550
+                                        "x": 4351.984476132074,
+                                        "y": 28394.708572938485
                                     },
                                     "targetPosition": {
-                                        "x": 4072.4289803586325,
-                                        "y": 28550
+                                        "x": 4062.206728245353,
+                                        "y": 28472.354286469243
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -1146,8 +1341,8 @@
                         "id": "83cf62ec-ecaa-449c-b988-72876e934143",
                         "savedPayload": {
                             "position": {
-                                "x": 4072.4289803586325,
-                                "y": 28550
+                                "x": 4062.206728245353,
+                                "y": 28472.354286469243
                             },
                             "targetPosition": {
                                 "x": 3772.4289803586325,
@@ -1196,6 +1391,115 @@
                                 ]
                             ]
                         }
+                    },
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "Education Team PoW Report Position Class",
+                        "config": "{\r\n    \"percentage\":70\r\n}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "2726b679-48c1-432d-b23a-f9ca7ce7c529",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 4292.044222629296,
+                                        "y": 28850
+                                    },
+                                    "targetPosition": {
+                                        "x": 4032.2366014939644,
+                                        "y": 28700
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 2,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Translation Team Token Pool",
+                                        "id": "461dc6c0-6507-4c74-9da5-cae2f3f59907"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ Dec 2021",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Education Team PoW Report",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Translation Team Token Pool",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "5dceda74-a76e-417e-97c6-5dde2c5d2b82",
+                        "savedPayload": {
+                            "position": {
+                                "x": 4032.2366014939644,
+                                "y": 28700
+                            },
+                            "targetPosition": {
+                                "x": 3772.4289803586325,
+                                "y": 28550
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "Position Class",
+                                "name": "Education Team PoW Report",
+                                "id": "5c994463-567b-4433-bc9d-154a58fef42b"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Teams of Contributors",
+                                    "Positions"
+                                ],
+                                [
+                                    "Teams @ Dec 2021",
+                                    "Position Class"
+                                ],
+                                [
+                                    "Teams With PoW Reports",
+                                    "Position Class"
+                                ],
+                                [
+                                    "Education Team PoW Report",
+                                    "Position Class"
+                                ]
+                            ]
+                        }
                     }
                 ],
                 "tokensAwarded": {
@@ -1205,8 +1509,8 @@
                     "id": "45faac1d-c0c0-43be-a73a-caed42300efe",
                     "savedPayload": {
                         "position": {
-                            "x": 3922.4289803586325,
-                            "y": 28809.807621135333
+                            "x": 3850.074693889389,
+                            "y": 28839.77774788672
                         },
                         "targetPosition": {
                             "x": 3772.4289803586325,
@@ -1238,7 +1542,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -1251,7 +1555,7 @@
             "id": "12b5d89d-e1b4-489a-8b16-5177d70856af",
             "savedPayload": {
                 "position": {
-                    "x": 3512.6213592233007,
+                    "x": 3662.6213592233007,
                     "y": 28400
                 },
                 "targetPosition": {
@@ -1263,7 +1567,7 @@
                     "isFrozen": false,
                     "isCollapsed": true,
                     "angleToParent": 2,
-                    "distanceToParent": 3,
+                    "distanceToParent": 4,
                     "arrangementStyle": 0
                 },
                 "uiObject": {

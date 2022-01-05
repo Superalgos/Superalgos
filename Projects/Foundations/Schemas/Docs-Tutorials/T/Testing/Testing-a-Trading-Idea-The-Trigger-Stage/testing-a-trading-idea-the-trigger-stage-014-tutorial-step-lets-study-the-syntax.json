@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die Syntax zum Schreiben von Bedingungen und Formeln folgt ein paar grundlegenden Regeln, die bald offensichtlich sein werden!",
                 "updated": 1639261890018
+            },
+            {
+                "language": "RU",
+                "text": "Синтаксис для записи условий и формул подчиняется нескольким основным правилам, которые вскоре покажутся очевидными!",
+                "updated": 1640934802203
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Es kann einige Zeit dauern, bis Sie die Syntax beherrschen, besonders wenn Sie kein technischer Mensch sind, aber die Erfahrung zeigt, dass Superalgos-Benutzer sich daran gewöhnen, während sie ihre erste Strategie erstellen!",
                     "updated": 1639261902627
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, потребуется некоторое время, чтобы освоить синтаксис, особенно если вы не являетесь техническим специалистом, но опыт показывает, что пользователи Superalgos привыкают к нему уже при построении своей первой стратегии!",
+                    "updated": 1640934819579
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Bitte lesen Sie diese Seite sorgfältig durch!",
                     "updated": 1639261910620
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, внимательно прочитайте эту страницу!",
+                    "updated": 1640934827126
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Machen Sie sich keine Sorgen, wenn es schwer zu begreifen scheint... Wir werden in dieser Tutorial-Serie viel üben!",
                     "updated": 1639261919684
+                },
+                {
+                    "language": "RU",
+                    "text": "Не волнуйтесь, если это кажется сложным для понимания... Мы будем много практиковаться в этой серии уроков!",
+                    "updated": 1640934839677
                 }
             ]
         }

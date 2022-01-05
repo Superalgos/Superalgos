@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken!",
                 "updated": 1639266038745
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем мы приступим к выполнению первого бэктеста, я должен отметить кое-что очень важное!",
+                "updated": 1640947107238
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Backtesting ist eine Wissenschaft für sich! Es gibt ganze Bücher, die allein über Backtesting geschrieben wurden. Es ist ein tiefgründiges und komplexes Thema, vor allem weil Menschen, die Strategien entwerfen und testen, dazu neigen, Verzerrungen einzuführen, die zu einer Überanpassung führen können, d. h. die Regeln des Handelssystems an den Datensatz anzupassen, um gute Backtesting-Ergebnisse zu erzielen. Superalgos bietet Werkzeuge zur flexiblen Handhabung des Datensatzes, um diesen nicht zu verderben, wie z. B. den Zeitbereichsparameter, der es ermöglicht, den Datensatz nach Bedarf aufzuteilen oder mehrere Sitzungen parallel einzurichten und auszuführen. Wir werden dieses Thema jedoch nicht in diesem Tutorial behandeln! Der Schwerpunkt liegt derzeit auf der Definition einer Handelsidee und nicht auf dem Backtesting an sich.",
                     "updated": 1639266092831
+                },
+                {
+                    "language": "RU",
+                    "text": "Бэктестинг - это целая наука! Об одном только бэктестинге написаны целые книги. Это глубокая и сложная тема, главным образом потому, что люди, разрабатывающие и тестирующие стратегии, склонны вносить предубеждения, которые могут привести к чрезмерной подгонке, то есть корректировке правил торговой системы в соответствии с набором данных в стремлении получить хорошие результаты бэктестинга. Superalgos предлагает инструменты для гибкой работы с набором данных, чтобы не испортить его, например, параметр временного диапазона, который позволяет разделить набор данных по мере необходимости, или настроить и запустить несколько сессий параллельно. Тем не менее, в этом учебнике мы не будем рассматривать эту тему! В настоящее время основное внимание уделяется созданию определений торговой идеи, а не бэктестингу как таковому.",
+                    "updated": 1640947217804
                 }
             ]
         }

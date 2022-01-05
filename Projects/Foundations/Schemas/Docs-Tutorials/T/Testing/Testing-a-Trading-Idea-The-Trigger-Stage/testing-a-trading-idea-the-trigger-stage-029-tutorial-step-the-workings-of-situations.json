@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dies ist ein Schlüsselkonzept, das Sie verstehen müssen, damit Sie die Logik auf die richtige Weise organisieren können!",
                 "updated": 1639265748621
+            },
+            {
+                "language": "RU",
+                "text": "Это ключевое понятие, которое вы должны усвоить, чтобы правильно организовать логику!",
+                "updated": 1640944804637
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Eine Situation gilt als wahr, wenn alle darin enthaltenen Bedingungen als wahr gelten. Stellen Sie sich das so vor, als wären die Bedingungen innerhalb einer Situation durch den Operator && (and) verbunden. Wenn alle Bedingungen gleichzeitig wahr sind, ist auch die Situation wahr.",
                     "updated": 1639265795196
+                },
+                {
+                    "language": "RU",
+                    "text": "Ситуация считается истинной, если все условия в ней истинны. Подумайте об этом, как если бы условия внутри ситуации были связаны оператором && (и). Если все они одновременно истинны, то и ситуация истинна.",
+                    "updated": 1640944825211
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Ein Ereignis gilt als wahr, wenn eine der Situationen innerhalb des Ereignisses als wahr gilt. Es ist so, als ob Situationen innerhalb eines Ereignisses durch den Operator || (or) gebunden wären! Wenn eine der Situationen zu einem bestimmten Zeitpunkt wahr ist, dann wird das Ereignis ausgelöst!",
                     "updated": 1639265804598
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие считается истинным, если истинна любая из ситуаций, входящих в него. Это как если бы ситуации внутри события были связаны оператором || (или)! Если любая из ситуаций истинна в определенный момент времени, то событие срабатывает!",
+                    "updated": 1640944849241
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Können Sie sagen, wie man diese Definition einrichtet?",
                     "updated": 1639265812426
+                },
+                {
+                    "language": "RU",
+                    "text": "Не подскажете, как задать это определение?",
+                    "updated": 1640944891465
                 }
             ]
         }

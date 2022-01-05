@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Superalgos strebt danach, die Dinge einfach zu halten, und das sollten Sie auch tun, denn das ist der beste Weg, um die zunehmende Komplexität zu bewältigen!",
                 "updated": 1639265605790
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos стремится к простоте, как и вы, ведь это лучший способ справиться со сложностью!",
+                "updated": 1640944539611
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Bedingungen sollten so einfach (granular) wie möglich sein, weil:",
                     "updated": 1639265632592
+                },
+                {
+                    "language": "RU",
+                    "text": "Условия должны быть как можно более детализированными, потому что:",
+                    "updated": 1640944550824
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Es erleichtert die Fehlersuche in der Syntax: Wenn Sie die Logik in einer einzigen Bedingung anhäufen, ist es schwer, Fehler zu finden, die Sie möglicherweise eingeführt haben.",
                     "updated": 1639265643416
+                },
+                {
+                    "language": "RU",
+                    "text": "Это облегчает отладку синтаксиса: когда вы нагромождаете логику в одном условии, трудно найти ошибки, которые вы могли допустить.",
+                    "updated": 1640944582297
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Es erleichtert die Fehlersuche in der Strategie: Wenn Sie die Logik in verschiedene Bedingungen aufteilen, können Sie genau sehen, welcher Teil der Logik wahr oder falsch ist.",
                     "updated": 1639265656108
+                },
+                {
+                    "language": "RU",
+                    "text": "Это облегчает отладку стратегии: если вы сохраните логику, разделенную на различные условия, вы сможете точно увидеть, какая часть логики соответствует true или false.",
+                    "updated": 1640944611736
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Die Strategie ist leichter zu pflegen und zu aktualisieren: Granulare Bedingungen machen alles einfacher zu verstehen und nachzuvollziehen.",
                     "updated": 1639265661578
+                },
+                {
+                    "language": "RU",
+                    "text": "Это облегчает сопровождение и обновление стратегии: гранулированные условия делают все более простым и понятным.",
+                    "updated": 1640944662827
                 }
             ]
         }

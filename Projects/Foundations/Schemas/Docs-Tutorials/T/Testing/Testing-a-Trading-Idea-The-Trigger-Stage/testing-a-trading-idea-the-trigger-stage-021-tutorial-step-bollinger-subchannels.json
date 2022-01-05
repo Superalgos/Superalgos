@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die Steigung gibt an, wie steil die MA-Kurve ist... das heißt, wie ausgeprägt der Rückgang oder Anstieg des MA ist!",
                 "updated": 1639263150888
+            },
+            {
+                "language": "RU",
+                "text": "Наклон (slope) показывает, насколько крута кривая МА... то есть, насколько выражен падающий или восходящий участок МА!",
+                "updated": 1640940045619
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Lesen Sie die Beschreibung des Indikators in der Dokumentation. Scrollen Sie dann nach unten und gehen Sie zum Abschnitt Bollinger SubChannels Products & Properties.",
                     "updated": 1639263159240
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте описание индикатора в документации. Затем прокрутите вниз и дойдите до раздела \" Bollinger SubChannels Products & Properties\".",
+                    "updated": 1640939767412
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Die Art von Informationen, die Sie auf dieser Seite finden, ist für jeden Indikator verfügbar, der mit dem System ausgeliefert wird.",
                     "updated": 1639263165561
+                },
+                {
+                    "language": "RU",
+                    "text": "Информация, которую вы найдете на этой странице, доступна для каждого индикатора, поставляемого с системой.",
+                    "updated": 1640939776830
                 }
             ]
         }

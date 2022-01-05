@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden!",
                 "updated": 1639263355926
+            },
+            {
+                "language": "RU",
+                "text": "В этом разделе документации каждого индикатора содержится информация, необходимая для использования индикатора с условиями и формулами!",
+                "updated": 1640939815330
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Das Produkt  bollingerSubChannel verfügt über drei verschiedene Eigenschaften:",
                     "updated": 1639263385134
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукт bollingerSubChannel имеет три различных свойства:",
+                    "updated": 1640939824708
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Richtung: Aufwärts (Up), Abwärts (Down)",
                     "updated": 1639263435512
+                },
+                {
+                    "language": "RU",
+                    "text": "direction (направление): Вверх, Вниз",
+                    "updated": 1640939865684
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Periode: 1 bis n.",
                     "updated": 1639263445728
+                },
+                {
+                    "language": "RU",
+                    "text": "period (период): от 1 до n.",
+                    "updated": 1640939907591
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Neigung: Seitlich (Side), Sanft (Gentle), Mittel (Medium), Steil (Steep), Extrem (Extreme).",
                     "updated": 1639267169486
+                },
+                {
+                    "language": "RU",
+                    "text": "slope (наклон): Боковой (\"Side\"), пологий (\"Gentle\"), средний (\"Medium\"), крутой (\"Steep\"), экстремальный (\"Extreme\").",
+                    "updated": 1640939997378
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen!",
                     "updated": 1639263536175
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте этот раздел внимательно, чтобы мы могли вернуться к графикам и решить, как мы будем использовать свойство наклона (slope)!",
+                    "updated": 1640940026048
                 }
             ]
         }

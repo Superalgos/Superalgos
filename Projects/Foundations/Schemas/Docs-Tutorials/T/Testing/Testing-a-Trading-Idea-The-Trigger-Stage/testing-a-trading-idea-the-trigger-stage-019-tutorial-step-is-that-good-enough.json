@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dies scheint für die Umkehrungen vom 25. Februar und 1. April gut zu funktionieren, oder?",
                 "updated": 1639262524455
+            },
+            {
+                "language": "RU",
+                "text": "Кажется, это хорошо работает для разворотов 25 февраля и 1 апреля, верно?",
+                "updated": 1640935539333
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Schwenken Sie das Diagramm nach rechts und prüfen Sie den Zeitraum zwischen dem 24. Mai und dem 16. Juli!",
                     "updated": 1639262540419
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на график справа и проверьте период между 24 мая и 16 июля!",
+                    "updated": 1640935552309
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Der Markt bewegt sich eindeutig seitwärts in einer enger werdenden Spanne, und der Indikator wechselt unregelmäßig zwischen Auf- und Abwärtsrichtung hin und her.",
                     "updated": 1639262547864
+                },
+                {
+                    "language": "RU",
+                    "text": "Рынок явно движется в боковом направлении в сужающемся диапазоне, а индикатор неустойчиво переключается между направлениями \"вверх\" и \"вниз\".",
+                    "updated": 1640935568868
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Dies ist nicht die ultimative Lösung, um den Trend zu bestimmen!",
                     "updated": 1639262556947
+                },
+                {
+                    "language": "RU",
+                    "text": "Это не окончательное решение для определения тренда!",
+                    "updated": 1640935583074
                 }
             ]
         }

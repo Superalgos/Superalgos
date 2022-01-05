@@ -7,7 +7,7 @@
 }
 
 .postWrapper{
-    width: 40rem;
+    min-width: 20rem;
 }
 
 .postWrapper:hover { /* todo need to change color on over */

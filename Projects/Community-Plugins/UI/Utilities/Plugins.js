@@ -97,6 +97,9 @@ function newPluginsUtilitiesPlugins() {
             case 'User Profile': {
                 return 'User-Profiles'
             }
+            case 'P2P Network': {
+                return 'P2P-Networks'
+            }
         }
     }
 

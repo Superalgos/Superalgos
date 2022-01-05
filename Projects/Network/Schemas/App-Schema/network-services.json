@@ -1,5 +1,5 @@
 {
-    "type": "P2P Network Node",
+    "type": "Network Services",
     "menuItems": [
         {
             "action": "Configure",
@@ -14,32 +14,32 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "p2pNetworkReference",
+            "propertyToCheckFor": "socialGraph",
             "actionFunction": "payload.executeAction",
-            "label": "Add P2P Network Reference",
-            "relatedUiObject": "P2P Network Reference",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "networkServices",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Network Services",
-            "relatedUiObject": "Network Services",
+            "label": "Add Social Graph",
+            "relatedUiObject": "Social Graph",
             "relatedUiObjectProject": "Network"
-        },
+        },  
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "availableStorage",
+            "propertyToCheckFor": "tradingSignals",
             "actionFunction": "payload.executeAction",
-            "label": "Add Available Storage",
-            "relatedUiObject": "Available Storage",
-            "relatedUiObjectProject": "Open-Storage"
-        },
+            "label": "Add Trading Signals",
+            "relatedUiObject": "Trading Signals",
+            "relatedUiObjectProject": "Network"
+        },  
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "onlineWorkspaces",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Online Workspaces",
+            "relatedUiObject": "Online Workspaces",
+            "relatedUiObjectProject": "Network"
+        },       
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -55,40 +55,32 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
+        "config": "{}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->P2P Network Nodes->"
+        "compatibleTypes": "->P2P Network Node->"
     },
     "childrenNodesProperties": [
         {
-            "name": "signingAccount",
+            "name": "socialGraph",
             "type": "node",
-            "childType": "Signing Account",
+            "childType": "Social Graph",
             "autoAdd": false
         },
         {
-            "name": "p2pNetworkReference",
+            "name": "tradingSignals",
             "type": "node",
-            "childType": "P2P Network Reference",
-            "autoAdd": true
-        },
+            "childType": "Trading Signals",
+            "autoAdd": false
+        },        
         {
-            "name": "networkServices",
+            "name": "onlineWorkspaces",
             "type": "node",
-            "childType": "Network Services",
-            "project": "Network",
-            "autoAdd": true
-        },
-        {
-            "name": "availableStorage",
-            "type": "node",
-            "childType": "Available Storage",
-            "project": "Open-Storage",
+            "childType": "Online Workspaces",
             "autoAdd": false
         }
     ],
-    "propertyNameAtParent": "p2pNetworkNodes"
+    "propertyNameAtParent": "networkServices"
 }

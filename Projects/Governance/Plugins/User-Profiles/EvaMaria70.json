@@ -150,7 +150,7 @@
         "communityBuildingPrograms": {
             "type": "Community Building Programs",
             "name": "New Community Building Programs",
-            "config": "{\r\n    \"percentage\": 5\r\n}",
+            "config": "{\r\n    \"percentage\": 4\r\n}",
             "project": "Governance",
             "referralProgram": {
                 "type": "Referral Program",
@@ -278,7 +278,7 @@
             "supportProgram": {
                 "type": "Support Program",
                 "name": "New Support Program",
-                "config": "{\r\n    \"percentage\": 20\r\n}",
+                "config": "{\r\n    \"percentage\": 5\r\n}",
                 "project": "Governance",
                 "userSupporters": [
                     {
@@ -390,7 +390,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 3,
                         "distanceToParent": 4,
                         "arrangementStyle": 0
@@ -551,8 +551,505 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "\"codeName\": \"EvaMaria70\"\r\n{    \"percentage\": 75\r\n}",
+            "config": "\"codeName\": \"EvaMaria70\"\r\n{\r\n    \"percentage\": 96\r\n}",
             "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{\r\n    \"percentage\": 20\r\n}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "marcosgrivas Translation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "72527c9c-8a4d-462b-b300-a0a5b3cd12ee",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 48159.38955406901,
+                                                "y": 27775.531622522758
+                                            },
+                                            "targetPosition": {
+                                                "x": 48174.335572786295,
+                                                "y": 27974.972381958993
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "id": "2726b679-48c1-432d-b23a-f9ca7ce7c529"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "marcosgrivas",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Translation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "aririvas Translation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "13e4f224-9c44-476f-af83-5b0cf2f3d34b",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 48247.40377765957,
+                                                "y": 27788.79763223015
+                                            },
+                                            "targetPosition": {
+                                                "x": 48174.335572786295,
+                                                "y": 27974.972381958993
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "id": "44d64444-7369-4769-9fc0-f2c72b934189"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "aririvas",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Translation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "end-debug Exchange Testing Team Token Pool Exchange Testing Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "e05c537b-fbf6-4295-af7d-549e71d1b015",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 48320.94594715226,
+                                                "y": 27838.93783440481
+                                            },
+                                            "targetPosition": {
+                                                "x": 48174.335572786295,
+                                                "y": 27974.972381958993
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Exchange Testing Team Token Pool Exchange Testing Team PoW Report",
+                                                "id": "3e045155-be46-4b72-a1e9-58e413f70ec1"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "end-debug",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "end-debug Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Teams @ Dec 2021 Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Exchange Testing Team PoW Report Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Exchange Testing Team Token Pool Exchange Testing Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "gitforkgit Translation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "a5b3544d-2c09-4cec-a04b-452987cddda5",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 48365.45013394352,
+                                                "y": 27916.02134707681
+                                            },
+                                            "targetPosition": {
+                                                "x": 48174.335572786295,
+                                                "y": 27974.972381958993
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "id": "7804f8e3-3d2a-47a3-b018-4179ecf5998c"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "gitforkgit",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Translation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "mARTin-B78 Translation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "7dea7bcb-64d1-4360-98af-dc947f64b172",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 48372.10173803132,
+                                                "y": 28004.780835194226
+                                            },
+                                            "targetPosition": {
+                                                "x": 48174.335572786295,
+                                                "y": 27974.972381958993
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "id": "0ffbdbb0-1a26-489b-829d-d2a70ab8792d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "mARTin-B78",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "Teams @ Dec 2021 Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Translation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "harrellbm Documentation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "23dce25e-091e-4c47-9185-a15c170873ed",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 48339.583327649496,
+                                                "y": 28087.636393571716
+                                            },
+                                            "targetPosition": {
+                                                "x": 48174.335572786295,
+                                                "y": 27974.972381958993
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Documentation Team Token Pool Education Team PoW Report",
+                                                "id": "208c4524-4bae-40bd-b8d7-dc9ecc75679c"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "harrellbm",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report Position Class",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Documentation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "7b6173d9-a4c5-4ca5-add4-2b502cd03098",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 48174.335572786295,
+                                        "y": 27974.972381958993
+                                    },
+                                    "targetPosition": {
+                                        "x": 48001.130492029406,
+                                        "y": 28074.972381958993
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 3,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "4fcbd8a7-e247-47bb-bca5-76eb74a5084e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 48001.130492029406,
+                                "y": 28074.972381958993
+                            },
+                            "targetPosition": {
+                                "x": 47654.72033051563,
+                                "y": 28274.972381958993
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 3,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "254b7e90-a95f-45d3-a3e8-93948e7b50b2",
+                    "savedPayload": {
+                        "position": {
+                            "x": 48054.72033051563,
+                            "y": 28274.972381958993
+                        },
+                        "targetPosition": {
+                            "x": 47654.72033051563,
+                            "y": 28274.972381958993
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 3,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "4f57abe5-1c1c-4ea6-b7ad-69096dc77409",
+                "savedPayload": {
+                    "position": {
+                        "x": 47654.72033051563,
+                        "y": 28274.972381958993
+                    },
+                    "targetPosition": {
+                        "x": 47268.35,
+                        "y": 28378.5
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 3,
+                        "distanceToParent": 5,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
@@ -850,11 +1347,11 @@
                 "id": "3e15e7ab-6a1b-4a71-adbc-6fafbf6d9114",
                 "savedPayload": {
                     "position": {
-                        "x": 47443.35,
-                        "y": 28378.5
+                        "x": 47558.12774788672,
+                        "y": 28456.145713530757
                     },
                     "targetPosition": {
-                        "x": 47218.35,
+                        "x": 47268.35,
                         "y": 28378.5
                     },
                     "floatingObject": {
@@ -873,7 +1370,7 @@
             "id": "fe79f40b-9d30-4e86-bda2-1fd8a81599bf",
             "savedPayload": {
                 "position": {
-                    "x": 47218.35,
+                    "x": 47268.35,
                     "y": 28378.5
                 },
                 "targetPosition": {
@@ -885,7 +1382,7 @@
                     "isFrozen": false,
                     "isCollapsed": false,
                     "angleToParent": 2,
-                    "distanceToParent": 4,
+                    "distanceToParent": 5,
                     "arrangementStyle": 2
                 },
                 "uiObject": {

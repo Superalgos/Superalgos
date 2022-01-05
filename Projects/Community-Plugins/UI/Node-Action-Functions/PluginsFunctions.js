@@ -15,6 +15,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginLearningEngines: addMissingPluginLearningEngines,
         addMissingPluginTutorials: addMissingPluginTutorials,
         addMissingPluginApiMaps: addMissingPluginApiMaps,
+        addMissingPluginP2PNetworks: addMissingPluginP2PNetworks, 
         enableSavingWithWorkspace: enableSavingWithWorkspace,
         disableSavingWithWorkspace: disableSavingWithWorkspace,
         savePluginFile: savePluginFile,
@@ -269,6 +270,22 @@ function newPluginsFunctionLibraryPluginsFunctions() {
 
         function onNamesArrived(fileNames) {
             UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'API-Maps', 'API Map', 'Foundations')
+        }
+    }
+
+    function addMissingPluginP2PNetworks(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'P2P-Networks', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'P2P-Networks', 'P2P Network', 'Network')
         }
     }
 

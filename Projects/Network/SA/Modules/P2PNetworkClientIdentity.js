@@ -21,7 +21,13 @@ exports.newNetworkModulesP2PNetworkClientIdentity = function newNetworkModulesP2
         thisObject.userSocialProfile = undefined
     }
 
-    async function initialize() {
-
+    async function initialize(
+        node,
+        userSocialProfile,
+        blockchainAccount
+    ) {
+        thisObject.node = node
+        thisObject.userSocialProfile = userSocialProfile
+        thisObject.blockchainAccount = blockchainAccount
     }
 }

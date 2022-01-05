@@ -8,6 +8,8 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     the list of available nodes will exclude ourselves.
     */
     let thisObject = {
+        networkType: undefined,
+        networkCodeName: undefined,
         p2pNodesToConnect: undefined,
         /* Framework Functions */
         initialize: initialize,
@@ -20,7 +22,13 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
         thisObject.p2pNodesToConnect = undefined
     }
 
-    async function initialize(callerRole) {
+    async function initialize(
+        callerRole,
+        networkCodeName,
+        networkType
+    ) {
+        thisObject.networkCodeName = networkCodeName
+        thisObject.networkType = networkType
 
         switch (callerRole) {
             case 'Network Client': {
@@ -28,6 +36,12 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
 
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+
+                    if (p2pNetworkNode.referenceParent === undefined) { continue }
+                    if (p2pNetworkNode.referenceParent.config === undefined) { continue }
+                    if (p2pNetworkNode.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
+                    if (p2pNetworkNode.referenceParent.type !== thisObject.networkType) { continue }
+
                     thisObject.p2pNodesToConnect.push(p2pNetworkNode)
                 }
                 break
@@ -38,6 +52,12 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                 let thisP2PNodeId = SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).nodeId
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
+
+                    if (p2pNetworkNode.referenceParent === undefined) { continue }
+                    if (p2pNetworkNode.referenceParent.config === undefined) { continue }
+                    if (p2pNetworkNode.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
+                    if (p2pNetworkNode.referenceParent.type !== thisObject.networkType) { continue }
+                    
                     if (thisP2PNodeId !== p2pNetworkNode.node.id) {
                         thisObject.p2pNodesToConnect.push(p2pNetworkNode)
                     }

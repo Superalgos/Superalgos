@@ -26,7 +26,6 @@ exports.newDesktopApp = function newDesktopApp() {
             We set up ourselves as a Network Client.
             */
             thisObject.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
-            await thisObject.p2pNetworkClientIdentity.initialize()
             /*
             We will read all user profiles plugins and get from there our network identity.
             */
@@ -36,7 +35,11 @@ exports.newDesktopApp = function newDesktopApp() {
             We set up the P2P Network.
             */
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-            await thisObject.p2pNetwork.initialize('Network Client')
+            await thisObject.p2pNetwork.initialize(
+                'Network Client',
+                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                global.env.DESKTOP_TARGET_NETWORK_TYPE
+            )
             /*
             This is where we will process all the events comming from the p2p network.
             */

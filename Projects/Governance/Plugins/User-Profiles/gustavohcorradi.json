@@ -829,12 +829,12 @@
                                         "id": "84a5a06d-7f40-4fa6-91f4-95a4db05ac93",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 38515.98745214559,
-                                                "y": 29973.84943773398
+                                                "x": 38641.30875245572,
+                                                "y": 29777.23108255281
                                             },
                                             "targetPosition": {
-                                                "x": 38303.85541778963,
-                                                "y": 29761.717403378017
+                                                "x": 38351.531004569,
+                                                "y": 29699.585369022054
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -855,6 +855,89 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "mARTin-B78",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "6b027e4e-32c9-4847-8f74-90aac9c738c0"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "bfcd5faf-d1cd-4f52-8b75-3b4d8fd80fc5"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "341811ac-c9b4-478f-bb1b-ab9cc58af590"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "65542239-63da-4c7c-82ed-90d0aa58e90e"
+                                                ],
+                                                [
+                                                    "Teams @ Dec 2021 Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "6ea6f9c8-9f76-43fd-b096-6facd5e1da12"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "542359cf-b5e5-4c5d-a907-c91bc56f478e"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "525dd02e-673c-45ba-a761-a725471b48eb"
+                                                ],
+                                                [
+                                                    "Translation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim",
+                                                    "Governance",
+                                                    "0ffbdbb0-1a26-489b-829d-d2a70ab8792d"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "NicN11 Translation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "3da3ac7e-79e6-4cee-8257-662721d947da",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 38501.531004569,
+                                                "y": 29959.392990157387
+                                            },
+                                            "targetPosition": {
+                                                "x": 38351.531004569,
+                                                "y": 29699.585369022054
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "id": "33974a6a-d6e2-4ede-90a9-fc8f4c01b099"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "NicN11",
                                                     "User Profile"
                                                 ],
                                                 [
@@ -868,14 +951,6 @@
                                                 [
                                                     "New Claims Program",
                                                     "Claims Program"
-                                                ],
-                                                [
-                                                    "Teams @ Dec 2021 Position Class",
-                                                    "Position Claims Folder"
-                                                ],
-                                                [
-                                                    "Teams With PoW Reports Position Class",
-                                                    "Position Claims Folder"
                                                 ],
                                                 [
                                                     "Education Team PoW Report Position Class",
@@ -894,8 +969,8 @@
                                 "id": "25203ee7-faa9-4996-ad79-8869700c98d4",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38303.85541778963,
-                                        "y": 29761.717403378017
+                                        "x": 38351.531004569,
+                                        "y": 29699.585369022054
                                     },
                                     "targetPosition": {
                                         "x": 38091.723383433666,
@@ -905,7 +980,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 3,
+                                        "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -920,7 +995,7 @@
                             {
                                 "type": "User Profile Votes Switch",
                                 "name": "New User Profile Votes Switch",
-                                "config": "{\n    \"percentage\": 70\n    }",
+                                "config": "{\n    \"percentage\": 50\n}",
                                 "project": "Governance",
                                 "userProfileVotesSwitch": [],
                                 "userProfileVote": [
@@ -958,7 +1033,9 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "aririvas",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "a4a23444-a731-4c7f-8f5f-955fe38ac5f2"
                                                 ]
                                             ]
                                         }
@@ -968,7 +1045,7 @@
                                         "name": "marcosgrivas",
                                         "config": "{}",
                                         "project": "Governance",
-                                        "id": "02b741b5-b92c-45c2-b944-d2f3a6e2c98c",
+                                        "id": "927a27d5-b719-4aa4-bcd5-b7909c71e9b1",
                                         "savedPayload": {
                                             "position": {
                                                 "x": 38169.36909696442,

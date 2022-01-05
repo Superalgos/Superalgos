@@ -14,6 +14,247 @@
             "name": "New Votes And Claims Programs",
             "config": "{}",
             "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "Loui-Molina Desktop Team Token Pool Desktop Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "a114feae-a56b-40bf-a2ce-c6237af6ed58",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 3034.6153846153848,
+                                                "y": 37220.577136594
+                                            },
+                                            "targetPosition": {
+                                                "x": 3334.6153846153848,
+                                                "y": 37220.577136594
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                                "id": "0b57fa74-4cf0-4e46-940c-84d48cfeea9b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Loui-Molina",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Desktop Team Token Pool Desktop Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "gonzalocatrina Desktop Team Token Pool Desktop Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "515bab15-fbac-4e23-a344-4240e36ce0f0",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 3484.6153846153848,
+                                                "y": 36960.76951545867
+                                            },
+                                            "targetPosition": {
+                                                "x": 3334.6153846153848,
+                                                "y": 37220.577136594
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                                "id": "2cc3c007-2617-4167-bfc9-48e680010c3f"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "gonzalocatrina",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Desktop Team Token Pool Desktop Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "2f89d109-0261-480e-a50f-f73498ce2707",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 3334.6153846153848,
+                                        "y": 37220.577136594
+                                    },
+                                    "targetPosition": {
+                                        "x": 3484.6153846153848,
+                                        "y": 37480.384757729335
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "aff69b32-9280-4408-bd4b-6d308996b93e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 3484.6153846153848,
+                                "y": 37480.384757729335
+                            },
+                            "targetPosition": {
+                                "x": 3634.6153846153848,
+                                "y": 37740.19237886467
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "8fe66d72-458e-457f-b85f-44d430b0bcf1",
+                    "savedPayload": {
+                        "position": {
+                            "x": 3934.6153846153848,
+                            "y": 37740.19237886467
+                        },
+                        "targetPosition": {
+                            "x": 3634.6153846153848,
+                            "y": 37740.19237886467
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "569349ea-8ec3-4a91-b7a0-45008360f587",
+                "savedPayload": {
+                    "position": {
+                        "x": 3634.6153846153848,
+                        "y": 37740.19237886467
+                    },
+                    "targetPosition": {
+                        "x": 3484.6153846153848,
+                        "y": 38000
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
             "claimsProgram": {
                 "type": "Claims Program",
                 "name": "New Claims Program",
@@ -37,12 +278,12 @@
                                 "id": "8b3ca183-d09f-4b1b-a9e0-f0ee8d02bc63",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 7025.242718446601,
-                                        "y": 32680.384757729335
+                                        "x": 4234.615384615385,
+                                        "y": 38259.80762113533
                                     },
                                     "targetPosition": {
-                                        "x": 6875.242718446601,
-                                        "y": 32940.19237886467
+                                        "x": 3934.6153846153848,
+                                        "y": 38259.80762113533
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -58,7 +299,7 @@
                                     "referenceParent": {
                                         "type": "Position",
                                         "name": "Desktop Team Token Pool",
-                                        "id": "fb021c3d-23e1-4450-9a57-2d810c598a54"
+                                        "id": "12890416-8f7f-49a1-b78d-d2d28722ab94"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -66,7 +307,7 @@
                                             "Positions"
                                         ],
                                         [
-                                            "Teams @ Nov 2021",
+                                            "Teams @ Dec 2021",
                                             "Position Class"
                                         ],
                                         [
@@ -88,12 +329,12 @@
                         "id": "10b243c8-3f72-4a4e-9193-057a1527109d",
                         "savedPayload": {
                             "position": {
-                                "x": 6875.242718446601,
-                                "y": 32940.19237886467
+                                "x": 3934.6153846153848,
+                                "y": 38259.80762113533
                             },
                             "targetPosition": {
-                                "x": 6725.242718446601,
-                                "y": 33200
+                                "x": 3634.6153846153848,
+                                "y": 38259.80762113533
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -116,12 +357,12 @@
                     "id": "3b7a897b-c02b-4bea-85fa-490d8376285c",
                     "savedPayload": {
                         "position": {
-                            "x": 6875.242718446601,
-                            "y": 33459.80762113533
+                            "x": 3484.6153846153848,
+                            "y": 38519.615242270665
                         },
                         "targetPosition": {
-                            "x": 6725.242718446601,
-                            "y": 33200
+                            "x": 3634.6153846153848,
+                            "y": 38259.80762113533
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -139,12 +380,12 @@
                 "id": "03352b19-10a3-4768-aaee-21bbf41ad83c",
                 "savedPayload": {
                     "position": {
-                        "x": 6725.242718446601,
-                        "y": 33200
+                        "x": 3634.6153846153848,
+                        "y": 38259.80762113533
                     },
                     "targetPosition": {
-                        "x": 6425.242718446601,
-                        "y": 33200
+                        "x": 3484.6153846153848,
+                        "y": 38000
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -162,12 +403,12 @@
             "id": "410f3ff3-db2a-4cda-a637-650cf39b50bb",
             "savedPayload": {
                 "position": {
-                    "x": 6425.242718446601,
-                    "y": 33200
+                    "x": 3484.6153846153848,
+                    "y": 38000
                 },
                 "targetPosition": {
-                    "x": 6125.242718446601,
-                    "y": 33200
+                    "x": 3184.6153846153848,
+                    "y": 38000
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -185,12 +426,12 @@
         "id": "fd148eb4-f5db-4d23-9051-c18afcd0e130",
         "savedPayload": {
             "position": {
-                "x": 6125.242718446601,
-                "y": 33200
+                "x": 3184.6153846153848,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 5825.242718446601,
-                "y": 33200
+                "x": 2884.6153846153848,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -212,12 +453,12 @@
         "id": "04919bc3-b4c3-4006-96ff-651e8963feca",
         "savedPayload": {
             "position": {
-                "x": 5525.242718446601,
-                "y": 33200
+                "x": 2584.6153846153848,
+                "y": 38000
             },
             "targetPosition": {
-                "x": 5825.242718446601,
-                "y": 33200
+                "x": 2884.6153846153848,
+                "y": 38000
             },
             "floatingObject": {
                 "isPinned": false,
@@ -235,12 +476,12 @@
     "id": "74c2608a-f28b-4dc3-b753-cd2172aa8b65",
     "savedPayload": {
         "position": {
-            "x": 5825.242718446601,
-            "y": 33200
+            "x": 2884.6153846153848,
+            "y": 38000
         },
         "targetPosition": {
-            "x": 5825.242718446601,
-            "y": 33200
+            "x": 2884.6153846153848,
+            "y": 38000
         },
         "floatingObject": {
             "isPinned": false,

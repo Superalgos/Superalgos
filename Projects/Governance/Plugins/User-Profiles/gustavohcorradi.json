@@ -995,7 +995,7 @@
                             {
                                 "type": "User Profile Votes Switch",
                                 "name": "New User Profile Votes Switch",
-                                "config": "{\n    \"percentage\": 50\n}",
+                                "config": "{\n    \"percentage\": 80\n}",
                                 "project": "Governance",
                                 "userProfileVotesSwitch": [],
                                 "userProfileVote": [
@@ -1007,18 +1007,18 @@
                                         "id": "fe298a3d-ad8e-44e7-85fb-5fed3a191619",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 38319.36909696442,
-                                                "y": 30099.170738044108
+                                                "x": 38111.176718099756,
+                                                "y": 29950.363116908775
                                             },
                                             "targetPosition": {
-                                                "x": 38169.36909696442,
-                                                "y": 29839.363116908775
+                                                "x": 37851.36909696442,
+                                                "y": 29800.363116908775
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": false,
-                                                "angleToParent": 3,
+                                                "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
@@ -1048,18 +1048,18 @@
                                         "id": "927a27d5-b719-4aa4-bcd5-b7909c71e9b1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 38169.36909696442,
-                                                "y": 30139.363116908775
+                                                "x": 37929.01481049518,
+                                                "y": 30090.140864795496
                                             },
                                             "targetPosition": {
-                                                "x": 38169.36909696442,
-                                                "y": 29839.363116908775
+                                                "x": 37851.36909696442,
+                                                "y": 29800.363116908775
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
                                                 "isFrozen": false,
                                                 "isCollapsed": false,
-                                                "angleToParent": 3,
+                                                "angleToParent": 2,
                                                 "distanceToParent": 3,
                                                 "arrangementStyle": 0
                                             },
@@ -1078,20 +1078,59 @@
                                                 ]
                                             ]
                                         }
+                                    },
+                                    {
+                                        "type": "User Profile Vote",
+                                        "name": "EvaMaria70",
+                                        "config": "{\n    \"percentage\": 80\n}",
+                                        "project": "Governance",
+                                        "id": "f892d11d-69db-4c96-b56a-206026f1dae8",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 38329.211239298405,
+                                                "y": 30233.796575320917
+                                            },
+                                            "targetPosition": {
+                                                "x": 37851.36909696442,
+                                                "y": 29800.363116908775
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": true,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "User Profile",
+                                                "name": "EvaMaria70",
+                                                "id": "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "EvaMaria70",
+                                                    "User Profile"
+                                                ]
+                                            ]
+                                        }
                                     }
                                 ],
                                 "id": "cac5eaf6-6635-4afa-a87d-424d37e1472b",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 38169.36909696442,
-                                        "y": 29839.363116908775
+                                        "x": 37851.36909696442,
+                                        "y": 29800.363116908775
                                     },
                                     "targetPosition": {
                                         "x": 38091.723383433666,
                                         "y": 29549.585369022054
                                     },
                                     "floatingObject": {
-                                        "isPinned": false,
+                                        "isPinned": true,
                                         "isFrozen": false,
                                         "isCollapsed": false,
                                         "angleToParent": 3,

@@ -21,6 +21,16 @@
             "relatedUiObjectProject": "Open-Storage"
         },  
         {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "p2pNetworkReference",
+            "actionFunction": "payload.executeAction",
+            "label": "Add P2P Network Reference",
+            "relatedUiObject": "P2P Network Reference",
+            "relatedUiObjectProject": "Governance"
+        },          
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -35,7 +45,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
+        "config": "{ \n\"codeName\": \"\", \n\"host\": \"localhost\", \n\"webPort\": \"31248\", \n\"webSocketsPort\": \"18042\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,
@@ -49,6 +59,12 @@
             "childType": "Signing Account",
             "autoAdd": false
         },
+        {
+            "name": "p2pNetworkReference",
+            "type": "node",
+            "childType": "P2P Network Reference",
+            "autoAdd": true
+        },        
         {
             "name": "availableStorage",
             "type": "node",

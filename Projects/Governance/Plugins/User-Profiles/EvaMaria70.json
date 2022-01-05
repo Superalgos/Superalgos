@@ -155,23 +155,23 @@
             "referralProgram": {
                 "type": "Referral Program",
                 "name": "New Referral Program",
-                "config": "{\r\n    \"percentage\": 0\r\n}",
+                "config": "{\r\n    \"percentage\": 5\r\n}",
                 "project": "Governance",
                 "userReferrers": [
                     {
                         "type": "User Referrer",
-                        "name": "EvaMaria70",
-                        "config": "    \"codeName\": \"EvaMaria70\"",
+                        "name": "gustavohcorradi",
+                        "config": "{}",
                         "project": "Governance",
-                        "id": "6c177f63-755d-43dd-996d-2b49b43f0213",
+                        "id": "54252fa5-316b-45a0-ace7-f67c8da4e0d8",
                         "savedPayload": {
                             "position": {
-                                "x": 38246.63148476156,
-                                "y": 33245.71479196644
+                                "x": 47377.04966657974,
+                                "y": 28005.214791966446
                             },
                             "targetPosition": {
-                                "x": 38259.68410398356,
-                                "y": 33344.859278103824
+                                "x": 47390.102285801746,
+                                "y": 28104.359278103828
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -186,15 +186,13 @@
                             },
                             "referenceParent": {
                                 "type": "User Profile",
-                                "name": "EvaMaria70",
-                                "id": "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
+                                "name": "gustavohcorradi",
+                                "id": "96ccf2bc-e544-4b27-aa23-a7a734798fb4"
                             },
                             "referenceParentCombinedNodePath": [
                                 [
-                                    "EvaMaria70",
-                                    "User Profile",
-                                    "Governance",
-                                    "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
+                                    "gustavohcorradi",
+                                    "User Profile"
                                 ]
                             ]
                         }
@@ -207,12 +205,12 @@
                     "id": "0295ea28-3621-4809-95e6-a8571c42cb02",
                     "savedPayload": {
                         "position": {
-                            "x": 38320.56024688444,
-                            "y": 33265.5239440747
+                            "x": 47450.97842870262,
+                            "y": 28025.023944074703
                         },
                         "targetPosition": {
-                            "x": 38259.68410398356,
-                            "y": 33344.859278103824
+                            "x": 47390.102285801746,
+                            "y": 28104.359278103828
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -234,12 +232,12 @@
                     "id": "16de0f2b-1005-45d9-bb59-53dc156dfd0c",
                     "savedPayload": {
                         "position": {
-                            "x": 38358.828590120946,
-                            "y": 33331.80665888182
+                            "x": 47489.24677193913,
+                            "y": 28091.306658881822
                         },
                         "targetPosition": {
-                            "x": 38259.68410398356,
-                            "y": 33344.859278103824
+                            "x": 47390.102285801746,
+                            "y": 28104.359278103828
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -392,7 +390,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 3,
                         "distanceToParent": 4,
                         "arrangementStyle": 0
@@ -405,7 +403,7 @@
             "mentorshipProgram": {
                 "type": "Mentorship Program",
                 "name": "New Mentorship Program",
-                "config": "   \"codeName\": \"EvaMaria70\"",
+                "config": "\"codeName\": \"EvaMaria70\"",
                 "project": "Governance",
                 "userMentors": [
                     {
@@ -517,7 +515,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 3,
                         "distanceToParent": 5,
                         "arrangementStyle": 0

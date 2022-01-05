@@ -1,14 +1,12 @@
 {
-    "type": "P2P Network",
+    "type": "Permission Granted",
     "menuItems": [
         {
             "action": "Configure",
-            "actionProject": "Foundations",
+            "actionFunction": "uiObject.configEditor.activate",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration",
-            "dontShowAtFullscreen": true,
-            "actionFunction": "uiObject.configEditor.activate"
+            "iconPathOff": "configuration"
         },
         {
             "action": "Delete UI Object",
@@ -25,10 +23,20 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\"\n}"
+        "config": "{}"
     },
-    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 0,
-    "childrenNodesProperties": []
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Permissioned P2P Network->Permission Group->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "propertyNameAtParent": "permissionsGranted",
+    "childrenNodesProperties": [
+    ],
+    "title": [
+        "Use Reference Parent"
+    ]
 }

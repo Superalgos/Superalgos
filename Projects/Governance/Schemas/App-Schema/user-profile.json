@@ -78,6 +78,16 @@
                     "action": "Add UI Object",
                     "actionProject": "Visual-Scripting",
                     "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "permissionedP2PNetworks",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add Permissioned P2P Networks",
+                    "relatedUiObject": "Permissioned P2P Networks",
+                    "relatedUiObjectProject": "Governance"
+                },                
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
                     "propertyToCheckFor": "userStorage",
                     "actionFunction": "payload.executeAction",
                     "label": "Add User Storage",
@@ -163,6 +173,12 @@
             "name": "p2pNetworkNodes",
             "type": "node",
             "childType": "P2P Network Nodes",
+            "autoAdd": false
+        },
+        {
+            "name": "permissionedP2PNetworks",
+            "type": "node",
+            "childType": "Permissioned P2P Networks",
             "autoAdd": false
         },
         {

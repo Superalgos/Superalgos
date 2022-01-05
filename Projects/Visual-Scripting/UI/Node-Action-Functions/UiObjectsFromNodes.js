@@ -145,6 +145,13 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginPositions.pluginFiles.length
                             pluginAllTheseFiles(project.pluginPositions.pluginFiles, 'Positions')
                         }
+                        /*
+                        Network Plugin Types
+                        */
+                        if (project.pluginP2PNetworks !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginP2PNetworks.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginP2PNetworks.pluginFiles, 'P2P-Networks')
+                        }
                     }
                 }
             }
@@ -509,11 +516,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         if (
             node.type === 'Plugins' ||
             node.type === 'Plugin Tutorials' ||
-            node.type === 'Plugin Trading Systems'  ||
-            node.type === 'Plugin Trading Mines'    ||
-            node.type === 'Plugin Trading Engines'  ||
+            node.type === 'Plugin Trading Systems' ||
+            node.type === 'Plugin Trading Mines' ||
+            node.type === 'Plugin Trading Engines' ||
             node.type === 'Plugin Portfolio Systems' ||
-            node.type === 'Plugin Portfolio Mines'  ||
+            node.type === 'Plugin Portfolio Mines' ||
             node.type === 'Plugin Portfolio Engines' ||
             node.type === 'Plugin Project' ||
             node.type === 'Plugin Learning Systems' ||

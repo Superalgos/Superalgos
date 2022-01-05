@@ -1,5 +1,5 @@
 {
-    "type": "P2P Network",
+    "type": "Online Workspaces",
     "menuItems": [
         {
             "action": "Configure",
@@ -25,10 +25,13 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\"\n}"
+        "config": "{}"
     },
-    "isHierarchyHead": true,
     "addLeftIcons": true,
-    "level": 0,
-    "childrenNodesProperties": []
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Network Services->"
+    },
+    "childrenNodesProperties": [],
+    "propertyNameAtParent": "onlineWorkspaces"
 }

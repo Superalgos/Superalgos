@@ -39,7 +39,11 @@ exports.newNetworkNode = function newNetworkNode() {
             to which we can connect to. This module will run the rules of who we can connect to.
             */
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-            await thisObject.p2pNetwork.initialize('Network Peer')
+            await thisObject.p2pNetwork.initialize(
+                'Network Peer',
+                '', // thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName,
+                '', // thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type
+            )
             /*
             Set up a pool of connections to different network nodes, so that later
             we can send a message to any of them.

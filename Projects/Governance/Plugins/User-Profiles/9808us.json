@@ -10086,54 +10086,22 @@
                                 "claimVotesSwitch": [
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "Alexandru (Mobile app and Editor)",
-                                        "config": "{\r\n    \"percentage\": 40\r\n}",
-                                        "project": "Governance",
-                                        "claimVotesSwitch": [],
-                                        "positionClaimVotes": [],
-                                        "assetClaimVotes": [],
-                                        "featureClaimVotes": [],
-                                        "id": "b0bd1787-3844-44b9-8432-0e952f3cbcd8",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 48853.99310885683,
-                                                "y": 22522.72225211328
-                                            },
-                                            "targetPosition": {
-                                                "x": 48776.34739532607,
-                                                "y": 22812.5
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "type": "Claim Votes Switch",
-                                        "name": "Smidy (Governance Loading)",
+                                        "name": "WHTV",
                                         "config": "{}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "d39b32e8-edaf-43ed-ab61-8ca04141aa67",
+                                        "id": "eb276a1a-5c28-4819-931d-ce6cabe0da61",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 49036.1550164614,
-                                                "y": 22662.5
+                                                "x": 42233.76760606297,
+                                                "y": 32460.22225211328
                                             },
                                             "targetPosition": {
-                                                "x": 48776.34739532607,
-                                                "y": 22812.5
+                                                "x": 42156.12189253221,
+                                                "y": 32750
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10145,27 +10113,64 @@
                                             },
                                             "uiObject": {
                                                 "isRunning": false
-                                            }
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Claims Folder",
+                                                "name": "New Position Claims Folder",
+                                                "id": "ffc1e836-e5a5-4d2e-a83b-f05e47ea5b6f"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "whtv",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "7f72eb67-67b6-46c4-b780-41f46a2c1182"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "7ecfb602-3a4c-46c9-91ee-af285e79a488"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "1988d1d5-7b7f-4154-9641-e9d5d81ef1f3"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "436ea713-899f-4edc-aa0f-3de38cb5c03f"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "ffc1e836-e5a5-4d2e-a83b-f05e47ea5b6f"
+                                                ]
+                                            ]
                                         }
                                     },
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "PLUV (Portfolio Manager)",
-                                        "config": "{\r\n    \"percentage\": 40\r\n}",
+                                        "name": "Brett",
+                                        "config": "{}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
-                                        "id": "004c3f7f-1cff-472b-9c31-2a1f282e8dde",
+                                        "id": "c30495ab-8933-46c9-aee2-679af9889886",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 49066.12514321279,
-                                                "y": 22890.145713530757
+                                                "x": 42415.92951366754,
+                                                "y": 32600
                                             },
                                             "targetPosition": {
-                                                "x": 48776.34739532607,
-                                                "y": 22812.5
+                                                "x": 42156.12189253221,
+                                                "y": 32750
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10177,13 +10182,137 @@
                                             },
                                             "uiObject": {
                                                 "isRunning": false
-                                            }
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Claims Folder",
+                                                "name": "Brett's Team PoW Report Position Class",
+                                                "id": "62282dbe-1c9f-4175-b7a5-187d7d967605"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "ssplatt",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "56600855-7a91-49e8-8a58-2fa28d07efd1"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "e056163b-0413-488e-913a-8baa59d41a4f"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "768ed0b3-bb30-49df-a068-11b3bff1ab93"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "efb5c85c-0a81-4c64-9e00-4211fdbfd558"
+                                                ],
+                                                [
+                                                    "Teams @ Dec 2021 Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "5e3df16f-6ffd-422e-b0f8-703eb07a2a91"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "7ac5860f-d33b-4891-b290-75b036a30230"
+                                                ],
+                                                [
+                                                    "Brett's Team PoW Report Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "62282dbe-1c9f-4175-b7a5-187d7d967605"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Smidy",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "d9e59b53-0964-49e1-b42a-6afcc9ed48f1",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 42445.89964041893,
+                                                "y": 32827.64571353076
+                                            },
+                                            "targetPosition": {
+                                                "x": 42156.12189253221,
+                                                "y": 32750
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Claims Folder",
+                                                "name": "Smidy’s Team PoW Report Position Class",
+                                                "id": "84536331-06a0-4ad7-a9bd-3f8b9ceabbd6"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Smidy13",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "4b5eca40-4d97-454d-91f3-8627a98ef682"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "7fb54153-47b4-48dc-b2e0-99b52eda5949"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "58a543a3-b50b-42cd-93ed-799026beab0f"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "9ea1ac5d-9b13-4192-94e8-8daf0d40a38c"
+                                                ],
+                                                [
+                                                    "Teams @ Dec 2021 Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "3005ac94-0993-4692-9510-c1c50fe3674a"
+                                                ],
+                                                [
+                                                    "Smidy’s Team PoW Report Position Class",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "84536331-06a0-4ad7-a9bd-3f8b9ceabbd6"
+                                                ]
+                                            ]
                                         }
                                     }
                                 ],
                                 "weightVotesSwitch": [],
                                 "userProfileVotesSwitch": [],
-                                "id": "04c4c276-96dd-4eb6-b40c-42f3799a7dec",
+                                "id": "e02987b3-fe1a-4a16-ba31-954410c1da45",
                                 "savedPayload": {
                                     "position": {
                                         "x": 42156.12189253221,
@@ -10196,7 +10325,7 @@
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": true,
+                                        "isCollapsed": false,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -19530,7 +19659,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -1,7 +1,8 @@
-exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
+exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTradingModulesSocialGraphNetworkService() {
     /*
-    This module represents the Social Graph Service that 
-    deals with the Social Graph this node maintains.
+    This module represents the Social Graph Network Service that 
+    deals with the Social Graph this node maintains when it is running.
+    
     The Social Graph is one of the services the Network Node provides.
 
     This service is responsible for maintaining the whole Social Graph

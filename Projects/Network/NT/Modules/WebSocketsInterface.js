@@ -133,8 +133,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     case 'Network Client': {
                                         switch (messageHeader.networkService) {
                                             case 'Social Graph': {
-                                                if (NT.networkApp.socialGraphService !== undefined) {
-                                                    response = await NT.networkApp.socialGraphService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                if (NT.networkApp.socialGraphNetworkService !== undefined) {
+                                                    response = await NT.networkApp.socialGraphNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
                                                     response.messageId = messageHeader.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                 } else {
@@ -158,8 +158,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     case 'Network Peer': {
                                         switch (messageHeader.networkService) {
                                             case 'Social Graph': {
-                                                if (NT.networkApp.socialGraphService !== undefined) {
-                                                    response = await NT.networkApp.socialGraphService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                if (NT.networkApp.socialGraphNetworkService !== undefined) {
+                                                    response = await NT.networkApp.socialGraphNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
                                                     response.messageId = messageHeader.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                 } else {

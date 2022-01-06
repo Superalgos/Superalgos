@@ -6,7 +6,8 @@ exports.newNetworkApp = function newNetworkApp() {
         p2pNetworkNode: undefined,
         webSocketsInterface: undefined,
         httpInterface: undefined,
-        socialGraphService: undefined,
+        socialGraphNetworkService: undefined,
+        tradingSignalsNetworkService: undefined,
         run: run
     }
 
@@ -64,9 +65,18 @@ exports.newNetworkApp = function newNetworkApp() {
                 thisObject.p2pNetworkNode.node.networkServices !== undefined &&
                 thisObject.p2pNetworkNode.node.networkServices.socialGraph !== undefined
                 ) {
-                thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
-                await thisObject.socialGraphService.initialize()
+                thisObject.socialGraphNetworkService = NT.projects.socialTrading.modules.socialGraphNetworkService.newSocialTradingModulesSocialGraphNetworkService()
+                await thisObject.socialGraphNetworkService.initialize()
                 console.log('Social Graph Network Service ................................................. Running')
+            }
+
+            if (
+                thisObject.p2pNetworkNode.node.networkServices !== undefined &&
+                thisObject.p2pNetworkNode.node.networkServices.tradingSignals !== undefined
+                ) {
+                thisObject.tradingSignalsNetworkService = NT.projects.tradingSignals.modules.tradingSignalsNetworkService.newTradingSignalsModulesTradingSignalsNetworkService()
+                await thisObject.tradingSignalsNetworkService.initialize()
+                console.log('Trading Signals Network Service .............................................. Running')
             }
         }
 

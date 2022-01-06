@@ -94,8 +94,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Netzwerkknoten-konfiguration anpassen, bevor Sie fortfahren.",
-                    "updated": 1634161862309,
+                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Konfiguration des Netzwerkknotens (LAN Network Node) anpassen, bevor Sie fortfahren.",
+                    "updated": 1641425083374,
                     "style": "Text"
                 },
                 {
@@ -154,8 +154,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Netzwerkknoten-Menüs.",
-                    "updated": 1634161879485,
+                    "text": "Klicken Sie auf \"Configure\" in der oberen rechten Ecke des Netzwerkknoten-Menüs. ",
+                    "updated": 1641425187675,
                     "style": "List"
                 },
                 {
@@ -206,8 +206,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ändern Sie den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.",
-                    "updated": 1634161891685,
+                    "text": "Ändern Sie den Parameter \"host\" auf die IP-Adresse oder den Hostnamen des Rechners, auf dem das Backend läuft.",
+                    "updated": 1641425549047,
                     "style": "List"
                 },
                 {
@@ -237,6 +237,11 @@
                     "language": "ID",
                     "text": "Jika kamu menggunakan reverse proxy, tambahkan parameter ini...",
                     "updated": 1640568742574
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie einen Reverse-Proxy verwenden, fügen Sie diesen Parameter hinzu...",
+                    "updated": 1641424715727
                 }
             ]
         },
@@ -286,8 +291,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
-                    "updated": 1634161900103,
+                    "text": "Schliessen Sie jetzt den Editor. Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden! ",
+                    "updated": 1641425315259,
                     "style": "List"
                 },
                 {

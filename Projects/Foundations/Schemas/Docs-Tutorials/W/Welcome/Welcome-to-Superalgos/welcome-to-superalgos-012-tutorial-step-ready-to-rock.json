@@ -35,8 +35,8 @@
             },
             {
                 "language": "DE",
-                "text": "Die Data Tasks node steuert alle für diese LAN-Netzwerk node definierten Data-Mining-Aufgaben (Data Mining Tasks).",
-                "updated": 1637873413099,
+                "text": "Der Data Tasks Node steuert alle für diesen LAN Network Node definierten Data-Mining-Aufgaben (Data Mining Tasks).",
+                "updated": 1641425787650,
                 "style": "Definition"
             },
             {
@@ -131,8 +131,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Starten Sie eine Data-Mining-Operation, um Daten für den BTC/USDT Market von Binance zu erhalten.",
-                    "updated": 1634162101738,
+                    "text": "Starten Sie eine Data-Mining-Operation, um Daten für den BTC/USDT Market von der Börse zu erhalten. ",
+                    "updated": 1641425634285,
                     "style": "List"
                 },
                 {

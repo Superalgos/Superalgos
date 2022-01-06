@@ -77,8 +77,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie jemals eine Erinnerung an eines dieser Themen brauchen...",
-                    "updated": 1634165486557,
+                    "text": "Wenn Sie jemals eine Erinnerung an eines dieser Themen benötigen, können Sie jedes Thema oder jeden Schritt des Tutorials wiederholen.",
+                    "updated": 1641426130075,
                     "style": "Text"
                 },
                 {
@@ -109,6 +109,11 @@
                     "language": "TR",
                     "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
                     "updated": 1639142707800
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie finden mich in der linken unteren Ecke des Design Space. Blättern Sie durch die Hierarchie der Themen und Schritte und starten Sie mit Play. Die Themen sind im Uhrzeigersinn angeordnet, beginnend auf der rechten Seite des Tutorial-Hauptknotens.",
+                    "updated": 1641426355278
                 }
             ]
         },

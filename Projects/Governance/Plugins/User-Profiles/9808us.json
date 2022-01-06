@@ -9848,17 +9848,17 @@
                                 "claimVotesSwitch": [
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "Thomas",
+                                        "name": "Data Mining Project Position Class",
                                         "config": "{\r\n    \"percentage\": 85\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "",
+                                                "name": "Raplh2502 Data Mining Team Token Pool Data Mining Team PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
-                                                "id": "1292ff9c-341d-4512-a2c0-2ccb40f7084a",
+                                                "id": "c363d97b-416b-43e1-9428-348d3bf5b54d",
                                                 "savedPayload": {
                                                     "position": {
                                                         "x": 32936.095907257724,
@@ -9878,7 +9878,42 @@
                                                     },
                                                     "uiObject": {
                                                         "isRunning": false
-                                                    }
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "eb404d7b-021b-4335-a5ad-52c587a2b0b8"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Raplh2502",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Project Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
                                                 }
                                             }
                                         ],
@@ -9959,7 +9994,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "",
+                                                "name": "quantum8 Data Mining Team Token Pool Data Mining Team PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "7b89f12a-4cc9-4224-9625-0f7b8b924ba5",
@@ -9982,7 +10017,42 @@
                                                     },
                                                     "uiObject": {
                                                         "isRunning": false
-                                                    }
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "2529497e-641f-4cc8-84ac-e3be92f8858d"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "quantum8",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
                                                 }
                                             }
                                         ],
@@ -10063,7 +10133,7 @@
                                         "positionClaimVotes": [
                                             {
                                                 "type": "Position Claim Vote",
-                                                "name": "",
+                                                "name": "BlaaSwe Data Mining Team Token Pool Data Mining Team PoW Report",
                                                 "config": "{}",
                                                 "project": "Governance",
                                                 "id": "7daa83ee-c942-429e-a66b-024cc6400588",
@@ -10086,7 +10156,38 @@
                                                     },
                                                     "uiObject": {
                                                         "isRunning": false
-                                                    }
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "08e1d8af-478d-435f-9ebb-d2c4ed4fbdd1"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "BlaaSwe",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
                                                 }
                                             }
                                         ],

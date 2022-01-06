@@ -1,9 +1,9 @@
-exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSignals() {
+exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModulesClientInterface() {
     /*
     This module process all incoming signals.
     */
     let thisObject = {
-        newSignal: newSignal,
+        messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
     }
@@ -17,12 +17,12 @@ exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSig
 
     }
 
-    function newSignal(signal) {
+    function messageReceived(message) {
         /*
-        At this point we have a new signal that might have come directly from the broadcaster
-        of from other P2P Network Node. In any case, we will run some validations on it before
-        forwarding it to other P2P Network Nodes or recipients.
+        At this point we have a new signal that have come directly from the broadcaster.
+        We will run some validations on it before forwarding it to other P2P Network Nodes or recipients.
         */
+        let signal = JSON.parse(message)
 
         let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(signal)
         /*
@@ -31,7 +31,7 @@ exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSig
         let messageHeader = {
             payload: JSON.stringify({ signal: JSON.stringify(signal) })
         }
-        if (NT.networkNode.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
+        if (NT.networkApp.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
             response = {
                 result: 'Error',
                 message: 'Signal Could Not be Broadcasted to Network Clients.'

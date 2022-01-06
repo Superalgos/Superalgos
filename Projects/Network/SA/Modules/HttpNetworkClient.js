@@ -42,9 +42,10 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         */
         let promise = new Promise((resolve, reject) => {
 
+            message.callerRole = "Network Client"
             const axios = SA.nodeModules.axios  
             axios
-                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Signal', message)
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Message', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
                     //console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))

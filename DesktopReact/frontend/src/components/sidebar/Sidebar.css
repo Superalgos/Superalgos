@@ -1,3 +1,29 @@
-.sidebar{
+Typography{
+    font-size: 1rem !important;
+}
+
+.sidebar {
     height: 100%;
+    position: relative;
+}
+
+.sidebarProfileCard {
+    width: 100%;
+    width: -moz-available;          /* WebKit-based browsers will ignore this. */
+    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+    bottom: 0;
+}
+.sidebarProfileCardContent {
+    padding: 0.5rem !important;
+}
+.avatar {
+    align-self: center;
+    height: 3rem !important;
+    width: 3rem !important;
+    padding: 0 1rem;
 }

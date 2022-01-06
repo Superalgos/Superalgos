@@ -1,6 +1,6 @@
 import React from 'react';
 
- /*temporal style sheet*/
+/*temporal style sheet*/
 const dialStyle = {
     backgroundColor: "white",
     minHeight: "2rem",

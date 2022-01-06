@@ -1,12 +1,12 @@
 import "./SuggestedUsers.css"
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
-import { Skeleton, Stack } from "@mui/material";
-import { STATUS_OK } from "../../api/httpConfig";
-import { getPaginationProfiles } from "../../api/profile.httpService";
-import UserCard from "../UserCard/UserCard";
-import { useDispatch, useSelector } from 'react-redux'
-import { setSuggestedUsersList, addSuggestedUsersList } from '../../store/slices/suggestedUsers.slice'
+import {Skeleton, Stack} from "@mui/material";
+import {STATUS_OK} from "../../api/httpConfig";
+import {getPaginationProfiles} from "../../api/profile.httpService";
+import UserCard from "../userCard/UserCard";
+import {useDispatch, useSelector} from 'react-redux'
+import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
 
 
 const SuggestedUsers = () => {

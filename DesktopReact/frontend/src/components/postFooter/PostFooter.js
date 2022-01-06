@@ -13,7 +13,7 @@ import {
     ThumbUp
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
-import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
+import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
 import {dialStyle} from "./reactionsStyle";
 import {reactedPost} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";

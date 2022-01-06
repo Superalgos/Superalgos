@@ -128,11 +128,11 @@
             "savedPayload": {
                 "position": {
                     "x": 38123.88529103824,
-                    "y": 38150
+                    "y": 23750
                 },
                 "targetPosition": {
                     "x": 37864.07766990291,
-                    "y": 38300
+                    "y": 23900
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -777,11 +777,11 @@
             "savedPayload": {
                 "position": {
                     "x": 38253.78910160591,
-                    "y": 38525
+                    "y": 24125
                 },
                 "targetPosition": {
                     "x": 37864.07766990291,
-                    "y": 38300
+                    "y": 23900
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -824,17 +824,17 @@
                                     {
                                         "type": "Position Claim Vote",
                                         "name": "EvaMaria70 EvaMaria70 Tokens Pool EvaMaria70 Team PoW Report",
-                                        "config": "{}",
+                                        "config": "{\n    \"percentage\": 60\n}",
                                         "project": "Governance",
                                         "id": "80b43d4f-f288-47af-98a9-9e37ffa2ce96",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 38391.723383433666,
-                                                "y": 39669.20061129272
+                                                "x": 38479.72938552104,
+                                                "y": 25192.021418860004
                                             },
                                             "targetPosition": {
                                                 "x": 38241.723383433666,
-                                                "y": 39409.39299015739
+                                                "y": 25009.392990157387
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -851,6 +851,77 @@
                                                 "type": "Position Contribution Claim",
                                                 "name": "EvaMaria70 Tokens Pool EvaMaria70 Team PoW Report",
                                                 "id": "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "EvaMaria70",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "75a78d74-93f3-44c5-a96a-5b2b9f730afe"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "b96160c4-e1e8-4ad4-bbf6-a6cd35076877"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "fe79f40b-9d30-4e86-bda2-1fd8a81599bf"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "3e15e7ab-6a1b-4a71-adbc-6fafbf6d9114"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "01e4c26e-e6a4-4688-bf6c-3c35fda086b8"
+                                                ],
+                                                [
+                                                    "EvaMaria70 Tokens Pool EvaMaria70 Team PoW Report",
+                                                    "Position Contribution Claim",
+                                                    "Governance",
+                                                    "7ed8d42e-a28d-4093-96c8-bc8bf6871404"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "EvaMaria70 Translation Team Token Pool Education Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "909f8574-2f65-4494-912f-36529f0a292a",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 38391.723383433666,
+                                                "y": 25269.20061129272
+                                            },
+                                            "targetPosition": {
+                                                "x": 38241.723383433666,
+                                                "y": 25009.392990157387
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "id": "223537f1-53b1-4e65-8ba4-b98e2a6c3a14"
                                             },
                                             "referenceParentCombinedNodePath": [
                                                 [
@@ -874,7 +945,70 @@
                                                     "Position Claims Folder"
                                                 ],
                                                 [
-                                                    "EvaMaria70 Tokens Pool EvaMaria70 Team PoW Report",
+                                                    "Translation Team Token Pool Education Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "EvaMaria70 Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "36849f57-52cf-4897-bc9b-c08b4c4dc444",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 38280.88124109968,
+                                                "y": 25306.82644856953
+                                            },
+                                            "targetPosition": {
+                                                "x": 38241.723383433666,
+                                                "y": 25009.392990157387
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 3,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                "id": "be625f28-a31d-43fa-8ef3-3daa67cacbcb"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "EvaMaria70",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
                                                     "Position Contribution Claim"
                                                 ]
                                             ]
@@ -887,11 +1021,11 @@
                                 "savedPayload": {
                                     "position": {
                                         "x": 38241.723383433666,
-                                        "y": 39409.39299015739
+                                        "y": 25009.392990157387
                                     },
                                     "targetPosition": {
                                         "x": 38091.723383433666,
-                                        "y": 39149.585369022054
+                                        "y": 24749.585369022054
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -913,11 +1047,11 @@
                         "savedPayload": {
                             "position": {
                                 "x": 38091.723383433666,
-                                "y": 39149.585369022054
+                                "y": 24749.585369022054
                             },
                             "targetPosition": {
                                 "x": 37941.723383433666,
-                                "y": 38889.77774788672
+                                "y": 24489.77774788672
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -941,11 +1075,11 @@
                     "savedPayload": {
                         "position": {
                             "x": 37729.5913490777,
-                            "y": 39101.909782242685
+                            "y": 24701.909782242685
                         },
                         "targetPosition": {
                             "x": 37941.723383433666,
-                            "y": 38889.77774788672
+                            "y": 24489.77774788672
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -964,11 +1098,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 37941.723383433666,
-                        "y": 38889.77774788672
+                        "y": 24489.77774788672
                     },
                     "targetPosition": {
                         "x": 37864.07766990291,
-                        "y": 38600
+                        "y": 24200
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1184,11 +1318,11 @@
                 "savedPayload": {
                     "position": {
                         "x": 37604.270048767576,
-                        "y": 38750
+                        "y": 24350
                     },
                     "targetPosition": {
                         "x": 37864.07766990291,
-                        "y": 38600
+                        "y": 24200
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -1207,11 +1341,11 @@
             "savedPayload": {
                 "position": {
                     "x": 37864.07766990291,
-                    "y": 38600
+                    "y": 24200
                 },
                 "targetPosition": {
                     "x": 37864.07766990291,
-                    "y": 38300
+                    "y": 23900
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1290,11 +1424,11 @@
             "savedPayload": {
                 "position": {
                     "x": 37604.270048767576,
-                    "y": 38450
+                    "y": 24050
                 },
                 "targetPosition": {
                     "x": 37864.07766990291,
-                    "y": 38300
+                    "y": 23900
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1430,11 +1564,11 @@
             "savedPayload": {
                 "position": {
                     "x": 37604.270048767576,
-                    "y": 38150
+                    "y": 23750
                 },
                 "targetPosition": {
                     "x": 37864.07766990291,
-                    "y": 38300
+                    "y": 23900
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -1453,11 +1587,11 @@
         "savedPayload": {
             "position": {
                 "x": 37864.07766990291,
-                "y": 38300
+                "y": 23900
             },
             "targetPosition": {
                 "x": 37864.07766990291,
-                "y": 38000
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1480,11 +1614,11 @@
         "savedPayload": {
             "position": {
                 "x": 37714.07766990291,
-                "y": 38000
+                "y": 23600
             },
             "targetPosition": {
                 "x": 37864.07766990291,
-                "y": 38000
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -1503,11 +1637,11 @@
     "savedPayload": {
         "position": {
             "x": 37864.07766990291,
-            "y": 38000
+            "y": 23600
         },
         "targetPosition": {
             "x": 37864.07766990291,
-            "y": 38000
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": true,

@@ -62,9 +62,7 @@ exports.newNetworkRoot = function newNetworkRoot() {
         let SECRETS = require('./Secrets.js').newSecrets()
         SECRETS.initialize()
 
-        NT.app = require('./Network/NetwokNode.js').newNetworkNode()
+        NT.app = require('./Network/NetwokApp.js').newNetworkApp()
         NT.app.run()
-
-        console.log('Superalgos Network is Running.')
     }
 }

@@ -23,7 +23,7 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         thisObject.userProfile = undefined
     }
 
-    async function initialize(
+    function initialize(
         node,
         userSocialProfile,
         blockchainAccount
@@ -34,7 +34,7 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         thisObject.node = node
         thisObject.userSocialProfile = userSocialProfile
         thisObject.blockchainAccount = blockchainAccount
-        return true
+       
         if (
             thisObject.node.p2pNetworkReference === undefined ||
             thisObject.node.p2pNetworkReference.referenceParent === undefined ||

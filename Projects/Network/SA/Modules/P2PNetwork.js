@@ -37,13 +37,11 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
 
-                    /*
-                    if (p2pNetworkNode.referenceParent === undefined) { continue }
-                    if (p2pNetworkNode.referenceParent.config === undefined) { continue }
-                    if (p2pNetworkNode.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
-                    if (p2pNetworkNode.referenceParent.type !== thisObject.networkType) { continue }
-                    */
-
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent === undefined) { continue }
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.type !== thisObject.networkType) { continue }
+                
                     thisObject.p2pNodesToConnect.push(p2pNetworkNode)
                 }
                 break
@@ -55,13 +53,11 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                 for (let i = 0; i < SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.length; i++) {
                     let p2pNetworkNode = SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES[i]
 
-                    /*
-                    if (p2pNetworkNode.referenceParent === undefined) { continue }
-                    if (p2pNetworkNode.referenceParent.config === undefined) { continue }
-                    if (p2pNetworkNode.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
-                    if (p2pNetworkNode.referenceParent.type !== thisObject.networkType) { continue }
-                    */
-                   
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent === undefined) { continue }
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
+                    if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.type !== thisObject.networkType) { continue }
+
                     if (thisP2PNodeId !== p2pNetworkNode.node.id) {
                         thisObject.p2pNodesToConnect.push(p2pNetworkNode)
                     }

@@ -27,45 +27,82 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     async function initialize(userAppCodeName, p2pNetworkClientIdentity) {
 
+        let allNodesInPluginsMap = new Map()
+
         await loadAppSchemas()
+        await loadUserP2PNetworksPlugins()
         await loadUserProfilesPlugins()
 
         async function loadAppSchemas() {
 
             let promise = new Promise((resolve, reject) => {
 
-                let project = 'Governance'
-                let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
-                let folder = 'App-Schema'
+                loadAppSchemasForProject('Network')
+                loadAppSchemasForProject('Governance')
 
-                SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+                function loadAppSchemasForProject(project) {
 
-                function onFilesReady(files) {
+                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
+                    let folder = 'App-Schema'
 
-                    for (let k = 0; k < files.length; k++) {
-                        let name = files[k]
-                        let nameSplitted = name.split(folder)
-                        let fileName = nameSplitted[1]
-                        for (let i = 0; i < 10; i++) {
-                            fileName = fileName.replace('\\', '/')
+                    SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
+
+                    function onFilesReady(files) {
+
+                        for (let k = 0; k < files.length; k++) {
+                            let name = files[k]
+                            let nameSplitted = name.split(folder)
+                            let fileName = nameSplitted[1]
+                            for (let i = 0; i < 10; i++) {
+                                fileName = fileName.replace('\\', '/')
+                            }
+                            let fileToRead = filePath + folder + fileName
+
+                            let fileContent = SA.nodeModules.fs.readFileSync(fileToRead)
+                            let schemaDocument
+                            try {
+                                schemaDocument = JSON.parse(fileContent)
+                                SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.set(project + '-' + schemaDocument.type, schemaDocument)
+                            } catch (err) {
+                                console.log('[WARN] loadAppSchemas -> Error Parsing JSON File: ' + fileToRead + '. Error = ' + err.stack)
+                                return
+                            }
                         }
-                        let fileToRead = filePath + folder + fileName
-
-                        let fileContent = SA.nodeModules.fs.readFileSync(fileToRead)
-                        let schemaDocument
-                        try {
-                            schemaDocument = JSON.parse(fileContent)
-                            SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.set(project + '-' + schemaDocument.type, schemaDocument)
-                        } catch (err) {
-                            console.log('[WARN] loadAppSchemas -> Error Parsing JSON File: ' + fileToRead + '. Error = ' + err.stack)
-                            return
-                        }
+                        resolve()
                     }
-                    resolve()
                 }
             }
             )
             return promise
+        }
+
+        async function loadUserP2PNetworksPlugins() {
+            /*
+            P2P Networks are plugins of the Network Project.        
+            */
+            let pluginFileNames = await SA.projects.communityPlugins.utilities.plugins.getPluginFileNames(
+                'Network',
+                'P2P-Networks'
+            )
+
+            for (let i = 0; i < pluginFileNames.length; i++) {
+                let pluginFileName = pluginFileNames[i]
+
+                let pluginFileContent = await SA.projects.communityPlugins.utilities.plugins.getPluginFileContent(
+                    'Network',
+                    'P2P-Networks',
+                    pluginFileName
+                )
+
+                let p2pNetworkPlugin = JSON.parse(pluginFileContent)
+
+                let p2pNetwork = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
+                    p2pNetworkPlugin,
+                    allNodesInPluginsMap
+                )
+
+                SA.projects.network.globals.memory.maps.P2P_NETWORKS_BY_ID.set(p2pNetwork.id, p2pNetwork)
+            }
         }
 
         async function loadUserProfilesPlugins() {
@@ -109,7 +146,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 Here we will turn the saved plugin into an in-memory node structure with parent nodes and reference parents.
                 */
                 let userProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
-                    userProfilePlugin
+                    userProfilePlugin,
+                    allNodesInPluginsMap
                 )
                 /*
                 Store in memory all User Social Profiles
@@ -167,7 +205,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 }
 
                                 let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                                if (p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount) === true) {
+                                let response = p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount)
+                                if (response === true) {
                                     SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                                 }
                             }

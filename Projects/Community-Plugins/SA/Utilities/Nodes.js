@@ -6,14 +6,16 @@ exports.newPluginsUtilitiesNodes = function () {
 
     return thisObject
 
-    function fromSavedPluginToInMemoryStructure(pluginFile) {
+    function fromSavedPluginToInMemoryStructure(
+        pluginFile,
+        allNodesInPluginsMap
+        ) {
         /*
         This function scans a plugin file as saved from the UI and turn it
         into a node structure equivalent to the one used inside the TS when 
         sent from the UI. 
         */
         let rootObject = undefined
-        let objectsMap = new Map()
         generateObjects(pluginFile)
         setReferences(rootObject)
 
@@ -45,12 +47,12 @@ exports.newPluginsUtilitiesNodes = function () {
                 }                
             }
 
-            if (
-                currentNode.savedPaylaod !== undefined &&
-                currentNode.savedPaylaod.referenceParent !== undefined &&
-                currentNode.savedPaylaod.referenceParent.id !== undefined
+            if ( 
+                currentNode.savedPayload !== undefined &&
+                currentNode.savedPayload.referenceParent !== undefined &&
+                currentNode.savedPayload.referenceParent.id !== undefined
             ) {
-                currentObject.referenceParent = currentNode.savedPaylaod.referenceParent.id
+                currentObject.referenceParent = currentNode.savedPayload.referenceParent.id
             }
 
             if (parentObject === undefined) {
@@ -69,7 +71,7 @@ exports.newPluginsUtilitiesNodes = function () {
                 }
             }
 
-            objectsMap.set(currentObject.id, currentObject)
+            allNodesInPluginsMap.set(currentObject.id, currentObject)
 
             /* We scan through this node children */
             if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -105,7 +107,7 @@ exports.newPluginsUtilitiesNodes = function () {
             if (
                 currentObject.referenceParent !== undefined
             ) {
-                currentObject.referenceParent = objectsMap.get(currentObject.referenceParent)
+                currentObject.referenceParent = allNodesInPluginsMap.get(currentObject.referenceParent)
             }
 
             /* We scan through this node children */

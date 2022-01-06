@@ -41,8 +41,8 @@ exports.newNetworkNode = function newNetworkNode() {
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
             await thisObject.p2pNetwork.initialize(
                 'Network Peer',
-                '', // thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName,
-                '', // thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type
+                thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName,
+                thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type
             )
             /*
             Set up a pool of connections to different network nodes, so that later

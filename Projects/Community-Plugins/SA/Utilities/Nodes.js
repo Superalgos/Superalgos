@@ -1,21 +1,23 @@
 exports.newPluginsUtilitiesNodes = function () {
 
     let thisObject = {
-        fromSavedPluginToInMemoryStructure: fromSavedPluginToInMemoryStructure
+        fromSavedPluginToInMemoryStructure: fromSavedPluginToInMemoryStructure,
+        fromInMemoryStructureToStructureWithReferenceParents: fromInMemoryStructureToStructureWithReferenceParents
     }
 
     return thisObject
 
-    function fromSavedPluginToInMemoryStructure(pluginFile) {
+    function fromSavedPluginToInMemoryStructure(
+        pluginFile,
+        allNodesInPluginsMap
+        ) {
         /*
         This function scans a plugin file as saved from the UI and turn it
         into a node structure equivalent to the one used inside the TS when 
         sent from the UI. 
         */
         let rootObject = undefined
-        let objectsMap = new Map()
         generateObjects(pluginFile)
-        setReferences(rootObject)
 
         return rootObject
 
@@ -45,12 +47,12 @@ exports.newPluginsUtilitiesNodes = function () {
                 }                
             }
 
-            if (
-                currentNode.savedPaylaod !== undefined &&
-                currentNode.savedPaylaod.referenceParent !== undefined &&
-                currentNode.savedPaylaod.referenceParent.id !== undefined
+            if ( 
+                currentNode.savedPayload !== undefined &&
+                currentNode.savedPayload.referenceParent !== undefined &&
+                currentNode.savedPayload.referenceParent.id !== undefined
             ) {
-                currentObject.referenceParent = currentNode.savedPaylaod.referenceParent.id
+                currentObject.referenceParent = currentNode.savedPayload.referenceParent.id
             }
 
             if (parentObject === undefined) {
@@ -69,7 +71,7 @@ exports.newPluginsUtilitiesNodes = function () {
                 }
             }
 
-            objectsMap.set(currentObject.id, currentObject)
+            allNodesInPluginsMap.set(currentObject.id, currentObject)
 
             /* We scan through this node children */
             if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -95,6 +97,17 @@ exports.newPluginsUtilitiesNodes = function () {
                 }
             }
         }
+    }
+
+    function fromInMemoryStructureToStructureWithReferenceParents(
+        rootObject,
+        allNodesInPluginsMap
+    ){
+        /*
+        This function scans an in memory node structure and add the reference parents
+        for the nodes that have a reference parent id.
+        */
+        setReferences(rootObject)
 
         function setReferences(currentObject) {
             if (currentObject === undefined) { return }
@@ -105,7 +118,7 @@ exports.newPluginsUtilitiesNodes = function () {
             if (
                 currentObject.referenceParent !== undefined
             ) {
-                currentObject.referenceParent = objectsMap.get(currentObject.referenceParent)
+                currentObject.referenceParent = allNodesInPluginsMap.get(currentObject.referenceParent)
             }
 
             /* We scan through this node children */

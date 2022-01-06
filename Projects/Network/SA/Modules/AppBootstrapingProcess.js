@@ -122,7 +122,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 loadSigningAccounts()
                 loadStorageContainers()
 
-                function loadSigningAccounts(){
+                function loadSigningAccounts() {
                     /*
                     For each User Profile Plugin, we will check all the Signing Accounts
                     and load them in memory to easily find them when needed.
@@ -135,7 +135,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     let signingAccounts = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile, 'Signing Account')
 
                     for (let j = 0; j < signingAccounts.length; j++) {
-    
+
                         let signingAccount = signingAccounts[j]
                         let networkClient = signingAccount.parentNode
                         let config = signingAccount.config
@@ -147,10 +147,10 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                         by different network clients.
                         */
                         SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
-    
+
                         loadP2PNetworkNodes()
                         setupNetworkClientIdentity()
-    
+
                         function loadP2PNetworkNodes() {
                             /*
                             If the Signing Account is for a P2P node, we will add the node to the array of available nodes at the p2p network.
@@ -165,13 +165,14 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 if (networkClient.config.webSocketsPort === undefined) {
                                     return
                                 }
-    
+
                                 let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                                p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount)
-                                SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
+                                if (p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount) === true) {
+                                    SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
+                                }
                             }
-                        }                    
-    
+                        }
+
                         function setupNetworkClientIdentity() {
                             /*
                             At the governance system, you might declare that you have for instance
@@ -186,14 +187,18 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             if (
                                 networkClient.id === SA.secrets.signingAccountSecrets.map.get(userAppCodeName).nodeId
                             ) {
-                                p2pNetworkClientIdentity.node = networkClient
-                                p2pNetworkClientIdentity.blockchainAccount = blockchainAccount
-                                p2pNetworkClientIdentity.userSocialProfile = userSocialProfile
+                                if (p2pNetworkClientIdentity.initialize(
+                                    networkClient,
+                                    blockchainAccount,
+                                    userSocialProfile
+                                ) === false) {
+                                    throw ('Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.')
+                                }
                             }
                         }
                     }
                 }
-            
+
                 function loadStorageContainers() {
                     /*
                     Identify Storage Containers of each profiles and load them to memory.

@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Lightning Strike Alım Satım Sisteminin Canlı Alım Satım Oturumu ( Live Trading Session ) için Borsa Hesap Anahtarınızı ( Exchange Acoount Key ) burada yapılandırabilirsiniz.",
                 "updated": 1636571154270
+            },
+            {
+                "language": "ID",
+                "text": "Di sinilah kamu mengkonfigurasi Exchange Account Key kamu untuk Live Trading Session dari Lightning Strike Trading System.",
+                "updated": 1640575942351
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Yapılandırmaya (Configure) erişin ve API Genel Anahtarını ve API gizli anahtarını dikkatlice girin.",
                     "updated": 1636571181921
+                },
+                {
+                    "language": "ID",
+                    "text": "Akses konfigurasi dan masukkan API Pubilic Key dengan hati-hati dan API secret key.",
+                    "updated": 1640575997998
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Hiçbir yabancı karakterin karışmaması için önce her parametre için varsayılan metin dizesini silin.",
                     "updated": 1636571210360
+                },
+                {
+                    "language": "ID",
+                    "text": "Delete string teks default untuk setiap parameter terlebih dahulu, sehingga tidak ada karakter asing yang tercampur dengan kunci.",
+                    "updated": 1640576105163
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Borsa Hesap Anahtarı ( Exchange Acoount Key ), şifrelenmemiş olarak Kullanıcı Çalışma Alanı ( User Workspace ) dosyasında saklanır. Borsada kimlik doğrulamak için kullanılır. Asla başka bir yere gönderilmez veya saklanmaz. Bir sonraki öğreticide nasıl güvenli bir şekilde yapılacağını öğrenene kadar bu çalışma alanını paylaşmayın.",
                     "updated": 1636571296174
+                },
+                {
+                    "language": "ID",
+                    "text": "Exchange Account Key disimpan dalam file User Workspace, tidak terenkripsi. Ini digunakan untuk mengotentikasi dengan exchange. Tidak pernah dikirim atau disimpan di tempat lain. Jangan bagikan ruang kerja ini sampai kamu belajar bagaimana melakukannya dengan aman di tutorial berikutnya.",
+                    "updated": 1640576174178
                 }
             ]
         }

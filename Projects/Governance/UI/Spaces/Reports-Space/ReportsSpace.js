@@ -129,7 +129,7 @@ function newGobernanceReportsSpace() {
         /*
         If the workspace is not related to governance, then we exit the initialize Function
         */
-        let governanceProject = UI.projects.foundations.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
+        let governanceProject = UI.projects.workspaces.spaces.designSpace.workspace.getProjectHeadByNodeType('Governance Project')
         if (governanceProject === undefined) { return }
 
         thisObject.container = newContainer()

@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 81,
+    "type": "Tutorial Step - A Little Speculation Game",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "help"
+        },
+        "text": "Let's do a quick mental exercise! Consider the point of the first take position event, that is, the 8hs candle, closing at 9 hs.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Machen wir eine kurze Denkübung! Betrachten Sie den Zeitpunkt des ersten Take-Position-Ereignisses, d.h. die 8-Stunden-Kerze, die um 9 Uhr schließt.",
+                "updated": 1639391664072
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verwerfen Sie die Kette von Strategien, die darauf folgen, da diese ein Nebenprodukt der Nichtdefinition der restlichen Phasen sind!",
+                    "updated": 1639391671496
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!",
+            "updated": 1622490115400,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Panel der Kerzen-Datenebene und schalten Sie das Plotter-Panel der Kerzen-Ebene ein, falls es noch nicht aktiviert ist!",
+                    "updated": 1639391677929
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Now place the pointer of the mouse on the 8hs candle. As you can see on the panel, that candle closed at 8702 USDT. That would be our take position rate, give or take slippage. Now go to the 12hs candle. The min value for that candle is 8445 USDT. After that short-term low, the market goes in an uptrend (in the 1H time frame).",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Platzieren Sie nun den Mauszeiger auf der Kerze 8hs. Wie Sie auf dem Panel sehen können, hat diese Kerze bei 8702 USDT geschlossen. Das ist der Kurs, zu dem wir die Position übernehmen, plus/minus Slippage. Gehen Sie nun zur 12-Stunden-Kerze. Der Mindestwert für diese Kerze liegt bei 8445 USDT. Nach diesem kurzfristigen Tiefpunkt befindet sich der Markt in einem Aufwärtstrend (im 1H-Zeitrahmen).",
+                    "updated": 1639391689742
+                }
+            ]
+        }
+    ]
+}

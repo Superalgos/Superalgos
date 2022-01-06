@@ -309,7 +309,7 @@ function newLayer() {
             thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
             if (thisObject.plotterModule.config.icon !== undefined) {
-                thisObject.plotterTypeIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.plotterModule.config.icon)
+                thisObject.plotterTypeIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.plotterModule.config.icon)
             }
 
             thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
@@ -328,9 +328,9 @@ function newLayer() {
                     }
                 }
                 if (iconName !== undefined) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', iconName)
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', iconName)
                 } else {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', schemaDocument.icon)
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', schemaDocument.icon)
                 }
                 return icon
             }

@@ -1,4 +1,4 @@
-# Superalgos 1.0.1
+# Superalgos 1.1.1
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -77,6 +77,10 @@ Once you have chosen which type of release you would like to install, you can th
 > **IMPORTANT:**
 > 
 > These installers are not code signed (this costs money and Superalgos is completely free for everyone). Therefore, antivirus will probably flag the file as unsecure. You can force the installation to allow the packages to run.  A more detailed explanation of this can be found in this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102). If this makes you uncomfortable, it is recommended you look into some of the other installation methods that do not suffer from this limitation.
+
+> **NOTE ABOUT ASCENDEX:**
+>
+> An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
 
 
 #### Windows Portable Application
@@ -447,6 +451,10 @@ To launch the platform with one of the Partner Exchanges custom workspaces, go t
 |--- |--- |
 | AscendEX | `node platform Foundations 01-Onboarding-AscendEX` |
 
+> **NOTE ABOUT ASCENDEX:**
+>
+> An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
+
 To run Superalgos with the fallback workspace, go to the Superalgos directory/folder and run this command:
 
 ```sh
@@ -529,7 +537,7 @@ journalctl -u superalgos -f
 
 ### Workspace Refactoring for Version 1
 
-Verion 1.0.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+Verion 1.1.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
 
 This means that these projects can now have a project leader and a team working on them.
 

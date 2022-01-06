@@ -1,0 +1,16 @@
+.modalContainer {
+    position: absolute;
+    justify-content: normal;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 24px 24px 100px #0000002b;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: none;
+}
+
+h4 {
+    margin-block-start: 0!important;
+}

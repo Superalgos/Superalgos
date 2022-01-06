@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Давайте начнем с определения процесса торговли и контекста, в котором эти идеи должны работать.",
                 "updated": 1640892165815
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ticaret sürecinin tanımıyla ve bu fikirlerin çalışması gereken bağlamla ilerleyeceğiz.",
+                "updated": 1640950911067
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Торговый процесс: Поскольку мы полагаемся на тренды на 24-часовых графиках, это будет свинг-стратегия, с открытыми позициями - потенциально на несколько дней.",
                     "updated": 1640892194310
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem süreci ( trading process ): 24 saatlik çizelgelerdeki trendlere güvendiğimiz için bu, pozisyonların -potansiyel olarak- birkaç gün boyunca açık olduğu bir salınım stratejisi olacaktır.",
+                    "updated": 1640950998948
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Контекст: Первая гипотеза предназначена для восходящих трендов на 24-часовом графике. Вторая - для нисходящих трендов и, вероятно, для колеблющихся рынков. Определение того, как определяются тренды, мы оставим на потом, когда вы познакомитесь с инструментами, доступными в Superalgos.",
                     "updated": 1640892221691
+                },
+                {
+                    "language": "TR",
+                    "text": "Bağlam: İlk hipotez, 24 saatlik grafikteki yükseliş trendleri içindir. İkincisi, düşüş trendleri ve muhtemelen değişen pazarlar için. Superalgos'ta mevcut olan araçlara aşina olduğunuzda, trendlerin nasıl belirleneceğini daha sonra tanımlayacağız.",
+                    "updated": 1640951767615
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Цель идеи - накапливать биткоин, продавая BTC для повторной покупки по более дешевой цене.",
                     "updated": 1640892237140
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Fikrin amacı, bitcoin'i daha ucuz bir fiyata yeniden satın almak.",
+                    "updated": 1640951904063
                 }
             ]
         }

@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Именно эту торговую систему мы будем использовать, практически в том виде, в котором она поставляется прямо из коробки!",
                 "updated": 1640934151084
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, neredeyse kutudan çıktığı gibi kullanacağımız ticaret sistemidir!",
+                "updated": 1641064528800
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Все, что я с ним сделал, это организовал иерархию так, как мне нравится, и дал ему название: BB Breakdown.",
                     "updated": 1640934165612
+                },
+                {
+                    "language": "TR",
+                    "text": "Onunla yapacağım tek şey hiyerarşiyi istediğim gibi düzenlemek ve ona bir isim vermek: BB Breakdown.",
+                    "updated": 1641064596654
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Разверните иерархию и осмотритесь! Обратите внимание на стратегию Downtrends... Разверните по очереди каждый из узлов, соответствующих четырем этапам, и внимательно посмотрите внутрь!",
                     "updated": 1640934184084
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşiyi genişletin ve etrafınıza bakın! Downtrends stratejisine dikkat edin... Dört aşamaya karşılık gelen düğümlerin her birini tek tek genişletin ve içeriye iyi bakın!",
+                    "updated": 1641064634947
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Узлы, которые вы видите на каждом из этих этапов, составляют определение стратегии...",
                     "updated": 1640934195172
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu aşamaların her birinde gördüğünüz düğümler bir stratejinin tanımlarını oluşturuyor...",
+                    "updated": 1641064695452
                 }
             ]
         }

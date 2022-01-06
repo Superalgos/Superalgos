@@ -98,6 +98,11 @@ function newCommunityPluginsNodeActionSwitch() {
                     UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginApiMaps(action.node, action.rootNodes)
                 }
                 break
+            case 'Add Missing Plugin P2P Networks':
+                {
+                    UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginP2PNetworks(action.node, action.rootNodes)
+                }
+                break
             case 'Enable Saving With Workspace':
                 {
                     UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.enableSavingWithWorkspace(action.node, action.rootNodes, action.callBackFunction)
@@ -118,7 +123,6 @@ function newCommunityPluginsNodeActionSwitch() {
                     UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.savePluginHierarchy(action.node, action.rootNodes)
                 }
                 break
-
             default: {
                 console.log("[WARN] Action sent to Community-Plugins Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
             }

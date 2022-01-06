@@ -1,0 +1,54 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 54,
+    "type": "Tutorial Step - The Time Frame Mystery",
+    "definition": {
+        "icon": {
+            "name": "Time\\time-frames-filter",
+            "project": "Foundations"
+        },
+        "text": "Let's pull one more trick! Switch the time frame to 12 hs and slide the pointer over the charts!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Sie uns noch einen Trick anwenden! Stellen Sie den Zeitrahmen auf 12 Stunden um und bewegen Sie den Zeiger über die Charts!",
+                "updated": 1639388803811
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "OMG! I broke Superalgos! Nothing works anymore!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "OMG! Ich habe Superalgos kaputt gemacht! Nichts funktioniert mehr!",
+                    "updated": 1639388812040
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Trading sessions create simulations for the time frame configured in the Time Frame parameter!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Trading sessions erstellen Simulationen für den Zeitrahmen, der im Parameter Time Frame eingestellt ist!",
+                    "updated": 1639388878376
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "If you set your chart to a different time frame, you won't be able to see the simulation! In fact, you may find another simulation that you ran on that time frame at some other point in time! Indeed, Superalgos stores simulations for each time frame separately, even when they originate from the same trading session!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie Ihren Chart auf einen anderen Zeitrahmen einstellen, werden Sie die Simulation nicht mehr sehen können! Es kann sogar sein, dass Sie eine andere Simulation finden, die Sie für diesen Zeitrahmen zu einem anderen Zeitpunkt ausgeführt haben! In der Tat speichert Superalgos die Simulationen für jeden Zeitrahmen separat, auch wenn sie aus derselben Handelssitzung stammen!",
+                    "updated": 1639388892532
+                }
+            ]
+        }
+    ]
+}

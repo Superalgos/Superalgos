@@ -1,7 +1,7 @@
 exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface() {
     /*
-    This module represent the HTTP API of the 
-    NNetwork Node. All HTTP request are processed
+    This module represent the HTTP API of the           TODO: Implement that Trading Signals are also sent to other nodes.
+    Network Node. All HTTP request are processed        TODO: Implement mechanism to send only the trading signals to the guys that are following the emitter.
     by this module.
     */
     let thisObject = {

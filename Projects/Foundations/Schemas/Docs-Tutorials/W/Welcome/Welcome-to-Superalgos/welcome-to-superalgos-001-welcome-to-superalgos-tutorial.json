@@ -40,6 +40,11 @@
                 "language": "RU",
                 "text": "Это учебное пособие представляет Вас вселенной Superalgos. Оно обучит Вас базовым операциям, проведет через основные области системы, процесс тестирования демо Trading System и даже настроит Вас на Вашу первую Live Trading Session.",
                 "updated": 1635448321901
+            },
+            {
+                "language": "ID",
+                "text": "Tutorial ini memperkenalkan kamu ke Superalgos universe. Bot ini memandu kamu melalui area utama sistem, mengajarkan kamu operasi dasar, memandu kamu melalui proses backtesting Trading System demo, dan bahkan mengatur kamu dengan Live Trading Session pertama kamu.",
+                "updated": 1640567434566
             }
         ]
     },

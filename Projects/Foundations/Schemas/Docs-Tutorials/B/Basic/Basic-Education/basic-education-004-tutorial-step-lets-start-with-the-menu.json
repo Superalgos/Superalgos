@@ -36,6 +36,11 @@
                 "language": "RU",
                 "text": "Левая часть меню узла является общей для большинства узлов. Однако правая часть меню зависит от типа узла!",
                 "updated": 1640858911184
+            },
+            {
+                "language": "ID",
+                "text": "Sisi kiri menu node adalah umum untuk sebagian besar nodes. Sisi kanan, bagaimanapun, khusus untuk jenis node!",
+                "updated": 1641094441266
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "RU",
                     "text": "Давайте внимательно посмотрим на левую сторону!",
                     "updated": 1640858921506
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita perhatikan sisi kiri!",
+                    "updated": 1641094461776
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "RU",
                     "text": "Пространство проектирования функционирует в парадигме самоорганизующегося рабочего пространства, в котором узлы стремятся найти свое место, руководствуясь определенными свойствами расположения, которыми можно управлять из меню узла.",
                     "updated": 1640858950813
+                },
+                {
+                    "language": "ID",
+                    "text": "Design Space berfungsi di bawah paradigma workspace yang mengatur diri sendiri di mana node cenderung menemukan tempat mereka dipandu oleh properti pengaturan tertentu yang dapat kamu kontrol dari menu node.",
+                    "updated": 1641094540436
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "RU",
                     "text": "Нажмите на кнопку с булавкой в левом верхнем углу узла Session Base Asset. Теперь перетащите узел в сторону и отпустите его! Теперь перетащите и отпустите любой другой узел, не закрепляя его. Видите разницу?",
                     "updated": 1640858976607
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik tombol pin di sudut kiri atas Session Base Asset node. Sekarang seret node itu dan lepaskan! Sekarang seret dan lepaskan node lain tanpa menyematkannya. Lihat perbedaannya?",
+                    "updated": 1641094609476
                 }
             ]
         }

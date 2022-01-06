@@ -29,7 +29,7 @@ function firstRun() {
     fs.writeFileSync(configPath, '');
   } catch (error) {
     if (error.code === 'ENOENT') {
-      makeDir.sync(path.join(process.env.DATA_PATH, '/Superalgos_Data/FirstRun'));
+      fs.mkdirSync(path.join(process.env.DATA_PATH, '/Superalgos_Data/'), {recursive: true});
       return firstRun();
     }
 
@@ -79,9 +79,7 @@ function selectionWindow() {
 
 function run(workspace) {
   const { fork } = require('child_process')
-  var options = ["noBrowser"]
-  //if (workspace) {options.push('Foundations ' + workspace)}
-  platform = fork(path.join(__dirname, '/PlatformRoot.js'), options, {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
+  platform = fork(path.join(__dirname, '/PlatformRoot.js'), ["noBrowser"], {stdio: ['pipe', 'pipe', 'pipe', 'ipc'], env: process.env})
 
   platform.on('message', _ => {
     openMain(workspace)
@@ -94,9 +92,7 @@ ipcMain.on("toMain", (event, args) => {
   if (args === "ImAlive!" && consoleWindow) {
     platform.stdout.setEncoding('utf8')
     platform.stdout.on('data', (data) => {
-      if(consoleWindow != null) {
-        consoleWindow.webContents.send("fromMain", data);
-      }
+      consoleWindow.webContents.send("fromMain", data);
     })
   } else if (args === "getExchanges") {
     const workspaces = getWorkspaces()
@@ -241,7 +237,7 @@ app.on('window-all-closed', function () {
 })
 
 app.on('activate', function () {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  if (BrowserWindow.getAllWindows().length === 0) openMain()
 })
 
 function createMainMenus() { 

@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Если вы обратили внимание на первый учебник из серии о торговых системах, вы должны знать ответ на поставленный выше вопрос!",
                 "updated": 1640934224457
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret sistemleri serisindeki ilk öğreticiye dikkat ettiyseniz, yukarıdaki sorunun cevabını biliyor olmalısınız!",
+                "updated": 1641064736718
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Во втором уроке серии мы выдвинули две похожие гипотезы: одна из них касается торговли во время восходящих трендов, а вторая - во время нисходящих.",
                     "updated": 1640934241567
+                },
+                {
+                    "language": "TR",
+                    "text": "Serinin ikinci eğitiminde, iki benzer varsayım geliştirdik: biri yükseliş trendleri sırasında ve ikincisi düşüş trendlerinde alım satımı içerir.",
+                    "updated": 1641064777932
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Это две разные идеи, и их следует рассматривать как разные стратегии, потому что они будут работать с похожей логикой, но не с одной и той же!",
                     "updated": 1640934260409
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunlar iki farklı fikirdir ve farklı stratejiler olarak ele alınmalıdır, çünkü benzer mantığı ele alacaklardır, ancak aynı değildir!",
+                    "updated": 1641064822434
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Сначала мы сосредоточимся на стратегии Downtrend, потому что я считаю ее наиболее перспективной!",
                     "updated": 1640934273889
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Önce Düşüş trendi (Downtrend) stratejisine odaklanacağız, çünkü bunun en umut verici olanı olduğunu düşünüyorum!",
+                    "updated": 1641064884297
                 }
             ]
         }

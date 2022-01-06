@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Теперь, когда вы понимаете последствия проведения операции по добыче данных, давайте приступим к делу!",
                 "updated": 1640933612912
+            },
+            {
+                "language": "TR",
+                "text": "Artık bu veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
+                "updated": 1641062954800
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Если вы не выполнили второй урок из этой серии, выберите \" Run All Project Data Tasks\" в меню узла Data Tasks!",
                     "updated": 1640933635730
+                },
+                {
+                    "language": "TR",
+                    "text": "Serideki ikinci öğreticiyi yapmadıysanız, Veri Görevleri ( Data Tasks ) düğüm menüsünden \"Tüm Proje Veri Görevlerini Çalıştır ( All Project Data Tasks )\" ı seçin!",
+                    "updated": 1641063044508
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Если вы изучаете этот учебник после изучения других учебников, есть вероятность, что у вас уже есть часть необходимых данных, что может ускорить процесс! В любом случае, нет необходимости ждать, пока добыча данных дойдет до настоящего времени... вы можете продолжать заниматься по этому учебнику!",
                     "updated": 1640933669134
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu öğreticiyi diğer öğreticileri yaptıktan sonra yapıyorsanız, gereken verilerin bir kısmına zaten sahip olabilirsiniz, bu da işleri daha hızlı hale getirebilir! Her iki durumda da, veri madenciliğinin şimdiki zamana gelmesini beklemenize gerek yok... öğretici ile devam edebilirsiniz!",
+                    "updated": 1641063083080
                 }
             ]
         }

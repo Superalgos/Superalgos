@@ -15,6 +15,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         addMissingPluginLearningEngines: addMissingPluginLearningEngines,
         addMissingPluginTutorials: addMissingPluginTutorials,
         addMissingPluginApiMaps: addMissingPluginApiMaps,
+        addMissingPluginP2PNetworks: addMissingPluginP2PNetworks, 
         enableSavingWithWorkspace: enableSavingWithWorkspace,
         disableSavingWithWorkspace: disableSavingWithWorkspace,
         savePluginFile: savePluginFile,
@@ -272,6 +273,22 @@ function newPluginsFunctionLibraryPluginsFunctions() {
         }
     }
 
+    function addMissingPluginP2PNetworks(node, rootNodes) {
+        let projectName = UI.projects.communityPlugins.utilities.plugins.getProjectName(node)
+        if (projectName === "" || projectName === undefined) {
+            if (node.payload.parentNode !== undefined) {
+                node.payload.parentNode.payload.uiObject.setErrorMessage("Config codeName must have the name of the project.")
+                return
+            }
+        }
+
+        UI.projects.communityPlugins.utilities.plugins.getPluginFileNames(projectName, 'P2P-Networks', onNamesArrived)
+
+        function onNamesArrived(fileNames) {
+            UI.projects.communityPlugins.utilities.plugins.addMissingPluginFiles(node, fileNames, 'P2P-Networks', 'P2P Network', 'Network')
+        }
+    }
+
     function enableSavingWithWorkspace(node, rootNodes, callBackFunction) {
         UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(node.payload, 'saveWithWorkspace', true)
         node.payload.uiObject.setInfoMessage('Saving with Workspace Enabled')
@@ -291,7 +308,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     function savePluginHierarchy(node, rootNodes) {
         if (node.isPlugin !== true) { return }
 
-        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let plugins = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
         let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
         let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
         let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')
@@ -316,7 +333,7 @@ function newPluginsFunctionLibraryPluginsFunctions() {
     }
 
     function installAsPlugin(node, rootNodes) {
-        let plugins = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
+        let plugins = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadByNodeType('Plugins')
         let pluginProject = UI.projects.visualScripting.utilities.nodeChildren.findChildByCodeName(plugins, node.project)
         let pluginFolderName = UI.projects.communityPlugins.utilities.plugins.getPluginFolderNamesByNodeType(node.type)
         let pluginForlderNodeType = 'Plugin ' + pluginFolderName.replaceAll('-', ' ')

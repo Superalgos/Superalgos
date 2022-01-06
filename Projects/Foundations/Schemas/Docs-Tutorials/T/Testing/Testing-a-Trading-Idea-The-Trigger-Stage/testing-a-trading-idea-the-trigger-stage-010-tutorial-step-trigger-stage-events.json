@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "В некотором смысле, стратегии определяются как набор событий. События, которые запускают торговую стратегию, являются первыми, которые необходимо рассмотреть!",
                 "updated": 1640934292763
+            },
+            {
+                "language": "TR",
+                "text": "Bir bakıma stratejiler bir olaylar topluluğu olarak tanımlanır. Bir Ticaret Stratejisini ( Trading Strategy ) tetikleyen olaylar, ilk dikkate alınanlardır!",
+                "updated": 1641064952762
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "В следующих нескольких шагах мы определим...",
                     "updated": 1640934302928
+                },
+                {
+                    "language": "TR",
+                    "text": "Önümüzdeki birkaç adımda, tanımlayacaklarımız ...",
+                    "updated": 1641065016955
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "RU",
                     "text": "Если вы еще не читали, пожалуйста, прочитайте эту страницу, чтобы ознакомиться с этими понятиями! Если вы уже читали эту страницу раньше, не помешает освежить ее в памяти!",
                     "updated": 1640934372480
+                },
+                {
+                    "language": "TR",
+                    "text": "Henüz yapmadıysanız, bu kavramları hızlandırmak için lütfen bu sayfayı okuyun! Bu sayfayı daha önce okuduysanız, bilginizi tazelemekten zarar gelmez!",
+                    "updated": 1641065124395
                 }
             ]
         }

@@ -1,12 +1,14 @@
 exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNode() {
     /*
-    This module represents the P2P Network Node.
+    This module represents a P2P Network Node. At the bootstraping process
+    all nodes are identified and stored in memory, so that later, they
+    can be used to connect to.
     */
-    let thisObject = { 
+    let thisObject = {
 
         node: undefined,
         blockchainAccount: undefined,
-        userProfile: undefined,
+        userSocialProfile: undefined,
 
         /* Framework Functions */
         initialize: initialize,
@@ -21,12 +23,29 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         thisObject.userProfile = undefined
     }
 
-    async function initialize(node, userProfile, blockchainAccount) {
+    async function initialize(
+        node,
+        userSocialProfile,
+        blockchainAccount
+    ) {
         /*
         We will setup here the maps and arryas we will need to operate within the P2P Network.
         */
-         thisObject.node = node
-         thisObject.userProfile = userProfile
-         thisObject.blockchainAccount = blockchainAccount
+        thisObject.node = node
+        thisObject.userSocialProfile = userSocialProfile
+        thisObject.blockchainAccount = blockchainAccount
+        return true
+        if (
+            thisObject.node.p2pNetworkReference === undefined ||
+            thisObject.node.p2pNetworkReference.referenceParent === undefined ||
+            thisObject.node.p2pNetworkReference.referenceParent.config === undefined
+        ) {
+            /*
+            Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.
+            */
+            return false
+        } else {
+            return true
+        }
     }
 }

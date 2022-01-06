@@ -539,20 +539,9 @@
                     "name": "Charting Space Functions",
                     "propertyName": "chartingSpaceFunctions",
                     "functionName": "newFoundationsFunctionLibraryChartingSpaceFunctions"
-                },
-                {
-                    "name": "Workspace Functions",
-                    "propertyName": "workspaceFunctions",
-                    "functionName": "newFoundationsFunctionLibraryWorkspaceFunctions"
                 }
             ],
-            "systemActionFunctions": [
-                {
-                    "name": "System Action Workspace Functions",
-                    "propertyName": "workspaceFunctions",
-                    "functionName": "newFoundationsSystemActionWorkspaceFunctions"
-                }
-            ],
+            "systemActionFunctions": [],
             "functionLibraries": [],
             "globals": [
                 {
@@ -633,9 +622,9 @@
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
-                    "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 7
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 5
                 },
                 {
                     "name": "Top Space",
@@ -645,9 +634,9 @@
                     "initializationIndex": 1,
                     "animationPhysicsIndex": 5,
                     "animationDrawIndex": 4,
-                    "onMouseOverIndex": 1,
-                    "onMouseClickIndex": 1,
-                    "onMouseDownIndex": 1
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
                 },
                 {
                     "name": "Cockpit Space",
@@ -658,22 +647,9 @@
                     "animationPhysicsIndex": 0,
                     "animationDrawIndex": 5,
                     "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 2
-                },
-                {
-                    "name": "Design Space",
-                    "folderName": "Design-Space",
-                    "propertyName": "designSpace",
-                    "functionName": "newFoundationsDesignSpace",
-                    "initializationIndex": 3,
-                    "animationPhysicsIndex": 3,
-                    "animationDrawIndex": 2,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 0,
-                    "onMouseDownIndex": 0
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
                 },
                 {
                     "name": "Panel Space",
@@ -684,9 +660,9 @@
                     "animationPhysicsIndex": 4,
                     "animationDrawIndex": 3,
                     "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 3
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
                 },
                 {
                     "name": "Charting Space",
@@ -697,9 +673,9 @@
                     "animationPhysicsIndex": 2,
                     "animationDrawIndex": 1,
                     "onMouseWheelIndex": 5,
-                    "onMouseOverIndex": 5,
-                    "onMouseClickIndex": 8,
-                    "onMouseDownIndex": 8
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 6
                 },
                 {
                     "name": "Side Space",
@@ -710,22 +686,9 @@
                     "animationPhysicsIndex": 6,
                     "animationDrawIndex": 6,
                     "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
-                },
-                {
-                    "name": "Workspace Space",
-                    "folderName": "Workspace-Space",
-                    "propertyName": "workspaceSpace",
-                    "functionName": "newFoundationsWorkspaceSpace",
-                    "initializationIndex": 7,
-                    "animationPhysicsIndex": 7,
-                    "animationDrawIndex": 7,
-                    "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 6
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
                 },
                 {
                     "name": "Chat Space",
@@ -742,9 +705,9 @@
                     "animationPhysicsIndex": 8,
                     "animationDrawIndex": 8,
                     "onMouseWheelIndex": 7,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
+                    "onMouseOverIndex": 5,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
                 }
             ]
         },
@@ -1148,6 +1111,55 @@
         ]
     },
     {
+        "name": "Workspaces",
+        "propertyName": "workspaces",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Node Action Workspace Functions",
+                    "propertyName": "workspaceFunctions",
+                    "functionName": "newWorkspacesNodeActionWorkspaceFunctions"
+                }
+            ],
+            "systemActionFunctions": [
+                {
+                    "name": "System Action Workspace Functions",
+                    "propertyName": "workspaceFunctions",
+                    "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
+                }
+            ],
+            "functionLibraries": [],
+            "spaces": [
+                {
+                    "name": "Design Space",
+                    "folderName": "Design-Space",
+                    "propertyName": "designSpace",
+                    "functionName": "newWorkspacesDesignSpace",
+                    "initializationIndex": 3,
+                    "animationPhysicsIndex": 3,
+                    "animationDrawIndex": 2,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Workspace Space",
+                    "folderName": "Workspace-Space",
+                    "propertyName": "workspaceSpace",
+                    "functionName": "newWorkspacesWorkspaceSpace",
+                    "initializationIndex": 7,
+                    "animationPhysicsIndex": 7,
+                    "animationDrawIndex": 7,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        }
+    },
+    {
         "name": "Community-Plugins",
         "propertyName": "communityPlugins",
         "UI": {
@@ -1219,9 +1231,9 @@
                     "folderName": "Blockchain-Space",
                     "propertyName": "blockchainSpace",
                     "functionName": "newEthereumBlockchainSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 9,
+                    "animationPhysicsIndex": 9,
+                    "animationDrawIndex": 9,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -1232,9 +1244,9 @@
                     "folderName": "Wallet-Space",
                     "propertyName": "walletSpace",
                     "functionName": "newEthereumWalletSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 10,
+                    "animationPhysicsIndex": 10,
+                    "animationDrawIndex": 10,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -1323,9 +1335,9 @@
                     "folderName": "Docs-Space",
                     "propertyName": "docsSpace",
                     "functionName": "newEducationDocSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 11,
+                    "animationPhysicsIndex": 11,
+                    "animationDrawIndex": 11,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -1336,9 +1348,9 @@
                     "folderName": "Tutorial-Space",
                     "propertyName": "tutorialSpace",
                     "functionName": "newEducationTutorialSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 12,
+                    "animationPhysicsIndex": 12,
+                    "animationDrawIndex": 12,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -1547,9 +1559,9 @@
                     "folderName": "User-Profile-Space",
                     "propertyName": "userProfileSpace",
                     "functionName": "newGovernanceUserProfileSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 13,
+                    "animationPhysicsIndex": 13,
+                    "animationDrawIndex": 13,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -1560,9 +1572,9 @@
                     "folderName": "Reports-Space",
                     "propertyName": "reportsSpace",
                     "functionName": "newGobernanceReportsSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 14,
+                    "animationPhysicsIndex": 14,
+                    "animationDrawIndex": 14,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -1637,10 +1649,10 @@
                     "fileName": "HttpNetworkClient.js"
                 },
                 {
-                    "name": "User Profiles",
-                    "propertyName": "userProfiles",
-                    "functionName": "newNetworkModulesUserProfiles",
-                    "fileName": "UserProfiles.js"
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newNetworkModulesAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
                 },
                 {
                     "name": "P2P Network",
@@ -1681,7 +1693,10 @@
                     "fileName": "AppClientNetworkNodePicker.js"
                 }
             ]
-        }
+        },
+        "plugins": [
+            "P2P-Networks"
+        ]
     },
     {
         "name": "Social-Trading",

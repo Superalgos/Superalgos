@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "К этому моменту все процессы должны быть на 100%. Нам нужно, чтобы данные были готовы, чтобы мы могли пойти и немного поработать с графиками!",
                 "updated": 1640890202922
+            },
+            {
+                "language": "TR",
+                "text": "Şimdiye kadar, tüm işlemler %100 olmalıdır. Gidip grafikler üzerinde biraz çalışabilmemiz için verilerin hazır olmasına ihtiyacımız var!",
+                "updated": 1640869840820
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Оглянитесь вокруг и посмотрите, все ли процессы работают на 100%. Если все, то прекратите добычу данных!",
                     "updated": 1640890220124
+                },
+                {
+                    "language": "TR",
+                    "text": "Etrafınıza bakın ve tüm işlemlerin %100 olup olmadığını görün. Hepsi %100 ise, veri madenciliğini durdurun!",
+                    "updated": 1640869956806
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Подождите, пока все процессы достигнут отметки 100%, прежде чем продолжить!",
                     "updated": 1640890233571
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Devam etmeden önce tüm işlemlerin %100 işaretine ulaşmasını bekleyin!",
+                    "updated": 1640870047711
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "На следующем этапе мы переходим к графикам для проверки полос Боллинджера, чтобы мы могли обсудить торговую идею, которую мы будем тестировать!",
                     "updated": 1640890248262
+                },
+                {
+                    "language": "TR",
+                    "text": " İpucu: Bir sonraki adımda Bollinger Bantlarını kontrol etmek için grafiklere gidiyoruz, böylece test edeceğimiz ticaret fikrini tartışabiliriz!",
+                    "updated": 1640870153849
                 }
             ]
         }

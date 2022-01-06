@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Bu uyarı tam ekran modunda gösterilecektir.",
                 "updated": 1636404372696
+            },
+            {
+                "language": "ID",
+                "text": "Step ini akan menjalankan video mode layar penuh.",
+                "updated": 1639582707427
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "TR",
                     "text": "Superalgos bir bilgisayar yazılımı parçasıdır. Herhangi bir yazılımda olduğu gibi, para kaybetmenize neden olabilecek hatalar da dahil olmak üzere herhangi bir noktada hatalar meydana gelebilir. Canlı işlem yapmadan önce uygun görebileceğiniz tüm önlemleri almak sizin sorumluluğunuzdadır. Olası tüm ihtiyati tedbirleri alsanız bile, işler yine de ters gidebilir ve hatalar meydana gelebilir. Uyarılara rağmen canlı ticaret yapmak için bu yazılımı kullanarak, ticarette ve yazılımı bu amaçla kullanmanın doğasında var olan risklerin farkında olduğunuzu kabul etmektesiniz. Superalgos Projesi, yazılımı OLDUĞU GİBİ sunar ve hiçbir açık veya zımni garanti içermez. Proje, yazılım, superalgos.org web sitesi ve bu eğitim, finansal tavsiye sunmamaktadır. Sistemle birlikte gönderilen stratejiler tamamen işlevsel olsa da, Superalgos bunları nasıl kullanmanız gerektiği konusunda açık veya zımni herhangi bir öneride bulunmaz. Stratejileri yalnızca eğitim amaçlı paylaşıyoruz. Kendi sorumluluğunuzda ve riski size ait olmak üzere ticaret yapın. Yazılımın kullanımı LİSANS şartlarına tabidir.",
                     "updated": 1636404351933
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos adalah bagian dari perangkat lunak komputer. Seperti halnya perangkat lunak apa pun, kesalahan dapat terjadi kapan saja, termasuk kesalahan yang dapat menyebabkan Anda kehilangan uang. Anda bertanggung jawab untuk mengambil semua tindakan pencegahan yang mungkin Anda anggap tepat sebelum live trading. Bahkan jika Anda mengambil semua tindakan pencegahan yang mungkin, hal-hal mungkin masih salah dan kesalahan dapat terjadi. Dengan menggunakan perangkat lunak ini untuk trading secara langsung terlepas dari peringatan, Anda mengakui bahwa Anda mengetahui risiko yang melekat dalam trading dan dalam menggunakan perangkat lunak untuk tujuan itu. Proyek Superalgos menawarkan perangkat lunak AS IS, tanpa jaminan eksplisit atau tersirat dalam bentuk apa pun. Proyek, perangkat lunak, situs web superalgos.org, dan tutorial ini tidak menawarkan saran keuangan. Meskipun strategi pengiriman dengan sistem mungkin berfungsi penuh, Superalgos tidak membuat rekomendasi tersurat atau tersirat tentang bagaimana Anda harus menggunakannya. Kami berbagi strategi hanya untuk tujuan pendidikan. Trading di bawah tanggung jawab Anda dan dengan risiko Anda sendiri. Penggunaan perangkat lunak tunduk pada ketentuan LICENSE.",
+                    "updated": 1640574901504
                 }
             ]
         }

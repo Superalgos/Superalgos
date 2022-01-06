@@ -1,0 +1,34 @@
+{
+    "actionsNav":[
+        {
+            "id": 1,
+            "name": "Love",
+            "icon": "FavoriteBorder"
+        },
+        {
+            "id": 2,
+            "name": "Haha",
+            "icon": "Mood"
+        },
+        {
+            "id": 3,
+            "name": "Wow",
+            "icon": "OutletOutlined"
+        },
+        {
+            "id": 4,
+            "name": "Sad",
+            "icon": "SentimentVeryDissatisfied"
+        },
+        {
+            "id": 5,
+            "name": "Angry",
+            "icon": "SentimentVeryDissatisfiedOutlined"
+        },
+        {
+            "id": 6,
+            "name": "Care",
+            "icon": "AccessibilityNewOutlined"
+        }
+    ]
+}

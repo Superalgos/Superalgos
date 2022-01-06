@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Проверьте таблицу ниже и посмотрите, если Вы сможете интерпретировать уровни поддержки, которые Вы видите на графиках.",
                 "updated": 1637656295257
+            },
+            {
+                "language": "ID",
+                "text": "Periksa tabel di bawah ini dan lihat apakah kamu dapat memahami level support yang kamu lihat di grafik.",
+                "updated": 1640563597419
             }
         ]
     },
@@ -73,6 +78,11 @@
                     "language": "RU",
                     "text": "Для нового уровня поддержки с одним отказом пунктирная линия отмечает точный уровень, на котором цена отскочила. Для дальнейших отказов блоки отмечают диапазоны ставок, в которых учитываются последующие отклонения.",
                     "updated": 1637656618967
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk level support baru dengan satu rejection, garis putus-putus menandai level yang tepat di mana harga memantul. Untuk rejection lebih lanjut, blok menandai rate ranges di mana rejection berikutnya dihitung.",
+                    "updated": 1640563863080
                 }
             ]
         }

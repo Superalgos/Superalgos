@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Давайте восстановим нашу предыдущую гипотезу и придумаем новую для последних наблюдений!",
                 "updated": 1640891997877
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım!",
+                "updated": 1640949719690
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Гипотеза 1: В контексте восходящего тренда на дневном графике, пробой полос Боллинджера на часовом графике может предсказать разворот промежуточного тренда.",
                     "updated": 1640892022350
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayım 1: Günlük grafikte bir yükseliş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü, ara trendde bir tersine dönüşü öngörebilir.",
+                    "updated": 1640949950526
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Гипотеза 2: В контексте нисходящего тренда на дневном графике, пробой полос Боллинджера на часовом графике может предсказать ускорение нисходящего тренда.",
                     "updated": 1640892042464
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayım 2: Günlük grafikteki düşüş trendi bağlamında, 1H grafiğindeki Bollinger Bantlarının bir dökümü düşüş trendinin hızlanmasını öngörebilir.",
+                    "updated": 1640949976880
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Мы можем считать, что эти два понятия являются основой двух разных торговых идей! Но это еще не все, верно?",
                     "updated": 1640892057186
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu ikisini iki farklı ticaret fikrinin özü olarak düşünebiliriz! Ama hepsi bu kadar değil, değil mi?",
+                    "updated": 1640950094991
                 }
             ]
         }

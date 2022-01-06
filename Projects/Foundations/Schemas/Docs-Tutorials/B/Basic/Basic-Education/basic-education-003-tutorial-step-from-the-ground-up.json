@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "По правде говоря, мой гостеприимный друг научил вас многим базовым операциям, которые необходимо знать, чтобы ориентироваться и чувствовать себя комфортно в данном интерфейсе...",
                 "updated": 1640858784410
+            },
+            {
+                "language": "ID",
+                "text": "Sebenarnya, temanku telah mengajari kamu banyak operasi dasar yang perlu kamu ketahui untuk berputar-putar dan merasa nyaman dengan interface bot...",
+                "updated": 1641093294776
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Со мной вы завершите свое базовое обучение! Как только вы закончите этот учебник, вы будете готовы начать учиться строить свою собственную торговую систему (Trading System)... Ведь именно в этом все дело, не так ли?",
                     "updated": 1640858835665
+                },
+                {
+                    "language": "ID",
+                    "text": "Bersamaku, Kamu akan menyelesaikan edukasi dasar-mu! Setelah Kamu menyelesaikan tutorial ini, Kamu akan siap untuk mulai belajar bagaimana membangun Trading System -mu sendiri... Lagipula tujuan ini semua untuk itu, benar?",
+                    "updated": 1641093411250
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Мы сосредоточимся на завершении обзора интерфейса, разберемся с рабочими пространствами, резервным копированием, плагинами и многим другим!",
                     "updated": 1640858865509
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi!",
+                    "updated": 1641093480726
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Давайте приступим к делу!",
                     "updated": 1640858878888
+                },
+                {
+                    "language": "ID",
+                    "text": "Mari kita lanjutkan!",
+                    "updated": 1641093517301
                 }
             ]
         }

@@ -1,0 +1,55 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 50,
+    "type": "Tutorial Step - Lesson Learned?",
+    "definition": {
+        "icon": {
+            "name": "Learning\\learning-bot",
+            "project": "Foundations"
+        },
+        "text": "At this moment, the error doesn't affect us, because the first 19 days of the data set correspond to an uptrend! However...",
+        "updated": 1612696618351,
+        "translations": [
+            {
+                "language": "DE",
+                "text": " Im Moment beeinträchtigt uns der Fehler nicht, da die ersten 19 Tage des Datensatzes einem Aufwärtstrend entsprechen! Allerdings ...",
+                "updated": 1639388417211
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "... it would affect us if we were working with uptrends!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "... würde er uns betreffen, wenn wir mit Aufwärtstrends arbeiten würden!",
+                    "updated": 1639388427688
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The troubleshooting process we just went through may come naturally to you if you are a developer. If you are not, you must become familiar with it, because you will certainly need to use it.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Fehlersuche, die wir soeben durchgeführt haben, ist für Sie vielleicht selbstverständlich, wenn Sie ein Entwickler sind. Wenn Sie das nicht sind, müssen Sie sich mit ihm vertraut machen, denn Sie werden ihn mit Sicherheit anwenden müssen.",
+                    "updated": 1639388435595
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Trading automation requires many pieces of information to fit together like in a Swiss watch. You will make errors building strats. Deal with 'em!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beim automatisierten Trading müssen viele Informationen wie bei einem Schweizer Uhrwerk zusammenpassen. Sie werden beim Erstellen von Strategien Fehler machen. Gehen Sie mit ihnen um!",
+                    "updated": 1639388479624
+                }
+            ]
+        }
+    ]
+}

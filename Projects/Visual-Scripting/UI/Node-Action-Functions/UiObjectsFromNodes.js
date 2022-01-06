@@ -145,6 +145,13 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             totalPlugin = totalPlugin + project.pluginPositions.pluginFiles.length
                             pluginAllTheseFiles(project.pluginPositions.pluginFiles, 'Positions')
                         }
+                        /*
+                        Network Plugin Types
+                        */
+                        if (project.pluginP2PNetworks !== undefined) {
+                            totalPlugin = totalPlugin + project.pluginP2PNetworks.pluginFiles.length
+                            pluginAllTheseFiles(project.pluginP2PNetworks.pluginFiles, 'P2P-Networks')
+                        }
                     }
                 }
             }
@@ -355,11 +362,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                                 if (i === 0) {
                                     pathName = rawPath[i][0]
                                     pathType = rawPath[i][1]
-                                    pathNode = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(pathName, pathType)
+                                    pathNode = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByCodeNameAndNodeType(pathName, pathType)
 
                                     // If reference parent is workspace node grab node
                                     if (pathType === "Workspace") {
-                                        pathNode = UI.projects.foundations.spaces.designSpace.workspace.workspaceNode
+                                        pathNode = UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode
                                     }
                                     // If Hierarchy Head is not located within the workspace abort reconnection
                                     if (pathNode === undefined) {
@@ -509,11 +516,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         if (
             node.type === 'Plugins' ||
             node.type === 'Plugin Tutorials' ||
-            node.type === 'Plugin Trading Systems'  ||
-            node.type === 'Plugin Trading Mines'    ||
-            node.type === 'Plugin Trading Engines'  ||
+            node.type === 'Plugin Trading Systems' ||
+            node.type === 'Plugin Trading Mines' ||
+            node.type === 'Plugin Trading Engines' ||
             node.type === 'Plugin Portfolio Systems' ||
-            node.type === 'Plugin Portfolio Mines'  ||
+            node.type === 'Plugin Portfolio Mines' ||
             node.type === 'Plugin Portfolio Engines' ||
             node.type === 'Plugin Project' ||
             node.type === 'Plugin Learning Systems' ||
@@ -922,7 +929,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         payload.node = node
         payload.parentNode = parentNode
         payload.chainParent = chainParent
-        payload.executeAction = UI.projects.foundations.spaces.designSpace.workspace.executeAction
+        payload.executeAction = UI.projects.workspaces.spaces.designSpace.workspace.executeAction
 
         node.payload = payload
         node.type = uiObjectType

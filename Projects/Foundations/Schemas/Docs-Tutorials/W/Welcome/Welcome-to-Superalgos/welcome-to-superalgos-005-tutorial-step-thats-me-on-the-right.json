@@ -65,8 +65,8 @@
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Superalgos merupakan data yang divisualisasikan. Dengan sistem yang merepresentasikan informasi berstruktur hirarki dari nodes yang tersambung (berbentuk icon). Apa yang kamu lihat disebelah bagian dari hirarki juga, secara detail tutorial yang dimaksud adalah Welcome to Superalgos!",
-                    "updated": 1614418099585,
+                    "text": "Superalgos secara inheren merupakan alat visual. Sistem ini mewakili informasi dalam struktur hierarkis node yang saling berhubungan, diwakili oleh icons. Apa yang kamu lihat di sebelah kanan kamu adalah salah satu hierarki ini — khususnya, hierarki Tutorial. Dalam hal ini, \"tutorial\" adalah jenis node dan \"Welcome to Superalgos!\"Adalah nama node.",
+                    "updated": 1640568083362,
                     "style": "Text"
                 },
                 {
@@ -163,8 +163,9 @@
                 {
                     "language": "RU",
                     "text": "Наведите курсор мыши на узел Tutorial и посмотрите, что произойдет! Ух ты! Круто, правда? Так много кнопок!",
-                    "updated": 1635451952870},
-                    {
+                    "updated": 1635451952870
+                },
+                {
                     "language": "TR",
                     "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme!",
                     "updated": 1635577498974

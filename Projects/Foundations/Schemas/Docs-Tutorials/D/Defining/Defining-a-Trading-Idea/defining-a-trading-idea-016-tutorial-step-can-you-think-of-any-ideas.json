@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Вы видели полосы Боллинджера и знаете, как их читать... Можете ли вы придумать торговую идею для построения стратегии?",
                 "updated": 1640890491546
+            },
+            {
+                "language": "TR",
+                "text": "Bollinger Bantlarını gördünüz ve onları nasıl okuyacağınızı biliyorsunuz... Bir strateji oluşturmak için bir ticaret fikri düşünebilir misiniz?",
+                "updated": 1640947506140
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Уделите несколько минут работе с этой таблицей и посмотрите, сможете ли вы что-нибудь придумать!",
                     "updated": 1640890564079
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çizelgede birkaç dakika dolaşın ve bir şeyler bulabilecek misiniz bir bakın!",
+                    "updated": 1640947545847
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Индикаторы обычно строятся аналитиками и трейдерами для математического описания торговых идей.",
                     "updated": 1640890575776
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Göstergeler genellikle ticaret fikirlerini matematiksel olarak tanımlamak için analistler ve trader'lar tarafından oluşturulur.",
+                    "updated": 1640947566429
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Идея, которую мы обсудим дальше, связана с прорывами! Но это лишь одна из четырех или пяти популярных идей с использованием этого индикатора!",
                     "updated": 1640890595887
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha sonra tartışacağımız fikir, kırılmalarla ilgili! Ancak bu, bu göstergeyi kullanan dört veya beş popüler fikirden yalnızca biri!",
+                    "updated": 1640947587516
                 }
             ]
         }

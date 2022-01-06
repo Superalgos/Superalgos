@@ -1,25 +1,26 @@
-exports.newNetworkNode = function newNetworkNode() {
+exports.newNetworkApp = function newNetworkApp() {
 
     let thisObject = {
-        appBootstrapingProcess: undefined,
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
         p2pNetworkNode: undefined,
         webSocketsInterface: undefined,
         httpInterface: undefined,
         socialGraphService: undefined,
-        storage: undefined,
         run: run
     }
 
-    NT.networkNode = thisObject
+    NT.networkApp = thisObject
 
     return thisObject
 
     async function run() {
 
         await setupNetwork()
-        await setupServices()
+        await setupNetworkServices()
+        setupNetworkInterfaces()
+
+        console.log('Network App is Running.')
 
         async function setupNetwork() {
             /*
@@ -32,8 +33,8 @@ exports.newNetworkNode = function newNetworkNode() {
             We will read all user profiles plugins and get from there our network identity.
             This is what we call the bootstrap process.
             */
-            thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await thisObject.appBootstrapingProcess.initialize(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
+            let appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
+            await appBootstrapingProcess.run(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT, thisObject.p2pNetworkNode)
             /*
             Let's discover which are the nodes at the p2p network and have an array of nodes
             to which we can connect to. This module will run the rules of who we can connect to.
@@ -58,30 +59,30 @@ exports.newNetworkNode = function newNetworkNode() {
             )
         }
 
-        async function setupServices() {
+        async function setupNetworkServices() {
+            if (
+                thisObject.p2pNetworkNode.node.networkServices !== undefined &&
+                thisObject.p2pNetworkNode.node.networkServices.socialGraph !== undefined
+                ) {
+                thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
+                await thisObject.socialGraphService.initialize()
+                console.log('Social Graph Network Service ................................................. Running')
+            }
+        }
+
+        function setupNetworkInterfaces() {
             /*
-            The Social Graph Service is the first and for now, the only service this Network Node provides.
-            TODO: Only if the service is configured at the User Profile.
-            */
-            thisObject.socialGraphService = NT.projects.socialTrading.modules.socialGraph.newNetworkModulesSocialGraph()
-            await thisObject.socialGraphService.initialize()
-            /*
-            The Storage deals with persisting the Social Graph.
-            */
-            thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
-            thisObject.storage.initialize()
-            /*
-            Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
-            */
+             Other Network Nodes and Client Apps will communicate with this Network Node via it's Websocket Interface.
+             */
             thisObject.webSocketsInterface = NT.projects.network.modules.webSocketsInterface.newNetworkModulesWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
-            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkNode.p2pNetworkNode.node.config.webSocketsPort)
+            console.log('Network Node Web Sockets Interface ........................................... Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webSocketsPort)
             /*
             Other Network Nodes and Client Apps will communicate with this Network Node via it's HTTP Interface.
             */
             thisObject.httpInterface = NT.projects.network.modules.httpInterface.newNetworkModulesHttpInterface()
             thisObject.httpInterface.initialize()
-            console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkNode.p2pNetworkNode.node.config.webPort)
+            console.log('Network Node Http Interface .................................................. Listening at port ' + NT.networkApp.p2pNetworkNode.node.config.webPort)
         }
     }
 }

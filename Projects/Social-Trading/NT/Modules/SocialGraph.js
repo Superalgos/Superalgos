@@ -9,19 +9,37 @@ exports.newNetworkModulesSocialGraph = function newNetworkModulesSocialGraph() {
     their posts.
     */
     let thisObject = {
-
+        storage: undefined,
+        clientInterface: undefined,
+        peerInterface: undefined,
         /* Framework Functions */
         initialize: initialize,
-        finalize: finalize        
+        finalize: finalize
     }
 
     return thisObject
 
     function finalize() {
 
+        thisObject.storage.finalize()
+        thisObject.clientInterface.finalize()
+        thisObject.peerInterface.finalize()
+
+        thisObject.storage = undefined
+        thisObject.clientInterface = undefined
+        thisObject.peerInterface = undefined
     }
 
     async function initialize() {
+        /*
+        The Storage deals with persisting the Social Graph.
+        */
+        thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
+        thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
+        thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
+        thisObject.storage.initialize()
+        thisObject.clientInterface.initialize()
+        thisObject.peerInterface.initialize()
     }
 }

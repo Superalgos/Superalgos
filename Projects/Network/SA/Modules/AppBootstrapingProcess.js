@@ -14,18 +14,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     */
     let thisObject = {
-        /* Framework Functions */
-        initialize: initialize,
-        finalize: finalize
+        run: run 
     }
-
     return thisObject
 
-    function finalize() {
-
-    }
-
-    async function initialize(userAppCodeName, p2pNetworkClientIdentity) {
+    async function run(userAppCodeName, p2pNetworkClientIdentity) {
 
         let allNodesInPluginsMap = new Map()
 

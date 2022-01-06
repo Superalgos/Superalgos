@@ -13,8 +13,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     */
     let thisObject = {
         socketServer: undefined,
-        clientInterface: undefined,
-        peerInterface: undefined,
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
@@ -33,9 +31,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         callersMap = undefined
 
         thisObject.socketServer = undefined
-        thisObject.clientInterface = undefined
-        thisObject.peerInterface = undefined
-
         web3 = undefined
     }
 
@@ -43,11 +38,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
         web3 = new SA.nodeModules.web3()
 
-        let port = NT.networkNode.p2pNetworkNode.node.config.webSocketsPort
+        let port = NT.networkApp.p2pNetworkNode.node.config.webSocketsPort
 
         thisObject.socketServer = new SA.nodeModules.ws.Server({ port: port })
-        thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
-        thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
         thisObject.networkClients = []
         thisObject.networkPeers = []
@@ -124,18 +117,67 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     return
                                 }
 
+                                if (messageHeader.networkService === undefined) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Network Service Undifined.'
+                                    }
+                                    response.messageId = messageHeader.messageId
+                                    caller.socket.send(JSON.stringify(response))
+                                    caller.socket.close()
+                                    return
+                                }                                
+
                                 let response
                                 switch (caller.role) {
                                     case 'Network Client': {
-                                        response = await thisObject.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                        response.messageId = messageHeader.messageId
-                                        caller.socket.send(JSON.stringify(response))
+                                        switch (messageHeader.networkService) {
+                                            case 'Social Graph': {
+                                                if (NT.networkApp.socialGraphService !== undefined) {
+                                                    response = await NT.networkApp.socialGraphService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response.messageId = messageHeader.messageId
+                                                    caller.socket.send(JSON.stringify(response))
+                                                } else {
+                                                    let response = {
+                                                        result: 'Error',
+                                                        message: 'Social Graph Network Service Not Running.'
+                                                    }
+                                                    response.messageId = messageHeader.messageId
+                                                    caller.socket.send(JSON.stringify(response))
+                                                    caller.socket.close()
+                                                    return
+                                                }
+                                                break
+                                            }
+                                            case 'Trading Signals': {
+                                                break
+                                            }
+                                        }
                                         break
                                     }
                                     case 'Network Peer': {
-                                        response = await thisObject.peerInterface.messageReceived(messageHeader.payload)
-                                        response.messageId = messageHeader.messageId
-                                        caller.socket.send(JSON.stringify(response))
+                                        switch (messageHeader.networkService) {
+                                            case 'Social Graph': {
+                                                if (NT.networkApp.socialGraphService !== undefined) {
+                                                    response = await NT.networkApp.socialGraphService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response.messageId = messageHeader.messageId
+                                                    caller.socket.send(JSON.stringify(response))
+                                                } else {
+                                                    let response = {
+                                                        result: 'Error',
+                                                        message: 'Social Graph Network Service Not Running.'
+                                                    }
+                                                    response.messageId = messageHeader.messageId
+                                                    caller.socket.send(JSON.stringify(response))
+                                                    caller.socket.close()
+                                                    return
+                                                }
+                                                break
+                                            }
+                                            case 'Trading Signals': {
+                                                break
+                                            }
+                                        }
                                         break
                                     }
                                 }
@@ -504,8 +546,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 if (caller.role === 'Network Peer') {
                     callerIdToAVoid = caller.node.id
                 }
-                for (let i = 0; i < NT.networkNode.p2pNetworkPeers.peers.length; i++) {
-                    let peer = NT.networkNode.p2pNetworkPeers.peers[i]
+                for (let i = 0; i < NT.networkApp.p2pNetworkPeers.peers.length; i++) {
+                    let peer = NT.networkApp.p2pNetworkPeers.peers[i]
                     if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
                     peer.webSocketsClient.sendMessage(messageHeader.payload)
                         .catch(onError)

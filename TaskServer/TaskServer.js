@@ -189,7 +189,7 @@ exports.newTaskServer = function newTaskServer() {
                     We will read all user profiles plugins, store them in memory and get from there our own network client identity.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess.initialize(
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess.run(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.config.codeName,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
                     )

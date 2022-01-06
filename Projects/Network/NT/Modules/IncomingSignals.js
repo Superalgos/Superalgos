@@ -31,7 +31,7 @@ exports.newNetworkModulesIncomingSignals = function newNetworkModulesIncomingSig
         let messageHeader = {
             payload: JSON.stringify({ signal: JSON.stringify(signal) })
         }
-        if (NT.networkNode.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
+        if (NT.networkApp.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
             response = {
                 result: 'Error',
                 message: 'Signal Could Not be Broadcasted to Network Clients.'

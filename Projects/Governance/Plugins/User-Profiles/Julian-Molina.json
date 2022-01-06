@@ -7831,7 +7831,7 @@
                     {
                         "type": "Delegate Power Switch",
                         "name": "New Delegate Power Switch",
-                        "config": "{\r\n        \"percentage\": 5\r\n}",
+                        "config": "{\r\n        \"percentage\": 1.5\r\n}",
                         "project": "Governance",
                         "delegatePowerSwitch": [],
                         "userDelegates": [

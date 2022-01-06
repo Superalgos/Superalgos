@@ -1066,61 +1066,66 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
     }
 
     async function checkIfStageNeedsToBeClosed(tradingEngineStage, tradingSystemStage, stageName) {
-        /*
-        The Stage is closed when the fillSize + feesPaid reaches the targetSize. 
+        if (tradingSystemStage.config.closeStageOnTargetSizeFilled !== undefined) {
+            if (tradingSystemStage.config.closeStageOnTargetSizeFilled) {
+                /*
+                The Stage is closed when the fillSize + feesPaid reaches the targetSize. 
+                
+                The Target Size is defined by the end user either in Base Asset or Quoted Asset.
+                Whatever the user chooses defines also the way we check if the Target was met.
+                Why? Because the counterparty target is estimated with the Target Rate and it 
+                is not synchronized with the reality we later learn when the exchange tell us the
+                actual rate each of the orders where executed at. 
         
-        The Target Size is defined by the end user either in Base Asset or Quoted Asset.
-        Whatever the user chooses defines also the way we check if the Target was met.
-        Why? Because the counterparty target is estimated with the Target Rate and it 
-        is not synchronized with the reality we later learn when the exchange tell us the
-        actual rate each of the orders where executed at. 
- 
-        For the same reason that the user does not know exactly which is the rate the orders
-        will actually be filled, then we can not expect that the total filled will really
-        reach the target size, so we introduce a rounding factor so that when it is close 
-        enough we will consider the target to have been reached. 
-        */
-        let ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
-        /*
-        Overwrite the default with the config at the Stage node, if exists.
-        */
-        if (tradingSystemStage.config.roundingErrorCorrectionFactor !== undefined) {
-            ROUNDING_ERROR_CORRECTION_FACTOR = tradingSystemStage.config.roundingErrorCorrectionFactor
-        }
-        /*
-        We will also implement a mechanism to allow users declare an absolute value to add
-        to the Size Filled before checking it against the Stage Target Size.
-        */
-        let ABSOLUTE_DUST_IN_BASE_ASSET = 0
-        if (tradingSystemStage.config.absoluteDustInBaseAsset !== undefined) {
-            ABSOLUTE_DUST_IN_BASE_ASSET = tradingSystemStage.config.absoluteDustInBaseAsset
-        }
-        let ABSOLUTE_DUST_IN_QUOTED_ASSET = 0
-        if (tradingSystemStage.config.absoluteDustInQuotedAsset !== undefined) {
-            ABSOLUTE_DUST_IN_QUOTED_ASSET = tradingSystemStage.config.absoluteDustInQuotedAsset
-        }
+                For the same reason that the user does not know exactly which is the rate the orders
+                will actually be filled, then we can not expect that the total filled will really
+                reach the target size, so we introduce a rounding factor so that when it is close 
+                enough we will consider the target to have been reached. 
+                */
+                let ROUNDING_ERROR_CORRECTION_FACTOR = 1.001
+                /*
+                Overwrite the default with the config at the Stage node, if exists.
+                */
+                if (tradingSystemStage.config.roundingErrorCorrectionFactor !== undefined) {
+                    ROUNDING_ERROR_CORRECTION_FACTOR = tradingSystemStage.config.roundingErrorCorrectionFactor
+                }
+                /*
+                We will also implement a mechanism to allow users declare an absolute value to add
+                to the Size Filled before checking it against the Stage Target Size.
+                */
+                let ABSOLUTE_DUST_IN_BASE_ASSET = 0
+                if (tradingSystemStage.config.absoluteDustInBaseAsset !== undefined) {
+                    ABSOLUTE_DUST_IN_BASE_ASSET = tradingSystemStage.config.absoluteDustInBaseAsset
+                }
+                let ABSOLUTE_DUST_IN_QUOTED_ASSET = 0
+                if (tradingSystemStage.config.absoluteDustInQuotedAsset !== undefined) {
+                    ABSOLUTE_DUST_IN_QUOTED_ASSET = tradingSystemStage.config.absoluteDustInQuotedAsset
+                }
 
-        if (
-            tradingEngineStage.stageBaseAsset.sizeFilled.value
-            *
-            ROUNDING_ERROR_CORRECTION_FACTOR
-            +
-            ABSOLUTE_DUST_IN_BASE_ASSET
-            >=
-            tradingEngineStage.stageBaseAsset.targetSize.value
-        ) {
-            positionFilled()
-        } else if (
-            tradingEngineStage.stageQuotedAsset.sizeFilled.value
-            *
-            ROUNDING_ERROR_CORRECTION_FACTOR
-            +
-            ABSOLUTE_DUST_IN_QUOTED_ASSET
-            >=
-            tradingEngineStage.stageQuotedAsset.targetSize.value
-        ) {
-            positionFilled()
-        } else {
+                if (
+                    tradingEngineStage.stageBaseAsset.sizeFilled.value
+                    *
+                    ROUNDING_ERROR_CORRECTION_FACTOR
+                    +
+                    ABSOLUTE_DUST_IN_BASE_ASSET
+                    >=
+                    tradingEngineStage.stageBaseAsset.targetSize.value
+                ) {
+                    positionFilled()
+                } else if (
+                    tradingEngineStage.stageQuotedAsset.sizeFilled.value
+                    *
+                    ROUNDING_ERROR_CORRECTION_FACTOR
+                    +
+                    ABSOLUTE_DUST_IN_QUOTED_ASSET
+                    >=
+                    tradingEngineStage.stageQuotedAsset.targetSize.value
+                ) {
+                    positionFilled()
+                }
+            }
+        }
+        else {
             await checkCloseStageEvent(tradingSystemStage)
         }
 

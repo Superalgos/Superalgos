@@ -33,6 +33,16 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         await loadUserP2PNetworksPlugins()
         await loadUserProfilesPlugins()
 
+        setReferenceParentForNodeHierearchy(
+            SA.projects.network.globals.memory.maps.P2P_NETWORKS_BY_ID
+        )
+
+        setReferenceParentForNodeHierearchy(
+            SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID
+        )
+
+        extractInfoFromUserProfiles()
+
         async function loadAppSchemas() {
 
             let promise = new Promise((resolve, reject) => {
@@ -123,25 +133,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     'User-Profiles',
                     pluginFileName
                 )
-
                 let userProfilePlugin = JSON.parse(pluginFileContent)
-                let config = JSON.parse(userProfilePlugin.config)
-                let signatureObject = config.signature
-                let web3 = new SA.nodeModules.web3()
-                let blockchainAccount = web3.eth.accounts.recover(signatureObject)
-                let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
-                let userProfileId = userProfilePlugin.id
-                let userHandle = config.signature.message
-                /*
-                Setting up the User Social Profile
-                */
-                let userSocialProfile = SA.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
-                userSocialProfile.initialize(
-                    userProfileId,
-                    userHandle,
-                    blockchainAccount,
-                    ranking
-                )
                 /*
                 Here we will turn the saved plugin into an in-memory node structure with parent nodes and reference parents.
                 */
@@ -149,16 +141,59 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     userProfilePlugin,
                     allNodesInPluginsMap
                 )
-                /*
-                Store in memory all User Social Profiles
-                */
-                SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
-                SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
-                SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
-                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfileId, userProfile)
 
+                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, userProfile)
+            }
+        }
+
+        async function setReferenceParentForNodeHierearchy(nodeHierearchyMap) {
+            let mapArray = Array.from(nodeHierearchyMap) 
+            for (let i = 0; i < mapArray.length; i++) {
+                let mapArrayItem = mapArray[i][1]
+
+                SA.projects.communityPlugins.utilities.nodes.fromInMemoryStructureToStructureWithReferenceParents(
+                    mapArrayItem,
+                    allNodesInPluginsMap
+                )
+            }
+        }
+
+        async function extractInfoFromUserProfiles() {
+
+            let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
+
+            for (let i = 0; i < userProfiles.length; i++) {
+                let userProfile = userProfiles[i][1]
+                let signatureObject = userProfile.config.signature
+                let web3 = new SA.nodeModules.web3()
+                let blockchainAccount = web3.eth.accounts.recover(signatureObject)
+                let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
+                let userProfileId = userProfile.id
+                let userHandle = userProfile.config.signature.message
+                let userSocialProfile
+
+                setupUserSocialProfiles()
                 loadSigningAccounts()
                 loadStorageContainers()
+
+                function setupUserSocialProfiles() {
+                    /*
+                    Setting up the User Social Profile
+                    */
+                    userSocialProfile = SA.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
+                    userSocialProfile.initialize(
+                        userProfileId,
+                        userHandle,
+                        blockchainAccount,
+                        ranking
+                    )
+                    /*
+                    Store in memory all User Social Profiles
+                    */
+                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
+                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
+                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
+                }
 
                 function loadSigningAccounts() {
                     /*

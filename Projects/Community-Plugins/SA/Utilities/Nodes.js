@@ -1,7 +1,8 @@
 exports.newPluginsUtilitiesNodes = function () {
 
     let thisObject = {
-        fromSavedPluginToInMemoryStructure: fromSavedPluginToInMemoryStructure
+        fromSavedPluginToInMemoryStructure: fromSavedPluginToInMemoryStructure,
+        fromInMemoryStructureToStructureWithReferenceParents: fromInMemoryStructureToStructureWithReferenceParents
     }
 
     return thisObject
@@ -17,7 +18,6 @@ exports.newPluginsUtilitiesNodes = function () {
         */
         let rootObject = undefined
         generateObjects(pluginFile)
-        setReferences(rootObject)
 
         return rootObject
 
@@ -97,6 +97,17 @@ exports.newPluginsUtilitiesNodes = function () {
                 }
             }
         }
+    }
+
+    function fromInMemoryStructureToStructureWithReferenceParents(
+        rootObject,
+        allNodesInPluginsMap
+    ){
+        /*
+        This function scans an in memory node structure and add the reference parents
+        for the nodes that have a reference parent id.
+        */
+        setReferences(rootObject)
 
         function setReferences(currentObject) {
             if (currentObject === undefined) { return }

@@ -971,8 +971,8 @@
                                         "id": "90f25547-c6fa-4066-ba49-bab1add17ea3",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32167.801992513392,
-                                                "y": 17990.587830909204
+                                                "x": 32175.413581475546,
+                                                "y": 18005.595729171928
                                             },
                                             "targetPosition": {
                                                 "x": 32439.058715274135,
@@ -1012,12 +1012,12 @@
                                                         "id": "e775acbb-c54f-4bc8-b14d-4f9a1e1870b5",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 31539.083892718998,
-                                                                "y": 17855.71617961208
+                                                                "x": 31543.989009442692,
+                                                                "y": 17956.523718034936
                                                             },
                                                             "targetPosition": {
-                                                                "x": 31839.075500237377,
-                                                                "y": 17857.960153439402
+                                                                "x": 31842.345578053173,
+                                                                "y": 17925.16517905464
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1081,12 +1081,12 @@
                                                 "id": "eaac88d9-ac05-40c2-a3a7-16a7215e991c",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 31839.075500237377,
-                                                        "y": 17857.960153439402
+                                                        "x": 31842.345578053173,
+                                                        "y": 17925.16517905464
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32139.067107755756,
-                                                        "y": 17860.204127266723
+                                                        "x": 32140.702146663654,
+                                                        "y": 17893.80664007434
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1145,8 +1145,8 @@
                                         "id": "370a532c-30e3-40bd-927f-a5c86b5f78f4",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32139.067107755756,
-                                                "y": 17860.204127266723
+                                                "x": 32140.702146663654,
+                                                "y": 17893.80664007434
                                             },
                                             "targetPosition": {
                                                 "x": 32439.058715274135,
@@ -1737,8 +1737,8 @@
                                         "id": "04a00e1a-5434-4b59-a505-b5d72a4da4b3",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32169.749240022753,
-                                                "y": 17730.264870161278
+                                                "x": 32151.412794813677,
+                                                "y": 17777.243497682866
                                             },
                                             "targetPosition": {
                                                 "x": 32439.058715274135,
@@ -1778,12 +1778,12 @@
                                                         "id": "04a64174-cc20-4256-9b81-52da2f4167db",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 31883.19681963348,
-                                                                "y": 17154.62216700094
+                                                                "x": 31739.627349962866,
+                                                                "y": 17296.059749149186
                                                             },
                                                             "targetPosition": {
-                                                                "x": 32068.484118180364,
-                                                                "y": 17390.564145031974
+                                                                "x": 31972.771138399956,
+                                                                "y": 17484.85586646414
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -1859,12 +1859,12 @@
                                                 "id": "f502ea24-755b-49ff-a7e7-940e1a68fa47",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32068.484118180364,
-                                                        "y": 17390.564145031974
+                                                        "x": 31972.771138399956,
+                                                        "y": 17484.85586646414
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32253.77141672725,
-                                                        "y": 17626.50612306301
+                                                        "x": 32205.914926837046,
+                                                        "y": 17673.65198377909
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -1935,8 +1935,8 @@
                                         "id": "2ec24b96-7e4d-429c-9f7c-be7e97884543",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32253.77141672725,
-                                                "y": 17626.50612306301
+                                                "x": 32205.914926837046,
+                                                "y": 17673.65198377909
                                             },
                                             "targetPosition": {
                                                 "x": 32439.058715274135,
@@ -1976,12 +1976,12 @@
                                                         "id": "89506bac-a372-437e-9dbc-2af484a35425",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 32245.358615377372,
-                                                                "y": 16983.53953286866
+                                                                "x": 32009.615831040483,
+                                                                "y": 17071.512699698276
                                                             },
                                                             "targetPosition": {
-                                                                "x": 32309.92531534296,
-                                                                "y": 17276.509055610455
+                                                                "x": 32152.763459118367,
+                                                                "y": 17335.157833496865
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2045,12 +2045,12 @@
                                                 "id": "b400540d-e925-444b-902c-dbc20bf59338",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 32309.92531534296,
-                                                        "y": 17276.509055610455
+                                                        "x": 32152.763459118367,
+                                                        "y": 17335.157833496865
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32374.492015308548,
-                                                        "y": 17569.47857835225
+                                                        "x": 32295.91108719625,
+                                                        "y": 17598.802967295454
                                                     },
                                                     "floatingObject": {
                                                         "isPinned": false,
@@ -2109,8 +2109,8 @@
                                         "id": "a32a5b97-fcd6-4e7f-b877-06245e56a787",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32374.492015308548,
-                                                "y": 17569.47857835225
+                                                "x": 32295.91108719625,
+                                                "y": 17598.802967295454
                                             },
                                             "targetPosition": {
                                                 "x": 32439.058715274135,
@@ -2150,12 +2150,12 @@
                                                         "id": "56684f8d-04d7-401f-8995-89833dc0affc",
                                                         "savedPayload": {
                                                             "position": {
-                                                                "x": 16808.35488973563,
-                                                                "y": 18453.031996464233
+                                                                "x": 32344.983098333243,
+                                                                "y": 16967.3783952626
                                                             },
                                                             "targetPosition": {
-                                                                "x": 16739.412764333123,
-                                                                "y": 18745.002856902367
+                                                                "x": 32376.34163731354,
+                                                                "y": 17265.73496387308
                                                             },
                                                             "floatingObject": {
                                                                 "isPinned": false,
@@ -2231,15 +2231,15 @@
                                                 "id": "0048a911-f5c4-4658-9d07-f7cc4eef1633",
                                                 "savedPayload": {
                                                     "position": {
-                                                        "x": 16739.412764333123,
-                                                        "y": 18745.002856902367
+                                                        "x": 32376.34163731354,
+                                                        "y": 17265.73496387308
                                                     },
                                                     "targetPosition": {
-                                                        "x": 32508.000840676643,
-                                                        "y": 17570.47724065591
+                                                        "x": 32407.700176293838,
+                                                        "y": 17564.091532483562
                                                     },
                                                     "floatingObject": {
-                                                        "isPinned": true,
+                                                        "isPinned": false,
                                                         "isFrozen": false,
                                                         "isCollapsed": false,
                                                         "angleToParent": 2,
@@ -2307,8 +2307,375 @@
                                         "id": "54ab6fd2-aaad-44c5-bcb9-d3186a3ad51c",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 32508.000840676643,
-                                                "y": 17570.47724065591
+                                                "x": 32407.700176293838,
+                                                "y": 17564.091532483562
+                                            },
+                                            "targetPosition": {
+                                                "x": 32439.058715274135,
+                                                "y": 17862.448101094044
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "Claim Votes Switch",
+                                        "name": "Nuno",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "claimVotesSwitch": [
+                                            {
+                                                "type": "Claim Votes Switch",
+                                                "name": "Teams With PoW Reports Position Class",
+                                                "config": "{\r\n        \"percentage\": 1\r\n}",
+                                                "project": "Governance",
+                                                "claimVotesSwitch": [
+                                                    {
+                                                        "type": "Claim Votes Switch",
+                                                        "name": "Distribution Team PoW Report Position Class",
+                                                        "config": "{}",
+                                                        "project": "Governance",
+                                                        "claimVotesSwitch": [],
+                                                        "positionClaimVotes": [
+                                                            {
+                                                                "type": "Position Claim Vote",
+                                                                "name": "NAmorim Distribution Team Token Pool Distribution Team PoW Report",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "4e7744c6-ff2c-4362-b86b-e5238e0f3475",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 32469.400703782943,
+                                                                        "y": 16703.734307934523
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 32539.434312939717,
+                                                                        "y": 16995.445284053825
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Contribution Claim",
+                                                                        "name": "Distribution Team Token Pool Distribution Team PoW Report",
+                                                                        "id": "89793bb2-2e4a-499b-9292-657c851f192f"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "NAmorim",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "Teams @ Dec 2021 Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Teams With PoW Reports Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Distribution Team PoW Report Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Distribution Team Token Pool Distribution Team PoW Report",
+                                                                            "Position Contribution Claim"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetClaimVotes": [],
+                                                        "featureClaimVotes": [],
+                                                        "id": "66369ee0-7a1a-4da8-89d7-33b77287b6dd",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 32539.434312939717,
+                                                                "y": 16995.445284053825
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 32609.46792209649,
+                                                                "y": 17287.156260173128
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Claims Folder",
+                                                                "name": "Distribution Team PoW Report Position Class",
+                                                                "id": "c2d4e057-5dcc-4ae5-8777-b7c009dd2aa6"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "NAmorim",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "Teams @ Dec 2021 Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Teams With PoW Reports Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Distribution Team PoW Report Position Class",
+                                                                    "Position Claims Folder"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "Claim Votes Switch",
+                                                        "name": "Marketing Teams PoW Report Position Class",
+                                                        "config": "{\r\n        \"percentage\": 20\r\n}",
+                                                        "project": "Governance",
+                                                        "claimVotesSwitch": [],
+                                                        "positionClaimVotes": [
+                                                            {
+                                                                "type": "Position Claim Vote",
+                                                                "name": "NAmorim Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                                "config": "{}",
+                                                                "project": "Governance",
+                                                                "id": "30dbc771-a034-4e8d-91bd-2b1b71366c65",
+                                                                "savedPayload": {
+                                                                    "position": {
+                                                                        "x": 33044.69254470387,
+                                                                        "y": 16874.143514756877
+                                                                    },
+                                                                    "targetPosition": {
+                                                                        "x": 32827.08023340018,
+                                                                        "y": 17080.649887465002
+                                                                    },
+                                                                    "floatingObject": {
+                                                                        "isPinned": false,
+                                                                        "isFrozen": false,
+                                                                        "isCollapsed": false,
+                                                                        "angleToParent": 2,
+                                                                        "distanceToParent": 3,
+                                                                        "arrangementStyle": 0
+                                                                    },
+                                                                    "uiObject": {
+                                                                        "isRunning": false
+                                                                    },
+                                                                    "referenceParent": {
+                                                                        "type": "Position Contribution Claim",
+                                                                        "name": "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                                        "id": "e3275de7-5b07-4eea-99e2-f24c028e2116"
+                                                                    },
+                                                                    "referenceParentCombinedNodePath": [
+                                                                        [
+                                                                            "NAmorim",
+                                                                            "User Profile"
+                                                                        ],
+                                                                        [
+                                                                            "New Token Power Switch",
+                                                                            "Token Power Switch"
+                                                                        ],
+                                                                        [
+                                                                            "New Votes And Claims Programs",
+                                                                            "Votes And Claims Programs"
+                                                                        ],
+                                                                        [
+                                                                            "New Claims Program",
+                                                                            "Claims Program"
+                                                                        ],
+                                                                        [
+                                                                            "Teams @ Dec 2021 Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Teams With PoW Reports Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Marketing Teams PoW Report Position Class",
+                                                                            "Position Claims Folder"
+                                                                        ],
+                                                                        [
+                                                                            "Superalgos Medium Blog Team Token Pool Marketing Teams PoW Report",
+                                                                            "Position Contribution Claim"
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ],
+                                                        "assetClaimVotes": [],
+                                                        "featureClaimVotes": [],
+                                                        "id": "284e2429-eb42-40ab-abdf-538ba095abc6",
+                                                        "savedPayload": {
+                                                            "position": {
+                                                                "x": 32827.08023340018,
+                                                                "y": 17080.649887465002
+                                                            },
+                                                            "targetPosition": {
+                                                                "x": 32609.46792209649,
+                                                                "y": 17287.156260173128
+                                                            },
+                                                            "floatingObject": {
+                                                                "isPinned": false,
+                                                                "isFrozen": false,
+                                                                "isCollapsed": false,
+                                                                "angleToParent": 2,
+                                                                "distanceToParent": 3,
+                                                                "arrangementStyle": 0
+                                                            },
+                                                            "uiObject": {
+                                                                "isRunning": false
+                                                            },
+                                                            "referenceParent": {
+                                                                "type": "Position Claims Folder",
+                                                                "name": "Marketing Teams PoW Report Position Class",
+                                                                "id": "24ad5d4b-ec0c-47cc-93b7-1cc6fba48958"
+                                                            },
+                                                            "referenceParentCombinedNodePath": [
+                                                                [
+                                                                    "NAmorim",
+                                                                    "User Profile"
+                                                                ],
+                                                                [
+                                                                    "New Token Power Switch",
+                                                                    "Token Power Switch"
+                                                                ],
+                                                                [
+                                                                    "New Votes And Claims Programs",
+                                                                    "Votes And Claims Programs"
+                                                                ],
+                                                                [
+                                                                    "New Claims Program",
+                                                                    "Claims Program"
+                                                                ],
+                                                                [
+                                                                    "Teams @ Dec 2021 Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Teams With PoW Reports Position Class",
+                                                                    "Position Claims Folder"
+                                                                ],
+                                                                [
+                                                                    "Marketing Teams PoW Report Position Class",
+                                                                    "Position Claims Folder"
+                                                                ]
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "positionClaimVotes": [],
+                                                "assetClaimVotes": [],
+                                                "featureClaimVotes": [],
+                                                "id": "8fb793ec-a5b1-4e32-8973-e2778ff546c2",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 32609.46792209649,
+                                                        "y": 17287.156260173128
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 32524.263318685313,
+                                                        "y": 17574.802180633586
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Claims Folder",
+                                                        "name": "Teams With PoW Reports Position Class",
+                                                        "id": "7cefe863-b5d2-4d12-b9f4-700e29f8b3bf"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "NAmorim",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "Teams @ Dec 2021 Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports Position Class",
+                                                            "Position Claims Folder"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "positionClaimVotes": [],
+                                        "assetClaimVotes": [],
+                                        "featureClaimVotes": [],
+                                        "id": "1a78ec13-ca76-48cc-8abc-7baeb90ee1e1",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32524.263318685313,
+                                                "y": 17574.802180633586
                                             },
                                             "targetPosition": {
                                                 "x": 32439.058715274135,
@@ -7694,7 +8061,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -7885,7 +8252,7 @@
                     {
                         "type": "Delegate Power Switch",
                         "name": "New Delegate Power Switch",
-                        "config": "{\r\n        \"percentage\": 2\r\n}",
+                        "config": "{\r\n        \"percentage\": 1\r\n}",
                         "project": "Governance",
                         "delegatePowerSwitch": [],
                         "userDelegates": [

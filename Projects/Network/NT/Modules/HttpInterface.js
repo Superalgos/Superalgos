@@ -40,8 +40,6 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                 userProfile: undefined,
                 node: undefined
             }
-
-            let messageHeader = JSON.parse(bodyString)
     
             switch (endpointOrFile) {
                 case 'New-Message':
@@ -50,11 +48,10 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
 
                         async function processRequest(bodyString) {
                             try {
+                                let messageHeader = JSON.parse(bodyString)
                                 if (bodyString === undefined) {
                                     return
                                 }
-
-                                let response = await thisObject.incomingSignals.newSignal(signal)
 
                                 switch (messageHeader.callerRole) {
                                     case 'Network Client': {
@@ -62,14 +59,12 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
                                                     response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                                    response.messageId = messageHeader.messageId
-                                                    caller.socket.send(JSON.stringify(response))
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
                                                     let response = {
                                                         result: 'Error',
                                                         message: 'Trading Signals Network Service Not Running.'
                                                     }
-                                                    response.messageId = messageHeader.messageId
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                     return
                                                 }
@@ -83,14 +78,12 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
                                                     response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                                    response.messageId = messageHeader.messageId
-                                                    caller.socket.send(JSON.stringify(response))
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
                                                     let response = {
                                                         result: 'Error',
                                                         message: 'Trading Signals Network Service Not Running.'
                                                     }
-                                                    response.messageId = messageHeader.messageId
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                     return
                                                 }

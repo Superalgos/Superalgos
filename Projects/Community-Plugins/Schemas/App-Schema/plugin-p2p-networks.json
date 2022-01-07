@@ -1,0 +1,41 @@
+{
+    "type": "Plugin P2P-Networks",
+    "menuItems": [
+        {
+            "action": "Add Missing Plugin P2P Networks",
+            "label": "Add Missing P2P Networks",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "iconPathOn": "p2p-network",
+            "iconPathOff": "p2p-network",
+            "iconProject": "Network",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Community-Plugins"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "propertyNameAtParent": "pluginP2PNetworks",
+    "attachingRules": {
+        "compatibleTypes": "->Plugin Project->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "pluginFiles",
+            "type": "array",
+            "childType": "Plugin File",
+            "autoAdd": false
+        }
+    ]
+}

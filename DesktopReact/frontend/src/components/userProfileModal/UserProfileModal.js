@@ -29,6 +29,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
 
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
+    const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
 
     const toBase64 = file => new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -55,7 +56,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
         }
     }
 
-    const handleChange = (event) => {
+    const handleChange = (event) => { // todo if reached max chars give warning message/indicator
         let newValue = event.target.value;
         let field = event.target.id;
         setErrorState(field === 'name' && (!newValue));
@@ -151,6 +152,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
                                     value={userInfo.name}
                                     onChange={handleChange}
                                     label="Name"
+                                    inputProps={{ maxLength: inputCharLimit[0].name }}
                                 />
                                 {errorState ? (
                                     <FormHelperText id="name-error">Name can't be blank</FormHelperText>
@@ -163,6 +165,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
                                     value={userInfo.bio}
                                     onChange={handleChange}
                                     label="Bio"
+                                    inputProps={{ maxLength: inputCharLimit[0].bio }}
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -172,6 +175,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
                                     value={userInfo.location}
                                     onChange={handleChange}
                                     label="Location"
+                                    inputProps={{ maxLength: inputCharLimit[0].location }}
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -181,6 +185,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
                                     value={userInfo.web}
                                     onChange={handleChange}
                                     label="Web"
+                                    inputProps={{ maxLength: inputCharLimit[0].web }}
                                 />
                             </FormControl></div>
                         <div className="editProfileFooter">

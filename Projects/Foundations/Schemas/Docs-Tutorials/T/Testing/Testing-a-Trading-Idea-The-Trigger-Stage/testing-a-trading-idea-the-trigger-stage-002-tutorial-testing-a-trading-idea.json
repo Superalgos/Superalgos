@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir sind an dem Punkt angelangt, an dem wir endlich die Theorie in die Praxis umsetzen können, also legen wir los!",
                 "updated": 1639254306995
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sonunda teoriyi pratiğe dökebileceğimiz noktaya geldik, hadi başlayalım!",
+                "updated": 1641062082892
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Im zweiten Tutorial dieser Reihe haben wir uns damit beschäftigt, wie man eine Handelsidee richtig definiert, damit sie überprüfbar ist. Wir haben auch eine Exkursion unternommen und sind mit einer richtig formalisierten Hypothese zurückgekommen, die wir testen können.",
                     "updated": 1639254318951
+                },
+                {
+                    "language": "TR",
+                    "text": "Serinin ikinci eğitiminde, bir ticaret fikrinin test edilebilir olması için nasıl düzgün bir şekilde tanımlanacağını ele aldık. Ayrıca bir saha gezisine çıktık ve test etmek için uygun bir resmi teoriyle geri döndük.",
+                    "updated": 1641062181384
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "In diesem Tutorial werden wir die Hypothese testen!",
                     "updated": 1639254330335
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu eğitimde varsayımı test edeceğiz!",
+                    "updated": 1641062215027
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Ich empfehle Ihnen dringend, das erste und das zweite Tutorial der Reihe zu lesen, bevor Sie mit diesem beginnen! Die Geschichte wird von einem zum nächsten weitergeführt!",
                     "updated": 1639254337943
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bunu yapmadan önce serideki birinci ve ikinci dersleri uygulamanızı şiddetle tavsiye ederim! Bütün hikaye birbiriyle ilişkilidir.",
+                    "updated": 1641062291040
                 }
             ]
         }

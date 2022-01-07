@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Henüz ele almadığımız tonlarca şey var, biliyorum! Sadece etrafa bak! Görülecek çok şey var! ",
                 "updated": 1636638137396
+            },
+            {
+                "language": "ID",
+                "text": "Ada banyak hal yang belum kita bahas, aku tahu! Lihat saja sekeliling! Begitu banyak hal untuk dilihat! Ini membingungkan.",
+                "updated": 1640596516101
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "Eminim hala kafanızda uçuşan tonlarca soru vardır... Kendi stratejilerimi nasıl oluştururum? Performansı nasıl ölçerim? Nasıl bir gösterge oluştururum? Bir ticaret çiftliğini nasıl organize edebilirim? TradingView ile nasıl entegre olabilirim? Telegram duyurularını nasıl ayarlarım? Diğer API'lerden nasıl veri alırım?",
                     "updated": 1636638173407
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku yakin kamu masih memiliki banyak pertanyaan yang mengambang di kepalamu... Bagaimana cara membangun strategiku sendiri? Bagaimana cara mengukur kinerja? Bagaimana cara membangun indikator? Bagaimana cara menggunakan trading farm? Bagaimana saya bisa berintegrasi dengan TradingView? Bagaimana cara mengatur Telegram announcements? Bagaimana cara mengambil data dari API lain?",
+                    "updated": 1640596695647
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Merak etme! Tüm bunları öğreneceksin arkadaşım! Daha fazla öğretici ve birçok okuma materyali mevcut! Belki de hoşçakal demeden önce yerleşik Dokümantasyon sistemine bir göz atmak iyi bir fikirdir!",
                     "updated": 1636638320357
+                },
+                {
+                    "language": "ID",
+                    "text": "Jangan khawatir! kamu akan sampai di sana temanku! Ada lebih banyak tutorial dan banyak bahan bacaan yang tersedia! Mungkin itu ide yang baik untuk memberi kamu sekilas ke dalam sistem Dokumentasi bawaan sebelum aku mengucapkan selamat tinggal!",
+                    "updated": 1640596773612
                 }
             ]
         }

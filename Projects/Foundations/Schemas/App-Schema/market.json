@@ -80,7 +80,7 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"Type the name of the market\"\n}"
+        "config": "{ \n\"codeName\": \"Type_the_name_of_the_market\"\n}"
     },
     "attachingRules": {
         "compatibleTypes": "->Exchange Markets->"

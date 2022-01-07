@@ -1,11 +1,10 @@
 exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface() {
     /*
-    This module represent the HTTP API of the 
-    NNetwork Node. All HTTP request are processed
+    This module represent the HTTP API of the           TODO: Implement that Trading Signals are also sent to other nodes.
+    Network Node. All HTTP request are processed        TODO: Implement mechanism to send only the trading signals to the guys that are following the emitter.
     by this module.
     */
     let thisObject = {
-        incomingSignals: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -13,8 +12,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
     return thisObject
 
     function finalize() {
-        thisObject.incomingSignals.finalize()
-        thisObject.incomingSignals = undefined
+
     }
 
     function initialize() {
@@ -22,13 +20,8 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
         Setup Web 3 Library
         */
         web3 = new SA.nodeModules.web3()
-        /*
-        Setup the module that will process incoming signals.
-        */
-        thisObject.incomingSignals = NT.projects.network.modules.incomingSignals.newNetworkModulesIncomingSignals()
-        thisObject.incomingSignals.initialize()
 
-        let port = NT.networkNode.p2pNetworkNode.node.config.webPort
+        let port = NT.networkApp.p2pNetworkNode.node.config.webPort
         /*
         We will create an HTTP Server and leave it running forever.
         */
@@ -41,8 +34,17 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
             let requestPath = requestPathAndParameters[0].split('/')
             let endpointOrFile = requestPath[1]
 
+            // TODO: Authenticate the app sending this request
+
+            let caller = {
+                userProfile: undefined,
+                node: undefined
+            }
+
+            let messageHeader = JSON.parse(bodyString)
+    
             switch (endpointOrFile) {
-                case 'New-Signal':
+                case 'New-Message':
                     {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
@@ -52,9 +54,53 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                     return
                                 }
 
-                                let signal = JSON.parse(bodyString)
-
                                 let response = await thisObject.incomingSignals.newSignal(signal)
+
+                                switch (messageHeader.callerRole) {
+                                    case 'Network Client': {
+                                        switch (messageHeader.networkService) {
+                                            case 'Trading Signals': {
+                                                if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response.messageId = messageHeader.messageId
+                                                    caller.socket.send(JSON.stringify(response))
+                                                } else {
+                                                    let response = {
+                                                        result: 'Error',
+                                                        message: 'Trading Signals Network Service Not Running.'
+                                                    }
+                                                    response.messageId = messageHeader.messageId
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                    return
+                                                }
+                                                break
+                                            }
+                                        }
+                                        break
+                                    }
+                                    case 'Network Peer': {
+                                        switch (messageHeader.networkService) {
+                                            case 'Trading Signals': {
+                                                if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response.messageId = messageHeader.messageId
+                                                    caller.socket.send(JSON.stringify(response))
+                                                } else {
+                                                    let response = {
+                                                        result: 'Error',
+                                                        message: 'Trading Signals Network Service Not Running.'
+                                                    }
+                                                    response.messageId = messageHeader.messageId
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                    return
+                                                }
+                                                break
+                                            }
+                                        }
+                                        break
+                                    }
+                                }
+
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
                             } catch (err) {

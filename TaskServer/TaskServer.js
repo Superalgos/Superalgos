@@ -184,13 +184,12 @@ exports.newTaskServer = function newTaskServer() {
                     We set up the object that will hold our p2p network client identity, meaning the identity we will present to the network.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity =
-                        SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity.initialize()
+                        SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()                    
                     /*
                     We will read all user profiles plugins, store them in memory and get from there our own network client identity.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess.initialize(
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess.run(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.config.codeName,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
                     )
@@ -198,7 +197,11 @@ exports.newTaskServer = function newTaskServer() {
                     We set up the P2P Network, meaning the array of nodes we will be able to connect to.
                     */
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.initialize('Network Client')
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.initialize(
+                        'Network Client',
+                        global.env.TASK_SERVER_TARGET_NETWORK_CODENAME,
+                        global.env.TASK_SERVER_TARGET_NETWORK_TYPE
+                    )
                     /*
                     This is where we will process all the events comming from the p2p network.
                     */

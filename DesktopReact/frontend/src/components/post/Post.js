@@ -77,7 +77,8 @@ const Post = ({postData}) => {
                     {postBody ? postBody.toString() : ''}
                 </Stack>
                 <PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>
-            </Card></div>
+            </Card>
+        </div>
     );
 };
 

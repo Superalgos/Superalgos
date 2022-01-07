@@ -26,17 +26,20 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
             We set up ourselves as a Network Client.
             */
             thisObject.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
-            await thisObject.p2pNetworkClientIdentity.initialize()
             /*
             We will read all user profiles plugins and get from there our network identity.
             */
             thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await thisObject.appBootstrapingProcess.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClientIdentity)
+            await thisObject.appBootstrapingProcess.run(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClientIdentity)
             /*
             We set up the P2P Network.
             */
             thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-            await thisObject.p2pNetwork.initialize('Network Client')
+            await thisObject.p2pNetwork.initialize(
+                'Network Client',
+                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                global.env.DESKTOP_TARGET_NETWORK_TYPE
+            )
             /*
             This is where we will process all the events comming from the p2p network.
             */
@@ -67,7 +70,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
 
             let express = require('./backend/src/expressServer.js')
             express.DesktopBackend(DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
-            console.log(`express Interface ................................................ Listening at port ${DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort}` );
+            console.log(`express Interface ................................................ Listening at port ${DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort}`);
         }
     }
 }

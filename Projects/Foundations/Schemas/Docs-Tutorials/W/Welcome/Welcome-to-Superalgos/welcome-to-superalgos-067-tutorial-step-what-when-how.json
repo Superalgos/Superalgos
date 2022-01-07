@@ -29,6 +29,11 @@
                 "language": "RU",
                 "text": "Trading Parameters определяют ключевые аспекты того, как проходит торговая сессия. Давайте быстро и поверхностно взглянем на это...",
                 "updated": 1636929360190
+            },
+            {
+                "language": "ID",
+                "text": "Trading Parameters menentukan aspek kunci dari bagaimana trading session dijalankan. Mari kita lihat sekilas...",
+                "updated": 1639747547017
             }
         ]
     },
@@ -63,6 +68,11 @@
                     "language": "RU",
                     "text": "Базовый Asset сессии: капитал в BTC не присваивается.",
                     "updated": 1636929551268
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Base Asset: tidak ada modal yang ditetapkan dalam BTC.",
+                    "updated": 1639747618439
                 }
             ],
             "updated": 1640288657193
@@ -97,6 +107,11 @@
                     "language": "RU",
                     "text": "Котируемый Asset сессии: 1000 USDT за начальный капитал.",
                     "updated": 1636929599187
+                },
+                {
+                    "language": "ID",
+                    "text": "Session Quoted Asset: 1000 USDT dari modal awal.",
+                    "updated": 1639747647586
                 }
             ]
         },
@@ -130,6 +145,11 @@
                     "language": "RU",
                     "text": "Временной диапазон: мы протестируем один день 01-09-2020",
                     "updated": 1636929643689
+                },
+                {
+                    "language": "ID",
+                    "text": "Time Range: kami akan menguji dalam satu hari, 2020-09-01.",
+                    "updated": 1639747681537
                 }
             ]
         },
@@ -163,6 +183,11 @@
                     "language": "RU",
                     "text": "Временные рамки: заказы размещаются/отменяются каждую минуту, поэтому подходит 1 минута.",
                     "updated": 1636929775030
+                },
+                {
+                    "language": "ID",
+                    "text": "Time Frame: order ditempatkan/dibatalkan setiap menit, jadi 01-menit sesuai.",
+                    "updated": 1639747733061
                 }
             ]
         },
@@ -197,6 +222,11 @@
                     "language": "RU",
                     "text": "Проскальзование: в данном случае это не имеет значения, т.к. данная конкретная торговая система использует только лимитные ордера.",
                     "updated": 1636930096197
+                },
+                {
+                    "language": "ID",
+                    "text": "Slippage: itu tidak relevan untuk kasus ini, karena sistem perdagangan khusus ini hanya menggunakan pesanan terbatas.",
+                    "updated": 1639747757651
                 }
             ]
         },
@@ -265,6 +295,11 @@
                     "language": "RU",
                     "text": "Остальные параметры не влияют на моделирование. Чтобы узнать больше о Trading Parameters, ознакомьтесь с документацией.",
                     "updated": 1636930345208
+                },
+                {
+                    "language": "ID",
+                    "text": "Parameter yang tersisa tidak mempengaruhi simulasi. Untuk mempelajari lebih lanjut tentang Trading Parameters, lihat documentation.",
+                    "updated": 1639747598611
                 }
             ]
         }

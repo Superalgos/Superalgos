@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Причина, по которой Вы не можете перемещаться заключатеся в том, что весы заблокированы в автоматическом режиме, чтобы Вы могли легко найти данные после первой операции интеллектуального анализа данных.",
                 "updated": 1636205935534
+            },
+            {
+                "language": "ID",
+                "text": "Alasan mengapa kamu tidak dapat bergerak karena skala dikunci dalam mode otomatis sehingga kamu dapat dengan mudah menemukan data setelah operasi data mining pertamamu.",
+                "updated": 1639584928421
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Установка Time Scale в автоматическом режиме приводит к тому, что на диаграмме отображается весь диапазон доступных данных по дате и времени.",
                     "updated": 1636205990780
+                },
+                {
+                    "language": "ID",
+                    "text": "Aturan Time Scale dalam mode otomatis menahan semua rentang tanggal-waktu dari data yang tersedia kedalam chart.",
+                    "updated": 1639584976870
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Чтобы переключаться между различным автоматическим и ручным режимами, нажмите Shift и сделайте плавный одношаговый поворот колесиком мыши в верхней части окна шкалы времени. Кроме того, Вы также можете поместить указатель мыши на окно масштаба и нажать клавиши со стрелками ↑ ↓.",
                     "updated": 1636206214736
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk mengubah antara mode otomatis dan mode manual, tekan Shift dan arahkan dengan mouse wheel secara perlahan diatas time scale box. Jika tidak, kamu bisa mengarahkan pointer mouse di scale box dan tekan arah atas dan bawah ↑ ↓.",
+                    "updated": 1639584422999
                 }
             ],
             "updated": 1622199287763
@@ -137,6 +152,11 @@
                     "language": "RU",
                     "text": "Теперь Вы должны иметь возможность сободно перемещаться по оси Х, т.е. по временной оси графика.",
                     "updated": 1636206261878
+                },
+                {
+                    "language": "ID",
+                    "text": "Sekarang kamu sudah dapat bergerak bebas pada X-axis, yaitu sumbu waktu dalam chart.",
+                    "updated": 1639584527198
                 }
             ]
         }

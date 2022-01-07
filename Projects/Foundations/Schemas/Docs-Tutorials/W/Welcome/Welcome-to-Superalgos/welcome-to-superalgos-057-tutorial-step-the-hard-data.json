@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Plotter Panel содержит неграфические представления данных, в основном виде числовых значений или текста.",
                 "updated": 1636567221705
+            },
+            {
+                "language": "ID",
+                "text": "Plotter Panel menampilkan representasi data non-grafis, sebagian besar dalam bentuk nilai numerik atau teks.",
+                "updated": 1639587646731
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Каждый слой может содержать или не содержать одну или несколько соответствующих панелей. Определять их или нет, - зависит от разработчика соответствующего Indicator Bot.",
                     "updated": 1636567398843
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap layer mungkin atau mungkin tidak menampilkan satu atau lebih panel terkait. Terserah pengembang Bot Indikator yang sesuai untuk menentukannya atau tidak.",
+                    "updated": 1639587864338
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Чтобы получить доступ к панелям, щелкните левой кнопкой мыши значок панели плоттера выбранного слоя.",
                     "updated": 1636567465686
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk mengakses panel, klik kiri pada icon plotter panel dari layers pilihan.",
+                    "updated": 1639587776166
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "RU",
                     "text": "Вы можете управлять слоями и паналями плоттера, щелкая левой кнопкой мыши по их заголовкам и перетаскивая их в любой угол экрана.",
                     "updated": 1636567560341
+                },
+                {
+                    "language": "ID",
+                    "text": "Kamu dapat memindahkan layers manager dan plotter panels dengan mengklik kiri pada headernya dan menyeretnya ke sudut mana pun di layar.",
+                    "updated": 1639587712869
                 }
             ],
             "updated": 1640359316083

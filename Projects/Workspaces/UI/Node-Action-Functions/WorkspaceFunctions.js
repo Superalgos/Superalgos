@@ -27,8 +27,10 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
                     continue
                 }
                 child.project = project
-                child.projectDefinition.name = project
-                child.projectDefinition.config = "{ \n  \"codeName\": \"" + project + "\"\n}"
+                if (child.projectDefinition !== undefined) {
+                    child.projectDefinition.name = project
+                    child.projectDefinition.config = "{ \n  \"codeName\": \"" + project + "\"\n}"
+                }
             }
         }
     }
@@ -45,7 +47,7 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
             for (let k = 0; k < rootNodes.length; k++) {
                 let rootNode = rootNodes[k]
                 if (rootNode.type === project + ' Project') {
-                    validProjects = validProjects.filter(function(val) {
+                    validProjects = validProjects.filter(function (val) {
                         return val.name + ' Project' !== rootNode.type
                     })
                 }
@@ -74,7 +76,7 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
         let nodes
         for (let i = 0; i < rootNodes.length; i++) {
             if (rootNodes[i] !== undefined) {
-                nodes = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(rootNodes[i]) 
+                nodes = UI.projects.visualScripting.utilities.hierarchy.getHiriarchyMap(rootNodes[i])
                 for (let [key, value] of nodes) {
                     // Check nodes that have a saved reference parent
                     if (value.savedPayload.referenceParent !== undefined) {
@@ -84,13 +86,13 @@ function newWorkspacesNodeActionWorkspaceFunctions() {
                             UI.projects.foundations.spaces.floatingSpace.inMapMode = true
                             value.payload.uiObject.setWarningMessage('Reference Parent not found in the current workspace.', 10)
                         }
-                           
+
                     }
                 }
-                
+
             }
         }
-       
+
     }
 
     // This function fixes any missing references leveraging the docs search engine 

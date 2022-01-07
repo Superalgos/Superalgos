@@ -74,6 +74,14 @@ function newGovernanceUtilitiesCommonTables() {
         */
         for (let j = 0; j < nodes.length; j++) {
             let node = nodes[j]
+
+            let weightPower
+            if (node.payload.votingProgram !== undefined) { 
+                weightPower = node.payload.votingProgram.votes
+             } else {
+                weightPower = 0
+             }
+
             let name = ''
             if (node.payload.parentNode !== undefined) {
                 if (node.payload.parentNode.payload.parentNode !== undefined) {
@@ -94,7 +102,7 @@ function newGovernanceUtilitiesCommonTables() {
                 "tokensReward": node.payload.tokens | 0,
                 "rewardInBTC": UI.projects.governance.utilities.conversions.estimateSATokensInBTC(node.payload.tokens | 0),
                 "weight": node.payload.weight,
-                "weightPower": node.payload.votingProgram.votes | 0
+                "weightPower": weightPower
             }
 
             if (UI.projects.governance.utilities.filters.applyFilters(filters, filtersObject, tableRecord) === true) {

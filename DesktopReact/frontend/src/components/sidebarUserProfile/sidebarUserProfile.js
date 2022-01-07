@@ -3,7 +3,7 @@ import {CardContent, Typography} from "@mui/material";
 import {useSelector} from "react-redux";
 
 const SidebarUserProfile = () => {
-    const user = useSelector(state => state.actualUser);
+    const user = useSelector(state => state.profile.actualUser);
 
     return <CardContent className="sidebarProfileCardContent">
         {/*TODO name should not exceed certain length */}

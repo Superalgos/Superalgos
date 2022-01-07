@@ -309,7 +309,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     })
                 })
                 .catch(err => {
-                    const response  = { userProfileId: userProfileId , username:userProfileHandle }
+                    const response  = { userProfileId: userProfileId , username:userProfileHandle, missingProfile: true}
                     resolve(responseData('Ok','Web App Interface Query Processed.',response,err));
                 })
 

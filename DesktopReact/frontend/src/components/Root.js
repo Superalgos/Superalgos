@@ -14,15 +14,15 @@ const Root = () => {
             <Routes>
                 <Route path='/' element={<App/>}>
                     <Route path='' element={<Feed/>}/>
-                    <Route path='Signup' element={<Signup/>}/> {/* todo temporary access address /signup */}
-                    <Route path='Profile' element={<UserProfile/>}>
+                    <Route path='profile' element={<UserProfile/>}>
                         <Route path=':userId' element={<UserProfile/>}/>
                     </Route>
-                    <Route path='PostPlaceholder' element={<PostPlaceholder/>}/>
+                    <Route path='postPlaceholder' element={<PostPlaceholder/>}/>
                     <Route path='post'>
                         <Route path={':postId'} element={<Post/>}/> {/* TODO handle this post data*/}
                     </Route>
                 </Route>
+                {/*<Route path='/signUp' element={<Signup/>}/>*/}
                 <Route
                     path="*"
                     element={

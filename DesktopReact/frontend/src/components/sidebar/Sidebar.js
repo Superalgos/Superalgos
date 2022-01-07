@@ -1,5 +1,5 @@
 import './Sidebar.css';
-import {Card, CardContent, CardMedia, Divider, Stack, Typography} from "@mui/material";
+import {Card, CardMedia, Divider, Stack} from "@mui/material";
 import SidebarItem from "../sidebarItem/SidebarItem";
 import Logo from "../logo/Logo";
 import HomeIcon from '@mui/icons-material/Home';
@@ -7,6 +7,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import pic from "../../images/superalgos.png";
 import React from "react";
+import SidebarUserProfile from "../sidebarUserProfile/sidebarUserProfile";
 
 const Sidebar = props => {
     const menuOptions = [{name: "Home", icon: HomeIcon},

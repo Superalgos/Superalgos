@@ -1,0 +1,62 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "12",
+    "type": "Volatility Bands",
+    "definition": {
+        "text": "Volatility Bands take a Volatility Adjusted Moving Average (VAMA) to produce bands similar to Bollinger Bands and the Keltner channel."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Bands.png"
+        },
+		{
+            "style": "Text",
+            "text": "The Long period (L), Short period (S), and Centre (C) parameters of the VAMA can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Volatility Bands\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Bands-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Bands | Volatility_Bands | vama, up, low |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when a candle closes above the upper band:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.candle.close > chart.at01hs.Volatility_Bands.up && \nchart.at01hs.candle.previous.close < chart.at01hs.Volatility_Bands.previous.up"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

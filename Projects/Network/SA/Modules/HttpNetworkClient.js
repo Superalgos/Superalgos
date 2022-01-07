@@ -67,21 +67,33 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         receive an http request when needed.
         */
         let promise = new Promise((resolve, reject) => {
-
+            const TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND = 10000
+            let promiseStatus = 'Pending'
+            setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
             const axios = SA.nodeModules.axios
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
                 .then(res => {
                     if (res.data.indexOf("Pong") >= 0) {
                         console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        promiseStatus = 'Resolved'
                         resolve()
                     } else {
+                        promiseStatus = 'Rejected'
                         reject()
                     }
                 })
                 .catch(error => {
+                    promiseStatus = 'Rejected'
                     reject()
                 })
+
+                function checkPromise(){
+                    if (promiseStatus === 'Pending') {
+                        reject()
+                    }
+                }
+
         })
         return promise
     }

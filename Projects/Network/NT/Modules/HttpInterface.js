@@ -40,8 +40,6 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                 userProfile: undefined,
                 node: undefined
             }
-
-            let messageHeader = JSON.parse(bodyString)
     
             switch (endpointOrFile) {
                 case 'New-Message':
@@ -50,6 +48,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
 
                         async function processRequest(bodyString) {
                             try {
+                                let messageHeader = JSON.parse(bodyString)
                                 if (bodyString === undefined) {
                                     return
                                 }

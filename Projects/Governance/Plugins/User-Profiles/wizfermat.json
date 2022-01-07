@@ -1,7 +1,7 @@
 {
     "type": "User Profile",
     "name": "wizfermat",
-    "config": "{\n    \"signature\": {\n        \"message\": \"wizfermat\",\n        \"messageHash\": \"0xece375fd0baa60b57ce0cfb6e9723fd2884bf55e8caac0dfc24c0d0d512ed338\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x159ba14a118af44910ba4ebbe257578a79f76af9f6a39021b93884d056a223fa\",\n        \"s\": \"0x1a3707a1903960eeb2252ebad5f62d3cb6f8c3cff3ebdb4566fac4d4fa47b281\",\n        \"signature\": \"0x159ba14a118af44910ba4ebbe257578a79f76af9f6a39021b93884d056a223fa1a3707a1903960eeb2252ebad5f62d3cb6f8c3cff3ebdb4566fac4d4fa47b2811c\"\n    }\n}",
+    "config": "{\"signature\":{\"message\":\"wizfermat\",\"messageHash\":\"0xece375fd0baa60b57ce0cfb6e9723fd2884bf55e8caac0dfc24c0d0d512ed338\",\"v\":\"0x1c\",\"r\":\"0x159ba14a118af44910ba4ebbe257578a79f76af9f6a39021b93884d056a223fa\",\"s\":\"0x1a3707a1903960eeb2252ebad5f62d3cb6f8c3cff3ebdb4566fac4d4fa47b281\",\"signature\":\"0x159ba14a118af44910ba4ebbe257578a79f76af9f6a39021b93884d056a223fa1a3707a1903960eeb2252ebad5f62d3cb6f8c3cff3ebdb4566fac4d4fa47b2811c\"},\"codeName\":\"wizfermat\"}",
     "project": "Governance",
     "tokenPowerSwitch": {
         "type": "Token Power Switch",
@@ -314,17 +314,17 @@
     "id": "fc665b6b-edd0-4e3f-b667-fe172de5d398",
     "savedPayload": {
         "position": {
-            "x": 13986.000000000002,
-            "y": 6035.05830753354
+            "x": 2912.6213592233007,
+            "y": 14000.000000000002
         },
         "targetPosition": {
-            "x": 13986.000000000002,
-            "y": 6035.05830753354
+            "x": 2912.6213592233007,
+            "y": 14000.000000000002
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

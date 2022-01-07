@@ -19,7 +19,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     const NETWORK_SERVICES = ['Trading Signals', 'Network Statistics']
     const RECONNECT_DELAY = 10 * 1000
     let peersMap = new Map()
-    let intervalIdConnectToPeers
+    let intervalIdConnectToPeers = new Map()
     let messagesToBeDelivered
 
     return thisObject
@@ -28,6 +28,13 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         peersMap = undefined
         messagesToBeDelivered = undefined
         clearInterval(intervalIdConnectToPeers)
+
+        intervalIdConnectToPeers.forEach(clearIntervals)
+        intervalIdConnectToPeers = undefined
+
+        function clearIntervals(intervalId) {
+            clearInterval(intervalId)
+        }
     }
 
     async function initialize(
@@ -41,6 +48,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
             let networkServide = NETWORK_SERVICES[i]
             let peers = []
             peersMap.set(networkServide, peers)
+
             await initializeNetworkService(networkServide)
         }
 
@@ -49,8 +57,8 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
             let peers = peersMap.get(networkServide)
 
             await connectToPeers()
-            intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
-
+            let intervalId = setInterval(connectToPeers, RECONNECT_DELAY);
+            intervalIdConnectToPeers.set(networkServide, intervalId)
             async function connectToPeers() {
 
                 if (peers.length >= maxOutgoingPeers) { return }

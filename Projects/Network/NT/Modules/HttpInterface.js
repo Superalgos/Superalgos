@@ -40,7 +40,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                 userProfile: undefined,
                 node: undefined
             }
-    
+
             switch (endpointOrFile) {
                 case 'New-Message':
                     {
@@ -117,7 +117,23 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                     break
                 case 'Ping':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
+                        let networkService = unescape(requestPath[2])
+
+                        switch (networkService) {
+                            case 'Trading Signals': {
+                                if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
+                                } else {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Trading Signals Network Service Not Running.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
+                                break
+                            }
+                        }
                     }
                     break
                 case 'Stats':

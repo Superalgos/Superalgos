@@ -9,7 +9,6 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     messages via the http interface of nodes to some of them.
     */
     let thisObject = {
-        peers: undefined,
         sendMessage: sendMessage,
 
         /* Framework Functions */
@@ -17,15 +16,16 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         finalize: finalize
     }
 
+    const NETWORK_SERVICES = ['Trading Signals', 'Network Statistics']
     const RECONNECT_DELAY = 10 * 1000
+    let peersMap = new Map()
     let intervalIdConnectToPeers
-
     let messagesToBeDelivered
 
     return thisObject
 
     function finalize() {
-        thisObject.peers = undefined
+        peersMap = undefined
         messagesToBeDelivered = undefined
         clearInterval(intervalIdConnectToPeers)
     }
@@ -37,92 +37,107 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         maxOutgoingPeers
     ) {
 
-        messagesToBeDelivered = []
-        thisObject.peers = []
+        for (let i = 0; i < NETWORK_SERVICES.length; i++) {
+            let networkServide = NETWORK_SERVICES[i]
+            let peers = []
+            peersMap.set(networkServide, peers)
+            await initializeNetworkService(networkServide)
+        }
 
-        await connectToPeers()
-        intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
+        async function initializeNetworkService(networkServide) {
+            messagesToBeDelivered = []
+            let peers = peersMap.get(networkServide)
 
-        async function connectToPeers() {
+            await connectToPeers()
+            intervalIdConnectToPeers = setInterval(connectToPeers, RECONNECT_DELAY);
 
-            if (thisObject.peers.length >= maxOutgoingPeers) { return }
+            async function connectToPeers() {
 
-            for (let i = 0; i < p2pNetwork.p2pNodesToConnect.length; i++) {
-                if (thisObject.peers.length >= maxOutgoingPeers) { break }
+                if (peers.length >= maxOutgoingPeers) { return }
 
-                let peer = {
-                    p2pNetworkNode: undefined,
-                    httpClient: undefined
-                }
+                for (let i = 0; i < p2pNetwork.p2pNodesToConnect.length; i++) {
+                    if (peers.length >= maxOutgoingPeers) { break }
 
-                peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
-                if (isPeerConnected(peer) === true) { continue }
+                    let peer = {
+                        p2pNetworkNode: undefined,
+                        httpClient: undefined
+                    }
 
-                await isPeerOnline(peer)
-                    .then(isOnline)
-                    .catch(isOffline)
+                    peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
+                    if (isPeerConnected(peer) === true) { continue }
 
-                function isOnline() {
-                    thisObject.peers.push(peer)
-                }
-                function isOffline() {
+                    await isPeerOnline(peer)
+                        .then(isOnline)
+                        .catch(isOffline)
 
-                }
-            }
+                    function isOnline() {
+                        peers.push(peer)
+                    }
+                    function isOffline() {
 
-            function isPeerConnected(peer) {
-                for (let i = 0; i < thisObject.peers.length; i++) {
-                    let connectedPeer = thisObject.peers[i]
-                    if (connectedPeer.p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
-                        return true
                     }
                 }
-            }
 
-            async function isPeerOnline(peer) {
-                /*
-                This function us to check if a network node is online and will 
-                receive an http request when needed.
-                */
-                let promise = new Promise(sendTestMessage)
-                return promise
+                function isPeerConnected(peer) {
+                    for (let i = 0; i < peers.length; i++) {
+                        let connectedPeer = peers[i]
+                        if (connectedPeer.p2pNetworkNode.node.id === peer.p2pNetworkNode.node.id) {
+                            return true
+                        }
+                    }
+                }
 
-                async function sendTestMessage(resolve, reject) {
+                async function isPeerOnline(peer) {
                     /*
-                    Test if the peer is actually online.
+                    This function us to check if a network node is online and will 
+                    receive an http request when needed.
                     */
-                    if (peer.httpClient !== undefined) { return }
+                    let promise = new Promise(sendTestMessage)
+                    return promise
 
-                    peer.httpClient = SA.projects.network.modules.webHttpNetworkClient.newNetworkModulesHttpNetworkClient()
-                    peer.httpClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode)
+                    async function sendTestMessage(resolve, reject) {
+                        /*
+                        Test if the peer is actually online.
+                        */
+                        if (peer.httpClient !== undefined) { return }
+
+                        peer.httpClient = SA.projects.network.modules.webHttpNetworkClient.newNetworkModulesHttpNetworkClient()
+                        peer.httpClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode)
 
 
-                    await peer.httpClient.sendTestMessage()
-                        .then(isConnected)
-                        .catch(isNotConnected)
+                        await peer.httpClient.sendTestMessage(networkServide)
+                            .then(isConnected)
+                            .catch(isNotConnected)
 
-                    function isConnected() {
-                        resolve()
-                    }
-                    function isNotConnected() {
-                        reject()
+                        function isConnected() {
+                            resolve()
+                        }
+                        function isNotConnected() {
+                            reject()
+                        }
                     }
                 }
             }
         }
     }
 
-    async function sendMessage(message) {
+    async function sendMessage(message, networkServide) {
+
+        let messageHeader = {
+            networkService: networkServide,
+            payload: JSON.stringify(message)
+        }
+        let peers = peersMap.get(networkServide)
         /*
-        This function will send the message from a random picked network node
+        This function will send the messageHeader from a random picked network node
         selected from the array of already verified online peers.
         */
-        let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
-        let peer = thisObject.peers[peerIndex]
+        let peerIndex = Math.max(Math.round(Math.random() * peers.length) - 1, 0)
+        let peer = peers[peerIndex]
         /*
-        Adding the message to the queue to be delivered
+        Adding the messageHeader to the queue to be delivered
         */
-        messagesToBeDelivered.push(message)
+        messagesToBeDelivered.push(messageHeader)
 
         if (peer === undefined) {
             return
@@ -146,7 +161,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                 /*
                 Store in memory all the signals that could not be delivered.
                 */
-                notDeliveredMessages.push(message)
+                notDeliveredMessages.push(messageHeader)
             }
         }
         messagesToBeDelivered = notDeliveredMessages

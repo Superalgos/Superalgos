@@ -1,0 +1,58 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "7",
+    "type": "One Minute counter",
+    "definition": {
+        "text": "This indicator provides a simple counter that counts from 0 to 59 to represent every minute of the hour."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator is represented on the chart as below:"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-one-minute-counter.png"
+        },
+		{
+            "style": "Text",
+            "text": "There are no adjustable parameters for this indicator."
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| One minute counters | OneMinCOunter | OneHR |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "The data can be accessed as follows:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at30min.OneMinCOunter.OneHR"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

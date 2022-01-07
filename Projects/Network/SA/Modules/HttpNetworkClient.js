@@ -41,21 +41,30 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         function uses callbacks, specifically for retrieving files.
         */
         let promise = new Promise((resolve, reject) => {
-
+            const TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND = 10000
+            let promiseStatus = 'Pending'
+            setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
             message.callerRole = "Network Client"
-            const axios = SA.nodeModules.axios  
+            const axios = SA.nodeModules.axios
             axios
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/New-Message', message)
                 .then(res => {
                     //console.log(`statusCode: ${res.status}`)
                     //console.log('Response Received from P2P Network Node: ' + JSON.stringify(res.data))
                     // TODO : Do something when Network Node could not process this signal.
+                    promiseStatus = 'Resolved'
                     resolve()
                 })
                 .catch(error => {
                     console.error('[ERROR] Error trying to send message to the P2P Network node via its http interface -> Error = ' + error)
+                    promiseStatus = 'Rejected'
                     reject()
                 })
+            function checkPromise() {
+                if (promiseStatus === 'Pending') {
+                    reject()
+                }
+            }
         })
 
         return promise
@@ -75,7 +84,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                 .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
                 .then(res => {
                     if (res.data.indexOf("Pong") >= 0) {
-                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                         promiseStatus = 'Resolved'
                         resolve()
                     } else {
@@ -88,11 +97,11 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
                     reject()
                 })
 
-                function checkPromise(){
-                    if (promiseStatus === 'Pending') {
-                        reject()
-                    }
+            function checkPromise() {
+                if (promiseStatus === 'Pending') {
+                    reject()
                 }
+            }
 
         })
         return promise

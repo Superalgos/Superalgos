@@ -6,6 +6,7 @@ import NotFound from "./notFound/NotFound";
 import Feed from "./feed/Feed";
 import PostPlaceholder from "./postPlaceholder/PostPlaceholder";
 import Post from "./post/Post";
+import Signup from "./Signup/Signup";
 
 const Root = () => {
     return (
@@ -13,6 +14,7 @@ const Root = () => {
             <Routes>
                 <Route path='/' element={<App/>}>
                     <Route path='' element={<Feed/>}/>
+                    <Route path='Signup' element={<Signup/>}/> {/* todo temporary access address /signup */}
                     <Route path='Profile' element={<UserProfile/>}>
                         <Route path=':userId' element={<UserProfile/>}/>
                     </Route>

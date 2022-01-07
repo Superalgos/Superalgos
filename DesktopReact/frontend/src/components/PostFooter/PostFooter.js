@@ -10,7 +10,8 @@ import {
     OutletOutlined,
     SentimentVeryDissatisfied,
     SentimentVeryDissatisfiedOutlined,
-    ThumbUp
+    ThumbUp,
+    Autorenew
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {actionsNav} from './interactionsConfig.json';
@@ -54,8 +55,10 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         console.log('clicked repost')
     }
 
-    const HandleCommentContainer = () => {
+    const HandleCommentContainer = (e) => {
+        e.stopPropagation()
         setReplyModal(!replyModal);
+        console.log("Hello from Comment")
         dispatch(setModalPost(postData))
     }
 
@@ -111,16 +114,16 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         return <div className="footerCommentContainer">
             <Stack className="postFooterComment" direction="row">
                 <IconButton className="commentIconButton" size="small"
-                            onClick={(e) => e.stopPropagation(HandleCommentContainer)}> {/* need review, correct way?*/}
+                            onClick={HandleCommentContainer}>
                     <MessageOutlined/>
                 </IconButton>
                 {replyModal ? <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>: null } {/* todo pass postData to the modal from props */}
             </Stack>
-            {/*<Stack className="postFooterRepost" direction="row"> todo not implemented yet
+            <Stack className="postFooterRepost" direction="row"> {/*todo not implemented yet*/}
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">
                     <Autorenew/>
                 </IconButton>
-            </Stack>*/}
+            </Stack>
         </div>
     }
 

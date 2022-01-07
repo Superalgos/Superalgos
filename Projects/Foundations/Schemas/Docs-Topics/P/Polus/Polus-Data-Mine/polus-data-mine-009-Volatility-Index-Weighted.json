@@ -1,0 +1,74 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "9",
+    "type": "Volatility Oscillator",
+    "definition": {
+        "text": "The Weighted Volatility Oscillator is a modification of the standard volatility index but weighted by the position of the price in the Bollinger Band."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "The weighted volatility oscillator provides three signals, Top, Bottom, and Histogram. The crossover of the top signal with the bottom signal causes the histogram to turn green, and potentially signal an upward movement in price."
+        },
+        {
+            "style": "Text",
+            "text": "The reverse is potentially true for signalling a fall in price action. When the Top and Bottom signals are closely aligned, price action enters the consolidation phase."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Oscillator-Weighted.png"
+        },
+		{
+            "style": "Text",
+            "text": "The parameters of the weighted volatility oscillator can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Weighted Volatility Oscillator\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Oscillator-Weighted-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Weighted Volatility Oscillator | WeightedVolatilityOscillator | histogram, wto, wbo |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built when the histogram rises above the zero line:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at05min.WeightedVolatilityOscillator.histogram > 0 && chart.at05min.WeightedVolatilityOscillator.previous.histogram == 0"
+        },
+		{
+            "style": "Text",
+            "text": "Another example when the Top signal rises above the bottom signal:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at15min.WeightedVolatilityOscillator.wto > chart.at15min.WeightedVolatilityOscillator.wbo"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

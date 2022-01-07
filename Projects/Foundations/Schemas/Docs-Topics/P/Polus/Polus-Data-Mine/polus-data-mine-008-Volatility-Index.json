@@ -1,0 +1,70 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "8",
+    "type": "Volatility Index",
+    "definition": {
+        "text": "The Volatility Index represents how an asset's prices moves around the calculated mean price."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "According to investopedia: Volatility is a statistical measure of the dispersion of returns for a given security or market index. In most cases, the higher the volatility, the riskier the security. Volatility is often measured as either the standard deviation or variance between returns from that same security or market index."
+        },
+        {
+            "style": "Text",
+            "text": "The volatility index indicator provides two signals, positive and negative. The positive volatility indicates periods of high choppiness or consolidation in the price action, where the negative signal potentially indicates a trend emerging, and as such, this lagging indicator is best used as a confimation indicator."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Index.png"
+        },
+		{
+            "style": "Text",
+            "text": "The parameters of the volatility index can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Volatility Index\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Volatility-Index-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator also includes data for bollinger bands and keltner channels if needed."
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Volatility Index | VolatilityIndex | upvol, lowvol |\n| | (Bollinger) | BOLMA, UPbol, LOWbol |\n| | (Keltner) | ema, upKelt, downKelt |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built when the volatiliy positive index falls below the negative index, and the overall volatility falls below the zero line:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at30min.VolatilityIndex.upvol < chart.at30min.VolatilityIndex.lowvol &&\n chart.at30min.VolatilityIndex.upvol < 0"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

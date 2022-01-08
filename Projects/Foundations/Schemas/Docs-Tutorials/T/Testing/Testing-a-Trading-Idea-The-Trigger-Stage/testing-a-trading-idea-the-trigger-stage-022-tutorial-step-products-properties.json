@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden!",
                 "updated": 1639263355926
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
+                "updated": 1641653798986
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Das Produkt  bollingerSubChannel verfügt über drei verschiedene Eigenschaften:",
                     "updated": 1639263385134
+                },
+                {
+                    "language": "TR",
+                    "text": "bollingerSubChannel ürünü üç farklı özelliğe sahiptir:",
+                    "updated": 1641653841018
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Richtung: Aufwärts (Up), Abwärts (Down)",
                     "updated": 1639263435512
+                },
+                {
+                    "language": "TR",
+                    "text": "Yön: Yukarı (Up), Aşağı (Down)",
+                    "updated": 1641653854846
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Periode: 1 bis n.",
                     "updated": 1639263445728
+                },
+                {
+                    "language": "TR",
+                    "text": "Periyot: 1'den n'ye.",
+                    "updated": 1641653870816
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Neigung: Seitlich (Side), Sanft (Gentle), Mittel (Medium), Steil (Steep), Extrem (Extreme).",
                     "updated": 1639267169486
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğim: Yan (Side), Hafif (Gentle), Orta (Medium), Dik (Steep), Aşırı (Extreme).",
+                    "updated": 1641653882500
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen!",
                     "updated": 1639263536175
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bölümü dikkatlice okuyunuz, böylece çizelgelere geri dönebilelim ve eğim özelliğini nasıl kullanacağımıza karar verebilelim!",
+                    "updated": 1641653896191
                 }
             ]
         }

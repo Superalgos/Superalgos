@@ -24,7 +24,7 @@ function newFoundationsDocsSearchResultsPage() {
 
         //empty search for get all documents #3216
         if (UI.projects.education.spaces.docsSpace.commandInterface.command === "") {
-            for (const [value] of Object.entries(UI.projects.education.spaces.docsSpace.searchEngine.documentIndex.store)) {
+            for (const [key, value] of Object.entries(UI.projects.education.spaces.docsSpace.searchEngine.documentIndex.store)) {
                 resultsArray.push({documentIndex: value});
             }
             buildHTML()

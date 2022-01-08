@@ -21,10 +21,12 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     let peersMap = new Map()
     let intervalIdConnectToPeers = new Map()
     let messagesToBeDelivered
+    let web3
 
     return thisObject
 
     function finalize() {
+        web3 = undefined
         peersMap = undefined
         messagesToBeDelivered = undefined
         clearInterval(intervalIdConnectToPeers)
@@ -43,6 +45,8 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         p2pNetwork,
         maxOutgoingPeers
     ) {
+
+        web3 = new SA.nodeModules.web3()
 
         for (let i = 0; i < NETWORK_SERVICES.length; i++) {
             let networkServide = NETWORK_SERVICES[i]
@@ -131,10 +135,27 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
 
     async function sendMessage(message, networkServide) {
 
+        let userApp = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
+        if (userApp === undefined) { return }
+        if (userApp.node.config === undefined) { return }
+        let userAppCodeName = userApp.node.config.codeName
+        if (userAppCodeName === undefined) { return }
+        let userAppCategory = userApp.node.parentNode
+        if (userAppCategory === undefined) { return }
+
+        let signature = await web3.eth.accounts.sign(JSON.stringify(userApp.node.id), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
+
         let messageHeader = {
             networkService: networkServide,
+            userApp: {
+                categoryType: userAppCategory.type,
+                appType: userApp.node.type,
+                appId: userApp.node.id
+            },
+            signature: signature,
             payload: JSON.stringify(message)
         }
+
         let peers = peersMap.get(networkServide)
         /*
         This function will send the messageHeader from a random picked network node

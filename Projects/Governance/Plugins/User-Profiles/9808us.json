@@ -26,12 +26,12 @@
                     "id": "85d3b184-0122-4cb3-a83c-b3c00d626767",
                     "savedPayload": {
                         "position": {
-                            "x": 40407.083786855546,
-                            "y": 32640.192378864667
+                            "x": 31669.219709185636,
+                            "y": 23040.192378864667
                         },
                         "targetPosition": {
-                            "x": 40666.89140799088,
-                            "y": 32790.19237886467
+                            "x": 31929.02733032097,
+                            "y": 23190.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -49,12 +49,12 @@
                 "id": "9163e52d-f77c-40b7-b139-960681b28171",
                 "savedPayload": {
                     "position": {
-                        "x": 40666.89140799088,
-                        "y": 32790.19237886467
+                        "x": 31929.02733032097,
+                        "y": 23190.192378864667
                     },
                     "targetPosition": {
-                        "x": 40926.69902912621,
-                        "y": 32940.19237886467
+                        "x": 32188.8349514563,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -81,12 +81,12 @@
                     "id": "5ebe2e87-295e-42cc-98f1-c70ee2efa4a3",
                     "savedPayload": {
                         "position": {
-                            "x": 40926.69902912621,
-                            "y": 32340.192378864667
+                            "x": 32188.8349514563,
+                            "y": 22740.192378864667
                         },
                         "targetPosition": {
-                            "x": 40926.69902912621,
-                            "y": 32640.192378864667
+                            "x": 32188.8349514563,
+                            "y": 23040.192378864667
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -104,12 +104,12 @@
                 "id": "d38054ef-3c0b-43fd-986d-27dd39f72f2c",
                 "savedPayload": {
                     "position": {
-                        "x": 40926.69902912621,
-                        "y": 32640.192378864667
+                        "x": 32188.8349514563,
+                        "y": 23040.192378864667
                     },
                     "targetPosition": {
-                        "x": 40926.69902912621,
-                        "y": 32940.19237886467
+                        "x": 32188.8349514563,
+                        "y": 23340.192378864667
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -127,12 +127,12 @@
             "id": "975175a5-fbf2-4775-80c3-175af1bf27ae",
             "savedPayload": {
                 "position": {
-                    "x": 40926.69902912621,
-                    "y": 32940.19237886467
+                    "x": 32188.8349514563,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 41076.69902912621,
-                    "y": 33200
+                    "x": 32338.8349514563,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -356,7 +356,9 @@
                             "referenceParentCombinedNodePath": [
                                 [
                                     "Raplh2502",
-                                    "User Profile"
+                                    "User Profile",
+                                    "Governance",
+                                    "80c4d509-3f1f-4f1f-9440-7c1502efed4e"
                                 ]
                             ]
                         }
@@ -483,12 +485,12 @@
             "id": "410de3ee-3b6a-4e67-a6f0-130e29cd0a79",
             "savedPayload": {
                 "position": {
-                    "x": 41226.69902912621,
-                    "y": 32940.19237886467
+                    "x": 32488.8349514563,
+                    "y": 23340.192378864667
                 },
                 "targetPosition": {
-                    "x": 41076.69902912621,
-                    "y": 33200
+                    "x": 32338.8349514563,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -506,7 +508,7 @@
         "votesAndClaimsPrograms": {
             "type": "Votes And Claims Programs",
             "name": "New Votes And Claims Programs",
-            "config": "{\n    \"percentage\": 1\n}",
+            "config": "{\n    \"percentage\": 2\n}",
             "project": "Governance",
             "votingProgram": {
                 "type": "Voting Program",
@@ -2550,12 +2552,12 @@
                                 "id": "6a961b63-4e42-469f-98a4-3a47c8f37875",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 41196.72890237482,
-                                        "y": 32712.54666533391
+                                        "x": 32458.864824704913,
+                                        "y": 23112.54666533391
                                     },
                                     "targetPosition": {
-                                        "x": 41486.506650261545,
-                                        "y": 32790.19237886467
+                                        "x": 32748.642572591634,
+                                        "y": 23190.192378864667
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -4611,12 +4613,12 @@
                                 "id": "408085c5-41c7-4804-9a93-ea1ee3d3d556",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 41336.506650261545,
-                                        "y": 32530.384757729335
+                                        "x": 32598.642572591634,
+                                        "y": 22930.384757729335
                                     },
                                     "targetPosition": {
-                                        "x": 41486.506650261545,
-                                        "y": 32790.19237886467
+                                        "x": 32748.642572591634,
+                                        "y": 23190.192378864667
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -9767,12 +9769,12 @@
                                 "id": "e8475e5d-a2f2-4f6f-92fe-e9e020fbed42",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 41564.1523637923,
-                                        "y": 32500.414630977946
+                                        "x": 32826.28828612239,
+                                        "y": 22900.414630977946
                                     },
                                     "targetPosition": {
-                                        "x": 41486.506650261545,
-                                        "y": 32790.19237886467
+                                        "x": 32748.642572591634,
+                                        "y": 23190.192378864667
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -9811,12 +9813,12 @@
                         "id": "3a160238-eb2e-41d4-bf63-1550d8e0623c",
                         "savedPayload": {
                             "position": {
-                                "x": 41486.506650261545,
-                                "y": 32790.19237886467
+                                "x": 32748.642572591634,
+                                "y": 23190.192378864667
                             },
                             "targetPosition": {
-                                "x": 41636.506650261545,
-                                "y": 33050
+                                "x": 32898.642572591634,
+                                "y": 23450
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -9840,28 +9842,92 @@
                             {
                                 "type": "Votes Switch",
                                 "name": "Data Mining",
-                                "config": "{\r\n    \"percentage\": 11.64\r\n}",
+                                "config": "{\r\n    \"percentage\": 15\r\n}",
                                 "project": "Governance",
                                 "votesSwitch": [],
                                 "claimVotesSwitch": [
                                     {
                                         "type": "Claim Votes Switch",
-                                        "name": "Thomas",
+                                        "name": "Data Mining Project Position Class",
                                         "config": "{\r\n    \"percentage\": 85\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
-                                        "positionClaimVotes": [],
+                                        "positionClaimVotes": [
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "Raplh2502 Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "c363d97b-416b-43e1-9428-348d3bf5b54d",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 32936.095907257724,
+                                                        "y": 22490.607009842613
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 33086.095907257724,
+                                                        "y": 22750.414630977946
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "eb404d7b-021b-4335-a5ad-52c587a2b0b8"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Raplh2502",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Project Position Class",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
                                         "id": "1be7e8e7-dcbd-4a08-8772-f1437cf276ae",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 41823.959984927635,
-                                                "y": 32350.414630977946
+                                                "x": 33086.095907257724,
+                                                "y": 22750.414630977946
                                             },
                                             "targetPosition": {
-                                                "x": 41973.959984927635,
-                                                "y": 32610.22225211328
+                                                "x": 33236.095907257724,
+                                                "y": 23010.22225211328
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -9882,27 +9948,39 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "80c4d509-3f1f-4f1f-9440-7c1502efed4e"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "bd9b8451-c727-445f-88db-55e616f3c204"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "faab12df-02e0-42d1-a43e-427d027c12ae"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "c44f288b-6574-4938-ba99-2fe540f4daba"
                                                 ],
                                                 [
                                                     "New Position Claims Folder",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "7c6c5e64-822d-46d1-a83d-7d24ba76f58f"
                                                 ],
                                                 [
                                                     "Data Mining Project Position Class",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "fcd89692-12f3-45d2-b9ee-03370a5f6511"
                                                 ]
                                             ]
                                         }
@@ -9913,18 +9991,82 @@
                                         "config": "{\r\n    \"percentage\": 6\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
-                                        "positionClaimVotes": [],
+                                        "positionClaimVotes": [
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "quantum8 Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "7b89f12a-4cc9-4224-9625-0f7b8b924ba5",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 33391.38733431924,
+                                                        "y": 22430.666756339837
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 33313.74162078848,
+                                                        "y": 22720.444504226558
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "2529497e-641f-4cc8-84ac-e3be92f8858d"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "quantum8",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
                                         "id": "6dd9d1d3-9395-4bf4-91d8-e77297e0e7bc",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 42051.60569845839,
-                                                "y": 32320.444504226558
+                                                "x": 33313.74162078848,
+                                                "y": 22720.444504226558
                                             },
                                             "targetPosition": {
-                                                "x": 41973.959984927635,
-                                                "y": 32610.22225211328
+                                                "x": 33236.095907257724,
+                                                "y": 23010.22225211328
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -9988,18 +10130,78 @@
                                         "config": "{\r\n    \"percentage\": 9\r\n}",
                                         "project": "Governance",
                                         "claimVotesSwitch": [],
-                                        "positionClaimVotes": [],
+                                        "positionClaimVotes": [
+                                            {
+                                                "type": "Position Claim Vote",
+                                                "name": "BlaaSwe Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "7daa83ee-c942-429e-a66b-024cc6400588",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 33755.71114952839,
+                                                        "y": 22710.22225211328
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 33495.90352839306,
+                                                        "y": 22860.22225211328
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position Contribution Claim",
+                                                        "name": "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                        "id": "08e1d8af-478d-435f-9ebb-d2c4ed4fbdd1"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "BlaaSwe",
+                                                            "User Profile"
+                                                        ],
+                                                        [
+                                                            "New Token Power Switch",
+                                                            "Token Power Switch"
+                                                        ],
+                                                        [
+                                                            "New Votes And Claims Programs",
+                                                            "Votes And Claims Programs"
+                                                        ],
+                                                        [
+                                                            "New Claims Program",
+                                                            "Claims Program"
+                                                        ],
+                                                        [
+                                                            "New Position Claims Folder",
+                                                            "Position Claims Folder"
+                                                        ],
+                                                        [
+                                                            "Data Mining Team Token Pool Data Mining Team PoW Report",
+                                                            "Position Contribution Claim"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
                                         "assetClaimVotes": [],
                                         "featureClaimVotes": [],
                                         "id": "bea9c241-bf3b-4d12-88c8-dc002dcef8f9",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 42233.76760606297,
-                                                "y": 32460.22225211328
+                                                "x": 33495.90352839306,
+                                                "y": 22860.22225211328
                                             },
                                             "targetPosition": {
-                                                "x": 41973.959984927635,
-                                                "y": 32610.22225211328
+                                                "x": 33236.095907257724,
+                                                "y": 23010.22225211328
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10057,12 +10259,12 @@
                                 "id": "5908de66-5c06-4426-b53d-7a58ba82853e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 41973.959984927635,
-                                        "y": 32610.22225211328
+                                        "x": 33236.095907257724,
+                                        "y": 23010.22225211328
                                     },
                                     "targetPosition": {
-                                        "x": 41896.31427139688,
-                                        "y": 32900
+                                        "x": 33158.45019372697,
+                                        "y": 23300
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -10080,7 +10282,7 @@
                             {
                                 "type": "Votes Switch",
                                 "name": "Support SOLO Claims",
-                                "config": "{\r\n    //    \"percentage\": 30\r\n}",
+                                "config": "{\r\n    \"percentage\": 30\r\n}",
                                 "project": "Governance",
                                 "votesSwitch": [],
                                 "claimVotesSwitch": [
@@ -10096,12 +10298,12 @@
                                         "id": "eb276a1a-5c28-4819-931d-ce6cabe0da61",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 42233.76760606297,
-                                                "y": 32460.22225211328
+                                                "x": 33495.90352839306,
+                                                "y": 22860.22225211328
                                             },
                                             "targetPosition": {
-                                                "x": 42156.12189253221,
-                                                "y": 32750
+                                                "x": 33418.2578148623,
+                                                "y": 23150
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10165,12 +10367,12 @@
                                         "id": "c30495ab-8933-46c9-aee2-679af9889886",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 42415.92951366754,
-                                                "y": 32600
+                                                "x": 33678.06543599763,
+                                                "y": 23000
                                             },
                                             "targetPosition": {
-                                                "x": 42156.12189253221,
-                                                "y": 32750
+                                                "x": 33418.2578148623,
+                                                "y": 23150
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10246,12 +10448,12 @@
                                         "id": "d9e59b53-0964-49e1-b42a-6afcc9ed48f1",
                                         "savedPayload": {
                                             "position": {
-                                                "x": 42445.89964041893,
-                                                "y": 32827.64571353076
+                                                "x": 33708.03556274902,
+                                                "y": 23227.645713530757
                                             },
                                             "targetPosition": {
-                                                "x": 42156.12189253221,
-                                                "y": 32750
+                                                "x": 33418.2578148623,
+                                                "y": 23150
                                             },
                                             "floatingObject": {
                                                 "isPinned": false,
@@ -10315,17 +10517,17 @@
                                 "id": "e02987b3-fe1a-4a16-ba31-954410c1da45",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 42156.12189253221,
-                                        "y": 32750
+                                        "x": 33418.2578148623,
+                                        "y": 23150
                                     },
                                     "targetPosition": {
-                                        "x": 41896.31427139688,
-                                        "y": 32900
+                                        "x": 33158.45019372697,
+                                        "y": 23300
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
                                         "isFrozen": false,
-                                        "isCollapsed": false,
+                                        "isCollapsed": true,
                                         "angleToParent": 2,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
@@ -10949,23 +11151,33 @@
                                             "referenceParentCombinedNodePath": [
                                                 [
                                                     "Raplh2502",
-                                                    "User Profile"
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "80c4d509-3f1f-4f1f-9440-7c1502efed4e"
                                                 ],
                                                 [
                                                     "New Token Power Switch",
-                                                    "Token Power Switch"
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "bd9b8451-c727-445f-88db-55e616f3c204"
                                                 ],
                                                 [
                                                     "New Votes And Claims Programs",
-                                                    "Votes And Claims Programs"
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "faab12df-02e0-42d1-a43e-427d027c12ae"
                                                 ],
                                                 [
                                                     "New Claims Program",
-                                                    "Claims Program"
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "c44f288b-6574-4938-ba99-2fe540f4daba"
                                                 ],
                                                 [
                                                     "New Position Claims Folder",
-                                                    "Position Claims Folder"
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "7c6c5e64-822d-46d1-a83d-7d24ba76f58f"
                                                 ]
                                             ]
                                         }
@@ -19024,12 +19236,12 @@
                                 "id": "231e16a9-ccee-44e2-915b-32e4c3ebe26e",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 42186.0920192836,
-                                        "y": 32977.64571353076
+                                        "x": 33448.22794161369,
+                                        "y": 23377.645713530757
                                     },
                                     "targetPosition": {
-                                        "x": 41896.31427139688,
-                                        "y": 32900
+                                        "x": 33158.45019372697,
+                                        "y": 23300
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -19050,12 +19262,12 @@
                         "id": "a732fe99-1d28-44c3-b50e-0a0d7afa176b",
                         "savedPayload": {
                             "position": {
-                                "x": 41896.31427139688,
-                                "y": 32900
+                                "x": 33158.45019372697,
+                                "y": 23300
                             },
                             "targetPosition": {
-                                "x": 41636.506650261545,
-                                "y": 33050
+                                "x": 32898.642572591634,
+                                "y": 23450
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -19078,12 +19290,12 @@
                     "id": "b4c0b3d6-bea0-43dc-b1d3-a3048c630bf2",
                     "savedPayload": {
                         "position": {
-                            "x": 41926.284398148266,
-                            "y": 33127.64571353076
+                            "x": 33188.420320478355,
+                            "y": 23527.645713530757
                         },
                         "targetPosition": {
-                            "x": 41636.506650261545,
-                            "y": 33050
+                            "x": 32898.642572591634,
+                            "y": 23450
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -19101,12 +19313,12 @@
                 "id": "38f0a3cb-8de3-429c-bb82-a28e07c2be7d",
                 "savedPayload": {
                     "position": {
-                        "x": 41636.506650261545,
-                        "y": 33050
+                        "x": 32898.642572591634,
+                        "y": 23450
                     },
                     "targetPosition": {
-                        "x": 41376.69902912621,
-                        "y": 33200
+                        "x": 32638.8349514563,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19144,12 +19356,12 @@
                                 "id": "a9146071-3483-4a5b-8ad0-11fe647dd452",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 42236.506650261545,
-                                        "y": 33350
+                                        "x": 33498.642572591634,
+                                        "y": 23750
                                     },
                                     "targetPosition": {
-                                        "x": 41936.506650261545,
-                                        "y": 33350
+                                        "x": 33198.642572591634,
+                                        "y": 23750
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -19205,12 +19417,12 @@
                         "id": "b79befb0-0478-4bb1-810f-6da14853dfa5",
                         "savedPayload": {
                             "position": {
-                                "x": 41936.506650261545,
-                                "y": 33350
+                                "x": 33198.642572591634,
+                                "y": 23750
                             },
                             "targetPosition": {
-                                "x": 41636.506650261545,
-                                "y": 33350
+                                "x": 32898.642572591634,
+                                "y": 23750
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -19233,12 +19445,12 @@
                     "id": "b3a93cc0-0801-4f6e-9488-435a1d272bff",
                     "savedPayload": {
                         "position": {
-                            "x": 41786.506650261545,
-                            "y": 33609.80762113533
+                            "x": 33048.642572591634,
+                            "y": 24009.807621135333
                         },
                         "targetPosition": {
-                            "x": 41636.506650261545,
-                            "y": 33350
+                            "x": 32898.642572591634,
+                            "y": 23750
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -19256,12 +19468,12 @@
                 "id": "98125357-80c3-4d3b-9b91-059298515c11",
                 "savedPayload": {
                     "position": {
-                        "x": 41636.506650261545,
-                        "y": 33350
+                        "x": 32898.642572591634,
+                        "y": 23750
                     },
                     "targetPosition": {
-                        "x": 41376.69902912621,
-                        "y": 33200
+                        "x": 32638.8349514563,
+                        "y": 23600
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19279,12 +19491,12 @@
             "id": "a79ace48-ae15-4359-95c1-371df5e41291",
             "savedPayload": {
                 "position": {
-                    "x": 41376.69902912621,
-                    "y": 33200
+                    "x": 32638.8349514563,
+                    "y": 23600
                 },
                 "targetPosition": {
-                    "x": 41076.69902912621,
-                    "y": 33200
+                    "x": 32338.8349514563,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19316,12 +19528,12 @@
                     "id": "77071bb6-dbda-4a2a-a8da-83ea6aa4155d",
                     "savedPayload": {
                         "position": {
-                            "x": 41746.31427139688,
-                            "y": 33759.80762113533
+                            "x": 33008.45019372697,
+                            "y": 24159.807621135333
                         },
                         "targetPosition": {
-                            "x": 41486.506650261545,
-                            "y": 33609.80762113533
+                            "x": 32748.642572591634,
+                            "y": 24009.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -19339,12 +19551,12 @@
                 "id": "4087d58e-e684-4651-8849-4e194d5cc934",
                 "savedPayload": {
                     "position": {
-                        "x": 41486.506650261545,
-                        "y": 33609.80762113533
+                        "x": 32748.642572591634,
+                        "y": 24009.807621135333
                     },
                     "targetPosition": {
-                        "x": 41226.69902912621,
-                        "y": 33459.80762113533
+                        "x": 32488.8349514563,
+                        "y": 23859.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19380,12 +19592,12 @@
                                 "id": "68656d51-1bd7-4f06-8a60-d3c799bf2883",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 41526.69902912621,
-                                        "y": 34279.422863406
+                                        "x": 32788.8349514563,
+                                        "y": 24679.422863406
                                     },
                                     "targetPosition": {
-                                        "x": 41376.69902912621,
-                                        "y": 34019.615242270665
+                                        "x": 32638.8349514563,
+                                        "y": 24419.615242270665
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -19417,12 +19629,12 @@
                         "id": "8df1f4b0-7f9d-4de3-8db0-ed4b8584d614",
                         "savedPayload": {
                             "position": {
-                                "x": 41376.69902912621,
-                                "y": 34019.615242270665
+                                "x": 32638.8349514563,
+                                "y": 24419.615242270665
                             },
                             "targetPosition": {
-                                "x": 41226.69902912621,
-                                "y": 33759.80762113533
+                                "x": 32488.8349514563,
+                                "y": 24159.807621135333
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -19445,12 +19657,12 @@
                     "id": "ef6f8b6c-6e85-4d6c-ad64-b1e6ddd1248f",
                     "savedPayload": {
                         "position": {
-                            "x": 41076.69902912621,
-                            "y": 34019.615242270665
+                            "x": 32338.8349514563,
+                            "y": 24419.615242270665
                         },
                         "targetPosition": {
-                            "x": 41226.69902912621,
-                            "y": 33759.80762113533
+                            "x": 32488.8349514563,
+                            "y": 24159.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -19468,12 +19680,12 @@
                 "id": "ee380273-eced-4761-b91e-94b542beb5de",
                 "savedPayload": {
                     "position": {
-                        "x": 41226.69902912621,
-                        "y": 33759.80762113533
+                        "x": 32488.8349514563,
+                        "y": 24159.807621135333
                     },
                     "targetPosition": {
-                        "x": 41226.69902912621,
-                        "y": 33459.80762113533
+                        "x": 32488.8349514563,
+                        "y": 23859.807621135333
                     },
                     "floatingObject": {
                         "isPinned": false,
@@ -19491,12 +19703,12 @@
             "id": "c09288a3-64fb-489d-8e7d-c8d72a56c535",
             "savedPayload": {
                 "position": {
-                    "x": 41226.69902912621,
-                    "y": 33459.80762113533
+                    "x": 32488.8349514563,
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
-                    "x": 41076.69902912621,
-                    "y": 33200
+                    "x": 32338.8349514563,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19529,12 +19741,12 @@
                         "id": "cee20d74-7e6f-4477-8297-ae236eb35783",
                         "savedPayload": {
                             "position": {
-                                "x": 40626.69902912621,
-                                "y": 33979.422863406
+                                "x": 31888.8349514563,
+                                "y": 24379.422863406
                             },
                             "targetPosition": {
-                                "x": 40776.69902912621,
-                                "y": 33719.615242270665
+                                "x": 32038.8349514563,
+                                "y": 24119.615242270665
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -19552,12 +19764,12 @@
                     "id": "13ae03a8-cf68-4b7f-b792-b9b8c89dff64",
                     "savedPayload": {
                         "position": {
-                            "x": 40776.69902912621,
-                            "y": 33719.615242270665
+                            "x": 32038.8349514563,
+                            "y": 24119.615242270665
                         },
                         "targetPosition": {
-                            "x": 40926.69902912621,
-                            "y": 33459.80762113533
+                            "x": 32188.8349514563,
+                            "y": 23859.807621135333
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -19576,12 +19788,12 @@
             "id": "a54eadc5-21ed-4bdf-b202-8aff6d55f62d",
             "savedPayload": {
                 "position": {
-                    "x": 40926.69902912621,
-                    "y": 33459.80762113533
+                    "x": 32188.8349514563,
+                    "y": 23859.807621135333
                 },
                 "targetPosition": {
-                    "x": 41076.69902912621,
-                    "y": 33200
+                    "x": 32338.8349514563,
+                    "y": 23600
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -19599,12 +19811,12 @@
         "id": "d7571db7-acfc-4d8c-aa91-582ff7f5dbb3",
         "savedPayload": {
             "position": {
-                "x": 41076.69902912621,
-                "y": 33200
+                "x": 32338.8349514563,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 40776.69902912621,
-                "y": 33200
+                "x": 32038.8349514563,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -19626,12 +19838,12 @@
         "id": "a72ec234-c5dc-425e-9ace-95ffed7c0542",
         "savedPayload": {
             "position": {
-                "x": 40476.69902912621,
-                "y": 33200
+                "x": 31738.8349514563,
+                "y": 23600
             },
             "targetPosition": {
-                "x": 40776.69902912621,
-                "y": 33200
+                "x": 32038.8349514563,
+                "y": 23600
             },
             "floatingObject": {
                 "isPinned": false,
@@ -19649,17 +19861,17 @@
     "id": "280f0baf-bc13-497c-b255-618c1a146442",
     "savedPayload": {
         "position": {
-            "x": 40776.69902912621,
-            "y": 33200
+            "x": 32038.8349514563,
+            "y": 23600
         },
         "targetPosition": {
-            "x": 40776.69902912621,
-            "y": 33200
+            "x": 32038.8349514563,
+            "y": 23600
         },
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

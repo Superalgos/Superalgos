@@ -14,7 +14,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     */
     let thisObject = {
-        run: run 
+        run: run
     }
     return thisObject
 
@@ -37,8 +37,10 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         extractInfoFromUserProfiles()
 
         if (p2pNetworkClientIdentity.node === undefined) {
-            throw('The Network Client Identity does not match any node at User Profiles Plugins.')
+            throw ('The Network Client Identity does not match any node at User Profiles Plugins.')
         }
+
+        setupPermissionedNetwork()
 
         async function loadAppSchemas() {
 
@@ -144,7 +146,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
         }
 
         async function setReferenceParentForNodeHierearchy(nodeHierearchyMap) {
-            let mapArray = Array.from(nodeHierearchyMap) 
+            let mapArray = Array.from(nodeHierearchyMap)
             for (let i = 0; i < mapArray.length; i++) {
                 let mapArrayItem = mapArray[i][1]
 
@@ -155,7 +157,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             }
         }
 
-        async function extractInfoFromUserProfiles() {
+        function extractInfoFromUserProfiles() {
 
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
 
@@ -261,6 +263,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 if (p2pNetworkClientIdentity.initialize(
                                     networkClient,
                                     blockchainAccount,
+                                    userProfile,
                                     userSocialProfile
                                 ) === false) {
                                     throw ('Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.')
@@ -281,6 +284,28 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                         SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
                     }
                 }
+            }
+        }
+
+        function setupPermissionedNetwork() {
+            /*
+            If we are a P2P Network Node that is part of a Permissioned P2P Network,
+            then we will need to build a Map with all User Profiles that have access
+            to this network, in order to use it later to enforce these permissions
+            at the Network Interfaces.
+            */
+            if (p2pNetworkClientIdentity.node.type !== "P2P Network Node") { return }
+            if (p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent.type !== "Permissioned P2P Network") { return }
+
+            let petmissionGrantedArray = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+                p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent,
+                'Permission Granted'
+            )
+
+            for (let i = 0; i < petmissionGrantedArray.length; i++) {
+                let permissionGranted = petmissionGrantedArray[i]
+                if (permissionGranted.referenceParent === undefined) { continue }
+                SA.projects.network.globals.memory.maps.PERMISSIONS_GRANTED_BY_USER_PRFILE_ID.set(permissionGranted.referenceParent.id, permissionGranted.referenceParent)
             }
         }
     }

@@ -126,7 +126,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     caller.socket.send(JSON.stringify(response))
                                     caller.socket.close()
                                     return
-                                }                                
+                                }
 
                                 let response
                                 switch (caller.role) {
@@ -460,17 +460,32 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         return
                     }
                     /*
-                    All validations have been completed, the Handshake Procedure finished well.
-                    */
-                    /*
                     We will remember the user profile behind this caller.
                     */
                     caller.userProfile = witnessUserProfile
                     /*
+                    We will check that if we are a node of a Permissioned Network, that whoever
+                    is connecting to us, has the permission to do so.
+                    */
+                    if (NT.networkApp.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type === "Permissioned P2P Network") {
+                        let userProfileWithPermission = SA.projects.network.globals.memory.maps.PERMISSIONS_GRANTED_BY_USER_PRFILE_ID.get(caller.userProfile.id)
+                        if (userProfileWithPermission === undefined) {
+                            let response = {
+                                result: 'Error',
+                                message: 'User Profile Does Not Have Permission to This Permissioned P2P Network.'
+                            }
+                            caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
+                            return
+                        }
+                    }
+                    /*
                     We will remember the caller itself.
                     */
                     addCaller(caller)
-
+                    /*
+                    All validations have been completed, the Handshake Procedure finished well.
+                    */
                     let response = {
                         result: 'Ok',
                         message: 'Handshake Successful.'

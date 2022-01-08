@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wählen Sie Bedingung hinzufügen (Add Condition) im Menü der Situation und fügen Sie den Code in den Javascript-Code Knoten ein!",
                 "updated": 1639265553683
+            },
+            {
+                "language": "TR",
+                "text": "Durum (situation) menüsünde Koşul Ekle'yi ( Condition  )  seçin ve kodu Javascript kod ( Javascript Code )  düğümüne yapıştırın!",
+                "updated": 1641654388262
             }
         ]
     },
@@ -29,6 +34,11 @@
                     "language": "DE",
                     "text": "Beschriften Sie den Bedingungsknoten 24H Not Side und beschriften Sie die Situation als Downtrend, um die Dinge ordentlich zu halten!",
                     "updated": 1639265564098
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşulların düğümünü 24H Yan değil (Not Side) olarak etiketle ve işleri düzenli tutmak için durumu bir düşüş trendi (Downtrend) olarak etiketle!",
+                    "updated": 1641654408129
                 }
             ]
         },
@@ -41,6 +51,11 @@
                     "language": "DE",
                     "text": "Wir hätten die beiden Bedingungen auch in eine einzige schreiben können, indem wir den Operator && verwenden. Warum das keine gute Idee ist, erkläre ich Ihnen im nächsten Schritt!",
                     "updated": 1639265579723
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ayrıca iki koşulu & imlecini kullanarak tek bir koşula yazabilirdik. Bu iyi bir fikir değil,neden iyi bir fikir değil, bir sonraki adımda açıklayacağım!",
+                    "updated": 1641654435051
                 }
             ]
         }

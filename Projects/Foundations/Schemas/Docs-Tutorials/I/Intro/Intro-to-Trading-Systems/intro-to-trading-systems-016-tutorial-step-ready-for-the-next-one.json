@@ -30,6 +30,11 @@
                     "language": "TR",
                     "text": "Serideki bir sonraki öğretici, ticaret fikirlerinin test edilebilmesi için ticaret fikirlerini resmi bir varsayım haline getirmekle ilgilidir. Bir ticaret fikrini test etmek, bir Ticaret Stratejisi ( Trading Strategy ) oluşturma sürecindeki ilk adımdır!",
                     "updated": 1640784043290
+                },
+                {
+                    "language": "DE",
+                    "text": "Im nächsten Tutorial dieser Reihe geht es darum, Handelsideen in eine formale Hypothese zu gießen, damit die Handelsidee getestet werden kann. Das Testen einer Handelsidee ist der erste Schritt im Prozess der Entwicklung einer Handelsstrategie!",
+                    "updated": 1641763203364
                 }
             ]
         },

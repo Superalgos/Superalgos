@@ -315,17 +315,128 @@
                 "positionClaimsFolders": [
                     {
                         "type": "Position Claims Folder",
-                        "name": "New Position Claims Folder",
+                        "name": "Teams @ Dec 2021 Position Class",
                         "config": "{}",
                         "project": "Governance",
-                        "positionClaimsFolders": [],
-                        "positionContributionClaims": [
+                        "positionClaimsFolders": [
                             {
-                                "type": "Position Contribution Claim",
-                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                "type": "Position Claims Folder",
+                                "name": "Teams With PoW Reports Position Class",
                                 "config": "{}",
                                 "project": "Governance",
-                                "id": "0f7d0cd7-b0f2-4563-b095-0ffc5d7c6017",
+                                "positionClaimsFolders": [
+                                    {
+                                        "type": "Position Claims Folder",
+                                        "name": "Education Team PoW Report Position Class",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "positionClaimsFolders": [],
+                                        "positionContributionClaims": [
+                                            {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Translation Team Token Pool Education Team PoW Report",
+                                                "config": "{}",
+                                                "project": "Governance",
+                                                "id": "863e336f-777b-4ce7-b684-3db6bff0f4e0",
+                                                "savedPayload": {
+                                                    "position": {
+                                                        "x": 5418.321393632236,
+                                                        "y": 18314
+                                                    },
+                                                    "targetPosition": {
+                                                        "x": 5158.5137724969045,
+                                                        "y": 18464
+                                                    },
+                                                    "floatingObject": {
+                                                        "isPinned": false,
+                                                        "isFrozen": false,
+                                                        "isCollapsed": false,
+                                                        "angleToParent": 2,
+                                                        "distanceToParent": 3,
+                                                        "arrangementStyle": 0
+                                                    },
+                                                    "uiObject": {
+                                                        "isRunning": false
+                                                    },
+                                                    "referenceParent": {
+                                                        "type": "Position",
+                                                        "name": "Translation Team Token Pool",
+                                                        "id": "461dc6c0-6507-4c74-9da5-cae2f3f59907"
+                                                    },
+                                                    "referenceParentCombinedNodePath": [
+                                                        [
+                                                            "Teams of Contributors",
+                                                            "Positions"
+                                                        ],
+                                                        [
+                                                            "Teams @ Dec 2021",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Teams With PoW Reports",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Education Team PoW Report",
+                                                            "Position Class"
+                                                        ],
+                                                        [
+                                                            "Translation Team Token Pool",
+                                                            "Position"
+                                                        ]
+                                                    ]
+                                                }
+                                            }
+                                        ],
+                                        "id": "a14540a3-72c8-49de-8563-a12dfff4c882",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 5158.5137724969045,
+                                                "y": 18464
+                                            },
+                                            "targetPosition": {
+                                                "x": 4898.706151361573,
+                                                "y": 18614
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 2,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Class",
+                                                "name": "Education Team PoW Report",
+                                                "id": "5c994463-567b-4433-bc9d-154a58fef42b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Teams of Contributors",
+                                                    "Positions"
+                                                ],
+                                                [
+                                                    "Teams @ Dec 2021",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Teams With PoW Reports",
+                                                    "Position Class"
+                                                ],
+                                                [
+                                                    "Education Team PoW Report",
+                                                    "Position Class"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "positionContributionClaims": [],
+                                "id": "43ad730a-6779-425d-9b23-a824c58f321f",
                                 "savedPayload": {
                                     "position": {
                                         "x": 4898.706151361573,
@@ -347,9 +458,9 @@
                                         "isRunning": false
                                     },
                                     "referenceParent": {
-                                        "type": "Position",
-                                        "name": "Translation Team Token Pool",
-                                        "id": "461dc6c0-6507-4c74-9da5-cae2f3f59907"
+                                        "type": "Position Class",
+                                        "name": "Teams With PoW Reports",
+                                        "id": "ffe60194-2b00-4f3c-b1a6-0abf94b2914c"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -363,19 +474,12 @@
                                         [
                                             "Teams With PoW Reports",
                                             "Position Class"
-                                        ],
-                                        [
-                                            "Education Team PoW Report",
-                                            "Position Class"
-                                        ],
-                                        [
-                                            "Translation Team Token Pool",
-                                            "Position"
                                         ]
                                     ]
                                 }
                             }
                         ],
+                        "positionContributionClaims": [],
                         "id": "594f7123-c89d-4db6-9cc3-2b465dd3e4af",
                         "savedPayload": {
                             "position": {

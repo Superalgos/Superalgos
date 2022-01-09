@@ -7,24 +7,59 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI ."
+        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI .",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Task-Server ist ein Node.js-Fork-Prozess des Clients, der die Definition des Tasks, der ausgeführt werden soll, von der Benutzeroberfläche erhält.",
+                "updated": 1641729950857
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The definition includes:"
+            "text": "The definition includes:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Definition beinhaltet:",
+                    "updated": 1641729959239
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot."
+            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bot to run: Der Bot könnte ein Sensor-Bot, ein Indikator-Bot oder ein Handels-Bot sein.",
+                    "updated": 1641729970143
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Processes to run: Each bot definition may have one or more bot processes."
+            "text": "Processes to run: Each bot definition may have one or more bot processes.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Processes to run:  Jede Bot-Definition kann einen oder mehrere Bot-Prozesse enthalten.",
+                    "updated": 1641729977633
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run."
+            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Alle Definitionen befinden sich in der Benutzeroberfläche. Jedes Mal, wenn der Benutzer eine Aufgabe ausführt, sammelt die Benutzeroberfläche alle relevanten Informationen in einem einzigen, riesigen JSON-Objekt und sendet dieses an den Task-Manager-Server, der wiederum, nachdem der Fork-Prozess ausgeführt wurde, diese Definition an die gerade erstellte Task-Server-Instanz weitergibt. Mit dieser Definition kennt der Task-Server alle Details der auszuführenden Aufgabe.",
+                    "updated": 1641729984073
+                }
+            ]
         }
     ]
 }

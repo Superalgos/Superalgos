@@ -7,32 +7,70 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Superalgos is essentially a Node.js application + a Web App."
+        "text": "Superalgos is essentially a Node.js application + a Web App.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Superalgos ist im Wesentlichen eine Node.js-Anwendung + eine Web-App.",
+                "updated": 1641729195697
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The overall idea is that Superalgos runs at users' machines. Advanced users may deploy multiple Superalgos nodes in a LAN and distribute tasks easily. In the current version, these nodes are not ready to be exposed to the Internet. Someday they will, and eventually, they will be able to provide services to other users. These services may include:"
+            "text": "The overall idea is that Superalgos runs at users' machines. Advanced users may deploy multiple Superalgos nodes in a LAN and distribute tasks easily. In the current version, these nodes are not ready to be exposed to the Internet. Someday they will, and eventually, they will be able to provide services to other users. These services may include:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Grundidee ist, dass Superalgos auf den Rechnern der Benutzer läuft. Fortgeschrittene Benutzer können mehrere Superalgos-Knoten in einem LAN einrichten und die Aufgaben einfach verteilen. In der aktuellen Version sind diese Knoten noch nicht bereit, ins Internet zu gehen. Eines Tages werden sie jedoch in der Lage sein, Dienste für andere Benutzer bereitzustellen. Zu diesen Diensten können gehören:",
+                    "updated": 1641729204615
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Data Products: Pre-calculated indicators or studies."
+            "text": "Data Products: Pre-calculated indicators or studies.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Data Products:  Vorberechnete Indikatoren oder Studien.",
+                    "updated": 1641729211386
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Backtest Execution: To scale testing capabilities."
+            "text": "Backtest Execution: To scale testing capabilities.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Backtest Execution: Zur Skalierung der Testmöglichkeiten.",
+                    "updated": 1641729218704
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Live Trading Execution: Only if trusted entities emerge."
+            "text": "Live Trading Execution: Only if trusted entities emerge.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Live Trading Execution: Nur wenn vertrauenswürdige Unternehmen auftauchen.",
+                    "updated": 1641729227369
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Data Processing Execution: External data processing power."
-        },
-        {
-            "style": "Link",
-            "text": "->"
+            "text": "Data Processing Execution: External data processing power.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Data Processing Execution: Externe Datenverarbeitungsleistung.",
+                    "updated": 1641729235546
+                }
+            ]
         }
     ]
 }

@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This is a simple implementation of a web sockets server. It essentially allows the UI or any of the other services to communicate with the Events Server via WS."
+        "text": "This is a simple implementation of a web sockets server. It essentially allows the UI or any of the other services to communicate with the Events Server via WS.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist eine einfache Implementierung eines Web-Sockets-Servers. Er ermöglicht es der Benutzeroberfläche oder anderen Diensten, über WS mit dem Eventserver zu kommunizieren.",
+                "updated": 1641729694113
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The system does not allow different processes to talk to each other via WS. All they can do is talk to the Events Server to subscribe to events or to emit events."
+            "text": "The system does not allow different processes to talk to each other via WS. All they can do is talk to the Events Server to subscribe to events or to emit events.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System erlaubt es den verschiedenen Prozessen nicht, über WS miteinander zu kommunizieren. Sie können lediglich mit dem Eventserver kommunizieren, um Ereignisse zu abonnieren oder auszusenden.",
+                    "updated": 1641729703046
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Web Socket Server enables this indirect communication mechanism between all processes and the UI running on a single machine, as well as communication between processes running on different machines."
+            "text": "The Web Socket Server enables this indirect communication mechanism between all processes and the UI running on a single machine, as well as communication between processes running on different machines.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Web Socket Server ermöglicht diesen indirekten Kommunikationsmechanismus zwischen allen Prozessen und der Benutzeroberfläche, die auf einem einzigen Rechner laufen, sowie die Kommunikation zwischen Prozessen, die auf verschiedenen Rechnern laufen.",
+                    "updated": 1641729708873
+                }
+            ]
         }
     ]
 }

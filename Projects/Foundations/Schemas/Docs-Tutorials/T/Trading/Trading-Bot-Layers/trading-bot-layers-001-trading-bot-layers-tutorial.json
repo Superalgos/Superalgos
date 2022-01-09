@@ -21,6 +21,11 @@
                 "language": "RU",
                 "text": "В этом уроке вы познакомитесь со слоями, доступными торговому боту на графиках, в частности, со слоями, связанными со всеми типами торговых сессий. Вы проведете бэктест торговой системы BTC-USDT - Weak-hands Buster - WHB и рассмотрите некоторые сделки, одновременно изучая, как использовать слои.",
                 "updated": 1640543164737
+            },
+            {
+                "language": "TR",
+                "text": "Bu eğitim, Ticaret Botu (Trading Bot) tarafından grafiklerde kullanılan katmanlar, özellikle de tüm Ticaret Oturumları ile ilişkili katmanlar konusunda size yol gösterir. BTC-USDT - Weak-Hands-Buster - WHB ticaret sisteminin geriye dönük testini yapacak ve katmanları nasıl kullanacağınızı öğrenirken bazı işlemleri keşfedeceksiniz.",
+                "updated": 1641717431841
             }
         ]
     },

@@ -5,7 +5,6 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
     by this module.
     */
     let thisObject = {
-        incomingSignals: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -13,8 +12,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
     return thisObject
 
     function finalize() {
-        thisObject.incomingSignals.finalize()
-        thisObject.incomingSignals = undefined
+
     }
 
     function initialize() {
@@ -22,13 +20,8 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
         Setup Web 3 Library
         */
         web3 = new SA.nodeModules.web3()
-        /*
-        Setup the module that will process incoming signals.
-        */
-        thisObject.incomingSignals = NT.projects.network.modules.incomingSignals.newNetworkModulesIncomingSignals()
-        thisObject.incomingSignals.initialize()
 
-        let port = NT.networkNode.p2pNetworkNode.node.config.webPort
+        let port = NT.networkApp.p2pNetworkNode.node.config.webPort
         /*
         We will create an HTTP Server and leave it running forever.
         */
@@ -41,20 +34,66 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
             let requestPath = requestPathAndParameters[0].split('/')
             let endpointOrFile = requestPath[1]
 
+            // TODO: Authenticate the app sending this request
+
+            let caller = {
+                userProfile: undefined,
+                node: undefined
+            }
+    
             switch (endpointOrFile) {
-                case 'New-Signal':
+                case 'New-Message':
                     {
                         SA.projects.foundations.utilities.httpRequests.getRequestBody(httpRequest, httpResponse, processRequest)
 
                         async function processRequest(bodyString) {
                             try {
+                                let messageHeader = JSON.parse(bodyString)
                                 if (bodyString === undefined) {
                                     return
                                 }
 
-                                let signal = JSON.parse(bodyString)
+                                switch (messageHeader.callerRole) {
+                                    case 'Network Client': {
+                                        switch (messageHeader.networkService) {
+                                            case 'Trading Signals': {
+                                                if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                } else {
+                                                    let response = {
+                                                        result: 'Error',
+                                                        message: 'Trading Signals Network Service Not Running.'
+                                                    }
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                    return
+                                                }
+                                                break
+                                            }
+                                        }
+                                        break
+                                    }
+                                    case 'Network Peer': {
+                                        switch (messageHeader.networkService) {
+                                            case 'Trading Signals': {
+                                                if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                                    response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                } else {
+                                                    let response = {
+                                                        result: 'Error',
+                                                        message: 'Trading Signals Network Service Not Running.'
+                                                    }
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                                    return
+                                                }
+                                                break
+                                            }
+                                        }
+                                        break
+                                    }
+                                }
 
-                                let response = await thisObject.incomingSignals.newSignal(signal)
                                 SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
                             } catch (err) {

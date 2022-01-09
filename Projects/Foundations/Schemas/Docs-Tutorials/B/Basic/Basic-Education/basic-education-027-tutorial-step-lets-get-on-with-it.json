@@ -82,8 +82,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Heften Sie den Knoten, den Sie verschieben möchten, an den Entwurfsraum, damit Sie ihn an jedem beliebigen Punkt loslassen können, um die Entwurfsraumkarte auf Richtungen zu überprüfen.",
-                    "updated": 1634334621202
+                    "text": "Stecken Sie den Knoten, den Sie verschieben wollen, in den Entwurfsbereich, damit er dort bleibt, wo Sie ihn ablegen!",
+                    "updated": 1641741319676
                 },
                 {
                     "language": "TR",
@@ -112,8 +112,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ziehen Sie den Knoten mit Ctrl / Cmd + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
-                    "updated": 1634334644137
+                    "text": "Klicken Sie auf die Schaltfläche \"Save node to be moved\" auf dem Knoten, den Sie verschieben möchten. ",
+                    "updated": 1641741355901
                 },
                 {
                     "language": "TR",
@@ -125,16 +125,37 @@
         {
             "style": "List",
             "text": "Use the design space map to zoom out and click near the node to which you wish to travel. ",
-            "updated": 1640098364795
+            "updated": 1640098364795,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Verkleinern Sie die Karte des Designraums und klicken Sie in die Nähe des Knotens, zu dem Sie reisen möchten.",
+                    "updated": 1641741272856
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Click \"Snap saved node to postion\" and the node you saved will magically appear on top of the node you are at!",
-            "updated": 1640098421986
+            "updated": 1640098421986,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf \"Gespeicherten Knoten an Position fangen\", und der gespeicherte Knoten erscheint auf magische Weise über dem Knoten, an dem Sie sich befinden!",
+                    "updated": 1641741282424
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Remove the pin once the reference is established so that the node goes back to its place."
+            "text": "Remove the pin once the reference is established so that the node goes back to its place.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Entfernen Sie die Stecknadel, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
+                    "updated": 1641741288724
+                }
+            ]
         }
     ]
 }

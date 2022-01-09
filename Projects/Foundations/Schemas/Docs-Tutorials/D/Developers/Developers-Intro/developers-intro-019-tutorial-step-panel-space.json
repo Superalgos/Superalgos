@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels."
+        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Panelbereich ist der Ort, an dem alle von Plottern definierten Panels existieren. Der Bereich verfügt über eine eigene Physik-Engine, die die Art und Weise regelt, wie Benutzer mit Panels und Panels mit anderen Panels interagieren.",
+                "updated": 1641736659403
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space."
+            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Panels sind an die Grenzen des Panel Space gebunden, der mit den Grenzen des Charting Space übereinstimmt.",
+                    "updated": 1641736669044
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it."
+            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Obwohl der Panel-Bereich seit den Anfängen des Projekts existiert, ist er immer noch recht unterentwickelt, und es gibt viel Raum für Verbesserungen.",
+                    "updated": 1641736676281
+                }
+            ]
         }
     ]
 }

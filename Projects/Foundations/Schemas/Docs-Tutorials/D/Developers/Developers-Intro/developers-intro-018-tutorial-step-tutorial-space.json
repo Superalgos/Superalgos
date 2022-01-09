@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Enables running tutorials. It is not based on the HTML canvas, but on HTML + CSS."
+        "text": "Enables running tutorials. It is not based on the HTML canvas, but on HTML + CSS.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Ermöglicht die Durchführung von Tutorials. Er basiert nicht auf dem HTML-Canvas, sondern auf HTML + CSS.",
+                "updated": 1641736573750
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Tutorial Space is the highest top-tier layer of all the system since its rendered above everything else. It can manipulate other spaces based on the configuration of each tutorial topic and step."
+            "text": "The Tutorial Space is the highest top-tier layer of all the system since its rendered above everything else. It can manipulate other spaces based on the configuration of each tutorial topic and step.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Tutorial-Bereich ist die oberste Ebene des gesamten Systems, da er über allem anderen gerendert wird. Er kann andere Bereiche auf der Grundlage der Konfiguration der einzelnen Tutorial-Themen und -Schritte manipulieren.",
+                    "updated": 1641736580652
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Not only may tutorials move the user around the UI, but may also take most actions users themselves may take, like, for instance, running tasks of any kind."
+            "text": "Not only may tutorials move the user around the UI, but may also take most actions users themselves may take, like, for instance, running tasks of any kind.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Tutorials können den Benutzer nicht nur auf der Benutzeroberfläche bewegen, sondern auch die meisten Aktionen ausführen, die der Benutzer selbst durchführen kann, wie z. B. das Ausführen von Aufgaben jeglicher Art.",
+                    "updated": 1641736590095
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Tutorial Space is a new addition to the system. For that reason, few tutorials exist today, but we expect this to change in the future."
+            "text": "The Tutorial Space is a new addition to the system. For that reason, few tutorials exist today, but we expect this to change in the future.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Tutorial-Bereich ist eine neue Ergänzung des Systems. Aus diesem Grund gibt es heute nur wenige Tutorials, aber wir erwarten, dass sich dies in Zukunft ändern wird.",
+                    "updated": 1641736596282
+                }
+            ]
         }
     ]
 }

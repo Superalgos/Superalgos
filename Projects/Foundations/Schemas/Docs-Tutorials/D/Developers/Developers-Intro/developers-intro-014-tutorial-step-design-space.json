@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Manages the core concept of nodes which, when attached to one another, may form vast definitions easily made and maintained by users."
+        "text": "Manages the core concept of nodes which, when attached to one another, may form vast definitions easily made and maintained by users.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Verwaltet das Kernkonzept der Knoten, die, wenn sie miteinander verbunden werden, umfangreiche Definitionen bilden können, die von den Benutzern leicht erstellt und gepflegt werden können.",
+                "updated": 1641735783104
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The system features a file called App Schema which has the rules about the existing types of nodes, which nodes may be the child of other nodes, and which may reference other nodes and which. It also defines the menu items of nodes. All these rules are enforced on the Design Space."
+            "text": "The system features a file called App Schema which has the rules about the existing types of nodes, which nodes may be the child of other nodes, and which may reference other nodes and which. It also defines the menu items of nodes. All these rules are enforced on the Design Space.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das System verfügt über eine Datei namens App Schema, die die Regeln für die vorhandenen Knotentypen enthält, welche Knoten das Kind anderer Knoten sein können und welche Knoten auf andere Knoten verweisen können. Sie definiert auch die Menüpunkte der Knoten. All diese Regeln werden im Design Space durchgesetzt.",
+                    "updated": 1641735800885
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Users may then attach nodes, establish references between nodes, select menu items,  and more..."
+            "text": "Users may then attach nodes, establish references between nodes, select menu items,  and more...",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Benutzer können dann Knoten anhängen, Verweise zwischen Knoten herstellen, Menüpunkte auswählen und vieles mehr...",
+                    "updated": 1641735807974
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Design Space is tightly coupled with the Floating Space."
+            "text": "The Design Space is tightly coupled with the Floating Space.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Design Space ist eng mit dem Floating Space gekoppelt.",
+                    "updated": 1641735814787
+                }
+            ]
         }
     ]
 }

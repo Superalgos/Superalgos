@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This is like the low-level part of the Design Space. It features a physics engine that governs the physical interactions of floating objects."
+        "text": "This is like the low-level part of the Design Space. It features a physics engine that governs the physical interactions of floating objects.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Dies ist sozusagen der Low-Level-Teil des Design Space. Er verfügt über eine Physik-Engine, die die physikalischen Interaktionen der schwebenden Objekte steuert.",
+                "updated": 1641735953807
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "At runtime, each node on the Design Space behaves like a molecule featuring three atoms working together: the first one is called Floating Object and belongs to the Floating Space, which controls its position and collision-related physics; the second one is a UiObject which lives at the Design Space and controls the UI of the node, including menu, label, etc.; the third one is a Node that is&mdash;essentially&mdash;the information contained in that node."
+            "text": "At runtime, each node on the Design Space behaves like a molecule featuring three atoms working together: the first one is called Floating Object and belongs to the Floating Space, which controls its position and collision-related physics; the second one is a UiObject which lives at the Design Space and controls the UI of the node, including menu, label, etc.; the third one is a Node that is&mdash;essentially&mdash;the information contained in that node.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zur Laufzeit verhält sich jeder Knoten im Design Space wie ein Molekül mit drei Atomen, die zusammenarbeiten: Das erste heißt Floating Object und gehört zum Floating Space, der seine Position und kollisionsbezogene Physik steuert; das zweite ist ein UiObject, das im Design Space lebt und die Benutzeroberfläche des Knotens steuert, einschließlich Menü, Beschriftung usw.; das dritte ist ein Node, der - im Wesentlichen - die in diesem Knoten enthaltenen Informationen darstellt.",
+                    "updated": 1641735968004
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "When you save the Workspace, Floating Objects and UIOBjects are detached from Nodes, and saved as a big JSON object with only its data."
+            "text": "When you save the Workspace, Floating Objects and UIOBjects are detached from Nodes, and saved as a big JSON object with only its data.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie den Arbeitsbereich speichern, werden schwebende Objekte und UIOObjects von den Knoten getrennt und als großes JSON-Objekt nur mit ihren Daten gespeichert.",
+                    "updated": 1641735974212
+                }
+            ]
         }
     ]
 }

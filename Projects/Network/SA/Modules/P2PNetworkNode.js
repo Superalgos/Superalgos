@@ -32,7 +32,7 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         We will setup here the maps and arryas we will need to operate within the P2P Network.
         */
         thisObject.node = node
-        hisObject.userProfile = userProfile
+        thisObject.userProfile = userProfile
         thisObject.userSocialProfile = userSocialProfile
         thisObject.blockchainAccount = blockchainAccount
        

@@ -25,8 +25,8 @@ exports.newTradingSignalsModulesTradingSignalsNetworkService = function newTradi
     }
 
     async function initialize() {
-        thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
-        thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
+        thisObject.clientInterface = NT.projects.tradingSignals.modules.clientInterface.newTradingSignalsModulesClientInterface()
+        thisObject.peerInterface = NT.projects.tradingSignals.modules.peerInterface.newSocialTradingModulesPeerInterface()
 
         thisObject.clientInterface.initialize()
         thisObject.peerInterface.initialize()

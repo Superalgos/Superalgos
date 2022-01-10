@@ -1221,8 +1221,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 allAppSchemasFilePaths.push(fileToRead)
                                                 allAppSchemasFileProjects.push(project)
                                             } catch (err) {
-                                                console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                                return
+                                                console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                                continue
                                             }
                                         }
                                         PROJECTS_MAP.set(project, SCHEMA_MAP)
@@ -1880,9 +1880,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     try {
                                         schemaDocument = JSON.parse(fileContent)
                                     } catch (err) {
-                                        console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
-                                        return
+                                        console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                        continue
                                     }
                                     schemaArray.push(schemaDocument)
                                 }

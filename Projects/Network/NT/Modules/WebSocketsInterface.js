@@ -425,7 +425,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     The user profile based on the blockchain account, based on the signature,
                     it is our witness user profile, to validate the caller.
                     */
-                    if (signedMessage.callerProfileHandle !== userProfileByBlockchainAccount.userProfileHandle) {
+                    if (signedMessage.callerProfileHandle !== userProfileByBlockchainAccount.config.signature.message) {
                         let response = {
                             result: 'Error',
                             message: 'callerProfileHandle Does Not Match userProfileByBlockchainAccount.'

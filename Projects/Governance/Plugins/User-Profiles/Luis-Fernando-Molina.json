@@ -1973,7 +1973,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Support Rewards Pool",
                                                                         "config": "{\r\n    \"percentage\": 95\r\n}",
                                                                         "project": "Governance",
                                                                         "id": "e1049be2-431e-479e-aa2a-7dd6222a22dd",
@@ -2038,7 +2038,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Support Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "3d29b6f1-29e9-4a2a-80ca-e3759060dc79",
@@ -2168,7 +2168,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Mentorship Rewards Pool",
                                                                         "config": "{\r\n    \"percentage\": 95\r\n}",
                                                                         "project": "Governance",
                                                                         "id": "4c1032fb-2f9a-4b69-a3de-98fca4367bcf",
@@ -2233,7 +2233,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Mentorship Bonus Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "52600e2b-3e91-402b-9440-abec9216479e",
@@ -2422,7 +2422,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "",
+                                                                        "name": "Liquidity Rewards BTCB Pool",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "8b1555fc-e7dd-41a7-91b1-8527ab2b7aed",
@@ -2652,7 +2652,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Team Positions Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e0870512-9813-4d51-8460-fb0f5f824f11",
@@ -2758,7 +2758,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "",
+                                                        "name": "Reserve For Future Distributions Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "1c0e483d-44e9-4772-a9fe-5082a28f2b19",
@@ -2914,7 +2914,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Data Mining Team PoW Report Data Mining Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "d7b3ae33-7893-4b17-9e36-e8b150b4942b",
@@ -3044,7 +3044,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Education Team PoW Report Translation Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "3bb4c115-f696-4ed8-9d89-43bd263764ab",
@@ -3109,7 +3109,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Education Team PoW Report Documentation Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "1aa26878-5f34-4c6f-93db-9fa74b51c223",
@@ -3239,7 +3239,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Distribution Team PoW Report Distribution Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e7f2deb4-eb51-416c-b629-b224077f6391",
@@ -3369,7 +3369,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "WHTV Team PoW Report WHTV Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "4c1c1304-2993-485a-873e-78b97edf25b0",
@@ -3499,7 +3499,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Marketing Teams PoW Report Superalgos Medium Blog Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "a76d0523-d603-4ad9-921b-05c0439874fc",
@@ -3564,7 +3564,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Marketing Teams PoW Report Public Relations Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "d2f1390f-b4f1-4da3-ba68-34d26318f79b",
@@ -3694,7 +3694,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Luis’ Team PoW Report Lantschirky Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "41c2bdec-ca42-4e3b-9c9f-49bbf7f14baf",
@@ -3759,7 +3759,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Luis’ Team PoW Report SSChana Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "b1a8e220-af4f-4cfe-9c78-e68f32ba91f2",
@@ -3889,7 +3889,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Brett's Team PoW Report Brett’s Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "c824a36e-3238-4f27-bd3c-f8dcc4d6c254",
@@ -4019,7 +4019,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Smidy’s Team PoW Report Smidy’s Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "9adb24ce-4e41-4411-8a70-91989a715d28",
@@ -4149,7 +4149,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Desktop Team PoW Report Desktop Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "48119bcf-6ea2-4bf4-8d37-7ebbead6d176",
@@ -4279,7 +4279,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "",
+                                                        "name": "Exchange Testing Team PoW Report Exchange Testing Team Token Pool",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "ccc2aa47-10e1-4dbc-b6ee-7de93121dfbd",
@@ -4572,7 +4572,7 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "Luis’ Team Token Pool Luis’ Team PoW Report",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "3797a2cb-8af4-41d1-8cb6-758a8dee5809",
@@ -4637,7 +4637,7 @@
                             },
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "",
+                                "name": "Portfolio Management Team Token Pool Portfolio Management Team PoW Report",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "2f998fbd-08fa-447b-b6ab-97f807c8923d",
@@ -5568,13 +5568,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x628ac1a3f787d13b2a07b0eb263bec7884cb756804c8d81005ae7300aced9448\",\n        \"s\": \"0x2bb206f7440cc38fb5d7cfba381f48e00c578fa45d7506b0c1fe33b7c08fc0c2\",\n        \"signature\": \"0x628ac1a3f787d13b2a07b0eb263bec7884cb756804c8d81005ae7300aced94482bb206f7440cc38fb5d7cfba381f48e00c578fa45d7506b0c1fe33b7c08fc0c21c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x949d0ca09433c7731b065e2772c37845b71b97ebf7aed863071af3cd9c4a7708\",\n        \"s\": \"0x428c4cc3728dac2462b84336848cc0e4e856be020b064d7778892b1066093ea1\",\n        \"signature\": \"0x949d0ca09433c7731b065e2772c37845b71b97ebf7aed863071af3cd9c4a7708428c4cc3728dac2462b84336848cc0e4e856be020b064d7778892b1066093ea11c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "b0e6eaf3-3ce2-4567-a663-3963b786d4f9",
+                        "id": "425e529f-2069-4b4a-a33e-b8fe7dd86dd1",
                         "savedPayload": {
                             "position": {
-                                "x": 29938.345626588965,
-                                "y": 33712.132034355964
+                                "x": 29561.345626588965,
+                                "y": 33670.132034355964
                             },
                             "targetPosition": {
                                 "x": 29638.345626588965,
@@ -5624,13 +5624,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xc435187d5161d00026a526ac158c733d041a7ca301980f99ccb81c3073641f55\",\n        \"s\": \"0x1c64cc95899dd62e4ef035a12599238ef3eae363d75b040613a58e286058566c\",\n        \"signature\": \"0xc435187d5161d00026a526ac158c733d041a7ca301980f99ccb81c3073641f551c64cc95899dd62e4ef035a12599238ef3eae363d75b040613a58e286058566c1b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x47a1bcc6d0f1b7c88b4d4bd6ddd8ab6e8e1e56122c8ba4d349d7609795e4fa49\",\n        \"s\": \"0x5a6c49efa396ddd74cf1fb70e012b4348df4cc9e386597d83f36e4ce96521e1a\",\n        \"signature\": \"0x47a1bcc6d0f1b7c88b4d4bd6ddd8ab6e8e1e56122c8ba4d349d7609795e4fa495a6c49efa396ddd74cf1fb70e012b4348df4cc9e386597d83f36e4ce96521e1a1b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "53470ed6-9963-4391-b569-cd781d8a5e5e",
+                        "id": "51150315-4f29-4214-bfbe-7cca9706844b",
                         "savedPayload": {
                             "position": {
-                                "x": 29762.609695300893,
-                                "y": 34136.39610306789
+                                "x": 29538.47766094493,
+                                "y": 33932.26406871193
                             },
                             "targetPosition": {
                                 "x": 29550.47766094493,
@@ -5682,13 +5682,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xd1d9753d7a8082221532696f30e239077154856c0e7a3b4daab450ab4335be6d\",\n        \"s\": \"0x6c304632b19631bab1ad0806507894b0eba66cc1b063e95e7cf492dc4e5e0977\",\n        \"signature\": \"0xd1d9753d7a8082221532696f30e239077154856c0e7a3b4daab450ab4335be6d6c304632b19631bab1ad0806507894b0eba66cc1b063e95e7cf492dc4e5e09771c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x43e33620ce0b0e3480db8b96e6d6a5e0b48dd8597bb3d7a5d1f1ca8bcd8c5bff\",\n        \"s\": \"0x3ce6184337ca384cb644806c23e37af95eb8e9467f8119f0d177b81317c4da8d\",\n        \"signature\": \"0x43e33620ce0b0e3480db8b96e6d6a5e0b48dd8597bb3d7a5d1f1ca8bcd8c5bff3ce6184337ca384cb644806c23e37af95eb8e9467f8119f0d177b81317c4da8d1c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "d91e0681-58d8-4567-af04-469cf8244291",
+                        "id": "81f14fcc-8e3f-464d-88b5-86b72a5ed75a",
                         "savedPayload": {
                             "position": {
-                                "x": 29338.345626588965,
-                                "y": 34312.132034355964
+                                "x": 29357.345626588965,
+                                "y": 33926.132034355964
                             },
                             "targetPosition": {
                                 "x": 29338.345626588965,
@@ -5768,13 +5768,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x9f9d85ac8a05b0abe6bc01f8069aa3d8a615814884158a8885e05b3be4af36c0\",\n        \"s\": \"0x7f18dc29723510ce4467a2d12f82cc29aa0bd76a9d396bc3bd7d61aad8da3438\",\n        \"signature\": \"0x9f9d85ac8a05b0abe6bc01f8069aa3d8a615814884158a8885e05b3be4af36c07f18dc29723510ce4467a2d12f82cc29aa0bd76a9d396bc3bd7d61aad8da34381b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x684e5abcd88a536bd202681d0cd79d95060420ded55c5412f819d1447dca16eb\",\n        \"s\": \"0x6b109bf185187b037500f3d0493a349cbdb7b47e2b49e5d72d82cef25b192bf9\",\n        \"signature\": \"0x684e5abcd88a536bd202681d0cd79d95060420ded55c5412f819d1447dca16eb6b109bf185187b037500f3d0493a349cbdb7b47e2b49e5d72d82cef25b192bf91c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "6d7d5965-4f94-4a11-9824-475a944dc220",
+                        "id": "a731f4e2-58ee-4a8b-8504-9a40b7cd7832",
                         "savedPayload": {
                             "position": {
-                                "x": 29126.213592233,
-                                "y": 34400
+                                "x": 29056.213592233,
+                                "y": 34185
                             },
                             "targetPosition": {
                                 "x": 29126.213592233,
@@ -5854,13 +5854,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x65960071f6b78a8ddf3c42715e2c809a0d42514c160e05d345181ab2a3be06eb\",\n        \"s\": \"0x09def9e0479f8503ef4dde4b01b702ae15433fb136a63335699665b919504d96\",\n        \"signature\": \"0x65960071f6b78a8ddf3c42715e2c809a0d42514c160e05d345181ab2a3be06eb09def9e0479f8503ef4dde4b01b702ae15433fb136a63335699665b919504d961b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x555f40c7945cca779f5044b676a8754f5bd00c98f6d649fbe8eaa74bdcbc7fc1\",\n        \"s\": \"0x0bfa9930950485c2359ba6b2970702b2876afdfcd0bca32f7ecaf1ded35e588c\",\n        \"signature\": \"0x555f40c7945cca779f5044b676a8754f5bd00c98f6d649fbe8eaa74bdcbc7fc10bfa9930950485c2359ba6b2970702b2876afdfcd0bca32f7ecaf1ded35e588c1b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "a1c3f19a-4686-452f-b14b-328811adf894",
+                        "id": "68f91cb0-5cb9-4ce4-9181-a1eb379b4ab8",
                         "savedPayload": {
                             "position": {
-                                "x": 28914.081557877038,
-                                "y": 34312.132034355964
+                                "x": 28947.081557877038,
+                                "y": 34051.132034355964
                             },
                             "targetPosition": {
                                 "x": 28914.081557877038,
@@ -5910,13 +5910,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x84a11d23acec27b4b1053666acf7eb7ecc31cc76b40ab824ee31fb8c8d21ece0\",\n        \"s\": \"0x780b5ff45e43627b17e4e83859e545c75034dc04259221877967205b4fcc0bb8\",\n        \"signature\": \"0x84a11d23acec27b4b1053666acf7eb7ecc31cc76b40ab824ee31fb8c8d21ece0780b5ff45e43627b17e4e83859e545c75034dc04259221877967205b4fcc0bb81b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x26b14b85fecc942e56570b3d6b0e113386dd5c48637294acf521982700ceba47\",\n        \"s\": \"0x7caf4d960daab31f4fd79b57218e35e5df99b81fc6de34e1cb1f0630a5c84b03\",\n        \"signature\": \"0x26b14b85fecc942e56570b3d6b0e113386dd5c48637294acf521982700ceba477caf4d960daab31f4fd79b57218e35e5df99b81fc6de34e1cb1f0630a5c84b031c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "675edf8e-8f8a-4e5b-96e3-1f73fbdf3a19",
+                        "id": "fc878b07-2370-47fb-80cb-ff804d00ce9a",
                         "savedPayload": {
                             "position": {
-                                "x": 28489.81748916511,
-                                "y": 34136.39610306789
+                                "x": 28658.949523521074,
+                                "y": 33945.26406871193
                             },
                             "targetPosition": {
                                 "x": 28701.949523521074,
@@ -5968,13 +5968,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xc111f1573bd8f3c30fdac2608be7ad64c49f9e77669c197ec9a4f230ec25b8fe\",\n        \"s\": \"0x189a35e27dbc928e2aecb8cf6e6e731ea6ba14906889ea8f41abd27d980768ce\",\n        \"signature\": \"0xc111f1573bd8f3c30fdac2608be7ad64c49f9e77669c197ec9a4f230ec25b8fe189a35e27dbc928e2aecb8cf6e6e731ea6ba14906889ea8f41abd27d980768ce1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xd23242988240be6a58ffa701e76e5e7502dbe5000e233c380b6d22b14bf37c07\",\n        \"s\": \"0x281d86af8b578edc02fd78ba0a08591e2f88f1a11b22348ad7ccf1ccb8691588\",\n        \"signature\": \"0xd23242988240be6a58ffa701e76e5e7502dbe5000e233c380b6d22b14bf37c07281d86af8b578edc02fd78ba0a08591e2f88f1a11b22348ad7ccf1ccb86915881b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "a48cfbe2-18c8-4818-a84f-565dcbc372db",
+                        "id": "6d4d88f4-cb80-4730-b683-84a6184e211a",
                         "savedPayload": {
                             "position": {
-                                "x": 28314.081557877038,
-                                "y": 33712.132034355964
+                                "x": 28623.081557877038,
+                                "y": 33659.132034355964
                             },
                             "targetPosition": {
                                 "x": 28614.081557877038,
@@ -6227,13 +6227,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x5627b48a7feb0c58940e1e726b01f86d1743c5778315979abe8ef41325b73037\",\n        \"s\": \"0x1d8371902492f011ee7b982861250e9da3a73eb229bb589cd0628f0fea2f156f\",\n        \"signature\": \"0x5627b48a7feb0c58940e1e726b01f86d1743c5778315979abe8ef41325b730371d8371902492f011ee7b982861250e9da3a73eb229bb589cd0628f0fea2f156f1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x7eb3031cc990d92d410691e2e348f1c5819409c370ad1aef921a068677f9344f\",\n        \"s\": \"0x1707d4a374b0e442fb161d637d851c614f1a750be9a29c26b8cfa865bfe35487\",\n        \"signature\": \"0x7eb3031cc990d92d410691e2e348f1c5819409c370ad1aef921a068677f9344f1707d4a374b0e442fb161d637d851c614f1a750be9a29c26b8cfa865bfe354871c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "89ca8fcc-acaf-4866-9ba0-29d17d2492cc",
+                        "id": "e51fb0c4-fc10-490b-83f8-c82233d9e667",
                         "savedPayload": {
                             "position": {
-                                "x": 28640.0045968632,
-                                "y": 34213.63067702502
+                                "x": 28592.303809990317,
+                                "y": 33879.04181659865
                             },
                             "targetPosition": {
                                 "x": 28624.303809990317,
@@ -7987,13 +7987,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x271298ffc573124f94f0bea7f8e1c4d077d3af8d1f7b2d3d7f917fa9ef87dc0f\",\n        \"s\": \"0x7bdf4a54d692e7eea5704d3e6e0199549bd05608b951f06b1bb4d1210a44fa8d\",\n        \"signature\": \"0x271298ffc573124f94f0bea7f8e1c4d077d3af8d1f7b2d3d7f917fa9ef87dc0f7bdf4a54d692e7eea5704d3e6e0199549bd05608b951f06b1bb4d1210a44fa8d1b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xc8b105566f27ec05fe010f0fbe5aa02742b0c2bd461e26514bdaa7509a06a582\",\n        \"s\": \"0x79350beeb18e2298c99c4eb4b34912c27dd5c1c31da26f3fd88697dd297bebed\",\n        \"signature\": \"0xc8b105566f27ec05fe010f0fbe5aa02742b0c2bd461e26514bdaa7509a06a58279350beeb18e2298c99c4eb4b34912c27dd5c1c31da26f3fd88697dd297bebed1b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "5879c8f0-146b-41a7-8398-81e19b693798",
+                        "id": "62f8eff7-f7a5-4330-bf0a-bda601c30cc1",
                         "savedPayload": {
                             "position": {
-                                "x": 28200.03974127839,
-                                "y": 33914.04181659865
+                                "x": 28312.171775634353,
+                                "y": 33792.909782242685
                             },
                             "targetPosition": {
                                 "x": 28412.171775634353,
@@ -8260,13 +8260,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xa46aab08b71a7befd44272b5ff10a4ab563575423be1ba426715d80c2ee05867\",\n        \"s\": \"0x3a4ef5501a13d0f2b8f502cabc1edbca989404f92ad3065999685c2c8a83f957\",\n        \"signature\": \"0xa46aab08b71a7befd44272b5ff10a4ab563575423be1ba426715d80c2ee058673a4ef5501a13d0f2b8f502cabc1edbca989404f92ad3065999685c2c8a83f9571b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x9cd32f1f8440dcaaef40cef0a13a989ccccc90f47ce1eb84cb31d3b50fda878a\",\n        \"s\": \"0x1675954a4da14fb2c8e6b0df32e666922e599f0a05535d95d2d611817f79e30e\",\n        \"signature\": \"0x9cd32f1f8440dcaaef40cef0a13a989ccccc90f47ce1eb84cb31d3b50fda878a1675954a4da14fb2c8e6b0df32e666922e599f0a05535d95d2d611817f79e30e1c\"\n    }\n}",
                     "project": "Governance",
-                    "id": "f7272422-7dce-472f-8153-034ed31a5bed",
+                    "id": "e8321344-a5a2-4ae5-90cc-db40e9a35318",
                     "savedPayload": {
                         "position": {
-                            "x": 32830.525712198,
-                            "y": 23172.192378864667
+                            "x": 32860.525712198,
+                            "y": 23100.192378864667
                         },
                         "targetPosition": {
                             "x": 32923.525712198,
@@ -8316,13 +8316,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x89033cbe248a749a572dda8576ce77099b9e2dff884c137ad3c01927134f1670\",\n        \"s\": \"0x5be1b18ff707dc52ccbc330f995ba48423af4bc29d160a78f1d1ee96a3e4f835\",\n        \"signature\": \"0x89033cbe248a749a572dda8576ce77099b9e2dff884c137ad3c01927134f16705be1b18ff707dc52ccbc330f995ba48423af4bc29d160a78f1d1ee96a3e4f8351b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x90ac02facda83ef5b54f787a075bea578dd6e16e040b8fe30e5149b1be9c34d9\",\n        \"s\": \"0x55984e5a4cadb1d41bff2b3ada8876d34f0f17867c18e2a01c00a2419ac023a2\",\n        \"signature\": \"0x90ac02facda83ef5b54f787a075bea578dd6e16e040b8fe30e5149b1be9c34d955984e5a4cadb1d41bff2b3ada8876d34f0f17867c18e2a01c00a2419ac023a21b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "e1a652ef-203f-4ea4-a022-b703b5552a4f",
+                    "id": "0ed4fe6d-eae3-4c98-9c97-eab131777db4",
                     "savedPayload": {
                         "position": {
-                            "x": 33185.333333333336,
-                            "y": 23071.192378864667
+                            "x": 33269.333333333336,
+                            "y": 23015.192378864667
                         },
                         "targetPosition": {
                             "x": 33183.333333333336,
@@ -8402,13 +8402,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x2cda230b84861e36b3839ba077fc4f647b884cf86604937e2e77f04b07a09910\",\n        \"s\": \"0x169b0fda9329dbe9e7a73cf01f7fec5467017f9cc2a9baea46e2f0939a6bcd7a\",\n        \"signature\": \"0x2cda230b84861e36b3839ba077fc4f647b884cf86604937e2e77f04b07a09910169b0fda9329dbe9e7a73cf01f7fec5467017f9cc2a9baea46e2f0939a6bcd7a1b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xc5ebcb63dd2d87265f3675584b48ad0b44a634caa8cf3c432887a1b5e6644ab3\",\n        \"s\": \"0x28c3f48d7a0aaa20e28086df9925d176f878033da8245a2e40af4d67597f452f\",\n        \"signature\": \"0xc5ebcb63dd2d87265f3675584b48ad0b44a634caa8cf3c432887a1b5e6644ab328c3f48d7a0aaa20e28086df9925d176f878033da8245a2e40af4d67597f452f1b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "4124d9cd-3037-4080-9dfd-7923ee0a4598",
+                    "id": "894098f6-ebdd-4579-a72c-2f39edbb9fcf",
                     "savedPayload": {
                         "position": {
-                            "x": 28364.496188854984,
-                            "y": 33060.22225211328
+                            "x": 28544.303809990317,
+                            "y": 32974.22225211328
                         },
                         "targetPosition": {
                             "x": 28624.303809990317,
@@ -8460,15 +8460,21 @@
                         "referenceParentCombinedNodePath": [
                             [
                                 "Luis-Fernando-Molina",
-                                "User Profile"
+                                "User Profile",
+                                "Governance",
+                                "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
                             ],
                             [
                                 "New Permissioned P2P Networks",
-                                "Permissioned P2P Networks"
+                                "Permissioned P2P Networks",
+                                "Governance",
+                                "2b6209a4-5149-4e58-bcc4-322814ea50f0"
                             ],
                             [
                                 "BATA",
-                                "Permissioned P2P Network"
+                                "Permissioned P2P Network",
+                                "Governance",
+                                "6aa5696d-5a54-4f27-ac71-7739d3a03c65"
                             ]
                         ]
                     }
@@ -8615,7 +8621,7 @@
                 },
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
-                    "name": "",
+                    "name": "Testnet",
                     "project": "Governance",
                     "id": "1594ddfa-28df-4cc4-a4e0-5574445beb86",
                     "savedPayload": {
@@ -9096,17 +9102,17 @@
     "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
     "savedPayload": {
         "position": {
-            "x": 29126.213592233,
-            "y": 33200
+            "x": 37500,
+            "y": 18800
         },
         "targetPosition": {
-            "x": 29126.213592233,
-            "y": 33200
+            "x": 37500,
+            "y": 18800
         },
         "floatingObject": {
             "isPinned": true,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

@@ -95,7 +95,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 signUserProfileData(response.address, response.privateKey)
             }
         }
-        
+
         function signUserProfileData(address, privateKey) {
 
             let request = {
@@ -106,9 +106,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     data: githubUsername
                 }
             }
-    
+
             httpRequest(JSON.stringify(request.params), request.url, onResponse)
-    
+
             function onResponse(err, data) {
                 /* Lets check the result of the call through the http interface */
                 if (err.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
@@ -118,9 +118,9 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     )
                     return
                 }
-    
+
                 let response = JSON.parse(data)
-    
+
                 /* Lets check the result of the method call */
                 if (response.result !== GLOBAL.DEFAULT_OK_RESPONSE.result) {
                     node.payload.uiObject.setErrorMessage(
@@ -135,7 +135,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     'User Profile',
                     UI.projects.workspaces.spaces.designSpace.workspace.workspaceNode.rootNodes
                 )
-    
+
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, userProfile)
                 /*
                 Set up a basic profile to start receiving benefits
@@ -143,15 +143,15 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let finServices = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
                 finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 finServices.payload.uiObject.menu.internalClick("Add Financial Program")
-    
+
                 let stakeProg = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
                 stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
-    
+
                 let liquidProgs = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Liquidity Programs", userProfile)
                 liquidProgs.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProgs.payload.uiObject.menu.internalClick('Add Liquidity Program')
-    
+
                 let liquidProg = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
@@ -365,7 +365,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                         nodeType: targetNodeType,
                         nodeCodeName: codeName,
                         signingAccountNodeId: signingAccount.id,
-                        blockchainAccount: blockchainAccount, 
+                        blockchainAccount: blockchainAccount,
                         privateKey: privateKey,
                         userProfileHandle: userProfileHandle,
                         userProfileId: userProfile.id
@@ -385,8 +385,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                             )
                         } else {
-                            userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
-                            userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                            userProfile.payload.uiObject.menu.internalClick('Save Plugin')
+                            userProfile.payload.uiObject.menu.internalClick('Save Plugin')
                             /*
                             Show nice message.
                             */
@@ -420,14 +420,14 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         }
 
         configWallet()
-        
+
         async function configWallet() {
             // Connect to a wallet
             // TODO
             // Check that we're in secure mode or MetaMask will behave randomly.
             // One day, when I feel suicidal, look into this buggy mess...
             // https://ethereum.stackexchange.com/a/62217/620
-            
+
             connectWallet()
             async function connectWallet() {
                 // Now we pass the information which providers are available
@@ -450,7 +450,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 if (!connector.connected) {
                     connector.createSession()
                 }
-                
+
                 connector.on("connect", (error) => {
                     if (error) {
                         throw error
@@ -525,7 +525,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 let finServices = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(userProfile.tokenPowerSwitch, "Financial Programs", userProfile)
                 finServices.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 finServices.payload.uiObject.menu.internalClick("Add Financial Program")
-                
+
                 let stakeProg = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(finServices, "Staking Program", userProfile)
                 stakeProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
                 stakeProg.payload.uiObject.menu.internalClick("Add Tokens Awarded")
@@ -536,7 +536,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
 
                 let liquidProg = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(liquidProgs, "Liquidity Program", userProfile)
                 liquidProg.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_180
-                liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded') 
+                liquidProg.payload.uiObject.menu.internalClick('Add Tokens Awarded')
                 /*
                 We store at the User Profile the Signed githubUsername
                 */
@@ -549,8 +549,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 /*
                 We also Install the User Profile as a Plugin, which in turns saves it.
                 */
-                userProfile.payload.uiObject.menu.internalClick('Save Plugin')
-                userProfile.payload.uiObject.menu.internalClick('Save Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
                 /*
                 Show nice message.
                 */
@@ -565,6 +565,6 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     connector = null
                 }
             }
-        }   
+        }
     }
 }

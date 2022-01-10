@@ -385,6 +385,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                                 UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
                             )
                         } else {
+                            userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                            userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
                             /*
                             Show nice message.
                             */
@@ -547,8 +549,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                 /*
                 We also Install the User Profile as a Plugin, which in turns saves it.
                 */
-                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
-                userProfile.payload.uiObject.menu.internalClick('Install as Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Save Plugin')
+                userProfile.payload.uiObject.menu.internalClick('Save Plugin')
                 /*
                 Show nice message.
                 */

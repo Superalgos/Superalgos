@@ -134,8 +134,6 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                     }
                                 }
 
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
-
                             } catch (err) {
                                 console.log('[ERROR] P2P Node -> httpInterface -> Method call produced an error.')
                                 console.log('[ERROR] P2P Node -> httpInterface -> err.stack = ' + err.stack)

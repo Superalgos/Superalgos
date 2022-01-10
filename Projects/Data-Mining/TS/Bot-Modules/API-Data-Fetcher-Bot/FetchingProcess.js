@@ -983,6 +983,23 @@ exports.newDataMiningBotModulesFetchingProcess = function (processIndex) {
                                     */
                                     let record = getRecord(dataReceivedObject)
                                     let timestamp = record.map.get('timestamp')
+                                    let startStamp = timestamp
+                                    let numberOfDigits = 0
+
+                                    while (startStamp != 0 && startStamp > 1) {
+                                            startStamp = startStamp / 10
+                                            numberOfDigits++
+                                        }
+                                    
+                                    if (numberOfDigits == 10) {
+                                        timestamp = timestamp * 1000
+                                        return timestamp
+                                    }
+
+                                    if (numberOfDigits == 19) {
+                                        timestamp = timestamp / 1000000
+                                        return timestamp
+                                    }
 
                                     if (timestamp === undefined) {
                                         /*

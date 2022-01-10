@@ -454,7 +454,8 @@ function newGovernanceFunctionLibraryClaimsProgram() {
         }
 
         function drawProgramPower(node, programPower, percentage) {
-            const programPowerText = parseFloat(programPower).toLocaleString('en') + ' ' + 'Claim Power'
+            //use Math.trunc for #3502
+            const programPowerText = Math.trunc(parseFloat(programPower)).toLocaleString('en') + ' ' + 'Claim Power'
             if (node.payload !== undefined) {
 
                 node.payload.uiObject.valueAngleOffset = 180

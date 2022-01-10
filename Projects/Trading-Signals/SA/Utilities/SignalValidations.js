@@ -21,8 +21,8 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
             }
             return response
         }
-        // TODO: In fact we should get a User Profile. 
-        if (SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(socialTradingBotBLockchainAccount) === undefined) {
+
+        if (SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(socialTradingBotBLockchainAccount) === undefined) {
             let response = {
                 result: 'Error',
                 message: 'Social Trading Bot Not Linked to User Profile.'

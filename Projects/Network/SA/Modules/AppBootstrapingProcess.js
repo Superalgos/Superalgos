@@ -191,7 +191,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     */
                     SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
                     SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
                 }
 
                 function loadSigningAccounts() {
@@ -215,10 +214,10 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                         let web3 = new SA.nodeModules.web3()
                         let blockchainAccount = web3.eth.accounts.recover(signatureObject)
                         /*
-                        We will build a map of user profiles by blockchain account that we will when we receive messages signed
+                        We will build a map of user profiles by blockchain account that we will need when we receive messages signed
                         by different network clients.
                         */
-                        SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
+                        SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
 
                         loadP2PNetworkNodes()
                         setupNetworkClientIdentity()

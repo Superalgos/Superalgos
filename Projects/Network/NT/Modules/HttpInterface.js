@@ -56,9 +56,9 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 /*
                                 Validate the User App Signature
                                 */
-                                let userAppBLockchainAccount = web3.eth.accounts.recover(messageHeader.signature)
+                                let userAppBlockchainAccount = web3.eth.accounts.recover(messageHeader.signature)
 
-                                if (userAppBLockchainAccount === undefined) {
+                                if (userAppBlockchainAccount === undefined) {
                                     let response = {
                                         result: 'Error',
                                         message: 'User App Bad Signature.'
@@ -67,7 +67,7 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                     return
                                 }
 
-                                let userProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(userAppBLockchainAccount)
+                                let userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(userAppBlockchainAccount)
 
                                 if (userProfile === undefined) {
                                     let response = {

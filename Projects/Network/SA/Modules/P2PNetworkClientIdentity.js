@@ -22,8 +22,8 @@ exports.newNetworkModulesP2PNetworkClientIdentity = function newNetworkModulesP2
 
     async function initialize(
         node,
-        userSocialProfile,
         userProfile,
+        userSocialProfile,
         blockchainAccount
     ) {
         thisObject.node = node

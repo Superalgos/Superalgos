@@ -36,6 +36,10 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
         extractInfoFromUserProfiles()
 
+        if (p2pNetworkClientIdentity.node === undefined) {
+            throw('The Network Client Identity does not match any node at User Profiles Plugins.')
+        }
+
         async function loadAppSchemas() {
 
             let promise = new Promise((resolve, reject) => {

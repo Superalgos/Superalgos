@@ -1819,16 +1819,22 @@
         "SA": {
             "modules": [
                 {
-                    "name": "User Profile",
-                    "propertyName": "socialGraphUserProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
-                    "fileName": "Social-Graph/UserProfile.js"
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newSocialTradingGlobalsMemory",
+                    "fileName": "Memory.js"
                 },
                 {
-                    "name": "Bot Profile",
-                    "propertyName": "socialGraphBotProfile",
-                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
-                    "fileName": "Social-Graph/BotProfile.js"
+                    "name": "Social Persona",
+                    "propertyName": "socialGraphSocialPersona",
+                    "functionName": "newSocialTradingModulesSocialGraphSocialPersona",
+                    "fileName": "Social-Graph/SocialPersona.js"
+                },
+                {
+                    "name": "SocialTradingBot",
+                    "propertyName": "socialTradingBot",
+                    "functionName": "newSocialTradingModulesSocialGraphSocialTradingBot",
+                    "fileName": "Social-Graph/SocialTradingBot.js"
                 },
                 {
                     "name": "Post",

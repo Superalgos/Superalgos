@@ -165,33 +165,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 let userProfile = userProfiles[i][1]
                 let signatureObject = userProfile.config.signature
                 let web3 = new SA.nodeModules.web3()
-                let blockchainAccount = web3.eth.accounts.recover(signatureObject)
+                userProfile.blockchainAccount = web3.eth.accounts.recover(signatureObject)
+                
                 let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
-                let userProfileId = userProfile.id
-                let userHandle = userProfile.config.signature.message
-                let userSocialProfile
-
-                setupUserSocialProfiles()
+                
                 loadSigningAccounts()
                 loadStorageContainers()
-
-                function setupUserSocialProfiles() {
-                    /*
-                    Setting up the User Social Profile
-                    */
-                    userSocialProfile = SA.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
-                    userSocialProfile.initialize(
-                        userProfileId,
-                        userHandle,
-                        blockchainAccount,
-                        ranking
-                    )
-                    /*
-                    Store in memory all User Social Profiles
-                    */
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
-                }
 
                 function loadSigningAccounts() {
                     /*
@@ -241,7 +220,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 let response = p2pNetworkNode.initialize(
                                     networkClient,
                                     userProfile,
-                                    userSocialProfile,                                   
                                     blockchainAccount
                                 )
                                 if (response === true) {
@@ -267,7 +245,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 if (p2pNetworkClientIdentity.initialize(
                                     networkClient,
                                     userProfile,
-                                    userSocialProfile,
                                     blockchainAccount
                                 ) === false) {
                                     throw ('Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.')

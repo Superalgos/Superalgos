@@ -1,4 +1,4 @@
-exports.newSocialTradingModulesSocialGraphBotProfile = function newSocialTradingModulesSocialGraphBotProfile() {
+exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialTradingModulesSocialGraphSocialTradingBot() {
     /*
     Users can have a Profile that can:
         * follow other bots profiles.

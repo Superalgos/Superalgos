@@ -1,25 +1,17 @@
 import React, {useState} from 'react';
 import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
 import "./UserProfileHeader.css"
-import UserProfileModal from "./UserProfileModal";
+import UserProfileModal from "../userProfileModal/UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
-import {useSelector} from "react-redux";
 
-const UserProfileHeader = ({ updateProfileCallback}) => {
-
-    const user = useSelector(state => state.profile);
-    console.log(user)
-
+const UserProfileHeader = ({updateProfileCallback}) => {
+    // const user = useSelector(state => state.profile);
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px", height: "15px", verticalAlign: "text-top"
     }
-
     const [modal, setModal] = useState(false);
-
     const handleClickCallback = () => setModal(!modal);
-
-
 
     return (
         <Card className="profileSection">

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Box, Modal, Typography} from "@mui/material";
 import "./FooterReplyModal.css"
-import FooterReply from "../FooterReply/FooterReply";
+import FooterReply from "../footerReply/FooterReply";
 import {useSelector} from "react-redux";
 
 const FooterReplyModal = ({show, close}) => {

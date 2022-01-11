@@ -1,11 +1,14 @@
 import './Sidebar.css';
-import {Divider, Stack, Button, Drawer, Box, IconButton} from "@mui/material";
+import {Card, CardMedia, Divider, Stack, Button, Drawer, Box, IconButton} from "@mui/material";
 import SidebarItem from "../sidebarItem/SidebarItem";
 import Logo from "../logo/Logo";
 import {LoginOutlined} from '@mui/icons-material'
 import HomeIcon from '@mui/icons-material/Home';
 import PostAddIcon from '@mui/icons-material/PostAdd';
 import PersonIcon from '@mui/icons-material/Person';
+import pic from "../../images/superalgos.png";
+import React from "react";
+import SidebarUserProfile from "../sidebarUserProfile/sidebarUserProfile";
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -30,60 +33,32 @@ const Sidebar = props => {
     })*/
 
     return (
-        <>
-
-            <div className="sidebar">
-
-            <Box sx={{display: 'flex', width: {sm: `calc(100% - ${drawerWidth}px)`},
-                }}>
-                <CssBaseline/>
-                {/*<AppBar
-                        position="fixed"
-                        sx={{
-                            width: {sm: `calc(100% - ${drawerWidth}px)`},
-                            ml: {sm: `${drawerWidth}px`},
-                        }}
-                    >*/}
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    edge="start"
-                    onClick={handleDrawerToggle}
-                    sx={{marginRight: '36px',
-                        ...(mobileOpen && { display: 'none' }),}}
-                >
-                    <MenuIcon/>
-                </IconButton>
-                <Stack direction="column"
-                       justifyContent="flex-start"
-                       alignItems="center"
-                       spacing={5}
-                       sx={{minWidth: "max-content"}}>
-                    <Logo/>
-                    <Stack className="sidebarContainer"
-                           direction="column"
-                           spacing={2}
-                           divider={<Divider orientation="horizontal" flexItem/>}>
-                        {/*{menuItems}*/}
-
-                        <SidebarItem value="Home" Button={Button} Icon={HomeIcon}/>
-                        <SidebarItem value="Profile" Button={Button} Icon={PersonIcon}/>
-                        <SidebarItem value="Post" Button={Button} Icon={PostAddIcon}/>
-                    </Stack>
+        <div className="sidebar">
+            <Stack direction="column"
+                   justifyContent="flex-start"
+                   alignItems="center"
+                   spacing={5}
+                   sx={{minWidth: "max-content"}}>
+                <Logo/>
+                <Stack
+                    direction="column"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={2}
+                    divider={<Divider orientation="horizontal" flexItem/>}>
+                    {menuItems}
                 </Stack>
-                {/*</AppBar>*/}
-                <Drawer open={mobileOpen}
-                    variant="temporary"
-                    anchor="left"
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}>
+            </Stack>
+            <Card className="sidebarProfileCard" variant="outlined">
+                <CardMedia className="avatar"
+                           component="img"
+                           image={pic}
+                           alt="PP"
 
-                </Drawer>
-            </Box>
-            </div>
-        </>
+                />
+                <SidebarUserProfile/>
+            </Card>
+        </div>
     );
 }
 

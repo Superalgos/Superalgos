@@ -7,9 +7,7 @@ import {getPosts} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import {useParams} from "react-router-dom";
-import {getProfile} from "../../api/profile.httpService";
 import {useDispatch} from "react-redux";
-import {setProfile} from "../../store/slices/Profile.slice";
 
 const UserProfile = () => {
     let {userId} = useParams();
@@ -45,18 +43,7 @@ const UserProfile = () => {
         setPostLoading(false);
     }
 
-    const loadUser = async () => {
-        setProfileLoading(true);
-        let queryParams /*= {userProfileId: undefined}*/;
-        let {
-            data, result
-        } = await getProfile().then(response => response.json());
-        console.log({data, result})
-        if (result === STATUS_OK) {
-            dispatch(setProfile(data))
-        }
-        setProfileLoading(false);
-    }
+
 
 
     const updateProfileCallback = () => {

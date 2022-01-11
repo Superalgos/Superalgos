@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "./FooterReply.css"
-import {Avatar, Button, Collapse, Divider, Stack, TextField, Typography} from "@mui/material";
+import {Avatar, Button, Divider, Stack, TextField, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png";
 
 const FooterReply = () => {

@@ -1807,6 +1807,12 @@
                     "propertyName": "queriesValidations",
                     "functionName": "newSocialTradingUtilitiesQueriesValidations",
                     "fileName": "QueriesValidations.js"
+                },
+                {
+                    "name": "Broadcasting Filter",
+                    "propertyName": "broadcastingFilter",
+                    "functionName": "newSocialTradingUtilitiesBroadcastingFilter",
+                    "fileName": "BroadcastingFilter.js"
                 }
             ]
         },

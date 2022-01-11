@@ -19,7 +19,10 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
     }
     
-    async function messageReceived(message) {
+    async function messageReceived(
+        message,
+        connectedUserProfiles
+        ) {
         let messageHeader
         try {
             messageHeader = JSON.parse(message)
@@ -49,7 +52,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
         switch (messageHeader.requestType) {
             case 'Event': {
-                return await eventReceived(messageHeader.eventMessage)
+                return await eventReceived(messageHeader.eventMessage, connectedUserProfiles)
             }
             case 'Query': {
                 let response = {
@@ -61,7 +64,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         }
     }
 
-    async function eventReceived(eventMessage) {
+    async function eventReceived(eventMessage, connectedUserProfiles) {
         /*
         We expect here a JSON string with some or all of the following properties:
 
@@ -125,6 +128,9 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
                 result: 'Ok',
                 message: 'Peer Interface Event Processed.'
             }
+
+            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(connectedUserProfiles)
+            
             return response
 
         } catch (err) {

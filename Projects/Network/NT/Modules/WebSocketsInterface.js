@@ -16,7 +16,6 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
-        broadcastToClients: broadcastToClients,
         initialize: initialize,
         finalize: finalize
     }
@@ -61,8 +60,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 let caller = {
                     socket: socket,
                     userProfile: undefined,
-                    userAppBlockchainAccount: undefined, 
-                    role: undefined 
+                    userAppBlockchainAccount: undefined,
+                    role: undefined
                 }
 
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
@@ -129,12 +128,20 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                 }
 
                                 let response
+                                let boradcastTo
+
                                 switch (caller.role) {
                                     case 'Network Client': {
                                         switch (messageHeader.networkService) {
                                             case 'Social Graph': {
                                                 if (NT.networkApp.socialGraphNetworkService !== undefined) {
-                                                    response = await NT.networkApp.socialGraphNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response = await NT.networkApp.socialGraphNetworkService.clientInterface.messageReceived(
+                                                        messageHeader.payload,
+                                                        caller.userProfile,
+                                                        thisObject.networkClients
+                                                    )
+                                                    boradcastTo = response.boradcastTo
+                                                    response.boradcastTo = undefined
                                                     response.messageId = messageHeader.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                 } else {
@@ -159,7 +166,12 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         switch (messageHeader.networkService) {
                                             case 'Social Graph': {
                                                 if (NT.networkApp.socialGraphNetworkService !== undefined) {
-                                                    response = await NT.networkApp.socialGraphNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response = await NT.networkApp.socialGraphNetworkService.peerInterface.messageReceived(
+                                                        messageHeader.payload,
+                                                        thisObject.networkClients
+                                                    )
+                                                    boradcastTo = response.boradcastTo
+                                                    response.boradcastTo = undefined
                                                     response.messageId = messageHeader.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                 } else {
@@ -181,9 +193,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         break
                                     }
                                 }
-                                if (response.result === 'Ok' && JSON.parse(messageHeader.payload).requestType === 'Event') {
+                                if (response.result === 'Ok' && boradcastTo !== undefined) {
                                     broadcastToPeers(messageHeader, caller)
-                                    broadcastToClients(messageHeader, caller)
+                                    broadcastToClients(messageHeader, caller, boradcastTo)
                                 }
                                 break
                             }
@@ -578,14 +590,14 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         }
     }
 
-    function broadcastToClients(messageHeader, caller) {
+    function broadcastToClients(messageHeader, caller, networkClients) {
         try {
             let callerIdToAVoid
             if (caller !== undefined && caller.role === 'Network Client') {
                 callerIdToAVoid = caller.socket.id
             }
-            for (let i = 0; i < thisObject.networkClients.length; i++) {
-                let networkClient = thisObject.networkClients[i]
+            for (let i = 0; i < networkClients.length; i++) {
+                let networkClient = networkClients[i]
                 if (networkClient.socket.id === callerIdToAVoid) { continue }
                 networkClient.socket.send(messageHeader.payload)
             }

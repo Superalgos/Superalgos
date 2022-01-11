@@ -39,7 +39,6 @@ function App() {
                 <Outlet className="middleSection"/>
                 <UsersSidebar/>
             </Stack>
-
         </div>
     );
 }

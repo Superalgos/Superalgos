@@ -10,20 +10,21 @@ import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
 
 
 const SuggestedUsers = () => {
+    /* TODO remove unused code */
     //  TODO change this, should not be here
-    const skeletons = [<div className="skeleton">
+    const skeletons = [<div key={0} className="skeleton">
         <Skeleton variant="circular" width="3rem" height="3rem"/>
         <Skeleton variant="text"
                   width="8rem"/>
         <Skeleton variant="text"
                   width="4rem"/>
-    </div>, <div className="skeleton">
+    </div>, <div key={1} className="skeleton">
         <Skeleton variant="circular" width="3rem" height="3rem"/>
         <Skeleton variant="text"
                   width="8rem"/>
         <Skeleton variant="text"
                   width="4rem"/>
-    </div>, <div className="skeleton">
+    </div>, <div key={2} className="skeleton">
         <Skeleton variant="circular" width="3rem" height="3rem"/>
         <Skeleton variant="text"
                   width="8rem"/>

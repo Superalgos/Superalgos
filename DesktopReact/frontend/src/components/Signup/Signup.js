@@ -11,16 +11,17 @@ import {
     Typography
 } from "@mui/material";
 import {LoginOutlined} from "@mui/icons-material";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
-import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {setActualProfile} from "../../store/slices/Profile.slice";
 
 const Signup = () => {
     const [errorState, setErrorState] = useState(false);
     const [inputCharNumber, setInputCharNumber] = useState(false);
     const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
-    const [userInfo, setUserInfo] = useSelector(state => state.profile.actualUser);
+    const [userInfo, setUserInfo] = useState(useSelector(state => state.profile.actualUser));
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -37,10 +38,13 @@ const Signup = () => {
     }
 
     const saveProfile = async () => {
-        let {result} = await updateProfile(userInfo).then(response => response.json());
+        let profileData = {...userInfo, joined: new Date().getTime()};
+        console.log({profileData})
+        let {result} = await updateProfile(profileData).then(response => response.json());
+            console.log({result})
         if (result === STATUS_OK) {
-            // dispatch(setActualProfile(userInfo));
-            // navigate("/");
+            dispatch(setActualProfile(userInfo));
+            navigate("/");
         }
     }
 
@@ -60,7 +64,10 @@ const Signup = () => {
                     </div>
                     <div>
                         <div className="signupInputBoxesContainer">
-                            <FormControl className="signupFormControl" required error={errorState}>
+                            <FormControl className="signupFormControl"
+                                         required
+                                         error={errorState}
+                            >
                                 <InputLabel htmlFor="name">Name</InputLabel>
                                 <OutlinedInput
                                     id="name"

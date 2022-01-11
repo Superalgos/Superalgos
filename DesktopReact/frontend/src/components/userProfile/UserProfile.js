@@ -7,19 +7,16 @@ import {getPosts} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import {useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
 
 const UserProfile = () => {
     let {userId} = useParams();
 
-    const dispatch = useDispatch();
     const [posts, setPosts] = useState([]);
     const [postLoading, setPostLoading] = useState(true);
     const [profileLoading, setProfileLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
 
     useEffect(() => {
-        loadUser();
         loadPosts();
     }, []);
 

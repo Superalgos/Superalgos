@@ -22,7 +22,7 @@ const Root = () => {
                         <Route path={':postId'} element={<Post/>}/> {/* TODO handle this post data*/}
                     </Route>
                 </Route>
-                {/*<Route path='/signUp' element={<Signup/>}/>*/}
+                <Route path='/signUp' element={<Signup/>}/>
                 <Route
                     path="*"
                     element={

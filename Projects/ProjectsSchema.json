@@ -1819,12 +1819,6 @@
         "SA": {
             "modules": [
                 {
-                    "name": "Memory",
-                    "propertyName": "memory",
-                    "functionName": "newSocialTradingGlobalsMemory",
-                    "fileName": "Memory.js"
-                },
-                {
                     "name": "Social Persona",
                     "propertyName": "socialGraphSocialPersona",
                     "functionName": "newSocialTradingModulesSocialGraphSocialPersona",
@@ -1850,6 +1844,12 @@
                 }
             ],
             "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newSocialTradingGlobalsMemory",
+                    "fileName": "Memory.js"
+                },
                 {
                     "name": "Query Constants",
                     "propertyName": "queryConstants",

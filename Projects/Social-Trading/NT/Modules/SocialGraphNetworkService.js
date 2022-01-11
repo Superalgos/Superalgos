@@ -41,7 +41,7 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
         thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
         thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
-        thisObject.serviceInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesServiceInterface()
+        thisObject.serviceInterface = NT.projects.socialTrading.modules.serviceInterface.newSocialTradingModulesServiceInterface()
 
         thisObject.storage.initialize()
         thisObject.clientInterface.initialize()
@@ -125,7 +125,7 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
                             }
 
                             let blockchainAccount = web3.eth.accounts.recover(signatureObject)
-                            
+
                             socialTradingBot = SA.projects.socialTrading.modules.socialGraphSocialPersona.newSocialTradingModulesSocialGraphSocialTradingBot()
                             socialTradingBot.initialize(
                                 userProfileId,

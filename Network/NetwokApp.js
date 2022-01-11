@@ -21,7 +21,10 @@ exports.newNetworkApp = function newNetworkApp() {
         await setupNetworkServices()
         setupNetworkInterfaces()
 
-        console.log('Network App is Running.')
+        console.log('Network Type ................................................................. ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type)
+        console.log('Network Code Name ............................................................ ' + thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName)
+        console.log('Network App .................................................................. Running')
+        console.log(' ')
 
         async function setupNetwork() {
             /*
@@ -44,7 +47,8 @@ exports.newNetworkApp = function newNetworkApp() {
             await thisObject.p2pNetwork.initialize(
                 'Network Peer',
                 thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName,
-                thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type
+                thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type,
+                thisObject.p2pNetworkNode
             )
             /*
             Set up a pool of connections to different network nodes, so that later
@@ -64,7 +68,7 @@ exports.newNetworkApp = function newNetworkApp() {
             if (
                 thisObject.p2pNetworkNode.node.networkServices !== undefined &&
                 thisObject.p2pNetworkNode.node.networkServices.socialGraph !== undefined
-                ) {
+            ) {
                 thisObject.socialGraphNetworkService = NT.projects.socialTrading.modules.socialGraphNetworkService.newSocialTradingModulesSocialGraphNetworkService()
                 await thisObject.socialGraphNetworkService.initialize()
                 console.log('Social Graph Network Service ................................................. Running')
@@ -73,7 +77,7 @@ exports.newNetworkApp = function newNetworkApp() {
             if (
                 thisObject.p2pNetworkNode.node.networkServices !== undefined &&
                 thisObject.p2pNetworkNode.node.networkServices.tradingSignals !== undefined
-                ) {
+            ) {
                 thisObject.tradingSignalsNetworkService = NT.projects.tradingSignals.modules.tradingSignalsNetworkService.newTradingSignalsModulesTradingSignalsNetworkService()
                 await thisObject.tradingSignalsNetworkService.initialize()
                 console.log('Trading Signals Network Service .............................................. Running')

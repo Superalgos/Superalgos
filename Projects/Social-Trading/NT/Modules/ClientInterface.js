@@ -107,7 +107,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, queries need to be emitted by the same userProfile that is
         connected at the Network Node.
         */
-        if (queryReceived.emitterUserProfileId !== userProfile.userProfileId) {
+        if (queryReceived.emitterUserProfileId !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface emitterUserProfileId !== userProfileId Connected to Network Node.'
@@ -184,7 +184,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by the same userProfile that is
         connected at the Network Node.
         */
-        if (eventReceived.emitterUserProfileId !== userProfile.userProfileId) {
+        if (eventReceived.emitterUserProfileId !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface emitterUserProfileId !== userProfileId Connected to Network Node.'

@@ -1789,6 +1789,12 @@
                     "fileName": "PeerInterface.js"
                 },
                 {
+                    "name": "Service Interface",
+                    "propertyName": "serviceInterface",
+                    "functionName": "newSocialTradingModulesServiceInterface",
+                    "fileName": "ServiceInterface.js"
+                },                
+                {
                     "name": "Storage",
                     "propertyName": "storage",
                     "functionName": "newSocialTradingModulesStorage",

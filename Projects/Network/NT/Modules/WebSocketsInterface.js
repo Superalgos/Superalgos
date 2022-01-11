@@ -61,8 +61,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 let caller = {
                     socket: socket,
                     userProfile: undefined,
-                    role: undefined,
-                    node: undefined
+                    userAppBlockchainAccount: undefined, 
+                    role: undefined 
                 }
 
                 caller.socket.id = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
@@ -380,9 +380,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     }
 
                     let signature = JSON.parse(messageHeader.signature)
-                    caller.blockchainAccount = web3.eth.accounts.recover(signature)
+                    caller.userAppBlockchainAccount = web3.eth.accounts.recover(signature)
 
-                    if (caller.blockchainAccount === undefined) {
+                    if (caller.userAppBlockchainAccount === undefined) {
                         let response = {
                             result: 'Error',
                             message: 'Bad Signature.'
@@ -394,7 +394,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let userProfileByBlockchainAccount = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let userProfileByBlockchainAccount = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.userAppBlockchainAccount)
 
                     if (userProfileByBlockchainAccount === undefined) {
                         let response = {
@@ -559,7 +559,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 */
                 let callerIdToAVoid
                 if (caller.role === 'Network Peer') {
-                    callerIdToAVoid = caller.node.id
+                    callerIdToAVoid = caller.socket.id
                 }
                 for (let i = 0; i < NT.networkApp.p2pNetworkPeers.peers.length; i++) {
                     let peer = NT.networkApp.p2pNetworkPeers.peers[i]

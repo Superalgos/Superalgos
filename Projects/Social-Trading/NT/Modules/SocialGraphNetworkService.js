@@ -13,6 +13,7 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         storage: undefined,
         clientInterface: undefined,
         peerInterface: undefined,
+        serviceInterface: undefined,
         /* Framework Functions */
         initialize: initialize,
         finalize: finalize
@@ -25,10 +26,12 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         thisObject.storage.finalize()
         thisObject.clientInterface.finalize()
         thisObject.peerInterface.finalize()
+        thisObject.serviceInterface.finalize()
 
         thisObject.storage = undefined
         thisObject.clientInterface = undefined
         thisObject.peerInterface = undefined
+        thisObject.serviceInterface = undefined
     }
 
     async function initialize() {
@@ -38,9 +41,11 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
         thisObject.storage = NT.projects.socialTrading.modules.storage.newSocialTradingModulesStorage()
         thisObject.clientInterface = NT.projects.socialTrading.modules.clientInterface.newSocialTradingModulesClientInterface()
         thisObject.peerInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesPeerInterface()
+        thisObject.serviceInterface = NT.projects.socialTrading.modules.peerInterface.newSocialTradingModulesServiceInterface()
 
         thisObject.storage.initialize()
         thisObject.clientInterface.initialize()
         thisObject.peerInterface.initialize()
+        thisObject.serviceInterface.initialize()
     }
 }

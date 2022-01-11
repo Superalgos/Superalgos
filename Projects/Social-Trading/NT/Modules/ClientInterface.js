@@ -1,16 +1,12 @@
 exports.newSocialTradingModulesClientInterface = function newSocialTradingModulesClientInterface() {
     /*
-    This module represents the Interface the Network Node have 
-    with Network Clients connected to it. There are 3 things
-    Network Clients can do with this Network Node:
+    This module represents the Interface the Social Graphs Network Service have 
+    with Network Clients connected to it. There are 2 things
+    Network Clients can do with this Network Service:
 
     * Make a Query to the Network Node for info needed at the Network Client. 
     * Send an Event that happened at the Network Client to the Network.
-    * Send a Signal that needs to be distributed.
-    
-    This interface is one layer above the communication protocol interface
-    where actual messages are received through, like for instance the
-    websockets interface or http interface.
+
     */
     let thisObject = {
         messageReceived: messageReceived,
@@ -62,9 +58,6 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }            
             case 'Event': {
                 return await eventReceived(messageHeader.eventMessage, userProfile)
-            }
-            case 'Signal': {
-                return await signalReceived(messageHeader.eventMessage)
             }
         }
     }
@@ -224,90 +217,6 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let response = {
                 result: 'Ok',
                 message: 'Client Interface Event Processed.'
-            }
-            return response
-
-        } catch (err) {
-            /*
-            Any exception that happens while trying to change the state of the Social Graph,
-            will be returned to the caller without doing anything else here.
-            */
-            if (err.stack !== undefined) {
-                console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
-            }
-            let errorMessage = err.message
-            if (errorMessage === undefined) { errorMessage = err }
-            let response = {
-                result: 'Error',
-                message: 'Client Interface ' + errorMessage
-            }
-            return response
-        }
-    }
-
-    async function signalReceived(signalMessage) {
-        /*
-        We expect here a JSON string with some or all of the following properties:
-
-        {
-            "signalId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "signalType": 10, 
-            "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "timestamp": 124234234234,
-            "botAsset": "BTC",
-            "botExchange": "Binance",
-            "botEnabled": true
-        }
-        */
-
-        let signalReceived
-        try {
-            signalReceived = JSON.parse(signalMessage)
-        } catch (err) {
-            let response = {
-                result: 'Error',
-                message: 'Client Interface signalMessage Not Correct JSON Format.'
-            }
-            return response
-        }
-        /*
-        We will not accept signals that don't have an signalId.
-        */
-        if (signalReceived.signalId === undefined) {
-            let response = {
-                result: 'Error',
-                message: 'signalId Not Provided.'
-            }
-            return response
-        }
-        /*
-        We will not accept signals that have already been processed.
-        */
-
-        if (NT.projects.network.globals.memory.maps.SIGNALS.get(signalReceived.signalId) !== undefined) {
-            let response = {
-                result: 'Error',
-                message: 'Client Interface Signal Already Exists.'
-            }
-            return response
-        }
-        /*
-        Here we will process the signal and change the state of the Social Graph.
-        */
-        try {
-            let signal = NT.projects.socialTrading.modules.signal.newSocialTradingModulesSignal()
-            signal.initialize(signalReceived)
-            NT.projects.network.globals.memory.maps.SIGNALS.set(signalReceived.eventId, signal)
-            NT.projects.network.globals.memory.arrays.SIGNALS.push(signal)
-
-            let response = {
-                result: 'Ok',
-                message: 'Client Interface Signal Processed.'
             }
             return response
 

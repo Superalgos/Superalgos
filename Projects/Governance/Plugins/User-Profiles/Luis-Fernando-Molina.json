@@ -8429,7 +8429,7 @@
                 },
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
-                    "name": "BATA",
+                    "name": "Testnet",
                     "project": "Governance",
                     "id": "f365a1bf-b51d-4314-ac4d-686237aa2ab3",
                     "savedPayload": {
@@ -8453,28 +8453,14 @@
                             "isRunning": false
                         },
                         "referenceParent": {
-                            "type": "Permissioned P2P Network",
-                            "name": "BATA",
-                            "id": "6aa5696d-5a54-4f27-ac71-7739d3a03c65"
+                            "type": "P2P Network",
+                            "name": "Testnet",
+                            "id": "8cf3c984-f2ce-4ed5-9bfe-49255ed8a9e3"
                         },
                         "referenceParentCombinedNodePath": [
                             [
-                                "Luis-Fernando-Molina",
-                                "User Profile",
-                                "Governance",
-                                "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                            ],
-                            [
-                                "New Permissioned P2P Networks",
-                                "Permissioned P2P Networks",
-                                "Governance",
-                                "2b6209a4-5149-4e58-bcc4-322814ea50f0"
-                            ],
-                            [
-                                "BATA",
-                                "Permissioned P2P Network",
-                                "Governance",
-                                "6aa5696d-5a54-4f27-ac71-7739d3a03c65"
+                                "Testnet",
+                                "P2P Network"
                             ]
                         ]
                     }

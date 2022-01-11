@@ -1,3 +1,15 @@
 .sidebar{
+    display: flex;
     height: 100%;
+    width: 100%;
+    min-width: 5rem;
+    max-width: 14.4rem;
+    /*margin-right: auto;
+    margin-left: auto;*/
+}
+
+.sidebarContainer{
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }

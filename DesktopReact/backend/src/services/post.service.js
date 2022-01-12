@@ -33,7 +33,7 @@ const createPost = async (body, res) => {
         let event;
 
         eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
+            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             postText: body.postText,
             timestamp: (new Date()).valueOf()

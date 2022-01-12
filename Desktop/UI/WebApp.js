@@ -146,7 +146,7 @@ function newWebApp() {
                     let textNode
 
                     switch (event.eventType) {
-                        case SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST: {
+                        case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
                             textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " POSTED " + event.postText)
                             break
                         }
@@ -386,7 +386,7 @@ function newWebApp() {
             let event
 
             eventMessage = {
-                eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
+                eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 postText: postText,
                 timestamp: (new Date()).valueOf()

@@ -57,26 +57,26 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         /*
         Local Variables
         */
-        let emitterUserProfile
-        let targetUserProfile
-        let emitterBotProfile
-        let targetBotProfile
+        let emitterSocialPersona
+        let targetSocialPersona
+        let emitterSocialTradingBot
+        let targetSocialTradingBot
         /*
         Validate Emitter Social Persona.
         */
         if (thisObject.emitterSocialPersonaId === undefined) {
             throw ('Emitter Social Persona Id Not Provided.')
         }
-        emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.emitterSocialPersonaId)
-        if (emitterUserProfile === undefined) {
+        emitterSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.emitterSocialPersonaId)
+        if (emitterSocialPersona === undefined) {
             throw ('Emitter Social Persona Not Found.')
         }
         /*
         Validate Target Social Persona.
         */
         if (thisObject.targetSocialPersonaId !== undefined) {
-            targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
-            if (targetUserProfile === undefined) {
+            targetSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
+            if (targetSocialPersona === undefined) {
                 throw ('Target Social Persona Not Found.')
             }
         }
@@ -84,8 +84,8 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         Validate Emitter Social Trading Bot.
         */
         if (thisObject.emitterSocialTradingBotId !== undefined) {
-            emitterBotProfile = emitterUserProfile.bots.get(thisObject.emitterSocialTradingBotId)
-            if (emitterBotProfile === undefined) {
+            emitterSocialTradingBot = emitterSocialPersona.bots.get(thisObject.emitterSocialTradingBotId)
+            if (emitterSocialTradingBot === undefined) {
                 throw ('Emitter Social Trading Bot Not Found.')
             }
         }
@@ -93,8 +93,8 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         Validate Target Social Trading Bot.
         */
         if (thisObject.targetSocialTradingBotId !== undefined) {
-            targetBotProfile = emitterUserProfile.bots.get(thisObject.targetSocialTradingBotId)
-            if (targetBotProfile === undefined) {
+            targetSocialTradingBot = emitterSocialPersona.bots.get(thisObject.targetSocialTradingBotId)
+            if (targetSocialTradingBot === undefined) {
                 throw ('Target Social Trading Bot Not Found.')
             }
         }
@@ -117,11 +117,11 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
                 /*
                 We will create a new Bot Post with the Signal info attached to it.
                 */
-                if (emitterBotProfile === undefined) {
+                if (emitterSocialTradingBot === undefined) {
                     throw ('Emitter Social Trading Bot Id Not Provided.')
                 }
 
-                emitterBotProfile.addPost(
+                emitterSocialTradingBot.addPost(
                     thisObject.emitterSocialPersonaId,
                     thisObject.targetSocialPersonaId,
                     thisObject.emitterSocialTradingBotId,
@@ -138,15 +138,15 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         }
 
         function signalCounters() {
-            emitterUserProfile.emitterSignalsCount++
-            if (targetUserProfile !== undefined) {
-                targetUserProfile.targetSignalsCount++
+            emitterSocialPersona.emitterSignalsCount++
+            if (targetSocialPersona !== undefined) {
+                targetSocialPersona.targetSignalsCount++
             }
-            if (emitterBotProfile !== undefined) {
-                emitterUserProfile.emitterSignalsCount++
+            if (emitterSocialTradingBot !== undefined) {
+                emitterSocialPersona.emitterSignalsCount++
             }
-            if (targetBotProfile !== undefined) {
-                targetBotProfile.targetSignalsCount++
+            if (targetSocialTradingBot !== undefined) {
+                targetSocialTradingBot.targetSignalsCount++
             }
         }
     }

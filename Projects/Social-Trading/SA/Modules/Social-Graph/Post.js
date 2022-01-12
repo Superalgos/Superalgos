@@ -97,12 +97,12 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             /*
             Validate Target Social Persona.
             */
-            let targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
-            if (targetUserProfile === undefined) {
+            let targetSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
+            if (targetSocialPersona === undefined) {
                 throw ('Target Social Persona Not Found.')
             }
 
-            let targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+            let targetPost = targetSocialPersona.posts.get(thisObject.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found.')

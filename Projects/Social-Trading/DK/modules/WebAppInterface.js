@@ -75,8 +75,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
-                        if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {
-                            event.postText = await getPostText(event.emitterUserProfile.userProfileHandle, event.emitterPost.emitterPostHash, event.timestamp)
+                        if (event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST) {
+                            event.postText = await getPostText(event.emitterSocialPersona.userProfileHandle, event.emitterPost.emitterPostHash, event.timestamp)
                         }
                     }
 
@@ -104,9 +104,9 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 }
 
                 if (
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST ||
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_USER_POST ||
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_USER_POST
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST
                 ) {
                     /*
                     We need to save the post at the User's storage and remove the text from the message 
@@ -114,15 +114,15 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     */
                     let commitMessage
                     switch (eventMessage.eventType) {
-                        case SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST: {
+                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST: {
                             commitMessage = "New Post"
                             break
                         }
-                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_USER_POST: {
+                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST: {
                             commitMessage = "Reply to User Post"
                             break
                         }
-                        case SA.projects.socialTrading.globals.eventTypes.REPOST_USER_POST: {
+                        case SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST: {
                             commitMessage = "Repost User Post"
                             break
                         }

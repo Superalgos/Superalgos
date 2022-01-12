@@ -1,11 +1,11 @@
-exports.newSocialTradingModulesQueriesProfileFollowing = function newSocialTradingModulesQueriesProfileFollowing() {
+exports.newSocialTradingModulesQueriesFollowers = function newSocialTradingModulesQueriesFollowers() {
     /*
-    This module represents the query that allows a Network Client to know
-    all the User or Bot profiles that are being followed by a certain User or Bot profile.
+    This module represents the query that allows a Social Entity to know
+    all the User or Bot profiles that are following a certain Social Persona or Social Trading Bot.
     */
     let thisObject = {
         array: undefined,
-        profile: undefined,
+        socialEntity: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -18,12 +18,12 @@ exports.newSocialTradingModulesQueriesProfileFollowing = function newSocialTradi
 
     function finalize() {
         thisObject.array = undefined
-        thisObject.profile = undefined
+        thisObject.socialEntity = undefined
     }
 
     function initialize(queryReceived) {
 
-        thisObject.array = Array.from(thisObject.profile.following)
+        thisObject.array = Array.from(thisObject.socialEntity.followers)
 
         NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
@@ -43,7 +43,7 @@ exports.newSocialTradingModulesQueriesProfileFollowing = function newSocialTradi
                 }
                 break
             }
-            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
+            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }

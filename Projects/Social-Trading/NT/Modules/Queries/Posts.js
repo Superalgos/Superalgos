@@ -1,15 +1,15 @@
-exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTradingModulesQueriesSocialPersonaStats() {
+exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQueriesPosts() {
     /*
-    Each User or Bot Profile can have posts. This query
-    is designed for Network Clients to fetch the posts
+    Each Social Entity (Social personas or Social Trading Bots) can have posts. This query
+    is designed for Social Entities to fetch the posts
     metadata they need from the Social Graph.
 
-    This is the query to be executed to fill a Profile page
+    This is the query to be executed to fill a Social Entity profile page
     with all of its posts.
     */
     let thisObject = {
         array: undefined,
-        profile: undefined,
+        socialEntity: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -22,12 +22,12 @@ exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTra
 
     function finalize() {
         thisObject.array = undefined
-        thisObject.profile = undefined
+        thisObject.socialEntity = undefined
     }
 
     function initialize(queryReceived) {
 
-        thisObject.array = Array.from(thisObject.profile.posts)
+        thisObject.array = Array.from(thisObject.socialEntity.posts)
 
         NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
@@ -59,13 +59,6 @@ exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTra
 
         function addToResponse(post) {
 
-            let profileId
-            if (thisObject.profile.botProfileId !== undefined) {
-                profileId = thisObject.profile.botProfileId
-            } else {
-                profileId = thisObject.profile.userProfileId
-            }
-
             let postResponse = {
                 emitterSocialPersonaId: post.emitterSocialPersonaId,
                 targetSocialPersonaId: post.targetSocialPersonaId,
@@ -79,7 +72,7 @@ exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTra
                 signalData: post.signalData,
                 repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions),
-                reaction: post.reactionsByProfile.get(profileId)
+                reaction: post.reactionsByProfile.get(thisObject.socialEntity.id)
             }
             response.push(postResponse)
         }

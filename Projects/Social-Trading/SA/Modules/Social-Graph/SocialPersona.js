@@ -10,7 +10,7 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
     let thisObject = {
         /* References */
         userProfileNode: undefined,
-        socialPersonaNode: undefined,        
+        node: undefined,        
         /* Unique Keys */
         id: undefined,        
         handle: undefined,
@@ -49,7 +49,7 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
     function finalize() {
 
         thisObject.userProfileNode = undefined
-        thisObject.socialPersonaNode = undefined
+        thisObject.node = undefined
 
         thisObject.following = undefined
         thisObject.followers = undefined
@@ -67,7 +67,7 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
     ) {
 
         thisObject.userProfileNode = userProfileNode
-        thisObject.socialPersonaNode = socialPersonaNode
+        thisObject.node = socialPersonaNode
         thisObject.handle = handle
         thisObject.blockchainAccount = blockchainAccount
         thisObject.ranking = ranking

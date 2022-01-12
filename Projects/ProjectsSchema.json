@@ -1705,10 +1705,10 @@
                     "fileName": "Queries/SocialPersonas.js"
                 },
                 {
-                    "name": "Unfollowed User Profiles",
-                    "propertyName": "queriesUnfollowedUserProfiles",
-                    "functionName": "newSocialTradingModulesQueriesUnfollowedUserProfiles",
-                    "fileName": "Queries/UnfollowedUserProfiles.js"
+                    "name": "Unfollowed Social Personas",
+                    "propertyName": "queriesUnfollowedSocialPersonas",
+                    "functionName": "newSocialTradingModulesQueriesUnfollowedSocialPersonas",
+                    "fileName": "Queries/UnfollowedSocialPersonas.js"
                 },
                 {
                     "name": "Social Trading Bot Stats",
@@ -1723,22 +1723,22 @@
                     "fileName": "Queries/SocialPersonaStats.js"
                 },
                 {
-                    "name": "Profile Posts",
-                    "propertyName": "queriesProfilePosts",
-                    "functionName": "newSocialTradingModulesQueriesProfilePosts",
-                    "fileName": "Queries/ProfilePosts.js"
+                    "name": "Posts",
+                    "propertyName": "queriesPosts",
+                    "functionName": "newSocialTradingModulesQueriesPosts",
+                    "fileName": "Queries/Posts.js"
                 },
                 {
-                    "name": "Profile Followers",
-                    "propertyName": "queriesProfileFollowers",
-                    "functionName": "newSocialTradingModulesQueriesProfileFollowers",
-                    "fileName": "Queries/ProfileFollowers.js"
+                    "name": "Followers",
+                    "propertyName": "queriesFollowers",
+                    "functionName": "newSocialTradingModulesQueriesFollowers",
+                    "fileName": "Queries/Followers.js"
                 },
                 {
-                    "name": "Profile Following",
-                    "propertyName": "queriesProfileFollowing",
-                    "functionName": "newSocialTradingModulesQueriesProfileFollowing",
-                    "fileName": "Queries/ProfileFollowing.js"
+                    "name": "Following",
+                    "propertyName": "queriesFollowing",
+                    "functionName": "newSocialTradingModulesQueriesFollowing",
+                    "fileName": "Queries/Following.js"
                 },
                 {
                     "name": "Post Replies",

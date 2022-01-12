@@ -1,10 +1,9 @@
 exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQueriesEvents() {
     /*
-    This is the query executed to fill the timeline of a certain User or Bot Profile.
-
+    This is the query executed to fill the timeline of a certain Social Persona or Social Trading Bot.
     */
     let thisObject = {
-        profile: undefined,
+        socialEntity: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -16,7 +15,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
     return thisObject
 
     function finalize() {
-        thisObject.profile = undefined
+        thisObject.socialEntity = undefined
     }
 
     function initialize(queryReceived) {
@@ -51,149 +50,152 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
         function checkEventContext(event) {
             /*
             For an event to be returned at the response of this query, it needs to be related
-            to the profile making the query. How it can be related?
+            to the socialEntity making the query. How it can be related?
 
-            1. The Emitter or Target profile must be the same as the Context Profile.
-            2. The Emitter or Target profile must be at the Following map of the Context Profile.
-            3. The Emitter or Target post must be belong to any profile at the Following of the Context Profile.
+            1. The Emitter or Target socialEntity must be the same as the Context Profile.
+            2. The Emitter or Target socialEntity must be at the Following map of the Context Profile.
+            3. The Emitter or Target post must be belong to any socialEntity at the Following of the Context Profile.
 
             Any of the above happening, means that indeed it is related.
             */
-            let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(event.emitterSocialPersonaId)
-            let emitterBotProfile = emitterUserProfile.bots.get(event.emitterSocialTradingBotId)
-            let emitterPost = emitterUserProfile.posts.get(event.emitterPostHash)
+            let emitterSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(event.emitterSocialPersonaId)
+            let emitterSocialTradingBot = emitterSocialPersona.bots.get(event.emitterSocialTradingBotId)
+            let emitterPost = emitterSocialPersona.posts.get(event.emitterPostHash)
 
-            let targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(event.targetSocialPersonaId)
-            let targetBotProfile
+            let targetSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(event.targetSocialPersonaId)
+            let targetSocialTradingBot
             let targetPost
 
-            if (targetUserProfile !== undefined) {
-                targetBotProfile = targetUserProfile.bots.get(event.targetSocialTradingBotId)
-                targetPost = targetUserProfile.posts.get(event.targetPostHash)
+            if (targetSocialPersona !== undefined) {
+                targetSocialTradingBot = targetSocialPersona.bots.get(event.targetSocialTradingBotId)
+                targetPost = targetSocialPersona.posts.get(event.targetPostHash)
             }
             /*
-            Test #1 : The Emitter or Target profile must be the same as the Context Profile.
+            Test #1 : The Emitter or Target socialEntity must be the same as the Context Profile.
             */
-            if (thisObject.profile.botProfileId === undefined) {
+            if (thisObject.socialEntity.node.type === 'Social Persona') {
                 /*
-                The context is a User Profile
+                The context is a Social Persona
                 */
-                if (emitterUserProfile.userProfileId === thisObject.profile.userProfileId) {
+                if (emitterSocialPersona.userProfileId === thisObject.socialEntity.userProfileId) {
                     addToResponse(event)
                     return
                 }
-                if (targetUserProfile !== undefined) {
-                    if (targetUserProfile.userProfileId === thisObject.profile.userProfileId) {
+                if (targetSocialPersona !== undefined) {
+                    if (targetSocialPersona.userProfileId === thisObject.socialEntity.userProfileId) {
                         addToResponse(event)
                         return
                     }
                 }
-            } else {
+            }
+            if (thisObject.socialEntity.node.type === 'Social Trading Bot') {
                 /*
-                The context is a Bot Profile
+                The context is a Social Trading Bot
                 */
-                if (emitterBotProfile !== undefined) {
-                    if (emitterBotProfile.botProfileId === thisObject.profile.botProfileId) {
+                if (emitterSocialTradingBot !== undefined) {
+                    if (emitterSocialTradingBot.botProfileId === thisObject.socialEntity.botProfileId) {
                         addToResponse(event)
                         return
                     }
                 }
-                if (targetBotProfile !== undefined) {
-                    if (targetBotProfile.botProfileId === thisObject.profile.botProfileId) {
+                if (targetSocialTradingBot !== undefined) {
+                    if (targetSocialTradingBot.botProfileId === thisObject.socialEntity.botProfileId) {
                         addToResponse(event)
                         return
                     }
                 }
             }
             /*
-            Test #2 : The Emitter or Target profile must be at the Following map of the Context Profile.
+            Test #2 : The Emitter or Target socialEntity must be at the Following map of the Context Profile.
             */
-            if (thisObject.profile.botProfileId === undefined) {
+            if (thisObject.socialEntity.node.type === 'Social Persona') {
                 /*
-                The context is a User Profile
+                The context is a Social Persona
                 */
-                if (thisObject.profile.following.get(emitterUserProfile.userProfileId) !== undefined) {
+                if (thisObject.socialEntity.following.get(emitterSocialPersona.userProfileId) !== undefined) {
                     addToResponse(event)
                     return
                 }
-                if (targetUserProfile !== undefined) {
-                    if (thisObject.profile.following.get(targetUserProfile.userProfileId) !== undefined) {
+                if (targetSocialPersona !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetSocialPersona.userProfileId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
-            } else {
+            }
+            if (thisObject.socialEntity.node.type === 'Social Trading Bot') {
                 /*
-                The context is a Bot Profile
+                The context is a Social Trading Bot
                 */
-                if (emitterBotProfile !== undefined) {
-                    if (thisObject.profile.following.get(emitterBotProfile.botProfileId) !== undefined) {
+                if (emitterSocialTradingBot !== undefined) {
+                    if (thisObject.socialEntity.following.get(emitterSocialTradingBot.botProfileId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
-                if (targetBotProfile !== undefined) {
-                    if (thisObject.profile.following.get(targetBotProfile.botProfileId) !== undefined) {
+                if (targetSocialTradingBot !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetSocialTradingBot.botProfileId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
             }
             /*
-            Test #3 : The Emitter or Target post must be belong to any profile at the Following of the Context Profile.
+            Test #3 : The Emitter or Target post must be belong to any socialEntity at the Following of the Context Profile.
             */
-            if (thisObject.profile.botProfileId === undefined) {
+            if (thisObject.socialEntity.node.type === 'Social Persona') {
                 /*
-                The context is a User Profile
+                The context is a Social Persona
                 */
                 if (emitterPost !== undefined) {
-                    if (thisObject.profile.following.get(emitterPost.emitterSocialPersonaId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(emitterPost.emitterSocialPersonaId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
                 if (emitterPost !== undefined) {
-                    if (thisObject.profile.following.get(emitterPost.targetSocialPersonaId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(emitterPost.targetSocialPersonaId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
                 if (targetPost !== undefined) {
-                    if (thisObject.profile.following.get(targetPost.emitterSocialPersonaId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetPost.emitterSocialPersonaId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
                 if (targetPost !== undefined) {
-                    if (thisObject.profile.following.get(targetPost.targetSocialPersonaId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetPost.targetSocialPersonaId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
-            } else {
+            }
+            if (thisObject.socialEntity.node.type === 'Social Trading Bot') {
                 /*
-                The context is a Bot Profile
+                The context is a Social Trading Bot
                 */
                 if (emitterPost !== undefined) {
-                    if (thisObject.profile.following.get(emitterPost.emitterSocialTradingBotId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(emitterPost.emitterSocialTradingBotId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
                 if (emitterPost !== undefined) {
-                    if (thisObject.profile.following.get(emitterPost.targetSocialTradingBotId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(emitterPost.targetSocialTradingBotId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
                 if (targetPost !== undefined) {
-                    if (thisObject.profile.following.get(targetPost.emitterSocialTradingBotId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetPost.emitterSocialTradingBotId) !== undefined) {
                         addToResponse(event)
                         return
                     }
                 }
                 if (targetPost !== undefined) {
-                    if (thisObject.profile.following.get(targetPost.targetSocialTradingBotId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetPost.targetSocialTradingBotId) !== undefined) {
                         addToResponse(event)
                         return
                     }
@@ -217,31 +219,31 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                     botEnabled: event.botEnabled
                 }
 
-                if (emitterUserProfile !== undefined) {
+                if (emitterSocialPersona !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
                     query.initialize({ targetSocialPersonaId: event.emitterSocialPersonaId })
-                    eventResponse.emitterUserProfile = query.execute()
+                    eventResponse.emitterSocialPersona = query.execute()
                     query.finalize()
                 }
 
-                if (targetUserProfile !== undefined) {
+                if (targetSocialPersona !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
                     query.initialize({ targetSocialPersonaId: event.targetSocialPersonaId })
-                    eventResponse.targetUserProfile = query.execute()
+                    eventResponse.targetSocialPersona = query.execute()
                     query.finalize()
                 }
 
-                if (emitterBotProfile !== undefined) {
+                if (emitterSocialTradingBot !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
                     query.initialize({ targetSocialPersonaId: event.emitterSocialPersonaId, targetSocialTradingBotId: emitterSocialTradingBotId })
-                    eventResponse.emitterBotProfile = query.execute()
+                    eventResponse.emitterSocialTradingBot = query.execute()
                     query.finalize()
                 }
 
-                if (targetBotProfile !== undefined) {
+                if (targetSocialTradingBot !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
                     query.initialize({ targetSocialPersonaId: event.targetSocialPersonaId, targetSocialTradingBotId: targetSocialTradingBotId })
-                    eventResponse.targetBotProfile = query.execute()
+                    eventResponse.targetSocialTradingBot = query.execute()
                     query.finalize()
                 }
 
@@ -257,13 +259,6 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
                 function addPost(post) {
 
-                    let profileId
-                    if (thisObject.profile.botProfileId !== undefined) {
-                        profileId = thisObject.profile.botProfileId
-                    } else {
-                        profileId = thisObject.profile.userProfileId
-                    }
-
                     let postResponse = {
                         emitterSocialPersonaId: post.emitterSocialPersonaId,
                         targetSocialPersonaId: post.targetSocialPersonaId,
@@ -275,7 +270,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                         timestamp: post.timestamp,
                         repliesCount: post.replies.size,
                         reactions: Array.from(post.reactions),
-                        reaction: post.reactionsByProfile.get(profileId)
+                        reaction: post.reactionsByProfile.get(socialEntity.id)
                     }
                     return postResponse
                 }

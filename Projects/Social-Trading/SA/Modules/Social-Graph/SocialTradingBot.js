@@ -9,7 +9,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
     let thisObject = {
         /* References */
         userProfileNode: undefined,
-        socialTradingBotNode: undefined,
+        node: undefined,
         /* Unique Keys */
         id: undefined,
         handle: undefined,
@@ -44,7 +44,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
 
     function finalize() {
         thisObject.userProfileNode = undefined
-        thisObject.socialTradingBotNode = undefined
+        thisObject.node = undefined
 
         thisObject.following = undefined
         thisObject.followers = undefined
@@ -63,9 +63,11 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
         botEnabled
     ) {
         thisObject.userProfileNode = userProfileNode
-        thisObject.socialTradingBotNode = socialTradingBotNode
+        thisObject.node = socialTradingBotNode
         thisObject.handle = handle
         thisObject.blockchainAccount = blockchainAccount
+        thisObject.ranking = ranking
+        thisObject.id = socialTradingBotNode.id
 
         thisObject.botAsset = botAsset
         thisObject.botExchange = botExchange

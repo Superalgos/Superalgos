@@ -35,7 +35,7 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
             }
 
             case SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesUnfollowedUserProfiles.newSocialTradingModulesQueriesUnfollowedUserProfiles()
+                thisObject.query = NT.projects.socialTrading.modules.queriesUnfollowedSocialPersonas.newSocialTradingModulesQueriesUnfollowedSocialPersonas()
                 thisObject.query.initialize(queryReceived)
                 break
             }
@@ -53,7 +53,7 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
             }
 
             case SA.projects.socialTrading.globals.queryTypes.PROFILE_POSTS: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesProfilePosts.newSocialTradingModulesQueriesProfilePosts()
+                thisObject.query = NT.projects.socialTrading.modules.queriesPosts.newSocialTradingModulesQueriesPosts()
                 thisObject.query.initialize(queryReceived)
                 break
             }
@@ -65,13 +65,13 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
             }
 
             case SA.projects.socialTrading.globals.queryTypes.PROFILE_FOLLOWERS: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesProfileFollowers.newSocialTradingModulesQueriesProfileFollowers()
+                thisObject.query = NT.projects.socialTrading.modules.queriesFollowers.newSocialTradingModulesQueriesFollowers()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
             case SA.projects.socialTrading.globals.queryTypes.PROFILE_FOLLOWING: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesProfileFollowing.newSocialTradingModulesQueriesProfileFollowing()
+                thisObject.query = NT.projects.socialTrading.modules.queriesFollowing.newSocialTradingModulesQueriesFollowing()
                 thisObject.query.initialize(queryReceived)
                 break
             }

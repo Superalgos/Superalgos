@@ -1,11 +1,12 @@
-exports.newSocialTradingModulesQueriesProfileFollowers = function newSocialTradingModulesQueriesProfileFollowers() {
+exports.newSocialTradingModulesQueriesFollowing = function newSocialTradingModulesQueriesFollowing() {
     /*
-    This module represents the query that allows a Network Client to know
-    all the User or Bot profiles that are following a certain User or Bot profile.
+    This module represents the query that allows a Social Entities to know
+    all the Social Personas or Social Trading Bots that are being followed 
+    by a certain Social Entity.
     */
     let thisObject = {
         array: undefined,
-        profile: undefined,
+        socialEntity: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
@@ -18,12 +19,12 @@ exports.newSocialTradingModulesQueriesProfileFollowers = function newSocialTradi
 
     function finalize() {
         thisObject.array = undefined
-        thisObject.profile = undefined
+        thisObject.socialEntity = undefined
     }
 
     function initialize(queryReceived) {
 
-        thisObject.array = Array.from(thisObject.profile.followers)
+        thisObject.array = Array.from(thisObject.socialEntity.following)
 
         NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
@@ -43,7 +44,7 @@ exports.newSocialTradingModulesQueriesProfileFollowers = function newSocialTradi
                 }
                 break
             }
-            case NT.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
+            case SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) { break }

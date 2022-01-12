@@ -49,7 +49,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-                queryMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
+                queryMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).nodeId
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
@@ -141,7 +141,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
             }
 
-                eventMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
+                eventMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).nodeId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {

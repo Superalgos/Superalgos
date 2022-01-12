@@ -195,18 +195,18 @@ function newWebApp() {
             console.log('[ERROR] query = ' + JSON.stringify(query))
         }
 
-        function addWhoToFollowTable(profiles) {
+        function addWhoToFollowTable(socialPersonas) {
 
             let contextCell = document.getElementById('who-to-follow-cell')
             let table = document.createElement("table")
             let tblBody = document.createElement("tbody")
 
-            for (let i = 0; i < profiles.length; i++) {
-                let profile = profiles[i]
+            for (let i = 0; i < socialPersonas.length; i++) {
+                let socialPersona = socialPersonas[i]
                 let row = document.createElement("tr")
 
                 let cell = document.createElement("td")
-                addProfileToFollowTable(cell, profile)
+                addProfileToFollowTable(cell, socialPersona)
                 row.appendChild(cell)
 
                 tblBody.appendChild(row)
@@ -216,7 +216,7 @@ function newWebApp() {
             contextCell.appendChild(table)
             table.setAttribute("class", "who-to-follow-table")
 
-            function addProfileToFollowTable(htmlElement, profile) {
+            function addProfileToFollowTable(htmlElement, socialPersona) {
                 let table = document.createElement("table")
                 let tblBody = document.createElement("tbody")
 
@@ -230,7 +230,7 @@ function newWebApp() {
                 }
                 {
                     let cell = document.createElement("td")
-                    let textNode = document.createTextNode(profile.userProfileHandle)
+                    let textNode = document.createTextNode(socialPersona.socialPersonaHandle)
                     cell.appendChild(textNode)
                     row.appendChild(cell)
                 }
@@ -240,10 +240,10 @@ function newWebApp() {
                     let button = document.createElement("button")
                     let text = document.createTextNode('Follow')
 
-                    span.setAttribute("id", "profile-to-follow-span-" + profile.userProfileId)
-                    button.setAttribute("id", "profile-to-follow-button-" + profile.userProfileId)
+                    span.setAttribute("id", "profile-to-follow-span-" + socialPersona.socialPersonaId)
+                    button.setAttribute("id", "profile-to-follow-button-" + socialPersona.socialPersonaId)
                     button.name = 'Follow Profile'
-                    button.userProfileId = profile.userProfileId
+                    button.id = socialPersona.socialPersonaId
 
                     span.setAttribute("class", "profile-to-follow-span")
                     button.setAttribute("class", "profile-to-follow-button")
@@ -289,15 +289,15 @@ function newWebApp() {
                     }
                     case 'Follow Profile': {
                         await sendTargetUserProfileEvent(
-                            event.target.userProfileId,
+                            event.target.id,
                             SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE
                         )
                             .then(updateButton)
                             .catch(onError)
 
                         function updateButton() {
-                            let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
-                            let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
+                            let span = document.getElementById('profile-to-follow-span-' + event.target.id)
+                            let button = document.getElementById('profile-to-follow-button-' + event.target.id)
                             span.setAttribute("class", "profile-to-unfollow-span")
                             button.setAttribute("class", "profile-to-unfollow-button")
                             button.name = 'Unfollow Profile'
@@ -306,15 +306,15 @@ function newWebApp() {
                     }
                     case 'Unfollow Profile': {
                         await sendTargetUserProfileEvent(
-                            event.target.userProfileId,
+                            event.target.id,
                             SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE
                         )
                             .then(updateButton)
                             .catch(onError)
 
                         function updateButton() {
-                            let span = document.getElementById('profile-to-follow-span-' + event.target.userProfileId)
-                            let button = document.getElementById('profile-to-follow-button-' + event.target.userProfileId)
+                            let span = document.getElementById('profile-to-follow-span-' + event.target.id)
+                            let button = document.getElementById('profile-to-follow-button-' + event.target.id)
                             span.setAttribute("class", "profile-to-follow-span")
                             button.setAttribute("class", "profile-to-follow-button")
                             button.name = 'Follow Profile'
@@ -339,7 +339,7 @@ function newWebApp() {
     }
 
     async function sendTargetUserProfileEvent(
-        userProfileId,
+        id,
         eventType
     ) {
 
@@ -352,7 +352,7 @@ function newWebApp() {
             eventMessage = {
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                targetSocialPersonaId: userProfileId,
+                targetSocialPersonaId: id,
                 timestamp: (new Date()).valueOf()
             }
 

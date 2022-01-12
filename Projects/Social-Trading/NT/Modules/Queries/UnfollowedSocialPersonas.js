@@ -53,8 +53,8 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
                 ) {
                     let socialPersona = thisObject.socialPersonas[i]
                     if (
-                        thisObject.emitterSocialPersona.following.get(socialPersona.userProfileId) === undefined &&
-                        thisObject.emitterSocialPersona.userProfileId !== socialPersona.userProfileId
+                        thisObject.emitterSocialPersona.following.get(socialPersona.id) === undefined &&
+                        thisObject.emitterSocialPersona.id !== socialPersona.id
                         ) {
                         addToResponse(socialPersona)
                         foundCount++
@@ -72,8 +72,8 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
                 ) {
                     let socialPersona = thisObject.socialPersonas[i]
                     if (
-                        thisObject.emitterSocialPersona.following.get(socialPersona.userProfileId) === undefined &&
-                        thisObject.emitterSocialPersona.userProfileId !== socialPersona.userProfileId
+                        thisObject.emitterSocialPersona.following.get(socialPersona.id) === undefined &&
+                        thisObject.emitterSocialPersona.id !== socialPersona.id
                         ) {
                         addToResponse(socialPersona)
                         foundCount++

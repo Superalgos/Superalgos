@@ -108,6 +108,7 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
                             */
                             SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.set(socialPersona.id, socialPersona)
                             SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_HANDLE.set(socialClient.config.handle, socialPersona)
+                            SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.set(socialPersona.id, userProfile)
                         }
                     }
                     
@@ -142,6 +143,7 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
                             */
                             SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.set(socialTradingBot.id, socialTradingBot)
                             SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_HANDLE.set(socialClient.config.handle, socialTradingBot)
+                            SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.set(socialTradingBot.id, userProfile)
                         }
                     }
                 }

@@ -25,10 +25,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
     }
 
     async function messageReceived(
-        message, 
+        message,
         userProfile,
         connectedUserProfiles
-        ) {
+    ) {
         let messageHeader
         try {
             messageHeader = JSON.parse(message)
@@ -59,7 +59,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         switch (messageHeader.requestType) {
             case 'Query': {
                 return await queryReceived(messageHeader.queryMessage, userProfile)
-            }            
+            }
             case 'Event': {
                 return await eventReceived(messageHeader.eventMessage, userProfile, connectedUserProfiles)
             }
@@ -101,13 +101,14 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             return response
         }
         /*
-        At the Client Interface, queries need to be emitted by the same userProfile that is
-        connected at the Network Node.
+        At the Client Interface, queries need to be emitted by Social Entities that 
+        belongs to the User Profile that is connected at the Network Node.
         */
-        if (queryReceived.emitterSocialPersonaId !== userProfile.id) {
+        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(emitterSocialPersonaId)
+        if (emitterUserProfile.id !== userProfile.id) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface emitterSocialPersonaId !== userProfileId Connected to Network Node.'
+                message: 'Social Entity sending the Query is unrelated to the User Profile Connected to Network Node.'
             }
             return response
         }
@@ -127,7 +128,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }
 
             // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
-            query.finalize()            
+            query.finalize()
             return response
 
         } catch (err) {
@@ -178,13 +179,14 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             return response
         }
         /*
-        At the Client Interface, events need to be emitted by the same userProfile that is
-        connected at the Network Node.
+        At the Client Interface, events need to be emitted by Social Entities that 
+        belongs to the User Profile that is connected at the Network Node.
         */
-        if (eventReceived.emitterSocialPersonaId !== userProfile.id) {
+        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(emitterSocialPersonaId)
+        if (emitterUserProfile.id !== userProfile.id) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface emitterSocialPersonaId !== userProfileId Connected to Network Node.'
+                message: 'Social Entity sending the Event is unrelated to the User Profile Connected to Network Node.'
             }
             return response
         }
@@ -223,9 +225,9 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 message: 'Client Interface Event Processed.'
             }
 
-            event.finalize()    
+            event.finalize()
             response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(connectedUserProfiles)
-            
+
             return response
 
         } catch (err) {

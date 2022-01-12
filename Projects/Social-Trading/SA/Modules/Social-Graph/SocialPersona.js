@@ -1,15 +1,19 @@
 exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradingModulesSocialGraphUserProfile() {
     /*
-    Users can have a Profile that can:
-        * follow other user profiles.
-        * be followed by other user profiles.
-        * have posts linked to the profile.
-        * have bots linked to the profile.
+    Users can have a Social Persona that can:
+
+        * follow other social personas.
+        * be followed by other social personas.
+        * have posts linked to their social persona.
+        * have bots linked to their social persona.
     */
     let thisObject = {
+        /* References */
+        userProfileNode: undefined,
+        socialPersonaNode: undefined,        
         /* Unique Keys */
-        userProfileId: undefined,
-        userProfileHandle: undefined,
+        id: undefined,        
+        handle: undefined,
         /* User Unique Properties */
         blockchainAccount: undefined,
         /* SA Reputation + SA Token Balance */
@@ -44,6 +48,9 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
 
     function finalize() {
 
+        thisObject.userProfileNode = undefined
+        thisObject.socialPersonaNode = undefined
+
         thisObject.following = undefined
         thisObject.followers = undefined
         thisObject.posts = undefined
@@ -52,16 +59,19 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
     }
 
     function initialize(
-        userProfileId,
-        userProfileHandle,
+        userProfileNode,
+        socialPersonaNode,
+        handle,
         blockchainAccount,
         ranking
     ) {
 
-        thisObject.userProfileId = userProfileId
-        thisObject.userProfileHandle = userProfileHandle
+        thisObject.userProfileNode = userProfileNode
+        thisObject.socialPersonaNode = socialPersonaNode
+        thisObject.handle = handle
         thisObject.blockchainAccount = blockchainAccount
         thisObject.ranking = ranking
+        thisObject.id = socialPersonaNode.id
 
         thisObject.following = new Map()
         thisObject.followers = new Map()
@@ -70,7 +80,6 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
 
         thisObject.emitterEventsCount = 0
         thisObject.targetEventsCount = 0
-
     }
 
     function addPost(

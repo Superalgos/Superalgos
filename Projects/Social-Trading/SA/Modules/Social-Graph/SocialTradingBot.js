@@ -1,15 +1,20 @@
 exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialTradingModulesSocialGraphSocialTradingBot() {
     /*
-    Users can have a Profile that can:
-        * follow other bots profiles.
-        * be followed by other bots profiles.
-        * have posts linked to the profile.
+    Users can have a Social Trading Bot that can:
+
+        * follow other social trading bots.
+        * be followed by other social trading bots.
+        * have posts linked to their social trading bots.
     */
     let thisObject = {
+        /* References */
+        userProfileNode: undefined,
+        socialTradingBotNode: undefined,
         /* Unique Keys */
-        userProfileId: undefined,
-        botProfileId: undefined,
-        botProfileHandle: undefined,
+        id: undefined,
+        handle: undefined,
+        /* User Unique Properties */
+        blockchainAccount: undefined,
         /* Bot Unique Properties */
         botAsset: undefined,
         botExchange: undefined,
@@ -38,6 +43,8 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
     return thisObject
 
     function finalize() {
+        thisObject.userProfileNode = undefined
+        thisObject.socialTradingBotNode = undefined
 
         thisObject.following = undefined
         thisObject.followers = undefined
@@ -46,14 +53,20 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
     }
 
     function initialize(
-        userProfileId,
-        botProfileId,
+        userProfileNode,
+        socialTradingBotNode, 
+        handle,
+        blockchainAccount,
+        ranking,
         botAsset,
         botExchange,
         botEnabled
     ) {
-        thisObject.userProfileId = userProfileId
-        thisObject.botProfileId = botProfileId
+        thisObject.userProfileNode = userProfileNode
+        thisObject.socialTradingBotNode = socialTradingBotNode
+        thisObject.handle = handle
+        thisObject.blockchainAccount = blockchainAccount
+
         thisObject.botAsset = botAsset
         thisObject.botExchange = botExchange
         thisObject.botEnabled = botEnabled

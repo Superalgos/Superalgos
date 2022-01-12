@@ -52,7 +52,6 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
 
         for (let i = 0; i < userProfiles.length; i++) {
             let userProfile = userProfiles[i][1]
-            let userProfileId = userProfile.id
 
             loadSigningAccounts()
 
@@ -96,7 +95,8 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
 
                             socialPersona = SA.projects.socialTrading.modules.socialGraphSocialPersona.newSocialTradingModulesSocialGraphSocialPersona()
                             socialPersona.initialize(
-                                userProfileId,
+                                userProfile,
+                                socialClient,
                                 socialClient.config.handle,
                                 blockchainAccount,
                                 ranking
@@ -128,7 +128,8 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
 
                             socialTradingBot = SA.projects.socialTrading.modules.socialGraphSocialPersona.newSocialTradingModulesSocialGraphSocialTradingBot()
                             socialTradingBot.initialize(
-                                userProfileId,
+                                userProfile,
+                                socialClient,
                                 socialClient.config.handle,
                                 blockchainAccount,
                                 ranking

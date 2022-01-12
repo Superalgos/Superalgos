@@ -1,0 +1,74 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "15",
+    "type": "Probabilities: Periodic Return Sigma",
+    "definition": {
+        "text": "This is an indicator that uses the historical volatility to predict price action in the future using a Periodic Return (PR) calculation and a Moving Average (MA) of 200 periods."
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Periodic Return Sigma on the Charts"
+        }, 
+        {
+            "style": "Text",
+            "text": "This indicator produces an output value, Z, by calculating the periodic return, the 200MA and the sigma (standard deviation) value."
+        }, 
+		{
+            "style": "List",
+            "text": "Periodic Return (PR): this is calculated by taking the natural logarithm of the ratio of candle close divided by the previous candle close: ln(candle.close/candle.previous.close)"
+        },
+		{
+            "style": "List",
+            "text": "Sigma: The sigma value is calculated by finding the standard deviation of the past price action (defaulting to 200 periods)."
+        }, 
+		{
+            "style": "List",
+            "text": "Z Value: The z value is then calculated by finding the difference between the Periodic Return and the 200MA, then dividing result by the sigma value: z = (PR - MA) / sigma"
+        },    
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Periodic-return.png"
+        },
+		{
+            "style": "Text",
+            "text": "The length of the calculation can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Periodic_Return_Sigma_Probabilities\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Probability-Periodic-return-params.png"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Periodic_Return_Sigma_Probabilities | PRSP | Z |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple buy signal could be triggered when the signal line crosses the red -2.34 line from below:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at01hs.PRSP.previous.Z < -2.34 && chart.at01hs.PRSP.Z > -2.34"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

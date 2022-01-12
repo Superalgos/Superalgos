@@ -71,7 +71,8 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
                     let socialClient = signingAccount.parentNode
                     let config = signingAccount.config
                     let signatureObject = config.signature
-                    let web3 = new SA.nodeModules.web3()                    
+                    let web3 = new SA.nodeModules.web3()    
+                    let ranking = 0 // TODO replace with real ranking.                
 
                     loadSocialPersonas()
                     loadSocialTradingBots()
@@ -128,7 +129,7 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
 
                             let blockchainAccount = web3.eth.accounts.recover(signatureObject)
 
-                            socialTradingBot = SA.projects.socialTrading.modules.socialGraphSocialPersona.newSocialTradingModulesSocialGraphSocialTradingBot()
+                            socialTradingBot = SA.projects.socialTrading.modules.socialGraphSocialTradingBot.newSocialTradingModulesSocialGraphSocialTradingBot()
                             socialTradingBot.initialize(
                                 userProfile,
                                 socialClient,

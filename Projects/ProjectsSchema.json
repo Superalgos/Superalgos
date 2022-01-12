@@ -1826,7 +1826,7 @@
                 },
                 {
                     "name": "SocialTradingBot",
-                    "propertyName": "socialTradingBot",
+                    "propertyName": "socialGraphSocialTradingBot",
                     "functionName": "newSocialTradingModulesSocialGraphSocialTradingBot",
                     "fileName": "Social-Graph/SocialTradingBot.js"
                 },

@@ -1116,14 +1116,14 @@
         "UI": {
             "nodeActionFunctions": [
                 {
-                    "name": "Node Action Workspace Functions",
+                    "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newWorkspacesNodeActionWorkspaceFunctions"
                 }
             ],
             "systemActionFunctions": [
                 {
-                    "name": "System Action Workspace Functions",
+                    "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
                 }

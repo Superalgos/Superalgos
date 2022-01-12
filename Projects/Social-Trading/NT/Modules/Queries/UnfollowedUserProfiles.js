@@ -2,7 +2,7 @@ exports.newSocialTradingModulesQueriesUnfollowedUserProfiles = function newSocia
     /*
     This query returns a list of user profiles ordered
     by Ranking. It filters out all the profiles that 
-    are already followed by the Emitter User Profile.
+    are already followed by the Emitter Social Persona.
     */
     let thisObject = {
         emitterUserProfile: undefined,
@@ -24,9 +24,9 @@ exports.newSocialTradingModulesQueriesUnfollowedUserProfiles = function newSocia
 
     function initialize(queryReceived) {
 
-        thisObject.emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.emitterUserProfileId)
+        thisObject.emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.emitterSocialPersonaId)
         if (thisObject.emitterUserProfile === undefined) {
-            throw ('Emitter User Profile Not Found.')
+            throw ('Emitter Social Persona Not Found.')
         }
 
         thisObject.profiles = Array.from(
@@ -87,8 +87,8 @@ exports.newSocialTradingModulesQueriesUnfollowedUserProfiles = function newSocia
 
         function addToResponse(profile) {
             let postResponse = {
-                "userProfileId": profile.userProfileId,
-                "userProfileHandle": profile.userProfileHandle,
+                "socialPersonaId": profile.userProfileId,
+                "socialPersonaHandle": profile.userProfileHandle,
                 "blockchainAccount": profile.blockchainAccount,
                 "ranking": profile.ranking,
                 "followingCount": profile.following.size,

@@ -72,11 +72,11 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
         {
             "queryType": 10, 
-            "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterUserProfileHandle": "Luis-Fernando-Molina",
             "targetUserProfileHandle":  "Luis-Fernando-Molina",
-            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
@@ -104,10 +104,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, queries need to be emitted by the same userProfile that is
         connected at the Network Node.
         */
-        if (queryReceived.emitterUserProfileId !== userProfile.id) {
+        if (queryReceived.emitterSocialPersonaId !== userProfile.id) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface emitterUserProfileId !== userProfileId Connected to Network Node.'
+                message: 'Client Interface emitterSocialPersonaId !== userProfileId Connected to Network Node.'
             }
             return response
         }
@@ -127,7 +127,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }
 
             // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
-
+            query.finalize()            
             return response
 
         } catch (err) {
@@ -154,9 +154,9 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         {
             "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "eventType": 10, 
-            "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
@@ -181,10 +181,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by the same userProfile that is
         connected at the Network Node.
         */
-        if (eventReceived.emitterUserProfileId !== userProfile.id) {
+        if (eventReceived.emitterSocialPersonaId !== userProfile.id) {
             let response = {
                 result: 'Error',
-                message: 'Client Interface emitterUserProfileId !== userProfileId Connected to Network Node.'
+                message: 'Client Interface emitterSocialPersonaId !== userProfileId Connected to Network Node.'
             }
             return response
         }
@@ -223,6 +223,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 message: 'Client Interface Event Processed.'
             }
 
+            event.finalize()    
             response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(connectedUserProfiles)
             
             return response

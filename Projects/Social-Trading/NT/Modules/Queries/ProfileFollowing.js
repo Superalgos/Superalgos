@@ -25,7 +25,7 @@ exports.newSocialTradingModulesQueriesProfileFollowing = function newSocialTradi
 
         thisObject.array = Array.from(thisObject.profile.following)
 
-        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
 
     }
@@ -56,8 +56,8 @@ exports.newSocialTradingModulesQueriesProfileFollowing = function newSocialTradi
 
         function addToResponse(arrayItem) {
             let postResponse = {
-                emitterUserProfileId: arrayItem.emitterUserProfileId,
-                emitterBotProfileId: arrayItem.emitterBotProfileId
+                emitterSocialPersonaId: arrayItem.emitterSocialPersonaId,
+                emitterSocialTradingBotId: arrayItem.emitterSocialTradingBotId
             }
             response.push(postResponse)
         }

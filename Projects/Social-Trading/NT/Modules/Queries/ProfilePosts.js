@@ -1,4 +1,4 @@
-exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradingModulesQueriesUserProfileStats() {
+exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTradingModulesQueriesSocialPersonaStats() {
     /*
     Each User or Bot Profile can have posts. This query
     is designed for Network Clients to fetch the posts
@@ -29,7 +29,7 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
 
         thisObject.array = Array.from(thisObject.profile.posts)
 
-        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 
@@ -67,10 +67,10 @@ exports.newSocialTradingModulesQueriesUserProfileStats = function newSocialTradi
             }
 
             let postResponse = {
-                emitterUserProfileId: post.emitterUserProfileId,
-                targetUserProfileId: post.targetUserProfileId,
-                emitterBotProfileId: post.emitterBotProfileId,
-                targetBotProfileId: post.targetBotProfileId,
+                emitterSocialPersonaId: post.emitterSocialPersonaId,
+                targetSocialPersonaId: post.targetSocialPersonaId,
+                emitterSocialTradingBotId: post.emitterSocialTradingBotId,
+                targetSocialTradingBotId: post.targetSocialTradingBotId,
                 emitterPostHash: post.emitterPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,

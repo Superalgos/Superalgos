@@ -3,38 +3,38 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
     This module have a few functions that are often needed at Queries Modules.
     */
     let thisObject = {
-        profilesValidations: profilesValidations,
+        socialValidations: socialValidations,
         postValidations: postValidations,
         arrayValidations: arrayValidations
     }
 
     return thisObject
 
-    function profilesValidations(queryReceived, thisObject) {
+    function socialValidations(queryReceived, thisObject) {
         /*
-        Validate User Profile
+        Validate Social Profiles
         */
-        if (queryReceived.emitterUserProfileId !== undefined) {
-            thisObject.profile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.emitterUserProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Emitter User Profile Not Found.')
+        if (queryReceived.emitterSocialPersonaId !== undefined) {
+            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.emitterSocialPersonaId)
+            if (thisObject.socialPersona === undefined) {
+                throw ('Emitter Social Persona Not Found.')
             }
         }
 
-        if (queryReceived.targetUserProfileId !== undefined) {
-            thisObject.profile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetUserProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Target User Profile Not Found.')
+        if (queryReceived.targetSocialPersonaId !== undefined) {
+            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetSocialPersonaId)
+            if (thisObject.socialPersona === undefined) {
+                throw ('Target Social Persona Not Found.')
             }
         }
 
         /*
         Validate Bot Profile
         */
-        if (queryReceived.targetBotProfileId !== undefined) {
-            thisObject.profile = thisObject.profile.bots.get(queryReceived.targetBotProfileId)
-            if (thisObject.profile === undefined) {
-                throw ('Target Bot Profile Not Found.')
+        if (queryReceived.targetSocialTradingBotId !== undefined) {
+            thisObject.socialPersona = thisObject.socialPersona.bots.get(queryReceived.targetSocialTradingBotId)
+            if (thisObject.socialPersona === undefined) {
+                throw ('Target Social Trading Bot Not Found.')
             }
         }
     }
@@ -43,7 +43,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         /*
         Validate Post
         */
-        thisObject.post = thisObject.profile.posts.get(queryReceived.targetPostHash)
+        thisObject.post = thisObject.socialPersona.posts.get(queryReceived.targetPostHash)
 
         if (thisObject.post === undefined) {
             throw ('Target Post Not Found.')
@@ -108,6 +108,5 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         }
 
         thisObject.direction = queryReceived.direction
-
     }
 }

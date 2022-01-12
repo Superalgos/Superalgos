@@ -1,4 +1,4 @@
-exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradingModulesSocialGraphUserProfile() {
+exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTradingModulesSocialGraphSocialPersona() {
     /*
     Users can have a Social Persona that can:
 
@@ -83,8 +83,8 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
     }
 
     function addPost(
-        emitterUserProfileId,
-        targetUserProfileId,
+        emitterSocialPersonaId,
+        targetSocialPersonaId,
         emitterPostHash,
         targetPostHash,
         postType,
@@ -95,8 +95,8 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
         } else {
             let post = SA.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
             post.initialize(
-                emitterUserProfileId,
-                targetUserProfileId,
+                emitterSocialPersonaId,
+                targetSocialPersonaId,
                 undefined,
                 undefined,
                 emitterPostHash,
@@ -122,38 +122,38 @@ exports.newSocialTradingModulesSocialGraphUserProfile = function newSocialTradin
     }
 
     function addFollowing(
-        targetUserProfileId
+        targetSocialPersonaId
     ) {
-        if (thisObject.following.get(targetUserProfileId) === undefined) {
-            thisObject.following.set(targetUserProfileId, targetUserProfileId)
+        if (thisObject.following.get(targetSocialPersonaId) === undefined) {
+            thisObject.following.set(targetSocialPersonaId, targetSocialPersonaId)
         } else {
             throw ('Already Following.')
         }
     }
 
     function removeFollowing(
-        targetUserProfileId
+        targetSocialPersonaId
     ) {
-        if (thisObject.following.get(targetUserProfileId) !== undefined) {
-            thisObject.following.delete(targetUserProfileId)
+        if (thisObject.following.get(targetSocialPersonaId) !== undefined) {
+            thisObject.following.delete(targetSocialPersonaId)
         } else {
             throw ('Not Following.')
         }
     }
 
     function addFollower(
-        emitterUserProfileId
+        emitterSocialPersonaId
     ) {
-        if (thisObject.followers.get(emitterUserProfileId) === undefined) {
-            thisObject.followers.set(emitterUserProfileId, emitterUserProfileId)
+        if (thisObject.followers.get(emitterSocialPersonaId) === undefined) {
+            thisObject.followers.set(emitterSocialPersonaId, emitterSocialPersonaId)
         }
     }
 
     function removeFollower(
-        emitterUserProfileId
+        emitterSocialPersonaId
     ) {
-        if (thisObject.followers.get(emitterUserProfileId) !== undefined) {
-            thisObject.followers.delete(emitterUserProfileId)
+        if (thisObject.followers.get(emitterSocialPersonaId) !== undefined) {
+            thisObject.followers.delete(emitterSocialPersonaId)
         }
     }
 

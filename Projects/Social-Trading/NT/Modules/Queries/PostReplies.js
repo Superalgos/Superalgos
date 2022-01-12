@@ -31,7 +31,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
 
         thisObject.array = Array.from(thisObject.post.replies)
 
-        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
 
@@ -72,10 +72,10 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
             }
 
             let postResponse = {
-                emitterUserProfileId: post.emitterUserProfileId,
-                targetUserProfileId: post.targetUserProfileId,
-                emitterBotProfileId: post.emitterBotProfileId,
-                targetBotProfileId: post.targetBotProfileId,
+                emitterSocialPersonaId: post.emitterSocialPersonaId,
+                targetSocialPersonaId: post.targetSocialPersonaId,
+                emitterSocialTradingBotId: post.emitterSocialTradingBotId,
+                targetSocialTradingBotId: post.targetSocialTradingBotId,
                 emitterPostHash: post.emitterPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,

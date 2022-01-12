@@ -1699,10 +1699,10 @@
             "globals": [],
             "modules": [
                 {
-                    "name": "User Profiles",
-                    "propertyName": "queriesUserProfiles",
-                    "functionName": "newSocialTradingModulesQueriesUserProfiles",
-                    "fileName": "Queries/UserProfiles.js"
+                    "name": "Social Personas",
+                    "propertyName": "queriesSocialPersonas",
+                    "functionName": "newSocialTradingModulesQueriesSocialPersonas",
+                    "fileName": "Queries/SocialPersonas.js"
                 },
                 {
                     "name": "Unfollowed User Profiles",
@@ -1711,16 +1711,16 @@
                     "fileName": "Queries/UnfollowedUserProfiles.js"
                 },
                 {
-                    "name": "Bot Profile Stats",
-                    "propertyName": "queriesBotProfileStats",
-                    "functionName": "newSocialTradingModulesQueriesBotProfileStats",
-                    "fileName": "Queries/BotProfileStats.js"
+                    "name": "Social Trading Bot Stats",
+                    "propertyName": "queriesSocialTradingBotStats",
+                    "functionName": "newSocialTradingModulesQueriesSocialTradingBotStats",
+                    "fileName": "Queries/SocialTradingBotStats.js"
                 },
                 {
-                    "name": "User Profile Stats",
-                    "propertyName": "queriesUserProfileStats",
-                    "functionName": "newSocialTradingModulesQueriesUserProfileStats",
-                    "fileName": "Queries/UserProfileStats.js"
+                    "name": "Social Persona Stats",
+                    "propertyName": "queriesSocialPersonaStats",
+                    "functionName": "newSocialTradingModulesQueriesSocialPersonaStats",
+                    "fileName": "Queries/SocialPersonaStats.js"
                 },
                 {
                     "name": "Profile Posts",

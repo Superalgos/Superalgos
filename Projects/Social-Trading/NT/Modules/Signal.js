@@ -12,10 +12,10 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         /* Unique Key */
         signalId: undefined,
         /* Referenced Entities Unique Keys */
-        emitterUserProfileId: undefined,
-        targetUserProfileId: undefined,
-        emitterBotProfileId: undefined,
-        targetBotProfileId: undefined,
+        emitterSocialPersonaId: undefined,
+        targetSocialPersonaId: undefined,
+        emitterSocialTradingBotId: undefined,
+        targetSocialTradingBotId: undefined,
         emitterPostHash: undefined,
         targetPostHash: undefined,
         /* Signal Unique Properties */
@@ -42,10 +42,10 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         Store the message properties into this object properties.
         */
         thisObject.signalId = signalReceived.signalId
-        thisObject.emitterUserProfileId = signalReceived.emitterUserProfileId
-        thisObject.targetUserProfileId = signalReceived.targetUserProfileId
-        thisObject.emitterBotProfileId = signalReceived.emitterBotProfileId
-        thisObject.targetBotProfileId = signalReceived.targetBotProfileId
+        thisObject.emitterSocialPersonaId = signalReceived.emitterSocialPersonaId
+        thisObject.targetSocialPersonaId = signalReceived.targetSocialPersonaId
+        thisObject.emitterSocialTradingBotId = signalReceived.emitterSocialTradingBotId
+        thisObject.targetSocialTradingBotId = signalReceived.targetSocialTradingBotId
         thisObject.emitterPostHash = signalReceived.emitterPostHash
         thisObject.targetPostHash = signalReceived.targetPostHash
         thisObject.signalType = signalReceived.signalType
@@ -62,40 +62,40 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
         let emitterBotProfile
         let targetBotProfile
         /*
-        Validate Emitter User Profile.
+        Validate Emitter Social Persona.
         */
-        if (thisObject.emitterUserProfileId === undefined) {
-            throw ('Emitter User Profile Id Not Provided.')
+        if (thisObject.emitterSocialPersonaId === undefined) {
+            throw ('Emitter Social Persona Id Not Provided.')
         }
-        emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.emitterUserProfileId)
+        emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.emitterSocialPersonaId)
         if (emitterUserProfile === undefined) {
-            throw ('Emitter User Profile Not Found.')
+            throw ('Emitter Social Persona Not Found.')
         }
         /*
-        Validate Target User Profile.
+        Validate Target Social Persona.
         */
-        if (thisObject.targetUserProfileId !== undefined) {
-            targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetUserProfileId)
+        if (thisObject.targetSocialPersonaId !== undefined) {
+            targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
             if (targetUserProfile === undefined) {
-                throw ('Target User Profile Not Found.')
+                throw ('Target Social Persona Not Found.')
             }
         }
         /*
-        Validate Emitter Bot Profile.
+        Validate Emitter Social Trading Bot.
         */
-        if (thisObject.emitterBotProfileId !== undefined) {
-            emitterBotProfile = emitterUserProfile.bots.get(thisObject.emitterBotProfileId)
+        if (thisObject.emitterSocialTradingBotId !== undefined) {
+            emitterBotProfile = emitterUserProfile.bots.get(thisObject.emitterSocialTradingBotId)
             if (emitterBotProfile === undefined) {
-                throw ('Emitter Bot Profile Not Found.')
+                throw ('Emitter Social Trading Bot Not Found.')
             }
         }
         /*
-        Validate Target Bot Profile.
+        Validate Target Social Trading Bot.
         */
-        if (thisObject.targetBotProfileId !== undefined) {
-            targetBotProfile = emitterUserProfile.bots.get(thisObject.targetBotProfileId)
+        if (thisObject.targetSocialTradingBotId !== undefined) {
+            targetBotProfile = emitterUserProfile.bots.get(thisObject.targetSocialTradingBotId)
             if (targetBotProfile === undefined) {
-                throw ('Target Bot Profile Not Found.')
+                throw ('Target Social Trading Bot Not Found.')
             }
         }
 
@@ -118,14 +118,14 @@ exports.newSocialTradingModulesSignal = function newSocialTradingModulesSignal()
                 We will create a new Bot Post with the Signal info attached to it.
                 */
                 if (emitterBotProfile === undefined) {
-                    throw ('Emitter Bot Profile Id Not Provided.')
+                    throw ('Emitter Social Trading Bot Id Not Provided.')
                 }
 
                 emitterBotProfile.addPost(
-                    thisObject.emitterUserProfileId,
-                    thisObject.targetUserProfileId,
-                    thisObject.emitterBotProfileId,
-                    thisObject.targetBotProfileId,
+                    thisObject.emitterSocialPersonaId,
+                    thisObject.targetSocialPersonaId,
+                    thisObject.emitterSocialTradingBotId,
+                    thisObject.targetSocialTradingBotId,
                     thisObject.emitterPostHash,
                     thisObject.targetPostHash,
                     SA.projects.socialTrading.globals.postTypes.SIGNAL_POST,

@@ -71,9 +71,9 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         {
             "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "eventType": 10, 
-            "emitterUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetUserProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "emitterSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",

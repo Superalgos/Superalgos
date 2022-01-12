@@ -81,10 +81,10 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
     }
 
     function addPost(
-        emitterUserProfileId,
-        targetUserProfileId,
-        emitterBotProfileId,
-        targetBotProfileId,
+        emitterSocialPersonaId,
+        targetSocialPersonaId,
+        emitterSocialTradingBotId,
+        targetSocialTradingBotId,
         emitterPostHash,
         targetPostHash,
         postType,
@@ -97,10 +97,10 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
         } else {
             let post = SA.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
             post.initialize(
-                emitterUserProfileId,
-                targetUserProfileId,
-                emitterBotProfileId,
-                targetBotProfileId,
+                emitterSocialPersonaId,
+                targetSocialPersonaId,
+                emitterSocialTradingBotId,
+                targetSocialTradingBotId,
                 emitterPostHash,
                 targetPostHash,
                 postType,
@@ -126,40 +126,40 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
     }
 
     function addFollowing(
-        targetUserProfileId,
-        targetBotProfileId
+        targetSocialPersonaId,
+        targetSocialTradingBotId
     ) {
-        if (thisObject.following.get(targetBotProfileId) === undefined) {
-            thisObject.following.set(targetBotProfileId, { targetUserProfileId: targetUserProfileId, targetBotProfileId: targetBotProfileId })
+        if (thisObject.following.get(targetSocialTradingBotId) === undefined) {
+            thisObject.following.set(targetSocialTradingBotId, { targetSocialPersonaId: targetSocialPersonaId, targetSocialTradingBotId: targetSocialTradingBotId })
         } else {
             throw ('Already Following.')
         }
     }
 
     function removeFollowing(
-        targetBotProfileId
+        targetSocialTradingBotId
     ) {
-        if (thisObject.following.get(targetBotProfileId) !== undefined) {
-            thisObject.following.delete(targetBotProfileId)
+        if (thisObject.following.get(targetSocialTradingBotId) !== undefined) {
+            thisObject.following.delete(targetSocialTradingBotId)
         } else {
             throw ('Not Following.')
         }
     }
 
     function addFollower(
-        emitterUserProfileId,
-        emitterBotProfileId
+        emitterSocialPersonaId,
+        emitterSocialTradingBotId
     ) {
-        if (thisObject.followers.get(emitterBotProfileId) === undefined) {
-            thisObject.followers.set(emitterBotProfileId, { emitterUserProfileId: emitterUserProfileId, emitterBotProfileId: emitterBotProfileId })
+        if (thisObject.followers.get(emitterSocialTradingBotId) === undefined) {
+            thisObject.followers.set(emitterSocialTradingBotId, { emitterSocialPersonaId: emitterSocialPersonaId, emitterSocialTradingBotId: emitterSocialTradingBotId })
         }
     }
 
     function removeFollower(
-        emitterBotProfileId
+        emitterSocialTradingBotId
     ) {
-        if (thisObject.followers.get(emitterBotProfileId) !== undefined) {
-            thisObject.followers.delete(emitterBotProfileId)
+        if (thisObject.followers.get(emitterSocialTradingBotId) !== undefined) {
+            thisObject.followers.delete(emitterSocialTradingBotId)
         }
     }
 }

@@ -29,7 +29,7 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
         switch (thisObject.queryType) {
 
             case SA.projects.socialTrading.globals.queryTypes.USER_PROFILES: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesUserProfiles.newSocialTradingModulesQueriesUserProfiles()
+                thisObject.query = NT.projects.socialTrading.modules.queriesSocialPersonas.newSocialTradingModulesQueriesSocialPersonas()
                 thisObject.query.initialize(queryReceived)
                 break
             }
@@ -41,13 +41,13 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
             }
 
             case SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesUserProfileStats.newSocialTradingModulesQueriesUserProfileStats()
+                thisObject.query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
             case SA.projects.socialTrading.globals.queryTypes.BOT_PROFILE_STATS: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesBotProfileStats.newSocialTradingModulesQueriesBotProfileStats()
+                thisObject.query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
                 thisObject.query.initialize(queryReceived)
                 break
             }

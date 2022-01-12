@@ -13,10 +13,10 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     */
     let thisObject = {
         /* Parents Ids */
-        emitterUserProfileId: undefined,
-        targetUserProfileId: undefined,
-        emitterBotProfileId: undefined,
-        targetBotProfileId: undefined,
+        emitterSocialPersonaId: undefined,
+        targetSocialPersonaId: undefined,
+        emitterSocialTradingBotId: undefined,
+        targetSocialTradingBotId: undefined,
         /* Unique Keys */
         emitterPostHash: undefined,
         targetPostHash: undefined,
@@ -47,10 +47,10 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     }
 
     function initialize(
-        emitterUserProfileId,
-        targetUserProfileId,
-        emitterBotProfileId,
-        targetBotProfileId,
+        emitterSocialPersonaId,
+        targetSocialPersonaId,
+        emitterSocialTradingBotId,
+        targetSocialTradingBotId,
         emitterPostHash,
         targetPostHash,
         postType,
@@ -76,10 +76,10 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         /*
         Assimilating Parameters
         */
-        thisObject.emitterUserProfileId = emitterUserProfileId
-        thisObject.targetUserProfileId = targetUserProfileId
-        thisObject.emitterBotProfileId = emitterBotProfileId
-        thisObject.targetBotProfileId = targetBotProfileId
+        thisObject.emitterSocialPersonaId = emitterSocialPersonaId
+        thisObject.targetSocialPersonaId = targetSocialPersonaId
+        thisObject.emitterSocialTradingBotId = emitterSocialTradingBotId
+        thisObject.targetSocialTradingBotId = targetSocialTradingBotId
         thisObject.emitterPostHash = emitterPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
@@ -95,11 +95,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             thisObject.postType === SA.projects.socialTrading.globals.postTypes.QUOTE_REPOST
         ) {
             /*
-            Validate Target User Profile.
+            Validate Target Social Persona.
             */
-            let targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetUserProfileId)
+            let targetUserProfile = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
             if (targetUserProfile === undefined) {
-                throw ('Target User Profile Not Found.')
+                throw ('Target Social Persona Not Found.')
             }
 
             let targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)

@@ -344,12 +344,19 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     */
                     targetNode.name = targetNodeType + " #" + targetNodeTypeCount
                     let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
+                    let handle = userProfileHandle + '-' + codeName
                     /*
                     We store at the User Profile the Signed userProfileHandle
                     */
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
+                    /*
+                    For Social Entities, we will automatically create a default handle
+                    */
+                    if (targetNode.type === "Social Persona" || targetNode.type === "Social Trading Bot") {
+                        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'handle', handle)
+                    }
                     /*
                     Save User Profile Plugin
                     */

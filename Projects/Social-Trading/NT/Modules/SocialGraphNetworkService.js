@@ -87,7 +87,8 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
                             if (socialClient.config.codeName === undefined) {
                                 return
                             }
-                            if (socialClient.config.handle === undefined) {
+                            if (socialClient.config.handle === undefined || socialClient.config.handle === "") {
+                                console.log('[WARN] User Profile ' + userProfile.name + ' ' + socialClient.config.codeName + ' does not have a Config Property handle defined.')
                                 return
                             }
 
@@ -120,7 +121,8 @@ exports.newSocialTradingModulesSocialGraphNetworkService = function newSocialTra
                             if (socialClient.config.codeName === undefined) {
                                 return
                             }
-                            if (socialClient.config.handle === undefined) {
+                            if (socialClient.config.handle === undefined || socialClient.config.handle === "") {
+                                console.log('[WARN] User Profile ' + userProfile.name + ' ' + socialClient.config.codeName + ' does not have a Config Property handle defined.')
                                 return
                             }
 

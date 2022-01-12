@@ -49,29 +49,39 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-                queryMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).nodeId
+                /*
+                The Emitter in each message, is the Social Entity (Social Person or Social Trading Bot)
+                that is producing the query. In other words, a User of a Social Trading App might have
+                multiple Social Personas or Social Trading Bots. The one that is currently using while
+                the query is executed is the one that should be specified at the message. If at this 
+                point we have a message without a defined Social Persona, we will use the default one
+                to retrieve it's id from the secrets file. 
+                */
+                if (queryMessage.emitterSocialPersonaId === undefined) {
+                    queryMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                }
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
                 let response
 
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
-                if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA){
+                if (queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA) {
 
-                    if(!queryMessage.userProfileId & !queryMessage.username){
+                    if (!queryMessage.userProfileId & !queryMessage.username) {
                         queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
-                        queryMessage.username =SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
+                        queryMessage.username = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
                     }
 
-                    response = await getUserProfileData(queryMessage.username,queryMessage.userProfileId)
-                }  else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
+                    response = await getUserProfileData(queryMessage.username, queryMessage.userProfileId)
+                } else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
                         data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     }
                 }
-                else{
+                else {
                     let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
@@ -135,13 +145,23 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     eventMessage.emitterPostHash = await savePostAtStorage(eventMessage.postText, commitMessage, eventMessage.timestamp)
                     eventMessage.postText = undefined
                 }
-                 else if(eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE)
-                 {
+                else if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
                     let commitMessage = "Edit User Profile";
                     eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
-            }
+                }
 
-                eventMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).nodeId
+                /*
+                The Emitter in each message, is the Social Entity (Social Person or Social Trading Bot)
+                that is producing the evnet. In other words, a User of a Social Trading App might have
+                multiple Social Personas or Social Trading Bots. The one that is currently using while
+                the event is executed is the one that should be specified at the message. If at this 
+                point we have a message without a defined Social Persona, we will use the default one
+                to retrieve it's id from the secrets file. 
+                */
+                if (eventMessage.emitterSocialPersonaId === undefined) {
+                    eventMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                }
+
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {
@@ -253,7 +273,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 .then((response) => {
 
                     if (response.status != 200) {
-                        console.log("getPostText", 'Github.com responded with status ' , response.status, 'url',url )
+                        console.log("getPostText", 'Github.com responded with status ', response.status, 'url', url)
                         throw new createError.NotFound();
                     }
 
@@ -272,7 +292,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         return promise
     }
 
-    async function getUserProfileData(userProfileHandle,userProfileId) {
+    async function getUserProfileData(userProfileHandle, userProfileId) {
 
         const { createHash } = await import('crypto')
         const hash = createHash('sha256')
@@ -297,7 +317,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 .then((response) => {
 
                     if (response.status != 200) {
-                        console.log("getUserProfileData", 'Github.com responded with status ' , response.status, 'url',url )
+                        console.log("getUserProfileData", 'Github.com responded with status ', response.status, 'url', url)
                         throw new createError.NotFound();
                     }
 
@@ -305,12 +325,12 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                         userProfile = JSON.parse(body);
                         userProfile.userProfileId = userProfileId;
                         userProfile.username = userProfileHandle;
-                        resolve(responseData('Ok','Web App Interface Query Processed.',userProfile))
+                        resolve(responseData('Ok', 'Web App Interface Query Processed.', userProfile))
                     })
                 })
                 .catch(err => {
-                    const response  = { userProfileId: userProfileId , username:userProfileHandle }
-                    resolve(responseData('Ok','Web App Interface Query Processed.',response,err));
+                    const response = { userProfileId: userProfileId, username: userProfileHandle }
+                    resolve(responseData('Ok', 'Web App Interface Query Processed.', response, err));
                 })
 
         }
@@ -319,7 +339,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         return promise
     }
 
-    async function responseData(result, message, data, error){
+    async function responseData(result, message, data, error) {
         return {
             result: result,
             message: message,

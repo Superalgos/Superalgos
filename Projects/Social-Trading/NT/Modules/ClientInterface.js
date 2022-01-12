@@ -104,7 +104,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, queries need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(emitterSocialPersonaId)
+        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.emitterSocialPersonaId)
         if (emitterUserProfile.id !== userProfile.id) {
             let response = {
                 result: 'Error',
@@ -182,7 +182,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(emitterSocialPersonaId)
+        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.emitterSocialPersonaId)
         if (emitterUserProfile.id !== userProfile.id) {
             let response = {
                 result: 'Error',

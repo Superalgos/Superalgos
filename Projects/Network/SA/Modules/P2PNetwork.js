@@ -25,7 +25,8 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
     async function initialize(
         callerRole,
         networkCodeName,
-        networkType
+        networkType,
+        p2pNetworkClientIdentity
     ) {
         thisObject.networkCodeName = networkCodeName
         thisObject.networkType = networkType
@@ -41,8 +42,8 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config === undefined) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName !== thisObject.networkCodeName) { continue }
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.type !== thisObject.networkType) { continue }
-                
-                    thisObject.p2pNodesToConnect.push(p2pNetworkNode)
+
+                    checkForPermissions(p2pNetworkNode)
                 }
                 break
             }
@@ -59,10 +60,30 @@ exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
                     if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.type !== thisObject.networkType) { continue }
 
                     if (thisP2PNodeId !== p2pNetworkNode.node.id) {
-                        thisObject.p2pNodesToConnect.push(p2pNetworkNode)
+                        checkForPermissions(p2pNetworkNode)
                     }
                 }
                 break
+            }
+        }
+
+        function checkForPermissions(p2pNetworkNode) {
+
+            if (p2pNetworkNode.node.p2pNetworkReference.referenceParent.type === "Permissioned P2P Network") {
+                let petmissionGrantedArray = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+                    p2pNetworkNode.node.p2pNetworkReference.referenceParent,
+                    'Permission Granted'
+                )
+
+                for (let i = 0; i < petmissionGrantedArray.length; i++) {
+                    let permissionGranted = petmissionGrantedArray[i]
+                    if (permissionGranted.referenceParent === undefined) { continue }
+                    if (permissionGranted.referenceParent.id === p2pNetworkClientIdentity.userProfile.id) {
+                        thisObject.p2pNodesToConnect.push(p2pNetworkNode)
+                    }
+                }
+            } else {
+                thisObject.p2pNodesToConnect.push(p2pNetworkNode)
             }
         }
     }

@@ -1,7 +1,7 @@
 exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
     /*
-    A Query is a call from a Network Client to 
-    a Network Node with the purpose to get 
+    A Query is a call from a Social Trading App to 
+    the Social Graph Network Service with the purpose to get 
     relevant information from the Social Graph.
 
     A Query does not produce changes
@@ -28,31 +28,31 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
 
         switch (thisObject.queryType) {
 
-            case SA.projects.socialTrading.globals.queryTypes.USER_PROFILES: {
+            case SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONAS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesSocialPersonas.newSocialTradingModulesQueriesSocialPersonas()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES: {
+            case SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesUnfollowedSocialPersonas.newSocialTradingModulesQueriesUnfollowedSocialPersonas()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_STATS: {
+            case SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONAS_STATS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.BOT_PROFILE_STATS: {
+            case SA.projects.socialTrading.globals.queryTypes.SOCIAL_TRADING_BOT_STATS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.PROFILE_POSTS: {
+            case SA.projects.socialTrading.globals.queryTypes.POSTS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesPosts.newSocialTradingModulesQueriesPosts()
                 thisObject.query.initialize(queryReceived)
                 break
@@ -64,13 +64,13 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.PROFILE_FOLLOWERS: {
+            case SA.projects.socialTrading.globals.queryTypes.FOLLOWERS: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesFollowers.newSocialTradingModulesQueriesFollowers()
                 thisObject.query.initialize(queryReceived)
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.PROFILE_FOLLOWING: {
+            case SA.projects.socialTrading.globals.queryTypes.FOLLOWING: {
                 thisObject.query = NT.projects.socialTrading.modules.queriesFollowing.newSocialTradingModulesQueriesFollowing()
                 thisObject.query.initialize(queryReceived)
                 break
@@ -82,11 +82,6 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
                 break
             }
 
-            case SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA: {
-                thisObject.query = NT.projects.socialTrading.modules.queriesEvents.newSocialTradingModulesQueriesEvents()
-                thisObject.query.initialize(queryReceived)
-                break
-            }
             default: throw ('Query Type Not Supported.')
         }
     }

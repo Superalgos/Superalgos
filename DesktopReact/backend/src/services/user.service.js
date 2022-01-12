@@ -2,7 +2,7 @@ const getProfiles = async (req, res) => {
 
     try {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
+            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
             emitterSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
             amountRequested: 3,
@@ -26,7 +26,7 @@ const getProfiles = async (req, res) => {
 const paginateProfiles = async(initialIndex, pagination, res) => {
         try{
             const queryMessage = {
-                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
+                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
                 emitterSocialPersonaId: undefined,
                 initialIndex: initialIndex ? initialIndex : 0 ,
                 amountRequested: pagination ? pagination : 3,
@@ -105,7 +105,7 @@ const getProfile = async (userProfileId, username,res) => {
 
     try {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA,
+            queryType: SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA,
             emitterSocialPersonaId: undefined,
             userProfileId: userProfileId,
             username:username

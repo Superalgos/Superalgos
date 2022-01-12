@@ -56,7 +56,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
-                if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA){
+                if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA){
 
                     if(!queryMessage.userProfileId & !queryMessage.username){
                         queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;

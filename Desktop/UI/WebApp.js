@@ -172,7 +172,7 @@ function newWebApp() {
 
     async function loadWhoToFollow() {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
+            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
             emitterSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
             amountRequested: 3,

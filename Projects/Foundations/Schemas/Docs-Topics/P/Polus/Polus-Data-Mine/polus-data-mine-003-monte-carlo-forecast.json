@@ -34,7 +34,7 @@
         },
 		{
             "style": "Png",
-            "text": "PNGs/Foundations/Docs/indicators/Polus-Monte-Carlo-Forecast.png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-monte-carlo.png",
             "updated": 1611661370646
         },
 		{
@@ -56,7 +56,7 @@
         },
         {
             "style": "Table",
-            "text": "| Product Name | Product Variable | Properties |\n| Monte Carlo Forecast | MonteCarloForecast | forecast1 |",
+            "text": "| Product Name | Product Variable | Properties |\n| Monte Carlo Forecast | MonteCarloForecast | forecast1, price1, price5, price10, price20, price30, price40, price45, price1d, price5d, price10d, price20d, price30d, price40d, price45d |",
             "updated": 1636853769
         },
 		{
@@ -66,11 +66,11 @@
         },
 		{
             "style": "Text",
-            "text": "Coming soon"
+            "text": "Examples of accessing this indicator can be found below:"
         },
 		{
             "style": "Javascript",
-            "text": "chart.at01hs.MonteCarloForecast.forecast1",
+            "text": "chart.at01hs.MonteCarloForecast.forecast1 \n chart.at01hs.MonteCarloForecast.price1 \n chart.at01hs.MonteCarloForecast.price30 \n chart.at01hs.MonteCarloForecast.price5d \n chart.at01hs.MonteCarloForecast.price20d \n chart.at01hs.MonteCarloForecast.price45d \n ",
             "updated": 1636853769
         },
 		{

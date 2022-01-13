@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Zurück zu diesem ersten Handel: Wir haben besprochen, wie Phasen funktionieren, und erwähnt, dass der Preis das Stop Loss-Ziel markiert hat.",
                 "updated": 1639418721694
+            },
+            {
+                "language": "TR",
+                "text": "İlk ticarete geri dönersek, aşamaların nasıl çalıştığını tartıştık ve fiyatın zararı durdurma hedefini işaret ettiğinden bahsettik.",
+                "updated": 1641566280370
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Das bedeutet, dass diese erste Position ein Fehlschlag ist!",
                     "updated": 1639418728911
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, ilk pozisyonun bir başarısızlık olduğu anlamına gelir!",
+                    "updated": 1641566341339
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Fairerweise muss man sagen, dass der Handel bis zu etwa 3 % zu unseren Gunsten verlief, aber wir haben den Gewinn nicht mitgenommen und ihn uns durch die Lappen gehen lassen. Der Einstieg war nicht schlecht, und er könnte sinnvoll sein, wenn wir anfangen, über das Positionsmanagement nachzudenken.",
                     "updated": 1639418736327
+                },
+                {
+                    "language": "TR",
+                    "text": "Dürüst olmak gerekirse, ticaretin yaklaşık %3'üne kadar bizim lehimize olduğu söylenebilir, ancak kârı alamadık ve yolumuzu kaybetmesine izin verdik. Başlangıç fena değildi ve pozisyon yönetimi hakkında düşünmeye başlamamız mantıklı olabilir.",
+                    "updated": 1641566536864
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Machen wir einen kleinen Rundgang durch den getesteten Zeitraum und nehmen wir eine kurze Bewertung der übrigen eingegangenen Positionen vor!",
                     "updated": 1639418747752
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Test edilen döneme kısa bir tur atalım ve alınan diğer pozisyonların kısa bir değerlendirmesini yapalım!",
+                    "updated": 1641567122609
                 }
             ]
         }

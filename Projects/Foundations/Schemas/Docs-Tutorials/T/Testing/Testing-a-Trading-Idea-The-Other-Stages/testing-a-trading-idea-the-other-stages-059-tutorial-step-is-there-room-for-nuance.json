@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Sollte das Testen einer Handelsidee schwarze oder weiße Ergebnisse liefern? Das ist eine gute Frage... eine, die nur Sie beantworten können!",
                 "updated": 1639418979109
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret fikrini test etmek siyah mı yoksa beyaz sonuçlar mı üretmeli? Bu iyi bir soru... sadece senin cevaplayabileceğin bir soru!",
+                "updated": 1642070489949
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Sind Ihre Testkriterien grundsolide? Wenn Sie den Testkriterien vertrauen und davon überzeugt sind, dass die Vorhersage erfüllt werden muss, damit sich die Idee lohnt, sollten Sie sich wahrscheinlich an die harten Zahlen halten.",
                     "updated": 1639418990659
+                },
+                {
+                    "language": "TR",
+                    "text": "Test kriterleriniz kaya gibi sağlam mı? Test kriterlerine güveniyorsanız ve fikrin değerli olması için tahminin karşılanması gerektiğine inanıyorsanız, muhtemelen kesin sayılara bağlı kalmalısınız.",
+                    "updated": 1642070538671
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Sind Ihre Prüfkriterien eher ein Leitfaden oder eine erste Einschätzung? In unserem Fall darf ich offen zugeben, dass die vorgeschlagenen Prüfkriterien ziemlich willkürlich sind und im Zweifelsfall keinen Bestand haben. Ich habe ein einfaches Kriterium gewählt, um eine Aussage zu treffen und die Erklärungen zu erleichtern, aber ich würde es nicht vor einem Gericht verteidigen! Wenn Sie die Prüfkriterien nur als eine erste Einschätzung betrachten, dann sollte es wohl Raum für eine differenziertere Analyse geben.",
                     "updated": 1639419001212
+                },
+                {
+                    "language": "TR",
+                    "text": "Test kriterleriniz daha çok bir rehber mi yoksa ilk değerlendirme mi? Bizim durumumuzda, önerilen test kriterlerinin oldukça keyfi olduğunu ve şüphe durumunda geçerli olmadığını açıkça kabul edebilirim. Tanıklık yapmak ve açıklamaları kolaylaştırmak için basit bir kriter seçtim! Test kriterlerine yalnızca ilk değerlendirme olarak bakıyorsanız, daha ayrıntılı bir analiz için yer olmalıdır.",
+                    "updated": 1642070662174
                 }
             ]
         }

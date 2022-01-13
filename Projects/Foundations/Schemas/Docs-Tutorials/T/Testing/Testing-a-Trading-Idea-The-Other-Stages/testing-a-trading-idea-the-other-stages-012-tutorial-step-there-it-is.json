@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Ich hoffe, ihr habt sie selbst gefunden, aber keine Sorge, falls nicht! Wir werden die ganze Argumentation noch einmal durchgehen!",
                 "updated": 1639398216948
+            },
+            {
+                "language": "TR",
+                "text": "Umarım bulmuşsundur, ama bulamadıysan endişelenme! Bütün tartışmayı tekrar gözden geçireceğiz!",
+                "updated": 1641481418691
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Das Ziel ist, dass Sie lernen, wie Sie die Daten finden, die Sie in der logisch aufgebauten Trading Engine benötigen... Achten Sie darauf, die Tooltips zu lesen!",
                     "updated": 1639398231556
+                },
+                {
+                    "language": "TR",
+                    "text": "Amaç, mantıksal olarak yapılandırılmış ticaret motorunda ( Trading Engine ) ihtiyaç duyduğunuz verileri nasıl bulacağınızı öğrenmenizdir ... araç ipuçlarını mutlaka okuyun!",
+                    "updated": 1641481494953
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Trading Current, weil wir den Saldo im Moment der Auswertung brauchen!",
                     "updated": 1639398243555
+                },
+                {
+                    "language": "TR",
+                    "text": "İşlem Akımı ( Trading Current ), çünkü değerlendirme anında bakiyeye ihtiyacımız var!",
+                    "updated": 1641481784272
                 }
             ]
         },
@@ -49,6 +64,11 @@
                     "language": "DE",
                     "text": "Trading Episode, weil dies der laufende Saldo ist, der während der gesamten Handelssitzung gehalten wird!",
                     "updated": 1639398254533
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Bölümü ( Trading Episode ) çünkü tüm alım satım seansı boyunca tutulacak olan bakiye!",
+                    "updated": 1641482161024
                 }
             ]
         },
@@ -60,6 +80,11 @@
                     "language": "DE",
                     "text": "Episode Base Asset, weil es mit dem Rest unserer Definitionen übereinstimmt!",
                     "updated": 1639398266710
+                },
+                {
+                    "language": "TR",
+                    "text": "Bölüm Temel Varlık ( Episode Base Asset ) , çünkü tanımlarımızın geri kalanıyla eşleşiyor!",
+                    "updated": 1641482205251
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "DE",
                     "text": "Balance, weil es das ist, was wir wollten!",
                     "updated": 1639398276174
+                },
+                {
+                    "language": "TR",
+                    "text": "Denge ( Balance ) çünkü istediğimiz buydu!",
+                    "updated": 1641482254486
                 }
             ]
         }

@@ -65,11 +65,11 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         function addToResponse(post) {
 
             let postResponse = {
-                emitterSocialPersonaId: post.emitterSocialPersonaId,
+                originSocialPersonaId: post.originSocialPersonaId,
                 targetSocialPersonaId: post.targetSocialPersonaId,
-                emitterSocialTradingBotId: post.emitterSocialTradingBotId,
+                originSocialTradingBotId: post.originSocialTradingBotId,
                 targetSocialTradingBotId: post.targetSocialTradingBotId,
-                emitterPostHash: post.emitterPostHash,
+                originPostHash: post.originPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,

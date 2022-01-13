@@ -14,10 +14,10 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         /*
         Validate Social Profiles
         */
-        if (queryReceived.emitterSocialPersonaId !== undefined) {
-            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.emitterSocialPersonaId)
+        if (queryReceived.originSocialPersonaId !== undefined) {
+            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.originSocialPersonaId)
             if (thisObject.socialPersona === undefined) {
-                throw ('Emitter Social Persona Not Found.')
+                throw ('Origin Social Persona Not Found.')
             }
         }
 

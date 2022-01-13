@@ -25,7 +25,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
         posts: undefined,
         bots: undefined,
         /* Stats */
-        emitterEventsCount: undefined,
+        originEventsCount: undefined,
         targetEventsCount: undefined,
         /* Post Functions */
         addPost: addPost,
@@ -77,33 +77,33 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
         thisObject.followers = new Map()
         thisObject.posts = new Map()
 
-        thisObject.emitterEventsCount = 0
+        thisObject.originEventsCount = 0
         thisObject.targetEventsCount = 0
 
     }
 
     function addPost(
-        emitterSocialPersonaId,
+        originSocialPersonaId,
         targetSocialPersonaId,
-        emitterSocialTradingBotId,
+        originSocialTradingBotId,
         targetSocialTradingBotId,
-        emitterPostHash,
+        originPostHash,
         targetPostHash,
         postType,
         timestamp,
         signalType,
         signalData
     ) {
-        if (thisObject.posts.get(emitterPostHash) !== undefined) {
+        if (thisObject.posts.get(originPostHash) !== undefined) {
             throw ('Post Already Exists.')
         } else {
             let post = SA.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
             post.initialize(
-                emitterSocialPersonaId,
+                originSocialPersonaId,
                 targetSocialPersonaId,
-                emitterSocialTradingBotId,
+                originSocialTradingBotId,
                 targetSocialTradingBotId,
-                emitterPostHash,
+                originPostHash,
                 targetPostHash,
                 postType,
                 timestamp,
@@ -111,19 +111,19 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
                 signalData
             )
 
-            thisObject.posts.set(emitterPostHash, post)
+            thisObject.posts.set(originPostHash, post)
         }
     }
 
     function removePost(
-        emitterPostHash
+        originPostHash
     ) {
-        if (thisObject.posts.get(emitterPostHash) === undefined) {
+        if (thisObject.posts.get(originPostHash) === undefined) {
             throw ('Post Does Not Exist.')
         } else {
-            let post = thisObject.posts.get(emitterPostHash)
+            let post = thisObject.posts.get(originPostHash)
             post.finalize()
-            thisObject.posts.delete(emitterPostHash)
+            thisObject.posts.delete(originPostHash)
         }
     }
 
@@ -149,19 +149,19 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
     }
 
     function addFollower(
-        emitterSocialPersonaId,
-        emitterSocialTradingBotId
+        originSocialPersonaId,
+        originSocialTradingBotId
     ) {
-        if (thisObject.followers.get(emitterSocialTradingBotId) === undefined) {
-            thisObject.followers.set(emitterSocialTradingBotId, { emitterSocialPersonaId: emitterSocialPersonaId, emitterSocialTradingBotId: emitterSocialTradingBotId })
+        if (thisObject.followers.get(originSocialTradingBotId) === undefined) {
+            thisObject.followers.set(originSocialTradingBotId, { originSocialPersonaId: originSocialPersonaId, originSocialTradingBotId: originSocialTradingBotId })
         }
     }
 
     function removeFollower(
-        emitterSocialTradingBotId
+        originSocialTradingBotId
     ) {
-        if (thisObject.followers.get(emitterSocialTradingBotId) !== undefined) {
-            thisObject.followers.delete(emitterSocialTradingBotId)
+        if (thisObject.followers.get(originSocialTradingBotId) !== undefined) {
+            thisObject.followers.delete(originSocialTradingBotId)
         }
     }
 }

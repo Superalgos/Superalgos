@@ -24,7 +24,7 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
         posts: undefined,
         bots: undefined,
         /* Stats */
-        emitterEventsCount: undefined,
+        originEventsCount: undefined,
         targetEventsCount: undefined,
         /* Post Functions */
         addPost: addPost,
@@ -78,46 +78,46 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
         thisObject.posts = new Map()
         thisObject.bots = new Map()
 
-        thisObject.emitterEventsCount = 0
+        thisObject.originEventsCount = 0
         thisObject.targetEventsCount = 0
     }
 
     function addPost(
-        emitterSocialPersonaId,
+        originSocialPersonaId,
         targetSocialPersonaId,
-        emitterPostHash,
+        originPostHash,
         targetPostHash,
         postType,
         timestamp
     ) {
-        if (thisObject.posts.get(emitterPostHash) !== undefined) {
+        if (thisObject.posts.get(originPostHash) !== undefined) {
             throw ('Post Already Exists.')
         } else {
             let post = SA.projects.socialTrading.modules.socialGraphPost.newSocialTradingModulesSocialGraphPost()
             post.initialize(
-                emitterSocialPersonaId,
+                originSocialPersonaId,
                 targetSocialPersonaId,
                 undefined,
                 undefined,
-                emitterPostHash,
+                originPostHash,
                 targetPostHash,
                 postType,
                 timestamp
             )
 
-            thisObject.posts.set(emitterPostHash, post)
+            thisObject.posts.set(originPostHash, post)
         }
     }
 
     function removePost(
-        emitterPostHash
+        originPostHash
     ) {
-        if (thisObject.posts.get(emitterPostHash) === undefined) {
+        if (thisObject.posts.get(originPostHash) === undefined) {
             throw ('Post Does Not Exist.')
         } else {
-            let post = thisObject.posts.get(emitterPostHash)
+            let post = thisObject.posts.get(originPostHash)
             post.finalize()
-            thisObject.posts.delete(emitterPostHash)
+            thisObject.posts.delete(originPostHash)
         }
     }
 
@@ -142,18 +142,18 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
     }
 
     function addFollower(
-        emitterSocialPersonaId
+        originSocialPersonaId
     ) {
-        if (thisObject.followers.get(emitterSocialPersonaId) === undefined) {
-            thisObject.followers.set(emitterSocialPersonaId, emitterSocialPersonaId)
+        if (thisObject.followers.get(originSocialPersonaId) === undefined) {
+            thisObject.followers.set(originSocialPersonaId, originSocialPersonaId)
         }
     }
 
     function removeFollower(
-        emitterSocialPersonaId
+        originSocialPersonaId
     ) {
-        if (thisObject.followers.get(emitterSocialPersonaId) !== undefined) {
-            thisObject.followers.delete(emitterSocialPersonaId)
+        if (thisObject.followers.get(originSocialPersonaId) !== undefined) {
+            thisObject.followers.delete(originSocialPersonaId)
         }
     }
 

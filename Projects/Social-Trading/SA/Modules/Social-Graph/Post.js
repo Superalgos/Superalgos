@@ -13,12 +13,12 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     */
     let thisObject = {
         /* Parents Ids */
-        emitterSocialPersonaId: undefined,
+        originSocialPersonaId: undefined,
         targetSocialPersonaId: undefined,
-        emitterSocialTradingBotId: undefined,
+        originSocialTradingBotId: undefined,
         targetSocialTradingBotId: undefined,
         /* Unique Keys */
-        emitterPostHash: undefined,
+        originPostHash: undefined,
         targetPostHash: undefined,
         /* Post Unique Properties */
         postType: undefined,
@@ -47,11 +47,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     }
 
     function initialize(
-        emitterSocialPersonaId,
+        originSocialPersonaId,
         targetSocialPersonaId,
-        emitterSocialTradingBotId,
+        originSocialTradingBotId,
         targetSocialTradingBotId,
-        emitterPostHash,
+        originPostHash,
         targetPostHash,
         postType,
         timestamp,
@@ -76,11 +76,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         /*
         Assimilating Parameters
         */
-        thisObject.emitterSocialPersonaId = emitterSocialPersonaId
+        thisObject.originSocialPersonaId = originSocialPersonaId
         thisObject.targetSocialPersonaId = targetSocialPersonaId
-        thisObject.emitterSocialTradingBotId = emitterSocialTradingBotId
+        thisObject.originSocialTradingBotId = originSocialTradingBotId
         thisObject.targetSocialTradingBotId = targetSocialTradingBotId
-        thisObject.emitterPostHash = emitterPostHash
+        thisObject.originPostHash = originPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp

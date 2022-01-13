@@ -45,7 +45,7 @@ exports.newSocialTradingModulesQueriesSocialTradingBotStats = function newSocial
             "followingCount": thisObject.socialTradingBot.following.size,
             "followersCount": thisObject.socialTradingBot.followers.size,
             "postsCount": thisObject.socialTradingBot.posts.size,
-            "emitterEventsCount": thisObject.socialTradingBot.emitterEventsCount,
+            "originEventsCount": thisObject.socialTradingBot.originEventsCount,
             "targetEventsCount": thisObject.socialTradingBot.targetEventsCount            
         }
     }

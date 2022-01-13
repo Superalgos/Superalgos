@@ -72,13 +72,13 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
         {
             "queryType": 10, 
-            "emitterSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterUserProfileHandle": "Luis-Fernando-Molina",
+            "originUserProfileHandle": "Luis-Fernando-Molina",
             "targetUserProfileHandle":  "Luis-Fernando-Molina",
-            "emitterSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,
             "botAsset": "BTC",
@@ -104,8 +104,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, queries need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.emitterSocialPersonaId)
-        if (emitterUserProfile.id !== userProfile.id) {
+        let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.originSocialPersonaId)
+        if (originSocialPersona.id !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity sending the Query is unrelated to the User Profile Connected to Network Node.'
@@ -155,11 +155,11 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         {
             "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "eventType": 10, 
-            "emitterSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "emitterPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,
             "botAsset": "BTC",
@@ -182,8 +182,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let emitterUserProfile = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.emitterSocialPersonaId)
-        if (emitterUserProfile.id !== userProfile.id) {
+        let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.originSocialPersonaId)
+        if (originSocialPersona.id !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity sending the Event is unrelated to the User Profile Connected to Network Node.'

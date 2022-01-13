@@ -66,7 +66,7 @@ exports.newSocialTradingModulesQueriesSocialPersonas = function newSocialTrading
                 "followersCount": socialPersona.followers.size,
                 "postsCount": socialPersona.posts.size,
                 "botsCount": socialPersona.bots.size,
-                "emitterEventsCount": socialPersona.emitterEventsCount,
+                "originEventsCount": socialPersona.originEventsCount,
                 "targetEventsCount": socialPersona.targetEventsCount
             }
             response.push(postResponse)

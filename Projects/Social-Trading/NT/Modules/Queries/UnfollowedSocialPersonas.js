@@ -2,10 +2,10 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
     /*
     This query returns a list of user socialPersonas ordered
     by Ranking. It filters out all the socialPersonas that 
-    are already followed by the Emitter Social Persona.
+    are already followed by the Origin Social Persona.
     */
     let thisObject = {
-        emitterSocialPersona: undefined,
+        originSocialPersona: undefined,
         socialPersonas: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
@@ -19,14 +19,14 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
 
     function finalize() {
         thisObject.socialPersonas = undefined
-        thisObject.emitterSocialPersona = undefined
+        thisObject.originSocialPersona = undefined
     }
 
     function initialize(queryReceived) {
 
-        thisObject.emitterSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.emitterSocialPersonaId)
-        if (thisObject.emitterSocialPersona === undefined) {
-            throw ('Emitter Social Persona Not Found.')
+        thisObject.originSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.originSocialPersonaId)
+        if (thisObject.originSocialPersona === undefined) {
+            throw ('Origin Social Persona Not Found.')
         }
 
         thisObject.socialPersonas = Array.from(
@@ -53,8 +53,8 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
                 ) {
                     let socialPersona = thisObject.socialPersonas[i]
                     if (
-                        thisObject.emitterSocialPersona.following.get(socialPersona.id) === undefined &&
-                        thisObject.emitterSocialPersona.id !== socialPersona.id
+                        thisObject.originSocialPersona.following.get(socialPersona.id) === undefined &&
+                        thisObject.originSocialPersona.id !== socialPersona.id
                         ) {
                         addToResponse(socialPersona)
                         foundCount++
@@ -72,8 +72,8 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
                 ) {
                     let socialPersona = thisObject.socialPersonas[i]
                     if (
-                        thisObject.emitterSocialPersona.following.get(socialPersona.id) === undefined &&
-                        thisObject.emitterSocialPersona.id !== socialPersona.id
+                        thisObject.originSocialPersona.following.get(socialPersona.id) === undefined &&
+                        thisObject.originSocialPersona.id !== socialPersona.id
                         ) {
                         addToResponse(socialPersona)
                         foundCount++
@@ -95,7 +95,7 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
                 "followersCount": socialPersona.followers.size,
                 "postsCount": socialPersona.posts.size,
                 "botsCount": socialPersona.bots.size,
-                "emitterEventsCount": socialPersona.emitterEventsCount,
+                "originEventsCount": socialPersona.originEventsCount,
                 "targetEventsCount": socialPersona.targetEventsCount
             }
             response.push(postResponse)

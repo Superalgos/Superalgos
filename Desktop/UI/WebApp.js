@@ -103,7 +103,7 @@ function newWebApp() {
     async function loadWUserProfileTimeline() {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
-            emitterSocialPersonaId: undefined,
+            originSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 100,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -147,15 +147,15 @@ function newWebApp() {
 
                     switch (event.eventType) {
                         case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
-                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " POSTED " + event.postText)
+                            textNode = document.createTextNode(event.originSocialPersona.handle + " POSTED " + event.postText)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
-                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " FOLLOWED " + event.targetUserProfile.userProfileHandle)
+                            textNode = document.createTextNode(event.originSocialPersona.handle + " FOLLOWED " + event.targetSocialPersona.handle)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE: {
-                            textNode = document.createTextNode(event.emitterUserProfile.userProfileHandle + " UNFOLLOWED " + event.targetUserProfile.userProfileHandle)
+                            textNode = document.createTextNode(event.originSocialPersona.handle + " UNFOLLOWED " + event.targetSocialPersona.handle)
                             break
                         }
                     }
@@ -173,7 +173,7 @@ function newWebApp() {
     async function loadWhoToFollow() {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
-            emitterSocialPersonaId: undefined,
+            originSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
             amountRequested: 3,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP

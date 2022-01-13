@@ -29,15 +29,15 @@ const Post = ({postData}) => {
         }
     }, [])
 
-    if (!post.emitterUserProfile) {
+    if (!post.originSocialPersona) {
         return <></>
     }
 
     const {
-        emitterUserProfile: {userProfileHandle: userName},
+        originSocialPersona: {userProfileHandle: userName},
         postText: postBody,
         eventId: postId,
-        emitterPost: {reactions: reactions}
+        originPost: {reactions: reactions}
     } = post;
 
     const handlePostClick = (e) => {

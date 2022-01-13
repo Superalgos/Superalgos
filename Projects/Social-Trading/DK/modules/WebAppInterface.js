@@ -50,15 +50,15 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     return JSON.stringify(response)
                 }
                 /*
-                The Emitter in each message, is the Social Entity (Social Person or Social Trading Bot)
+                The Origin in each message, is the Social Entity (Social Person or Social Trading Bot)
                 that is producing the query. In other words, a User of a Social Trading App might have
                 multiple Social Personas or Social Trading Bots. The one that is currently using while
                 the query is executed is the one that should be specified at the message. If at this 
                 point we have a message without a defined Social Persona, we will use the default one
                 to retrieve it's id from the secrets file. 
                 */
-                if (queryMessage.emitterSocialPersonaId === undefined) {
-                    queryMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                if (queryMessage.originSocialPersonaId === undefined) {
+                    queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
                 }
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
@@ -86,7 +86,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST) {
-                            event.postText = await getPostText(event.emitterSocialPersona.userProfileHandle, event.emitterPost.emitterPostHash, event.timestamp)
+                            event.postText = await getPostText(event.originSocialPersona.handle, event.originPost.originPostHash, event.timestamp)
                         }
                     }
 
@@ -142,24 +142,24 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     and a hash of the content was generated, and that is what is going to
                     the Network Node.
                     */
-                    eventMessage.emitterPostHash = await savePostAtStorage(eventMessage.postText, commitMessage, eventMessage.timestamp)
+                    eventMessage.originPostHash = await savePostAtStorage(eventMessage.postText, commitMessage, eventMessage.timestamp)
                     eventMessage.postText = undefined
                 }
                 else if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
                     let commitMessage = "Edit User Profile";
-                    eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
+                    eventMessage.originPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
                 }
 
                 /*
-                The Emitter in each message, is the Social Entity (Social Person or Social Trading Bot)
+                The Origin in each message, is the Social Entity (Social Person or Social Trading Bot)
                 that is producing the evnet. In other words, a User of a Social Trading App might have
                 multiple Social Personas or Social Trading Bots. The one that is currently using while
                 the event is executed is the one that should be specified at the message. If at this 
                 point we have a message without a defined Social Persona, we will use the default one
                 to retrieve it's id from the secrets file. 
                 */
-                if (eventMessage.emitterSocialPersonaId === undefined) {
-                    eventMessage.emitterSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                if (eventMessage.originSocialPersonaId === undefined) {
+                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
                 }
 
                 messageHeader.eventMessage = JSON.stringify(eventMessage)

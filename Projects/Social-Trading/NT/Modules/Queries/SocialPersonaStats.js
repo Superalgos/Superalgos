@@ -39,7 +39,7 @@ exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTra
             "followersCount": thisObject.socialPersona.followers.size,
             "postsCount": thisObject.socialPersona.posts.size,
             "botsCount": thisObject.socialPersona.bots.size,
-            "emitterEventsCount": thisObject.socialPersona.emitterEventsCount,
+            "originEventsCount": thisObject.socialPersona.originEventsCount,
             "targetEventsCount": thisObject.socialPersona.targetEventsCount
         }
     }

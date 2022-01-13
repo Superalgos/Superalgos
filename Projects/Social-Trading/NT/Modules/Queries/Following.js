@@ -57,8 +57,8 @@ exports.newSocialTradingModulesQueriesFollowing = function newSocialTradingModul
 
         function addToResponse(arrayItem) {
             let postResponse = {
-                emitterSocialPersonaId: arrayItem.emitterSocialPersonaId,
-                emitterSocialTradingBotId: arrayItem.emitterSocialTradingBotId
+                originSocialPersonaId: arrayItem.originSocialPersonaId,
+                originSocialTradingBotId: arrayItem.originSocialTradingBotId
             }
             response.push(postResponse)
         }

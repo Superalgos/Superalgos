@@ -72,14 +72,14 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
         {
             "queryType": 10, 
-            "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "originUserProfileHandle": "Luis-Fernando-Molina",
-            "targetUserProfileHandle":  "Luis-Fernando-Molina",
-            "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",        // OPTIONAL - This is the Social Persona executing this query.
+            "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",        // OPTIONAL - This is the Social Persona this query is targeting. For example, if the query is about the statistics of a Social Persona, then that is the Target. 
+            "originSocialPersonaHandle": "Luis-Fernando-Molina",                    // OPTIONAL - This is the Handle of the Social Persona executing this query.
+            "targetSocialPersonaHandle":  "Luis-Fernando-Molina",                   // OPTIONAL - This is the Handle of the Social Persona we are requesting information about.
+            "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",     // OPTIONAL - This is the Social Trading Bot executing this query.
+            "targetSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",     // OPTIONAL - This is the Social Trading Bot we are requesting information about.
+            "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",               // OPTIONAL - We need this when we require information of the Origin Social Entity. For example, if we are requesting the Reactions of a Post done by the Origin Social Persona, we need to receive here the Post Hash.
+            "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",               // OPTIONAL - We need this when we require information of the Target Social Entity. For exmaple, when we are requesting the Post Replies of a post of a Social Persona that is not the one executing this query. 
             "timestamp": 124234234234,
             "botAsset": "BTC",
             "botExchange": "Binance",
@@ -158,7 +158,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,

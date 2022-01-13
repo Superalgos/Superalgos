@@ -20,7 +20,7 @@ exports.newSocialTradingModulesQueriesSocialPersonaStats = function newSocialTra
         if (queryReceived.targetSocialPersonaId !== undefined) {
             thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetSocialPersonaId)
         } else {
-            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_HANDLE.get(queryReceived.targetSocialPersonaHandle)
         }
         
         if (thisObject.socialPersona === undefined) {

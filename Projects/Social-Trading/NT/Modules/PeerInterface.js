@@ -74,7 +74,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetBBotProfileId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
+            "targetSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
             "timestamp": 124234234234,

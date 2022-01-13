@@ -21,7 +21,7 @@ exports.newSocialTradingModulesQueriesSocialTradingBotStats = function newSocial
         if (queryReceived.targetSocialPersonaId !== undefined) {
             socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetSocialPersonaId)
         } else {
-            socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_HANDLE.get(queryReceived.targetUserProfileHandle)
+            socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_HANDLE.get(queryReceived.targetSocialPersonaHandle)
         }
 
         if (socialPersona === undefined) {

@@ -47,48 +47,42 @@ if (os.platform() == "win32") {
 } else if (os.platform() == "linux") {
     // Check for Ubuntu
     let version = os.version();
-    if (version.includes("Ubuntu")) {
-        // Paths and Icon for Ubuntu shortcuts
-        let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png");
-
-        // Create .desktop shortcut file
-        fs.writeFileSync( `${name}.desktop`,
-            `[Desktop Entry]
-            Type=Application
-            Encoding=UTF-8
-            Name=${name}
-            Comment=Launch Shortcut for Superalgos
-            Path=${__dirname}
-            Exec=${__dirname}/launch-linux-mac.sh
-            Terminal=true
-            Icon=${icon}
-            Categories=Application;`,
-        );
-
-        // Set shortcut as executable
-        fs.chmodSync( `${name}.desktop`, "775" );
-
-        // Place shortcut in proper folders
-        let command = `cp ${name}.desktop ~/Desktop/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`
-            exec( command,
-                function ( error, stdout ){
-                    if (error) {
-                        console.log('');
-                        console.log("There was an error installing a shortcut: ");
-                        console.log('');
-                        console.log( error );
-                        return;
-                    } else {
-                        console.log('');
-                        console.log("Shortcuts added successfully!");
-                    }
-                    // Remove temporary .desktop file
-                    fs.unlinkSync( `${name}.desktop` )
-            });
-
-    } else {
-        console.log( "Automatic shortcut creation is not yet supported on your flavor of linux.  If you would like to see this feature add, message @harrellbm on telegram or discord to ask how you can help!")
-    }
+    //Not just for Ubuntu, this will work for GNOME, KDE, XFCE and most other desktop managers
+    
+    // Paths and Icon for Ubuntu shortcuts
+    let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png");
+    // Create .desktop shortcut file
+    fs.writeFileSync( `${name}.desktop`,
+        `[Desktop Entry]
+        Type=Application
+        Encoding=UTF-8
+        Name=${name}
+        Comment=Launch Shortcut for Superalgos
+        Path=${__dirname}
+        Exec=${__dirname}/launch-linux-mac.sh
+        Terminal=true
+        Icon=${icon}
+        Categories=Application;`,
+    );
+    // Set shortcut as executable
+    fs.chmodSync( `${name}.desktop`, "775" );
+    // Place shortcut in proper folders
+    let command = `cp ${name}.desktop ~/Desktop/${name}.desktop & cp ${name}.desktop ~/.local/share/applications/${name}.desktop`
+        exec( command,
+            function ( error, stdout ){
+                if (error) {
+                    console.log('');
+                    console.log("There was an error installing a shortcut: ");
+                    console.log('');
+                    console.log( error );
+                    return;
+                } else {
+                    console.log('');
+                    console.log("Shortcuts added successfully!");
+                }
+                // Remove temporary .desktop file
+                fs.unlinkSync( `${name}.desktop` )
+        });
 
 // Mac Shortcuts
 } else if (os.platform() == "darwin") {

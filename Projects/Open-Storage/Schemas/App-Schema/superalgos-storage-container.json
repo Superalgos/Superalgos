@@ -1,5 +1,5 @@
 {
-    "type": "Storage Container",
+    "type": "Superalgos Storage Container",
     "menuItems": [
         {
             "action": "Configure",
@@ -23,13 +23,13 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\n\"codeName\": \"\", \"URL\": \"\" \n}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->Github Storage->Superalgos Storage->"
+        "compatibleTypes": "->Superalgos Storage->"
     },
-    "propertyNameAtParent": "storageContainers",
+    "propertyNameAtParent": "superalgosStorageContainers",
     "childrenNodesProperties": []
 }

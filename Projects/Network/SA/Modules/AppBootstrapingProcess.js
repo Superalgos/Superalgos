@@ -258,11 +258,18 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     /*
                     Identify Storage Containers of each profiles and load them to memory.
                     */
-                    let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
+                    let storageContainers 
+                    
+                    storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Github Storage Container')
+                    addContainersToMemoryMap()
+                    storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Superalgos Storage Container')
+                    addContainersToMemoryMap()
 
-                    for (let j = 0; j < storageContainers.length; j++) {
-                        let storageContainer = storageContainers[j]
-                        SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                    function addContainersToMemoryMap() {
+                        for (let j = 0; j < storageContainers.length; j++) {
+                            let storageContainer = storageContainers[j]
+                            SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                        }
                     }
                 }
             }

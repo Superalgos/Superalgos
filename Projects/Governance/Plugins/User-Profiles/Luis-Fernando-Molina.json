@@ -6204,12 +6204,12 @@
                         "id": "e42dfedc-6906-4833-8737-44d5f45ab82e",
                         "savedPayload": {
                             "position": {
-                                "x": 28813.09992730527,
-                                "y": 34147.18560503574
+                                "x": 37186.88633507227,
+                                "y": 19747.18560503574
                             },
                             "targetPosition": {
-                                "x": 28624.303809990317,
-                                "y": 33914.04181659865
+                                "x": 36998.090217757315,
+                                "y": 19514.04181659865
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -6232,12 +6232,12 @@
                         "id": "1b366065-5b95-4104-b44f-68a3c27b6279",
                         "savedPayload": {
                             "position": {
-                                "x": 28532.303809990317,
-                                "y": 33873.04181659865
+                                "x": 37013.7910046302,
+                                "y": 19813.63067702502
                             },
                             "targetPosition": {
-                                "x": 28624.303809990317,
-                                "y": 33914.04181659865
+                                "x": 36998.090217757315,
+                                "y": 19514.04181659865
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7847,12 +7847,12 @@
                         "id": "3699bf51-a7c1-4174-ac81-8cfeb400af54",
                         "savedPayload": {
                             "position": {
-                                "x": 28460.91209948581,
-                                "y": 34165.642986982275
+                                "x": 36834.698507252804,
+                                "y": 19765.642986982275
                             },
                             "targetPosition": {
-                                "x": 28624.303809990317,
-                                "y": 33914.04181659865
+                                "x": 36998.090217757315,
+                                "y": 19514.04181659865
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -7875,18 +7875,18 @@
                         "storageContainerReferences": [
                             {
                                 "type": "Storage Container Reference",
-                                "name": "Github Repository My-Trading-Signals",
+                                "name": "My-Trading-Signals",
                                 "config": "{}",
                                 "project": "Open-Storage",
                                 "id": "bd5d0ff5-f0f0-40b8-bb05-4998cb56da11",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 28064.155554091998,
-                                        "y": 34129.06258632583
+                                        "x": 36437.94196185899,
+                                        "y": 19729.062586325832
                                     },
                                     "targetPosition": {
-                                        "x": 28344.229682041158,
-                                        "y": 34021.55220146224
+                                        "x": 36718.01608980815,
+                                        "y": 19621.55220146224
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -7900,9 +7900,9 @@
                                         "isRunning": false
                                     },
                                     "referenceParent": {
-                                        "type": "Storage Container",
-                                        "name": "Github Repository My-Trading-Signals",
-                                        "id": "51548a10-7f67-4850-8687-e34a9e49ab4e"
+                                        "type": "Github Storage Container",
+                                        "name": "My-Trading-Signals",
+                                        "id": "143fe1e0-43eb-44c0-a9ae-1b8702c3677f"
                                     },
                                     "referenceParentCombinedNodePath": [
                                         [
@@ -7924,10 +7924,10 @@
                                             "f141613b-ea77-425c-8e3b-9874a638fcab"
                                         ],
                                         [
-                                            "Github Repository My-Trading-Signals",
-                                            "Storage Container",
+                                            "My-Trading-Signals",
+                                            "Github Storage Container",
                                             "Open-Storage",
-                                            "51548a10-7f67-4850-8687-e34a9e49ab4e"
+                                            "143fe1e0-43eb-44c0-a9ae-1b8702c3677f"
                                         ]
                                     ]
                                 }
@@ -7936,17 +7936,17 @@
                         "id": "3e9b6cf5-82b7-4215-a16b-c2a8bcbcaeb8",
                         "savedPayload": {
                             "position": {
-                                "x": 28344.229682041158,
-                                "y": 34021.55220146224
+                                "x": 36718.01608980815,
+                                "y": 19621.55220146224
                             },
                             "targetPosition": {
-                                "x": 28624.303809990317,
-                                "y": 33914.04181659865
+                                "x": 36998.090217757315,
+                                "y": 19514.04181659865
                             },
                             "floatingObject": {
                                 "isPinned": false,
                                 "isFrozen": false,
-                                "isCollapsed": true,
+                                "isCollapsed": false,
                                 "angleToParent": 2,
                                 "distanceToParent": 3,
                                 "arrangementStyle": 0
@@ -7959,17 +7959,17 @@
                     "id": "5167a23f-1e17-4cd5-85a7-3c7f2a3019ac",
                     "savedPayload": {
                         "position": {
-                            "x": 28624.303809990317,
-                            "y": 33914.04181659865
+                            "x": 36998.090217757315,
+                            "y": 19514.04181659865
                         },
                         "targetPosition": {
-                            "x": 28701.949523521074,
-                            "y": 33624.26406871193
+                            "x": 37075.73593128807,
+                            "y": 19224.264068711927
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -8043,12 +8043,12 @@
                     "id": "c27748af-db60-44fc-a095-530401057beb",
                     "savedPayload": {
                         "position": {
-                            "x": 28412.171775634353,
-                            "y": 33701.909782242685
+                            "x": 36785.95818340135,
+                            "y": 19301.909782242685
                         },
                         "targetPosition": {
-                            "x": 28701.949523521074,
-                            "y": 33624.26406871193
+                            "x": 37075.73593128807,
+                            "y": 19224.264068711927
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8067,12 +8067,12 @@
             "id": "4809934c-d45d-4565-a686-5d96bd695b4f",
             "savedPayload": {
                 "position": {
-                    "x": 28701.949523521074,
-                    "y": 33624.26406871193
+                    "x": 37075.73593128807,
+                    "y": 19224.264068711927
                 },
                 "targetPosition": {
-                    "x": 28914.081557877038,
-                    "y": 33412.132034355964
+                    "x": 37287.867965644036,
+                    "y": 19012.132034355964
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -8135,12 +8135,12 @@
                             "id": "45f1a092-8a89-45f8-b31c-c4c062a56a8a",
                             "savedPayload": {
                                 "position": {
-                                    "x": 32363.71809106267,
-                                    "y": 23340.192378864667
+                                    "x": 36940.19237886467,
+                                    "y": 19529.555495773442
                                 },
                                 "targetPosition": {
-                                    "x": 32623.525712198003,
-                                    "y": 23190.192378864667
+                                    "x": 36862.54666533391,
+                                    "y": 19239.77774788672
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -8188,12 +8188,12 @@
                             "id": "2eb918aa-742f-49c8-bea2-4cdc2d9bd1c7",
                             "savedPayload": {
                                 "position": {
-                                    "x": 32363.71809106267,
-                                    "y": 23040.192378864667
+                                    "x": 36650.414630977946,
+                                    "y": 19451.909782242685
                                 },
                                 "targetPosition": {
-                                    "x": 32623.525712198003,
-                                    "y": 23190.192378864667
+                                    "x": 36862.54666533391,
+                                    "y": 19239.77774788672
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -8237,17 +8237,17 @@
                     "id": "c0e85aee-8f7e-42bf-a2ea-5e3d9414c114",
                     "savedPayload": {
                         "position": {
-                            "x": 32623.525712198003,
-                            "y": 23190.192378864667
+                            "x": 36862.54666533391,
+                            "y": 19239.77774788672
                         },
                         "targetPosition": {
-                            "x": 32923.525712198,
-                            "y": 23190.192378864667
+                            "x": 36940.19237886467,
+                            "y": 18950
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -8265,12 +8265,93 @@
                     "id": "2532d405-4d9a-40fc-9832-f6dcd97e9fe3",
                     "savedPayload": {
                         "position": {
-                            "x": 32824.525712198,
-                            "y": 23112.192378864667
+                            "x": 36680.384757729335,
+                            "y": 19100
                         },
                         "targetPosition": {
-                            "x": 32923.525712198,
-                            "y": 23190.192378864667
+                            "x": 36940.19237886467,
+                            "y": 18950
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "availableStorage": {
+                    "type": "Available Storage",
+                    "name": "New Available Storage",
+                    "config": "{}",
+                    "project": "Open-Storage",
+                    "storageContainerReferences": [
+                        {
+                            "type": "Storage Container Reference",
+                            "name": "My-Social-Trading-Data",
+                            "config": "{}",
+                            "project": "Open-Storage",
+                            "id": "b817056b-8679-49da-9cb8-27e866885537",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 36360.636883091225,
+                                    "y": 18794.708572938485
+                                },
+                                "targetPosition": {
+                                    "x": 36650.414630977946,
+                                    "y": 18872.354286469243
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Github Storage Container",
+                                    "name": "My-Social-Trading-Data",
+                                    "id": "f8326dbb-0b25-4115-8063-c3090e33bcfb"
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Luis-Fernando-Molina",
+                                        "User Profile"
+                                    ],
+                                    [
+                                        "New User Storage",
+                                        "User Storage"
+                                    ],
+                                    [
+                                        "New Github Storage",
+                                        "Github Storage"
+                                    ],
+                                    [
+                                        "My-Social-Trading-Data",
+                                        "Github Storage Container"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "id": "e9900664-a94b-46d3-8cae-f022511f7053",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36650.414630977946,
+                            "y": 18872.354286469243
+                        },
+                        "targetPosition": {
+                            "x": 36940.19237886467,
+                            "y": 18950
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8288,17 +8369,17 @@
                 "id": "ed15b68f-c9e0-447a-9ef7-660db229244c",
                 "savedPayload": {
                     "position": {
-                        "x": 32923.525712198,
-                        "y": 23190.192378864667
+                        "x": 36940.19237886467,
+                        "y": 18950
                     },
                     "targetPosition": {
-                        "x": 33183.333333333336,
-                        "y": 23340.192378864667
+                        "x": 37200,
+                        "y": 18800
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -8321,17 +8402,17 @@
                     "id": "d08219ac-dbef-47be-8204-945a3b4e4d83",
                     "savedPayload": {
                         "position": {
-                            "x": 33227.333333333336,
-                            "y": 23136.192378864667
+                            "x": 36680.384757729335,
+                            "y": 18500
                         },
                         "targetPosition": {
-                            "x": 33183.333333333336,
-                            "y": 23040.192378864667
+                            "x": 36940.19237886467,
+                            "y": 18650
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": false,
+                            "isCollapsed": true,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -8344,17 +8425,17 @@
                 "id": "01c33294-124f-4d68-8619-8e1d1cca7e0a",
                 "savedPayload": {
                     "position": {
-                        "x": 33183.333333333336,
-                        "y": 23040.192378864667
+                        "x": 36940.19237886467,
+                        "y": 18650
                     },
                     "targetPosition": {
-                        "x": 33183.333333333336,
-                        "y": 23340.192378864667
+                        "x": 37200,
+                        "y": 18800
                     },
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -8407,8 +8488,8 @@
                     "id": "5f1816c9-5b44-43e3-8d68-e80fe323beb0",
                     "savedPayload": {
                         "position": {
-                            "x": 36979.090217757315,
-                            "y": 18474.22225211328
+                            "x": 36738.28259662198,
+                            "y": 18660.22225211328
                         },
                         "targetPosition": {
                             "x": 36998.090217757315,
@@ -8564,7 +8645,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -8768,7 +8849,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -9004,34 +9085,62 @@
     "userStorage": {
         "type": "User Storage",
         "name": "New User Storage",
-        "config": "{}",
+        "config": "{\r\n    \"percentage\": 0\r\n}",
         "project": "Open-Storage",
         "githubStorage": {
             "type": "Github Storage",
             "name": "New Github Storage",
             "config": "{}",
             "project": "Open-Storage",
-            "storageContainers": [
+            "githubStorageContainers": [
                 {
-                    "type": "Storage Container",
-                    "name": "Github Repository My-Trading-Signals",
-                    "config": "{\r\n    \"codeName\": \"Storage-Conatainer-Github-Luis-Fernando-Molina-My-Trading-Signals\",\r\n    \"githubUserName\": \"Luis-Fernando-Molina\",\r\n    \"repositoryName\": \"My-Trading-Signals\"\r\n}",
+                    "type": "Github Storage Container",
+                    "name": "My-Trading-Signals",
+                    "config": "{\r\n    \"codeName\": \"Github-Storage-Conatainer-Luis-Fernando-Molina-My-Trading-Signals\",\r\n    \"githubUserName\": \"Luis-Fernando-Molina\",\r\n    \"repositoryName\": \"My-Trading-Signals\"\r\n}",
                     "project": "Open-Storage",
-                    "id": "51548a10-7f67-4850-8687-e34a9e49ab4e",
+                    "id": "143fe1e0-43eb-44c0-a9ae-1b8702c3677f",
                     "savedPayload": {
                         "position": {
-                            "x": 29762.609695300893,
-                            "y": 32563.60389693211
+                            "x": 38001.909782242685,
+                            "y": 18085.95818340135
                         },
                         "targetPosition": {
-                            "x": 29550.47766094493,
-                            "y": 32775.73593128807
+                            "x": 37924.26406871193,
+                            "y": 18375.735931288073
                         },
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
                             "isCollapsed": false,
-                            "angleToParent": 1,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Github Storage Container",
+                    "name": "My-Social-Trading-Data",
+                    "config": "{\n    \"codeName\": \"Github-Storage-Conatainer-Luis-Fernando-Molina-My-Social-Trading-Data\",\n    \"githubUserName\": \"Luis-Fernando-Molina\",\n    \"repositoryName\": \"My-Social-Trading-Data\"\n}",
+                    "project": "Open-Storage",
+                    "id": "f8326dbb-0b25-4115-8063-c3090e33bcfb",
+                    "savedPayload": {
+                        "position": {
+                            "x": 38214.04181659865,
+                            "y": 18298.090217757315
+                        },
+                        "targetPosition": {
+                            "x": 37924.26406871193,
+                            "y": 18375.735931288073
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
                         },
@@ -9044,12 +9153,12 @@
             "id": "f141613b-ea77-425c-8e3b-9874a638fcab",
             "savedPayload": {
                 "position": {
-                    "x": 29550.47766094493,
-                    "y": 32775.73593128807
+                    "x": 37924.26406871193,
+                    "y": 18375.735931288073
                 },
                 "targetPosition": {
-                    "x": 29338.345626588965,
-                    "y": 32987.867965644036
+                    "x": 37712.132034355964,
+                    "y": 18587.867965644036
                 },
                 "floatingObject": {
                     "isPinned": false,
@@ -9077,7 +9186,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

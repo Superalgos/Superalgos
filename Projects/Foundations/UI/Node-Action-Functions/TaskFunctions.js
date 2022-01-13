@@ -192,7 +192,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             /*
             Open Storage Nodes
             */
-            'Available Storage->Storage Container Reference->Storage Container->Github Storage->Superalgos Storage->'
+            'Available Storage->Storage Container Reference->Github Storage Container->Superalgos Storage Container->Github Storage->Superalgos Storage->'
 
         let taskDefinition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 

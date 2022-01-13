@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir sind praktisch bereit, einen neuen Backtest durchzuführen, dieses Mal mit vollständigen Definitionen in allen Phasen!",
                 "updated": 1639418119159
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu sefer, tüm aşamalarda eksiksiz tanımlarla yeni bir geriye dönük test çalıştırmaya neredeyse hazırız!",
+                "updated": 1641552250743
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Bevor wir das tun, sollten wir das Close Stage Event löschen, da wir es auch nicht verwenden werden!",
                     "updated": 1639418128027
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunu yapmadan önce Close Stage Event'i de kullanmayacağımız için silmeliyiz!",
+                    "updated": 1641552305748
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Das war's! Das war doch gar nicht so schwer, oder? Diese Grundeinstellung ist für das Testen einfacher Handelsideen geeignet. In den nächsten Tutorials werden wir ausführlichere Verwaltungs- und Ausführungs-Setups durchgehen!",
                     "updated": 1639418135544
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: İşte bu! O kadar zor olmadı, değil mi? Bu temel ayar, basit ticaret fikirlerini test etmek için uygun. Sonraki birkaç eğitimde daha ayrıntılı yönetim ve yürütme kurulumlarını inceleyeceğiz!",
+                    "updated": 1641552396947
                 }
             ]
         }

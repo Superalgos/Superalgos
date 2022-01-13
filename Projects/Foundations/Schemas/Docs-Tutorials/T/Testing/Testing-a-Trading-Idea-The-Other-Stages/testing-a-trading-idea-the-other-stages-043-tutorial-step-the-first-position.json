@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Erinnern Sie sich an den Fall vom 28. Februar, den wir im vorigen Lehrgang analysiert haben? Das ist er! Dies ist die Position, die wir durch die definierten Regeln erhalten haben!",
                 "updated": 1639418325323
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceki derste analiz ettiğimiz 28 Şubat Vakasını hatırlıyor musunuz? Bu o! Bu, tanımlanan kurallarla elde ettiğimiz pozisyondur!",
+                "updated": 1641557070171
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich einen Moment Zeit, um zu sehen, was die Simulationsobjektebenen zeigen!",
                     "updated": 1639418340766
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyon nesnesi katmanlarının ne gösterdiğini görmek için biraz zaman ayırın!",
+                    "updated": 1641557429509
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Schalten wir ein paar weitere Simulationsobjektebenen ein: Trigger, Open, Manage, und Close Stages!",
                     "updated": 1639418349269
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç simülasyon nesnesi seviyesi daha açalım: Tetikle (Trigger), Aç (Open), Yönet (Manage) ve Aşamaları Kapat (Close Stages)!",
+                    "updated": 1641557517396
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Jetzt können wir die vier Phasen in Aktion sehen. Nehmen Sie sich eine Minute Zeit, um die Grafiken zu lesen und zu interpretieren. Versuchen Sie, der Zeitachse zu folgen, die in den Zeichnungen der Phasen enthalten ist. Sehen Sie, wann und warum sich jede Stufe öffnet und schließt...",
                     "updated": 1639418359279
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi dört aşamayı eylem halinde görebiliriz. Grafikleri okumak ve yorumlamak için bir dakikanızı ayırın. Aşamaların çizimlerinde yer alan zaman çizelgesini takip etmeye çalışın. Her adımın ne zaman ve neden açılıp kapandığını görün...",
+                    "updated": 1641557637588
                 }
             ]
         }

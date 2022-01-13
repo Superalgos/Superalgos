@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration!",
                 "updated": 1639398534498
+            },
+            {
+                "language": "TR",
+                "text": "Yürütme Algoritması ( Execution Algorithm ) ile ilgili bu sayfaya bir bakın! Ayrıca yapılandırma bölümünü de okuyun!",
+                "updated": 1641539142712
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Für unseren Test - und für die meisten einfachen Strategien - brauchen wir nur einen Ausführungsalgorithmus.",
                     "updated": 1639398542318
+                },
+                {
+                    "language": "TR",
+                    "text": "Testimiz ve basit stratejilerin çoğu için sadece bir yürütme algoritmasına ihtiyacımız var.",
+                    "updated": 1641539187290
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus!",
                     "updated": 1639398548509
+                },
+                {
+                    "language": "TR",
+                    "text": "Okumayı bitirdiğinizde, algoritmanın nasıl yapılandırıldığına bir bakın!",
+                    "updated": 1641539211943
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, dass dem Algorithmus standardmäßig 100 % der Größe der Stufe zugewiesen wird.",
                     "updated": 1639398554644
+                },
+                {
+                    "language": "TR",
+                    "text": "Varsayılan olarak, algoritmaya seviye boyutunun %100'ü atanır.",
+                    "updated": 1641539297421
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "DE",
                     "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt!",
                     "updated": 1639398562678
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Daha önce tanımladığımız hedef ilk kez devreye giriyor!",
+                    "updated": 1641539328955
                 }
             ]
         }

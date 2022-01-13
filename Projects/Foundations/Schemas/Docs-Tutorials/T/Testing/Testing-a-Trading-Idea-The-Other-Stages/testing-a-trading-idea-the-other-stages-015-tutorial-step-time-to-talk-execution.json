@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir haben die Definition der Kurs- und Größenziele abgeschlossen. Legen wir nun fest, wie wir die Position in Bezug auf die Ausführung einnehmen werden!",
                 "updated": 1639398406017
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Rota ve boyut hedeflerini tanımlamayı bitirdik. şimdi ilgili Pozisyonu nasıl alacağımızı tanımlayalım.",
+                "updated": 1641483216707
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Wir befinden uns im Abschnitt Open Execution der Open Stage! Sehen Sie sich den Execution Algorithm und die von mir erstellte Market Sell Order an!",
                     "updated": 1639398443802
+                },
+                {
+                    "language": "TR",
+                    "text": "Openstage'in Open Execution bölümündeyiz! Oluşturduğum Yürütme Algoritmasına ( Execution Algorithm  ) ve Piyasa Satış Emrine ( Market Sell Order ) bir göz atın!",
+                    "updated": 1641483332926
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Ich habe den Ausführungsalgorithmus und die Marktorder im Voraus erstellt, damit ich sie leicht referenzieren und Sie während des Tutorials zu den richtigen Knotenpunkten führen kann. Beide sind in einem frisch erstellten Zustand, genau so, wie sie sein würden, wenn Sie sie jetzt erstellt hätten!",
                     "updated": 1639398453514
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yürütme algoritmasını ve piyasa emirlerini önceden oluşturdum, böylece onları kolayca referans alabilir ve öğretici sırasında doğru düğümlere yönlendirebilirim. Her ikisi de yeni yaratılmış durumda, onları şimdi yaratmış olsaydınız tam olarak nasıl olurdu!",
+                    "updated": 1641483487489
                 }
             ]
         }

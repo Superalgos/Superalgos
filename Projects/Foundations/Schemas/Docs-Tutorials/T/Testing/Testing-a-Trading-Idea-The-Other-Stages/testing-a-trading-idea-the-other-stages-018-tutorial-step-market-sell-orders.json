@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir werden einen einzigen Ausführungsalgorithmus verwenden, der 100 % der zuvor definierten Größe verarbeitet! Zeit, ein wenig über Aufträge zu lernen!",
                 "updated": 1639398581888
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Önceden tanımlanmış boyutun %100'ünü işleyen tek bir yürütme algoritması kullanacağız! Görevler hakkında biraz bilgi edinme zamanı!",
+                "updated": 1641539439151
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Die Funktionsweise von Aufträgen ist sehr umfangreich! Wir werden in einem Tutorial, das sich mit den Feinheiten der Auftragsausführung beschäftigt, ins Detail gehen. Aber für den Moment wollen wir es einfach halten:",
                     "updated": 1639398594569
+                },
+                {
+                    "language": "TR",
+                    "text": "Siparişlerin işlevselliği çok geniştir! Sipariş yürütmenin nüanslarına odaklanan bir eğitimin ayrıntılarına gireceğiz. Ama şimdilik, basit tutalım:",
+                    "updated": 1641539571454
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Eine Market-Sell-Order ist eine an die Börse gesendete Anweisung zum Verkauf des Basiswertes, die sofort zu den aktuellen Marktpreisen ausgeführt wird.",
                     "updated": 1639398605166
+                },
+                {
+                    "language": "TR",
+                    "text": "Piyasa satış emri (market sell order), dayanak varlığı satmak için borsaya gönderilen ve cari piyasa fiyatından anında gerçekleştirilen bir talimattır.",
+                    "updated": 1641539660856
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie die Konfiguration des Verkaufsauftrags!",
                     "updated": 1639398611453
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Satış emrinin (sell order) yapılandırmasını kontrol edin!",
+                    "updated": 1641539741606
                 }
             ]
         }

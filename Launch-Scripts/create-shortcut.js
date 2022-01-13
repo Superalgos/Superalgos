@@ -45,8 +45,6 @@ if (os.platform() == "win32") {
 
 // Linux Shortcuts
 } else if (os.platform() == "linux") {
-    // Check for Ubuntu
-    let version = os.version();
     //Not just for Ubuntu, this will work for GNOME, KDE, XFCE and most other desktop managers
     
     // Paths and Icon for Ubuntu shortcuts
@@ -72,7 +70,7 @@ if (os.platform() == "win32") {
             function ( error, stdout ){
                 if (error) {
                     console.log('');
-                    console.log("There was an error installing a shortcut: ");
+                    console.log("There was an error creating the desktop shortcut: ");
                     console.log('');
                     console.log( error );
                     return;

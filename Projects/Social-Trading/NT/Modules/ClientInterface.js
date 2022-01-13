@@ -182,7 +182,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.originSocialPersonaId)
+        let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(eventReceived.originSocialPersonaId)
         if (originSocialPersona.id !== userProfile.id) {
             let response = {
                 result: 'Error',

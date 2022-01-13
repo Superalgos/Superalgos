@@ -5,7 +5,7 @@ function newWebApp() {
     Everything is being coded here until some structure emerges. 
     */
     let thisObject = {
-        messageReceived: messageReceived, 
+        messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
     }
@@ -241,7 +241,6 @@ function newWebApp() {
                     let text = document.createTextNode('Follow')
 
                     span.setAttribute("id", "profile-to-follow-span-" + socialPersona.socialPersonaId)
-                    button.setAttribute("id", "profile-to-follow-button-" + socialPersona.socialPersonaId)
                     button.name = 'Follow Profile'
                     button.id = socialPersona.socialPersonaId
 
@@ -297,7 +296,7 @@ function newWebApp() {
 
                         function updateButton() {
                             let span = document.getElementById('profile-to-follow-span-' + event.target.id)
-                            let button = document.getElementById('profile-to-follow-button-' + event.target.id)
+                            let button = document.getElementById(event.target.id)
                             span.setAttribute("class", "profile-to-unfollow-span")
                             button.setAttribute("class", "profile-to-unfollow-button")
                             button.name = 'Unfollow Profile'
@@ -314,7 +313,7 @@ function newWebApp() {
 
                         function updateButton() {
                             let span = document.getElementById('profile-to-follow-span-' + event.target.id)
-                            let button = document.getElementById('profile-to-follow-button-' + event.target.id)
+                            let button = document.getElementById(event.target.id)
                             span.setAttribute("class", "profile-to-follow-span")
                             button.setAttribute("class", "profile-to-follow-button")
                             button.name = 'Follow Profile'

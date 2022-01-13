@@ -22,7 +22,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     }
 
     function initialize() {
-
+        let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
+        appBootstrapingProcess.run()
     }
 
     async function messageReceived(message) {
@@ -86,11 +87,9 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                             if (
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
-                                event.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_TRADING_BOT_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
-                                event.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_TRADING_BOT_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                             ) {
 
@@ -135,64 +134,26 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 if (
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_TRADING_BOT_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_TRADING_BOT_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                 ) {
                     /*
-                    We need to save the post at the User's storage and remove the text from the message 
-                    going to the Network Node.
+                    We need to save the post at the User's storage conatiner and remove adapt the message 
+                    before sending it to the Network Node.
                     */
-                    let commitMessage
-                    switch (eventMessage.eventType) {
-                        case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
-                            commitMessage = "New Social Persona Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST: {
-                            commitMessage = "Reply to Social Persona Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST: {
-                            commitMessage = "Repost Social Persona Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST: {
-                            commitMessage = "Quote Repost Social Persona Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_TRADING_BOT_POST: {
-                            commitMessage = "New Social Trading Bot Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST: {
-                            commitMessage = "Reply to Social Trading Bot Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_TRADING_BOT_POST: {
-                            commitMessage = "Repost Social Trading Bot Post"
-                            break
-                        }
-                        case SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST: {
-                            commitMessage = "Quote Repost Social Trading Bot Post"
-                            break
-                        }
-                    }
-                    /*
-                    The post text is eliminated, since it is now at the user's storage,
-                    and a hash of the content was generated, and that is what is going to
-                    the Network Node.
-                    */
-                    eventMessage.originPostHash = await savePostAtStorage(
-                        eventMessage.postText,
-                        commitMessage,
-                        eventMessage.timestamp
+                    let response = await savePostAtStorage(
+                        eventMessage
                     )
-                    eventMessage.postText = undefined
-                }
+                    /*
+                    If we could not save the Post using the Open Storage, then there is no point in 
+                    sending this message to the P2P Network.
+                    */
+                    if (response.result !== "Ok") {
+                        return response
+                    }
+                 }
 
                 if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
                     let commitMessage = "Edit User Profile";
@@ -234,47 +195,134 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     }
 
     async function savePostAtStorage(
-        postText,
-        commitMessage,
-        timestamp
+        eventMessage
     ) {
-        /*
-        Each user, has a git repository that acts as his publicly accessible
-        storage for posts.
 
-        They way we store post there is first saving the data at the local disk
-        which has a clone of the remote git repository, and once done, we push
-        the changes to the public git repo.
-        */
-        const { createHash } = await import('crypto')
-        const hash = createHash('sha256')
-        let post = {
-            timestamp: timestamp,
-            postText: postText
+        return new Promise(savePostAsync)
+
+        async function savePostAsync(resolve, reject) {
+
+            let promiseStatus = 'Unresolved'
+            /*
+            Each Social Entity must have a Storage Container so that we can here
+            use it to save a Post content on it. 
+            */
+            let socialEntity
+            if (eventMessage.originSocialPersonaId !== undefined) {
+                let socialEntityId = eventMessage.originSocialPersonaId
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+            }
+            if (eventMessage.originSocialTradingBotId !== undefined) {
+                let socialEntityId = eventMessage.originSocialTradingBotId
+                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+            }
+            /*
+            Some Validations
+            */
+            if (socialEntity === undefined) {
+                let response = {
+                    result: 'Error',
+                    message: 'Cannot Save Post Because Social Entity is Undefined'
+                }
+                reject(response)
+                return
+            }
+
+            let availableStorage = socialEntity.availableStorage
+            if (availableStorage === undefined) {
+                let response = {
+                    result: 'Error',
+                    message: 'Cannot Save Post Because Available Storage is Undefined'
+                }
+                reject(response)
+                return
+            }
+            /*
+            Prepare the content to be saved
+            */
+            let timestamp = (new Date()).valueOf()
+            let file = {
+                timestamp: timestamp,
+                content: eventMessage.postText
+            }
+
+            let fileContent = JSON.stringify(file)
+            let password = SA.projects.foundations.utilities.encryption.randomPassword()
+            let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
+            let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
+            let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+            let fileId = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
+            /*
+            We are going to save this file at all of the Storage Containers defined.
+            */
+            for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
+                let storageContainerReference = availableStorage.storageContainerReferences[i]
+                if (storageContainerReference.referenceParent === undefined) { continue }
+                if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
+
+                let storageContainer = storageContainerReference.referenceParent
+
+                switch (storageContainer.type) {
+                    case 'Github Storage Container': {
+                        await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
+                            .then(onFileSaved)
+                            .catch(onFileNodeSaved)
+                        break
+                    }
+                    case 'Superalgos Storage Container': {
+                        // TODO Build the Superalgos Storage Provider
+                        break
+                    }
+                }
+
+                function onFileSaved() {
+                    /*
+                    Here we modify the eventMessage that is going to continue its journey to 
+                    the P2P Network Node.
+                    */
+                    eventMessage.originPostHash = fileName
+                    /*
+                    The post text is eliminated, since it is now at the user's storage,
+                    and a hash of the content was generated, and that is what is going to
+                    the Network Node.
+                    */
+                    eventMessage.postText = undefined
+                    /*
+                    The file key contains all the information needed to later retrieve this post.
+                    */
+                    eventMessage.fileKey = {
+                        timestamp: timestamp,
+                        fileName: fileName,
+                        fileId: fileId,
+                        storageContainerId: storageContainer.id,
+                        password: password
+                    }
+
+                    let response = {
+                        result: 'Ok',
+                        message: 'Post Saved'
+                    }
+                    if (promiseStatus === 'Unresolved') {
+                        resolve(response)
+                        promiseStatus = "Resolved"
+                    }
+                }
+
+                function onFileNodeSaved() {
+                    /*
+                    The content then will be saved at the next run of this function.
+                    */
+                    let response = {
+                        result: 'Error',
+                        message: 'Storage Provider Failed to Save Post'
+                    }
+                    if (promiseStatus === 'Unresolved') {
+                        reject(response)
+                        promiseStatus = "Rejected"
+                    }
+                }
+            }
         }
-
-        const fileContent = JSON.stringify(post, undefined, 4)
-        const fileHash = hash.update(fileContent).digest('hex')
-        const fileName = fileHash + ".json"
-        const filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
-
-        console.log(filePath)
-
-        SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
-        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
-
-        const options = {
-            baseDir: process.cwd() + '/My-Social-Trading-Data',
-            binary: 'git',
-            maxConcurrentProcesses: 6,
-        }
-        const git = SA.nodeModules.simpleGit(options)
-
-        await git.add('./*')
-        await git.commit(commitMessage)
-        await git.push('origin')
-
-        return fileHash
     }
 
     async function saveUserAtStorage(

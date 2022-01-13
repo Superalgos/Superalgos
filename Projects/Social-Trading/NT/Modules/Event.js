@@ -19,6 +19,8 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         /* Event Unique Properties */
         eventType: undefined,
         timestamp: undefined,
+        /* Post Related Properties */
+        fileKey: undefined, 
         /* Bot Related Properties */
         botAsset: undefined,
         botExchange: undefined,
@@ -47,6 +49,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         thisObject.targetPostHash = eventReceived.targetPostHash
         thisObject.eventType = eventReceived.eventType
         thisObject.timestamp = eventReceived.timestamp
+        thisObject.fileKey = eventReceived.fileKey
         thisObject.botAsset = eventReceived.botAsset
         thisObject.botExchange = eventReceived.botExchange
         thisObject.botEnabled = eventReceived.botEnabled
@@ -141,7 +144,8 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         thisObject.originPostHash,
                         thisObject.targetPostHash,
                         thisObject.eventType - 10,
-                        thisObject.timestamp
+                        thisObject.timestamp,
+                        thisObject.fileKey
                     )
                     return true
                 }
@@ -166,7 +170,8 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         thisObject.originPostHash,
                         thisObject.targetPostHash,
                         thisObject.eventType - 20,
-                        thisObject.timestamp
+                        thisObject.timestamp,
+                        thisObject.fileKey
                     )
                     return true
                 }

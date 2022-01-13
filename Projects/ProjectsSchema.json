@@ -1837,6 +1837,12 @@
                     "fileName": "Social-Graph/Post.js"
                 },
                 {
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newSocialTradingAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
+                },
+                {
                     "name": "P2P Network Interface",
                     "propertyName": "p2pNetworkInterface",
                     "functionName": "newSocialTradingModulesP2PNetworkInterface",

@@ -22,10 +22,8 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         targetPostHash: undefined,
         /* Post Unique Properties */
         postType: undefined,
+        fileKey: undefined, 
         timestamp: undefined,
-        /* Signal Related Properties */
-        signalType: undefined,
-        signalData: undefined,
         /* Maps */
         replies: undefined,
         reactions: undefined,
@@ -55,8 +53,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         targetPostHash,
         postType,
         timestamp,
-        signalType,
-        signalData
+        fileKey
     ) {
         /*
         Maps Initialization
@@ -84,8 +81,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp
-        thisObject.signalType = signalType
-        thisObject.signalData = signalData
+        thisObject.fileKey = fileKey
         /*
         Let's find the Target Post
         */

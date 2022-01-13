@@ -4,7 +4,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     
     This process will:
     
-    1. Load Appp Schemas.
+    1. Load App Schemas.
     2. Load User Profiles
     3. Identify all P2P Network Nodes.
     4. Identify the node representing the Identity of the current running App.

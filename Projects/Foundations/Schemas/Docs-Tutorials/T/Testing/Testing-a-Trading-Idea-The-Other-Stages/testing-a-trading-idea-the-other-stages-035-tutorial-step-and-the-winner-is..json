@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die Antwort lautet: Größe der Gefüllten Position minus gezahlte Gebühren ( Size Filled minus Fees Paid ) ! Ich erkläre, warum keiner der anderen Knotenpunkte passt!",
                 "updated": 1639417837022
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Cevap şudur: Doldurulan pozisyonun boyutu eksi ödenen ücretler (Dolu Boyut (Size Filled ) eksi Ödenen Ücretler! ( Fees Paid ) Diğer düğümlerin hiçbirinin neden uymadığını açıklıyorum!",
+                "updated": 1641547831142
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Target Size: nein, denn dies ist nur das Ziel, das wir definiert haben!",
                     "updated": 1639417852485
+                },
+                {
+                    "language": "TR",
+                    "text": "Hedef Boyut ( Target Size ): hayır, çünkü bu sadece bizim tanımladığımız hedef!",
+                    "updated": 1641547916018
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Size Placed: näher dran, aber nein, denn der Auftrag wird nicht unbedingt für den exakten Betrag ausgeführt, der platziert wurde, aufgrund von Dezimalrundungen oder anderen Gründen!",
                     "updated": 1639417867555
+                },
+                {
+                    "language": "TR",
+                    "text": "Yerleştirilen Boyut ( Size Placed ): daha yakın, ancak hayır, çünkü ondalık yuvarlama veya diğer nedenlerden dolayı sipariş, verilen miktar için mutlaka yerine getirilmeyecektir!",
+                    "updated": 1641548034923
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Size Filled: ja! Aber denken Sie daran, dass die Börse auch ihren Anteil nimmt, also müssen Sie die Gebühren abziehen!",
                     "updated": 1639417882169
+                },
+                {
+                    "language": "TR",
+                    "text": "Dolu Boyut ( Size Filled ): evet! Ancak unutmayın, borsa da hissesini alıyor, dolayısıyla ücretleri çıkarmanız gerekecek!",
+                    "updated": 1641548115340
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Können Sie die korrekte Syntax für die Formel erstellen? Denken Sie daran, dass Sie die Pfade der Knoten kopieren können, die die benötigten Daten enthalten!",
                     "updated": 1639417892615
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Formül için doğru söz dizimini oluşturabilir misin? Unutmayın, ihtiyaç duyduğunuz verileri içeren düğümlerin yollarını kopyalayabilirsiniz!",
+                    "updated": 1641548191513
                 }
             ]
         }

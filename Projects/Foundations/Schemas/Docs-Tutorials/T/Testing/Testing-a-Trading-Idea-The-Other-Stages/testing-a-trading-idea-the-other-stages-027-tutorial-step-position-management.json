@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir haben die Definitionen abgeschlossen, die erforderlich sind, um eine Position einzugehen, und wir sind bereit, die anfänglichen Stop Loss- und Take Profit-Ziele zu definieren!",
                 "updated": 1639399757423
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon almak için gerekli tanımlamaları tamamladık ve ilk zararı durdur ve kar hedefini belirlemeye hazırız!",
+                "updated": 1641544392217
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Erinnern wir uns an die Ziele, die wir bei der Entwicklung der Idee festgelegt hatten.",
                     "updated": 1639399766122
+                },
+                {
+                    "language": "TR",
+                    "text": "Fikri geliştirirken belirlediğimiz hedefleri hatırlayalım.",
+                    "updated": 1641544414736
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Für Abwärtstrends: Wir werden 3 % Stop Loss und 10 % Take Profit als Ziele festlegen.",
                     "updated": 1639399773990
+                },
+                {
+                    "language": "TR",
+                    "text": "Düşüş trendleri için (For downtrends): Hedef olarak %3 Zarar Durdur ve %10 Kâr Al belirleyeceğiz.",
+                    "updated": 1641544450684
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Deaktivieren Sie den Knoten Open Stage, da wir ihn eine Zeit lang nicht anfassen werden.<br><br>Erweitern Sie nun den Knoten Manage Stage und werfen Sie einen Blick hinein!",
                     "updated": 1639399796287
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir süre dokunmayacağımız için Açık Aşama (open stage) düğümünü devre dışı bırakın <br> <br> Şimdi Aşamayı Yönet (Manage Stage ) düğümünü genişletin ve içine bir göz atın!",
+                    "updated": 1641544540271
                 }
             ]
         }

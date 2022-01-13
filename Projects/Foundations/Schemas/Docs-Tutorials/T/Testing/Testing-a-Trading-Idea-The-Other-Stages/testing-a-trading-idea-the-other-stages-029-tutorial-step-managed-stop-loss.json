@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Bereiten wir nun die Syntax für die Formel der Phase #1 des Managed Stop Loss vor!",
                 "updated": 1639400100389
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi Yönetilen Zarar Durdur'un ( Managed Stop Loss ) 1. Aşama ( Phase ) formülü için kullanılacak söz dizimini hazırlayalım!",
+                "updated": 1641544927145
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Wir wollen ein Stop Loss-Ziel festlegen, das 3 % über dem Kurs liegt, zu dem wir die Position eingegangen sind. Wie machen wir das?",
                     "updated": 1639400105955
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyonu aldığımız fiyatın %3 üzerinde bir zararı durdurma hedefi belirlemek istiyoruz. Nasıl yapacağız?",
+                    "updated": 1641544983616
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zur Trading Engine und versuchen Sie, den Knoten zu finden, der die Informationen über den Kurs enthält, zu dem die Position eingegangen wurde.",
                     "updated": 1639400112374
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret motoruna ( Trading Engine ) gidin ve pozisyonun alındığı fiyatla ilgili bilgileri içeren düğümü bulmaya çalışın.",
+                    "updated": 1641545023650
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Erinnern Sie sich an die Logik zur Navigation in der Datenstruktur! Bestimmen Sie zunächst den Kontext, in dem die Information existiert!",
                     "updated": 1639400119718
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Veri yapısında gezinme mantığını hatırlayın! Önce bilginin var olduğu bağlamı belirleyin!",
+                    "updated": 1641545079835
                 }
             ]
         }

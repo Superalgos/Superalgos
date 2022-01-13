@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Das Herstellen einer Referenz ist ein Kinderspiel! Die einzige \"Herausforderung\" dabei ist, dass der zu referenzierende Knoten weit vom Urheber entfernt ist.",
                 "updated": 1639399501986
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Referans oluşturmak çok kolay! Buradaki tek zorluk, başvurulacak düğümün oluşturucudan uzak olmasıdır.",
+                "updated": 1641543873264
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Diese UI Tricks können Ihnen das Leben leichter machen:",
                     "updated": 1639399516703
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu kullanıcı arabirimi ( UI ) püf noktaları hayatınızı kolaylaştırabilir:",
+                    "updated": 1641543930917
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Verwenden Sie die Karte des design space so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
                     "updated": 1639399577411
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir düğümden diğerine yolunuzu bulmak için tasarım alanı haritasını gerektiği kadar kullanın.",
+                    "updated": 1641543974071
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Pinnen Sie den zu verschiebenden Knoten im design space an, so dass Sie ihn an jedem beliebigen Punkt loslassen können, um in der design space map die Richtung zu überprüfen.",
                     "updated": 1639399585335
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı haritasındaki yönü kontrol etmek için herhangi bir noktada serbest bırakabilmeniz için tasarım alanında taşınacak düğümü sabitleyin.",
+                    "updated": 1641544006996
                 }
             ]
         },
@@ -60,6 +80,11 @@
                     "language": "DE",
                     "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
                     "updated": 1639399727689
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın kullanın. Düğmeleri basılı tutun ve düğüm uçacak!",
+                    "updated": 1641544223453
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "DE",
                     "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
                     "updated": 1639399594561
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra sabitlemeyi kapatın.",
+                    "updated": 1641544330411
                 }
             ]
         }

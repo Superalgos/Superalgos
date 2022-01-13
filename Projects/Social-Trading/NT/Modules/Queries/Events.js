@@ -214,7 +214,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                     originPostHash: event.originPostHash,
                     targetPostHash: event.targetPostHash,
                     timestamp: event.timestamp,
-                    fileKey: fileKey,
+                    fileKeys: fileKeys,
                     botAsset: event.botAsset,
                     botExchange: event.botExchange,
                     botEnabled: event.botEnabled
@@ -269,7 +269,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                         targetPostHash: post.targetPostHash,
                         postType: post.postType,
                         timestamp: post.timestamp,
-                        fileKey: fileKey,
+                        fileKeys: fileKeys,
                         repliesCount: post.replies.size,
                         reactions: Array.from(post.reactions),
                         reaction: post.reactionsByProfile.get(socialEntity.id)

@@ -92,8 +92,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                             ) {
-
-                                event.postText = await getPostText(event.openStorageContainerId, event.originPostHash, event.timestamp)
+                                event.postText = await loadPostFromStorage(event.fileKey)
                             }
                         }
 
@@ -153,7 +152,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     if (response.result !== "Ok") {
                         return response
                     }
-                 }
+                }
 
                 if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
                     let commitMessage = "Edit User Profile";
@@ -201,8 +200,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         return new Promise(savePostAsync)
 
         async function savePostAsync(resolve, reject) {
-
-            let promiseStatus = 'Unresolved'
             /*
             Each Social Entity must have a Storage Container so that we can here
             use it to save a Post content on it. 
@@ -237,6 +234,15 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 reject(response)
                 return
             }
+
+            if (availableStorage.storageContainerReferences.length === 0) {
+                let response = {
+                    result: 'Error',
+                    message: 'Cannot Save Post Because Storage Container References is Zero'
+                }
+                reject(response)
+                return
+            }
             /*
             Prepare the content to be saved
             */
@@ -255,6 +261,10 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
             /*
             We are going to save this file at all of the Storage Containers defined.
             */
+            let savingCount = 0
+            let savedCount = 0
+            let fileKeys = []
+
             for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
                 let storageContainerReference = availableStorage.storageContainerReferences[i]
                 if (storageContainerReference.referenceParent === undefined) { continue }
@@ -264,6 +274,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 switch (storageContainer.type) {
                     case 'Github Storage Container': {
+                        savingCount++
                         await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
                             .then(onFileSaved)
                             .catch(onFileNodeSaved)
@@ -276,35 +287,17 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 }
 
                 function onFileSaved() {
-                    /*
-                    Here we modify the eventMessage that is going to continue its journey to 
-                    the P2P Network Node.
-                    */
-                    eventMessage.originPostHash = fileName
-                    /*
-                    The post text is eliminated, since it is now at the user's storage,
-                    and a hash of the content was generated, and that is what is going to
-                    the Network Node.
-                    */
-                    eventMessage.postText = undefined
-                    /*
-                    The file key contains all the information needed to later retrieve this post.
-                    */
-                    eventMessage.fileKey = {
+                    let fileKey = {
                         timestamp: timestamp,
                         fileName: fileName,
                         fileId: fileId,
                         storageContainerId: storageContainer.id,
                         password: password
                     }
-
-                    let response = {
-                        result: 'Ok',
-                        message: 'Post Saved'
-                    }
-                    if (promiseStatus === 'Unresolved') {
-                        resolve(response)
-                        promiseStatus = "Resolved"
+                    fileKeys.push(fileKey)
+                    savedCount++
+                    if (savingCount === availableStorage.storageContainerReferences.length) {
+                        allFilesSaved()
                     }
                 }
 
@@ -312,16 +305,61 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     /*
                     The content then will be saved at the next run of this function.
                     */
-                    let response = {
-                        result: 'Error',
-                        message: 'Storage Provider Failed to Save Post'
+                    if (savingCount === availableStorage.storageContainerReferences.length) {
+                        allFilesSaved()
                     }
-                    if (promiseStatus === 'Unresolved') {
+                }
+
+                function allFilesSaved() {
+                    if (savedCount > 0) {
+                        /*
+                        Here we modify the eventMessage that is going to continue its journey to 
+                        the P2P Network Node.
+                        */
+                        eventMessage.originPostHash = fileName
+                        /*
+                        The post text is eliminated, since it is now at the user's storage,
+                        and a hash of the content was generated, and that is what is going to
+                        the Network Node.
+                        */
+                        eventMessage.postText = undefined
+                        /*
+                        The file key contains all the information needed to later retrieve this post.
+                        */
+                        eventMessage.fileKeys = fileKeys
+
+                        let response = {
+                            result: 'Ok',
+                            message: 'Post Saved'
+                        }
+                        resolve(response)
+                    } else {
+                        let response = {
+                            result: 'Error',
+                            message: 'Storage Provider Failed to Save at least 1 File'
+                        }
                         reject(response)
-                        promiseStatus = "Rejected"
                     }
                 }
             }
+        }
+    }
+
+    async function loadPostFromStorage(
+        fileKey
+    ) {
+        /*
+        When the Web App makes a query that includes Post text as responses,
+        we need to fetch the text from the the storage container of the author
+        of such posts, since the Network Nodes do not store that info themselves, 
+        they just store the structure of the social graph.
+        */
+        return new Promise(loadPostAsync)
+
+        async function loadPostAsync(resolve, reject) {
+
+
+
         }
     }
 
@@ -360,48 +398,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         await git.commit(commitMessage)
         await git.push('origin')
         return fileHash
-    }
-
-    async function getPostText(
-        userProfileHandle,
-        postHash,
-        timestamp
-    ) {
-        /*
-        When the Web App makes a query that includes Post text as responses,
-        we need to fetch the text from the public git repositories, since
-        the Network Nodes do not store that info themselves, they just
-        store the structure of the social graph.
-        */
-        let promise = new Promise((resolve, reject) => {
-
-            const fileName = postHash + ".json"
-            const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
-
-            const fetch = SA.nodeModules.nodeFetch
-            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName;
-
-            fetch(url)
-                .then((response) => {
-
-                    if (response.status != 200) {
-                        console.log("getPostText", 'Github.com responded with status ', response.status, 'url', url)
-                        throw new createError.NotFound();
-                    }
-
-                    response.text().then(body => {
-                        post = JSON.parse(body)
-                        resolve(post.postText)
-                    })
-                })
-                .catch(err => {
-                    resolve('Post Text could not be fetched. ' + err.message)
-                })
-
-        }
-        )
-
-        return promise
     }
 
     async function getUserProfileData(userProfileHandle, userProfileId) {

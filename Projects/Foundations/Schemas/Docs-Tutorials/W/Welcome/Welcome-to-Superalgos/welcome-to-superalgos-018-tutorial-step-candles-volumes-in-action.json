@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "indicator-bot-instance"
         },
-        "text": "That's right! Indicators will start working as soon as the sensor bot finishes her job!",
+        "text": "That's right! Indicators will start working as soon as the sensor bot finishes its job!",
         "translations": [
             {
                 "language": "IT",
@@ -55,7 +55,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You're watching the processes of Candles Volumes. She turns the one-minute candles the sensor bot downloads from the exchange into candles for all time frames.",
+            "text": "You're watching the processes of the Candles Volumes task. It turns the one-minute candles the sensor bot downloads from the exchange into candles for all time frames.",
             "translations": [
                 {
                     "language": "IT",
@@ -102,7 +102,7 @@
         },
         {
             "style": "Callout",
-            "text": "What happens after she finishes?",
+            "text": "What happens after it finishes?",
             "updated": 1611076432059,
             "translations": [
                 {
@@ -150,7 +150,7 @@
         },
         {
             "style": "Text",
-            "text": "Other bots need Candles Volumes to finish her work so that they may start doing theirs. Imagine a bot needs to calculate a 20-periods Simple Moving Average for all time frames. She needs the Data Product produced by Candles Volumes as input for the SMA calculation. We call such a need a Data Dependency.",
+            "text": "Other bots are waiting for the Candles Volumes to finish its work so that they may start doing theirs. Imagine a bot needs to calculate a 20-periods Simple Moving Average for all time frames. It needs the Data Product produced by Candles Volumes as input for the SMA calculation. We call such a need a Data Dependency.",
             "translations": [
                 {
                     "language": "IT",

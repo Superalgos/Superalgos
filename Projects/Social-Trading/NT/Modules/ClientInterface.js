@@ -104,8 +104,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, queries need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.originSocialPersonaId)
-        if (originSocialPersona.id !== userProfile.id) {
+        let userProfileBySocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.originSocialPersonaId)
+        if (userProfileBySocialPersona.id !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity sending the Query is unrelated to the User Profile Connected to Network Node.'
@@ -182,8 +182,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(eventReceived.originSocialPersonaId)
-        if (originSocialPersona.id !== userProfile.id) {
+        let userProfileBySocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(eventReceived.originSocialPersonaId)
+        if (userProfileBySocialPersona.id !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity sending the Event is unrelated to the User Profile Connected to Network Node.'
@@ -203,7 +203,6 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         /*
         We will not accept events that have already been processed.
         */
-
         if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Error',

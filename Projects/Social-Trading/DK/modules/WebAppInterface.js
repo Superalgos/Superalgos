@@ -66,34 +66,53 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
-                if (queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA) {
+                switch (queryMessage.queryType) {
+                    case SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA: {
 
-                    if (!queryMessage.userProfileId & !queryMessage.username) {
-                        queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
-                        queryMessage.username = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
-                    }
-
-                    response = await getUserProfileData(queryMessage.username, queryMessage.userProfileId)
-                } else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
-                    response = {
-                        result: 'Ok',
-                        message: 'Web App Interface Query Processed.',
-                        data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
-                    }
-                }
-                else {
-                    let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
-                    for (let i = 0; i < events.length; i++) {
-                        let event = events[i]
-                        if (event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST) {
-                            event.postText = await getPostText(event.originSocialPersona.handle, event.originPost.originPostHash, event.timestamp)
+                        if (!queryMessage.userProfileId & !queryMessage.username) {
+                            queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
+                            queryMessage.username = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
                         }
-                    }
 
-                    response = {
-                        result: 'Ok',
-                        message: 'Web App Interface Query Processed.',
-                        data: events
+                        response = await getUserProfileData(queryMessage.username, queryMessage.userProfileId)
+
+                        break
+                    }
+                    case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
+
+                        let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                        for (let i = 0; i < events.length; i++) {
+                            let event = events[i]
+                            if (
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_TRADING_BOT_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_TRADING_BOT_POST ||
+                                event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
+                            ) {
+
+                                event.postText = await getPostText(event.openStorageContainerId, event.originPostHash, event.timestamp)
+                            }
+                        }
+
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: events
+                        }
+
+                        break
+                    }
+                    default: {
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                        }
+                        break
                     }
                 }
 
@@ -114,9 +133,14 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 }
 
                 if (
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
-                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_TRADING_BOT_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_TRADING_BOT_POST ||
+                    eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                 ) {
                     /*
                     We need to save the post at the User's storage and remove the text from the message 
@@ -124,16 +148,36 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     */
                     let commitMessage
                     switch (eventMessage.eventType) {
-                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST: {
-                            commitMessage = "New Post"
+                        case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
+                            commitMessage = "New Social Persona Post"
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST: {
-                            commitMessage = "Reply to User Post"
+                            commitMessage = "Reply to Social Persona Post"
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST: {
-                            commitMessage = "Repost User Post"
+                            commitMessage = "Repost Social Persona Post"
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST: {
+                            commitMessage = "Quote Repost Social Persona Post"
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_TRADING_BOT_POST: {
+                            commitMessage = "New Social Trading Bot Post"
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST: {
+                            commitMessage = "Reply to Social Trading Bot Post"
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_TRADING_BOT_POST: {
+                            commitMessage = "Repost Social Trading Bot Post"
+                            break
+                        }
+                        case SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST: {
+                            commitMessage = "Quote Repost Social Trading Bot Post"
                             break
                         }
                     }
@@ -142,17 +186,25 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     and a hash of the content was generated, and that is what is going to
                     the Network Node.
                     */
-                    eventMessage.originPostHash = await savePostAtStorage(eventMessage.postText, commitMessage, eventMessage.timestamp)
+                    eventMessage.originPostHash = await savePostAtStorage(
+                        eventMessage.postText,
+                        commitMessage,
+                        eventMessage.timestamp
+                    )
                     eventMessage.postText = undefined
                 }
-                else if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
-                    let commitMessage = "Edit User Profile";
-                    eventMessage.originPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
-                }
 
+                if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
+                    let commitMessage = "Edit User Profile";
+                    eventMessage.originPostHash = await saveUserAtStorage(
+                        SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId,
+                        eventMessage.body,
+                        commitMessage
+                    )
+                }
                 /*
                 The Origin in each message, is the Social Entity (Social Person or Social Trading Bot)
-                that is producing the evnet. In other words, a User of a Social Trading App might have
+                that is producing the event. In other words, a User of a Social Trading App might have
                 multiple Social Personas or Social Trading Bots. The one that is currently using while
                 the event is executed is the one that should be specified at the message. If at this 
                 point we have a message without a defined Social Persona, we will use the default one
@@ -181,7 +233,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         }
     }
 
-    async function savePostAtStorage(postText, commitMessage, timestamp) {
+    async function savePostAtStorage(
+        postText,
+        commitMessage,
+        timestamp
+    ) {
         /*
         Each user, has a git repository that acts as his publicly accessible
         storage for posts.
@@ -221,7 +277,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         return fileHash
     }
 
-    async function saveUserAtStorage(userProfileId, profileData, commitMessage) {
+    async function saveUserAtStorage(
+        userProfileId,
+        profileData,
+        commitMessage
+    ) {
         /*
         Each user, has a git repository that acts as his publicly accessible
         storage for posts.
@@ -254,7 +314,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         return fileHash
     }
 
-    async function getPostText(userProfileHandle, postHash, timestamp) {
+    async function getPostText(
+        userProfileHandle,
+        postHash,
+        timestamp
+    ) {
         /*
         When the Web App makes a query that includes Post text as responses,
         we need to fetch the text from the public git repositories, since

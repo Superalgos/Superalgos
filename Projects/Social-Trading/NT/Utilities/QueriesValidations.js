@@ -15,15 +15,15 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         Validate Social Profiles
         */
         if (queryReceived.originSocialPersonaId !== undefined) {
-            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.originSocialPersonaId)
-            if (thisObject.socialPersona === undefined) {
+            thisObject.socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.originSocialPersonaId)
+            if (thisObject.socialEntity === undefined) {
                 throw ('Origin Social Persona Not Found.')
             }
         }
 
         if (queryReceived.targetSocialPersonaId !== undefined) {
-            thisObject.socialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetSocialPersonaId)
-            if (thisObject.socialPersona === undefined) {
+            thisObject.socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.targetSocialPersonaId)
+            if (thisObject.socialEntity === undefined) {
                 throw ('Target Social Persona Not Found.')
             }
         }
@@ -32,8 +32,8 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         Validate Bot Profile
         */
         if (queryReceived.targetSocialTradingBotId !== undefined) {
-            thisObject.socialPersona = thisObject.socialPersona.bots.get(queryReceived.targetSocialTradingBotId)
-            if (thisObject.socialPersona === undefined) {
+            thisObject.socialEntity = thisObject.socialEntity.bots.get(queryReceived.targetSocialTradingBotId)
+            if (thisObject.socialEntity === undefined) {
                 throw ('Target Social Trading Bot Not Found.')
             }
         }
@@ -43,7 +43,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         /*
         Validate Post
         */
-        thisObject.post = thisObject.socialPersona.posts.get(queryReceived.targetPostHash)
+        thisObject.post = thisObject.socialEntity.posts.get(queryReceived.targetPostHash)
 
         if (thisObject.post === undefined) {
             throw ('Target Post Not Found.')

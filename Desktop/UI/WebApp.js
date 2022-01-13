@@ -147,15 +147,15 @@ function newWebApp() {
 
                     switch (event.eventType) {
                         case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
-                            textNode = document.createTextNode(event.originSocialPersona.handle + " POSTED " + event.postText)
+                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " POSTED " + event.postText)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
-                            textNode = document.createTextNode(event.originSocialPersona.handle + " FOLLOWED " + event.targetSocialPersona.handle)
+                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " FOLLOWED " + event.targetSocialPersona.socialPersonaHandle)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.UNFOLLOW_USER_PROFILE: {
-                            textNode = document.createTextNode(event.originSocialPersona.handle + " UNFOLLOWED " + event.targetSocialPersona.handle)
+                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " UNFOLLOWED " + event.targetSocialPersona.socialPersonaHandle)
                             break
                         }
                     }

@@ -52,9 +52,9 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
             For an event to be returned at the response of this query, it needs to be related
             to the socialEntity making the query. How it can be related?
 
-            1. The Origin or Target socialEntity must be the same as the Context Profile.
-            2. The Origin or Target socialEntity must be at the Following map of the Context Profile.
-            3. The Origin or Target post must be belong to any socialEntity at the Following of the Context Profile.
+            1. The Origin or Target socialEntity of the event must be the same as the Origin Social Entity.
+            2. The Origin or Target socialEntity of the event must be at the Following map of the Origin Social Entity.
+            3. The Origin or Target post must be belong to any socialEntity at the Following of the Origin Social Entity.
 
             Any of the above happening, means that indeed it is related.
             */
@@ -71,18 +71,18 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 targetPost = targetSocialPersona.posts.get(event.targetPostHash)
             }
             /*
-            Test #1 : The Origin or Target socialEntity must be the same as the Context Profile.
+            Test #1 : The Origin or Target socialEntity of the event must be the same as the Origin Social Entity.
             */
             if (thisObject.socialEntity.node.type === 'Social Persona') {
                 /*
                 The context is a Social Persona
                 */
-                if (originSocialPersona.userProfileId === thisObject.socialEntity.userProfileId) {
+                if (originSocialPersona.id === thisObject.socialEntity.id) {
                     addToResponse(event)
                     return
                 }
                 if (targetSocialPersona !== undefined) {
-                    if (targetSocialPersona.userProfileId === thisObject.socialEntity.userProfileId) {
+                    if (targetSocialPersona.id === thisObject.socialEntity.id) {
                         addToResponse(event)
                         return
                     }
@@ -106,18 +106,18 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
             }
             /*
-            Test #2 : The Origin or Target socialEntity must be at the Following map of the Context Profile.
+            Test #2 : The Origin or Target socialEntity of the event must be at the Following map of the Origin Social Entity.
             */
             if (thisObject.socialEntity.node.type === 'Social Persona') {
                 /*
                 The context is a Social Persona
                 */
-                if (thisObject.socialEntity.following.get(originSocialPersona.userProfileId) !== undefined) {
+                if (thisObject.socialEntity.following.get(originSocialPersona.id) !== undefined) {
                     addToResponse(event)
                     return
                 }
                 if (targetSocialPersona !== undefined) {
-                    if (thisObject.socialEntity.following.get(targetSocialPersona.userProfileId) !== undefined) {
+                    if (thisObject.socialEntity.following.get(targetSocialPersona.id) !== undefined) {
                         addToResponse(event)
                         return
                     }
@@ -141,7 +141,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 }
             }
             /*
-            Test #3 : The Origin or Target post must be belong to any socialEntity at the Following of the Context Profile.
+            Test #3 : The Origin or Target post must be belong to any socialEntity at the Following of the Origin Social Entity.
             */
             if (thisObject.socialEntity.node.type === 'Social Persona') {
                 /*

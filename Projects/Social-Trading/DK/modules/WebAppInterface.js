@@ -261,13 +261,13 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 timestamp: timestamp,
                 content: eventMessage.postText
             }
-            
+
             let web3 = new SA.nodeModules.web3()
             let fileContent = JSON.stringify(file)
             let password = SA.projects.foundations.utilities.encryption.randomPassword()
             let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
             let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
-            let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
+            let filePath = "Posts/" + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
             let fileId = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
             /*
             We are going to save this file at all of the Storage Containers defined.
@@ -376,12 +376,12 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
         async function loadPostAsync(resolve, reject) {
 
-            let fileContent
+            let file
             let notLoadedCount = 0
 
             for (let i = 0; i < fileKeys.length; i++) {
 
-                if (fileContent !== undefined) { continue }
+                if (file !== undefined) { continue }
 
                 let fileKey = fileKeys[i]
                 /*
@@ -390,7 +390,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 and if it is not possible we will try with the next ones.
                 */
                 let fileName = fileKey.fileName
-                let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
+                let filePath = "Posts/" + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
                 let password = fileKey.password
                 let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
 
@@ -408,11 +408,11 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 }
 
                 function onFileLoaded(fileData) {
-                    fileContent = SA.projects.foundations.utilities.encryption.decrypt(fileData, password)
+                    file = JSON.parse(SA.projects.foundations.utilities.encryption.decrypt(fileData, password))
                     let response = {
                         result: 'Ok',
                         message: 'Post Text Found',
-                        postText: fileContent
+                        postText: file.content
                     }
                     resolve(response)
                 }

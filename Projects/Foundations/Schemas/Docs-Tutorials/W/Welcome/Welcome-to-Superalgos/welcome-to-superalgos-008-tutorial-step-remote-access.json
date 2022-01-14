@@ -95,8 +95,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputern wie dem Raspberry Pi oder auf einem eigenen PC auszuführen, den sie beim Live-Handel immer eingeschaltet lassen können. Der My Computer Network Node stellt den Rechner dar, auf dem der Client ausgeführt wird.",
-                    "updated": 1634168869002,
+                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf einem Einplatinencomputern wie dem Raspberry Pi oder auf einem dedizierten PC auszuführen, den sie beim Live-Trading immer eingeschaltet lassen können. Der Netzwerkknoten Mein Computer LAN stellt den Rechner dar, auf dem der Client ausgeführt wird.",
+                    "updated": 1642149682538,
                     "style": "Text"
                 },
                 {

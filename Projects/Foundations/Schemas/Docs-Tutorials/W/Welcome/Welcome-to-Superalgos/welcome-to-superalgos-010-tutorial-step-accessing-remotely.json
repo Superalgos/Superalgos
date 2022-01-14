@@ -94,8 +94,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Netzwerkknoten-konfiguration anpassen, bevor Sie fortfahren.",
-                    "updated": 1634161862309,
+                    "text": "Wenn Sie von einem entfernten Rechner aus auf den Client zugreifen, müssen Sie die Konfiguration des LAN-Netzwerkknotens anpassen.",
+                    "updated": 1642149728190,
                     "style": "Text"
                 },
                 {
@@ -154,8 +154,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Netzwerkknoten-Menüs.",
-                    "updated": 1634161879485,
+                    "text": "Klicken Sie auf Konfigurieren in der oberen rechten Ecke des Menüs LAN-Network Node. ",
+                    "updated": 1642149757458,
                     "style": "List"
                 },
                 {
@@ -206,8 +206,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ändern Sie den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.",
-                    "updated": 1634161891685,
+                    "text": "Ändern Sie den Parameter host für die IP-Adresse des Rechners, auf dem das Backend läuft. ",
+                    "updated": 1642149771703,
                     "style": "List"
                 },
                 {
@@ -286,8 +286,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
-                    "updated": 1634161900103,
+                    "text": "Schließen Sie nun den Editor. Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung in einer Minute verschwinden! ",
+                    "updated": 1642149788915,
                     "style": "List"
                 },
                 {

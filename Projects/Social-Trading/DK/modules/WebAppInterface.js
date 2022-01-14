@@ -261,7 +261,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                 timestamp: timestamp,
                 content: eventMessage.postText
             }
-
+            
+            let web3 = new SA.nodeModules.web3()
             let fileContent = JSON.stringify(file)
             let password = SA.projects.foundations.utilities.encryption.randomPassword()
             let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)

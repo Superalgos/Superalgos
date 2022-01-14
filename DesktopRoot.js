@@ -55,7 +55,8 @@ exports.newDesktopRoot = function newDesktopRoot() {
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch'),
             graphql: require("@octokit/graphql"),
-            axios: require('axios')
+            axios: require('axios'),
+            crypto: require('crypto')
         }
         SA.version = require('./package.json').version
         /* 

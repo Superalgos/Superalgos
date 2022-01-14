@@ -8,6 +8,7 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import pic from "../../images/superalgos.png";
 import React from "react";
+import SidebarUserProfile from "../sidebarUserProfile/SidebarUserProfile";
 import SidebarUserProfile from "../sidebarUserProfile/sidebarUserProfile";
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
@@ -56,7 +57,7 @@ const Sidebar = props => {
                            alt="PP"
 
                 />
-                <SidebarUserProfile/>
+                <SidebarUserProfile className="sidebarProfile"/>
             </Card>
         </div>
     );

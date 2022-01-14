@@ -86,7 +86,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                 }
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Response Sent', JSON.stringify(response))
 
                 return response
             }
@@ -179,7 +178,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileName = fileHash + ".json"
         const filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
-        console.log(filePath)
 
         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)

@@ -1,7 +1,6 @@
 
-const getPosts = async (userId, res) => {
+const getPosts = async (req, res) => {
 
-    
     try {
 
         let queryMessage = {

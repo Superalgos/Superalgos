@@ -226,6 +226,11 @@
                     "language": "RU",
                     "text": "name: означает имя свойства, которое будет содержать ссылку на дочерний узел во время выполнения.",
                     "updated": 1638279338674
+                },
+                {
+                    "language": "DE",
+                    "text": "name: ist der Name der property, die zur Laufzeit den Verweis auf die untergeordneten Nodes (child nodes) enthält.",
+                    "updated": 1642118386222
                 }
             ]
         },
@@ -238,6 +243,11 @@
                     "language": "RU",
                     "text": "type: возможные значения: узел или массив. Подробности см. Ниже.",
                     "updated": 1638279360593
+                },
+                {
+                    "language": "DE",
+                    "text": "type: mögliche Werte sind node oder array. Siehe Details unten.",
+                    "updated": 1642118209487
                 }
             ]
         },
@@ -249,6 +259,11 @@
                     "language": "RU",
                     "text": "childType: означает тип дочернего узла.",
                     "updated": 1638279375028
+                },
+                {
+                    "language": "DE",
+                    "text": "childType: bedeutet den Typ der untergeordneten Node.",
+                    "updated": 1642118232746
                 }
             ]
         },
@@ -260,6 +275,11 @@
                     "language": "RU",
                     "text": "autoAdd: необязательный, означает, что один экземпляр этих дочерних элементов будет автоматически создан при создании этого типа узла.",
                     "updated": 1638279396835
+                },
+                {
+                    "language": "DE",
+                    "text": "autoAdd: optional, bedeutet, dass eine Instanz dieser untergeordneten Node automatisch erstellt wird, wenn dieser Node type erstellt wird.",
+                    "updated": 1642118287649
                 }
             ]
         },
@@ -272,6 +292,11 @@
                     "language": "RU",
                     "text": "Свойство type может быть узлом или массивом, что означает:",
                     "updated": 1638279416753
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Eigenschaft type kann entweder node oder array sein, was bedeutet:",
+                    "updated": 1642118311248
                 }
             ]
         },
@@ -283,6 +308,11 @@
                     "language": "RU",
                     "text": "node: означает, что может быть только один экземпляр этого типа потомков.",
                     "updated": 1638279490221
+                },
+                {
+                    "language": "DE",
+                    "text": "node: bedeutet, dass es nur eine Instanz dieser Art von untergeordneter nodes geben kann.",
+                    "updated": 1642118342537
                 }
             ]
         },
@@ -294,6 +324,11 @@
                     "language": "RU",
                     "text": "array: означает, что у него может быть более одного экземпляра дочерних элементов этого типа.",
                     "updated": 1638279519517
+                },
+                {
+                    "language": "DE",
+                    "text": "array: bedeutet, dass es mehr als eine Instanz dieser Art von untergeordneten nodes haben kann.",
+                    "updated": 1642118376107
                 }
             ]
         },
@@ -309,6 +344,11 @@
                     "language": "RU",
                     "text": "Это свойство определяет, к каким узлам может подключаться текущий определяемый узел, считая эти узлы возможными родителями. Значения выражаются в строке со списком типов узлов, как в следующем примере:",
                     "updated": 1638279549919
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese property legt fest, an welche nodes die aktuell definierte node anknüpfen kann, wobei diese node als mögliche parents (Eltern) betrachtet werden. Die Werte werden in einem string (Zeichenkette) mit einer Liste von node types ausgedrückt, wie im folgenden Beispiel:",
+                    "updated": 1642118479642
                 }
             ]
         },
@@ -326,6 +366,11 @@
                     "language": "RU",
                     "text": "Свойство incompatibleTypes также можно использовать для явного определения узлов, которые не могут быть родительскими.",
                     "updated": 1638279584965
+                },
+                {
+                    "language": "DE",
+                    "text": "Die property incompatibleTypes kann auch verwendet werden, um explizit festzulegen, welche nodes keine parents (Eltern) sein können.",
+                    "updated": 1642118553362
                 }
             ]
         },
@@ -342,6 +387,11 @@
                     "language": "RU",
                     "text": "Это свойство определяет, на какие узлы может ссылаться текущий определяемый узел, учитывая эти узлы в качестве возможных ссылочных родителей. Значения выражаются в строке со списком типов узлов, как в следующем примере:",
                     "updated": 1638279615218
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese property definiert, auf welche nodes die aktuell definierte node verweisen kann, wobei diese node als mögliche reference parents (Referenzeltern) betrachtet werden. Die Werte werden in einem String (Zeichenkette) mit einer Liste von node typen wie im folgenden Beispiel ausgedrückt:",
+                    "updated": 1642118656503
                 }
             ]
         },
@@ -359,6 +409,11 @@
                     "language": "RU",
                     "text": "Свойство incompatibleTypes также можно использовать для явного определения узлов, которые не могут быть родительскими.",
                     "updated": 1638279633289
+                },
+                {
+                    "language": "DE",
+                    "text": " Hinweis: Die property incompatibleTypes kann auch verwendet werden, um explizit zu definieren, welche nodes keine parents (Eltern) sein können.",
+                    "updated": 1642118714518
                 }
             ]
         },
@@ -374,6 +429,11 @@
                     "language": "RU",
                     "text": "Это свойство позволяет вам определять меню этого типа узла Node Type в пространстве Design Space. Это меню будет массивом объектов Menu Items, как в примере ниже:",
                     "updated": 1638279740182
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dieser property können Sie das Menü dieses node typs im Design Space definieren. Dieses Menü besteht aus einem Array von Menu Items Objekten wie im folgenden Beispiel:",
+                    "updated": 1642118896744
                 }
             ]
         },
@@ -391,6 +451,11 @@
                     "language": "RU",
                     "text": "Хотя вы можете добавить любой понравившийся пункт меню, некоторые из них уже стандартизированы. Эти стандартные пункты меню также помещаются в определенное место в меню для единообразия.",
                     "updated": 1638279775037
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl es Ihnen freisteht, jeden beliebigen Menüpunkt hinzuzufügen, gibt es einige, die bereits standardisiert sind. Diese Standard-Menüpunkte werden aus Gründen der Konsistenz auch an einer bestimmten Position im Menü platziert.",
+                    "updated": 1642118943340
                 }
             ]
         },
@@ -402,6 +467,11 @@
                     "language": "RU",
                     "text": "configure: всегда идти первым",
                     "updated": 1638279791582
+                },
+                {
+                    "language": "DE",
+                    "text": "configure: ist immer das erste Item",
+                    "updated": 1642118964256
                 }
             ]
         },
@@ -413,6 +483,11 @@
                     "language": "RU",
                     "text": "run: после настройки, если есть",
                     "updated": 1638279811797
+                },
+                {
+                    "language": "DE",
+                    "text": "run: nach der Konfiguration (configure), wenn es eine gibt",
+                    "updated": 1642119036213
                 }
             ]
         },
@@ -424,6 +499,11 @@
                     "language": "RU",
                     "text": "delete: это всегда последний",
                     "updated": 1638279831140
+                },
+                {
+                    "language": "DE",
+                    "text": "delete: es ist immer der letzte",
+                    "updated": 1642119054455
                 }
             ]
         },
@@ -443,6 +523,11 @@
                     "language": "RU",
                     "text": "Это свойство необходимо, когда определяемый тип узла Node Type будет иметь конфигурацию. В таких случаях это свойство будет устанавливать начальное значение для этой конфигурации. Пример:",
                     "updated": 1638279873643
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese property wird benötigt, wenn der zu definierende Node Type eine configuration hat. In diesen Fällen wird diese property den Anfangswert für diese Konfiguration festlegen. Beispiel:",
+                    "updated": 1642119140131
                 }
             ]
         },
@@ -463,6 +548,11 @@
                     "language": "RU",
                     "text": "Это свойство сообщит системе, какой редактор будет доступен для этого типа узла. Пример:",
                     "updated": 1638279892074
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit dieser property wird dem System mitgeteilt, welcher Editor für diesen Node Type zur Verfügung steht.  Beispiel:",
+                    "updated": 1642119178768
                 }
             ]
         },
@@ -479,6 +569,11 @@
                     "language": "RU",
                     "text": "Есть несколько существующих редакторов:",
                     "updated": 1638279904218
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt einige bestehende Editoren:",
+                    "updated": 1642119207421
                 }
             ]
         },
@@ -490,6 +585,11 @@
                     "language": "RU",
                     "text": "config: редактор конфигураций узлов.",
                     "updated": 1638279924602
+                },
+                {
+                    "language": "DE",
+                    "text": "config: editor für node configurations.",
+                    "updated": 1642119239112
                 }
             ]
         },
@@ -501,6 +601,11 @@
                     "language": "RU",
                     "text": "code: редактор для кода javascript.",
                     "updated": 1638279944275
+                },
+                {
+                    "language": "DE",
+                    "text": "code: editor für javascript code.",
+                    "updated": 1642119244333
                 }
             ]
         },
@@ -512,6 +617,11 @@
                     "language": "RU",
                     "text": "formula: формулы, выраженные в javascript.",
                     "updated": 1638279957482
+                },
+                {
+                    "language": "DE",
+                    "text": "formula: Formeln, ausgedrückt in Javascript.",
+                    "updated": 1642119298908
                 }
             ]
         },
@@ -524,6 +634,11 @@
                     "language": "RU",
                     "text": "condition: редактор условий.",
                     "updated": 1638279974968
+                },
+                {
+                    "language": "DE",
+                    "text": "condition: conditions (Bedingungen) editor.",
+                    "updated": 1642119335171
                 }
             ]
         },
@@ -535,6 +650,11 @@
                     "language": "RU",
                     "text": "Чтобы пользователь действительно мог открыть настроенный здесь редактор, должен быть пункт меню Menu Item, у которого есть действие = \"Configure\".",
                     "updated": 1638280037119
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit der Benutzer den hier konfigurierten Editor auch tatsächlich öffnen kann, muss es einen Menu Item (Menüpunkt) geben, der die Aktion \"Configure\" hat.",
+                    "updated": 1642119387103
                 }
             ]
         },

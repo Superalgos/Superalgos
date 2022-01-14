@@ -35,7 +35,6 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
                     function eventReceived(message) {
                         try {
-                            setUpAppSchema(JSON.parse(message.event.projectSchemas))
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
@@ -59,7 +58,6 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
                     function startDebugging(message) {
                         try {
-                            setUpAppSchema(JSON.parse(message.event.projectSchemas))
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
@@ -73,19 +71,6 @@ exports.newTaskServer = function newTaskServer() {
                 } catch (err) {
                     console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE -> ' + err.stack)
                     console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
-                }
-            }
-
-            function setUpAppSchema(projectSchemas) {
-                /* Setup the APP_SCHEMA_MAP based on the APP_SCHEMA_ARRAY */
-                for (let i = 0; i < projectSchemas.length; i++) {
-                    let project = projectSchemas[i]
-
-                    for (let j = 0; j < project.schema.length; j++) {
-                        let schemaDocument = project.schema[j]
-                        let key = project.name + '-' + schemaDocument.type
-                        SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.set(key, schemaDocument)
-                    }
                 }
             }
         }

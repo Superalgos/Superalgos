@@ -10,7 +10,7 @@ exports.DesktopBackend = (port, SA, DK) => {
 
         const app = express();
         const webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface();
-
+        webAppInterface.initialize()
 
         app.use(function (req, res, next) {
             global.SA = SA;

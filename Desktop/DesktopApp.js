@@ -63,6 +63,7 @@ exports.newDesktopApp = function newDesktopApp() {
             This is where we will process all the messages comming from our web app.
             */
             thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
+            thisObject.webAppInterface.initialize()
             /*
             This is the Personal Social Graph for the user running this App.
             */

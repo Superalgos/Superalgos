@@ -58,6 +58,12 @@ exports.newDesktopRoot = function newDesktopRoot() {
             axios: require('axios')
         }
         SA.version = require('./package.json').version
+        /* 
+        Setting up the App Schema Memory Map. 
+        */
+        let APP_SCHEMAS = require('./AppSchemas.js')
+        let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
+        await APP_SCHEMAS_MODULE.initialize()
         /*
         Setting up Secrets.
         */

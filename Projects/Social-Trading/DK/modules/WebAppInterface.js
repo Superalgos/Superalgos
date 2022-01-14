@@ -99,7 +99,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                                 if (response.result === "Ok") {
                                     event.postText = response.postText
                                     eventsWithNoProblem.push(event)
-                                }                                
+                                }
                             } else {
                                 eventsWithNoProblem.push(event)
                             }
@@ -138,7 +138,20 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     return JSON.stringify(response)
                 }
-
+                /*
+                The Origin in each message, is the Social Entity (Social Person or Social Trading Bot)
+                that is producing the event. In other words, a User of a Social Trading App might have
+                multiple Social Personas or Social Trading Bots. The one that is currently using while
+                the event is executed is the one that should be specified at the message. If at this 
+                point we have a message without a defined Social Persona, we will use the default one
+                to retrieve it's id from the secrets file. 
+                */
+                if (eventMessage.originSocialPersonaId === undefined) {
+                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                }
+                /*
+                Based on the Event Type we might need to do some stuff before reaching out to the P2P Network.
+                */
                 if (
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
                     eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
@@ -171,18 +184,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                         commitMessage
                     )
                 }
-                /*
-                The Origin in each message, is the Social Entity (Social Person or Social Trading Bot)
-                that is producing the event. In other words, a User of a Social Trading App might have
-                multiple Social Personas or Social Trading Bots. The one that is currently using while
-                the event is executed is the one that should be specified at the message. If at this 
-                point we have a message without a defined Social Persona, we will use the default one
-                to retrieve it's id from the secrets file. 
-                */
-                if (eventMessage.originSocialPersonaId === undefined) {
-                    eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
-                }
-
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
 
                 let response = {
@@ -230,17 +231,17 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     result: 'Error',
                     message: 'Cannot Save Post Because Social Entity is Undefined'
                 }
-                reject(response)
+                resolve(response)
                 return
             }
 
-            let availableStorage = socialEntity.availableStorage
+            let availableStorage = socialEntity.node.availableStorage
             if (availableStorage === undefined) {
                 let response = {
                     result: 'Error',
                     message: 'Cannot Save Post Because Available Storage is Undefined'
                 }
-                reject(response)
+                resolve(response)
                 return
             }
 
@@ -249,7 +250,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     result: 'Error',
                     message: 'Cannot Save Post Because Storage Container References is Zero'
                 }
-                reject(response)
+                resolve(response)
                 return
             }
             /*
@@ -347,7 +348,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                             result: 'Error',
                             message: 'Storage Provider Failed to Save at least 1 File'
                         }
-                        reject(response)
+                        resolve(response)
                     }
                 }
             }

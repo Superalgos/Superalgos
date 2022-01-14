@@ -179,7 +179,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                                 onClick={handleReactions}>
                             </ThumbUp>
                         </StyledBadge>}
-                        direction="right">
+                        direction="right"> {/* todo direction of the reactions, changing this breaks the layout bad...*/}
                         {actionsNav.map(e => {
                             const {id, name, badgeCounter, icon} = e;
                             return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */

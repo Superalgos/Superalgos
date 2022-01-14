@@ -46,10 +46,14 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
 
         async function connectToPeers() {
 
-            if (thisObject.peers.length >= maxOutgoingPeers) { return }
+            if (thisObject.peers.length >= maxOutgoingPeers) {
+                return
+            }
 
             for (let i = 0; i < p2pNetwork.p2pNodesToConnect.length; i++) {
-                if (thisObject.peers.length >= maxOutgoingPeers) { break }
+                if (thisObject.peers.length >= maxOutgoingPeers) {
+                    break
+                }
 
                 let peer = {
                     p2pNetworkNode: undefined,
@@ -57,15 +61,17 @@ exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkP
                 }
 
                 peer.p2pNetworkNode = p2pNetwork.p2pNodesToConnect[i]
-                if (isPeerConnected(peer) === true) { continue }
+                if (isPeerConnected(peer) === true) {
+                    continue
+                }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
                 await peer.webSocketsClient.initialize(
-                    callerRole, 
-                    p2pNetworkClientIdentity, 
-                    peer.p2pNetworkNode, 
+                    callerRole,
+                    p2pNetworkClientIdentity,
+                    peer.p2pNetworkNode,
                     p2pNetworkInterface,
                     onConnectionClosed
-                    )
+                )
                     .then(addPeer)
                     .catch(onError)
 

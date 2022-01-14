@@ -38,7 +38,8 @@ exports.newDesktopApp = function newDesktopApp() {
             await thisObject.p2pNetwork.initialize(
                 'Network Client',
                 global.env.DESKTOP_TARGET_NETWORK_CODENAME,
-                global.env.DESKTOP_TARGET_NETWORK_TYPE
+                global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                thisObject.p2pNetworkClientIdentity
             )
             /*
             This is where we will process all the events comming from the p2p network.

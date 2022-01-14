@@ -1,34 +1,27 @@
 import "./UserProfile.css"
 import React, {useEffect, useState} from 'react';
 import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
-import {Alert, Skeleton, Snackbar, Stack} from "@mui/material";
+import {Alert, Snackbar, Stack} from "@mui/material";
 import PostsFeed from "../postsFeed/PostsFeed";
 import {getPosts} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
-import {useParams} from "react-router-dom";
-import {useDispatch} from "react-redux";
 
 const UserProfile = () => {
-    let {userId} = useParams();
-
-    const dispatch = useDispatch();
     const [posts, setPosts] = useState([]);
     const [postLoading, setPostLoading] = useState(true);
-    const [profileLoading, setProfileLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
 
     useEffect(() => {
-        loadUser();
         loadPosts();
     }, []);
 
     const loadPosts = async () => {
         setPostLoading(true)
-        let queryParams = userId ? {userId: userId} : undefined;
+        // let queryParams = userId ? {userId: userId} : undefined;
         let {
             data, result
-        } = await getPosts(queryParams).then(response => response.json());
+        } = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
             let mappedPosts = data.map((post, index) => {
                 if (post.eventType !== 10) {
@@ -43,14 +36,6 @@ const UserProfile = () => {
         setPostLoading(false);
     }
 
-
-
-
-    const updateProfileCallback = () => {
-        setSnackOpen(true)
-        setTimeout(() => loadUser(), 60000);
-    };
-
     const handleSnackClose = (event, reason) => {
         if (reason === 'clickaway') return;
         setSnackOpen(false);
@@ -62,8 +47,7 @@ const UserProfile = () => {
                alignItems="center"
                spacing={1}
                className="middleSection">
-            {profileLoading ? (<Skeleton variant="rectangular" width="100%" height="23rem"/>) : (
-                <UserProfileHeader updateProfileCallback={updateProfileCallback}/>)}
+            <UserProfileHeader/>
             <PostsFeed posts={posts} loading={postLoading}/>
         </Stack>
         <Snackbar open={openSnack} autoHideDuration={6000} onClose={handleSnackClose}>

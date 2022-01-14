@@ -2,11 +2,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
     /*
     This module represents the websockets interface of the Network Node.
 
-    A Network Nodes is expected to receive connection request from 2 different types
+    A Network Nodes is expected to receive requests from 2 different types
     of entities:
 
     1. Other Network Nodes.
-    2. Clients / Apps. 
+    2. Client Apps. 
 
     This module deals with those 2 connection types and is the one receiving from
     and sending messages to those entities.
@@ -126,7 +126,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     caller.socket.send(JSON.stringify(response))
                                     caller.socket.close()
                                     return
-                                }                                
+                                }
 
                                 let response
                                 switch (caller.role) {
@@ -394,9 +394,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The signature gives us the blockchain account, and the account the user profile.
                     */
-                    let witnessUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
+                    let userProfileByBlockchainAccount = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(caller.blockchainAccount)
 
-                    if (witnessUserProfile === undefined) {
+                    if (userProfileByBlockchainAccount === undefined) {
                         let response = {
                             result: 'Error',
                             message: 'userProfile Not Found.'
@@ -425,10 +425,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     The user profile based on the blockchain account, based on the signature,
                     it is our witness user profile, to validate the caller.
                     */
-                    if (signedMessage.callerProfileHandle !== witnessUserProfile.userProfileHandle) {
+                    if (signedMessage.callerProfileHandle !== userProfileByBlockchainAccount.config.signature.message) {
                         let response = {
                             result: 'Error',
-                            message: 'callerProfileHandle Does Not Match witnessUserProfile.'
+                            message: 'callerProfileHandle Does Not Match userProfileByBlockchainAccount.'
                         }
                         caller.socket.send(JSON.stringify(response))
                         caller.socket.close()
@@ -460,17 +460,32 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         return
                     }
                     /*
-                    All validations have been completed, the Handshake Procedure finished well.
-                    */
-                    /*
                     We will remember the user profile behind this caller.
                     */
-                    caller.userProfile = witnessUserProfile
+                    caller.userProfile = userProfileByBlockchainAccount
+                    /*
+                    We will check that if we are a node of a Permissioned Network, that whoever
+                    is connecting to us, has the permission to do so.
+                    */
+                    if (NT.networkApp.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type === "Permissioned P2P Network") {
+                        let userProfileWithPermission = SA.projects.network.globals.memory.maps.PERMISSIONS_GRANTED_BY_USER_PRFILE_ID.get(caller.userProfile.id)
+                        if (userProfileWithPermission === undefined) {
+                            let response = {
+                                result: 'Error',
+                                message: 'User Profile Does Not Have Permission to This Permissioned P2P Network.'
+                            }
+                            caller.socket.send(JSON.stringify(response))
+                            caller.socket.close()
+                            return
+                        }
+                    }
                     /*
                     We will remember the caller itself.
                     */
                     addCaller(caller)
-
+                    /*
+                    All validations have been completed, the Handshake Procedure finished well.
+                    */
                     let response = {
                         result: 'Ok',
                         message: 'Handshake Successful.'

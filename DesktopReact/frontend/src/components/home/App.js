@@ -17,7 +17,6 @@ function App() {
     const loadUser = async () => {
         if (user) return;
         let {data, result} = await getProfile().then(response => response.json());
-        console.log({data, result})
         if (data.missingProfile) {
              navigate("/signUp")
         }

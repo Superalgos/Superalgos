@@ -7,7 +7,7 @@
 
 .signupCardContainer {
     min-width: 20rem;
-    max-width: 30rem;
+    max-width: 40rem;
 }
 
 .signupCardContent{
@@ -42,4 +42,28 @@
     justify-content: flex-end;
     padding-top: 10px;
     width: 100%;
+}
+
+.banner {
+    height: 10rem;
+}
+
+.profileCard {
+    margin-top: -5rem;
+    display: flex;
+    flex-direction: row;
+    height: 8rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    vertical-align: center;
+}
+.profilePicBG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background: none no-repeat scroll 0 0 #fff;*/
+    position: relative;
+    height: 8rem !important;
+    width: 8rem !important;
+    border-radius: 50%;
 }

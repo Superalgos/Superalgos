@@ -18,7 +18,7 @@ import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import pfp from "../../images/superalgos.png";
 
-const UserProfileModal = ({user, close, updateProfileCallback}) => {
+const UserProfileModal = ({user, close}) => {
     useEffect(() => {
         return () => setUserInfo(user);
     }, []);
@@ -69,7 +69,6 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
     const saveProfile = async () => {
         let {result} = await updateProfile(userInfo).then(response => response.json());
         if (result === STATUS_OK) {
-            updateProfileCallback();
             close();
         }
     }

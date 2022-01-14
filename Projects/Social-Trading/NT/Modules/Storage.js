@@ -121,6 +121,7 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                         originPostHash: event.originPostHash,
                         targetPostHash: event.targetPostHash,
                         timestamp: event.timestamp,
+                        fileKeys: event.fileKeys,
                         botAsset: event.botAsset,
                         botExchange: event.botExchange,
                         botEnabled: event.botEnabled

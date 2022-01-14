@@ -268,7 +268,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
             let encryptedFileContent = SA.projects.foundations.utilities.encryption.encrypt(fileContent, password)
             let fileName = web3.eth.accounts.hashMessage(encryptedFileContent)
             let filePath = "Posts/" + SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(timestamp)
-            let fileId = SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId()
             /*
             We are going to save this file at all of the Storage Containers defined.
             */
@@ -300,7 +299,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     let fileKey = {
                         timestamp: timestamp,
                         fileName: fileName,
-                        fileId: fileId,
                         storageContainerId: storageContainer.id,
                         password: password
                     }

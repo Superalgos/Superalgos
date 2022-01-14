@@ -92,7 +92,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                             ) {
-                                event.postText = await loadPostFromStorage(event.fileKey)
+                                event.postText = await loadPostFromStorage(event.fileKeys)
                             }
                         }
 
@@ -261,8 +261,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
             /*
             We are going to save this file at all of the Storage Containers defined.
             */
-            let savingCount = 0
             let savedCount = 0
+            let notSavedCount = 0
             let fileKeys = []
 
             for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
@@ -274,7 +274,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 switch (storageContainer.type) {
                     case 'Github Storage Container': {
-                        savingCount++
                         await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
                             .then(onFileSaved)
                             .catch(onFileNodeSaved)
@@ -296,7 +295,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                     fileKeys.push(fileKey)
                     savedCount++
-                    if (savingCount === availableStorage.storageContainerReferences.length) {
+                    if (savedCount + notSavedCount === availableStorage.storageContainerReferences.length) {
                         allFilesSaved()
                     }
                 }
@@ -305,7 +304,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     /*
                     The content then will be saved at the next run of this function.
                     */
-                    if (savingCount === availableStorage.storageContainerReferences.length) {
+                    notSavedCount++
+                    if (savedCount + notSavedCount === availableStorage.storageContainerReferences.length) {
                         allFilesSaved()
                     }
                 }
@@ -346,7 +346,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     }
 
     async function loadPostFromStorage(
-        fileKey
+        fileKeys
     ) {
         /*
         When the Web App makes a query that includes Post text as responses,
@@ -358,8 +358,50 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
         async function loadPostAsync(resolve, reject) {
 
+            let fileContent
+            let notLoadedCount = 0
 
+            for (let i = 0; i < fileKeys.length; i++) {
 
+                if (fileContent !== undefined) { continue }
+
+                let fileKey = fileKeys[i]
+                /*
+                We are going to load this file from the Storage Containers defined.
+                We are going to try to read it first from the first Storage container
+                and if it is not possible we will try with the next ones.
+                */
+                let fileName = fileKey.fileName
+                let filePath = SA.projects.foundations.utilities.filesAndDirectories.pathFromDatetime(fileKey.timestamp)
+                let password = fileKey.password
+                let storageContainer = SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.get(fileKey.storageContainerId)
+
+                switch (storageContainer.parentNode.type) {
+                    case 'Github Storage': {
+                        await SA.projects.openStorage.utilities.githubStorage.loadFile(fileName, filePath, storageContainer)
+                            .then(onFileLoaded)
+                            .catch(onFileNotLoaded)
+                        break
+                    }
+                    case 'Superalgos Storage': {
+                        // TODO Build the Superalgos Storage Provider
+                        break
+                    }
+                }
+
+                function onFileLoaded(fileData) {
+                    fileContent = SA.projects.foundations.utilities.encryption.decrypt(fileData, password)
+                    resolve(fileContent)
+                }
+
+                function onFileNotLoaded() {
+                    notLoadedCount++
+                    if (notLoadedCount === fileKeys.length) {
+                        fileContent = 'Post Content Not Available At The Moment'
+                        resolve(fileContent)
+                    }
+                }
+            }
         }
     }
 

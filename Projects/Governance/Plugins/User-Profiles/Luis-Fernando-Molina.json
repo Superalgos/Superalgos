@@ -8300,7 +8300,7 @@
                             "savedPayload": {
                                 "position": {
                                     "x": 36360.636883091225,
-                                    "y": 18794.708572938485
+                                    "y": 18950
                                 },
                                 "targetPosition": {
                                     "x": 36650.414630977946,
@@ -8325,6 +8325,65 @@
                                 "referenceParentCombinedNodePath": [
                                     [
                                         "Luis-Fernando-Molina",
+                                        "User Profile",
+                                        "Governance",
+                                        "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                                    ],
+                                    [
+                                        "New User Storage",
+                                        "User Storage",
+                                        "Open-Storage",
+                                        "70d2d75b-ad84-4386-93f5-13ad56c111f7"
+                                    ],
+                                    [
+                                        "New Github Storage",
+                                        "Github Storage",
+                                        "Open-Storage",
+                                        "f141613b-ea77-425c-8e3b-9874a638fcab"
+                                    ],
+                                    [
+                                        "My-Social-Trading-Data",
+                                        "Github Storage Container",
+                                        "Open-Storage",
+                                        "f8326dbb-0b25-4115-8063-c3090e33bcfb"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Storage Container Reference",
+                            "name": "My-Social-Trading-Data-Backup",
+                            "config": "{}",
+                            "project": "Open-Storage",
+                            "id": "38c784ad-784f-4168-a14b-ae68bdaae235",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 36438.28259662198,
+                                    "y": 18660.22225211328
+                                },
+                                "targetPosition": {
+                                    "x": 36650.414630977946,
+                                    "y": 18872.354286469243
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Github Storage Container",
+                                    "name": "My-Social-Trading-Data-Backup",
+                                    "id": "993a9c73-3415-4a69-8fd1-d8bd0b66e5b6"
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Luis-Fernando-Molina",
                                         "User Profile"
                                     ],
                                     [
@@ -8336,7 +8395,7 @@
                                         "Github Storage"
                                     ],
                                     [
-                                        "My-Social-Trading-Data",
+                                        "My-Social-Trading-Data-Backup",
                                         "Github Storage Container"
                                     ]
                                 ]
@@ -8459,7 +8518,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -9101,8 +9160,8 @@
                     "id": "143fe1e0-43eb-44c0-a9ae-1b8702c3677f",
                     "savedPayload": {
                         "position": {
-                            "x": 38001.909782242685,
-                            "y": 18085.95818340135
+                            "x": 37924.26406871193,
+                            "y": 18075.735931288073
                         },
                         "targetPosition": {
                             "x": 37924.26406871193,
@@ -9129,8 +9188,36 @@
                     "id": "f8326dbb-0b25-4115-8063-c3090e33bcfb",
                     "savedPayload": {
                         "position": {
-                            "x": 38214.04181659865,
-                            "y": 18298.090217757315
+                            "x": 38136.39610306789,
+                            "y": 18163.60389693211
+                        },
+                        "targetPosition": {
+                            "x": 37924.26406871193,
+                            "y": 18375.735931288073
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Github Storage Container",
+                    "name": "My-Social-Trading-Data-Backup",
+                    "config": "{\n    \"codeName\": \"Github-Storage-Conatainer-Luis-Fernando-Molina-My-Social-Trading-Data\",\n    \"githubUserName\": \"Luis-Fernando-Molina\",\n    \"repositoryName\": \"My-Social-Trading-Data-Backup\"\n}",
+                    "project": "Open-Storage",
+                    "id": "993a9c73-3415-4a69-8fd1-d8bd0b66e5b6",
+                    "savedPayload": {
+                        "position": {
+                            "x": 38224.26406871193,
+                            "y": 18375.735931288073
                         },
                         "targetPosition": {
                             "x": 37924.26406871193,

@@ -82,6 +82,8 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
 
                         let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                        let eventsWithNoProblem = []
+
                         for (let i = 0; i < events.length; i++) {
                             let event = events[i]
                             if (
@@ -92,14 +94,21 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                             ) {
-                                event.postText = await loadPostFromStorage(event.fileKeys)
+                                let response = await loadPostFromStorage(event.fileKeys)
+
+                                if (response.result === "Ok") {
+                                    event.postText = response.postText
+                                    eventsWithNoProblem.push(event)
+                                }                                
+                            } else {
+                                eventsWithNoProblem.push(event)
                             }
                         }
 
                         response = {
                             result: 'Ok',
                             message: 'Web App Interface Query Processed.',
-                            data: events
+                            data: eventsWithNoProblem
                         }
 
                         break
@@ -348,6 +357,13 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
     async function loadPostFromStorage(
         fileKeys
     ) {
+        if (fileKeys === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'It is not possible to retrieve this post'
+            }
+            return response
+        }
         /*
         When the Web App makes a query that includes Post text as responses,
         we need to fetch the text from the the storage container of the author
@@ -391,14 +407,22 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 function onFileLoaded(fileData) {
                     fileContent = SA.projects.foundations.utilities.encryption.decrypt(fileData, password)
-                    resolve(fileContent)
+                    let response = {
+                        result: 'Ok',
+                        message: 'Post Text Found',
+                        postText: fileContent
+                    }
+                    resolve(response)
                 }
 
                 function onFileNotLoaded() {
                     notLoadedCount++
                     if (notLoadedCount === fileKeys.length) {
-                        fileContent = 'Post Content Not Available At The Moment'
-                        resolve(fileContent)
+                        let response = {
+                            result: 'Error',
+                            message: 'Post Content Not Available At The Moment'
+                        }
+                        resolve(response)
                     }
                 }
             }

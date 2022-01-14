@@ -214,7 +214,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                     originPostHash: event.originPostHash,
                     targetPostHash: event.targetPostHash,
                     timestamp: event.timestamp,
-                    fileKeys: fileKeys,
+                    fileKeys: event.fileKeys,
                     botAsset: event.botAsset,
                     botExchange: event.botExchange,
                     botEnabled: event.botEnabled

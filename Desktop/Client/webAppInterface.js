@@ -1,5 +1,3 @@
-const createError = require('http-errors');
-
 exports.newWebAppInterface = function newWebAppInterface() {
     /*
     This module handles the incoming messages from the Web App.

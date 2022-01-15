@@ -21,7 +21,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
     }
 
     async function initialize(
-        signingAccount
+        userAppSigningAccountCodeName
     ) {
 
         await setupNetwork()
@@ -36,7 +36,10 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             We will read all user profiles plugins and get from there our network identity.
             */
             thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await thisObject.appBootstrapingProcess.run(signingAccount, thisObject.p2pNetworkClientIdentity)
+            await thisObject.appBootstrapingProcess.run(
+                userAppSigningAccountCodeName,
+                thisObject.p2pNetworkClientIdentity
+            )
             /*
             We set up the P2P Network.
             */
@@ -70,7 +73,10 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             send Queries or Events to it. 
             */
             thisObject.socialGraphNetworkServiceClient = DK.projects.socialTrading.modules.socialGraphNetworkServiceClient.newSocialTradingModulesSocialGraphNetworkServiceClient()
-            await thisObject.socialGraphNetworkServiceClient.initialize()
+            await thisObject.socialGraphNetworkServiceClient.initialize(
+                userAppSigningAccountCodeName,
+                thisObject.p2pNetworkPeers
+            )
         }
     }
 }

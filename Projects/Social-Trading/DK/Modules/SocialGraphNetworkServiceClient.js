@@ -1,9 +1,12 @@
+const createError = require('http-errors');
 exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSocialTradingModulesSocialGraphNetworkServiceClient() {
     /*
     This module represents the Client of the Social Graph Network Service
     running inside P2P Network Nodes.
     */
     let thisObject = {
+        userAppSigningAccountCodeName: undefined,
+        socialGraphNetworkServiceProxy: undefined,
         messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
@@ -12,10 +15,18 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
     return thisObject
 
     function finalize() {
-
+        thisObject.userAppSigningAccountCodeName = undefined
+        thisObject.socialGraphNetworkServiceProxy = undefined
     }
 
-    function initialize() {
+    function initialize(
+        userAppSigningAccountCodeName,
+        socialGraphNetworkServiceProxy
+    ) {
+
+        thisObject.userAppSigningAccountCodeName = userAppSigningAccountCodeName
+        thisObject.socialGraphNetworkServiceProxy = socialGraphNetworkServiceProxy
+
         let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
         appBootstrapingProcess.run()
     }
@@ -44,6 +55,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 */
                 if (queryMessage.originSocialPersonaId === undefined) {
                     queryMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your QUERY Message because adding a default one will be deprecated at the next release.')
                 }
                 messageHeader.queryMessage = JSON.stringify(queryMessage)
 
@@ -55,8 +67,8 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     case SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA: {
 
                         if (!queryMessage.userProfileId & !queryMessage.username) {
-                            queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
-                            queryMessage.username = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
+                            queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(thisObject.userAppSigningAccountCodeName).userProfileId;
+                            queryMessage.username = SA.secrets.signingAccountSecrets.map.get(thisObject.userAppSigningAccountCodeName).userProfileHandle;
                         }
 
                         response = await getUserProfileData(queryMessage.username, queryMessage.userProfileId)
@@ -65,7 +77,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     }
                     case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
 
-                        let events = await DK.desktopApp.p2pNetworkClient.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                        let events = await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
                         let eventsWithNoProblem = []
 
                         for (let i = 0; i < events.length; i++) {
@@ -101,7 +113,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         response = {
                             result: 'Ok',
                             message: 'Web App Interface Query Processed.',
-                            data: await DK.desktopApp.p2pNetworkClient.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                            data: await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
                         }
                         break
                     }
@@ -132,6 +144,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 */
                 if (eventMessage.originSocialPersonaId === undefined) {
                     eventMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
+                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
                 }
                 /*
                 Based on the Event Type we might need to do some stuff before reaching out to the P2P Network.
@@ -163,7 +176,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
                     let commitMessage = "Edit User Profile";
                     eventMessage.originPostHash = await saveUserAtStorage(
-                        SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId,
+                        SA.secrets.signingAccountSecrets.map.get(thisObject.userAppSigningAccountCodeName).userProfileId,
                         eventMessage.body,
                         commitMessage
                     )
@@ -173,7 +186,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Event Processed.',
-                    data: await DK.desktopApp.p2pNetworkClient.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                    data: await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response
             }

@@ -27,7 +27,9 @@ exports.newDesktopApp = function newDesktopApp() {
             We set up the P2P Network Client.
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
-            await thisObject.p2pNetworkClient.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT)           
+            await thisObject.p2pNetworkClient.initialize(
+                global.env.DESKTOP_APP_SIGNING_ACCOUNT
+            )
         }
 
         async function setupInterfaces() {

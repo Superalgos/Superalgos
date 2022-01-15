@@ -1,8 +1,7 @@
 exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2PNetworkReachableNodes() {
     /*
-    This module represents the P2P Network and it is needed to enable the connection
-    of this current node to other peers. The main feature here is the array of 
-    nodes that we can potengially connect to. 
+    This module represents the P2P Network nodes that are reachable
+    and that we can potentially connect to.  
     
     When we are running with the role of a Network Peer,
     the list of available nodes will exclude ourselves.

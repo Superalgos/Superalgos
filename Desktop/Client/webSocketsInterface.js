@@ -20,7 +20,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
     }
 
     function initialize() {
-        let port = DK.desktopApp.p2pNetworkClientIdentity.node.config.webSocketsPort
+        let port = DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webSocketsPort
         socketServer = new SA.nodeModules.ws.Server({ port: port })
         setUpWebSocketServer()
     }

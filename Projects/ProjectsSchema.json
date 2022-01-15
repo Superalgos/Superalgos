@@ -1631,6 +1631,12 @@
             ],
             "modules": [
                 {
+                    "name": "P2P Network Client",
+                    "propertyName": "p2pNetworkClient",
+                    "functionName": "newNetworkModulesP2PNetworkClient",
+                    "fileName": "P2PNetworkClient.js"
+                },                
+                {
                     "name": "Web Sockets Network Client",
                     "propertyName": "webSocketsNetworkClient",
                     "functionName": "newNetworkModulesWebSocketsNetworkClient",

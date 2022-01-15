@@ -81,7 +81,7 @@ exports.newWebAppInterface = function newWebAppInterface() {
                     }
                     case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
 
-                        let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                        let events = await DK.desktopApp.p2pNetworkClient.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                         let eventsWithNoProblem = []
 
                         for (let i = 0; i < events.length; i++) {
@@ -117,7 +117,7 @@ exports.newWebAppInterface = function newWebAppInterface() {
                         response = {
                             result: 'Ok',
                             message: 'Web App Interface Query Processed.',
-                            data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                            data: await DK.desktopApp.p2pNetworkClient.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                         }
                         break
                     }
@@ -189,7 +189,7 @@ exports.newWebAppInterface = function newWebAppInterface() {
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Event Processed.',
-                    data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
+                    data: await DK.desktopApp.p2pNetworkClient.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response
             }

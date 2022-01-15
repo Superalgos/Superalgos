@@ -3,11 +3,8 @@ const createError = require('http-errors');
 exports.newWebAppInterface = function newWebAppInterface() {
     /*
     This module handles the incoming messages from the Web App.
-    At it's current version, it will just forward those messages
-    to the Network Node it is connected to.
-
-    Later, it will try to use the personal social graph as a cache,
-    so as to minimize the requests to Network Nodes.
+    At it's current version, it will just routes the to the Network
+    Service Client that is going to process them.
     */
     let thisObject = {
         messageReceived: messageReceived,
@@ -40,7 +37,6 @@ exports.newWebAppInterface = function newWebAppInterface() {
         switch (messageHeader.networkService) {
             case 'Social Graph': {
                 return await DK.desktopApp.p2pNetworkClient.socialGraphNetworkServiceClient.messageReceived(messageHeader)
-                break
             }
             case 'Trading Signals': {
                 break

@@ -337,7 +337,8 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     let signingAccount = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                         targetNode,
                         'Signing Account',
-                        rootNodes
+                        rootNodes,
+                        'Governance'
                     )
                     /*
                     Let's get a cool name for this node. 

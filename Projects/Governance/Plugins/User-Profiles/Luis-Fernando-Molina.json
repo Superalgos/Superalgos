@@ -5568,13 +5568,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x7e33d39802162445c18c03c839ade3be2fc51e80984d74e989a8f4ef026a7dde\",\n        \"s\": \"0x437c99d4e8c410afacbe314835824961d435f85fa1982910cec137dac8245b71\",\n        \"signature\": \"0x7e33d39802162445c18c03c839ade3be2fc51e80984d74e989a8f4ef026a7dde437c99d4e8c410afacbe314835824961d435f85fa1982910cec137dac8245b711c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x69b120996846e6a18c1fa3f0c7e092c9741e5c6b5eaf8af775b268806cb6648c\",\n        \"s\": \"0x675f49cf51686a92ca10b25382551dcfcb9bc781290b652c2972dfc8e05ed1b4\",\n        \"signature\": \"0x69b120996846e6a18c1fa3f0c7e092c9741e5c6b5eaf8af775b268806cb6648c675f49cf51686a92ca10b25382551dcfcb9bc781290b652c2972dfc8e05ed1b41b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "7b5de4d0-f404-488b-8dc3-83e50ec93713",
+                        "id": "bdbc2ef0-4a39-4930-b987-7109d6a67b76",
                         "savedPayload": {
                             "position": {
-                                "x": 38312.132034355964,
-                                "y": 19312.132034355964
+                                "x": 38098.132034355964,
+                                "y": 19386.132034355964
                             },
                             "targetPosition": {
                                 "x": 38012.132034355964,
@@ -5624,13 +5624,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x89aba0de5e956fae13614f7d863598d6808db2176c710b4b0fcc0e2c3a787a8f\",\n        \"s\": \"0x446a0517569671476938cb45d090d94765ff71f69c8510f59122605ef1441dc2\",\n        \"signature\": \"0x89aba0de5e956fae13614f7d863598d6808db2176c710b4b0fcc0e2c3a787a8f446a0517569671476938cb45d090d94765ff71f69c8510f59122605ef1441dc21c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x35034db3717713770998655a76ad73a9898f21709cca60e8bc95e1ffbca6291e\",\n        \"s\": \"0x20f111b13f427750a91f840b74151dee0a5b7f325747102acd1fb6e46ec2d979\",\n        \"signature\": \"0x35034db3717713770998655a76ad73a9898f21709cca60e8bc95e1ffbca6291e20f111b13f427750a91f840b74151dee0a5b7f325747102acd1fb6e46ec2d9791c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "4077e8a2-e65f-4c46-998f-281bc0350cf9",
+                        "id": "98e848da-f044-44df-ad51-b64000e8d516",
                         "savedPayload": {
                             "position": {
-                                "x": 38136.39610306789,
-                                "y": 19736.39610306789
+                                "x": 37985.26406871193,
+                                "y": 19525.264068711927
                             },
                             "targetPosition": {
                                 "x": 37924.26406871193,
@@ -5682,13 +5682,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xb1ed20b2c815a76d40ee4b76bec1dd694ba207c8cdc441893f4a61d54b750b40\",\n        \"s\": \"0x24d2fe9a2768b94579dd9ddd5dbaab90831cefa776878b24e85137565094726c\",\n        \"signature\": \"0xb1ed20b2c815a76d40ee4b76bec1dd694ba207c8cdc441893f4a61d54b750b4024d2fe9a2768b94579dd9ddd5dbaab90831cefa776878b24e85137565094726c1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Algo-Traders-Platform-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x41c605ac28a75a3ac4381e0f98c27f9120f1a393f5e36b81bd630ec09c69275b\",\n        \"s\": \"0x3a4a611ad94c08cf9783abf541b66341013f3c57a875cfcdb569a2762c46dec5\",\n        \"signature\": \"0x41c605ac28a75a3ac4381e0f98c27f9120f1a393f5e36b81bd630ec09c69275b3a4a611ad94c08cf9783abf541b66341013f3c57a875cfcdb569a2762c46dec51c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "2877a916-52d6-40e5-b36a-e66e33a4078e",
+                        "id": "542a9283-47d3-4225-a18c-bdd02104d9ce",
                         "savedPayload": {
                             "position": {
-                                "x": 37712.132034355964,
-                                "y": 19912.132034355964
+                                "x": 37640.132034355964,
+                                "y": 19698.132034355964
                             },
                             "targetPosition": {
                                 "x": 37712.132034355964,
@@ -5768,13 +5768,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x916aea5832591006bf1667fb47b9c68ac2fb64078087d4e83f63bc31d97efd3e\",\n        \"s\": \"0x64ad11b5298fdc031c16b73330534bf500263a0cb3f45e85088a87300271cdd5\",\n        \"signature\": \"0x916aea5832591006bf1667fb47b9c68ac2fb64078087d4e83f63bc31d97efd3e64ad11b5298fdc031c16b73330534bf500263a0cb3f45e85088a87300271cdd51b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Mobile-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x431eb0b812db5b29b30f17f013d06637b0b0e397ea5cd4a7dfa72d8f792092d9\",\n        \"s\": \"0x63523e7a557f758b3a3669c4ba4b10747af93db40b1339684514dafd6a9df44c\",\n        \"signature\": \"0x431eb0b812db5b29b30f17f013d06637b0b0e397ea5cd4a7dfa72d8f792092d963523e7a557f758b3a3669c4ba4b10747af93db40b1339684514dafd6a9df44c1c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "3cdbd11d-7a24-4ede-8237-1d4880e68588",
+                        "id": "3c8e1783-19ce-4dd0-b8f3-1221cc94d12f",
                         "savedPayload": {
                             "position": {
-                                "x": 37500,
-                                "y": 20000
+                                "x": 37560,
+                                "y": 19794
                             },
                             "targetPosition": {
                                 "x": 37500,
@@ -5854,13 +5854,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x30c8c6c5af1b9747b1c5a5464c55e9d2c5d37558b72f92b0e9487d6c571425a5\",\n        \"s\": \"0x02f0ef3502d93dca15aa68102314b67f626d4ba3566835f9f68e96f4861b9f6a\",\n        \"signature\": \"0x30c8c6c5af1b9747b1c5a5464c55e9d2c5d37558b72f92b0e9487d6c571425a502f0ef3502d93dca15aa68102314b67f626d4ba3566835f9f68e96f4861b9f6a1c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x7e98ceef65c6dd20b3121ba729985b3d769b78a2e59b9ccee526f0f2edb677c4\",\n        \"s\": \"0x723f40a1bbcf9fd00fcd885e1bd89852b23ed9441bd9ac94016c4b2781175b55\",\n        \"signature\": \"0x7e98ceef65c6dd20b3121ba729985b3d769b78a2e59b9ccee526f0f2edb677c4723f40a1bbcf9fd00fcd885e1bd89852b23ed9441bd9ac94016c4b2781175b551b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "257a6eae-ac2c-46b4-b5fe-eda925a2b5a0",
+                        "id": "eac60d46-b69b-4112-8468-39309b6d8e0f",
                         "savedPayload": {
                             "position": {
-                                "x": 37287.867965644036,
-                                "y": 19912.132034355964
+                                "x": 37205.867965644036,
+                                "y": 19521.132034355964
                             },
                             "targetPosition": {
                                 "x": 37287.867965644036,
@@ -5910,13 +5910,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x87fdebde4253ea7d5f930beb2c314f95bfbce70b6207d95b2fabf67403a7d1c3\",\n        \"s\": \"0x0106f889cbd8a7177c3fa47ea76c8e658ea48885b9d1f4d03c898f758378efb1\",\n        \"signature\": \"0x87fdebde4253ea7d5f930beb2c314f95bfbce70b6207d95b2fabf67403a7d1c30106f889cbd8a7177c3fa47ea76c8e658ea48885b9d1f4d03c898f758378efb11c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Task-Server-App-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x471835f0933270b22e55d374891bacb19953d8df61c8407f22fc03c6bc994945\",\n        \"s\": \"0x4fd55385aece294625bfb249bbc878128ea669756b40c8d3f0f18bc16e20c445\",\n        \"signature\": \"0x471835f0933270b22e55d374891bacb19953d8df61c8407f22fc03c6bc9949454fd55385aece294625bfb249bbc878128ea669756b40c8d3f0f18bc16e20c4451c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "d1b62eda-1d19-4e06-bc25-0177776ba8cb",
+                        "id": "c2bcc19d-0be2-4958-b8f1-468987dbb58d",
                         "savedPayload": {
                             "position": {
-                                "x": 36863.60389693211,
-                                "y": 19736.39610306789
+                                "x": 37091.73593128807,
+                                "y": 19493.264068711927
                             },
                             "targetPosition": {
                                 "x": 37075.73593128807,
@@ -5968,13 +5968,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x18b9a4281564d15a2737bb7c56f40a513d7bece8117595515104e69328e9ddac\",\n        \"s\": \"0x5256d5ecf30ccc4bd889fcd49a5295f2718aced749d7dd058a5b92dcb90350f4\",\n        \"signature\": \"0x18b9a4281564d15a2737bb7c56f40a513d7bece8117595515104e69328e9ddac5256d5ecf30ccc4bd889fcd49a5295f2718aced749d7dd058a5b92dcb90350f41b\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Server-App-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xc40b5b83516ede9abc79109e5903bae92678da2f4102fca4f2a7134e27b83150\",\n        \"s\": \"0x4e9e8646db273a5f4bb7cba33b358b632bdafe05df3cacbeed8d0ebd7dcef0d3\",\n        \"signature\": \"0xc40b5b83516ede9abc79109e5903bae92678da2f4102fca4f2a7134e27b831504e9e8646db273a5f4bb7cba33b358b632bdafe05df3cacbeed8d0ebd7dcef0d31b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "de540a43-07e3-429f-85b4-38b455085ee1",
+                        "id": "9fa76950-536b-4599-a58e-b4617eaf58ee",
                         "savedPayload": {
                             "position": {
-                                "x": 36687.867965644036,
-                                "y": 19312.132034355964
+                                "x": 36944.867965644036,
+                                "y": 19409.132034355964
                             },
                             "targetPosition": {
                                 "x": 36987.867965644036,
@@ -6082,13 +6082,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xfaa99732244125e0d6b29d7d62b9872ad01eb7665511d554b3332503d408cf18\",\n        \"s\": \"0x6267022eb3b70b2fd7bcaeac4733e7035d3261f7c8f9183ea07cfddde14df2d2\",\n        \"signature\": \"0xfaa99732244125e0d6b29d7d62b9872ad01eb7665511d554b3332503d408cf186267022eb3b70b2fd7bcaeac4733e7035d3261f7c8f9183ea07cfddde14df2d21c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x9efb432eeab903e0f443147b58810b54b4771a27eb2131234f86b2e157eb53d1\",\n        \"s\": \"0x0afa8d86fe29e8f9d6be2af1bb6a18fd93d7965c7ce18710c58dc0d6f48ed30c\",\n        \"signature\": \"0x9efb432eeab903e0f443147b58810b54b4771a27eb2131234f86b2e157eb53d10afa8d86fe29e8f9d6be2af1bb6a18fd93d7965c7ce18710c58dc0d6f48ed30c1c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "1b366065-5b95-4104-b44f-68a3c27b6279",
+                        "id": "a52dd5d5-f79b-4bd6-b66a-b6aaea17d9f4",
                         "savedPayload": {
                             "position": {
-                                "x": 37148.090217757315,
-                                "y": 19773.84943773398
+                                "x": 37082.090217757315,
+                                "y": 19592.04181659865
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -7842,13 +7842,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x21769f2e7e50063f2b68f2bb2ca9dbc05abc0072dac276dbcd8dd593ae217030\",\n        \"s\": \"0x0dc58d4ed7e3a35d1af15ddc35e41d521650c06c807561e9c7c3fc2bdc075823\",\n        \"signature\": \"0x21769f2e7e50063f2b68f2bb2ca9dbc05abc0072dac276dbcd8dd593ae2170300dc58d4ed7e3a35d1af15ddc35e41d521650c06c807561e9c7c3fc2bdc0758231c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Bot-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xbf2a391cc25b6253c8165f9610e8af6a7cd27f569b324a76109bb926e6d99ce8\",\n        \"s\": \"0x79b653df7af5b7e1023b8567325f624140489005af9a45cf4de53bdb4cc09dce\",\n        \"signature\": \"0xbf2a391cc25b6253c8165f9610e8af6a7cd27f569b324a76109bb926e6d99ce879b653df7af5b7e1023b8567325f624140489005af9a45cf4de53bdb4cc09dce1c\"\n    }\n}",
                         "project": "Governance",
-                        "id": "d3d132ec-3ded-44b9-801f-10daea96a458",
+                        "id": "e1e4edf6-7ac1-4983-b658-8e5f8eda4ba6",
                         "savedPayload": {
                             "position": {
-                                "x": 36573.82614904539,
-                                "y": 19514.04181659865
+                                "x": 36769.95818340135,
+                                "y": 19238.909782242685
                             },
                             "targetPosition": {
                                 "x": 36785.95818340135,
@@ -7979,17 +7979,17 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x69bfc4461ba3775be7f90f35d0f158aea7e14390144a354a87f8eb64c0af8ac8\",\n        \"s\": \"0x4323c417fc661eb80682fa822d4539f0b224ca2e916b58042804ea5cd5822360\",\n        \"signature\": \"0x69bfc4461ba3775be7f90f35d0f158aea7e14390144a354a87f8eb64c0af8ac84323c417fc661eb80682fa822d4539f0b224ca2e916b58042804ea5cd58223601b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x3d90aee65bcbef778cb1da806803f807049887af87c76f746e1d1f121e8681f8\",\n        \"s\": \"0x1541aab9f050be5f39f2703a526c292ac176a190762598463d1d9c33a0a5d3a4\",\n        \"signature\": \"0x3d90aee65bcbef778cb1da806803f807049887af87c76f746e1d1f121e8681f81541aab9f050be5f39f2703a526c292ac176a190762598463d1d9c33a0a5d3a41c\"\n    }\n}",
                     "project": "Governance",
-                    "id": "2532d405-4d9a-40fc-9832-f6dcd97e9fe3",
+                    "id": "aae76c9e-858d-4804-a93e-2b5f56e1c3be",
                     "savedPayload": {
                         "position": {
-                            "x": 36640.19237886467,
-                            "y": 18950
+                            "x": 37014.19237886467,
+                            "y": 18894
                         },
                         "targetPosition": {
-                            "x": 36900,
-                            "y": 18800
+                            "x": 36940.19237886467,
+                            "y": 18950
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8018,12 +8018,12 @@
                             "id": "b817056b-8679-49da-9cb8-27e866885537",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36340.19237886467,
-                                    "y": 18650
+                                    "x": 36530.384757729335,
+                                    "y": 19359.807621135333
                                 },
                                 "targetPosition": {
-                                    "x": 36640.19237886467,
-                                    "y": 18650
+                                    "x": 36680.384757729335,
+                                    "y": 19100
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -8077,12 +8077,12 @@
                             "id": "38c784ad-784f-4168-a14b-ae68bdaae235",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36490.19237886467,
-                                    "y": 18390.192378864667
+                                    "x": 36380.384757729335,
+                                    "y": 19100
                                 },
                                 "targetPosition": {
-                                    "x": 36640.19237886467,
-                                    "y": 18650
+                                    "x": 36680.384757729335,
+                                    "y": 19100
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -8132,12 +8132,12 @@
                     "id": "e9900664-a94b-46d3-8cae-f022511f7053",
                     "savedPayload": {
                         "position": {
-                            "x": 36640.19237886467,
-                            "y": 18650
+                            "x": 36680.384757729335,
+                            "y": 19100
                         },
                         "targetPosition": {
-                            "x": 36900,
-                            "y": 18800
+                            "x": 36940.19237886467,
+                            "y": 18950
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8155,8 +8155,64 @@
                 "id": "ed15b68f-c9e0-447a-9ef7-660db229244c",
                 "savedPayload": {
                     "position": {
-                        "x": 36900,
+                        "x": 36940.19237886467,
+                        "y": 18950
+                    },
+                    "targetPosition": {
+                        "x": 37200,
                         "y": 18800
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            {
+                "type": "Social Persona",
+                "name": "Social Persona #2",
+                "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"handle\": \"Luis-Fernando-Molina-Social-Persona-2\"\n}",
+                "project": "Social-Trading",
+                "signingAccount": {
+                    "type": "Signing Account",
+                    "name": "New Signing Account",
+                    "config": "{\n    \"codeName\": \"Social-Persona-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xea072b8886d3fa44953fd9e09dab6ae2ee2ae5af4c53b0bbe0f1e94d608f801d\",\n        \"s\": \"0x6e4dd6075d708734105f89bf761b128ca668163ba03df76e5bd46ccc0795788f\",\n        \"signature\": \"0xea072b8886d3fa44953fd9e09dab6ae2ee2ae5af4c53b0bbe0f1e94d608f801d6e4dd6075d708734105f89bf761b128ca668163ba03df76e5bd46ccc0795788f1c\"\n    }\n}",
+                    "project": "Governance",
+                    "id": "3a8917dd-2b18-400c-b3e5-fa37b32495ee",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36957.19237886467,
+                            "y": 18716
+                        },
+                        "targetPosition": {
+                            "x": 36940.19237886467,
+                            "y": 18650
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "01c33294-124f-4d68-8619-8e1d1cca7e0a",
+                "savedPayload": {
+                    "position": {
+                        "x": 36940.19237886467,
+                        "y": 18650
                     },
                     "targetPosition": {
                         "x": 37200,
@@ -8213,13 +8269,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x2c6a367f7ad24f99f65592da1e6f7aeca481ad785fbfa756322d1be3b8497777\",\n        \"s\": \"0x781460f815d80bbba380c5b5efa1a36ca847c58d9ff14908aea2b4f5e8e45d79\",\n        \"signature\": \"0x2c6a367f7ad24f99f65592da1e6f7aeca481ad785fbfa756322d1be3b8497777781460f815d80bbba380c5b5efa1a36ca847c58d9ff14908aea2b4f5e8e45d791c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x5f9f530594eddddd1d4d2ae2ff96fa9d6d127bfbd080be37a235f24b00a12889\",\n        \"s\": \"0x20f7b800ae8601cd466b0f464ea87cd60dbb13b5d8c4b820e318e9387f47f157\",\n        \"signature\": \"0x5f9f530594eddddd1d4d2ae2ff96fa9d6d127bfbd080be37a235f24b00a1288920f7b800ae8601cd466b0f464ea87cd60dbb13b5d8c4b820e318e9387f47f1571b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "5f1816c9-5b44-43e3-8d68-e80fe323beb0",
+                    "id": "c27ee5fe-1c28-41bd-855e-7ffea3e58556",
                     "savedPayload": {
                         "position": {
-                            "x": 36738.28259662198,
-                            "y": 18660.22225211328
+                            "x": 37019.090217757315,
+                            "y": 18506.22225211328
                         },
                         "targetPosition": {
                             "x": 36998.090217757315,
@@ -8393,13 +8449,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x3eed83be1da7c307e8cbcedf12414651b6eef7243ce206e11b5c3a333dba1939\",\n        \"s\": \"0x177564bcd03a034ff1b61ec3be022c22e9cd7eabd3c15d61337a8c09c4276162\",\n        \"signature\": \"0x3eed83be1da7c307e8cbcedf12414651b6eef7243ce206e11b5c3a333dba1939177564bcd03a034ff1b61ec3be022c22e9cd7eabd3c15d61337a8c09c42761621b\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"signature\": {\n        \"message\": \"Luis-Fernando-Molina\",\n        \"messageHash\": \"0x443abf3389e332a62d21b84dd12e271cb428d334195d3aeb986ca85ee53cccb9\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xf571e7c42bf2d84696f5fb2d9b7ec29789618e643e209289aecf4a94f5f1dce8\",\n        \"s\": \"0x6f741192633bcfad1b5ec3e7c3f52c074291dbae7a34a368e228b9ac42c7a161\",\n        \"signature\": \"0xf571e7c42bf2d84696f5fb2d9b7ec29789618e643e209289aecf4a94f5f1dce86f741192633bcfad1b5ec3e7c3f52c074291dbae7a34a368e228b9ac42c7a1611b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "9e94d2a8-d654-48b4-ac45-85df3b797c74",
+                    "id": "5822529e-fec2-44cd-96bc-8ffa0fbbe927",
                     "savedPayload": {
                         "position": {
-                            "x": 37225.22225211328,
-                            "y": 18263.090217757315
+                            "x": 37198.22225211328,
+                            "y": 18368.090217757315
                         },
                         "targetPosition": {
                             "x": 37210.22225211328,
@@ -8967,7 +9023,7 @@
         "floatingObject": {
             "isPinned": true,
             "isFrozen": false,
-            "isCollapsed": false,
+            "isCollapsed": true,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

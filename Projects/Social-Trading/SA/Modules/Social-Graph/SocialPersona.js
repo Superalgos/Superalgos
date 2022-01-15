@@ -88,7 +88,8 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
         originPostHash,
         targetPostHash,
         postType,
-        timestamp
+        timestamp,
+        fileKeys
     ) {
         if (thisObject.posts.get(originPostHash) !== undefined) {
             throw ('Post Already Exists.')
@@ -102,7 +103,8 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
                 originPostHash,
                 targetPostHash,
                 postType,
-                timestamp
+                timestamp,
+                fileKeys
             )
 
             thisObject.posts.set(originPostHash, post)

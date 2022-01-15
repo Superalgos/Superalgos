@@ -91,8 +91,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
         targetPostHash,
         postType,
         timestamp,
-        signalType,
-        signalData
+        fileKeys
     ) {
         if (thisObject.posts.get(originPostHash) !== undefined) {
             throw ('Post Already Exists.')
@@ -107,8 +106,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
                 targetPostHash,
                 postType,
                 timestamp,
-                signalType,
-                signalData
+                fileKeys
             )
 
             thisObject.posts.set(originPostHash, post)

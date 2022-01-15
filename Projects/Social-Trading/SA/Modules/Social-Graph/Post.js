@@ -39,6 +39,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     return thisObject
 
     function finalize() {
+        thisObject.fileKeys = undefined
         thisObject.replies = undefined
         thisObject.reactions = undefined
         thisObject.reactionsByProfile = undefined

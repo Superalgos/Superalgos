@@ -21,7 +21,10 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
     }
 
     async function initialize(
-        userAppSigningAccountCodeName
+        userAppSigningAccountCodeName,
+        targetNetworkType,
+        targetNetworkCodeName,
+        maxOutgoingPeers
     ) {
 
         await setupNetwork()
@@ -46,8 +49,8 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             thisObject.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
             await thisObject.p2pNetworkReachableNodes.initialize(
                 'Network Client',
-                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
-                global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                targetNetworkCodeName,
+                targetNetworkType,
                 thisObject.p2pNetworkClientIdentity
             )
             /*
@@ -63,7 +66,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.p2pNetworkClientIdentity,
                 thisObject.p2pNetworkReachableNodes,
                 thisObject.p2pNetworkInterface,
-                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
+                maxOutgoingPeers
             )
         }
 

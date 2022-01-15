@@ -28,7 +28,10 @@ exports.newDesktopApp = function newDesktopApp() {
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
             await thisObject.p2pNetworkClient.initialize(
-                global.env.DESKTOP_APP_SIGNING_ACCOUNT
+                global.env.DESKTOP_APP_SIGNING_ACCOUNT,
+                global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
             )
         }
 

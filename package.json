@@ -16,7 +16,7 @@
     "postinstall": "electron-builder install-app-deps",
     "startNetwork": "node network",
     "startDesktop": "node desktop",
-    "installDesktopReact": "cd ./DesktopReact && npm install",
+    "installDesktopReact" : "cd ./DesktopReact && npm install",
     "startDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
   },
   "dependencies": {
@@ -39,7 +39,6 @@
     "https": "^1.0.0",
     "ip": "^1.1.5",
     "lookpath": "^1.2.2",
-    "mathjs": "^10.0.2",
     "node-fetch": "^2.6.6",
     "open": "^8.4.0",
     "path": "^0.12.7",

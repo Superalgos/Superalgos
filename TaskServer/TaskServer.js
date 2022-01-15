@@ -196,8 +196,8 @@ exports.newTaskServer = function newTaskServer() {
                     Set up the connections to network peers nodes. These connections will be used to consume signals.
                     In this context peers means network nodes with a similar ranking that our network client identity.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers.initialize(
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkNodesConnectedTo.initialize(
                         'Network Client',
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes,

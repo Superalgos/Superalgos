@@ -2,7 +2,7 @@ exports.newNetworkApp = function newNetworkApp() {
 
     let thisObject = {
         p2pNetworkReachableNodes: undefined,
-        p2pNetworkPeers: undefined,
+        p2pNetworkNodesConnectedTo: undefined,
         p2pNetworkNode: undefined,
         webSocketsInterface: undefined,
         httpInterface: undefined,
@@ -54,8 +54,8 @@ exports.newNetworkApp = function newNetworkApp() {
             Set up a pool of connections to different network nodes, so that later
             we can send a message to any of them.
             */
-            thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
-            await thisObject.p2pNetworkPeers.initialize(
+            thisObject.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
+            await thisObject.p2pNetworkNodesConnectedTo.initialize(
                 'Network Peer',
                 thisObject.p2pNetworkNode,
                 thisObject.p2pNetworkReachableNodes,

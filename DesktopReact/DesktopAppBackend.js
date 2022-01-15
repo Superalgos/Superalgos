@@ -4,7 +4,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
         appBootstrapingProcess: undefined,
         p2pNetworkClientIdentity: undefined,
         p2pNetworkReachableNodes: undefined,
-        p2pNetworkPeers: undefined,
+        p2pNetworkNodesConnectedTo: undefined,
         webSocketsInterface: undefined,
         webAppInterface: undefined,
         p2pNetworkInterface: undefined,
@@ -48,8 +48,8 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
             /*
             Set up the connections to network nodes.
             */
-            thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
-            await thisObject.p2pNetworkPeers.initialize(
+            thisObject.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
+            await thisObject.p2pNetworkNodesConnectedTo.initialize(
                 'Network Client',
                 thisObject.p2pNetworkClientIdentity,
                 thisObject.p2pNetworkReachableNodes,

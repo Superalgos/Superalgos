@@ -573,8 +573,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 if (caller.role === 'Network Peer') {
                     callerIdToAVoid = caller.socket.id
                 }
-                for (let i = 0; i < NT.networkApp.p2pNetworkPeers.peers.length; i++) {
-                    let peer = NT.networkApp.p2pNetworkPeers.peers[i]
+                for (let i = 0; i < NT.networkApp.p2pNetworkNodesConnectedTo.peers.length; i++) {
+                    let peer = NT.networkApp.p2pNetworkNodesConnectedTo.peers[i]
                     if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
                     peer.webSocketsClient.sendMessage(messageHeader.payload)
                         .catch(onError)

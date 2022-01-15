@@ -1,4 +1,4 @@
-exports.newNetworkModulesP2PNetworkPeers = function newNetworkModulesP2PNetworkPeers() {
+exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModulesP2PNetworkNodesConnectedTo() {
     /*
     This module holds the P2P Nodes we are coonected to.
     Here we implement the mechanism to connect via websockets

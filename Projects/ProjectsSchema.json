@@ -1649,10 +1649,10 @@
                     "fileName": "AppBootstrapingProcess.js"
                 },
                 {
-                    "name": "P2P Network",
-                    "propertyName": "p2pNetwork",
-                    "functionName": "newNetworkModulesP2PNetwork",
-                    "fileName": "P2PNetwork.js"
+                    "name": "P2P Network Reachable Nodes",
+                    "propertyName": "p2pNetworkReachableNodes",
+                    "functionName": "newNetworkModulesP2PNetworkReachableNodes",
+                    "fileName": "P2PNetworkReachableNodes.js"
                 },
                 {
                     "name": "P2P Network Node",

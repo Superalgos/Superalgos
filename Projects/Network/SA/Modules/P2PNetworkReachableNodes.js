@@ -1,4 +1,4 @@
-exports.newNetworkModulesP2PNetwork = function newNetworkModulesP2PNetwork() {
+exports.newNetworkModulesP2PNetworkReachableNodes = function newNetworkModulesP2PNetworkReachableNodes() {
     /*
     This module represents the P2P Network and it is needed to enable the connection
     of this current node to other peers. The main feature here is the array of 

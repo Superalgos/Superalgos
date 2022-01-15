@@ -3,7 +3,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
     let thisObject = {
         appBootstrapingProcess: undefined,
         p2pNetworkClientIdentity: undefined,
-        p2pNetwork: undefined,
+        p2pNetworkReachableNodes: undefined,
         p2pNetworkPeers: undefined,
         webSocketsInterface: undefined,
         webAppInterface: undefined,
@@ -34,8 +34,8 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
             /*
             We set up the P2P Network.
             */
-            thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-            await thisObject.p2pNetwork.initialize(
+            thisObject.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
+            await thisObject.p2pNetworkReachableNodes.initialize(
                 'Network Client',
                 global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                 global.env.DESKTOP_TARGET_NETWORK_TYPE,
@@ -52,7 +52,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
             await thisObject.p2pNetworkPeers.initialize(
                 'Network Client',
                 thisObject.p2pNetworkClientIdentity,
-                thisObject.p2pNetwork,
+                thisObject.p2pNetworkReachableNodes,
                 thisObject.p2pNetworkInterface,
                 global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
             )

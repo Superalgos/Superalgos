@@ -62,7 +62,7 @@
                     "actionFunction": "payload.executeAction",
                     "label": "Add Social Personas",
                     "relatedUiObject": "Social Personas",
-                    "relatedUiObjectProject": "Governance"
+                    "relatedUiObjectProject": "Social-Trading"
                 },
                 {
                     "action": "Add UI Object",
@@ -167,6 +167,7 @@
             "name": "socialPersonas",
             "type": "node",
             "childType": "Social Personas",
+            "project": "Social-Trading",
             "autoAdd": false
         },
         {

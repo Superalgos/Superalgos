@@ -1,5 +1,5 @@
 {
-    "type": "Social Personas",
+    "type": "Social Persona",
     "menuItems": [
         {
             "action": "Configure",
@@ -11,11 +11,13 @@
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "availableStorage",
             "actionFunction": "payload.executeAction",
-            "label": "Add Social Persona",
-            "relatedUiObject": "Social Persona",
-            "relatedUiObjectProject": "Governance"
-        },
+            "label": "Add Available Storage",
+            "relatedUiObject": "Available Storage",
+            "relatedUiObjectProject": "Open-Storage"
+        },   
         {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
@@ -31,19 +33,27 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{\"socialHandle\": \"\",\"bio\": \"\"}"
     },
     "addLeftIcons": true,
     "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Social Personas->"
     },
     "propertyNameAtParent": "socialPersonas",
     "childrenNodesProperties": [
         {
-            "name": "socialPersonas",
-            "type": "array",
-            "childType": "Social Persona",
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "project": "Governance",
+            "autoAdd": false
+        },
+        {
+            "name": "availableStorage",
+            "type": "node",
+            "childType": "Available Storage",
+            "project": "Open-Storage",
             "autoAdd": false
         }
     ]

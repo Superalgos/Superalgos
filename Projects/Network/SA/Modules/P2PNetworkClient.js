@@ -44,7 +44,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.p2pNetworkClientIdentity
             )
             /*
-            We set up the P2P Network.
+            We set up the P2P Network reacheable nodes.
             */
             thisObject.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
             await thisObject.p2pNetworkReachableNodes.initialize(

@@ -9,7 +9,6 @@ exports.newSocialTradingGlobalsEventTypes = function () {
         REMOVE_USER_POST: 14,
         FOLLOW_USER_PROFILE: 15,
         UNFOLLOW_USER_PROFILE: 16,
-        NEW_USER_PROFILE: 17,
         /* Bots Posts and Following Events */
         NEW_SOCIAL_TRADING_BOT_POST: 20,
         REPLY_TO_SOCIAL_TRADING_BOT_POST: 21,

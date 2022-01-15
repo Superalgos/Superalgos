@@ -80,7 +80,7 @@ const editProfile = async (body, res) => {
 
     try {
         let eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE,
+            eventType: SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY,
             originSocialPersonaId: undefined,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             body:body,
@@ -105,7 +105,7 @@ const getProfile = async (userProfileId, username,res) => {
 
     try {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.SOCIAL_PERSONA_DATA,
+            queryType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
             originSocialPersonaId: undefined,
             userProfileId: userProfileId,
             username:username

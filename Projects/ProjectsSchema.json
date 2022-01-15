@@ -1881,6 +1881,12 @@
                     "fileName": "EventTypes.js"
                 },
                 {
+                    "name": "Profile Types",
+                    "propertyName": "profileTypes",
+                    "functionName": "newSocialTradingGlobalsProfileTypes",
+                    "fileName": "ProfileTypes.js"
+                },                
+                {
                     "name": "Signal Types",
                     "propertyName": "signalTypes",
                     "functionName": "newSocialTradingGlobalsSignalTypes",

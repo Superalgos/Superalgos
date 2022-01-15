@@ -1,4 +1,5 @@
-exports.newDesktopModulesHttpInterface = function newDesktopModulesHttpInterface() {
+exports.newHttpInterface = function newHttpInterface() {
+
     /*
     This module represent the HTTP API of the 
     Desktop App Client. All HTTP request are processed

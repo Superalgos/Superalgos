@@ -1,4 +1,4 @@
-exports.newDesktopModulesWebSocketsInterface = function newDesktopModulesWebSocketsInterface() {
+exports.newWebSocketsInterface = function newWebSocketsInterface() {
     /*
     This module handles the websockets communication between the 
     Desktop App's Client and the Desktop App's Web App.

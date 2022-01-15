@@ -1,6 +1,6 @@
 const createError = require('http-errors');
 
-exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModulesWebAppInterface() {
+exports.newWebAppInterface = function newWebAppInterface() {
     /*
     This module handles the incoming messages from the Web App.
     At it's current version, it will just forward those messages

@@ -6,6 +6,7 @@ exports.newDesktopApp = function newDesktopApp() {
         p2pNetwork: undefined,
         p2pNetworkPeers: undefined,
         webSocketsInterface: undefined,
+        httpInterface: undefined,
         webAppInterface: undefined,
         p2pNetworkInterface: undefined,
         socialGraph: undefined,
@@ -17,6 +18,11 @@ exports.newDesktopApp = function newDesktopApp() {
     return thisObject
 
     async function run() {
+
+        /* Network Interfaces */
+        let WEB_SOCKETS_INTERFACE_MODULE = require('./Client/webSocketsInterface.js')
+        let HTTP_INTERFACE_MODULE = require('./Client/httpInterface.js')
+        let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
 
         await setupNetwork()
         await setupServices()
@@ -60,23 +66,23 @@ exports.newDesktopApp = function newDesktopApp() {
 
         async function setupServices() {
             /*
-            This is where we will process all the messages comming from our web app.
-            */
-            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
-            thisObject.webAppInterface.initialize()
-            /*
             This is the Personal Social Graph for the user running this App.
             */
             thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
             await thisObject.socialGraph.initialize()
+            /*
+            This is where we will process all the messages comming from our web app.
+            */
+            thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
+            thisObject.webAppInterface.initialize()
             /* 
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
-            thisObject.webSocketsInterface = DK.projects.socialTrading.modules.webSocketsInterface.newDesktopModulesWebSocketsInterface()
+            thisObject.webSocketsInterface = WEB_SOCKETS_INTERFACE_MODULE.newWebSocketsInterface()
             thisObject.webSocketsInterface.initialize()
             console.log('Desktop Client Web Sockets Interface ......................................... Listening at port ' + DK.desktopApp.p2pNetworkClientIdentity.node.config.webSocketsPort)
 
-            thisObject.httpInterface = DK.projects.socialTrading.modules.httpInterface.newDesktopModulesHttpInterface()
+            thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
             console.log('Desktop Client Http Interface ................................................ Listening at port ' + DK.desktopApp.p2pNetworkClientIdentity.node.config.webPort)
         }

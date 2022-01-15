@@ -56,19 +56,21 @@
             "name": "signingAccount",
             "type": "node",
             "childType": "Signing Account",
+            "project": "Governance",
             "autoAdd": false
         },
         {
             "name": "availableSignals",
             "type": "node",
             "childType": "Available Signals",
+            "project": "Trading-Signals",
             "autoAdd": false
         },
         {
             "name": "availableStorage",
             "type": "node",
             "childType": "Available Storage",
-            "actionProject": "Foundations",
+            "actionProject": "Open-Storage",
             "autoAdd": false
         }
     ]

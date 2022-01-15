@@ -18,7 +18,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add P2P Network Reference",
             "relatedUiObject": "P2P Network Reference",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Network"
         },
         {
             "action": "Add UI Object",
@@ -67,12 +67,14 @@
             "name": "signingAccount",
             "type": "node",
             "childType": "Signing Account",
+            "project": "Governance",
             "autoAdd": false
         },
         {
             "name": "p2pNetworkReference",
             "type": "node",
             "childType": "P2P Network Reference",
+            "project": "Network",
             "autoAdd": true
         },
         {

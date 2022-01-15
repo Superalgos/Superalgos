@@ -7955,7 +7955,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8259,13 +8259,13 @@
         "type": "P2P Network Nodes",
         "name": "New P2P Network Nodes",
         "config": "{\r\n    \"percentage\": 0\r\n}",
-        "project": "Governance",
+        "project": "Network",
         "p2pNetworkNodes": [
             {
                 "type": "P2P Network Node",
                 "name": "P2P Network Node #1",
                 "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"14321\",\n    \"webSocketsPort\": \"17222\"\n}",
-                "project": "Governance",
+                "project": "Network",
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
@@ -8274,8 +8274,8 @@
                     "id": "c27ee5fe-1c28-41bd-855e-7ffea3e58556",
                     "savedPayload": {
                         "position": {
-                            "x": 37019.090217757315,
-                            "y": 18506.22225211328
+                            "x": 36738.28259662198,
+                            "y": 18660.22225211328
                         },
                         "targetPosition": {
                             "x": 36998.090217757315,
@@ -8297,7 +8297,7 @@
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
                     "name": "Testnet",
-                    "project": "Governance",
+                    "project": "Network",
                     "id": "f365a1bf-b51d-4314-ac4d-686237aa2ab3",
                     "savedPayload": {
                         "position": {
@@ -8431,7 +8431,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -8445,7 +8445,7 @@
                 "type": "P2P Network Node",
                 "name": "P2P Network Node #2",
                 "config": "{\n    \"codeName\": \"P2P-Network-Node-2\",\n    \"host\": \"localhost\",\n    \"webPort\": \"12346\",\n    \"webSocketsPort\": \"4234\"\n}",
-                "project": "Governance",
+                "project": "Network",
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
@@ -8454,8 +8454,8 @@
                     "id": "5822529e-fec2-44cd-96bc-8ffa0fbbe927",
                     "savedPayload": {
                         "position": {
-                            "x": 37198.22225211328,
-                            "y": 18368.090217757315
+                            "x": 36950.414630977946,
+                            "y": 18148.090217757315
                         },
                         "targetPosition": {
                             "x": 37210.22225211328,
@@ -8477,16 +8477,16 @@
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
                     "name": "Testnet",
-                    "project": "Governance",
+                    "project": "Network",
                     "id": "1594ddfa-28df-4cc4-a4e0-5574445beb86",
                     "savedPayload": {
                         "position": {
-                            "x": 28758.790130815523,
-                            "y": 32408.312469870594
+                            "x": 37132.57653858252,
+                            "y": 18008.312469870594
                         },
                         "targetPosition": {
-                            "x": 28836.43584434628,
-                            "y": 32698.090217757315
+                            "x": 37210.22225211328,
+                            "y": 18298.090217757315
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8527,12 +8527,12 @@
                         "id": "85862434-9ee9-49f7-b1d6-40207c4dc02d",
                         "savedPayload": {
                             "position": {
-                                "x": 28986.43584434628,
-                                "y": 32138.282596621983
+                                "x": 37360.22225211328,
+                                "y": 17738.282596621983
                             },
                             "targetPosition": {
-                                "x": 28986.43584434628,
-                                "y": 32438.282596621983
+                                "x": 37360.22225211328,
+                                "y": 18038.282596621983
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8555,12 +8555,12 @@
                         "id": "e2142319-adec-4a2b-a7dc-0690b10b654a",
                         "savedPayload": {
                             "position": {
-                                "x": 29246.243465481613,
-                                "y": 32288.282596621983
+                                "x": 37620.02987324861,
+                                "y": 17888.282596621983
                             },
                             "targetPosition": {
-                                "x": 28986.43584434628,
-                                "y": 32438.282596621983
+                                "x": 37360.22225211328,
+                                "y": 18038.282596621983
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8578,12 +8578,12 @@
                     "id": "1b884871-99d5-4486-9fd5-c9949f386295",
                     "savedPayload": {
                         "position": {
-                            "x": 28986.43584434628,
-                            "y": 32438.282596621983
+                            "x": 37360.22225211328,
+                            "y": 18038.282596621983
                         },
                         "targetPosition": {
-                            "x": 28836.43584434628,
-                            "y": 32698.090217757315
+                            "x": 37210.22225211328,
+                            "y": 18298.090217757315
                         },
                         "floatingObject": {
                             "isPinned": false,
@@ -8611,7 +8611,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": true,
+                        "isCollapsed": false,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -8635,7 +8635,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8858,7 +8858,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -9000,7 +9000,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

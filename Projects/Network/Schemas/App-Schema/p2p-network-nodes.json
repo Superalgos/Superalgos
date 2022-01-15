@@ -14,7 +14,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add P2P Network Node",
             "relatedUiObject": "P2P Network Node",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Network"
         },
         {
             "action": "Delete UI Object",
@@ -44,6 +44,7 @@
             "name": "p2pNetworkNodes",
             "type": "array",
             "childType": "P2P Network Node",
+            "project": "Network",
             "autoAdd": false
         }
     ]

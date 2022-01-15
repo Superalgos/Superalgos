@@ -12,16 +12,6 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "socialTradingBotsFollowing",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Social Trading Bots Following",
-            "relatedUiObject": "Social Trading Bots Following",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "availableSignals",
             "actionFunction": "payload.executeAction",
             "label": "Add Available Signals",
@@ -62,12 +52,6 @@
     },
     "propertyNameAtParent": "socialTradingBots",
     "childrenNodesProperties": [
-        {
-            "name": "socialTradingBotsFollowing",
-            "type": "node",
-            "childType": "Social Trading Bots Following",
-            "autoAdd": false
-        },
         {
             "name": "signingAccount",
             "type": "node",

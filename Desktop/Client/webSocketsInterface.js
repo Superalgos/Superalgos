@@ -89,7 +89,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
 
             function onConnectionClosed() {
                 webApp = undefined
-                console.log('Desktop Web App Discoonnected from Web Sockets Interface ................... Disonnected from port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
+                console.log('Desktop Web App Discoonnected from Web Sockets Interface ..................... Disonnected from port ' + global.env.DESKTOP_WEB_SOCKETS_INTERFACE_PORT)
             }
 
         } catch (err) {

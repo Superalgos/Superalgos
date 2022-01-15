@@ -12,16 +12,6 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "disableIfPropertyIsDefined": true,
-            "propertyToCheckFor": "tradingBotsFollowing",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Social Personas Following",
-            "relatedUiObject": "Social Personas Following",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "disableIfPropertyIsDefined": true,
             "propertyToCheckFor": "availableStorage",
             "actionFunction": "payload.executeAction",
             "label": "Add Available Storage",
@@ -52,12 +42,6 @@
     },
     "propertyNameAtParent": "socialPersonas",
     "childrenNodesProperties": [
-        {
-            "name": "socialPersonasFollowing",
-            "type": "node",
-            "childType": "Social Personas Following",
-            "autoAdd": false
-        },
         {
             "name": "signingAccount",
             "type": "node",

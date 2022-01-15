@@ -6079,151 +6079,6 @@
                     "name": "Social Trading Bot #1",
                     "config": "{\n    \"codeName\": \"Social-Trading-Bot-1\",\n    \"handle\": \"Luis-Fernando-Molina-Social-Trading-Bot-1\"\n}",
                     "project": "Governance",
-                    "socialTradingBotsFollowing": {
-                        "type": "Social Trading Bots Following",
-                        "name": "New Social Trading Bots Following",
-                        "config": "{}",
-                        "project": "Governance",
-                        "socialTradingBotsFollowed": [
-                            {
-                                "type": "Social Trading Bot Followed",
-                                "name": "",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "a9484759-a37e-4c5f-a11a-964bc88371ba",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35456.79666533391,
-                                        "y": 20239.2645597735
-                                    },
-                                    "targetPosition": {
-                                        "x": 35306.79666533391,
-                                        "y": 19979.456938638166
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Social Trading Bot Followed",
-                                "name": "",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "a8bf7c62-5df7-475b-a43d-77c47cf1af5d",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35229.15095180315,
-                                        "y": 20269.234686524887
-                                    },
-                                    "targetPosition": {
-                                        "x": 35306.79666533391,
-                                        "y": 19979.456938638166
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Social Trading Bot Followed",
-                                "name": "Social Trading Bot #2",
-                                "config": "{}",
-                                "project": "Governance",
-                                "id": "30d456e2-e263-4e12-a486-9f1aa5cc2bf1",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 35046.98904419858,
-                                        "y": 20129.456938638166
-                                    },
-                                    "targetPosition": {
-                                        "x": 35306.79666533391,
-                                        "y": 19979.456938638166
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    },
-                                    "referenceParent": {
-                                        "type": "Social Trading Bot",
-                                        "name": "Social Trading Bot #2",
-                                        "id": "c27748af-db60-44fc-a095-530401057beb"
-                                    },
-                                    "referenceParentCombinedNodePath": [
-                                        [
-                                            "Luis-Fernando-Molina",
-                                            "User Profile",
-                                            "Governance",
-                                            "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                                        ],
-                                        [
-                                            "New User Bots",
-                                            "User Bots",
-                                            "Governance",
-                                            "54ced611-b518-435f-a284-935666ef47db"
-                                        ],
-                                        [
-                                            "New Social Trading Bots",
-                                            "Social Trading Bots",
-                                            "Governance",
-                                            "4809934c-d45d-4565-a686-5d96bd695b4f"
-                                        ],
-                                        [
-                                            "Social Trading Bot #2",
-                                            "Social Trading Bot",
-                                            "Governance",
-                                            "c27748af-db60-44fc-a095-530401057beb"
-                                        ]
-                                    ]
-                                }
-                            }
-                        ],
-                        "id": "e42dfedc-6906-4833-8737-44d5f45ab82e",
-                        "savedPayload": {
-                            "position": {
-                                "x": 37186.88633507227,
-                                "y": 19747.18560503574
-                            },
-                            "targetPosition": {
-                                "x": 36998.090217757315,
-                                "y": 19514.04181659865
-                            },
-                            "floatingObject": {
-                                "isPinned": false,
-                                "isFrozen": false,
-                                "isCollapsed": true,
-                                "angleToParent": 2,
-                                "distanceToParent": 3,
-                                "arrangementStyle": 0
-                            },
-                            "uiObject": {
-                                "isRunning": false
-                            }
-                        }
-                    },
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
@@ -6232,8 +6087,8 @@
                         "id": "1b366065-5b95-4104-b44f-68a3c27b6279",
                         "savedPayload": {
                             "position": {
-                                "x": 37013.7910046302,
-                                "y": 19813.63067702502
+                                "x": 37148.090217757315,
+                                "y": 19773.84943773398
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -7847,8 +7702,8 @@
                         "id": "3699bf51-a7c1-4174-ac81-8cfeb400af54",
                         "savedPayload": {
                             "position": {
-                                "x": 36834.698507252804,
-                                "y": 19765.642986982275
+                                "x": 36920.44450422656,
+                                "y": 19803.81956448537
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -7881,12 +7736,12 @@
                                 "id": "bd5d0ff5-f0f0-40b8-bb05-4998cb56da11",
                                 "savedPayload": {
                                     "position": {
-                                        "x": 36437.94196185899,
-                                        "y": 19729.062586325832
+                                        "x": 36478.47497548665,
+                                        "y": 19814.04181659865
                                     },
                                     "targetPosition": {
-                                        "x": 36718.01608980815,
-                                        "y": 19621.55220146224
+                                        "x": 36738.28259662198,
+                                        "y": 19664.04181659865
                                     },
                                     "floatingObject": {
                                         "isPinned": false,
@@ -7936,8 +7791,8 @@
                         "id": "3e9b6cf5-82b7-4215-a16b-c2a8bcbcaeb8",
                         "savedPayload": {
                             "position": {
-                                "x": 36718.01608980815,
-                                "y": 19621.55220146224
+                                "x": 36738.28259662198,
+                                "y": 19664.04181659865
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -7992,12 +7847,12 @@
                         "id": "d3d132ec-3ded-44b9-801f-10daea96a458",
                         "savedPayload": {
                             "position": {
-                                "x": 28504.171775634353,
-                                "y": 33753.909782242685
+                                "x": 36573.82614904539,
+                                "y": 19514.04181659865
                             },
                             "targetPosition": {
-                                "x": 28412.171775634353,
-                                "y": 33701.909782242685
+                                "x": 36785.95818340135,
+                                "y": 19301.909782242685
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8020,12 +7875,12 @@
                         "id": "68c9510d-b0bc-4412-aff0-ad214e7ddafc",
                         "savedPayload": {
                             "position": {
-                                "x": 28122.394027747632,
-                                "y": 33624.26406871193
+                                "x": 36496.18043551463,
+                                "y": 19224.264068711927
                             },
                             "targetPosition": {
-                                "x": 28412.171775634353,
-                                "y": 33701.909782242685
+                                "x": 36785.95818340135,
+                                "y": 19301.909782242685
                             },
                             "floatingObject": {
                                 "isPinned": false,
@@ -8053,7 +7908,7 @@
                         "floatingObject": {
                             "isPinned": false,
                             "isFrozen": false,
-                            "isCollapsed": true,
+                            "isCollapsed": false,
                             "angleToParent": 2,
                             "distanceToParent": 3,
                             "arrangementStyle": 0
@@ -8077,7 +7932,7 @@
                 "floatingObject": {
                     "isPinned": false,
                     "isFrozen": false,
-                    "isCollapsed": false,
+                    "isCollapsed": true,
                     "angleToParent": 1,
                     "distanceToParent": 3,
                     "arrangementStyle": 0
@@ -8100,7 +7955,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8121,142 +7976,6 @@
                 "name": "Social Persona #1",
                 "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"handle\": \"Luis-Fernando-Molina-Social-Persona-1\"\n}",
                 "project": "Governance",
-                "socialPersonasFollowing": {
-                    "type": "Social Personas Following",
-                    "name": "New Social Personas Following",
-                    "config": "{}",
-                    "project": "Governance",
-                    "socialPersonasFollowed": [
-                        {
-                            "type": "Social Persona Followed",
-                            "name": "Social Persona #2",
-                            "config": "{}",
-                            "project": "Governance",
-                            "id": "45f1a092-8a89-45f8-b31c-c4c062a56a8a",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 36940.19237886467,
-                                    "y": 19529.555495773442
-                                },
-                                "targetPosition": {
-                                    "x": 36862.54666533391,
-                                    "y": 19239.77774788672
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Social Persona",
-                                    "name": "Social Persona #2",
-                                    "id": "01c33294-124f-4d68-8619-8e1d1cca7e0a"
-                                },
-                                "referenceParentCombinedNodePath": [
-                                    [
-                                        "Luis-Fernando-Molina",
-                                        "User Profile",
-                                        "Governance",
-                                        "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                                    ],
-                                    [
-                                        "New Social Personas",
-                                        "Social Personas",
-                                        "Governance",
-                                        "e453990c-57e2-4886-9dc1-060cd2750467"
-                                    ],
-                                    [
-                                        "Social Persona #2",
-                                        "Social Persona",
-                                        "Governance",
-                                        "01c33294-124f-4d68-8619-8e1d1cca7e0a"
-                                    ]
-                                ]
-                            }
-                        },
-                        {
-                            "type": "Social Persona Followed",
-                            "name": "Social Persona #2",
-                            "config": "{}",
-                            "project": "Governance",
-                            "id": "2eb918aa-742f-49c8-bea2-4cdc2d9bd1c7",
-                            "savedPayload": {
-                                "position": {
-                                    "x": 36650.414630977946,
-                                    "y": 19451.909782242685
-                                },
-                                "targetPosition": {
-                                    "x": 36862.54666533391,
-                                    "y": 19239.77774788672
-                                },
-                                "floatingObject": {
-                                    "isPinned": false,
-                                    "isFrozen": false,
-                                    "isCollapsed": false,
-                                    "angleToParent": 2,
-                                    "distanceToParent": 3,
-                                    "arrangementStyle": 0
-                                },
-                                "uiObject": {
-                                    "isRunning": false
-                                },
-                                "referenceParent": {
-                                    "type": "Social Persona",
-                                    "name": "Social Persona #2",
-                                    "id": "01c33294-124f-4d68-8619-8e1d1cca7e0a"
-                                },
-                                "referenceParentCombinedNodePath": [
-                                    [
-                                        "Luis-Fernando-Molina",
-                                        "User Profile",
-                                        "Governance",
-                                        "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                                    ],
-                                    [
-                                        "New Social Personas",
-                                        "Social Personas",
-                                        "Governance",
-                                        "e453990c-57e2-4886-9dc1-060cd2750467"
-                                    ],
-                                    [
-                                        "Social Persona #2",
-                                        "Social Persona",
-                                        "Governance",
-                                        "01c33294-124f-4d68-8619-8e1d1cca7e0a"
-                                    ]
-                                ]
-                            }
-                        }
-                    ],
-                    "id": "c0e85aee-8f7e-42bf-a2ea-5e3d9414c114",
-                    "savedPayload": {
-                        "position": {
-                            "x": 36862.54666533391,
-                            "y": 19239.77774788672
-                        },
-                        "targetPosition": {
-                            "x": 36940.19237886467,
-                            "y": 18950
-                        },
-                        "floatingObject": {
-                            "isPinned": false,
-                            "isFrozen": false,
-                            "isCollapsed": true,
-                            "angleToParent": 2,
-                            "distanceToParent": 3,
-                            "arrangementStyle": 0
-                        },
-                        "uiObject": {
-                            "isRunning": false
-                        }
-                    }
-                },
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
@@ -8265,8 +7984,8 @@
                     "id": "2532d405-4d9a-40fc-9832-f6dcd97e9fe3",
                     "savedPayload": {
                         "position": {
-                            "x": 36680.384757729335,
-                            "y": 19100
+                            "x": 36790.19237886467,
+                            "y": 19209.807621135333
                         },
                         "targetPosition": {
                             "x": 36940.19237886467,
@@ -8299,12 +8018,12 @@
                             "id": "b817056b-8679-49da-9cb8-27e866885537",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36360.636883091225,
-                                    "y": 18950
+                                    "x": 36380.384757729335,
+                                    "y": 19100
                                 },
                                 "targetPosition": {
-                                    "x": 36650.414630977946,
-                                    "y": 18872.354286469243
+                                    "x": 36640.19237886467,
+                                    "y": 18950
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -8358,12 +8077,12 @@
                             "id": "38c784ad-784f-4168-a14b-ae68bdaae235",
                             "savedPayload": {
                                 "position": {
-                                    "x": 36438.28259662198,
-                                    "y": 18660.22225211328
+                                    "x": 36380.384757729335,
+                                    "y": 18800
                                 },
                                 "targetPosition": {
-                                    "x": 36650.414630977946,
-                                    "y": 18872.354286469243
+                                    "x": 36640.19237886467,
+                                    "y": 18950
                                 },
                                 "floatingObject": {
                                     "isPinned": false,
@@ -8413,8 +8132,8 @@
                     "id": "e9900664-a94b-46d3-8cae-f022511f7053",
                     "savedPayload": {
                         "position": {
-                            "x": 36650.414630977946,
-                            "y": 18872.354286469243
+                            "x": 36640.19237886467,
+                            "y": 18950
                         },
                         "targetPosition": {
                             "x": 36940.19237886467,
@@ -8446,7 +8165,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0

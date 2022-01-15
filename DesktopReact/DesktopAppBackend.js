@@ -67,7 +67,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
             /*
             This is the Personal Social Graph for the user running this App.
             */
-            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
+            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraphNetworkServiceClient()
             await thisObject.socialGraph.initialize()
 
             let express = require('./backend/src/expressServer.js')

@@ -9,7 +9,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         p2pNetworkReachableNodes: undefined,
         p2pNetworkPeers: undefined,
         p2pNetworkInterface: undefined,
-        socialGraph: undefined,
+        socialGraphNetworkServiceClient: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -25,7 +25,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
     ) {
 
         await setupNetwork()
-        await setupServices()
+        await setupNetworkServices()
 
         async function setupNetwork() {
             /*
@@ -64,13 +64,13 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             )
         }
 
-        async function setupServices() {
+        async function setupNetworkServices() {
             /*
             This is the Social Graph Network Service Client that will allow us to 
             send Queries or Events to it. 
             */
-            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraph()
-            await thisObject.socialGraph.initialize()
+            thisObject.socialGraphNetworkServiceClient = DK.projects.socialTrading.modules.socialGraphNetworkServiceClient.newSocialTradingModulesSocialGraphNetworkServiceClient()
+            await thisObject.socialGraphNetworkServiceClient.initialize()
         }
     }
 }

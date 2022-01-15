@@ -1904,10 +1904,10 @@
             "globals": [],
             "modules": [
                 {
-                    "name": "Social Graph",
-                    "propertyName": "socialGraph",
-                    "functionName": "newSocialTradingModulesSocialGraph",
-                    "fileName": "SocialGraph.js"
+                    "name": "Social Graph Network Service Client",
+                    "propertyName": "socialGraphNetworkServiceClient",
+                    "functionName": "newSocialTradingModulesSocialGraphNetworkServiceClient",
+                    "fileName": "SocialGraphNetworkServiceClient.js"
                 }
             ],
             "utilities": []

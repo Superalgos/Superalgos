@@ -110,6 +110,7 @@ function newWebApp() {
         }
 
         let query = {
+            networkService: 'Social Graph',
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
@@ -180,6 +181,7 @@ function newWebApp() {
         }
 
         let query = {
+            networkService: 'Social Graph',
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
@@ -349,6 +351,7 @@ function newWebApp() {
             let event
 
             eventMessage = {
+                networkService: 'Social Graph',
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 targetSocialPersonaId: id,
@@ -356,6 +359,7 @@ function newWebApp() {
             }
 
             event = {
+                networkService: 'Social Graph',
                 requestType: 'Event',
                 eventMessage: JSON.stringify(eventMessage)
             }
@@ -385,6 +389,7 @@ function newWebApp() {
             let event
 
             eventMessage = {
+                networkService: 'Social Graph',
                 eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 postText: postText,
@@ -392,6 +397,7 @@ function newWebApp() {
             }
 
             event = {
+                networkService: 'Social Graph',
                 requestType: 'Event',
                 eventMessage: JSON.stringify(eventMessage)
             }

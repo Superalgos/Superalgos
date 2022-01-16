@@ -1,5 +1,5 @@
 {
-    "type": "Permissioned P2P Network",
+    "type": "Permissioned P2P Networks",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,9 +12,9 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Permission Group",
-            "relatedUiObject": "Permission Group",
-            "relatedUiObjectProject": "Governance"
+            "label": "Add Permissioned P2P Network",
+            "relatedUiObject": "Permissioned P2P Network",
+            "relatedUiObjectProject": "Network"
         },
         {
             "action": "Delete UI Object",
@@ -31,19 +31,20 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"\"\n}"
+        "config": "{}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Permissioned P2P Networks->"
+        "compatibleTypes": "->User Profile->"
     },
     "propertyNameAtParent": "permissionedP2PNetworks",
     "childrenNodesProperties": [
         {
-            "name": "permissionGroups",
+            "name": "permissionedP2PNetworks",
             "type": "array",
-            "childType": "Permission Group",
+            "childType": "Permissioned P2P Network",
+            "project": "Network",     
             "autoAdd": false
         }
     ]

@@ -82,7 +82,7 @@
                     "actionFunction": "payload.executeAction",
                     "label": "Add Permissioned P2P Networks",
                     "relatedUiObject": "Permissioned P2P Networks",
-                    "relatedUiObjectProject": "Governance"
+                    "relatedUiObjectProject": "Network"
                 },                
                 {
                     "action": "Add UI Object",
@@ -181,6 +181,7 @@
             "name": "permissionedP2PNetworks",
             "type": "node",
             "childType": "Permissioned P2P Networks",
+            "project": "Network",            
             "autoAdd": false
         },
         {

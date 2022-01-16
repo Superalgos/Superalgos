@@ -5573,8 +5573,8 @@
                         "id": "bdbc2ef0-4a39-4930-b987-7109d6a67b76",
                         "savedPayload": {
                             "position": {
-                                "x": 38098.132034355964,
-                                "y": 19386.132034355964
+                                "x": 38312.132034355964,
+                                "y": 19312.132034355964
                             },
                             "targetPosition": {
                                 "x": 38012.132034355964,
@@ -5629,8 +5629,8 @@
                         "id": "98e848da-f044-44df-ad51-b64000e8d516",
                         "savedPayload": {
                             "position": {
-                                "x": 37985.26406871193,
-                                "y": 19525.264068711927
+                                "x": 38136.39610306789,
+                                "y": 19736.39610306789
                             },
                             "targetPosition": {
                                 "x": 37924.26406871193,
@@ -5687,8 +5687,8 @@
                         "id": "542a9283-47d3-4225-a18c-bdd02104d9ce",
                         "savedPayload": {
                             "position": {
-                                "x": 37640.132034355964,
-                                "y": 19698.132034355964
+                                "x": 37712.132034355964,
+                                "y": 19912.132034355964
                             },
                             "targetPosition": {
                                 "x": 37712.132034355964,
@@ -5773,8 +5773,8 @@
                         "id": "3c8e1783-19ce-4dd0-b8f3-1221cc94d12f",
                         "savedPayload": {
                             "position": {
-                                "x": 37560,
-                                "y": 19794
+                                "x": 37500,
+                                "y": 20000
                             },
                             "targetPosition": {
                                 "x": 37500,
@@ -5859,8 +5859,8 @@
                         "id": "eac60d46-b69b-4112-8468-39309b6d8e0f",
                         "savedPayload": {
                             "position": {
-                                "x": 37205.867965644036,
-                                "y": 19521.132034355964
+                                "x": 37287.867965644036,
+                                "y": 19912.132034355964
                             },
                             "targetPosition": {
                                 "x": 37287.867965644036,
@@ -5915,8 +5915,8 @@
                         "id": "c2bcc19d-0be2-4958-b8f1-468987dbb58d",
                         "savedPayload": {
                             "position": {
-                                "x": 37091.73593128807,
-                                "y": 19493.264068711927
+                                "x": 36863.60389693211,
+                                "y": 19736.39610306789
                             },
                             "targetPosition": {
                                 "x": 37075.73593128807,
@@ -5973,8 +5973,8 @@
                         "id": "9fa76950-536b-4599-a58e-b4617eaf58ee",
                         "savedPayload": {
                             "position": {
-                                "x": 36944.867965644036,
-                                "y": 19409.132034355964
+                                "x": 36687.867965644036,
+                                "y": 19312.132034355964
                             },
                             "targetPosition": {
                                 "x": 36987.867965644036,
@@ -6053,7 +6053,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8635,7 +8635,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8649,100 +8649,27 @@
         "type": "Permissioned P2P Networks",
         "name": "New Permissioned P2P Networks",
         "config": "{\r\n    \"percentage\": 0\r\n}",
-        "project": "Governance",
+        "project": "Network",
         "permissionedP2PNetworks": [
             {
                 "type": "Permissioned P2P Network",
-                "name": "BATA",
-                "config": "{ \n\"codeName\": \"BATA\"\n}",
-                "project": "Governance",
+                "name": "New Permissioned P2P Network",
+                "config": "{ \n\"codeName\": \"\"\n}",
+                "project": "Network",
                 "permissionGroups": [
                     {
                         "type": "Permission Group",
                         "name": "New Permission Group",
                         "config": "{ \n\"codeName\": \"\"\n}",
-                        "project": "Governance",
-                        "permissionGroups": [
+                        "project": "Network",
+                        "permissionGroups": [],
+                        "permissionsGranted": [
                             {
-                                "type": "Permission Group",
-                                "name": "New Permission Group",
-                                "config": "{ \n\"codeName\": \"\"\n}",
-                                "project": "Governance",
-                                "permissionGroups": [],
-                                "permissionsGranted": [
-                                    {
-                                        "type": "Permission Granted",
-                                        "name": "Luis-Fernando-Molina",
-                                        "config": "{}",
-                                        "project": "Governance",
-                                        "id": "47631a23-1280-4ba6-b11c-592edaab72ea",
-                                        "savedPayload": {
-                                            "position": {
-                                                "x": 37075.73593128807,
-                                                "y": 17475.735931288073
-                                            },
-                                            "targetPosition": {
-                                                "x": 37287.867965644036,
-                                                "y": 17687.867965644036
-                                            },
-                                            "floatingObject": {
-                                                "isPinned": false,
-                                                "isFrozen": false,
-                                                "isCollapsed": false,
-                                                "angleToParent": 2,
-                                                "distanceToParent": 3,
-                                                "arrangementStyle": 0
-                                            },
-                                            "uiObject": {
-                                                "isRunning": false
-                                            },
-                                            "referenceParent": {
-                                                "type": "User Profile",
-                                                "name": "Luis-Fernando-Molina",
-                                                "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                                            },
-                                            "referenceParentCombinedNodePath": [
-                                                [
-                                                    "Luis-Fernando-Molina",
-                                                    "User Profile",
-                                                    "Governance",
-                                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
-                                                ]
-                                            ]
-                                        }
-                                    }
-                                ],
-                                "id": "727ec458-abb6-428e-a04e-bb9da8c5bf14",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 37287.867965644036,
-                                        "y": 17687.867965644036
-                                    },
-                                    "targetPosition": {
-                                        "x": 37500,
-                                        "y": 17900
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Permission Group",
-                                "name": "New Permission Group",
-                                "config": "{ \n\"codeName\": \"\"\n}",
-                                "project": "Governance",
-                                "permissionGroups": [],
-                                "permissionsGranted": [],
-                                "id": "d31ead95-7277-4454-9fc1-75fa7b734d36",
+                                "type": "Permission Granted",
+                                "name": "",
+                                "config": "{}",
+                                "project": "Network",
+                                "id": "5315ddf2-2ba6-477a-a70d-9351b1af6dcd",
                                 "savedPayload": {
                                     "position": {
                                         "x": 37500,
@@ -8756,37 +8683,7 @@
                                         "isPinned": false,
                                         "isFrozen": false,
                                         "isCollapsed": false,
-                                        "angleToParent": 2,
-                                        "distanceToParent": 3,
-                                        "arrangementStyle": 0
-                                    },
-                                    "uiObject": {
-                                        "isRunning": false
-                                    }
-                                }
-                            },
-                            {
-                                "type": "Permission Group",
-                                "name": "New Permission Group",
-                                "config": "{ \n\"codeName\": \"\"\n}",
-                                "project": "Governance",
-                                "permissionGroups": [],
-                                "permissionsGranted": [],
-                                "id": "8855f406-ba5f-4626-95c1-ec67334f3c34",
-                                "savedPayload": {
-                                    "position": {
-                                        "x": 37712.132034355964,
-                                        "y": 17687.867965644036
-                                    },
-                                    "targetPosition": {
-                                        "x": 37500,
-                                        "y": 17900
-                                    },
-                                    "floatingObject": {
-                                        "isPinned": false,
-                                        "isFrozen": false,
-                                        "isCollapsed": false,
-                                        "angleToParent": 2,
+                                        "angleToParent": 1,
                                         "distanceToParent": 3,
                                         "arrangementStyle": 0
                                     },
@@ -8796,8 +8693,7 @@
                                 }
                             }
                         ],
-                        "permissionsGranted": [],
-                        "id": "2d0db793-71ca-476c-8e7a-7cf293666237",
+                        "id": "d66c1a3a-aed5-46bf-a13f-0d3737ea6c99",
                         "savedPayload": {
                             "position": {
                                 "x": 37500,
@@ -8821,7 +8717,7 @@
                         }
                     }
                 ],
-                "id": "6aa5696d-5a54-4f27-ac71-7739d3a03c65",
+                "id": "bb3e10a7-0458-492a-8ce1-de611bf4e416",
                 "savedPayload": {
                     "position": {
                         "x": 37500,
@@ -8845,7 +8741,7 @@
                 }
             }
         ],
-        "id": "2b6209a4-5149-4e58-bcc4-322814ea50f0",
+        "id": "eb6bc42b-6039-4981-ae93-0723ee86459e",
         "savedPayload": {
             "position": {
                 "x": 37500,

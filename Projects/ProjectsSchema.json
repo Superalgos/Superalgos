@@ -288,7 +288,7 @@
                     "functionName": "newPortfolioManagementBotModulesPortfolioFormulasManager",
                     "fileName": "PortfolioFormulasManager.js",
                     "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
-                },                
+                },
                 {
                     "name": "Exchange API",
                     "propertyName": "exchangeAPI",
@@ -1635,7 +1635,7 @@
                     "propertyName": "p2pNetworkClient",
                     "functionName": "newNetworkModulesP2PNetworkClient",
                     "fileName": "P2PNetworkClient.js"
-                },                
+                },
                 {
                     "name": "Web Sockets Network Client",
                     "propertyName": "webSocketsNetworkClient",
@@ -1799,7 +1799,7 @@
                     "propertyName": "serviceInterface",
                     "functionName": "newSocialTradingModulesServiceInterface",
                     "fileName": "ServiceInterface.js"
-                },                
+                },
                 {
                     "name": "Storage",
                     "propertyName": "storage",
@@ -1885,7 +1885,7 @@
                     "propertyName": "profileTypes",
                     "functionName": "newSocialTradingGlobalsProfileTypes",
                     "fileName": "ProfileTypes.js"
-                },                
+                },
                 {
                     "name": "Signal Types",
                     "propertyName": "signalTypes",
@@ -2011,7 +2011,7 @@
             "utilities": []
         },
         "NT": {
-            "modules":[
+            "modules": [
                 {
                     "name": "Trading Signals Network Service",
                     "propertyName": "tradingSignalsNetworkService",
@@ -2129,6 +2129,20 @@
                     "fileName": "OutputRecordsFunctions.js"
                 }
             ]
+        },
+        "SA": {}
+    },
+    {
+        "name": "User-Apps",
+        "propertyName": "userApps",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": []
         },
         "SA": {}
     }

@@ -1,5 +1,5 @@
 {
-    "type": "Permission Group",
+    "type": "Permissioned P2P Network",
     "menuItems": [
         {
             "action": "Configure",
@@ -14,15 +14,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Permission Group",
             "relatedUiObject": "Permission Group",
-            "relatedUiObjectProject": "Governance"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Permission Granted",
-            "relatedUiObject": "Permission Granted",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "Network"
         },
         {
             "action": "Delete UI Object",
@@ -42,22 +34,17 @@
         "config": "{ \n\"codeName\": \"\"\n}"
     },
     "addLeftIcons": true,
-    "level": 2,
+    "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Permissioned P2P Network->Permission Group->"
+        "compatibleTypes": "->Permissioned P2P Networks->"
     },
-    "propertyNameAtParent": "permissionGroups",
+    "propertyNameAtParent": "permissionedP2PNetworks",
     "childrenNodesProperties": [
         {
             "name": "permissionGroups",
             "type": "array",
             "childType": "Permission Group",
-            "autoAdd": false
-        },
-        {
-            "name": "permissionsGranted",
-            "type": "array",
-            "childType": "Permission Granted",
+            "project": "Network",     
             "autoAdd": false
         }
     ]

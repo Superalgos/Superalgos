@@ -1,5 +1,5 @@
 {
-    "type": "Permissioned P2P Networks",
+    "type": "Permission Group",
     "menuItems": [
         {
             "action": "Configure",
@@ -12,9 +12,17 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Permissioned P2P Network",
-            "relatedUiObject": "Permissioned P2P Network",
-            "relatedUiObjectProject": "Governance"
+            "label": "Add Permission Group",
+            "relatedUiObject": "Permission Group",
+            "relatedUiObjectProject": "Network"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Permission Granted",
+            "relatedUiObject": "Permission Granted",
+            "relatedUiObjectProject": "Network"
         },
         {
             "action": "Delete UI Object",
@@ -31,19 +39,27 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{ \n\"codeName\": \"\"\n}"
     },
     "addLeftIcons": true,
-    "level": 1,
+    "level": 2,
     "attachingRules": {
-        "compatibleTypes": "->User Profile->"
+        "compatibleTypes": "->Permissioned P2P Network->Permission Group->"
     },
-    "propertyNameAtParent": "permissionedP2PNetworks",
+    "propertyNameAtParent": "permissionGroups",
     "childrenNodesProperties": [
         {
-            "name": "permissionedP2PNetworks",
+            "name": "permissionGroups",
             "type": "array",
-            "childType": "Permissioned P2P Network",
+            "childType": "Permission Group",
+            "project": "Network",     
+            "autoAdd": false
+        },
+        {
+            "name": "permissionsGranted",
+            "type": "array",
+            "childType": "Permission Granted",
+            "project": "Network",     
             "autoAdd": false
         }
     ]

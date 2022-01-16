@@ -135,6 +135,29 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
                 }
                 /*
+                We need the Origin Social Entity so as to be able to sign this event. And for Post related
+                events in order to locate the Available Storage. 
+                */
+                let socialEntity
+                if (eventMessage.originSocialPersonaId !== undefined) {
+                    let socialEntityId = eventMessage.originSocialPersonaId
+                    socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+                }
+                if (eventMessage.originSocialTradingBotId !== undefined) {
+                    let socialEntityId = eventMessage.originSocialTradingBotId
+                    socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+                }
+                /*
+                Some Validations
+                */
+                if (socialEntity === undefined) {
+                    let response = {
+                        result: 'Error',
+                        message: 'Cannot Locate the Origin Social Entity'
+                    }
+                    return response
+                }
+                /*
                 Based on the Event Type we might need to do some stuff before reaching out to the P2P Network.
                 */
                 if (
@@ -150,7 +173,8 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     before sending it to the Network Node.
                     */
                     let response = await savePostAtStorage(
-                        eventMessage
+                        eventMessage,
+                        socialEntity
                     )
                     /*
                     If we could not save the Post using the Open Storage, then there is no point in 
@@ -160,8 +184,22 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         return response
                     }
                 }
+                /*
+                Timestamp is required so that the Signature is not vulnerable to Man in the Middle attacks.
+                */
+                if (eventMessage.timestamp === undefined) {
+                    eventMessage.timestamp = (new Date()).valueOf()
+                }
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
-
+                /*
+                Social Entity Signature is required in order for this event to be considered at all 
+                nodes of the P2P network and not only at the one we are connected to.
+                */
+                let web3 = new SA.nodeModules.web3()
+                messageHeader.signature = web3.eth.accounts.sign(messageHeader.eventMessage, SA.secrets.signingAccountSecrets.map.get(socialEntity.node.config.codeName).privateKey)
+                /*
+                At this point we are going to send the message via this Proxy to the Social Graph Network Service
+                */
                 let response = {
                     result: 'Ok',
                     message: 'Web App Interface Event Processed.',
@@ -192,7 +230,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     profileMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
                     console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
                 }
-                
+
                 switch (profileMessage.profileType) {
                     case SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY: {
                         return await saveSocialEntityAtStorage(
@@ -224,36 +262,13 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
     }
 
     async function savePostAtStorage(
-        eventMessage
+        eventMessage,
+        socialEntity
     ) {
 
         return new Promise(savePostAsync)
 
         async function savePostAsync(resolve, reject) {
-            /*
-            Each Social Entity must have a Storage Container so that we can here
-            use it to save a Post content on it. 
-            */
-            let socialEntity
-            if (eventMessage.originSocialPersonaId !== undefined) {
-                let socialEntityId = eventMessage.originSocialPersonaId
-                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
-            }
-            if (eventMessage.originSocialTradingBotId !== undefined) {
-                let socialEntityId = eventMessage.originSocialTradingBotId
-                socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
-            }
-            /*
-            Some Validations
-            */
-            if (socialEntity === undefined) {
-                let response = {
-                    result: 'Error',
-                    message: 'Cannot Save Post Because Social Entity is Undefined'
-                }
-                resolve(response)
-                return
-            }
 
             let availableStorage = socialEntity.node.availableStorage
             if (availableStorage === undefined) {

@@ -18,11 +18,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
     function initialize() {
 
     }
-    
+
     async function messageReceived(
         message,
         connectedUserProfiles
-        ) {
+    ) {
         let messageHeader
         try {
             messageHeader = JSON.parse(message)
@@ -52,7 +52,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
 
         switch (messageHeader.requestType) {
             case 'Event': {
-                return await eventReceived(messageHeader.eventMessage, connectedUserProfiles)
+                return await eventReceived(
+                    messageHeader.eventMessage,
+                    messageHeader.signature,
+                    connectedUserProfiles
+                )
             }
             case 'Query': {
                 let response = {
@@ -64,25 +68,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         }
     }
 
-    async function eventReceived(eventMessage, connectedUserProfiles) {
-        /*
-        We expect here a JSON string with some or all of the following properties:
-
-        {
-            "eventId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "eventType": 10, 
-            "originSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetSocialPersonaId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "originSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetSocialTradingBotId": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "originPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "targetPostHash": "a8de78f0-c3e4-4a2a-b7e8-f659073969db",
-            "timestamp": 124234234234,
-            "botAsset": "BTC",
-            "botExchange": "Binance",
-            "botEnabled": true
-        }
-        */
+    async function eventReceived(
+        eventMessage,
+        signature,
+        connectedUserProfiles
+    ) {
 
         let eventReceived
         try {
@@ -116,6 +106,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             return response
         }
         /*
+        We are going to validate the Signature of this event.
+        */
+        let response = NT.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
+        if (response !== undefined) { return response }
+        /*
         Here we will process the event and change the state of the Social Graph.
         */
         try {
@@ -130,7 +125,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             }
 
             response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(connectedUserProfiles)
-            
+
             return response
 
         } catch (err) {

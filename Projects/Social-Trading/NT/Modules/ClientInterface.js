@@ -58,15 +58,26 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
         switch (messageHeader.requestType) {
             case 'Query': {
-                return await queryReceived(messageHeader.queryMessage, userProfile)
+                return await queryReceived(
+                    messageHeader.queryMessage,
+                    userProfile
+                )
             }
             case 'Event': {
-                return await eventReceived(messageHeader.eventMessage, userProfile, connectedUserProfiles)
+                return await eventReceived(
+                    messageHeader.eventMessage,
+                    messageHeader.signature,
+                    userProfile,
+                    connectedUserProfiles
+                )
             }
         }
     }
 
-    async function queryReceived(queryMessage, userProfile) {
+    async function queryReceived(
+        queryMessage,
+        userProfile
+    ) {
         /*
         We expect here a JSON string with some or all of the following properties:
 
@@ -148,7 +159,12 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         }
     }
 
-    async function eventReceived(eventMessage, userProfile, connectedUserProfiles) {
+    async function eventReceived(
+        eventMessage,
+        signature,
+        userProfile,
+        connectedUserProfiles
+    ) {
         /*
         We expect here a JSON string with some or all of the following properties:
 
@@ -210,6 +226,11 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }
             return response
         }
+        /*
+        We are going to validate the Signature of this event.
+        */
+        let response = NT.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
+        if (response !== undefined) { return response}
         /*
         Here we will process the event and change the state of the Social Graph.
         */

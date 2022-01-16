@@ -37,6 +37,7 @@
             "name": "signingAccount",
             "type": "node",
             "childType": "Signing Account",
+            "project": "Governance",
             "autoAdd": false
         }
     ],

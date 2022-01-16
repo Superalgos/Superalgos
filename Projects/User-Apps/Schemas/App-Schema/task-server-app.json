@@ -1,5 +1,5 @@
 {
-    "type": "Social Trading Desktop App",
+    "type": "Task Server App",
     "menuItems": [
         {
             "action": "Configure",
@@ -25,20 +25,21 @@
         "config": true
     },
     "initialValues": {
-        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webPort\": \"33248\", \n\"webSocketsPort\": \"17042\"\n}"
+        "config": "{ \n\"codeName\": \"\"\n}"
     },
     "addLeftIcons": true,
     "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->Desktop Apps->"
+        "compatibleTypes": "->Server Apps->"
     },
     "childrenNodesProperties": [
         {
             "name": "signingAccount",
             "type": "node",
             "childType": "Signing Account",
+            "project": "Governance",
             "autoAdd": false
         }
     ],
-    "propertyNameAtParent": "socialTradingDesktopApps"
+    "propertyNameAtParent": "taskServerApps"
 }

@@ -16,7 +16,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Desktop Apps",
             "relatedUiObject": "Desktop Apps",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Add UI Object",
@@ -26,7 +26,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Mobile Apps",
             "relatedUiObject": "Mobile Apps",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Add UI Object",
@@ -36,7 +36,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Server Apps",
             "relatedUiObject": "Server Apps",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Delete UI Object",
@@ -66,18 +66,21 @@
             "name": "desktopApps",
             "type": "node",
             "childType": "Desktop Apps",
+            "project": "User-Apps",
             "autoAdd": false
         },
         {
             "name": "mobileApps",
             "type": "node",
             "childType": "Mobile Apps",
+            "project": "User-Apps",
             "autoAdd": false
         },
         {
             "name": "serverApps",
             "type": "node",
             "childType": "Server Apps",
+            "project": "User-Apps",
             "autoAdd": false
         }
     ]

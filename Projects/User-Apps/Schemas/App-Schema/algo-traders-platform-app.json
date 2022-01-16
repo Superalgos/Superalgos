@@ -1,5 +1,5 @@
 {
-    "type": "Algo Traders Platform",
+    "type": "Algo Traders Platform App",
     "menuItems": [
         {
             "action": "Configure",
@@ -37,8 +37,9 @@
             "name": "signingAccount",
             "type": "node",
             "childType": "Signing Account",
+            "project": "Governance",
             "autoAdd": false
         }
     ],
-    "propertyNameAtParent": "algoTradesPlatform"
+    "propertyNameAtParent": "algoTradesPlatformApp"
 }

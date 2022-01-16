@@ -14,7 +14,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Task Server App",
             "relatedUiObject": "Task Server App",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Add UI Object",
@@ -22,7 +22,7 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Server App",
             "relatedUiObject": "Social Trading Server App",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Delete UI Object",
@@ -52,12 +52,14 @@
             "name": "taskServerApps",
             "type": "array",
             "childType": "Task Server App",
+            "project": "User-Apps",
             "autoAdd": false
         },
         {
             "name": "socialTradingServerApps",
             "type": "array",
             "childType": "Social Trading Server App",
+            "project": "User-Apps",
             "autoAdd": false
         }
     ]

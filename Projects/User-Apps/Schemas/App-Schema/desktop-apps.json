@@ -14,15 +14,15 @@
             "actionFunction": "payload.executeAction",
             "label": "Add Social Trading Desktop App",
             "relatedUiObject": "Social Trading Desktop App",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Algo Traders Platform",
-            "relatedUiObject": "Algo Traders Platform",
-            "relatedUiObjectProject": "Governance"
+            "label": "Add Algo Traders Platform App",
+            "relatedUiObject": "Algo Traders Platform App",
+            "relatedUiObjectProject": "User-Apps"
         },        
         {
             "action": "Delete UI Object",
@@ -52,12 +52,14 @@
             "name": "socialTradingDesktopApps",
             "type": "array",
             "childType": "Social Trading Desktop App",
+            "project": "User-Apps",
             "autoAdd": false
         },
         {
-            "name": "algoTradesPlatform",
+            "name": "algoTradesPlatformApp",
             "type": "array",
-            "childType": "Algo Traders Platform",
+            "childType": "Algo Traders Platform App",
+            "project": "User-Apps",
             "autoAdd": false
         }
     ]

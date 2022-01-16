@@ -1,20 +1,14 @@
 {
-    "type": "Mobile Apps",
+    "type": "Social Trading Mobile App",
     "menuItems": [
         {
             "action": "Configure",
-            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations",
             "label": "Configure",
             "iconPathOn": "configuration",
-            "iconPathOff": "configuration"
-        },
-        {
-            "action": "Add UI Object",
-            "actionProject": "Visual-Scripting",
-            "actionFunction": "payload.executeAction",
-            "label": "Add Social Trading Mobile App",
-            "relatedUiObject": "Social Trading Mobile App",
-            "relatedUiObjectProject": "Governance"
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
         },
         {
             "action": "Delete UI Object",
@@ -31,20 +25,21 @@
         "config": true
     },
     "initialValues": {
-        "config": "{}"
+        "config": "{ \n\"codeName\": \"localhost\", \n\"host\": \"localhost\", \n\"webSocketsPort\": \"15042\"\n}"
     },
     "addLeftIcons": true,
-    "level": 2,
+    "level": 1,
     "attachingRules": {
-        "compatibleTypes": "->User Apps->"
+        "compatibleTypes": "->Mobile Apps->"
     },
-    "propertyNameAtParent": "mobileApps",
     "childrenNodesProperties": [
         {
-            "name": "socialTradingMobileApps",
-            "type": "array",
-            "childType": "Social Trading Mobile App",
+            "name": "signingAccount",
+            "type": "node",
+            "childType": "Signing Account",
+            "project": "Governance",
             "autoAdd": false
         }
-    ]
+    ],
+    "propertyNameAtParent": "socialTradingMobileApps"
 }

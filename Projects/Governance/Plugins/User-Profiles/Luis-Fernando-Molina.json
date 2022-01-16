@@ -5573,8 +5573,8 @@
                         "id": "94ea0bfb-d31f-4914-a2f2-17625c3ab72c",
                         "savedPayload": {
                             "position": {
-                                "x": 38012.909782242685,
-                                "y": 19487.77774788672
+                                "x": 38291.687530129406,
+                                "y": 19467.42346141748
                             },
                             "targetPosition": {
                                 "x": 38001.909782242685,
@@ -5631,8 +5631,8 @@
                         "id": "8902c156-5459-46fb-94b7-c42c5a904832",
                         "savedPayload": {
                             "position": {
-                                "x": 37748.77774788672,
-                                "y": 19676.909782242685
+                                "x": 37867.42346141748,
+                                "y": 19891.687530129406
                             },
                             "targetPosition": {
                                 "x": 37789.77774788672,
@@ -5717,8 +5717,8 @@
                         "id": "e763b5a2-7553-425c-ba25-777bbebddf02",
                         "savedPayload": {
                             "position": {
-                                "x": 37406,
-                                "y": 19724
+                                "x": 37500,
+                                "y": 20000
                             },
                             "targetPosition": {
                                 "x": 37500,
@@ -5803,8 +5803,8 @@
                         "id": "8d819f3d-6ae4-46cc-85be-f1c61d016dd2",
                         "savedPayload": {
                             "position": {
-                                "x": 37245.22225211328,
-                                "y": 19575.909782242685
+                                "x": 37132.57653858252,
+                                "y": 19891.687530129406
                             },
                             "targetPosition": {
                                 "x": 37210.22225211328,
@@ -5861,8 +5861,8 @@
                         "id": "939a3f13-59f0-4307-b817-23ef943263e3",
                         "savedPayload": {
                             "position": {
-                                "x": 36902.090217757315,
-                                "y": 19475.77774788672
+                                "x": 36708.312469870594,
+                                "y": 19467.42346141748
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -5941,7 +5941,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

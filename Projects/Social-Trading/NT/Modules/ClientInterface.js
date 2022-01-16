@@ -115,8 +115,22 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, queries need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let userProfileBySocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(queryReceived.originSocialPersonaId)
-        if (userProfileBySocialPersona.id !== userProfile.id) {
+        let socialEntityId
+        if (queryReceived.originSocialPersonaId !== undefined) {
+            socialEntityId = queryReceived.originSocialPersonaId
+        }
+        if (queryReceived.originSocialTradingBotId !== undefined) {
+            socialEntityId = queryReceived.originSocialTradingBotId
+        }
+        let userProfileBySocialEntity = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(socialEntityId)
+        if (userProfileBySocialEntity === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity sending the Query is unrelated to a User Profile.'
+            }
+            return response
+        }           
+        if (userProfileBySocialEntity.id !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity sending the Query is unrelated to the User Profile Connected to Network Node.'
@@ -198,8 +212,22 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         At the Client Interface, events need to be emitted by Social Entities that 
         belongs to the User Profile that is connected at the Network Node.
         */
-        let userProfileBySocialPersona = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(eventReceived.originSocialPersonaId)
-        if (userProfileBySocialPersona.id !== userProfile.id) {
+        let socialEntityId
+        if (eventReceived.originSocialPersonaId !== undefined) {
+            socialEntityId = eventReceived.originSocialPersonaId
+        }
+        if (eventReceived.originSocialTradingBotId !== undefined) {
+            socialEntityId = eventReceived.originSocialTradingBotId
+        }
+        let userProfileBySocialEntity = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(socialEntityId)
+        if (userProfileBySocialEntity === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity sending the Event is unrelated to a User Profile.'
+            }
+            return response
+        }        
+        if (userProfileBySocialEntity.id !== userProfile.id) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity sending the Event is unrelated to the User Profile Connected to Network Node.'
@@ -230,7 +258,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         We are going to validate the Signature of this event.
         */
         let response = NT.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
-        if (response !== undefined) { return response}
+        if (response !== undefined) { return response }
         /*
         Here we will process the event and change the state of the Social Graph.
         */
@@ -238,7 +266,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
             event.run()
-            
+
             NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
             NT.projects.network.globals.memory.arrays.EVENTS.push(event)
 

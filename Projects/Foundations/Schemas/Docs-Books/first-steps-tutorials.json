@@ -117,8 +117,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Um ein Tutorial durch zu spielen, lade den entsprechenden Plugin-Arbeitsbereich, suche das Tutorial am unteren Rand des Designbereichs und wähle im Menü die Option Abspielen.",
-                    "updated": 1642337575076
+                    "text": "Um ein Tutorial durch zu spielen, lade den entsprechenden Plugin-Arbeitsbereich, suche das Tutorial am linken Rand des Designbereichs und wähle im Menü die Option Abspielen.",
+                    "updated": 1642359857122
                 }
             ]
         },
@@ -186,7 +186,7 @@
             ]
         },
         {
-            "style": "Title",
+            "style": "Include",
             "text": "List of Plugin Workspaces and Tutorials",
             "translations": [
                 {
@@ -247,11 +247,6 @@
             "style": "Include",
             "text": "Foundations->Concept->List of Plugin Workspaces and Tutorials->Content",
             "updated": 1610955413534
-        },
-        {
-            "style": "Chapter",
-            "text": "I->Foundations->Tutorial->Welcome to Superalgos!->This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
-            "updated": 1617207891956
         },
         {
             "style": "Chapter",

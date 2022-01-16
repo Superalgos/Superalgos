@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Superalgos simplifica y describe mediante jerarquías de nodos los conceptos fundamentales del Trading Inteligente. Los nodos pueden hacer referencia a otros nodos para acceder a información en otras jerarquías.",
                 "updated": 1641092262506
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos bricht die Komplexität auf und beschreibt die grundlegenden Konzepte, die die Handelsintelligenz ausmachen, in Hierarchien von Knotenpunkten. Knoten können auf andere Knoten verweisen, um auf Informationen in anderen Hierarchien zuzugreifen.",
+                "updated": 1642342039203
             }
         ]
     },

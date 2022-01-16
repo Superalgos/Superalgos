@@ -15,6 +15,11 @@
                 "language": "EL",
                 "text": "Χρησιμοποιήστε αυτήν την ιεραρχία για να ελέγξετε την εμφάνιση, την αίσθηση και τη συμπεριφορά του Χώρου Σχεδίασης.",
                 "updated": 1639092458446
+            },
+            {
+                "language": "DE",
+                "text": "Verwende diese Hierarchie, um das Aussehen und Verhalten des Designbereichs zu steuern.",
+                "updated": 1642355180912
             }
         ]
     },

@@ -222,7 +222,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             return
         }
 
-        let algoTradersPlatform = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform')
+        let algoTradersPlatformApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform App')
         let socialTradingDesktopApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Desktop App')
         let socialTradingMobileApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Mobile App')
         let socialTradingServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Server App')
@@ -231,7 +231,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         let socialPersonas = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.socialPersonas, 'Social Persona')
         let p2pNetworkNodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.p2pNetworkNodes, 'P2P Network Node')
 
-        addSigningAccounts(algoTradersPlatform, 'Algo Traders Platform')
+        addSigningAccounts(algoTradersPlatformApp, 'Algo Traders Platform')
         addSigningAccounts(socialTradingDesktopApp, 'Social Trading Desktop App')
         addSigningAccounts(socialTradingMobileApp, 'Social Trading Mobile App')
         addSigningAccounts(socialTradingServerApp, 'Social Trading Server App')

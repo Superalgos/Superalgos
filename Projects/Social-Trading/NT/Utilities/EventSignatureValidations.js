@@ -43,7 +43,7 @@ exports.newSocialTradingUtilitiesEventSignatureValidations = function newSocialT
             }
             return response
         }
-        let signedMessage = JSON.parse(signature.message)
+        
         /*
         We will verify that the signature belongs to the event message.
         To do this we will hash the event message and see if we get 
@@ -72,7 +72,7 @@ exports.newSocialTradingUtilitiesEventSignatureValidations = function newSocialT
             let socialEntityId = eventReceived.originSocialTradingBotId
             userProfileBySocialEntityId = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(socialEntityId)
         }
-        if (userProfileByBlockchainAccount === undefined) {
+        if (userProfileBySocialEntityId === undefined) {
             let response = {
                 result: 'Error',
                 message: 'Social Entity Id Not Linked to User Profile.'

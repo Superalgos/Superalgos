@@ -7,7 +7,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -25,7 +25,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
 
     }
 
-    function execute() {
+    function run() {
         let response = []
         switch (thisObject.direction) {
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
@@ -223,28 +223,28 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 if (originSocialPersona !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
                     query.initialize({ targetSocialPersonaId: event.originSocialPersonaId })
-                    eventResponse.originSocialPersona = query.execute()
+                    eventResponse.originSocialPersona = query.run()
                     query.finalize()
                 }
 
                 if (targetSocialPersona !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
                     query.initialize({ targetSocialPersonaId: event.targetSocialPersonaId })
-                    eventResponse.targetSocialPersona = query.execute()
+                    eventResponse.targetSocialPersona = query.run()
                     query.finalize()
                 }
 
                 if (originSocialTradingBot !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
                     query.initialize({ targetSocialPersonaId: event.originSocialPersonaId, targetSocialTradingBotId: originSocialTradingBotId })
-                    eventResponse.originSocialTradingBot = query.execute()
+                    eventResponse.originSocialTradingBot = query.run()
                     query.finalize()
                 }
 
                 if (targetSocialTradingBot !== undefined) {
                     let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
                     query.initialize({ targetSocialPersonaId: event.targetSocialPersonaId, targetSocialTradingBotId: targetSocialTradingBotId })
-                    eventResponse.targetSocialTradingBot = query.execute()
+                    eventResponse.targetSocialTradingBot = query.run()
                     query.finalize()
                 }
 

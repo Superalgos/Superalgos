@@ -9,7 +9,7 @@ exports.newSocialTradingModulesQueriesSocialPersonas = function newSocialTrading
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -32,7 +32,7 @@ exports.newSocialTradingModulesQueriesSocialPersonas = function newSocialTrading
 
     }
 
-    function execute() {
+    function run() {
 
         let response = []
 

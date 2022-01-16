@@ -2,7 +2,7 @@ exports.newSocialTradingModulesQueriesSocialTradingBotStats = function newSocial
 
     let thisObject = {
         socialTradingBot: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -36,7 +36,7 @@ exports.newSocialTradingModulesQueriesSocialTradingBotStats = function newSocial
         }
     }
 
-    function execute() {
+    function run() {
 
         return {
             "socialPersonaId": thisObject.socialPersona.id,

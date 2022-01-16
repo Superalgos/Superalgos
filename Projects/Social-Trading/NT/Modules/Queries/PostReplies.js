@@ -14,7 +14,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -37,7 +37,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
 
     }
 
-    function execute() {
+    function run() {
 
         let response = []
 

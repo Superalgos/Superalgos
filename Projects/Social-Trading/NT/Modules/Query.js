@@ -10,7 +10,7 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
     let thisObject = {
         query: undefined,
         queryType: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -86,8 +86,8 @@ exports.newSocialTradingModulesQuery = function newSocialTradingModulesQuery() {
         }
     }
 
-    function execute() {
-        let response = thisObject.query.execute()
+    function run() {
+        let response = thisObject.query.run()
         thisObject.query.finalize()
         return response
     }

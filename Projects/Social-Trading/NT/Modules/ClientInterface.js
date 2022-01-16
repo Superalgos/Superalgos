@@ -135,7 +135,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             let response = {
                 result: 'Ok',
                 message: 'Client Interface Query Processed.',
-                data: query.execute()
+                data: query.run()
             }
 
             // console.log((new Date()).toISOString(), '- Client Interface', '- Query Response Sent', JSON.stringify(response))
@@ -144,7 +144,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
 
         } catch (err) {
             /*
-            Any exception that happens while trying to execute the query.
+            Any exception that happens while trying to run the query.
             */
             if (err.stack !== undefined) {
                 console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)

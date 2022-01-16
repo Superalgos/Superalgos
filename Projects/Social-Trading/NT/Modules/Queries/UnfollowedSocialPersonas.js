@@ -10,7 +10,7 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -39,7 +39,7 @@ exports.newSocialTradingModulesQueriesUnfollowedSocialPersonas = function newSoc
 
     }
 
-    function execute() {
+    function run() {
 
         let response = []
 

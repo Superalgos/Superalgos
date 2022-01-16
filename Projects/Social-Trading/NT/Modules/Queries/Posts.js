@@ -13,7 +13,7 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -33,7 +33,7 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 
-    function execute() {
+    function run() {
 
         let response = []
 

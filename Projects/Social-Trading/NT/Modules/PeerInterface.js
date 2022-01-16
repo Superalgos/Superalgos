@@ -116,6 +116,8 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         try {
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
+            event.run()
+            
             NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
             NT.projects.network.globals.memory.arrays.EVENTS.push(event)
 

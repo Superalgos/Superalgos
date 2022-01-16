@@ -20,12 +20,13 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         eventType: undefined,
         timestamp: undefined,
         /* Post Related Properties */
-        fileKeys: undefined, 
+        fileKeys: undefined,
         /* Bot Related Properties */
         botAsset: undefined,
         botExchange: undefined,
         botEnabled: undefined,
         /* Framework Functions */
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -53,6 +54,10 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
         thisObject.botAsset = eventReceived.botAsset
         thisObject.botExchange = eventReceived.botExchange
         thisObject.botEnabled = eventReceived.botEnabled
+
+    }
+
+    function run() {
         /*
         Local Variables
         */
@@ -97,22 +102,22 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 throw ('Target Social Trading Bot Not Found.')
             }
         }
-
-        if (postingEvents()) { 
+        
+        if (postingEvents()) {
             eventCounters()
-            return 
+            return
         }
-        if (followingEvents()) { 
+        if (followingEvents()) {
             eventCounters()
-            return 
+            return
         }
-        if (reactionEvents()) { 
+        if (reactionEvents()) {
             eventCounters()
-            return 
+            return
         }
-        if (botEvents()) { 
+        if (botEvents()) {
             eventCounters()
-            return 
+            return
         }
 
         function postingEvents() {
@@ -310,7 +315,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
 
-                let profileId 
+                let profileId
                 if (targetSocialTradingBot !== undefined) {
                     targetPost = targetSocialTradingBot.posts.get(thisObject.targetPostHash)
                     profileId = targetSocialTradingBot.botProfileId
@@ -323,9 +328,9 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.addReaction(thisObject.eventType - 100, profileId)               
-                
-                return  true
+                targetPost.addReaction(thisObject.eventType - 100, profileId)
+
+                return true
             }
             if (
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_LIKE ||
@@ -337,7 +342,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_CARE
             ) {
 
-                let profileId 
+                let profileId
                 if (targetSocialTradingBot !== undefined) {
                     targetPost = targetSocialTradingBot.posts.get(thisObject.targetPostHash)
                     profileId = targetSocialTradingBot.botProfileId
@@ -350,9 +355,9 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.removeReaction(thisObject.eventType - 100, profileId) 
+                targetPost.removeReaction(thisObject.eventType - 100, profileId)
 
-                return  true
+                return true
             }
         }
 
@@ -396,7 +401,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                         break
                     }
                 }
-                return  true
+                return true
             }
         }
 

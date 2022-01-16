@@ -54,6 +54,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     try {
                         let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                         event.initialize(storedEvent)
+                        event.run()
+                        
                         NT.projects.network.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
                         NT.projects.network.globals.memory.arrays.EVENTS.push(event)
                         indexLastSavedEvent = NT.projects.network.globals.memory.arrays.EVENTS.length - 1

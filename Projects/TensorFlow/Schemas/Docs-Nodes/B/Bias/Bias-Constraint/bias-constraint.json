@@ -1,0 +1,19 @@
+{
+    "type": "Bias Constraint",
+    "definition": {
+        "text": "Constraint for the bias vector.",
+        "updated": 1613244677505
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613244686071
+        },
+        {
+            "style": "Javascript",
+            "text": "maxNorm\nminMaxNorm\nnonNeg\nunitNorm\nstring",
+            "updated": 1613244735313
+        }
+    ]
+}

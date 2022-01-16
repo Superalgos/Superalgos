@@ -1,0 +1,38 @@
+{
+    "type": "User Keys",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Key",
+            "relatedUiObject": "Exchange Account Key",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->User Account->"
+    },
+    "propertyNameAtParent": "userKeys",
+    "childrenNodesProperties": [
+        {
+            "name": "keys",
+            "type": "array",
+            "childType": "Exchange Account Key",
+            "autoAdd": true
+        }
+    ],
+    "isPersonalData": true
+}

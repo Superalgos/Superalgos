@@ -1,0 +1,51 @@
+{
+    "type": "APIs",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Github API",
+            "relatedUiObject": "Github API",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "githubAPI",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Web3 API",
+            "relatedUiObject": "Web3 API",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "web3API",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "githubAPI",
+            "type": "node",
+            "childType": "Github API"
+        },
+        {
+            "name": "web3API",
+            "type": "node",
+            "childType": "Web3 API"
+        }
+    ],
+    "isPersonalData": true
+}

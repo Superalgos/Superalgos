@@ -1,0 +1,332 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Use Chrome or Safari!",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-warning",
+            "project": "Foundations"
+        },
+        "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers!",
+        "updated": 1610612226890,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Saat menjalankan frontend ini, gunakan Chrome, atau Safari di Mac!. Kami developer tidak mencoba aplikasi ini di browser lain.",
+                "updated": 1614417282628,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Al ejecutar el frontend, utilice Chrome o Safari en Mac. No hemos testeado otros navegadores.",
+                "updated": 1624228473112,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Quando esegui il front-end usa Chrome, oppure Safari sul Mac! Al momento non stiamo testando altri browser!",
+                "updated": 1614712122833,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs !",
+                "updated": 1623950198517,
+                "style": "Definition"
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcılarda çalıştırmıyoruz!",
+                "updated": 1639118223952,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Als je het frontend draait, gebruik dan Chrome, of Safari op de Mac! We testen niet met andere browsers!",
+                "updated": 1633849729343,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie das Frontend ausführen, verwenden Sie Chrome oder Safari auf dem Mac! Wir testen es nicht mit anderen Browsern!",
+                "updated": 1634070256991,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Когда запускаете внешний интерфейс, используйте Chrome или Safari - на Mac! Мы не тестируем ни на каких-дибо других браузерах!\n",
+                "updated": 1635449722541
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is a well-known fact that browsers behave differently, and we do know of features that do not work on other browsers. If you are on Chrome or Safari, click Next and continue. If not, do the following:",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Setiap browser berbeda, dan kami tentu saja tidak mengetahui fitur yang berfungsi di browser lain. Jika kamu menggunakan Chrome atau Safari, klik Next dan lanjutkan. Jika tidak, lakukan hal berikut:",
+                    "updated": 1616696132072,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sabemos que los navegadores se comportan de manera diferente, y sabemos de características que no funcionan en otros navegadores. Si está en Chrome o Safari, haz clic en Siguiente y continua. Si no es así, haz lo siguiente:",
+                    "updated": 1624490502941,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "É noto che i vari browsers presentano delle differenze tra loro, e siamo al corrente che alcuni di questi non supportano certe funzionalità. Se sei su Chrome o Safari, clicca Next per proseguire. Altrimenti:",
+                    "updated": 1614712436380,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Il est connu que les navigateurs se comportent différemment, et nous connaissons certaines fonctionnalités qui fonctionnent sur certains mais pas d'autres... Si vous êtes sur Chrome ou Safari, cliquez sur Suivant et continuez. Sinon, procédez comme suit :",
+                    "updated": 1624490502941,
+                    "style": "Text"
+                },
+                {
+                    "language": "TR",
+                    "text": "Tarayıcıların farklı davrandığı bilinen bir gerçektir ve diğer tarayıcılarda çalışmayan özellikleri biliyoruz. Chrome veya Safari kullanıyorsanız, İleri'yi tıklayın ve devam edin. Değilse, aşağıdakileri yapın:",
+                    "updated": 1633119849958,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Het is een feit dat browsers zich verschillend gedragen, en er zijn functies bekend die niet werken op andere browsers. Als u Chrome of Safari gebruikt, klik dan op Volgende en ga verder. Zo niet, doe dan het volgende:",
+                    "updated": 1633854517473,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Webbrowser verhalten sich unterschiedlich. Wir wissen von Funktionen, die in anderen Browsern nicht funktionieren. Wenn Sie mit Chrome oder Safari arbeiten, klicken Sie auf Weiter und fahren Sie fort. Wenn nicht, gehen Sie wie folgt vor:",
+                    "updated": 1634160046151,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошо известный факт, что браузеры работают по-разному, и мы знаем о функциях, которые не работают в других браузерах! Если Вы используете Chrome или Safari, нажмите Next и продолжайте. В обратном случае, выполните следующие действия:",
+                    "updated": 1635450080862
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "copy the current URL;",
+            "updated": 1611086562247,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Copy url diatas",
+                    "updated": 1614417516319,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Copie la URL actual;",
+                    "updated": 1613594931424,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "copia l'URL;",
+                    "updated": 1614712466087,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "copier le current URL",
+                    "updated": 1623950336897,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut URL'yi kopyalayın;",
+                    "updated": 1633119896420,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "kopieer de huidige URL;",
+                    "updated": 1633849856387,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "kopieren Sie die aktuelle URL;",
+                    "updated": 1634070306435,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "скопируйте текущий URL-адрес;",
+                    "updated": 1635450108634
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "close this browser as is; do not close the tutorial...",
+            "updated": 1611086588055,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Tutup browser ini dan jangan tutup tutorialnya",
+                    "updated": 1614417498228,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cierre este navegador tal cual; no cierres el tutorial...",
+                    "updated": 1624490513154,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "chiudi il browser, ma senza chiudere il tutorial;",
+                    "updated": 1614717123837,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "fermer le present navigateur, sans user le tutoriel",
+                    "updated": 1623950409166,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu tarayıcıyı olduğu gibi kapatın; öğreticiyi kapatmayın...",
+                    "updated": 1633119959684,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "sluit de browser; niet de tutorial afsluiten...",
+                    "updated": 1633849937374,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließen Sie diesen Browser so wie er ist; dies schließt nicht das Lernprogramm...",
+                    "updated": 1634070358662,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "закройте этот браузер как есть, но не закрывайте учебное пособие;",
+                    "updated": 1635450191799
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "open Chrome/Safari and paste the URL; the tutorial should be open on this step when you come back!",
+            "updated": 1611086617811,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Buka Chrome/Safari dan salin url yang sudah dicopy. Kamu akan secepatnya kembali ke tutorial ini.",
+                    "updated": 1614417589615,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Abre Chrome/Safari y pega la URL; ¡El tutorial debería estar abierto en este paso cuando vuelvas!",
+                    "updated": 1624490526585,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step!",
+                    "updated": 1614717129520,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Ouvrez Chrome/Safari et coller l'URL ; le tutoriel devrait apparaître à cette étape une fois chargé !",
+                    "updated": 1623950524635,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
+                    "updated": 1633119977867,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "open Chrome/Safari en plak de URL; de tutorial hoort te openen op deze stap bij terugkomst!",
+                    "updated": 1633850034853,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Öffnen Sie Chrome/Safari und fügen Sie die URL ein; das Tutorial wird bei diesem Schritt geöffnet sein.",
+                    "updated": 1634160173540,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Откройте Chrome/Safari и вставьте URL-адрес; учебное пособие должно быть открыто на этом шаге, когда Вы вернетесь!",
+                    "updated": 1635450715330
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "We offer online support, but we can't help you with any other browser!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Kami memberikan bantuan online, namun tidak bisa membantu jika browser berbeda!",
+                    "updated": 1616696117144,
+                    "style": "Warning"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ofrecemos asistencia en línea, pero no podemos ayudarte con otros navegadores.",
+                    "updated": 1627239645952,
+                    "style": "Warning"
+                },
+                {
+                    "language": "IT",
+                    "text": "Offriamo supporto online, ma non possiamo aiutarti con altri browsers!",
+                    "updated": 1614712645613,
+                    "style": "Warning"
+                },
+                {
+                    "language": "FR",
+                    "text": "Nous offrons une assistance en ligne, mais nous ne pouvons pas vous aider avec un autre navigateur !",
+                    "updated": 1623950564757,
+                    "style": "Warning"
+                },
+                {
+                    "language": "TR",
+                    "text": "Çevrimiçi destek sunuyoruz, ancak başka bir tarayıcıyla size yardımcı olamayız!",
+                    "updated": 1633120004286,
+                    "style": "Warning"
+                },
+                {
+                    "language": "NL",
+                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere browser!",
+                    "updated": 1633885540625,
+                    "style": "Warning"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wir bieten Online-Support, aber wir können Ihnen mit keinem anderen Browser helfen!",
+                    "updated": 1634070371187,
+                    "style": "Warning"
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы предлагаем online поддержку, но мы не можем помочь Вам в работе с каким-либо другим браузером!",
+                    "updated": 1635450697046
+                }
+            ]
+        }
+    ]
+}

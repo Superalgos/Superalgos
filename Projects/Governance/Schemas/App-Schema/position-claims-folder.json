@@ -1,0 +1,77 @@
+{
+    "type": "Position Claims Folder",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Install Missing Claims",
+            "actionProject": "Governance",
+            "actionFunction": "payload.executeAction",
+            "label": "Install Missing Claims",
+            "relatedUiObject": "Position Contribution Claim",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Claims Folder",
+            "relatedUiObject": "Position Claims Folder",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Contribution Claim",
+            "relatedUiObject": "Position Contribution Claim",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Claims Program->Position Claims Folder->"
+    },
+    "referencingRules": {
+        "compatibleTypes": "->Position Class->"
+    },
+    "propertyNameAtParent": "positionClaimsFolders",
+    "childrenNodesProperties": [
+        {
+            "name": "positionClaimsFolders",
+            "type": "array",
+            "childType": "Position Claims Folder",
+            "autoAdd": false
+        },
+        {
+            "name": "positionContributionClaims",
+            "type": "array",
+            "childType": "Position Contribution Claim",
+            "autoAdd": false
+        }
+    ]
+}

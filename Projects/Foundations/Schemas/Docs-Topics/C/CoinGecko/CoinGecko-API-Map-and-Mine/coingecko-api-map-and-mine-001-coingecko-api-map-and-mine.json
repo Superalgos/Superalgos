@@ -1,0 +1,21 @@
+{
+    "topic": "CoinGecko API Map and Mine",
+    "pageNumber": 1,
+    "type": "CoinGecko API Map and Mine",
+    "definition": {
+        "text": "This API Map and Data Mine taps into the CoinGecko API to pull statistics about the current assets being used from the CoinGecko API.",
+        "updated": 1622686884874
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Maintainer: @harrellbm (Telegram, and Discord).",
+            "updated": 1622686900513
+        },
+        {
+            "style": "Success",
+            "text": "Additional collaborators are welcome!",
+            "updated": 1622686914590
+        }
+    ]
+}

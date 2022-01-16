@@ -1,0 +1,120 @@
+{
+    "topic": "Docs Commands Messages",
+    "pageNumber": 2,
+    "type": "Docs Message - Reindexing Started",
+    "definition": {
+        "text": "The docs.reindex command started the rebuilding of the Docs Search Engine Index.",
+        "updated": 1610972866423,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il comando docs.reindex ha avviato la ricostruzione del Docs Search Engine Index.",
+                "updated": 1614713649286,
+                "style": "Definition"
+            },
+            {
+                "language": "ID",
+                "text": "docs.reindex command akan menyusun ulang Docs Search Engine Index.",
+                "updated": 1616764015935,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Befehl docs.reindex hat den Neuaufbau des Docs Search Engine Index gestartet.",
+                "updated": 1633902591060
+            },
+            {
+                "language": "RU",
+                "text": "Команда docs.reindex начала перестройку Docs Search Engine Index.",
+                "updated": 1638456250363
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Reindexing is a resource-intensive process. While the process is running, you will not be able to use the interface since all CPU resources are dedicated to recreating the index as fast as possible. ",
+            "updated": 1610973251479,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La reindicizzazione é un processo dispendioso dal punto di vista computazionale. Mentre é in atto, non sarai in grado di usare l'interfaccia grafica perché tutte le risorse della CPU saranno impegnate a ricostruire l'indice il più velocemente possibile.",
+                    "updated": 1614713781526,
+                    "style": "Success"
+                },
+                {
+                    "language": "ID",
+                    "text": "Reindexing merupakan proses intensif sumber daya. Saat proses berjalan, kamu tidak akan dapat menggunakan antarmuka karena semua sumber daya CPU didedikasikan untuk membuat ulang indeks secepat mungkin.",
+                    "updated": 1616764125582,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Neuindizierung ist ein ressourcenintensiver Prozess. Während der Prozess läuft, können Sie die Benutzeroberfläche nicht verwenden, da alle CPU-Ressourcen für die schnellstmögliche Neuerstellung des Index verwendet werden.",
+                    "updated": 1633902350393
+                },
+                {
+                    "language": "RU",
+                    "text": "Переиндексирование - ресурсоемкий процесс. Пока процесс запущен, вы не сможете использовать интерфейс, поскольку все ресурсы ЦП предназначены для максимально быстрого воссоздания индексов.",
+                    "updated": 1638456457857
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The weight of your workspace impacts the time required to reindex the content since every node in the workspace must be scanned. All code and configurations are indexed. ",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "La dimensione del tuo Workspace ha influenza sul tempo richiesto per la reindicizzazione, perché ogni suo nodo deve essere scansionato. Tutto il codice e le varie configurazioni sono indicizzate.",
+                    "updated": 1614714208819,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Beratnya workspace berdampak pada waktu yang digunakan untuk reindex konten karena tiap node di workspace harus discan. Semua code dan konfigurasi juga diindex.",
+                    "updated": 1616764251832,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Größe Ihres Arbeitsbereichs wirkt sich auf die für die Neuindizierung des Inhalts benötigte Zeit aus, da jeder Knoten im Arbeitsbereich gescannt werden muss. Der gesamte Code und alle Konfigurationen werden indiziert.",
+                    "updated": 1633902429467
+                },
+                {
+                    "language": "RU",
+                    "text": "Вес вашего рабочего пространства влияет на время, необходимое для переиндексации содержимого, поскольку каждый узел в рабочем пространстве должен быть просканирован. Весь код и конфигурации проиндексированы.",
+                    "updated": 1638456366976
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Hold on for a few seconds until the process finishes. You will receive a new message when it's over.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Aspetta qualche secondo perché il processo finisca. Riceverai un messaggio quando questo avviene.",
+                    "updated": 1614713939759,
+                    "style": "Text"
+                },
+                {
+                    "language": "ID",
+                    "text": "Tunggu sebentar untuk beberapa detik sampai proses selesai. Kamu akan mendapatkan pesan baru setelah selesai.",
+                    "updated": 1616764371829,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Warten sie paar Sekunden, bis der Vorgang abgeschlossen ist. Sie erhalten eine neue Nachricht, wenn der Vorgang abgeschlossen ist.",
+                    "updated": 1633902493282
+                },
+                {
+                    "language": "RU",
+                    "text": "Подождите несколько секунд, пока процесс не закончится. Когда все закончится, вы получите новое сообщение.",
+                    "updated": 1638456385366
+                }
+            ]
+        }
+    ]
+}

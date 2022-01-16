@@ -1,0 +1,1019 @@
+{
+    "type": "User Profile",
+    "name": "elipwns",
+    "config": "{\n    \"signature\": {\n        \"message\": \"elipwns\",\n        \"messageHash\": \"0x3bd00c8e0bd37dfb3299035ebb44fff3ce3e02394fcec001850f67fa2815cf57\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xd6bf81ea4e23383cf89ac657353ca22afcfe43c6b1b55d405725d8704d0f2a13\",\n        \"s\": \"0x3603f15da062916285612c2b5f701084145e8b0cae39020fe5b6c95e986575a8\",\n        \"signature\": \"0xd6bf81ea4e23383cf89ac657353ca22afcfe43c6b1b55d405725d8704d0f2a133603f15da062916285612c2b5f701084145e8b0cae39020fe5b6c95e986575a81b\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "onboardingPrograms": {
+            "type": "Onboarding Programs",
+            "name": "New Onboarding Programs",
+            "config": "{\n    \"percentage\": 0\n}",
+            "project": "Governance",
+            "airdropProgram": {
+                "type": "Airdrop Program",
+                "name": "New Airdrop Program",
+                "config": "{}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "100d8fbc-5d5a-4893-9567-34f541bd9552",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32589.46809106267,
+                            "y": 10014.587719298246
+                        },
+                        "targetPosition": {
+                            "x": 32849.275712198,
+                            "y": 10164.587719298246
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "453e6e83-5922-4411-8d18-9b63e5236c61",
+                "savedPayload": {
+                    "position": {
+                        "x": 32849.275712198,
+                        "y": 10164.587719298246
+                    },
+                    "targetPosition": {
+                        "x": 33109.083333333336,
+                        "y": 10314.587719298246
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "githubProgram": {
+                "type": "Github Program",
+                "name": "New Github Program",
+                "config": "{}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "34db195c-6415-469d-96b6-cf1ef4b45a99",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33628.698575604,
+                            "y": 10014.587719298246
+                        },
+                        "targetPosition": {
+                            "x": 33368.89095446867,
+                            "y": 10164.587719298246
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "bd1d3767-5d57-481e-bbe5-d0e0c36d4579",
+                "savedPayload": {
+                    "position": {
+                        "x": 33368.89095446867,
+                        "y": 10164.587719298246
+                    },
+                    "targetPosition": {
+                        "x": 33109.083333333336,
+                        "y": 10314.587719298246
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "aad45496-6189-4d15-bbde-71609c73ec93",
+            "savedPayload": {
+                "position": {
+                    "x": 33109.083333333336,
+                    "y": 10314.587719298246
+                },
+                "targetPosition": {
+                    "x": 33109.083333333336,
+                    "y": 10614.587719298246
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "communityBuildingPrograms": {
+            "type": "Community Building Programs",
+            "name": "New Community Building Programs",
+            "config": "{\n    \"percentage\": 10\n}",
+            "project": "Governance",
+            "referralProgram": {
+                "type": "Referral Program",
+                "name": "New Referral Program",
+                "config": "{}",
+                "project": "Governance",
+                "userReferrers": [
+                    {
+                        "type": "User Referrer",
+                        "name": "Luis-Fernando-Molina",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "d6039f66-1676-49f6-b220-e4d16a5a79e4",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33709.083333333336,
+                                "y": 10314.587719298246
+                            },
+                            "targetPosition": {
+                                "x": 33709.083333333336,
+                                "y": 10614.587719298246
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "Luis-Fernando-Molina",
+                                "id": "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "Luis-Fernando-Molina",
+                                    "User Profile",
+                                    "Governance",
+                                    "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "04f6b9d6-7c33-4cfe-95ed-cd0b34180f8b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 34009.083333333336,
+                            "y": 10614.587719298246
+                        },
+                        "targetPosition": {
+                            "x": 33709.083333333336,
+                            "y": 10614.587719298246
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "1c85d571-b064-4a45-a125-af26690b79c0",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33709.083333333336,
+                            "y": 10914.587719298246
+                        },
+                        "targetPosition": {
+                            "x": 33709.083333333336,
+                            "y": 10614.587719298246
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "d79dc54b-e85c-4473-9a2d-3d408adcd700",
+                "savedPayload": {
+                    "position": {
+                        "x": 33709.083333333336,
+                        "y": 10614.587719298246
+                    },
+                    "targetPosition": {
+                        "x": 33409.083333333336,
+                        "y": 10614.587719298246
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "2a883a53-05cb-4809-a31c-d20b00741599",
+            "savedPayload": {
+                "position": {
+                    "x": 33409.083333333336,
+                    "y": 10614.587719298246
+                },
+                "targetPosition": {
+                    "x": 33109.083333333336,
+                    "y": 10614.587719298246
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{\n    \"percentage\": 90\n}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{\n    \"percentage\": 0\n}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "54c90c0a-6505-4847-b8a9-2e47bf389a4a",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33518.89095446867,
+                                "y": 11324.395340433577
+                            },
+                            "targetPosition": {
+                                "x": 33259.083333333336,
+                                "y": 11174.395340433577
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "3abe0738-73fa-4166-9d9f-7ae3f4eb6f16",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33259.083333333336,
+                            "y": 11474.395340433577
+                        },
+                        "targetPosition": {
+                            "x": 33259.083333333336,
+                            "y": 11174.395340433577
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "40728813-ded1-4276-a203-97d11463de62",
+                "savedPayload": {
+                    "position": {
+                        "x": 33259.083333333336,
+                        "y": 11174.395340433577
+                    },
+                    "targetPosition": {
+                        "x": 33109.083333333336,
+                        "y": 10914.587719298246
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{}",
+                "project": "Governance",
+                "assetClaimsFolders": [
+                    {
+                        "type": "Asset Claims Folder",
+                        "name": "New Asset Claims Folder",
+                        "config": "{\n    \"percentage\": 100\n}",
+                        "project": "Governance",
+                        "assetClaimsFolders": [
+                            {
+                                "type": "Asset Claims Folder",
+                                "name": "Token-Assets",
+                                "config": "{}",
+                                "project": "Governance",
+                                "assetClaimsFolders": [],
+                                "assetContributionClaims": [
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "",
+                                        "config": "{\n    \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "a08d720f-bde0-42ad-87e1-91d62902fc3e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32703.768071953105,
+                                                "y": 11950.686677810341
+                                            },
+                                            "targetPosition": {
+                                                "x": 32486.434761038065,
+                                                "y": 12008.92096295841
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 2,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "New Asset",
+                                                "id": "4ddc617a-c0dc-4bcf-9a32-fe3fd9ce398d"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "New Foundations Project",
+                                                    "Foundations Project"
+                                                ],
+                                                [
+                                                    "New Other Hierarchies",
+                                                    "Other Hierarchies"
+                                                ],
+                                                [
+                                                    "New Crypto Ecosystem",
+                                                    "Crypto Ecosystem"
+                                                ],
+                                                [
+                                                    "New Crypto Exchanges",
+                                                    "Crypto Exchanges"
+                                                ],
+                                                [
+                                                    "New Crypto Exchange",
+                                                    "Crypto Exchange"
+                                                ],
+                                                [
+                                                    "New Exchange Assets",
+                                                    "Exchange Assets"
+                                                ],
+                                                [
+                                                    "New Asset",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "a2b62433-2956-45d0-8d91-e70d4cddf75b",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32645.533786805037,
+                                                "y": 12168.019988725382
+                                            },
+                                            "targetPosition": {
+                                                "x": 32486.434761038065,
+                                                "y": 12008.92096295841
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 2,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "New Asset",
+                                                "id": "d904aaac-c896-47b6-97c7-6e7d8277d887"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "New Foundations Project",
+                                                    "Foundations Project"
+                                                ],
+                                                [
+                                                    "New Other Hierarchies",
+                                                    "Other Hierarchies"
+                                                ],
+                                                [
+                                                    "New Crypto Ecosystem",
+                                                    "Crypto Ecosystem"
+                                                ],
+                                                [
+                                                    "New Crypto Exchanges",
+                                                    "Crypto Exchanges"
+                                                ],
+                                                [
+                                                    "New Crypto Exchange",
+                                                    "Crypto Exchange"
+                                                ],
+                                                [
+                                                    "New Exchange Assets",
+                                                    "Exchange Assets"
+                                                ],
+                                                [
+                                                    "New Asset",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "6349738f-a986-4b1d-a70a-252d642d426c",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32428.200475889997,
+                                                "y": 12226.25427387345
+                                            },
+                                            "targetPosition": {
+                                                "x": 32486.434761038065,
+                                                "y": 12008.92096295841
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 2,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "New Asset",
+                                                "id": "8246d0b6-fcf6-4196-b4ee-e4f165f05fd0"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "New Foundations Project",
+                                                    "Foundations Project"
+                                                ],
+                                                [
+                                                    "New Other Hierarchies",
+                                                    "Other Hierarchies"
+                                                ],
+                                                [
+                                                    "New Crypto Ecosystem",
+                                                    "Crypto Ecosystem"
+                                                ],
+                                                [
+                                                    "New Crypto Exchanges",
+                                                    "Crypto Exchanges"
+                                                ],
+                                                [
+                                                    "New Crypto Exchange",
+                                                    "Crypto Exchange"
+                                                ],
+                                                [
+                                                    "New Exchange Assets",
+                                                    "Exchange Assets"
+                                                ],
+                                                [
+                                                    "New Asset",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "21529081-eef3-4708-8b36-611da6b7a24e",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32269.101450123024,
+                                                "y": 12067.155248106477
+                                            },
+                                            "targetPosition": {
+                                                "x": 32486.434761038065,
+                                                "y": 12008.92096295841
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 2,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "New Asset",
+                                                "id": "952c927c-5217-4d3e-9e70-58429e8db36c"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "New Foundations Project",
+                                                    "Foundations Project"
+                                                ],
+                                                [
+                                                    "New Other Hierarchies",
+                                                    "Other Hierarchies"
+                                                ],
+                                                [
+                                                    "New Crypto Ecosystem",
+                                                    "Crypto Ecosystem"
+                                                ],
+                                                [
+                                                    "New Crypto Exchanges",
+                                                    "Crypto Exchanges"
+                                                ],
+                                                [
+                                                    "New Crypto Exchange",
+                                                    "Crypto Exchange"
+                                                ],
+                                                [
+                                                    "New Exchange Assets",
+                                                    "Exchange Assets"
+                                                ],
+                                                [
+                                                    "New Asset",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Asset Contribution Claim",
+                                        "name": "",
+                                        "config": "{\n  \"description\": \"\"\n}",
+                                        "project": "Governance",
+                                        "id": "f0a86484-b490-4af1-8745-ad3589b02953",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32327.335735271092,
+                                                "y": 11849.821937191437
+                                            },
+                                            "targetPosition": {
+                                                "x": 32486.434761038065,
+                                                "y": 12008.92096295841
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 2,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset",
+                                                "name": "New Asset",
+                                                "id": "ca78a349-22d9-4a9d-9277-181619645abf"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "New Foundations Project",
+                                                    "Foundations Project"
+                                                ],
+                                                [
+                                                    "New Other Hierarchies",
+                                                    "Other Hierarchies"
+                                                ],
+                                                [
+                                                    "New Crypto Ecosystem",
+                                                    "Crypto Ecosystem"
+                                                ],
+                                                [
+                                                    "New Crypto Exchanges",
+                                                    "Crypto Exchanges"
+                                                ],
+                                                [
+                                                    "New Crypto Exchange",
+                                                    "Crypto Exchange"
+                                                ],
+                                                [
+                                                    "New Exchange Assets",
+                                                    "Exchange Assets"
+                                                ],
+                                                [
+                                                    "New Asset",
+                                                    "Asset"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "f77eced9-e20c-40d8-a518-7f0fc37ca532",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 32486.434761038065,
+                                        "y": 12008.92096295841
+                                    },
+                                    "targetPosition": {
+                                        "x": 32602.9033313342,
+                                        "y": 11574.254341128328
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "assetContributionClaims": [],
+                        "id": "165467ac-08f4-416d-9cb0-219be8f289ec",
+                        "savedPayload": {
+                            "position": {
+                                "x": 32602.9033313342,
+                                "y": 11574.254341128328
+                            },
+                            "targetPosition": {
+                                "x": 32719.371901630337,
+                                "y": 11139.587719298246
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "featureClaimsFolders": [
+                    {
+                        "type": "Feature Claims Folder",
+                        "name": "New Feature Claims Folder",
+                        "config": "{\n    \"percentage\": 0\n}",
+                        "project": "Governance",
+                        "featureClaimsFolders": [
+                            {
+                                "type": "Feature Claims Folder",
+                                "name": "New Feature Claims Folder",
+                                "config": "{}",
+                                "project": "Governance",
+                                "featureClaimsFolders": [],
+                                "featureContributionClaims": [
+                                    {
+                                        "type": "Feature Contribution Claim",
+                                        "name": "",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "653ceb8a-d2b5-4aa5-849d-fc2cb938b7d6",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 32340.485787474645,
+                                                "y": 11358.337719298246
+                                            },
+                                            "targetPosition": {
+                                                "x": 32427.08832785309,
+                                                "y": 11308.337719298246
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 2,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "id": "5ca98dcb-5fab-4fd3-9746-ed7c23eb70f9",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 32427.08832785309,
+                                        "y": 11308.337719298246
+                                    },
+                                    "targetPosition": {
+                                        "x": 32524.516185778837,
+                                        "y": 11252.087719298246
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 2,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "featureContributionClaims": [],
+                        "id": "44137e74-6b7a-4514-9efe-ab13e6c5673b",
+                        "savedPayload": {
+                            "position": {
+                                "x": 32524.516185778837,
+                                "y": 11252.087719298246
+                            },
+                            "targetPosition": {
+                                "x": 32719.371901630337,
+                                "y": 11139.587719298246
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "positionClaimsFolders": [],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "51d6bb0d-05b5-4685-b75b-8873046ef319",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32606.871901630337,
+                            "y": 10944.732003446747
+                        },
+                        "targetPosition": {
+                            "x": 32719.371901630337,
+                            "y": 11139.587719298246
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 2,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "0ee69f14-e4a1-4534-a4ac-b4f104395f11",
+                "savedPayload": {
+                    "position": {
+                        "x": 32719.371901630337,
+                        "y": 11139.587719298246
+                    },
+                    "targetPosition": {
+                        "x": 33109.083333333336,
+                        "y": 10914.587719298246
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 4,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "4651ef09-c374-4bdd-8c56-d4effaa68347",
+            "savedPayload": {
+                "position": {
+                    "x": 33109.083333333336,
+                    "y": 10914.587719298246
+                },
+                "targetPosition": {
+                    "x": 33109.083333333336,
+                    "y": 10614.587719298246
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "7f620c09-d433-44db-b87f-5e688a0be35e",
+        "savedPayload": {
+            "position": {
+                "x": 33109.083333333336,
+                "y": 10614.587719298246
+            },
+            "targetPosition": {
+                "x": 32809.083333333336,
+                "y": 10614.587719298246
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "dc2abe61-6a58-4477-95ce-99e8216b30e9",
+        "savedPayload": {
+            "position": {
+                "x": 32509.083333333336,
+                "y": 10614.587719298246
+            },
+            "targetPosition": {
+                "x": 32809.083333333336,
+                "y": 10614.587719298246
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "863669ed-70e1-4336-a2fd-2957db38d038",
+    "savedPayload": {
+        "position": {
+            "x": 32809.083333333336,
+            "y": 10614.587719298246
+        },
+        "targetPosition": {
+            "x": 32809.083333333336,
+            "y": 10614.587719298246
+        },
+        "floatingObject": {
+            "isPinned": true,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

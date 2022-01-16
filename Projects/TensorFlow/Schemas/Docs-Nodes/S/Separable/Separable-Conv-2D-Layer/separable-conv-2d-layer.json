@@ -1,0 +1,22 @@
+{
+    "type": "Separable Conv 2D Layer",
+    "definition": {
+        "text": "Depthwise separable 2D convolution. Separable convolution consists of first performing a depthwise spatial convolution (which acts on each input channel separately) followed by a pointwise convolution which mixes together the resulting output channels. The depthMultiplier argument controls how many output channels are generated per input channel in the depthwise step.",
+        "updated": 1613218940003
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Intuitively, separable convolutions can be understood as a way to factorize a convolution kernel into two smaller kernels, or as an extreme version of an Inception block.",
+            "updated": 1613218949720
+        },
+        {
+            "style": "List",
+            "text": "Input shape: 4D tensor with shape: [batch, channels, rows, cols] if data_format='channelsFirst' or 4D tensor with shape: [batch, rows, cols, channels] if data_format='channelsLast'."
+        },
+        {
+            "style": "List",
+            "text": "Output shape: 4D tensor with shape: [batch, filters, newRows, newCols] if data_format='channelsFirst' or 4D tensor with shape: [batch, newRows, newCols, filters] if data_format='channelsLast'. rows and cols values might have changed due to padding."
+        }
+    ]
+}

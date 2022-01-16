@@ -1,0 +1,56 @@
+{
+    "type": "Data Dependency Folder",
+    "definition": {
+        "text": "A data dependency folder node is an organizational device used to map the arrangement of product definition folders of a given bot.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Data Dependency Folder - это организационное устройство, используемое для отображения расположения папок определения продукта данного бота.",
+                "updated": 1638729901343
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The use of product data dependency folders is optional, as data dependencies may also exist outside of folders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование папок зависимостей данных продукта необязательно, так как зависимости данных могут также существовать вне папок.",
+                    "updated": 1638729937530
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Configuring Data Dependency Folder",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Data Dependency Folder",
+                    "updated": 1638729951913
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Select Configure on the menu to access the configuration.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню, чтобы получить доступ к конфигурации.",
+                    "updated": 1638729988518
+                }
+            ]
+        }
+    ]
+}

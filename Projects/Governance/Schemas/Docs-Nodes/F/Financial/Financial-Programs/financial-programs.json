@@ -1,0 +1,47 @@
+{
+    "type": "Financial Programs",
+    "definition": {
+        "text": "Use this node to spawn the Staking Program and the Delegation Program.",
+        "updated": 1630056638318,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Используйте этот узел для создания программы Staking Program и программы Delegation Program.",
+                "updated": 1638991768513
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1630397902177
+        },
+        {
+            "style": "Success",
+            "text": "Learn more about how Token Power Flows into these programs!",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как токен перетекает в эти программы Token Power Flows!",
+                    "updated": 1638991799344
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuration"
+        },
+        {
+            "style": "Title",
+            "text": "Configuration",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация",
+                    "updated": 1638991816286
+                }
+            ]
+        }
+    ]
+}

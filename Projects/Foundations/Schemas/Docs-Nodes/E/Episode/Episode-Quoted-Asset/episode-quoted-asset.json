@@ -1,0 +1,30 @@
+{
+    "type": "Episode Quoted Asset",
+    "definition": {
+        "text": "The episode quoted asset node keeps track of the evolution of variables and metrics denominated in the quoted asset, throughout the episode.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Episode Quoted Asset отслеживает эволюцию переменных и показателей, обозначенных в котируемом активе, на протяжении всего эпизода.",
+                "updated": 1638782257811
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Note",
+            "text": "Learn more about how accounts for the base asset and the quoted asset are kept in the base asset and quoted asset page on the trading engine section of the documentation.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узнайте больше о том, как счета для базового актива и котируемого актива хранятся на странице Base Asset and Quoted Asset в разделе документации, посвященном механизму торговли.",
+                    "updated": 1638782297432
+                }
+            ]
+        }
+    ]
+}

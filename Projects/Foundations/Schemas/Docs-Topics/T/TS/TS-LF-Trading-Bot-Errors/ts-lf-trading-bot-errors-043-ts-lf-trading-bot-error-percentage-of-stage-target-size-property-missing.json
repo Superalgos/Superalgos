@@ -1,0 +1,21 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 43,
+    "type": "TS LF Trading Bot Error - Percentage Of Stage Target Size Property Missing",
+    "definition": {
+        "text": "You must specify what percentage of the Size handled by the Stage is to be handled by the Execution Algorithm.",
+        "updated": 1611944753223
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Percentage Of Stage Target Size Property Missing",
+            "updated": 1611651247391
+        },
+        {
+            "style": "Success",
+            "text": "Check the algorithm's configuration and make sure the percentageOfStageTargetSize property exists and is defined with a number greater than zero.",
+            "updated": 1611944846788
+        }
+    ]
+}

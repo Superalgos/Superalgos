@@ -1,0 +1,71 @@
+{
+    "type": "Pools",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Pool Class",
+            "relatedUiObject": "Pool Class",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Pool",
+            "relatedUiObject": "Pool",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Install as Plugin",
+            "actionProject": "Community-Plugins",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install",
+            "label": "Install as Plugin",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n  \"tokens\": \"\"\n}"
+    },
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "poolClasses",
+            "type": "array",
+            "childType": "Pool Class",
+            "autoAdd": false
+        },
+        {
+            "name": "pools",
+            "type": "array",
+            "childType": "Pool",
+            "autoAdd": false
+        }
+    ]
+}

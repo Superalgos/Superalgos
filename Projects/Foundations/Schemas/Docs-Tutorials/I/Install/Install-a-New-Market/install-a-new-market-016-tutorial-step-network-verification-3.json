@@ -1,0 +1,81 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Network Verification 3",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "production-trading-tasks"
+        },
+        "text": "Verify that the Production Trading Tasks tasks for the corresponding Market were created successfully.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Verifica que las tareas Production Trading Tasks se crearon con éxito para el Market correspondiente.",
+                "updated": 1629249520590
+            },
+            {
+                "language": "DE",
+                "text": "Überprüfen Sie, ob die Production Trading Tasks für den entsprechenden Market erfolgreich erstellt wurden.",
+                "updated": 1636468982204
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Look for the following data structures:",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Busca las siguientes estructuras de datos:",
+                    "updated": 1629249556254
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "A Market Trading Tasks node for the new market.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Market Trading Tasks nodo para el nuevo mercado.",
+                    "updated": 1629249638874
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Market Trading Tasks Knoten für den neuen Markt.",
+                    "updated": 1636469204941
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "One Trading Mine Tasks node for each trading mine included in the workspace.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten Trading Mine Tasks für jede im Arbeitsbereich enthaltene Handelsmine.",
+                    "updated": 1636469220146
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "One Task Manager per Trading Mine and one Task with a Live Trading Session for each Trading System in the workspace.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Un Task Manager por Trading Mine y un Task con una Backtesting Session para cada Trading System en el espacio de trabajo.",
+                    "updated": 1629249792961
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Task Manager pro Trading Mine und eine Task mit einer Live Trading Session für jedes Trading System im Arbeitsbereich.",
+                    "updated": 1640710000128
+                }
+            ],
+            "updated": 1640709691528
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "tutorial": "Install a New Market",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Add the Assets 3",
+    "definition": {
+        "icon": {
+            "name": "Market/asset",
+            "project": "Foundations"
+        },
+        "text": "Label the assets with the descriptive name of the coin or token, for ease of use. For example: Ether.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Etiqueta los assets con el nombre descriptivo de la moneda o ficha, para facilitar su uso. Por ejemplo: Ether.",
+                "updated": 1629163866099,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Beschriften Sie die Vermögenswerte mit dem beschreibenden Namen des Coins oder des Tokens, um die Verwendung zu erleichtern. Zum Beispiel: Ether.",
+                "updated": 1635742793479
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Step 3: Label Nodes",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Step 3: Etiqueta lols nodos",
+                    "updated": 1629163910016,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Schritt 3: Knoten beschriften",
+                    "updated": 1635742900320
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Mantener un espacio de trabajo ordenado con etiquetas adecuadas para nodos importantes ayuda a gestionar grandes operaciones y a administrar la complejidad.",
+                    "updated": 1629163971957,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein aufgeräumter Workspace mit ordnungsgemäßen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung umfangreicher Vorgänge und der Beherrschung der Komplexität.",
+                    "updated": 1635742978205
+                }
+            ]
+        }
+    ]
+}

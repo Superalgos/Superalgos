@@ -1,0 +1,26 @@
+.credits {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 25;
+    text-align: center;
+    position:absolute;
+    bottom:0;
+  }
+  
+  .credits p {
+    font-family: 'Saira Condensed';
+    font-size: 140%;
+    color: whitesmoke;
+    padding: 0 100;
+  }
+  
+  .credits-red {
+    color: #e3493c;
+    font-weight: 700;
+  }
+
+  .credits-yellow {
+    color: #dfbe00fb;
+    font-weight: 700;
+  }
+  

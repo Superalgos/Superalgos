@@ -1,0 +1,25 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 7,
+    "type": "TS LF Trading Bot Error - Initial Targets Node Missing",
+    "definition": {
+        "text": "An Initial Targets node was expected but not found at the node where the error originated.",
+        "updated": 1611938198885
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The Trading Session may run without the Open Stage, Manage Stage, and Close Stage nodes present. But if a stage exists, then the required nodes within must be properly defined.",
+            "updated": 1611938347979
+        },
+        {
+            "style": "Error",
+            "text": "Initial Targets Node Missing"
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again. The session will not run free of errors until all required nodes are defined.",
+            "updated": 1611938473498
+        }
+    ]
+}

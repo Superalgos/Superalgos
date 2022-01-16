@@ -1,0 +1,114 @@
+{
+    "type": "Phase",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
+            "label": "Add Formula",
+            "relatedUiObject": "Formula",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "nextPhaseEvent",
+            "label": "Add Next Phase Event",
+            "relatedUiObject": "Next Phase Event",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Move To Phase Event",
+            "relatedUiObject": "Move To Phase Event",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "outgoingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Outgoing Signals",
+            "relatedUiObject": "Outgoing Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "incomingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },         
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "chainedToSameType": true,
+    "attachingRules": {
+        "compatibleTypes": "->Managed Stop->Managed Take Profit->Phase->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula",
+            "autoAdd": true
+        },
+        {
+            "name": "outgoingSignals",
+            "type": "node",
+            "childType": "Outgoing Signals",
+            "project": "Trading-Signals"
+        },
+        {
+            "name": "incomingSignals",
+            "type": "node",
+            "childType": "Incoming Signals",
+            "project": "Trading-Signals"
+        },          
+        {
+            "name": "nextPhaseEvent",
+            "type": "node",
+            "childType": "Next Phase Event"
+        },
+        {
+            "name": "moveToPhaseEvents",
+            "type": "array",
+            "childType": "Move To Phase Event"
+        },      
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement",
+            "project": "Social-Bots"
+        }
+    ],
+    "propertyNameAtParent": "phases"
+}

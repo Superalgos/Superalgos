@@ -1,0 +1,312 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 10,
+    "type": "Tutorial Step - Accessing Remotely?",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "network-node"
+        },
+        "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!",
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Jika kamu menjalankan Client ini di mesin yang sama, saranku click Next dan skip step ini segera!",
+                "updated": 1614426991691,
+                "style": "Definition"
+            },
+            {
+                "language": "IT",
+                "text": "Se sei collegato al Client dalla stessa macchina, puoi cliccare Next e saltare questo step!",
+                "updated": 1614718112355,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Si estas accediendo al cliente desde el mismo Equipo, puedes saltarte este paso!",
+                "updated": 1618433417604,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant!",
+                "updated": 1623958262097,
+                "style": "Definition"
+            },
+            {
+                "language": "NL",
+                "text": "Als je de Client benaderd vanaf hetzelfde apparaat, klik dan op Next en sla deze stap over!",
+                "updated": 1633886528639,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen!",
+                "updated": 1634161773115,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Если Вы получаете доступ к Client с того же устройства, то можете нажать Next и пропустить этот шаг.",
+                "updated": 1637439306449
+            },
+            {
+                "language": "TR",
+                "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
+                "updated": 1635579026048
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you are accessing the Client from a remote machine, you must adjust the LAN Network Node configuration.",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Jika kamu mengakses Client dari remote machine, kamu harus menyesuaikan konfigurasi LAN Network Node.",
+                    "updated": 1640568925485,
+                    "style": "Text"
+                },
+                {
+                    "language": "IT",
+                    "text": "Se ti stai collegando al Client da remoto, devi configurare il Network Node prima di proseguire.",
+                    "updated": 1614718136636,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si está accediendo al Cliente desde un equipo remoto, debes configurar el Network Node antes de continuar.",
+                    "updated": 1618433278478,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "Si vous accédez au Client à partir d'une connectio a distance, vous devez ajuster la configuration du nœud de réseau avant de poursuivre.",
+                    "updated": 1623958370168,
+                    "style": "Text"
+                },
+                {
+                    "language": "NL",
+                    "text": "Als je de Client benanderd vanaf een ander apparaat moet je nu de Network Node configuratie aanpassen voordat je verder gaat.",
+                    "updated": 1633886630167,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn du von einem entfernten Rechner aus auf den Client zugreifen, muss die LAN Network Node konfiguration angepasst werden, bevor du weiter machst. ",
+                    "updated": 1642338291288,
+                    "style": "Text"
+                },
+                {
+                    "language": "RU",
+                    "text": "Если Вы получаете доступ к Client с удаленного устройства, то необходимо отрегулировать конфигурацию the LAN Network Node перед тем, как Вы продолжите. ",
+                    "updated": 1637439381746
+                },
+                {
+                    "language": "TR",
+                    "text": "İstemciye ( Client ) uzak bir makineden erişiyorsanız, devam etmeden önce Ağ Düğümü ( Node )  yapılandırmasını ayarlamanız gerekir.",
+                    "updated": 1635579070105
+                }
+            ],
+            "updated": 1636909673978
+        },
+        {
+            "style": "List",
+            "text": "Click Configure on the top-right corner of the LAN Network Node menu.",
+            "updated": 1636909656938,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Click Configure disebelah kanan atas dari LAN Network Node menu.",
+                    "updated": 1640568633375,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Clicca Configure nell'angolo in alto a destra del menu del Network Node.",
+                    "updated": 1614718181211,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic en Configure en la esquina superior derecha del menú del Network Node.",
+                    "updated": 1624490907285,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur Configurer dans le coin supérieur droit du menu Network Node",
+                    "updated": 1623958430272,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Cliquez sur Configurer dans le coin supérieur droit du menu Network Node",
+                    "updated": 1623958430272,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Klik op \"Configure\" in de rechterbovenhoek van het \"Network Node\" menu.",
+                    "updated": 1633886682371,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicke auf Konfigurieren in der oberen rechten Ecke des LAN Network Node Menüs. ",
+                    "updated": 1642338338265,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Configure в правом верхнем углу в меню the  LAN Network Node.",
+                    "updated": 1637439430465
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ Düğümü menüsünün sağ üst köşesindeki Yapılandır'a ( Configure ) tıklayın.",
+                    "updated": 1635579264884
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Change the host parameter for the IP address of the machine running the backend. ",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Ubah host parameter untuk IP Address dari mesin yang berjalan di backend.",
+                    "updated": 1640568700553,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Inserisci nel parametro host l'indirizzo IP della macchina su cui é in esecuzione il backend.",
+                    "updated": 1614718382791,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Cambia el parámetro de host por la dirección IP del equipo que corre el backend.",
+                    "updated": 1624490919268,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Changez le paramètre host pour l'adresse IP de la machine qui exécute le backend. Si vous utilisez un reverse proxy ajoutez manuellement \"webSocketsExternalURL\": \"wss://mydomain.com:443\" dans les paramètres de configuration ",
+                    "updated": 1623958474738,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Verander de waarde in het \"host\" veld, in het IP adres van het apparaat waar het backend draait.",
+                    "updated": 1633887084437,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändere den Host-Parameter für die IP-Adresse des Rechners, auf dem das Backend läuft.  ",
+                    "updated": 1642338376054,
+                    "style": "List"
+                },
+                {
+                    "language": "TR",
+                    "text": "Arka ucu çalıştıran makinenin IP adresi için ana bilgisayar parametresini değiştirin. Ters proxy kullanıyorsanız, \"webSocketsExternalURL\": \"wss://mydomain.com:443\" yapılandırma parametresini manuel olarak eklemelisiniz.",
+                    "updated": 1635579170033
+                },
+                {
+                    "language": "RU",
+                    "text": "Измените гостевой параметр для IP-адреса устройства, на котором выполняется серверная часть.",
+                    "updated": 1637439456800
+                }
+            ],
+            "updated": 1636909829414
+        },
+        {
+            "style": "List",
+            "text": "If you use a reverse proxy, add this parameter...",
+            "updated": 1636909970492,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если Вы используете обратный прокси-сервер, добавьте этот параметр...",
+                    "updated": 1637439507774
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika kamu menggunakan reverse proxy, tambahkan parameter ini...",
+                    "updated": 1640568742574
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn du einen reverse proxy nutzt, füge diesen parameter hinzu...",
+                    "updated": 1642337759526
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "\"webSocketsExternalURL\": \"wss://mydomain.com:443\""
+        },
+        {
+            "style": "List",
+            "text": "Now close the editor. If the configuration is correct, the error message should disappear in a minute!",
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Sekarang tutup editor. Jika konfigurasinya benar, pesan error akan hilang dengan cepat!",
+                    "updated": 1640568845885,
+                    "style": "List"
+                },
+                {
+                    "language": "IT",
+                    "text": "Esci dalla configurazione spostando il puntatore del mouse dalla bolla! Se i parametri sono corretti, il messaggio di errore nel Network Node dovrebbe scomparire nel giro di un minuto!",
+                    "updated": 1614718314979,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Sal de la configuración quitando el cursor de la burbuja de configuración. Si la configuración es correcta, el mensaje de error en el Network Node debería desaparecer en un instante.",
+                    "updated": 1624490929744,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
+                    "updated": 1623958550219,
+                    "style": "List"
+                },
+                {
+                    "language": "FR",
+                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
+                    "updated": 1623958550219,
+                    "style": "List"
+                },
+                {
+                    "language": "NL",
+                    "text": "Sluit de configuratie door de muis buiten de configuratie cirkel te bewegen! Als de configuratie correct is aangepast, zou de foutmelding in de Network Node binnen een minuut verdwijnen!",
+                    "updated": 1633887318246,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beende die Konfiguration, indem du den Editor schließt! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
+                    "updated": 1642338423621,
+                    "style": "List"
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь закройте редактор. Если конфигурация верна, сообщение об ошибке должно исчезнуть через минуту.",
+                    "updated": 1637439573679
+                },
+                {
+                    "language": "TR",
+                    "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
+                    "updated": 1635579204588
+                }
+            ],
+            "updated": 1636910042545
+        }
+    ]
+}

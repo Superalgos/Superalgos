@@ -1,0 +1,56 @@
+{
+    "type": "Data Feature",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "featureFormula",
+            "label": "Add Feature Formula",
+            "relatedUiObject": "Feature Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "featurePreprocessing",
+            "label": "Add Feature Preprocessing",
+            "relatedUiObject": "Feature Preprocessing",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Input Features->"
+    },
+    "propertyNameAtParent": "dataFeatures",
+    "childrenNodesProperties": [
+        {
+            "name": "featureFormula",
+            "type": "node",
+            "childType": "Feature Formula",
+            "autoAdd": true
+        },
+        {
+            "name": "featurePreprocessing",
+            "type": "node",
+            "childType": "Feature Preprocessing",
+            "autoAdd": false
+        }
+    ],
+    "icon": "tensorflow"
+}

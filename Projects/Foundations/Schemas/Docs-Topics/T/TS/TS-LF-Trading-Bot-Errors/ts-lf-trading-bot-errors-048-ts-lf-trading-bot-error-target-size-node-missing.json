@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 48,
+    "type": "TS LF Trading Bot Error - Target Size Node Missing",
+    "definition": {
+        "text": "A Target Size node was expected but not found at the node where the error originated.",
+        "updated": 1611677647791
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Target Size Node Missing",
+            "updated": 1611678342962
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

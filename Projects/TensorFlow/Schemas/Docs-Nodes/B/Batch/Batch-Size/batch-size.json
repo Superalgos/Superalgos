@@ -1,0 +1,22 @@
+{
+    "type": "Batch Size",
+    "definition": {
+        "text": "The number of examples in a batch. For example, the batch size of SGD is 1, while the batch size of a mini-batch is usually between 10 and 1000. Batch size is usually fixed during training and inference; however, TensorFlow does permit dynamic batch sizes.",
+        "updated": 1613243372713
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If inputShape is specified and batchInputShape is not specified, batchSize is used to construct the batchInputShape: [batchSize,...inputShape]",
+            "updated": 1613243409493
+        },
+        {
+            "style": "Subtitle",
+            "text": "Possible Values"
+        },
+        {
+            "style": "Javascript",
+            "text": "number"
+        }
+    ]
+}

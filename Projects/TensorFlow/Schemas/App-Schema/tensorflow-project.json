@@ -1,0 +1,46 @@
+{
+    "type": "TensorFlow Project",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Children",
+            "relatedUiObject": "Foundations Project",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Machine Learning",
+            "relatedUiObject": "Machine Learning",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "icon": "tensorflow",
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Foundations",
+            "autoAdd": true
+        }
+    ]
+}

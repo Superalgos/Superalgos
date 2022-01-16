@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 52,
+    "type": "TS LF Trading Bot Error - Social Bots Node Missing",
+    "definition": {
+        "text": "A Social Bots node was expected but not found at the node where the error originated.",
+        "updated": 1611732443032
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Social Bots Node Missing",
+            "updated": 1611732472465
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

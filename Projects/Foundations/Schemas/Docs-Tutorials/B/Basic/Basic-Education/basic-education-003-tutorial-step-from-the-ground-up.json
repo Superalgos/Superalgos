@@ -1,0 +1,73 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 3,
+    "type": "Tutorial Step - From the Ground Up",
+    "definition": {
+        "text": "To be fair, my welcoming friend taught you many of the basic operations that you need to know to move around and feel comfortable with the interface...",
+        "updated": 1615311043130,
+        "icon": {
+            "name": "tutorial",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Dürüst olmak gerekirse, konuksever arkadaşım, arayüzde gezinmek ve rahat hissetmek için bilmeniz gereken birçok temel işlemi size öğretti...",
+                "updated": 1636700031937
+            },
+            {
+                "language": "ID",
+                "text": "Sebenarnya, temanku telah mengajari kamu banyak operasi dasar yang perlu kamu ketahui untuk berputar-putar dan merasa nyaman dengan interface bot...",
+                "updated": 1641093294776
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "With me, you are going to complete your basic education! Once you finish this tutorial, you will be ready to start learning how to build your own Trading System... That's what all is about after all, right?",
+            "updated": 1615459292734,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Benimle temel eğitiminizi tamamlayacaksınız! Bu öğreticiyi bitirdikten sonra, kendi Ticaret Sisteminizi ( Trading System ) nasıl kuracağınızı öğrenmeye başlamaya hazır olacaksınız... Amacımız da değil mi?",
+                    "updated": 1636700088723
+                },
+                {
+                    "language": "ID",
+                    "text": "Bersamaku, Kamu akan menyelesaikan edukasi dasar-mu! Setelah Kamu menyelesaikan tutorial ini, Kamu akan siap untuk mulai belajar bagaimana membangun Trading System -mu sendiri... Lagipula tujuan ini semua untuk itu, benar?",
+                    "updated": 1641093411250
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "We will focus on completing the overview of the interface, dealing with workspaces, backups, plugins, and more!",
+            "updated": 1615311348229,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Arayüzün genel görünümü, çalışma alanları, yedeklemeler, eklentiler ve daha fazlasına odaklanacağız!",
+                    "updated": 1636700135746
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi!",
+                    "updated": 1641093480726
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Let's get on with it!",
+            "updated": 1615311356804,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Mari kita lanjutkan!",
+                    "updated": 1641093517301
+                }
+            ]
+        }
+    ]
+}

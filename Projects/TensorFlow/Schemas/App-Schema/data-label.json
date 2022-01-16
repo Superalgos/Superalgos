@@ -1,0 +1,40 @@
+{
+    "type": "Data Label",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "labelFormula",
+            "label": "Add Label Formula",
+            "relatedUiObject": "Label Formula",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Output Labels->"
+    },
+    "propertyNameAtParent": "dataLabels",
+    "childrenNodesProperties": [
+        {
+            "name": "labelFormula",
+            "type": "node",
+            "childType": "Label Formula",
+            "autoAdd": true
+        }
+    ],
+    "icon": "tensorflow"
+}

@@ -1,0 +1,21 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 45,
+    "type": "TS LF Trading Bot Error - Percentage Of Algorithm Size Property Not A Number",
+    "definition": {
+        "text": "You must specify what percentage of the Size handled by the Execution Algorithm is to be handled by the Order.",
+        "updated": 1611945332194
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Percentage Of Algorithm Size Property Not A Number",
+            "updated": 1611651354529
+        },
+        {
+            "style": "Success",
+            "text": "Check the order's configuration and make sure the percentageOfAlgorithmSize property exists and is defined with a number greater than zero.",
+            "updated": 1611945342589
+        }
+    ]
+}

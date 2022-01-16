@@ -1,0 +1,35 @@
+{
+    "type": "Machine Learning",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Library",
+            "relatedUiObject": "TensorFlow Library",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "machineLearningLibrary",
+            "type": "node",
+            "childType": "TensorFlow Library",
+            "autoAdd": true
+        }
+    ],
+    "icon": "tensorflow"
+}

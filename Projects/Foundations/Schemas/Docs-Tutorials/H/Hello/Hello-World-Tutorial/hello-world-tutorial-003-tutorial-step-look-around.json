@@ -1,0 +1,131 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 3,
+    "type": "Tutorial Step - Look around",
+    "definition": {
+        "text": "Workspaces can be changed!",
+        "updated": 1629344688461,
+        "icon": {
+            "name": "layer",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Workspaces können angepasst werden!",
+                "updated": 1622977673407,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Workspaces pueden ser cambiados",
+                "updated": 1629344801370,
+                "style": "Definition"
+            },
+            {
+                "language": "FR",
+                "text": "Les workspaces peuvent être modifiés!",
+                "updated": 1630681005766
+            },
+            {
+                "language": "IT",
+                "text": "I Workspaces si possono adattare!",
+                "updated": 1639072897945
+            },
+            {
+                "language": "TR",
+                "text": "Çalışma alanları ( Workspaces ) değiştirilebilir!",
+                "updated": 1640616032095
+            },
+            {
+                "language": "RU",
+                "text": "Рабочее пространство можно поменять!",
+                "updated": 1640632880649
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I arranged the workspace in a slightly different way compared to Getting Started. It's a good practice to customize the workspace to keep it tidy and clean. Remember that every hierarchy, node or offspring can impact on your machine resources.",
+            "updated": 1629344708619,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Ich habe den Workspace im Vergleich zu Getting Started (\"Erste Schritte\") etwas anders angeordnet. Es ist eine gute Praxis, den Workspace anzupassen, um ihn aufgeräumt und sauber zu halten. Denke daran, dass jede Hierarchie, jeder Knoten und jeder Nachfolgende Auswirkungen auf deine Maschinenressourcen haben kann.",
+                    "updated": 1622977620392,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Arreglé el workspace de una manera ligeramente diferente en comparación con Getting Started. Es una buena práctica personalizar el workspace para mantenerlo ordenado y limpio. Recuerda que cada jerarquía, nodo o descendencia puede afectar los recursos de tu máquina.",
+                    "updated": 1629344864911,
+                    "style": "Text"
+                },
+                {
+                    "language": "FR",
+                    "text": "J'ai organisé le workspace d'une manière légèrement différente par rapport à la section Getting started. C'est une bonne pratique de personnaliser l'espace de travail pour le garder propre et ordonné. N'oubliez pas que chaque hiérarchie, nœud ou rejeton peut avoir un impact sur les ressources de votre machine.",
+                    "updated": 1630681166508
+                },
+                {
+                    "language": "IT",
+                    "text": "Ho organizzato l'area di lavoro in un modo leggermente diverso rispetto al Getting Started Workspace. È buona norma personalizzare l'area di lavoro per mantenerla ordinata e pulita. Ricorda che ogni gerarchia, nodo o figlio presente nel workspace può avere un impatto sulle risorse della tua macchina.",
+                    "updated": 1639072992103
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çalışma alanı Başlarken çalışma alanına göre biraz farklı bir şekilde ayarladım.Çalışma alanını düzenli ve temiz tutacak şekilde özelleştirmek iyi bir uygulamadır. Her hiyerarşinin, düğümün veya alt öğenin makine kaynaklarınızı etkileyebileceğini unutmayın.",
+                    "updated": 1640616048038
+                },
+                {
+                    "language": "RU",
+                    "text": "Я расположил рабочее пространство несколько иначе, чем в Getting Started Tutorial. Это хорошая практика - настраивать рабочее пространство, чтобы сохранить его опрятным и чистым. Помните, что каждая иерархия, узел или потомок могут повлиять на ресурсы вашей машины.",
+                    "updated": 1640632949728
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Have a look around, right click on empty space and explore the Workspace I arranged for you!",
+            "updated": 1629344734628,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Schau dich um, klicke mit der rechten Maustaste auf eine leere Fläche und erkunde den Workspace, den ich für dich eingerichtet habe!",
+                    "updated": 1622977643971,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Echa un vistazo, haga clic derecho en el espacio vacío y explore el Workspace. ¡Lo arreglé para ti!",
+                    "updated": 1629344896872,
+                    "style": "Success"
+                },
+                {
+                    "language": "FR",
+                    "text": "Jetez un coup d'oeil, cliquez droit sur l'espace vide et explorez le workspace que j'ai arrangé pour vous!",
+                    "updated": 1630681234898
+                },
+                {
+                    "language": "IT",
+                    "text": "Dai un'occhiata in giro, fai clic con il pulsante destro del mouse sullo spazio vuoto ed esplora il workspace che ho organizzato per te!",
+                    "updated": 1639073053751
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Etrafa bir göz atın, boş alana sağ tıklayın ve sizin için düzenlediğim Çalışma Alanını ( Workspace ) keşfedin!",
+                    "updated": 1640616065312
+                },
+                {
+                    "language": "RU",
+                    "text": "Осмотритесь, щелкните правой кнопкой мыши на пустом месте и изучите рабочее пространство, которое я организовал для вас!",
+                    "updated": 1640632964362
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

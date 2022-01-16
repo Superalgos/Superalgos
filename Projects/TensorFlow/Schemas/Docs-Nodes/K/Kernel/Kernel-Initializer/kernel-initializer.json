@@ -1,0 +1,19 @@
+{
+    "type": "Kernel Initializer",
+    "definition": {
+        "text": "Initializer for the kernel weights matrix.",
+        "updated": 1613244248363
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613244268885
+        },
+        {
+            "style": "Javascript",
+            "text": "constant\nglorotNormal\nglorotUniform\nheNormal\nheUniform\nidentity\nleCunNormal\nleCunUniform\nones\northogonal\nrandomNormal\nrandomUniform\ntruncatedNormal\nvarianceScaling\nzeros\nstring",
+            "updated": 1613244326784
+        }
+    ]
+}

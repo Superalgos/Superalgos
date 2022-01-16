@@ -1,0 +1,69 @@
+{
+    "type": "Compile",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "optimizer",
+            "label": "Add Optimizer",
+            "relatedUiObject": "Optimizer",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "lossFunction",
+            "label": "Add Loss Function",
+            "relatedUiObject": "Loss Function",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "metrics",
+            "label": "Add Metrics",
+            "relatedUiObject": "Metrics",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Model->"
+    },
+    "propertyNameAtParent": "compile",
+    "childrenNodesProperties": [
+        {
+            "name": "optimizer",
+            "type": "node",
+            "childType": "Optimizer"
+        },
+        {
+            "name": "lossFunction",
+            "type": "node",
+            "childType": "Loss Function"
+        },
+        {
+            "name": "metrics",
+            "type": "node",
+            "childType": "Metrics"
+        }
+    ],
+    "icon": "tensorflow"
+}

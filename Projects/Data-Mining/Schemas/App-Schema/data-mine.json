@@ -1,0 +1,90 @@
+{
+    "type": "Data Mine",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "iconProject": "Foundations",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate",
+            "actionProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Sensor Bot",
+            "relatedUiObject": "Sensor Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add API Data Fetcher Bot",
+            "relatedUiObject": "API Data Fetcher Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Indicator Bot",
+            "relatedUiObject": "Indicator Bot",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Data-Mining"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Plotter",
+            "relatedUiObject": "Plotter",
+            "relatedUiObjectProject": "Foundations",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 0,
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"Type a name with no spaces or dashes\"\n}"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "sensorBots",
+            "type": "array",
+            "childType": "Sensor Bot"
+        },
+        {
+            "name": "apiDataFetcherBots",
+            "type": "array",
+            "childType": "API Data Fetcher Bot"
+        },
+        {
+            "name": "indicatorBots",
+            "type": "array",
+            "childType": "Indicator Bot"
+        },
+        {
+            "name": "plotters",
+            "type": "array",
+            "childType": "Plotter",
+            "project": "Foundations"
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Node's Independence",
+    "definition": {
+        "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest!",
+        "updated": 1615319889017,
+        "icon": {
+            "name": "Set\\set-angle-to-parent-node-to-90-degrees",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Nota come hai modificato l'impostazione Angle to Parent su nodi fratelli e come ognuno di essi ha reagito alla nuova impostazione in maniera indipendente dagli altri!",
+                "updated": 1619460136934,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Observa cómo cambió la configuración de Ángulo a padre en diferentes hermanos y cada uno de ellos reaccionó a la nueva configuración de forma independiente del resto!",
+                "updated": 1625956624650,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Beachten Sie, wie Sie die Einstellung \"Angle to Parent\" bei verschiedenen Geschwistern geändert haben und jedes von ihnen unabhängig von den anderen auf die neue Einstellung reagierte!",
+                "updated": 1634298018896
+            },
+            {
+                "language": "TR",
+                "text": "Farklı alt düğümlerin açı ayarının ana düğüme göre nasıl değiştirdiğinize ve her birinin yeni ayara diğerlerinden bağımsız olarak nasıl tepki verdiğine dikkat edin!",
+                "updated": 1636746759816
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "You control the position of each node from within the node's menu. Not the parent node nor the siblings may affect the position... save for this cool exception:",
+            "updated": 1615459643749,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi controllare la posizione di ogni nodo dal suo menù. Nè il padre nè i fratelli influenzano la posizione, a parte per un'eccezione:",
+                    "updated": 1619460176032,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Tu controlas la posición de cada nodo desde el menú del nodo. Ni el nodo principal ni los hermanos pueden afectar la posición ... excepto por esta genial excepción:",
+                    "updated": 1625956814758,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sie steuern die Position jedes Knotens über das Menü des Knotens. Weder der übergeordnete Knoten noch die Geschwister können die Position beeinflussen... mit dieser coolen Ausnahme:",
+                    "updated": 1634298027723
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümler menüsünden her bir düğümün konumunu kontrol edersiniz. Ne ana düğüm ne de alt düğümlerin konumu etkileyemez... bu harika istisna dışında:",
+                    "updated": 1636746814955
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù!",
+                    "updated": 1619460209880,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ve a el Lightning Strike Backtesting Session y selecciona Add Missing Childrendesde el lado derecho del menú!",
+                    "updated": 1625956891800,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie die Lightning Strike \"Backtesting Session\" auf und wählen Sie \"Add Missing Children\" auf der rechten Seite des Menüs!",
+                    "updated": 1634298035258
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Backtesting Oturumuna gidin ve menünün sağ tarafından Kayıp Çocukları Ekle'yi ( Add Missing Children ) seçin!",
+                    "updated": 1636746977214
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Notice how the Social Bots node inherited the Angle to Parent setting from its closest sibling!",
+            "updated": 1615322906744,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Nota come il nodo Social Bots ha ereditato la proprietà Angle to Parent dal più vicino nodo fratello!",
+                    "updated": 1619460248115,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Nota como el nodo Social Bots  heredó el ajuste Ángulo a padre de su hermano más cercano.",
+                    "updated": 1625956967094,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass der Knoten \"Social Bots\" die Einstellung \"Winkel zum Elternteil\" von seinem nächsten Geschwisterknoten geerbt hat!",
+                    "updated": 1634298043102
+                },
+                {
+                    "language": "TR",
+                    "text": "Sosyal Botlar ( Social Bots ) düğümünün, ana düğüm ayarını en yakın kardeşinden nasıl devraldığına dikkat edin!",
+                    "updated": 1636747051481
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

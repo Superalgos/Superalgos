@@ -1,0 +1,140 @@
+{
+    "type": "Indicator Bot",
+    "definition": {
+        "text": "An indicator bot is an algorithm that processes information that other bots have generated, and produces elaborate datasets for others to consume.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Indicator Bot es un algoritmo que procesa información que otros bots han generado y produce conjuntos de datos elaborados para que otros los consuman.",
+                "updated": 1641154316543
+            },
+            {
+                "language": "RU",
+                "text": "Indicator Bot - это алгоритм, который обрабатывает информацию, сгенерированную другими ботами, и создает сложные наборы данных для использования другими.",
+                "updated": 1639407131724
+            },
+            {
+                "language": "DE",
+                "text": "Ein Indikator-Bot ist ein Algorithmus, der Informationen verarbeitet, die andere Bots generiert haben, und umfangreiche Datensätze erstellt, die von anderen genutzt werden können.",
+                "updated": 1636658543393
+            },
+            {
+                "language": "TR",
+                "text": "Gösterge botu, diğer botların oluşturduğu bilgileri işleyen ve diğerlerinin kullanabilmesi için ayrıntılı veri kümeleri üreten bir algoritmadır.",
+                "updated": 1639144364847
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The indicator bot node holds all definitions required for an indicator bot to function. Definitions are split between the definition of processes and products. Processes are algorithms that go through an input dataset, perform certain calculations, and produce an output. Products are the outcome of the work produced by these algorithms, in the form of elaborate data sets.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die indicator bot node enthält alle Definitionen, die für die Funktion eines indicator bot erforderlich sind. Die Definitionen sind aufgeteilt in die Definition von Prozessen und Produkten. Prozesse (Processes) sind Algorithmen, die einen Eingabedatensatz durchlaufen, bestimmte Berechnungen durchführen und eine Ausgabe erzeugen. Products sind das Ergebnis der von diesen Algorithmen geleisteten Arbeit in Form von ausgearbeiteten Datensätzen.",
+                    "updated": 1636658558739
+                },
+                {
+                    "language": "RU",
+                    "text": "Узел Indicator Bot содержит все определения, необходимые для функционирования индикаторного бота. Определения делятся на определение процессов и продуктов. Процессы - это алгоритмы, которые обрабатывают входной набор данных, выполняют определенные вычисления и производят выходные данные. Продукты - это результат работы этих алгоритмов, в виде сложных наборов данных.",
+                    "updated": 1639407191325
+                },
+                {
+                    "language": "ES",
+                    "text": "El nodo del Indicator Bot contiene todas las definiciones necesarias para que un Indicator Bot funcione. Las definiciones se dividen entre la definición de procesos y productos. Los procesos son algoritmos que recorren un conjunto de datos de entrada, realizan ciertos cálculos y producen una salida. Los productos son el resultado del trabajo producido por estos algoritmos, en forma de conjuntos de datos elaborados.",
+                    "updated": 1641154404880
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Most of the behavior expected from an indicator bot is defined by the structure of nodes in the hierarchy and the references among the nodes within these definitions. As such, you do not need to code any of the functions that make up the infrastructure functionality. Dependencies, outputs, data structures, execution sequences, and several other problems are handled by the definitions embodied in the structure of nodes that make up an indicator, and are configured in the visual environment of the design space. Coding is limited to the actual calculation and data building procedures.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Großteil des von einem indicator-Bot erwarteten Verhaltens wird durch die Struktur der nodes in der hierarchy und die references (Verweise) zwischen den nodes innerhalb dieser Definitionen festgelegt. Daher müssen Sie keine der Funktionen, die die infrastructure functionality ausmachen, programmieren. Dependencies, outputs, data structures, execution sequences und verschiedene andere Probleme werden durch die Definitionen in der Struktur der nodes, aus denen ein indicator bot besteht, gehandhabt und werden in der visuellen Umgebung des Design Space konfiguriert. Die Programmierung beschränkt sich auf die eigentlichen Berechnungs/Datenaufbau -Verfahren.",
+                    "updated": 1636658578266
+                },
+                {
+                    "language": "RU",
+                    "text": "Большая часть поведения, ожидаемого от индикаторного бота, определяется структурой узлов в иерархии и ссылками между узлами в этих определениях. Таким образом, вам не нужно кодировать какие-либо функции, составляющие функциональность инфраструктуры. Зависимости, выходы, структуры данных, последовательности выполнения, и несколько других проблем решаются с помощью определений, воплощенных в структуре узлов, составляющих индикатор, и конфигурируются в визуальной среде пространства дизайна. Кодирование ограничивается фактическими процедурами расчета и построения данных.",
+                    "updated": 1639407239669
+                },
+                {
+                    "language": "ES",
+                    "text": "La mayor parte del comportamiento que se requiere de un bot indicador está definido por la estructura de los nodos en la jerarquía y las referencias entre los nodos dentro de estas definiciones. Como tal, no es necesario que codifique ninguna de las funciones que componen la funcionalidad de la infraestructura. Las dependencias, las salidas, las estructuras de datos, las secuencias de ejecución y varios otros problemas son manejados por las definiciones plasmadas en la estructura de nodos que componen un indicador, y se configuran en el entorno visual del espacio de diseño. La codificación se limita a los procedimientos reales de cálculo y construcción de datos.",
+                    "updated": 1641154559347
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Indicator Bot Configuration",
+            "updated": 1609789150912,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Indicator Bot Konfiguration:",
+                    "updated": 1636658588076
+                },
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Indicator Bot",
+                    "updated": 1639407254890
+                },
+                {
+                    "language": "ES",
+                    "text": "Configuración del Indicator Bot",
+                    "updated": 1641154567825
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Properties",
+            "updated": 1609789156452,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1639407265849
+                },
+                {
+                    "language": "ES",
+                    "text": "Propiedades",
+                    "updated": 1641154573409
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "codeName is the name of the bot as used within the code of the system.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "codeName ist der Name des Bots, wie er im (Programm)-Code des Systems verwendet wird.",
+                    "updated": 1636658601783
+                },
+                {
+                    "language": "RU",
+                    "text": "codeName - это название бота, используемое в коде системы.",
+                    "updated": 1639407293199
+                },
+                {
+                    "language": "ES",
+                    "text": "codeName es el nombre del bot tal y como se utiliza en el código del sistema.",
+                    "updated": 1641154594257
+                }
+            ]
+        }
+    ]
+}

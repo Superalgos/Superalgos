@@ -1,0 +1,117 @@
+{
+    "type": "Condition",
+    "definition": {
+        "text": "Conditions are rules within a situation. When all conditions under a situation validate true, then the situation gets validated as well, and the associated event is triggered.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Conditions son reglas dentro de una situación. Cuando todas las condiciones de una situación se validan como verdaderas, la situación también se valida y se activa el evento asociado.",
+                "updated": 1624459710047
+            },
+            {
+                "language": "RU",
+                "text": "Condition - это правила внутри ситуации. Когда все условия в ситуации проверяются на истинность, ситуация также проверяется, и запускается соответствующее событие.",
+                "updated": 1639849525514
+            },
+            {
+                "language": "TR",
+                "text": "Koşullar, bir durum içindeki kurallardır. Bir durum altındaki tüm koşullar doğru olduğunda, durum da doğrulanır ve ilgili olay tetiklenir.",
+                "updated": 1639222523066
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Therefore, conditions are used to mathematically describe what needs to happen with the market for a certain action to be taken.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Таким образом, условия используются для математического описания того, что должно произойти с рынком для выполнения определенного действия.",
+                    "updated": 1638647845891
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For example:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1638647858497
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Situation 1",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ситуация 1",
+                    "updated": 1638647869436
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Condition A: chart.at01hs.candle.close > chart.at01hs.bollingerBand.MovingAverage",
+            "updated": 1610211782596
+        },
+        {
+            "style": "Note",
+            "text": "This means that the latest candle at the 1 hour chart closed above the Bollinger Bands moving average.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что последняя свеча на часовом графике закрылась выше скользящей средней полосы Боллинджера.",
+                    "updated": 1638647890361
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Condition B: chart.at01hs.candle.previous.max > chart.at01hs.bollingerBand.previous.MovingAverage",
+            "updated": 1610211804682
+        },
+        {
+            "style": "Note",
+            "text": "This means that the maximum value of the candle before the last one, was higher than the Bollinger Bands moving average.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это означает, что максимальное значение свечи перед последней было выше скользящей средней полосы Боллинджера.",
+                    "updated": 1638647906181
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "In the example above, conditions A and B are comparison statements that may evaluate either true or false. In the case both would evaluate true then Situation 1 would be true as well.",
+            "updated": 1609595293131,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": ".В приведенном выше примере условия A и B представляют собой операторы сравнения, которые могут оценивать как true, так и false. В случае, если оба будут оценивать как true, то ситуация 1 также будет верной.",
+                    "updated": 1638648000709
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "To learn how to write conditions, start with the Syntax Overview.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы узнать, как писать условия, начните с обзора Syntax Overview.",
+                    "updated": 1638648036555
+                }
+            ]
+        }
+    ]
+}

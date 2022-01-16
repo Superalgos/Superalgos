@@ -1,0 +1,69 @@
+{
+    "type": "Trigger Stage",
+    "menuItems": [
+        {
+            "action": "Add Missing Children",
+            "label": "Add Missing Events",
+            "relatedUiObject": "Trigger Stage",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Announcement",
+            "relatedUiObject": "Announcement",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Social-Bots",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Strategy->Portfolio Strategy->"
+    },
+    "childrenNodesProperties": [
+        {
+            "name": "triggerOn",
+            "type": "node",
+            "childType": "Trigger On Event",
+            "autoAdd": true
+        },
+        {
+            "name": "triggerOff",
+            "type": "node",
+            "childType": "Trigger Off Event",
+            "autoAdd": true
+        },
+        {
+            "name": "takePosition",
+            "type": "node",
+            "childType": "Take Position Event",
+            "autoAdd": true
+        },
+        {
+            "name": "announcements",
+            "type": "array",
+            "childType": "Announcement",
+            "project": "Social-Bots"
+        },
+        {
+            "name": "userDefinedCode",
+            "type": "node",
+            "childType": "User Defined Code",
+            "autoAdd": false
+        }
+    ],
+    "propertyNameAtParent": "triggerStage"
+}

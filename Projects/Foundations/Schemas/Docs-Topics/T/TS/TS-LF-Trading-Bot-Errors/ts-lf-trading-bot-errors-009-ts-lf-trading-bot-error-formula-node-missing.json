@@ -1,0 +1,21 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 9,
+    "type": "TS LF Trading Bot Error - Formula Node Missing",
+    "definition": {
+        "text": "A Formula node was expected but not found at the node where the error originated.",
+        "updated": 1611939289307
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Formula Node Missing",
+            "updated": 1611597209589
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again. The session will not run free of errors until all required nodes are defined.",
+            "updated": 1611939303905
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "topic": "Candles Data Mine",
+    "pageNumber": "1",
+    "type": "Candles by @luis_fernando_molina",
+    "definition": {
+        "text": "The Candles Data Mine features the Exchange Raw Data Sensor Bot and the Candles Volumes Indicator Bot.",
+        "updated": 1622481284246
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481391711
+        },
+        {
+            "style": "Link",
+            "text": "@luis_fernando_molina (Telegram)->t.me/luis_fernando_molina"
+        }
+    ]
+}

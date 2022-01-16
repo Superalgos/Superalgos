@@ -1,0 +1,16 @@
+{
+    "topic": "App Commands",
+    "pageNumber": "1",
+    "type": "App PRs Command",
+    "definition": {
+        "text": "This command allows you to check all existing PRs and automatically close the ones that do not comply with PRs Rules or merge the ones they do. It also leaves untouched the PRs that are out of the scope of the PRs Rules.",
+        "updated": 1610909304702
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Add more text here.",
+            "updated": 1622028842412
+        }
+    ]
+}

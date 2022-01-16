@@ -1,0 +1,47 @@
+{
+    "type": "Education Project",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Tutorial",
+            "iconProject": "Education",
+            "relatedUiObject": "Tutorial",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Docs Space",
+            "relatedUiObject": "Docs Space",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Education"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Foundations",
+            "autoAdd": true
+        }
+    ],
+    "icon": "education"
+}

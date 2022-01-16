@@ -1,0 +1,25 @@
+{
+    "type": "Viewport",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        }
+    ],
+    "initialValues": {
+        "config": "{ \n\"topMargin\": 40,\n\"bottomMargin\": 40\n}"
+    },
+    "addLeftIcons": true,
+    "editors": {
+        "config": true
+    },
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Charting Space->"
+    },
+    "propertyNameAtParent": "viewport"
+}

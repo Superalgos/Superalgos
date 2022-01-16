@@ -1,0 +1,19 @@
+{
+    "type": "Kernel Constraint",
+    "definition": {
+        "text": "Constraint for the kernel weights.",
+        "updated": 1613244365425
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613244375424
+        },
+        {
+            "style": "Javascript",
+            "text": "maxNorm\nminMaxNorm\nnonNeg\nunitNorm\nstring",
+            "updated": 1613244425597
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 23,
+    "type": "TS LF Trading Bot Error - Rate Node Missing",
+    "definition": {
+        "text": "A Rate node was expected but not found at the node where the error originated.",
+        "updated": 1611649820795
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Rate Node Missing",
+            "updated": 1611650403594
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

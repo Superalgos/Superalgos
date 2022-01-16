@@ -1,0 +1,17 @@
+{
+    "topic": "Gov Commands Messages",
+    "pageNumber": "3",
+    "type": "Gov Message - Paying Contributors",
+    "definition": {
+        "text": "The process to pay contributors has been started. Hold on!",
+        "translations": []
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "You will soon get a notice informing you whether the process succeed to pay all contributors or not.",
+            "translations": [],
+            "updated": 1627203557237
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "type": "Sequential layer",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "typeOfLayer",
+            "label": "Add Activation Layers",
+            "relatedUiObject": "Advanced Activation Layers",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "typeOfLayer",
+            "label": "Add Basic Layers",
+            "relatedUiObject": "Basic Layers",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "typeOfLayer",
+            "label": "Add Convolutional Layers",
+            "relatedUiObject": "Convolutional Layers",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Sequential Model->"
+    },
+    "propertyNameAtParent": "layers",
+    "childrenNodesProperties": [
+        {
+            "name": "typeOfLayer",
+            "type": "node",
+            "childType": "Advanced Activation Layers"
+        },
+        {
+            "name": "typeOfLayer",
+            "type": "node",
+            "childType": "Basic Layers"
+        },
+        {
+            "name": "typeOfLayer",
+            "type": "node",
+            "childType": "Convolutional Layers"
+        }
+    ],
+    "icon": "tensorflow"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "low-frequency-learning",
+  "version": "0.0.6",
+  "description": "Learning Bot",
+  "main": "TensorFlowLibrary.js",
+  "author": {
+  "name": "Luis-F-Molina && Philip-W-Love"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^3.8.0"
+  }
+}

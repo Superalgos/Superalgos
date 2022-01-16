@@ -1,0 +1,121 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 31,
+    "type": "Tutorial Step - Hammering Backups Home",
+    "definition": {
+        "text": "Let's go over the same examples that you just read about so that you learn this by heart!",
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        },
+        "updated": 1615824452275,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Proviamo gli esempi che hai appena letto, così da imparare bene!",
+                "updated": 1619502744066,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Repasemos los mismos ejemplos sobre los que acabas de leer para que te los aprendas de memoria!",
+                "updated": 1626613958881,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Gehen wir noch einmal die Beispiele durch, die Sie gerade gelesen haben, damit Sie das auswendig lernen!",
+                "updated": 1634585727295
+            },
+            {
+                "language": "TR",
+                "text": "Bunu iyice pekiştirmek için az önce okuduğunuz örneklerin üzerinden geçelim!",
+                "updated": 1639602759421
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Take a backup of the Lightning Strike Task and restore it without deleting the original task. Then repeat the operation but deleting the original task before restoring the backup.",
+            "updated": 1615826657582,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Fai un backup del nodo Lightning Strike Task e ripristinalo senza cancellare il nodo originale. Poi ripeti l'operazione, ma cancella il nodo originale prima di ripristinare il backup.",
+                    "updated": 1619502813746,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Realiza una copia de seguridad del Lightning Strike Task y restaurarlo sin eliminar la tarea original. Luego repite la operación pero eliminando la tarea original antes de restaurar la copia de seguridad.",
+                    "updated": 1626614204066,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen Sie eine Sicherungskopie des Lightning Strike Tasks und stellen Sie diese wieder her, ohne den ursprünglichen Task zu löschen. Dann wiederholen Sie den Vorgang, löschen aber den ursprünglichen Task, bevor Sie die Sicherung wiederherstellen.",
+                    "updated": 1634585740393
+                },
+                {
+                    "language": "TR",
+                    "text": " Lightning Strike Task düğümünün yedeğini alın ve orijinal görevi silmeden geri yükleyin. Ardından işlemi tekrarlayın, ancak yedeklemeyi geri yüklemeden önce orijinal görevi silin.",
+                    "updated": 1639602833481
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Verify that, in both cases, the outgoing references originating at the Trading System Reference and the Trading Engine Reference nodes are preserved.",
+            "updated": 1615826714283,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Verifica che, in entrambi i casi, le references in uscita dal Trading System Reference e dal Trading Engine References sono mantenute.",
+                    "updated": 1619502861169,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Verifica que, en ambos casos, las referencias salientes originadas en el Trading System Reference y el nodo Trading Engine Reference se conservan.",
+                    "updated": 1626614637489,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissern Sie sich, dass in beiden Fällen die ausgehenden Verweise, die von den Knoten Trading System Reference und Trading Engine Reference ausgehen, erhalten bleiben.",
+                    "updated": 1634585747278
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Remember that outgoing references are always preserved!",
+            "updated": 1615826789684,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Ricorda che le references in uscita sono sempre mantenute!",
+                    "updated": 1619502874482,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Recuerda que las referencias salientes siempre se conservan!",
+                    "updated": 1626614674572,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass ausgehende Referenzen immer erhalten bleiben!",
+                    "updated": 1634585756386
+                },
+                {
+                    "language": "TR",
+                    "text": "Giden referansların her zaman korunduğunu unutmayın!",
+                    "updated": 1639602969456
+                }
+            ]
+        }
+    ]
+}

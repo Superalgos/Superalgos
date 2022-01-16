@@ -1,0 +1,28 @@
+{
+    "topic": "Superalgos Chat Groups",
+    "pageNumber": "5",
+    "type": "UX-UI Group",
+    "definition": {
+        "text": "This is where designers meet to discuss user experience and interface improvements.",
+        "updated": 1618845851945,
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Tasarımcıların kullanıcı deneyimini ve arayüz iyileştirmelerini tartışmak için buluştuğu yer burasıdır.",
+                "updated": 1639393279173
+            },
+            {
+                "language": "RU",
+                "text": "Здесь дизайнеры встречаются для обсуждения пользовательского интерфейса и его усовершенствования.",
+                "updated": 1640353617087
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "Use this link to join the group->t.me/superalgosuxui",
+            "updated": 1618845888490
+        }
+    ]
+}

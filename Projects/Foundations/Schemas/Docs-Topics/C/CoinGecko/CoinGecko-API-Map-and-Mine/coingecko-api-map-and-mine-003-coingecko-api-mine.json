@@ -1,0 +1,70 @@
+{
+    "topic": "CoinGecko API Map and Mine",
+    "pageNumber": 3,
+    "type": "CoinGecko API Mine",
+    "definition": {
+        "text": "This data mine processes data fetched from the CoinGecko API Map.",
+        "updated": 1622689326578
+    },
+    "paragraphs": [
+        {
+            "style": "Note",
+            "text": "There are currently not plotters for this mine. This means that there are currently no visual representations of this data for the charts. However, all data is processed into Multi-Time-Frame-Daily and Multi-Time-Frame-Market data types making it ready to be used by other SA bots.",
+            "updated": 1622689830172
+        },
+        {
+            "style": "Title",
+            "text": "Processed Values",
+            "updated": 1622689893560
+        },
+        {
+            "style": "List",
+            "text": "id: name of returned coin (string)."
+        },
+        {
+            "style": "List",
+            "text": "market_cap_rank: Current ranking of coin based on its overall share of the crypto market cap (number)."
+        },
+        {
+            "style": "List",
+            "text": "sentiment_votes_up_percentage: Percentage of up votes for coin through CoinGecko platforms (number)."
+        },
+        {
+            "style": "List",
+            "text": "sentiment_votes_down_percentage: Percentage of down votes for coin through CoinGecko platforms (number)."
+        },
+        {
+            "style": "List",
+            "text": "block_time_in_minutes: Current time in minutes taken to mine the last block of coin (number)."
+        },
+        {
+            "style": "List",
+            "text": "coingecko_score: Overall trust score given to coin by the CoinGecko platform (number)."
+        },
+        {
+            "style": "Note",
+            "text": "CoinGecko score is an aggregated score combining liquidity, community, and developer scores.",
+            "updated": 1622846902289
+        },
+        {
+            "style": "List",
+            "text": "liquidity_score: Liquidity health score given by the CoinGecko platform (number)."
+        },
+        {
+            "style": "List",
+            "text": "community_score: Community strength score given by the CoinGecko platform (number)."
+        },
+        {
+            "style": "List",
+            "text": "developer_score: Developer strength score given by the CoinGecko platform (number)."
+        },
+        {
+            "style": "List",
+            "text": "public_interest_score: Level of public interest score given by the CoinGecko platform (number)."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

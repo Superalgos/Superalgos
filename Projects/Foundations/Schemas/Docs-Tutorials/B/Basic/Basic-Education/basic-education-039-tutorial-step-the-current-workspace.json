@@ -1,0 +1,155 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 39,
+    "type": "Tutorial Step - The Current Workspace",
+    "definition": {
+        "text": "The current workspace is the User Workspace or the Plugin Workspace you are using at any point.",
+        "icon": {
+            "name": "workspace",
+            "project": "Foundations"
+        },
+        "updated": 1629895521103,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il workspace corrente è quello in uso in un dato momento.",
+                "updated": 1619553876743,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El espacio de trabajo actual es el User Workspace que estés utilizando en cualquier momento.",
+                "updated": 1626621294273,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der aktuelle Workspace ist der User Workspace oder der Plugin Workspace, den Sie gerade verwenden.",
+                "updated": 1634587888849
+            },
+            {
+                "language": "TR",
+                "text": "Şu anki çalışma alanı, herhangi bir noktada kullandığınız Kullanıcı Çalışma Alanı ( User Workspace ) veya Eklenti Çalışma Alanıdır ( Plugin Workspace ).\n",
+                "updated": 1639766680038
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "If you close and restart the app, or refresh the UI, the system loads the workspace that was last in use.",
+            "updated": 1615907362014,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Se chiudi e riapri l'app, o aggiorni la UI, il sistema carica l'ultimo workspace utilizzato.",
+                    "updated": 1619553925670,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Si cierras y reinicias la aplicación, o actualizas el User Interface, el sistema carga el ultimo Workspace usado.",
+                    "updated": 1626622914590,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie die Anwendung schließen und neu starten oder die Benutzeroberfläche UI aktualisieren, lädt das System den zuletzt verwendeten Workspace.",
+                    "updated": 1634587898657
+                },
+                {
+                    "language": "TR",
+                    "text": "Uygulamayı kapatıp yeniden başlatırsanız veya kullanıcı arayüzünü ( UI ) yenilerseniz, sistem en son kullanımda olan çalışma alanını yükler.",
+                    "updated": 1639766730029
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Access the menu of the Workspace node, double-click on the \"Getting Started Tutorials\" label and change it to \"Basic Education\".",
+            "updated": 1622375773294,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai al menù del nodo Workspace, fai doppio click sul label Getting Started e cambia il nome del workspace in \"Basic Education\".",
+                    "updated": 1619553975961,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Accede al menú del nodo Workspace, doble clic en la etiqueta  \"Getting Started Tutorials\" y cámbialo a \"Basic Education\".",
+                    "updated": 1626621401640,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Rufen Sie das Menü des Knotens Workspace auf, doppelklicken Sie auf die Bezeichnung \"Getting Started Tutorials\" und ändern Sie sie in \"Basic Education\".",
+                    "updated": 1634587910330
+                },
+                {
+                    "language": "TR",
+                    "text": "Workspace düğümünün menüsünü açın, \"Gettşing Started Tutorial\" etiketine çift tıklayın ve \"Basic Education\" olarak değiştirin.",
+                    "updated": 1639766836285
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Now hit Ctrl + Shift + Alt + Key-S",
+            "updated": 1615907276880,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Poi premi Ctrl + Shift + Alt + Key-S",
+                    "updated": 1619553982192,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ahora presiona  Ctrl + Shift + Alt + Key-S",
+                    "updated": 1626621439639,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie nun Ctrl + Shift + Alt + Key-S",
+                    "updated": 1634587951733
+                },
+                {
+                    "language": "TR",
+                    "text": "Ve bu tuş kombinasyonunu kullanarak çalışma alanınızı kaydedin:  Ctrl + Shift + Alt + Key-S",
+                    "updated": 1639766873790
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
+            "updated": 1622635421285,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Hai creato un workspace! Vai alla cartella My-Workspaces e verifica che il nuovo file sia là.",
+                    "updated": 1619554083035,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Ve a la carpeta My-Workspaces para verificar que el nuevo archivo está allí. ¡Encuéntralo también en la pestaña de espacios de trabajo!",
+                    "updated": 1626622475717,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zum Ordner My-Workspaces , um zu überprüfen, ob die neue Datei dort vorhanden ist. Sie finden sie auch auf der Registerkarte Workspaces !",
+                    "updated": 1634587938906
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni dosyanın orada olduğunu doğrulamak için Dosya gezgininizde Superalgos klasörünün altında, az önce verdilen yolu kontrol edin. ",
+                    "updated": 1639766984680
+                }
+            ]
+        }
+    ]
+}

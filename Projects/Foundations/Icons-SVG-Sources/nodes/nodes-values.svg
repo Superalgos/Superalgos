@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="96 11 512 512" style="enable-background:new 96 11 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#FFD1A9;}
+	.st3{fill:#FF8C29;}
+	.st4{fill:#FD6A33;}
+	.st5{fill:#F0353D;}
+	.st6{fill:#FFFFFF;}
+	.st7{fill:none;stroke:#FF8C29;stroke-width:15;stroke-linecap:round;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FD6A33;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st9{fill:#365558;}
+	.st10{fill:#0295AA;}
+	.st11{fill:#4ACFD9;}
+	.st12{fill:#9BAAAB;}
+	.st13{fill:#CDD4D5;}
+	.st14{fill:#E6EAEA;}
+	.st15{fill:#BCD643;}
+	.st16{font-family:'SairaCondensed-Medium';}
+	.st17{font-size:121.5105px;}
+</style>
+<g id="Layer_3" class="st0">
+	<rect x="714" y="-607.4" class="st1" width="512" height="512.8"/>
+</g>
+<path class="st2" d="M408.5,267c0-31.1-25.3-56.4-56.4-56.4s-56.5,25.3-56.5,56.4s25.3,56.4,56.4,56.4
+	C383.1,323.5,408.5,298,408.5,267z"/>
+<path class="st3" d="M352,323.5V210.6c-31.1,0-56.4,25.3-56.4,56.4S320.9,323.5,352,323.5z"/>
+<path class="st4" d="M386.8,267c0-19.2-15.6-34.8-34.8-34.8s-34.8,15.7-34.8,34.8c0,19.1,15.6,34.8,34.8,34.8S386.8,286.1,386.8,267
+	z"/>
+<path class="st5" d="M352,232.1c-19.2,0-34.8,15.6-34.8,34.8c0,19.2,15.6,34.8,34.8,34.8V232.1z"/>
+<path class="st6" d="M372,267c0,11-8.9,19.9-19.9,19.9c-2.8,0-5.1-2.3-5.1-5.1s2.3-5.1,5.1-5.1c5.4,0,9.8-4.4,9.8-9.8
+	c0-2.8,2.3-5.1,5.1-5.1S372,264.1,372,267z"/>
+<path class="st7" d="M271.3,266.4c0,44.6,36.1,80.7,80.7,80.7"/>
+<path class="st7" d="M432.7,266.4c0-44.6-36.1-80.7-80.7-80.7"/>
+<path class="st8" d="M242.7,267c0,60.4,49,109.3,109.3,109.3"/>
+<path class="st8" d="M461.3,267c0-60.4-49-109.3-109.3-109.3"/>
+<rect x="-470" y="5.8" class="st5" width="128" height="128"/>
+<rect x="-342" y="5.8" class="st4" width="128" height="128"/>
+<rect x="-214" y="5.8" class="st3" width="128" height="128"/>
+<rect x="-86" y="5.8" class="st2" width="128" height="128"/>
+<rect x="-470" y="133.8" class="st9" width="128" height="128"/>
+<rect x="-342" y="133.8" class="st10" width="128" height="128"/>
+<rect x="-214" y="133.8" class="st11" width="128" height="128"/>
+<rect x="-470" y="261.8" class="st12" width="128" height="128"/>
+<rect x="-342" y="261.8" class="st13" width="128" height="128"/>
+<rect x="-214" y="261.8" class="st14" width="128" height="128"/>
+<rect x="-86" y="261.8" class="st6" width="128" height="128"/>
+<rect x="-470" y="389.8" class="st15" width="128" height="128"/>
+<text transform="matrix(1 0 0 1 202.1187 97.3503)" class="st11 st16 st17">20,937</text>
+</svg>

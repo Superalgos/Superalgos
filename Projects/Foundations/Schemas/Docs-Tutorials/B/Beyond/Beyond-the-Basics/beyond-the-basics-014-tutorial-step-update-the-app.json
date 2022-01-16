@@ -1,0 +1,145 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 14,
+    "type": "Tutorial Step - Update the App!",
+    "definition": {
+        "text": "It's good practice to be up-to-date before contributing or when troubleshooting or reporting errors of any kind!",
+        "icon": {
+            "name": "indicator-process-instance",
+            "project": "Foundations"
+        },
+        "updated": 1636914372518,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il comando App Update scarica l'ultima versione del software dalla repo originale nel Current Branch!",
+                "updated": 1619635188773,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "El App Update Command obtiene la última versión del software del repositorio upstream en el Current Branch!",
+                "updated": 1628186697267,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der App Update Command holt die neueste Version der Software aus dem Upstream Repository im aktuellen Zweig!",
+                "updated": 1635148204351
+            },
+            {
+                "language": "RU",
+                "text": "Перед внесением вклада, а также при устранении неполадок или сообщении об ошибках любого рода рекомендуется обновлять данные!",
+                "updated": 1640158960617
+            },
+            {
+                "language": "TR",
+                "text": "Katkıda bulunmadan önce veya herhangi bir türdeki hatayı giderirken yada bildirirken superalgos'un güncel olması gerekir!",
+                "updated": 1640554335251
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The App Update Command fetches the latest version of the software from the upstream repository in the Current Branch!",
+            "updated": 1636914274377,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Puoi usare questo comando su una qualsiasi delle branch! Eccolo:",
+                    "updated": 1619635221928,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Eso significa que puede usar este comando en cualquiera de las ramas! Eso es todo:",
+                    "updated": 1628186724646,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass Sie diesen Befehl in jedem der Zweige verwenden können! Das ist es:",
+                    "updated": 1635148211414
+                },
+                {
+                    "language": "RU",
+                    "text": "Команда App Update Command извлекает последнюю версию программного обеспечения из репозитория upstream в текущей ветке Current Branch!",
+                    "updated": 1640158999138
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "app.update"
+        },
+        {
+            "style": "Callout",
+            "text": "Copy and run the command in the search/command box at the far top of the Docs.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Copia e lancia il comando!",
+                    "updated": 1619635232561,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Copia y ejecuta el comando!",
+                    "updated": 1628186919347,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Kopieren Sie den Befehl und führen Sie ihn aus indem sie Ihn in den Docs ganz oben im Such- und Befehlsfeld eingeben. ",
+                    "updated": 1635148726927
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте и запустите команду в окне поиска/команды в самом верху вкладки Docs.",
+                    "updated": 1640159069819
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfanın en üst kısmındaki arama/komut kutusuna yukarıdaki komutu kopyalayıp çalıştırın.",
+                    "updated": 1640554566255
+                }
+            ],
+            "updated": 1635148665427
+        },
+        {
+            "style": "Success",
+            "text": "Because you just switched branches, you should already be up to date!",
+            "updated": 1636914400732,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una volta che l'update è completo, dovrai chiudere l'app, riavviarla, cercare il tutorial e proseguire, proprio come hai fatto prima!",
+                    "updated": 1619635269785,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que se realiza la actualización, deberás cerrar la aplicación nuevamente, reiniciarla, buscar el tutorial y hacer clic en Resume, ¡como hiciste antes!",
+                    "updated": 1628186790847,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Aktualisierung abgeschlossen ist, müssen Sie die App wieder schließen, neu starten, das Tutorial finden und auf Fortsetzen klicken, genau wie Sie es zuvor getan haben!",
+                    "updated": 1635148282859
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку вы только что сменили ветку, вы уже должны быть в курсе последних изменений!",
+                    "updated": 1640159174947
+                },
+                {
+                    "language": "TR",
+                    "text": "Şube değiştirdiğiniz için zaten güncel olmalısınız!",
+                    "updated": 1640554583592
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "type": "Portfolio System",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Events Manager",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "eventsManager",
+            "relatedUiObject": "Events Manager",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Formulas Manager",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formulasManager",
+            "relatedUiObject": "Formulas Manager",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "eventsManager",
+            "type": "node",
+            "childType": "Events Manager",
+            "autoAdd": true,
+            "project": "Portfolio-Management"
+        },
+        {
+            "name": "formulasManager",
+            "type": "node",
+            "childType": "Formulas Manager",
+            "autoAdd": true,
+            "project": "Portfolio-Management"
+        }
+    ]
+}

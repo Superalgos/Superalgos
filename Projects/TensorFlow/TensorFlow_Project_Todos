@@ -1,0 +1,28 @@
+*** TensorFlow Project Todo Notes ***
+
+8/24/21 - Beta Version being pushed to Code in order for people to begin experimenting with the functionality if they wish.
+
+SA Devs Please Update the below with additional todo findings and/or the date in which a todo was completed.
+Pending == Person has begun this work.
+
+
+*TODO*	       	      	  	     		     *Completed*
+================================================================
+1.) New App-Schemas may require icons
+2.) Access to Learn-Eng Predictions from Trade System	Pending(Pluvtech)
+3.) Integrate the idea of candle.future
+4.) Test other loss types
+    a.) Tested so far: crossCategoricalEntropy, binaryEntropy
+5.) Develop more data-engineering methods in MLDataManager.js
+    a.) Catch/Clean erroneous samples
+    b.) Expand logic to include more than one input, i.e.- Higher ranks for Functional Model implementation.
+    c.) Expose stats so they may be accessed from other parts of SA
+    d.) Add additional standardizing/normalizing functions
+6.) ML - Tutorial
+7.) ML - Medium Article for SA				Pending(Pluvtech)
+8.) Integrate additional types (functional model, unsupervised, ...)
+9.) Test/implement custom bias types
+10.) Test/fix so that things appear in charting space.
+11.) Develop / share a better sample model plugin.
+12.) Documentation for ML Project and Nodes.		Pending(Pluvtech)
+13.) Fix heatbeat spamming console    			Pending(Pluvtech)

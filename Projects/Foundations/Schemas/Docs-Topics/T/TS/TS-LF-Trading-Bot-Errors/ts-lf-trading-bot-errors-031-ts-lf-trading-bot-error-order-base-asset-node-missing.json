@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 31,
+    "type": "TS LF Trading Bot Error - Order Base Asset Node Missing",
+    "definition": {
+        "text": "An Order Base Asset node was expected but not found at the node where the error originated.",
+        "updated": 1611650015208
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Order Base Asset Node Missing",
+            "updated": 1611650767027
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "type": "Mines",
+    "definition": {
+        "text": "Mines refers to the different types of mines for which definitions exist in the form of hierarchies. At this stage, the node may spawn Data Mine, Trading Mine, and Learning Mine hierarchies.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Mines se refiere a los diferentes tipos de minas para las que existen definiciones en forma de jerarquías. En esta etapa, el nodo puede generar jerarquías de Data Mine, Trading Mine, y Learning Mine.",
+                "updated": 1628903154447
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1609702311223
+        },
+        {
+            "style": "Success",
+            "text": "Use the menu to spawn new hierarchies.",
+            "updated": 1609702365986
+        }
+    ]
+}

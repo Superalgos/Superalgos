@@ -1,0 +1,79 @@
+{
+    "type": "Profile Constructor",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Build Profile Wallet",
+            "actionProject": "Governance",
+            "label": "Build Profile and New Wallet",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Build Profile Mnemonic",
+            "actionProject": "Governance",
+            "label": "Build Profile with Mnemonic",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Build Profile WalletConnect",
+            "actionProject": "Governance",
+            "label": "Build Profile with WalletConnect",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Install Signing Accounts",
+            "actionProject": "Governance",
+            "label": "Install Signing Accounts",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Profile Constructor",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \"githubUsername\": \"\", \"mnemonic\": \"\"}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->User Profile->"
+    },
+    "isPersonalData": true
+}

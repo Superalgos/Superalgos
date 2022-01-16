@@ -1,0 +1,18 @@
+{
+    "type": "Relu Layer",
+    "definition": {
+        "text": "Rectified Linear Unit activation function.",
+        "updated": 1613216977133
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary. Use the config field inputShape (Array of integers, does not include the sample axis) when using this layer as the first layer in a model.",
+            "updated": 1613216997299
+        },
+        {
+            "style": "List",
+            "text": "Output shape: Same shape as the input."
+        }
+    ]
+}

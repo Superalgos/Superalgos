@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 12,
+    "type": "TS LF Trading Bot Error - Only One Target Size Allowed",
+    "definition": {
+        "text": "You can not define a Target Size In Base Asset and a Target Size In Quoted Asset simultaneously. You must pick one of the two and delete the remaining one.",
+        "updated": 1611939554501
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Only One Target Size Allowed",
+            "updated": 1611597356700
+        },
+        {
+            "style": "Success",
+            "text": "Delete one of the nodes and try again."
+        }
+    ]
+}

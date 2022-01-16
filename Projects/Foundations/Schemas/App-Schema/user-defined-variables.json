@@ -1,0 +1,37 @@
+{
+    "type": "User Defined Variables",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Variable",
+            "relatedUiObject": "User Defined Variable",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Trading Episode->Portfolio Episode->"
+    },
+    "propertyNameAtParent": "userDefinedVariables",
+    "childrenNodesProperties": [
+        {
+            "name": "userDefinedVariable",
+            "type": "array",
+            "childType": "User Defined Variable",
+            "autoAdd": true
+        }
+    ]
+}

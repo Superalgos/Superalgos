@@ -1,0 +1,45 @@
+{
+    "type": "Portfolio Bot",
+    "definition": {
+        "text": "A portfolio bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other portfolio bots)—applies the portfolio logic defined on a Portfolio System to, on one side, generate a complete portfolio simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live portfolio session.",
+        "updated": 1609861419818,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Portfolio Bot es un programa informático que, basado en conjuntos de datos expuestos como productos por otros bots (sensores de conteo, indicadores e incluso otros portfolio bots ), aplica la lógica portfolio definida en un Portfolio System  para, por un lado, generar una simulación de portfolio completa (generando conjuntos de datos que incluyen operaciones, la acción de estrategias, validación de condiciones, etc.) y, por otro lado, gestiona la ejecución de órdenes en una sesión ya sea en vivo o no.",
+                "updated": 1624375084844
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, a portfolio bot is a computer program designed to leverage the Superalgos infrastructure to provide smart portfolio features to users building, testing, and deploying portfolio systems. As such, a portfolio bot does not feature portfolio logic in and of itself. Instead, it executes the logic defined in portfolio systems."
+        },
+        {
+            "style": "Text",
+            "text": "Put in other words, when Superalgos users define portfolio systems and the portfolio strategies within, they are not building a portfolio bot. Instead, they are defining a set of instructions that a portfolio bot will then interpret and execute."
+        },
+        {
+            "style": "Text",
+            "text": "Portfolio bots have access to every piece of infrastructure built in Superalgos. One of the noteworthy sections of the infrastructure relevant to portfolio bots are portfolio mines themselves. Portfolio bots may be quite complex pieces of software. To name two of the most prominent characteristics: the bot needs to consider multiple dimensions of information and needs to be highly reliable, as its activity entails monetary transactions."
+        },
+        {
+            "style": "Text",
+            "text": "Portfolio mines make building portfolio bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Portfolio Bot Configuration",
+            "updated": 1609861438022
+        }
+    ]
+}

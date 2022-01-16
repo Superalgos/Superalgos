@@ -1,0 +1,34 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 4,
+    "type": "TS LF Trading Bot Error - Reference to Phase Node Missing",
+    "definition": {
+        "text": "The Move To Phase Event node where this error originated is expected to reference a Phase node so that—when all conditions are met—the LF Trading Bot may switch to the referenced Phase.",
+        "updated": 1611929416928
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Reference to Phase Node Missing",
+            "updated": 1611652631671
+        },
+        {
+            "style": "Success",
+            "text": "To fix this, establish a reference from the Move To Phase Event node to a Phase node.",
+            "updated": 1611929817733
+        },
+        {
+            "style": "Title",
+            "text": "Learn More",
+            "updated": 1611929521725
+        },
+        {
+            "style": "List",
+            "text": "Establish and Remove References"
+        },
+        {
+            "style": "List",
+            "text": "Move To Phase Event"
+        }
+    ]
+}

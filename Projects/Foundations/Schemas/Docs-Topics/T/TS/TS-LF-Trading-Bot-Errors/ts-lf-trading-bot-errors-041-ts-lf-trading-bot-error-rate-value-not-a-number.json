@@ -1,0 +1,21 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 41,
+    "type": "TS LF Trading Bot Error - Rate Value Not A Number",
+    "definition": {
+        "text": "The Formula under the Rate node must evaluate to a number.",
+        "updated": 1611943345629
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Rate Value Not A Number",
+            "updated": 1611651124687
+        },
+        {
+            "style": "Success",
+            "text": "Make sure the Formula evaluates to a number and try again.",
+            "updated": 1611943385190
+        }
+    ]
+}

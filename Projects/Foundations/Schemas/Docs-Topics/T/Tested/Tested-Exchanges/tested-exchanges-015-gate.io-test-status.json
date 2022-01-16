@@ -1,0 +1,45 @@
+{
+    "topic": "Tested Exchanges",
+    "pageNumber": 15,
+    "type": "Gate.io Test Status",
+    "definition": {
+        "text": "Passed Live Trading Test but Gate.io doesn't support Market Orders",
+        "updated": 1636810465259
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Properties",
+            "updated": 1636811142009
+        },
+        {
+            "style": "List",
+            "text": "1-min OHLCVs Capability: Yes",
+            "updated": 1636811644277
+        },
+        {
+            "style": "List",
+            "text": "Market History: From August 2020",
+            "updated": 1636811635789
+        },
+        {
+            "style": "List",
+            "text": "Trading Capability: Yes The ability to create and cancel limit orders in a live-trading mode has been verified. ",
+            "updated": 1640456367362
+        },
+        {
+            "style": "List",
+            "text": "Comments: Gate.io doesn't support Market Orders",
+            "updated": 1640456380804
+        },
+        {
+            "style": "Title",
+            "text": "Configuration"
+        },
+        {
+            "style": "Json",
+            "text": "{\n    \"codeName\": \"gateio\",\n    \"API\": [\n        {\n            \"method\": \"fetchTrades\",\n            \"fetchType\": \"by Id\",\n            \"fetchTradesMethod\": \"publicSpotGetCurrencyPairs\",\n            \"firstId\": \"f\",\n            \"requiredCredentials\": \"apiKey,secret\"\n        }\n    ]\n}",
+            "updated": 1640466675579
+        }
+    ]
+}

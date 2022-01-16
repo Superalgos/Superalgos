@@ -1,0 +1,37 @@
+{
+    "type": "Blockchain Network",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Network Client",
+            "relatedUiObject": "Network Client",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Ethereum Blockchain->"
+    },
+    "propertyNameAtParent": "blockchainNetworks",
+    "childrenNodesProperties": [
+        {
+            "name": "networkClients",
+            "type": "array",
+            "childType": "Network Client"
+        }
+    ],
+    "icon": "ethereum"
+}

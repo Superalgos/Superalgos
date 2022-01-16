@@ -1,0 +1,84 @@
+{
+    "tutorial": "Creating Your User Profile Tutorial",
+    "pageNumber": 38,
+    "type": "Tutorial Step - Save It Once More!",
+    "definition": {
+        "text": "We're done! This is as far as we'll go before submitting your profile. Now let's make sure you save it before we proceed.",
+        "updated": 1630754177369,
+        "icon": {
+            "name": "backup-entity",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "ES",
+                "text": "¡Terminamos! Hasta aquí llegaremos antes de enviar su perfil. Ahora asegurémonos de guardarlo antes de continuar.",
+                "updated": 1630898310138,
+                "style": "Definition"
+            },
+            {
+                "language": "RU",
+                "text": "Мы закончили! Это все, что мы сделаем, прежде чем отправлять ваш профиль. Теперь давайте убедимся, что вы сохранили его, прежде чем мы продолжим.",
+                "updated": 1639053034034
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind fertig! Das ist alles, was wir tun, bevor wir Ihr Profil abschicken. Jetzt müssen Sie es noch speichern, bevor wir fortfahren.",
+                "updated": 1640081686592
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Hit Ctrl + Shift + Alt + Key-S to save your User Profile one last time!",
+            "updated": 1630754322739,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Presiona Ctrl + Shift + Alt + Key-S para guardar tu User Profile por última vez!",
+                    "updated": 1630898447158,
+                    "style": "Callout"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите Ctrl + Shift + Alt + Key-S, чтобы в последний раз сохранить профиль пользователя User Profile!",
+                    "updated": 1639053068029
+                },
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie <kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>Alt</kbd> + <kbd>Taste-S</kbd>, um Ihr Benutzerprofil ein letztes Mal zu speichern!",
+                    "updated": 1640081723769
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "No harm in checking the file saved correctly, right? A file with your Github username and .json extension should exist in the below path!",
+            "updated": 1630754759392,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "No harm in checking the file saved correctly, right? A file with your Github username and.json extension should exist in the below path!",
+                    "updated": 1630898402192,
+                    "style": "Success"
+                },
+                {
+                    "language": "RU",
+                    "text": "Нет ничего плохого в том, чтобы проверить, правильно ли сохранен файл, не так ли? По указанному ниже пути должен существовать файл с вашим именем пользователя Github и расширением \".json\"!",
+                    "updated": 1639053132458
+                },
+                {
+                    "language": "DE",
+                    "text": " Es kann nicht schaden, zu überprüfen, ob die Datei korrekt gespeichert wurde, oder? Eine Datei mit Ihrem Github-Benutzernamen und der Erweiterung.json sollte im unten angegebenen Pfad vorhanden sein!",
+                    "updated": 1640081742313
+                }
+            ]
+        },
+        {
+            "style": "Json",
+            "text": "/Projects/Governance/Plugins/User-Profiles",
+            "updated": 1630754402770
+        }
+    ]
+}

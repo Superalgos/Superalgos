@@ -1,0 +1,69 @@
+{
+    "type": "Market Data Products",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Mine Products",
+            "relatedUiObject": "Data Mine Products",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add All Data Mine Products",
+            "label": "Add All Data Mine Products",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Proceed",
+            "workDoneLabel": "Done",
+            "relatedUiObject": "Data Mine Products",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add Data Product",
+            "relatedUiObject": "Data Product",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "isTitleAllwaysVisible": true,
+    "title": [
+        "Use Reference Parent Parent Parent",
+        "Use Reference Parent"
+    ],
+    "referencingRules": {
+        "compatibleTypes": "->Market->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Exchange Data Products->"
+    },
+    "propertyNameAtParent": "marketDataProducts",
+    "childrenNodesProperties": [
+        {
+            "name": "dataProducts",
+            "type": "array",
+            "childType": "Data Product",
+            "autoAdd": false
+        },
+        {
+            "name": "dataMineProducts",
+            "type": "array",
+            "childType": "Data Mine Products",
+            "autoAdd": false
+        }
+    ]
+}

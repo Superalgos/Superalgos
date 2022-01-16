@@ -1,0 +1,115 @@
+{
+    "type": "Trading Bot",
+    "definition": {
+        "text": "A trading bot is a computer program that—based on datasets exposed as products by other bots (counting sensors, indicators and even other trading bots)—applies the trading logic defined on a Trading System to, on one side, generate a complete trading simulation (outputting datasets that include trades, the action of strategies, validation of conditions, etc.), and on the other side, manage the execution of orders when on a forward testing or live trading session.",
+        "updated": 1609861419818,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un Trading Bot es un programa informático que, basado en conjuntos de datos expuestos como productos por otros bots (sensores de conteo, indicadores e incluso otros trading bots ), aplica la lógica trading definida en un Trading System  para, por un lado, generar una simulación de trading completa (generando conjuntos de datos que incluyen operaciones, la acción de estrategias, validación de condiciones, etc.) y, por otro lado, gestiona la ejecución de órdenes en una sesión ya sea en vivo o no.",
+                "updated": 1624375084844
+            },
+            {
+                "language": "RU",
+                "text": "Торговый бот Trading Bot — это компьютерная программа, которая на основе наборов данных, представленных в качестве продуктов другими ботами (датчики подсчета, индикаторы и даже другие торговые боты), применяет торговую логику, определенную в торговой системе, с одной стороны, для создания полной торговой симуляции (вывод наборов данных, которые включают сделки, действие стратегий, проверку условий и т. д.), а с другой стороны, управляет исполнением ордеров во время форвардного тестирования или реальной торговой сессии.",
+                "updated": 1640096103883
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret botu, diğer botlar (sayım sensörleri, göstergeler ve hatta diğer ticaret botları) tarafından ürün olarak sunulan veri kümelerine dayanan bir bilgisayar programıdır ve bir taraftan tam bir ticaret simülasyonu oluşturmak için bir Ticaret Sisteminde ( Trading System ) tanımlanan ticaret mantığını uygularken (işlemleri, stratejilerin yürütülmesi, koşulların doğrulanmasını vb. içeren çıktı veri kümeleri) ve diğer taraftan, bir ileri test veya canlı ticaret oturumu sırasında emirlerin yürütülmesini yönetir",
+                "updated": 1639144490011
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In Superalgos, a trading bot is a computer program designed to leverage the Superalgos infrastructure to provide smart trading features to users building, testing, and deploying trading systems. As such, a trading bot does not feature trading logic in and of itself. Instead, it executes the logic defined in trading systems.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Superalgos торговый бот - это компьютерная программа, разработанная для использования инфраструктуры Superalgos с целью предоставления интеллектуальных торговых функций пользователям, создающим, тестирующим и развертывающим торговые системы. Торговый бот сам по себе не содержит торговой логики. Вместо этого он выполняет логику, определенную в торговых системах.",
+                    "updated": 1640096156616
+                },
+                {
+                    "language": "ES",
+                    "text": "En Superalgos, un Trading Bot es un programa informático diseñado para aprovechar la infraestructura de Superalgos y proporcionar funciones de trading inteligente a los usuarios que desarrollan, prueban y despliegan Trading System. Como tal, un Trading Bot no incorpora una lógica de trading en sí mismo. Lo que hace es ejecutar la lógica definida en los Trading System.",
+                    "updated": 1641156095039
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Put in other words, when Superalgos users define trading systems and the trading strategies within, they are not building a trading bot. Instead, they are defining a set of instructions that a trading bot will then interpret and execute.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, когда пользователи Superalgos определяют торговые системы и торговые стратегии в них, они не создают торгового бота. Вместо этого они определяют набор инструкций, которые торговый бот будет интерпретировать и выполнять.",
+                    "updated": 1640096177055
+                },
+                {
+                    "language": "ES",
+                    "text": "En otras palabras, cuando los usuarios de Superalgos definen los Trading System y las estrategias de trading que contienen, no están construyendo un bot de trading. Más bien, están definiendo un conjunto de instrucciones que un bot de trading interpretará y ejecutará.",
+                    "updated": 1641156163821
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Trading bots have access to every piece of infrastructure built in Superalgos. One of the noteworthy sections of the infrastructure relevant to trading bots are trading mines themselves. Trading bots may be quite complex pieces of software. To name two of the most prominent characteristics: the bot needs to consider multiple dimensions of information and needs to be highly reliable, as its activity entails monetary transactions.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые боты имеют доступ ко всем объектам инфраструктуры, построенным в Superalgos. Одним из примечательных разделов инфраструктуры, имеющих отношение к торговым ботам, являются Trading Mine. Торговые боты могут быть довольно сложным программным обеспечением. Назовем две наиболее заметные характеристики: бот должен учитывать множество аспектов информации и должен быть очень надежным, поскольку его деятельность связана с денежными операциями.",
+                    "updated": 1640096345578
+                },
+                {
+                    "language": "ES",
+                    "text": "Los Trading Bot tienen acceso a cada parte de la infraestructura construida en Superalgos. Una de las secciones más destacadas de la infraestructura relevante para los Trading Bot son las propias Trading Mine. Los Trading Bot pueden ser elementos de software bastante complejos. Por nombrar dos de las características más destacadas: el bot necesita tener en cuenta múltiples dimensiones de información y necesita ser altamente fiable, ya que su actividad implica transacciones monetarias.",
+                    "updated": 1641156264017
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Trading mines make building trading bots a more accessible feat, providing a framework to produce compartmentalized definitions for the bots' processes and products, just like data mines do for sensors and indicators.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговые шахты делают создание торговых ботов более доступным делом, предоставляя основу для создания разделенных определений для процессов и продуктов бота, подобно тому, как шахты данных делают это для датчиков и индикаторов.",
+                    "updated": 1640096608834
+                },
+                {
+                    "language": "ES",
+                    "text": "Las Trading Mines hacen que la construcción de Trading Bots sea una labor más sencilla, proporcionando un entorno para producir definiciones segmentadas para los procesos y productos de los bots, al igual que las Data Mines lo hacen para los sensores e indicadores.",
+                    "updated": 1641156335613
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Trading Bot Configuration",
+            "updated": 1609861438022,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Trading Bot",
+                    "updated": 1640096625334
+                },
+                {
+                    "language": "ES",
+                    "text": "Conmfiguración del Trading Bot",
+                    "updated": 1641156355024
+                }
+            ]
+        }
+    ]
+}

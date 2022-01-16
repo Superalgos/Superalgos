@@ -1,0 +1,43 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 59,
+    "type": "Tutorial Step - A Close Below the Bands?",
+    "definition": {
+        "icon": {
+            "name": "Layer\\layer-bands",
+            "project": "Foundations"
+        },
+        "text": "How do we describe a candle closing below the lower band? Let's see how the lower band is described!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wie beschreibt man eine Kerze, die unterhalb des unteren Bandes schließt? Schauen wir uns an, wie das untere Band beschrieben wird!",
+                "updated": 1639389314889
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The description of the Bollinger Bands explains that the upper and lower bands are located two standard deviations above and below the moving average (MA) respectively. We know the MA, as is offered in the movingAverage property. The standard deviation is offered in the standardDeviation property.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In der Beschreibung der Bollinger Bänder wird erklärt, dass sich das obere und das untere Band jeweils zwei Standardabweichungen über bzw. unter dem gleitenden Durchschnitt (MA) befinden. Wir kennen den MA, wie er in der Eigenschaft movingAverage angeboten wird. Die Standardabweichung wird in der Eigenschaft  standardDeviation angeboten.",
+                    "updated": 1639389399902
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "The lower band is located two standard deviations below the MA. Then the lower band equals the MA minus the standard deviation times two.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das untere Band befindet sich zwei Standardabweichungen unterhalb des MA. Dann ist das untere Band gleich dem MA minus der Standardabweichung mal zwei.",
+                    "updated": 1639389325538
+                }
+            ]
+        }
+    ]
+}

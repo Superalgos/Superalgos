@@ -1,0 +1,28 @@
+{
+    "topic": "Superalgos Chat Groups",
+    "pageNumber": "8",
+    "type": "Docs Group",
+    "definition": {
+        "text": "Want to help with the Docs and translations? Join this group to coordinate works!",
+        "updated": 1618846228888,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Хотите помочь с документами и переводами? Присоединяйтесь к этой группе для координации работ!",
+                "updated": 1637942178721
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar ve çeviriler konusunda yardım etmek ister misiniz? İşleri koordine etmek için bu gruba katılın!",
+                "updated": 1639393305194
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Link",
+            "text": "Use this link to join the group->t.me/superalgosdocs",
+            "updated": 1618846273716
+        }
+    ]
+}

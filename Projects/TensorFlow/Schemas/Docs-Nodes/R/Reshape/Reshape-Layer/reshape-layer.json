@@ -1,0 +1,18 @@
+{
+    "type": "Reshape Layer",
+    "definition": {
+        "text": "Reshapes an input to a certain shape.",
+        "updated": 1613214077391
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Input shape: Arbitrary, although all dimensions in the input shape must be fixed. Use the configuration inputShape when using this layer as the first layer in a model.",
+            "updated": 1613214162552
+        },
+        {
+            "style": "List",
+            "text": "Output shape: [batchSize, targetShape[0], targetShape[1], ..., targetShape[targetShape.length - 1]]."
+        }
+    ]
+}

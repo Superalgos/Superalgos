@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="96 11 512 512" style="enable-background:new 96 11 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F0353D;}
+	.st1{fill:#FD6A33;}
+	.st2{fill:#FF8C29;}
+	.st3{fill:#FFD1A9;}
+	.st4{fill:#365558;}
+	.st5{fill:#0295AA;}
+	.st6{fill:#4ACFD9;}
+	.st7{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st8{fill:#9BAAAB;}
+	.st9{fill:#CDD4D5;}
+	.st10{fill:#E6EAEA;}
+	.st11{fill:#FFFFFF;}
+	.st12{fill:#BCD643;}
+</style>
+<g>
+	<rect x="-518" y="-98.5" class="st0" width="128" height="128"/>
+	<rect x="-390" y="-98.5" class="st1" width="128" height="128"/>
+	<rect x="-262" y="-98.5" class="st2" width="128" height="128"/>
+	<rect x="-134" y="-98.5" class="st3" width="128" height="128"/>
+	<rect x="-518" y="29.5" class="st4" width="128" height="128"/>
+	<rect x="-390" y="29.5" class="st5" width="128" height="128"/>
+	<rect x="-262" y="29.5" class="st6" width="128" height="128"/>
+	<rect x="-134" y="29.5" class="st7" width="128" height="128"/>
+	<rect x="-518" y="157.5" class="st8" width="128" height="128"/>
+	<rect x="-390" y="157.5" class="st9" width="128" height="128"/>
+	<rect x="-262" y="157.5" class="st10" width="128" height="128"/>
+	<rect x="-134" y="157.5" class="st11" width="128" height="128"/>
+	<rect x="-518" y="285.5" class="st12" width="128" height="128"/>
+	<rect x="-390" y="285.5" class="st7" width="128" height="128"/>
+	<rect x="-262" y="285.5" class="st7" width="128" height="128"/>
+	<rect x="-134" y="285.5" class="st7" width="128" height="128"/>
+</g>
+<path class="st11" d="M499.5,95H352v344h147.5c37.7,0,68.5-30.8,68.5-68.5v-207C568,125.8,537.2,95,499.5,95z"/>
+<path class="st10" d="M204.5,95c-37.7,0-68.5,30.8-68.5,68.5v207c0,37.7,30.8,68.5,68.5,68.5H352V95H204.5z"/>
+<path class="st6" d="M499.5,95H352v29h147.5c10.5,0,20.4,4.1,27.9,11.6S539,153,539,163.5v207c0,10.5-4.1,20.4-11.6,27.9
+	S510,410,499.5,410H352v29h147.5c37.7,0,68.5-30.8,68.5-68.5v-207C568,125.8,537.2,95,499.5,95z"/>
+<path class="st5" d="M204.5,410c-10.5,0-20.4-4.1-27.9-11.6S165,381,165,370.5v-207c0-10.5,4.1-20.4,11.6-27.9S194,124,204.5,124
+	H352V95H204.5c-37.7,0-68.5,30.8-68.5,68.5v207c0,37.7,30.8,68.5,68.5,68.5H352v-29H204.5z"/>
+<text transform="matrix(1 0 0 1 730.3196 505.6501)" style="font-family:'LaoUI-Bold'; font-size:175px; letter-spacing:7;">Shift</text>
+<path class="st2" d="M391.6,292c-1.2-1.9-2.5-3.8-4-5.8c-1.5-2-3-3.8-4.6-5.5c-1.6-1.7-3.2-3.2-5-4.5c-1.7-1.3-3.5-2.2-5.3-2.8v-0.3
+	c4.2-1.2,7.9-2.8,11.3-5c3.4-2.1,6.3-4.6,8.7-7.5c2.4-2.9,4.2-6.2,5.6-9.8c1.3-3.6,2-7.6,2-11.8c0-22.2-14.9-33.3-44.6-33.3H352
+	v20.7h0.1c12.8,0,19.2,5.4,19.2,16.1c0,5.1-1.8,9.4-5.5,12.9c-3.5,3.3-8.1,5-13.8,5.1v22.1c1.4,0.7,2.7,1.7,4,3
+	c1.3,1.3,2.7,2.9,4,4.8c1.3,1.9,2.7,4,4.1,6.4l19.1,31.5h31.7L391.6,292z"/>
+<path class="st1" d="M351.6,260.5h-12v-34.1H352v-20.7h-40v122.5h27.6v-46.9h7.4c1.7,0,3.3,0.4,4.7,1.1c0.1,0,0.1,0.1,0.2,0.1v-22.1
+	C351.9,260.5,351.7,260.5,351.6,260.5z"/>
+</svg>

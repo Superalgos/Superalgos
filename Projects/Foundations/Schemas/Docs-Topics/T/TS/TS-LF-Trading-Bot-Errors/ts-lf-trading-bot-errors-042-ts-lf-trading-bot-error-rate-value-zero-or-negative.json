@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 42,
+    "type": "TS LF Trading Bot Error - Rate Value Zero Or Negative",
+    "definition": {
+        "text": "The Rate of the order can not be zero or a negative number.",
+        "updated": 1611943419426
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Rate Value Zero Or Negative",
+            "updated": 1611651177927
+        },
+        {
+            "style": "Success",
+            "text": "Check the Formula under the Rate node and make sure it evaluates to a number greater than zero."
+        }
+    ]
+}

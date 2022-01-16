@@ -1,0 +1,105 @@
+{
+    "type": "Claim Votes Switch",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Install Missing Votes",
+            "actionProject": "Governance",
+            "actionFunction": "payload.executeAction",
+            "label": "Install Missing Votes",
+            "relatedUiObject": "Weight Votes Switch",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Claim Votes Switch",
+            "relatedUiObject": "Claim Votes Switch",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Claim Vote",
+            "relatedUiObject": "Position Claim Vote",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Asset Claim Vote",
+            "relatedUiObject": "Asset Claim Vote",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Feature Claim Vote",
+            "relatedUiObject": "Feature Claim Vote",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "referencingRules": {
+        "compatibleTypes": "->Asset Claims Folder->Feature Claims Folder->Position Claims Folder->"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Claim Votes Switch->Votes Switch->"
+    },
+    "propertyNameAtParent": "claimVotesSwitch",
+    "childrenNodesProperties": [
+        {
+            "name": "claimVotesSwitch",
+            "type": "array",
+            "childType": "Claim Votes Switch",
+            "autoAdd": false
+        },
+        {
+            "name": "positionClaimVotes",
+            "type": "array",
+            "childType": "Position Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "assetClaimVotes",
+            "type": "array",
+            "childType": "Asset Claim Vote",
+            "autoAdd": false
+        },
+        {
+            "name": "featureClaimVotes",
+            "type": "array",
+            "childType": "Feature Claim Vote",
+            "autoAdd": false
+        }
+    ]
+}

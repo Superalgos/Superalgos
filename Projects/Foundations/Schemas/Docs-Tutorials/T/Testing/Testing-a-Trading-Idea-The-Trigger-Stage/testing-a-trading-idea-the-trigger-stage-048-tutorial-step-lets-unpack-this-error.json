@@ -1,0 +1,50 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 48,
+    "type": "Tutorial Step - Let's Unpack This Error",
+    "definition": {
+        "icon": {
+            "name": "Bullet\\bullet-error",
+            "project": "Foundations"
+        },
+        "text": "The error is associated with one of our conditions. The error details clearly pointed to the Javascript Code we used!",
+        "updated": 1612639466412,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Fehler ist mit einer unserer Bedingungen verbunden. Die Fehlerdetails weisen eindeutig auf den von uns verwendeten Javascript Code hin!",
+                "updated": 1639267907428
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Javascript",
+            "text": "chart.at24hs.bollingerSubChannel.direction ==='Down'",
+            "updated": 1612639481785
+        },
+        {
+            "style": "Callout",
+            "text": "The error says that the direction property of an object that is \"undefined\" cannot be read.",
+            "updated": 1617191756170,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Fehler besagt, dass die Eigenschaft direction eines Objekts, das \"undefiniert\" ist, nicht gelesen werden kann.",
+                    "updated": 1639267916866
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The object the error refers to is the bollingerSubChannel product. That object is 'undefined'. Why? There is one last piece to fit in the puzzle: the error happens at the beginning of the data set. Do you see the problem?",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Objekt, auf das sich der Fehler bezieht, ist das Produkt bollingerSubChannel . Dieses Objekt ist \"undefiniert\". Und warum? Es gibt noch ein letztes Puzzlestück: Der Fehler tritt am Anfang des Datensatzes auf. Verstehen Sie das Problem?",
+                    "updated": 1639267970399
+                }
+            ]
+        }
+    ]
+}

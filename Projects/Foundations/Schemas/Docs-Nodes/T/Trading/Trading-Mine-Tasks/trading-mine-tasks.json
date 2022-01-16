@@ -1,0 +1,38 @@
+{
+    "type": "Trading Mine Tasks",
+    "definition": {
+        "text": "The trading mine tasks node is an organizational device that groups tasks corresponding to the referenced trading mine.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узел Trading Mine Tasks - это организационное устройство, которое группирует задачи, соответствующие упомянутой в Trading Mine.",
+                "updated": 1638377884491
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "The market trading tasks node must reference the definition of a data mine. The node may spawn tasks for each bot in the data mine.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Узел Market Trading Tasks должен ссылаться на определение Data Mine. Узел может порождать задачи для каждого бота в Data Mine.",
+                    "updated": 1638378015712
+                }
+            ]
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Block",
+            "text": "Running"
+        }
+    ]
+}

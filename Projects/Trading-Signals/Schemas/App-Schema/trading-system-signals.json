@@ -1,0 +1,66 @@
+{
+    "type": "Trading System Signals",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Trading Strategy Signals",
+            "relatedUiObject": "Trading Strategy Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "incomingSignals",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Incoming Signals",
+            "relatedUiObject": "Incoming Signals",
+            "relatedUiObjectProject": "Trading-Signals"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->Available Signals->"
+    },
+    "propertyNameAtParent": "tradingSystemSignals",
+    "childrenNodesProperties": [
+        {
+            "name": "tradingStrategySignals",
+            "type": "array",
+            "childType": "Trading Strategy Signals",
+            "autoAdd": false
+        },
+        {
+            "name": "tradingSystemSignal",
+            "type": "node",
+            "childType": "Trading System Signal",
+            "autoAdd": true
+        }
+    ]
+}

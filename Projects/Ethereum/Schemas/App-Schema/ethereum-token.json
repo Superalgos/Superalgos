@@ -1,0 +1,63 @@
+{
+    "type": "Ethereum Token",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "dontShowAtFullscreen": true,
+            "actionFunction": "uiObject.configEditor.activate"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Smart Contract",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "smartContract",
+            "relatedUiObject": "Smart Contract",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{ \n\"codeName\": \"\"\n}"
+    },
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->ERC-20 Token Type->ERC-223 Token Type->ERC-721 Token Type->ERC-777 Token Type->"
+    },
+    "propertyNameAtParent": "ethereumTokens",
+    "childrenNodesProperties": [
+        {
+            "name": "smartContracts",
+            "type": "node",
+            "childType": "Smart Contract"
+        }
+    ],
+    "icon": "ethereum",
+    "alternativeIcons": [
+        {
+            "codeName": "USDT",
+            "iconName": "tether"
+        },
+        {
+            "codeName": "BNB",
+            "iconName": "binance-coin"
+        }
+    ]
+}

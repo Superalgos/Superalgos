@@ -1,0 +1,21 @@
+{
+    "topic": "Messari API Map and Mine",
+    "pageNumber": 1,
+    "type": "Messari API Map and Mine",
+    "definition": {
+        "text": "This API Map and Data Mine tap into the Messari API to pull news and coin metrics about the current base asset.",
+        "updated": 1623016371114
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Maintainers: @luis_fernando_molina (Telegram), @harrellbm (Telegram, and Discord).",
+            "updated": 1623016338199
+        },
+        {
+            "style": "Success",
+            "text": "Additional collaborators are welcome!",
+            "updated": 1623015909039
+        }
+    ]
+}

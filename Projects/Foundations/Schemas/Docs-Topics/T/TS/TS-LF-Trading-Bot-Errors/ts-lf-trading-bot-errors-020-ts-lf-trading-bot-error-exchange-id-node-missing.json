@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 20,
+    "type": "TS LF Trading Bot Error - Exchange Id Node Missing",
+    "definition": {
+        "text": "An Exchange Id node was expected but not found at the node where the error originated.",
+        "updated": 1611942245246
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Exchange Id Node Missing",
+            "updated": 1611650307237
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

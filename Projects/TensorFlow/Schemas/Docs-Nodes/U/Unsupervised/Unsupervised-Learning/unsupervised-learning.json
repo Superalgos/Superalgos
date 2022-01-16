@@ -1,0 +1,14 @@
+{
+    "type": "Unsupervised Learning",
+    "definition": {
+        "text": "Unsupervised learning (UL) is a type of algorithm that learns patterns from untagged data. The hope is that through mimicry, the machine is forced to build a compact internal representation of its world. ",
+        "updated": 1613197508073
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "In contrast to Supervised Learning (SL) where data is tagged by a human, eg. as \"car\" or \"fish\" etc, UL exhibits self-organization that captures patterns as neuronal predelections or probability densities. The other levels in the supervision spectrum are Reinforcement Learning where the machine is given only a numerical performance score as its guidance, and Semi-supervised learning where a smaller portion of the data is tagged. Two broad methods in UL are Neural Networks and Probabilistic Methods.",
+            "updated": 1613197533736
+        }
+    ]
+}

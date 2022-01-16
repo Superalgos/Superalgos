@@ -1,0 +1,18 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M79 68C40.8924 68 10 98.8924 10 137C10 175.108 40.8924 206 79 206V68Z" fill="#FD6A33"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M78 68C116.108 68 147 98.8924 147 137C147 175.108 116.108 206 78 206V68Z" fill="#FF8C29"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M112 354C73.8924 354 43 384.892 43 423C43 461.108 73.8924 492 112 492V354Z" fill="#9BAAAB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M111 354C149.108 354 180 384.892 180 423C180 461.108 149.108 492 111 492V354Z" fill="#CDD4D5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M248 136.049C181.411 137.902 128 192.464 128 259.5C128 326.537 181.411 381.099 248 382.952V136.049Z" fill="#0295AA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M248 136.049C314.589 137.902 368 192.464 368 259.5C368 326.537 314.589 381.099 248 382.952V136.049Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M411 16.002C366.771 16.271 331 52.2083 331 96.5004C331 140.793 366.771 176.73 411 176.999V16.002Z" fill="#BCD643"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M411 16.002C455.229 16.271 491 52.2083 491 96.5004C491 140.793 455.229 176.73 411 176.999V16.002Z" fill="#4ACFD9"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M406 331C364.579 331 331 364.579 331 406C331 447.421 364.579 481 406 481V331Z" fill="#FF8C29"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M405 331C446.421 331 480 364.579 480 406C480 447.421 446.421 481 405 481V331Z" fill="#FFD1A9"/>
+<circle cx="250.5" cy="259.5" r="109.5" stroke="#E6EAEA" stroke-width="28"/>
+<circle cx="410.5" cy="96.5" r="66.5" stroke="#E6EAEA" stroke-width="28"/>
+<circle cx="405" cy="406" r="61" stroke="#E6EAEA" stroke-width="28"/>
+<circle cx="78" cy="137" r="55" stroke="#E6EAEA" stroke-width="28"/>
+<circle cx="111" cy="423" r="55" stroke="#E6EAEA" stroke-width="28"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M217.979 365.319L199.04 349L154 401.272L172.939 417.591L217.979 365.319ZM381.979 147.319L363.04 131L318 183.272L336.939 199.591L381.979 147.319ZM341.968 310.693L324.146 328.225L364.975 369.73L382.797 352.198L341.968 310.693ZM97.1953 184.729L113.675 165.93L157.456 204.308L140.976 223.107L97.1953 184.729Z" fill="#E6EAEA"/>
+</svg>

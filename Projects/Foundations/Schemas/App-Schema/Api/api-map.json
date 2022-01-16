@@ -1,0 +1,49 @@
+{
+    "type": "API Map",
+    "menuItems": [
+        {
+            "action": "Configure",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "label": "Add API Version",
+            "relatedUiObject": "API Version",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\"protocol\": \"https\",\"portNumber\":\"\",\"hostName\": \"\",\"path\": \"\"}"
+    },
+    "isTitleAllwaysVisible": true,
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "apiVersions",
+            "type": "array",
+            "childType": "API Version",
+            "autoAdd": true
+        }
+    ],
+    "icon": "bitcoin"
+}

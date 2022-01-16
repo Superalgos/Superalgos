@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 36,
+    "type": "TS LF Trading Bot Error - Amount Received Node Missing",
+    "definition": {
+        "text": "An Amount Received node was expected but not found at the node where the error originated.",
+        "updated": 1611942625082
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Amount Received Node Missing",
+            "updated": 1611650872000
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

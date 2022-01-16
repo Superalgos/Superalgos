@@ -1,0 +1,111 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 101,
+    "type": "Tutorial Step - Is It Working?",
+    "definition": {
+        "icon": {
+            "name": "crypto-exchange",
+            "project": "Foundations"
+        },
+        "text": "The unequivocal way to verify if things are working fine is logging on to the exchange and checking your order history for BTC/USDT.",
+        "updated": 1640291050452,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il modo più sicuro per verificare che tutto sta andando bene è andare su Binance e controllare la cronologia degli ordini BTC/USDT.",
+                "updated": 1618071697384,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "La forma inequívoca de verificar si las cosas están funcionando bien es iniciar sesión en Binance y verificar tu historial de pedidos para BTC / USDT.",
+                "updated": 1624497071539,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der eindeutigste Weg, um zu überprüfen, ob die Dinge gut funktionieren, ist, sich bei Binance anzumelden und Ihren Bestellverlauf für BTC/USDT zu überprüfen.",
+                "updated": 1634245336699
+            },
+            {
+                "language": "TR",
+                "text": "İşlerin yolunda gidip gitmediğini doğrulamanın kesin yolu Binance'de oturum açmak ve BTC/USDT için sipariş geçmişinizi kontrol etmektir.",
+                "updated": 1636577853845
+            },
+            {
+                "language": "ID",
+                "text": "Salah satu cara untuk memverifikasi apakah semuanya berfungsi dengan baik adalah masuk ke exchange dan memeriksa riwayat pesanan kamu untuk BTC / USDT .",
+                "updated": 1640595940733
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Go to the exchange's web interface and take a look at what's going on!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Vai su Binance e controlla costa sta succedendo!",
+                    "updated": 1618071709908,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Ve a Binance y echa un vistazo a lo que está pasando!",
+                    "updated": 1624484856566,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Gehen Sie zu Binance und schauen Sie sich an, was los ist!",
+                    "updated": 1634245342910
+                },
+                {
+                    "language": "TR",
+                    "text": "Binance'e gidin ve neler olduğuna bir bakın!",
+                    "updated": 1636577874188
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke exchange's website interface dan lihat apa yang terjadi!",
+                    "updated": 1640595981515
+                }
+            ],
+            "updated": 1640291072820
+        },
+        {
+            "style": "Note",
+            "text": "At any point in time, you should see one open order and a number of canceled orders pilling up in your order history, pretty much like in the video on the next step!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In qualunque momento, dovresti vedere un ordine aperto e un certo numero di ordini cancellati nella tua cronologia, come nel video al prossimo step!",
+                    "updated": 1618071750939,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "En cualquier momento, deberías ver un pedido abierto y un número de pedidos cancelados acumulándose en tu historial de pedidos, ¡casi como en el video del siguiente paso!",
+                    "updated": 1624484917412,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu einem beliebigen Zeitpunkt sollten Sie eine offene Order und eine Reihe von stornierten Orders in Ihrer Orderhistorie sehen, ähnlich wie im Video im nächsten Schritt!",
+                    "updated": 1634245350624
+                },
+                {
+                    "language": "TR",
+                    "text": "Herhangi bir zamanda, bir sonraki adımdaki videoda olduğu gibi, sipariş geçmişinizde bir açık sipariş ve bir dizi iptal edilen siparişin biriktiğini görmelisiniz!",
+                    "updated": 1636577910650
+                },
+                {
+                    "language": "ID",
+                    "text": "Kapan saja, kamu akan melihat satu open order dan sejumlah canceled orders muncul dalam riwayat pesananmu, seperti dalam video pada langkah berikutnya!",
+                    "updated": 1640596048300
+                }
+            ]
+        }
+    ]
+}

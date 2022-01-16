@@ -1,0 +1,58 @@
+{
+    "type": "Positions",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "actionFunction": "payload.executeAction",
+            "label": "Add Position Class",
+            "relatedUiObject": "Position Class",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Position",
+            "relatedUiObject": "Position",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Governance"
+        },
+        {
+            "action": "Install as Plugin",
+            "actionProject": "Community-Plugins",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Install",
+            "label": "Install as Plugin",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration",
+            "actionFunction": "payload.executeAction"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isHierarchyHead": true,
+    "addLeftIcons": true,
+    "level": 0,
+    "childrenNodesProperties": [
+        {
+            "name": "positionClasss",
+            "type": "array",
+            "childType": "Position Class",
+            "autoAdd": false
+        },
+        {
+            "name": "positions",
+            "type": "array",
+            "childType": "Position",
+            "autoAdd": false
+        }
+    ]
+}

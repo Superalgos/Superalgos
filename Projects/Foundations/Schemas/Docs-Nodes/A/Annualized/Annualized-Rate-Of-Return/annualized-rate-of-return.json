@@ -1,0 +1,168 @@
+{
+    "type": "Annualized Rate Of Return",
+    "definition": {
+        "text": "Annualized rate of return is the equivalent ROI scaled to one year.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Annualized Rate Of Return - это эквивалентная рентабельность инвестиций в один год.",
+                "updated": 1638623262847
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "In other words, it is the equivalent annual return received over a given period.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Другими словами, это эквивалентный годовой доход, полученный за определенный период.",
+                    "updated": 1638623282898
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The formula:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формула:",
+                    "updated": 1638623296446
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "annualized rate of return = \n(((investment + profits) / investments) ^ (365 / days)) - 1",
+            "updated": 1609925146643
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode base asset and episode quoted asset, the calculation is done relative to the corresponding assets, and the overall context.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте базового актива эпизода и указанного актива эпизода расчет выполняется относительно соответствующих активов и общего контекста.",
+                    "updated": 1638623339930
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The formulas:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Формулы:",
+                    "updated": 1638623349674
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.annualizedRateOfReturn.value = \n((( tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value +\ntradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value ) / \ntradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value) ^\n(365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)) - 1\n\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.annualizedRateOfReturn.value = \n((( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value +\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value ) / \ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value) ^\n(365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)) - 1",
+            "updated": 1609925166406
+        },
+        {
+            "style": "Text",
+            "text": "The JavaScript code:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Код JavaScript:",
+                    "updated": 1638623384490
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.annualizedRateOfReturn.value = \nMath.pow(\n             ( tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value +\n             tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value ) / \n             tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value\n             , \n             (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)\n        ) - 1\n\ntradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.annualizedRateOfReturn.value = \nMath.pow(\n             ( tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value +\n             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value ) / \n             tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value\n             , \n             (365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value)\n        ) - 1",
+            "updated": 1609925205928
+        },
+        {
+            "style": "Text",
+            "text": "In the context of the episode statistics, the calculation is done using the consolidated balance, as explained in the profit loss definition.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В контексте статистики по эпизодам расчет выполняется с использованием консолидированного баланса, как объяснено в определении убытка по прибыли.",
+                    "updated": 1638623407530
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When the context does not refer to either of the assets in particular, then both asset balances are consolidated, and denominated in the quoted asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если контекст не относится ни к одному из активов в частности, то оба баланса активов консолидируются и выражаются в указанном активе.",
+                    "updated": 1638623436030
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The JavaScript code:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Код JavaScript:",
+                    "updated": 1638623448250
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.annualizedRateOfReturn.value =\nMath.pow(\n            (\n                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n                tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.profitLoss.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.profitLoss.value\n            ) / \n            (\n                tradingEngine.tradingCurrent.tradingEpisode.episodeBaseAsset.beginBalance.value * \n                tradingEngine.tradingCurrent.tradingEpisode.beginRate.value +\n                tradingEngine.tradingCurrent.tradingEpisode.episodeQuotedAsset.beginBalance.value \n            ) \n        , \n            (\n                365 / tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.days.value\n            ) \n        ) - 1",
+            "updated": 1609925262959
+        },
+        {
+            "style": "Block",
+            "text": "Configuring",
+            "updated": 1609873831169
+        },
+        {
+            "style": "Title",
+            "text": "Annualized Rate Of Return Configuration",
+            "updated": 1609925322383,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конфигурация Annualized Rate Of Return",
+                    "updated": 1638623470455
+                }
+            ]
+        },
+        {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1609873980538,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Свойства",
+                    "updated": 1638623478781
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "initialValue allows resetting the initial state of the node to an arbitrary value.",
+            "updated": 1609875415147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
+                    "updated": 1638623490865
+                }
+            ]
+        }
+    ]
+}

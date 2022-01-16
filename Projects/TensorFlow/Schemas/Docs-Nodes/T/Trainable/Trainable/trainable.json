@@ -1,0 +1,19 @@
+{
+    "type": "Trainable",
+    "definition": {
+        "text": "Whether the weights of this layer are updatable by training. Defaults to true.",
+        "updated": 1613243947387
+    },
+    "paragraphs": [
+        {
+            "style": "Subtitle",
+            "text": "Possible Values",
+            "updated": 1613243963146
+        },
+        {
+            "style": "Javascript",
+            "text": "true\nfalse",
+            "updated": 1613243984862
+        }
+    ]
+}

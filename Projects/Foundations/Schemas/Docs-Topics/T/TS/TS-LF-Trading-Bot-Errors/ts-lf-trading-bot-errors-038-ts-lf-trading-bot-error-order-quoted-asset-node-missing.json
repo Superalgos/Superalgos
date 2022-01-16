@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 38,
+    "type": "TS LF Trading Bot Error - Order Quoted Asset Node Missing",
+    "definition": {
+        "text": "An Order Quoted Asset node was expected but not found at the node where the error originated.",
+        "updated": 1611677527859
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Order Quoted Asset Node Missing",
+            "updated": 1611650915963
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

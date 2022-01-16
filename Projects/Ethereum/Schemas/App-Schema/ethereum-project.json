@@ -1,0 +1,70 @@
+{
+    "type": "Ethereum Project",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Blockchain",
+            "relatedUiObject": "Ethereum Blockchain",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Decentralized Application",
+            "relatedUiObject": "Ethereum Decentralized Application",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Token Definitions",
+            "relatedUiObject": "Ethereum Token Definitions",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Wallet",
+            "relatedUiObject": "Ethereum Wallet",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "label": "Add Data Mine",
+            "relatedUiObject": "Data Mine",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Ethereum"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "isProjectHead": true,
+    "isTitleAllwaysVisible": false,
+    "addLeftIcons": true,
+    "isPinned": true,
+    "positionLocked": true,
+    "icon": "ethereum",
+    "childrenNodesProperties": [
+        {
+            "name": "projectDefinition",
+            "type": "node",
+            "childType": "Project Definition",
+            "project": "Foundations",
+            "autoAdd": true
+        }
+    ]
+}

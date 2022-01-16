@@ -1,0 +1,18 @@
+{
+    "type": "Up Sampling 2D Layer",
+    "definition": {
+        "text": "Upsampling layer for 2D inputs. Repeats the rows and columns of the data by size[0] and size[1] respectively.",
+        "updated": 1613219000480
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Input shape: 4D tensor with shape: - If dataFormat is \"channelsLast\": [batch, rows, cols, channels] - If dataFormat is \"channelsFirst\": [batch, channels, rows, cols]",
+            "updated": 1613219012908
+        },
+        {
+            "style": "List",
+            "text": "Output shape: 4D tensor with shape: - If dataFormat is \"channelsLast\": [batch, upsampledRows, upsampledCols, channels] - If dataFormat is \"channelsFirst\": [batch, channels, upsampledRows, upsampledCols]"
+        }
+    ]
+}

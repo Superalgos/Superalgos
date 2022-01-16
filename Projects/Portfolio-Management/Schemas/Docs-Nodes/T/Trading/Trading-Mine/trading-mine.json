@@ -1,0 +1,41 @@
+{
+    "type": "Portfolio Mine",
+    "definition": {
+        "text": "A portfolio mine is a hierarchy that contains definitions of portfolio bots and their plotters. These definitions make up the actual programs of such bots&mdash;the source code.",
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Un portfolio mine es una jerarquía que contiene definiciones de portfolio bots y sus conspiradores. Estas definiciones constituyen los programas reales de dichos bots: el código fuente.",
+                "updated": 1628906153772
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content"
+        },
+        {
+            "style": "Text",
+            "text": "Altough Superalgos is starting out with a single portfolio bot, the system is prepared to feature as many portfolio bots as developers are willing to create. As such, a portfolio mine is a catalog of portfolio bots."
+        },
+        {
+            "style": "Text",
+            "text": "Notice that, in the context of Superalgos, a portfolio bot has nothing to do with the portfolio logic. Think of portfolio logic as the business rules which—in Superalgos—are defined in portfolio systems. Anyone may build a Portfolio System, meaning that creating portfolio systems and the portfolio strategies within does not require coding.",
+            "updated": 1609861342619
+        },
+        {
+            "style": "Text",
+            "text": "Portfolio mines work similarly to data mines in the sense that they provide the same kind of tools to structure the definitions of bots, including process definitions, product definitions, and plotters."
+        },
+        {
+            "style": "Block",
+            "text": "Configuring"
+        },
+        {
+            "style": "Title",
+            "text": "Portfolio Mine Configuration",
+            "updated": 1609861240385
+        }
+    ]
+}

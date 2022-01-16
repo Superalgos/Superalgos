@@ -1,0 +1,312 @@
+{
+    "type": "First Steps Tutorials",
+    "definition": {
+        "text": "This book walks you through the path that will help you learn Superalgos in the most efficient possible way. Interactive tutorials are the very best tool to tackle the learning curve. Doing the tutorials in the order proposed is highly recommended.",
+        "updated": 1610915328705,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Este libro lo guía por el camino que lo ayudará a aprender Superalgos de la manera más eficiente posible. Los tutoriales interactivos son la mejor herramienta para abordar la curva de aprendizaje. Es muy recomendable hacer los tutoriales en el orden propuesto.",
+                "updated": 1628207193722
+            },
+            {
+                "language": "RU",
+                "text": "Эта книга проведет вас по пути, который поможет вам изучить Superalgos наиболее эффективным способом. Интерактивные учебники - лучший инструмент для преодоления кривой обучения. Настоятельно рекомендуется выполнять учебники в предложенном порядке.",
+                "updated": 1637920073292
+            },
+            {
+                "language": "TR",
+                "text": "Bu kılavuz, Superalgos'u mümkün olan en verimli şekilde öğrenmenize yardımcı olacak yolda size rehberlik edecektir. Etkileşimli öğreticiler, öğrenme sürecinin üstesinden gelmek için en iyi araçtır. Öğreticileri önerilen sırayla yapmak şiddetle tavsiye edilir.",
+                "updated": 1638914991277
+            },
+            {
+                "language": "ID",
+                "text": "Book ini menuntun kamu melalui jalan yang akan membantu kamu mempelajari Superalgos dengan cara yang seefisien mungkin. Tutorial interaktif adalah alat terbaik untuk mengatasi learning curve. Melakukan tutorial sesuai urutan yang diusulkan sangat dianjurkan.",
+                "updated": 1640594637960
+            },
+            {
+                "language": "DE",
+                "text": "Dieses Buch führt dich auf dem Weg, der dir helfen wird, Superalgos auf die effizienteste Weise zu erlernen. Interaktive Tutorials sind das beste Mittel, um schnell zu lernen. \nEs wird dringend empfohlen, die Tutorials in der vorgeschlagenen Reihenfolge zu absolvieren!",
+                "updated": 1642337187889
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "How to Use This Book",
+            "updated": 1610955545072,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как использовать эту книгу",
+                    "updated": 1637920084060
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu Kılavuz Nasıl Kullanılır?",
+                    "updated": 1638915016291
+                },
+                {
+                    "language": "ID",
+                    "text": "Cara Penggunaan Book ini",
+                    "updated": 1640594677771
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwendung des Buches",
+                    "updated": 1642337232940
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Tutorials provide the ultimate hands-on learning experience. Doing all existing tutorials has proven to be the most effective way to tackle the learning curve.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Los Tutoriales proveen la mejor experiencia de aprendizaje práctico. Hacer todos los tutoriales existentes ha demostrado ser la forma más eficaz de abordar la curva de aprendizaje.",
+                    "updated": 1636560408468
+                },
+                {
+                    "language": "RU",
+                    "text": "Учебники обеспечивают максимальный практический опыт обучения. Изучение всех существующих учебников оказалось наиболее эффективным способом преодоления кривой обучения.",
+                    "updated": 1637920111715
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler, uygulamalı öğrenme deneyimi sağlar. Mevcut tüm eğitimleri yapmanın, öğrenme sürecinin üstesinden gelmenin en etkili yolu olduğu kanıtlanmıştır.",
+                    "updated": 1638915173767
+                },
+                {
+                    "language": "ID",
+                    "text": "Tutorial memberikan pengalaman belajar langsung yang luar biasa. Melakukan semua tutorial yang ada telah terbukti menjadi cara paling efektif untuk mengatasi learning curve.",
+                    "updated": 1640594758959
+                },
+                {
+                    "language": "DE",
+                    "text": "Tutorials bieten die ultimative praktische Lernerfahrung. Es hat sich gezeigt, dass es am effektivsten ist, alle vorhandenen Tutorials zu absolvieren, um die Lernkurve zu bewältigen.",
+                    "updated": 1642337257665
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "To do a tutorial, load the corresponding plugin workspace, find the tutorial at the bottom of the design space, and select Play on the menu.",
+            "updated": 1617036749800,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para hacer un tutorial, cargue el correspondiente plugin workspace,busque el tutorial en la parte inferior del espacio de diseño y seleccione Play en el menu.",
+                    "updated": 1636560468727
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы сделать учебник, загрузите соответствующее рабочее пространство плагина, найдите учебник в нижней части пространства проектирования и выберите в меню пункт Play.",
+                    "updated": 1637920130755
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir öğretici başlatmak için ilgili eklenti çalışma alanını yükleyin, tasarım alanının altındaki öğreticiyi bulun ve menüden Oynat'ı seçin.",
+                    "updated": 1638915224839
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk melakukan tutorial, muat plugin workspace yang sesuai, temukan tutorial di bagian bawah design space, dan pilih Play pada menu.",
+                    "updated": 1640594831930
+                },
+                {
+                    "language": "DE",
+                    "text": "Um ein Tutorial durch zu spielen, lade den entsprechenden Plugin-Arbeitsbereich, suche das Tutorial am unteren Rand des Designbereichs und wähle im Menü die Option Abspielen.",
+                    "updated": 1642337575076
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "When you need a quick refresher, you may always go back and redo the whole tutorial or a few steps. Because tutorials are made of searchable pages, you may also scan the content without actually doing the tutorial.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Cuando necesite un repaso rápido, siempre puede volver atrás y rehacer todo el tutorial o algunos pasos. Debido a que los tutoriales se componen de páginas en las que se pueden realizar búsquedas, también puede escanear el contenido sin hacer el tutorial.",
+                    "updated": 1636560519878
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вам нужно быстрое обновление, вы всегда можете вернуться и переделать весь учебник или несколько шагов. Поскольку учебники состоят из страниц с возможностью поиска, вы также можете сканировать содержимое, фактически не выполняя учебник.",
+                    "updated": 1637920230871
+                },
+                {
+                    "language": "TR",
+                    "text": "Hızlı bir tekrara ihtiyacınız olduğunda, her zaman geri dönüp tüm öğreticiyi veya birkaç adımı tekrarlayabilirsiniz. Öğreticiler aranabilir sayfalardan oluştuğundan, öğreticiyi gerçekten yapmadan içeriği de tarayabilirsiniz.",
+                    "updated": 1638915299829
+                },
+                {
+                    "language": "ID",
+                    "text": "Ketika kamu membutuhkan penyegaran cepat, kamu selalu dapat kembali dan mengulang seluruh tutorial atau beberapa langkah. Karena tutorial dibuat dari halaman yang dapat dicari, kamu juga dapat memindai konten tanpa benar-benar melakukan tutorial.",
+                    "updated": 1640594900422
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn du eine schnelle Auffrischung benötigst, kannst du jederzeit zurückgehen und die gesamte Anleitung oder einige Schritte erneut durchführen. Da die Lernprogramme aus durchsuchbaren Seiten bestehen, kannst du den Inhalt auch durchsuchen, ohne das Lernprogramm tatsächlich zu bearbeiten.",
+                    "updated": 1642337448742
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "The recommended order is given by the list below, but the truth is doing all tutorials is what matters, regardless of the order.",
+            "updated": 1617036785768,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "El orden recomendado viene dado por la lista a continuación, pero la verdad es que hacer todos los tutoriales es lo que importa, sin importar el orden.",
+                    "updated": 1636560552820
+                },
+                {
+                    "language": "RU",
+                    "text": "Рекомендуемый порядок приведен в списке ниже, но правда в том, что все учебники имеют значение, независимо от порядка.",
+                    "updated": 1637920246813
+                },
+                {
+                    "language": "TR",
+                    "text": "Önerilen sıra aşağıdaki listede verilmiştir, ancak gerçek şu ki, sıra ne olursa olsun önemli olan tüm dersleri yapmaktır.",
+                    "updated": 1638915318393
+                },
+                {
+                    "language": "ID",
+                    "text": "Urutan yang disarankan ada dalam daftar di bawah ini, adapun yang benar yaitu melakukan semua tutorial penting, terlepas dari semua urutan yang ada.",
+                    "updated": 1640595019762
+                },
+                {
+                    "language": "DE",
+                    "text": "Die empfohlene Reihenfolge ergibt sich aus der nachstehenden Liste, aber in Wirklichkeit kommt es darauf an, alle Übungen zu absolvieren, unabhängig von der Reihenfolge.",
+                    "updated": 1642337480432
+                }
+            ]
+        },
+        {
+            "style": "Title",
+            "text": "List of Plugin Workspaces and Tutorials",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Список рабочих пространств и учебников по плагинам",
+                    "updated": 1637920261835
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) ve Öğreticilerin (Tutorial) Listesi",
+                    "updated": 1638915383541
+                },
+                {
+                    "language": "ID",
+                    "text": "Daftar Plugin Workspaces dan Tutorials",
+                    "updated": 1640595042286
+                },
+                {
+                    "language": "DE",
+                    "text": "Liste von Plugin Workspaces und Tutorials",
+                    "updated": 1642337504940
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "For your convenience, find a relation of Plugin Workspaces and the tutorials each of them feature.",
+            "updated": 1617105574778,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Para su conveniencia, encuentre la relación del Plugin Workspaces y los tutoriales de cada uno de ellos.",
+                    "updated": 1636560626471
+                },
+                {
+                    "language": "RU",
+                    "text": "Для вашего удобства приведено соотношение рабочих пространств плагинов (Plugin Workspaces) и учебников, которые есть в каждом из них.",
+                    "updated": 1637920336885
+                },
+                {
+                    "language": "TR",
+                    "text": "Size kolaylık sağlamak için, Eklenti Çalışma Alanları ile her birinin içerdiği öğreticilerin bir ilişkisini aşağıda listelenmiştir.",
+                    "updated": 1638915455745
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk kenyamanan kamu, temukan hubungan Plugin Workspaces dan tutorial dari masing-masing fitur.",
+                    "updated": 1640595103045
+                },
+                {
+                    "language": "DE",
+                    "text": "Zu deiner Erleichterung findest du hier eine Übersicht über die Plugin-Arbeitsbereiche und die darin enthaltenen Tutorials.",
+                    "updated": 1642337549075
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->List of Plugin Workspaces and Tutorials->Content",
+            "updated": 1610955413534
+        },
+        {
+            "style": "Chapter",
+            "text": "I->Foundations->Tutorial->Welcome to Superalgos!->This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live Trading Session.",
+            "updated": 1617207891956
+        },
+        {
+            "style": "Chapter",
+            "text": "II->Foundations->Tutorial->Basic Education->This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",
+            "updated": 1617208207170
+        },
+        {
+            "style": "Chapter",
+            "text": "III->Foundations->Tutorial->Beyond the Basics->This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
+            "updated": 1617208248309
+        },
+        {
+            "style": "Chapter",
+            "text": "IV->Foundations->Tutorial->Trading Bot Layers->This tutorial walks you through the layers made available by the Trading Bot on the charts, in particular, the layers associated with all types of Trading Sessions. You will run a backtest of the BTC-USDT - Weak-hands Buster - WHB trading system and explore some of the trades while learning how to use the layers.",
+            "updated": 1617208309588
+        },
+        {
+            "style": "Chapter",
+            "text": "V->Foundations->Tutorial->Hello World Tutorial->This tutorial is a flash course, cut-to-the-chase style, introducing you to the notion of building a simple Trading System. The tutorial assumes a basic understanding of how Trading Strategies are defined. That said, you may find it useful as a first step introduction too, particularly if you like direct, to-the-point information.",
+            "updated": 1617208438763
+        },
+        {
+            "style": "Chapter",
+            "text": "VI->Foundations->Tutorial->Intro to Trading Systems->This tutorial is the first in a series of tutorials that teach you how to build trading systems. The series goes deep into multiple topics and takes you through a progression that intends to match basic trading knowledge with particular Superalgos implementations. This first tutorial covers theoretical concepts, explains how trading systems are structured in Superalgos, and highlights how you need to frame your strategies to make the most out of the trading framework built-in the system.",
+            "updated": 1617208471535
+        },
+        {
+            "style": "Chapter",
+            "text": "VII->Foundations->Tutorial->Defining a Trading Idea->This tutorial teaches you how to formulate a testable trading idea. In a way, it is an introduction to the systematic approach to trading, a crucial concept that you must grasp to automate strategies. The example laid out in this tutorial is later used in the rest of the series.",
+            "updated": 1617208506342
+        },
+        {
+            "style": "Chapter",
+            "text": "VIII->Foundations->Tutorial->Testing a Trading Idea - The Trigger Stage->This tutorial walks you through the implementation of the trading idea defined in the previous tutorial, covering the definitions of the Trigger Stage.",
+            "updated": 1617208539216
+        },
+        {
+            "style": "Chapter",
+            "text": "IX->Foundations->Tutorial->Testing a Trading Idea - The Other Stages->This tutorial completes the implementation of the trading idea formulated in the previous tutorials, covering the definitions of the Open Stage, Manage Stage, and Close Stage.",
+            "updated": 1617208575390
+        },
+        {
+            "style": "Chapter",
+            "text": "X->Foundations->Tutorial->Install a New Market->This tutorial covers the process of installing a new market. The process automates the creation of data and trading tasks, as well as charts for the said Market.",
+            "updated": 1617208663643
+        },
+        {
+            "style": "Chapter",
+            "text": "XI->Foundations->Tutorial->Setting Up a New Chart->This tutorial walks through the basic inner workings of the Charting Space to help you learn how to create your own custom charts.",
+            "updated": 1621991930816
+        },
+        {
+            "style": "Chapter",
+            "text": "XII->Governance->Tutorial->Creating Your User Profile Tutorial->This tutorial covers everything you need to know about adding a user profile within the  Superalgos Governance system.",
+            "updated": 1637591853047
+        }
+    ]
+}

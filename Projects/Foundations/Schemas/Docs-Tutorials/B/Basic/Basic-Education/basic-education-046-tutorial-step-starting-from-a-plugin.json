@@ -1,0 +1,97 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 46,
+    "type": "Tutorial Step - Starting From a Plugin",
+    "definition": {
+        "text": "Let's look into the first scenario: a typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
+        "icon": {
+            "name": "trading-system",
+            "project": "Algorithmic-Trading"
+        },
+        "updated": 1629908121952,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Uno scenario tipico è modificare una strategia inclusa nel sistema per iniziare con un setup già pronto.",
+                "updated": 1619590461442,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Miremos el primer escenario: un caso típico es cuando desea introducir cambios a una estrategia incluída en el sistema para comenzar con una configuración probada.",
+                "updated": 1633283150203,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Schauen wir uns das erste Szenario an: Ein typischer Fall ist, dass Sie Änderungen an einer Strategie vornehmen möchten, die mit dem System ausgeliefert wird, um mit einem bewährten Setup zu beginnen!",
+                "updated": 1634589005531
+            },
+            {
+                "language": "TR",
+                "text": "İlk senaryoyu inceleyelim: Bu tipik bir durumdur, daha önce denenmiş bir kurulumla başlayarak denemek ya da bu kurulumda değişiklik yapmak istediğinizde ortaya çıkar!",
+                "updated": 1639817762221
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Let's say you are ready to start playing with a strategy. You want to start with an existing one and introduce modifications to understand how things work. You don't intend to contribute the changes. You just wish to play with it and tune it to your liking! Then, do the following:",
+            "updated": 1629908540100,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Mettiamo che hai completato i tutorial di Superalgos e sei pronto a sperimentare con una strategia. Vuoi iniziare da una strategia esistente e modificare qualche dettaglio per capire meglio come funziona il tutto. La strategia in questione è inclusa come un plugin in uno specifico workspace.",
+                    "updated": 1619590579206,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Digamos que está listo para comenzar a jugar con una estrategia.. Quiere comenzar con una existente o introducir modificaciones para entender como trabajan las cosas. No tiene intensiones de contribuir con los cambios. Solo desea jugar con esto y cambiarlo a su gusto! Entonces, haga lo siguiente:",
+                    "updated": 1633283766269,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, Sie sind bereit, mit einer Strategie zu spielen. Sie möchten mit einer bestehenden Strategie beginnen und Änderungen einführen, um zu verstehen, wie die Dinge funktionieren. Sie haben nicht die Absicht, die Änderungen einzubringen. Sie wollen einfach nur damit spielen und sie nach Ihren Wünschen anpassen! Dann gehen Sie wie folgt vor:",
+                    "updated": 1634589029922
+                },
+                {
+                    "language": "TR",
+                    "text": "Diyelim ki bir strateji ile başlamaya hazırsınız. Mevcut olanla başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişiklik yaparak katkıda bulunmak niyetinde değilsiniz. Sadece onu denemek ve beğeninize göre ayarlamak istiyorsunuz! Aşağıdakileri yapın:",
+                    "updated": 1639817833420
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Delete the Plugin File node corresponding to the Trading System and restore the original plugin file (in the \\Plugins\\Trading-Systems folder) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
+            "updated": 1629908649650,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space!",
+                    "updated": 1619590641442,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "Borre el nodo Plugin File correspondiente al Trading System y restablezca el plugin file original en (\\Plugins\\Trading-Systems folder) como si fuera un a backup: arrastre el archivo y suéltelo en el Design Space! La estrategia ahora vive en el workspace y puede modificarlo y grabarlo.",
+                    "updated": 1633283708150,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Löschen Sie den Knoten der Plugin File, die dem Trading System entspricht, und stellen Sie die ursprüngliche Plugin-Datei (im Ordner \\Plugins\\Trading-Systems) wieder her, als ob es sich um eine Sicherungskopie handeln würde: Ziehen Sie die Datei und legen Sie sie im Design Space ab! Die Strategie befindet sich nun im Workspace und Sie können sie ändern und speichern!",
+                    "updated": 1634589037277
+                },
+                {
+                    "language": "TR",
+                    "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz!",
+                    "updated": 1639818432673
+                }
+            ]
+        }
+    ]
+}

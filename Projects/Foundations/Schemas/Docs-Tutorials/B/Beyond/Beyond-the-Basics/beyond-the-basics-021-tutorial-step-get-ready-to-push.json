@@ -1,0 +1,214 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 21,
+    "type": "Tutorial Step - Get Ready to Push!",
+    "definition": {
+        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos!",
+        "icon": {
+            "name": "github",
+            "project": "Foundations"
+        },
+        "updated": 1610791858248,
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ottimo! Hai imparato ad aggiungere una pagina ai Docs, editarla e salvarla! Ora manca solo l'ultimo step...spedirla dal tuo PC a Superalgos!",
+                "updated": 1619636976424,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos!",
+                "updated": 1628191613869,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Erstaunlich! Sie haben gelernt, eine Seite zu den Docs hinzuzufügen, sie zu bearbeiten und zu speichern! Jetzt müssen Sie sie über Ihren PC hinausbringen und sie zu Superalgos beitragen!",
+                "updated": 1635150364540
+            },
+            {
+                "language": "RU",
+                "text": "Потрясающе! Вы научились добавлять страницу в Docs, редактировать ее и сохранять! Теперь вам нужно сделать так, чтобы она вышла за пределы вашего компьютера и попала в Superalgos!",
+                "updated": 1640162015180
+            },
+            {
+                "language": "TR",
+                "text": "İnanılmaz! Dokümanlar'a bir sayfa eklemeyi, düzenlemeyi ve kaydetmeyi öğrendiniz! Şimdi onu PC'nizin ötesine taşımanız ve Superalgos'a katkıda bulunmanız gerekiyor!",
+                "updated": 1640628334773
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos interacts with Git to keep your Superalgos installation up to date and to make contributions easier for less technical users. The App Contribute Command runs the following Git commands in a sequence:",
+            "updated": 1610743150715,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Superalgos interagisce con Git per mantenere la tua installazione aggiornata e per rendere più facile agli utenti meno tecnici contribuire. Il comando App Contribute esegue questi comandi Git:",
+                    "updated": 1619637039829,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Superalgos interactúa con Git para mantener actualizada la instalación de Superalgos y facilitar las contribuciones a los usuarios menos técnicos. El App Contribute Command ejecuta los siguientes comandos de Git en una secuencia:",
+                    "updated": 1628191732614,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos interagiert mit Git, um Ihre Superalgos-Installation auf dem neuesten Stand zu halten und um Beiträge für technisch weniger versierte Benutzer zu erleichtern. Der  App Contribute Command führt die folgenden Git-Befehle nacheinander aus:",
+                    "updated": 1635150376963
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos взаимодействует с Git, чтобы поддерживать вашу версию Superalgos в актуальном состоянии и облегчить внесение вкладов для менее технически подкованных пользователей. Команда App Contribute Command выполняет следующие команды Git в последовательности:",
+                    "updated": 1640162083117
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos, Superalgos kurulumunuzu güncel tutmak ve daha az teknik kullanıcı için katkıları kolaylaştırmak amacıyla Git ile etkileşime girer. App Contribute Command, aşağıdaki Git komutlarını sırayla çalıştırır:",
+                    "updated": 1640628398749
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "git add: adds the changes you've made to contributable files to a git commit.",
+            "updated": 1616948426317,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "git add: aggiunge le tue modifiche in un git commit.",
+                    "updated": 1619637078728,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "git add: agrega los cambios que has realizado en los archivos contribuyentes a una confirmación de git.",
+                    "updated": 1628191868136,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "git add: fügt die Änderungen, die Sie an beitragsfähigen Dateien vorgenommen haben, einem Git-Commit hinzu.",
+                    "updated": 1635150385694
+                },
+                {
+                    "language": "RU",
+                    "text": "git add: добавляет изменения, внесенные вами в файлы, в git commit.",
+                    "updated": 1640162160046
+                },
+                {
+                    "language": "TR",
+                    "text": "git add: Katkıda bulunulan dosyalarda yaptığınız değişiklikleri bir git taahhüdüne ekler.",
+                    "updated": 1640628443857
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "git commit: commits all the changes.",
+            "updated": 1616948431365,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "git commit: fa il commit delle modifiche.",
+                    "updated": 1619637115670,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "git commit: confirma todos los cambios.",
+                    "updated": 1628191882639,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "git commit: Überträgt alle Änderungen.",
+                    "updated": 1635150395840
+                },
+                {
+                    "language": "RU",
+                    "text": "git commit: фиксирует все изменения.",
+                    "updated": 1640162172938
+                },
+                {
+                    "language": "TR",
+                    "text": "git commit: tüm değişiklikleri gerçekleştirir.",
+                    "updated": 1640628503599
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "git push: pushes the changes to your fork.",
+            "updated": 1616948435342,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "git push: fa il push delle modifiche sul tuo fork.",
+                    "updated": 1619637112020,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "git push: empuja los cambios a tu fork.",
+                    "updated": 1628191904103,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "git push: Überträgt die Änderungen auf Ihren Fork.",
+                    "updated": 1635150403499
+                },
+                {
+                    "language": "RU",
+                    "text": "git push: переносит изменения в ваш форк.",
+                    "updated": 1640162184534
+                },
+                {
+                    "language": "TR",
+                    "text": "git Push: değişiklikleri çatalınıza gönderir.",
+                    "updated": 1640628522294
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "github createPullRequest: creates a Pull Request at the Superalgos repository, or add commits to an existing Pull Request.",
+            "updated": 1616948441848,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "github createPullRequest: crea una Pull Request alla repo di Superalgos, o aggiunge i commit alla tua Pull Request esistente.",
+                    "updated": 1619637154313,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "github createPullRequest: crea un Pull Request en el repositorio de Superalgos, o agrega confirmaciones a unexistente Pull Request.",
+                    "updated": 1628191970494,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "github createPullRequest: erstellt einen Pull Request im Superalgos-Repository oder fügt Commits zu einem bestehenden Pull Request hinzu.",
+                    "updated": 1635150423168
+                },
+                {
+                    "language": "RU",
+                    "text": "github createPullRequest: создает Pull Request в репозитории Superalgos или добавляет коммиты в существующий Pull Request.",
+                    "updated": 1640162201259
+                },
+                {
+                    "language": "TR",
+                    "text": "github createPullRequest: Superalgos deposunda bir Çekme İsteği oluşturur veya mevcut bir Çekme İsteğine taahhütler ekler.",
+                    "updated": 1640628550015
+                }
+            ]
+        }
+    ]
+}

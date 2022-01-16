@@ -1,0 +1,238 @@
+{
+    "tutorial": "Hello World Tutorial",
+    "pageNumber": 8,
+    "type": "Tutorial Step - Trigger On",
+    "definition": {
+        "text": "Reserve some funds!",
+        "icon": {
+            "name": "trigger-on",
+            "project": "Foundations"
+        },
+        "updated": 1614244953169,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Reserviere Geldmittel!",
+                "updated": 1622978638588,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "¡Reserva algunos fondos!",
+                "updated": 1629349159115
+            },
+            {
+                "language": "IT",
+                "text": "Mettiamoci dei soldi!",
+                "updated": 1639077184428
+            },
+            {
+                "language": "TR",
+                "text": "Bir miktar para ayırın!",
+                "updated": 1640616811367
+            },
+            {
+                "language": "RU",
+                "text": "Запаситесь некоторыми средствами!",
+                "updated": 1640854887853
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Trigger On event is about reserving (locking) your funds and making them available to the bot.",
+            "updated": 1614244945700,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beim Ereignis Trigger On geht es darum, deine Mittel zu reservieren (zu sperren) und sie dem Bot zur Verfügung zu stellen.",
+                    "updated": 1622981206455,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El evento Trigger On consiste en reservar (bloquear) sus fondos y ponerlos a disposición del bot.",
+                    "updated": 1629349408557
+                },
+                {
+                    "language": "IT",
+                    "text": "L'evento Trigger On riguarda la prenotazione (o impegno) dei fondi e la loro messa a disposizione del bot.",
+                    "updated": 1639077246072
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleyici olayı ( Trigger On ), paranızı rezerve etmek (kilitlemek) ve onları bot için kullanılabilir hale getirmekle ilgilidir.",
+                    "updated": 1640616858375
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие Trigger On - это резервирование (блокировка) ваших средств и предоставление их боту.",
+                    "updated": 1640854905659
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "What I need to do is:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Was ich tun muss, ist:",
+                    "updated": 1622978676342,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Lo que necesito hacer es:",
+                    "updated": 1629349429401
+                },
+                {
+                    "language": "IT",
+                    "text": "Ecco cosa dobbiamo fare:",
+                    "updated": 1639077270454
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapman gereken şey:",
+                    "updated": 1640616873600
+                },
+                {
+                    "language": "RU",
+                    "text": "Что мне нужно сделать:",
+                    "updated": 1640854931116
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Define the TF",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Definiere den TF (Time Frame)",
+                    "updated": 1622978697311,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Definir el TF",
+                    "updated": 1629349443558
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire il Time Frame",
+                    "updated": 1639077285379
+                },
+                {
+                    "language": "TR",
+                    "text": "TF'yi tanımla",
+                    "updated": 1640616888622
+                },
+                {
+                    "language": "RU",
+                    "text": "Определить TF (таймфрейм)",
+                    "updated": 1640854990278
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Define the SMA50/200 cross",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Definiere das SMA50/200 Kreuz",
+                    "updated": 1622978711889,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Definir el SMA50/200 cross",
+                    "updated": 1629349524087
+                },
+                {
+                    "language": "IT",
+                    "text": "Definire l'incrocio SMA50/200 in modo che il nostro bot possa interpretarlo",
+                    "updated": 1639077326773
+                },
+                {
+                    "language": "TR",
+                    "text": "SMA50/200 çaprazını tanımla",
+                    "updated": 1640616976538
+                },
+                {
+                    "language": "RU",
+                    "text": "Определить пересечение SMA50/200",
+                    "updated": 1640855013457
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "To define a cross I use 2 conditions:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Zur Definition, verwende ich zwei Bedingungen:",
+                    "updated": 1622981248271,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Para definir una cruz utilizo 2 condiciones:",
+                    "updated": 1629351309083
+                },
+                {
+                    "language": "IT",
+                    "text": "Per identificare l'incrocio desiderato tra le 2 medie uso il seguente codice:",
+                    "updated": 1639077415308
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir çarpaz tanımlamak için 2 koşul kullanıyorum:",
+                    "updated": 1640616988668
+                },
+                {
+                    "language": "RU",
+                    "text": "Для определения пересечения я использую 2 условия:",
+                    "updated": 1640855927266
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.popularSMA.sma50 > chart.at04hs.popularSMA.sma200",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "chart.at04hs.popularSMA.sma50>chart.at04hs.popularSMA.sma200",
+                    "updated": 1639079242198
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at04hs.popularSMA.previous.sma50 < chart.at04hs.popularSMA.previous.sma200",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "chart.at04hs.popularSMA.previous.sma50<chart.at04hs.popularSMA.previous.sma200",
+                    "updated": 1639079273435
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -1,0 +1,126 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 12,
+    "type": "Tutorial Step - How About The Hierarchy?",
+    "definition": {
+        "text": "The reason why the distance to the parent node is relative to the distance of the parent to its parent is so that you may affect long structures of nodes!",
+        "updated": 1615477794893,
+        "icon": {
+            "name": "Set\\set-distance-to-parent-node-to-one-and-a-half",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Il motivo per cui la distanza di un nodo dal padre è relativa alla distanza del padre dal proprio padre ti permette di modificare lunghe strutture di nodi!",
+                "updated": 1619460922873,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "La razón por la cual la distancia al nodo principal es relativa a la distancia del principal al principal es para que pueda afectar las estructuras largas de los nodos.",
+                "updated": 1625957988594,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Der Grund, warum der Abstand zum übergeordneten Knoten relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten ist, ist, dass Sie lange Strukturen von Knoten beeinflussen können!",
+                "updated": 1634332747191
+            },
+            {
+                "language": "TR",
+                "text": "Ebeveyn düğüme olan uzaklığın ebeveynin ebeveynine olan mesafesine göre olmasının nedeni, uzun düğüm yapılarını etkileyebilmeniz içindir!",
+                "updated": 1636750239895
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Click once on the Distance to Parent button of the Network node!",
+            "updated": 1615477834548,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Clicca una volta sul pulsante Distance to Parent del nodo Network!",
+                    "updated": 1619460938644,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "Haz clic una vez en el botón Distance to Parent del nodo Network.",
+                    "updated": 1625958052161,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie einmal auf die Schaltfläche Abstand zum übergeordneten Knoten des Netzwerkknotens!",
+                    "updated": 1634332754400
+                },
+                {
+                    "language": "TR",
+                    "text": "Ağ düğümünün Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
+                    "updated": 1636750278445
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "Wow! See? These tools allow you full control over how you visually organize hierarchies!",
+            "updated": 1615478179417,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Wow, hai visto? Questi strumenti ti permettono il pieno controllo su come organizzi visualmente le gerarchie!",
+                    "updated": 1619461000739,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
+                    "updated": 1625958134928,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Wahnsinn! Sehen Sie? Mit diesen Werkzeugen haben Sie die volle Kontrolle darüber, wie Sie Hierarchien visuell organisieren!",
+                    "updated": 1634332763485
+                },
+                {
+                    "language": "TR",
+                    "text": "Vayyy! Gördün mü? Bu araçlar, hiyerarşiler üzerinde görsel olarak tam kontrol sahibi olmanızı sağlar!",
+                    "updated": 1636751755132
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "Try canceling the Distance to Parent setting on the Testing Trading Tasks node! As you can see, you may set any arbitrary distance to the parent node, but the angle to the parent remains fixed.",
+            "updated": 1615478515588,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Prova a cancellare la proprietà Distance To Parent sul nodo Testing Trading Tasks. Come vedi, puoi impostare una distanza arbitraria dal nodo padre, ma l'angolo con esso rimane fisso.",
+                    "updated": 1619461092123,
+                    "style": "Success"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Intenta cancelar la configuración Distance to Parent en el nodo Testing Trading Task! Como puedes ver, puedes establecer cualquier distancia arbitraria al nodo principal, pero el ángulo con el principal permanece fijo.",
+                    "updated": 1625958242191,
+                    "style": "Success"
+                },
+                {
+                    "language": "DE",
+                    "text": "Versuchen Sie, die Einstellung \"Abstand zum Übergeordneten\" auf dem Knoten Testing Trading Tasks aufzuheben! Wie Sie sehen, können Sie einen beliebigen Abstand zum übergeordneten Knoten einstellen, aber der Winkel zum übergeordneten Knoten bleibt fest.",
+                    "updated": 1634332795200
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme ( Testing Trading Tasks ) düğümündeki Ebeveyne Mesafe (Distance To Parent) ayarını iptal etmeyi deneyin! Gördüğünüz gibi, ebeveyn düğüme herhangi bir uzaklık ayarlayabilirsiniz, Ancak ebeveyne olan açı sabit kalır.",
+                    "updated": 1636751865776
+                }
+            ]
+        }
+    ]
+}

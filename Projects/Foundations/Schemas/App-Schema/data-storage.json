@@ -1,0 +1,87 @@
+{
+    "type": "Data Storage",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "dataMinesData",
+            "label": "Add Data Mines Data",
+            "relatedUiObject": "Data Mines Data",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "tradingMinesData",
+            "label": "Add Trading Mines Data",
+            "relatedUiObject": "Trading Mines Data",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "portfolioMinesData",
+            "label": "Add Portfolio Mines Data",
+            "relatedUiObject": "Portfolio Mines Data",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "learningMinesData",
+            "label": "Add Learning Mines Data",
+            "relatedUiObject": "Learning Mines Data",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 2,
+    "attachingRules": {
+        "compatibleTypes": "->LAN Network Node->"
+    },
+    "propertyNameAtParent": "dataStorage",
+    "childrenNodesProperties": [
+        {
+            "name": "dataMinesData",
+            "type": "node",
+            "childType": "Data Mines Data",
+            "autoAdd": true
+        },
+        {
+            "name": "tradingMinesData",
+            "type": "node",
+            "childType": "Trading Mines Data",
+            "autoAdd": true
+        },
+        {
+            "name": "portfolioMinesData",
+            "type": "node",
+            "childType": "Portfolio Mines Data",
+            "autoAdd": true
+        },
+        {
+            "name": "learningMinesData",
+            "type": "node",
+            "childType": "Learning Mines Data",
+            "autoAdd": true
+        }
+    ]
+}

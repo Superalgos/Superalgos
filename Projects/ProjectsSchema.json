@@ -1,227 +1,615 @@
 [
     {
-        "name": "Superalgos",
-        "propertyName": "superalgos",
+        "name": "Algorithmic-Trading",
+        "propertyName": "algorithmicTrading",
         "UI": {
-            "globals": [
+            "nodeActionFunctions": [
                 {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newSuperalgosGlobalsDocs"
-                },
-                {
-                    "name": "Zoom",
-                    "propertyName": "zoom",
-                    "functionName": "newSuperalgosGlobalsZoom"
+                    "name": "Trading Session Functions",
+                    "propertyName": "tradingSessionFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibraryTradingSessionFunctions"
                 }
             ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "TS": {
             "functionLibraries": [
                 {
-                    "name": "Attach Detach",
+                    "name": "Trading Functions",
+                    "propertyName": "tradingFunctions",
+                    "functionName": "newAlgorithmicTradingFunctionLibrariesTradingFunctions",
+                    "fileName": "TradingFunctions.js"
+                }
+            ],
+            "botModules": [
+                {
+                    "name": "Single Market Trading Bot",
+                    "propertyName": "singleMarketTradingBot",
+                    "functionName": "newAlgorithmicTradingBotModulesSingleMarketTradingBot",
+                    "fileName": "SingleMarketTradingBot.js",
+                    "folderName": "Trading-Bot",
+                    "botType": "Trading Bot"
+                },
+                {
+                    "name": "Trading Session",
+                    "propertyName": "tradingSession",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingSession",
+                    "fileName": "TradingSession.js",
+                    "folderName": "Trading-Bot"
+                },
+                {
+                    "name": "Trading Process",
+                    "propertyName": "tradingProcess",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingProcess",
+                    "fileName": "TradingProcess.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Engine",
+                    "propertyName": "tradingEngine",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingEngine",
+                    "fileName": "TradingEngine.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Output",
+                    "propertyName": "tradingOutput",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingOutput",
+                    "fileName": "TradingOutput.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Simulation",
+                    "propertyName": "tradingSimulation",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingSimulation",
+                    "fileName": "TradingSimulation.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Episode",
+                    "propertyName": "tradingEpisode",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingEpisode",
+                    "fileName": "TradingEpisode.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Records",
+                    "propertyName": "tradingRecords",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingRecords",
+                    "fileName": "TradingRecords.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading System",
+                    "propertyName": "tradingSystem",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingSystem",
+                    "fileName": "TradingSystem.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Stages",
+                    "propertyName": "tradingStages",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingStages",
+                    "fileName": "TradingStages.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Strategy",
+                    "propertyName": "tradingStrategy",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingStrategy",
+                    "fileName": "TradingStrategy.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Execution",
+                    "propertyName": "tradingExecution",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingExecution",
+                    "fileName": "TradingExecution.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Position",
+                    "propertyName": "tradingPosition",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingPosition",
+                    "fileName": "TradingPosition.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Snapshots",
+                    "propertyName": "snapshots",
+                    "functionName": "newAlgorithmicTradingBotModulesSnapshots",
+                    "fileName": "Snapshots.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Trading Orders",
+                    "propertyName": "tradingOrders",
+                    "functionName": "newAlgorithmicTradingBotModulesTradingOrders",
+                    "fileName": "TradingOrders.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Orders Simulations",
+                    "propertyName": "ordersSimulations",
+                    "functionName": "newAlgorithmicTradingBotModulesOrdersSimulations",
+                    "fileName": "OrdersSimulations.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Orders Calculations",
+                    "propertyName": "ordersCalculations",
+                    "functionName": "newAlgorithmicTradingBotModulesOrdersCalculations",
+                    "fileName": "OrdersCalculations.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading"
+                },
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newAlgorithmicTradingBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
+                }
+            ]
+        },
+        "plugins": [
+            "Trading Mines",
+            "Trading Systems",
+            "Trading Engines"
+        ],
+        "tasks": [
+            "Trading Tasks"
+        ]
+    },
+    {
+        "name": "Portfolio-Management",
+        "propertyName": "portfolioManagement",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Portfolio Session Functions",
+                    "propertyName": "portfolioSessionFunctions",
+                    "functionName": "newPortfolioManagementFunctionLibraryPortfolioSessionFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "SA": {},
+        "TS": {
+            "modules": [
+                {
+                    "name": "Portfolio Manager Client",
+                    "propertyName": "portfolioManagerClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerClient",
+                    "fileName": "PortfolioManagerClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Client",
+                    "propertyName": "portfolioManagerEventsClient",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsClient",
+                    "fileName": "PortfolioManagerEventsClient.js"
+                },
+                {
+                    "name": "Portfolio Manager Events Interface",
+                    "propertyName": "portfolioManagerEventsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerEventsInterface",
+                    "fileName": "PortfolioManagerEventsInterface.js"
+                },
+                {
+                    "name": "Portfolio Manager Trading Bots Interface",
+                    "propertyName": "portfolioManagerTradingBotsInterface",
+                    "functionName": "newPortfolioManagementModulesPortfolioManagerTradingBotsInterface",
+                    "fileName": "PortfolioManagerTradingBotsInterface.js"
+                }
+            ],
+            "botModules": [
+                {
+                    "name": "Single Market Portfolio Bot",
+                    "propertyName": "singleMarketPortfolioBot",
+                    "functionName": "newPortfolioManagementBotModulesSingleMarketPortfolioBot",
+                    "fileName": "SingleMarketPortfolioBot.js",
+                    "folderName": "Portfolio-Bot",
+                    "botType": "Portfolio Bot"
+                },
+                {
+                    "name": "Portfolio Session",
+                    "propertyName": "portfolioSession",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSession",
+                    "fileName": "PortfolioSession.js",
+                    "folderName": "Portfolio-Bot"
+                },
+                {
+                    "name": "Portfolio Process",
+                    "propertyName": "portfolioProcess",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioProcess",
+                    "fileName": "PortfolioProcess.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Engine",
+                    "propertyName": "portfolioEngine",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEngine",
+                    "fileName": "PortfolioEngine.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Output",
+                    "propertyName": "portfolioOutput",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioOutput",
+                    "fileName": "PortfolioOutput.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Simulation",
+                    "propertyName": "portfolioSimulation",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSimulation",
+                    "fileName": "PortfolioSimulation.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Managed Trading Bots",
+                    "propertyName": "portfolioManagedTradingBots",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioManagedTradingBots",
+                    "fileName": "PortfolioManagedTradingBots.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Episode",
+                    "propertyName": "portfolioEpisode",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEpisode",
+                    "fileName": "PortfolioEpisode.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Records",
+                    "propertyName": "portfolioRecords",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioRecords",
+                    "fileName": "PortfolioRecords.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio System",
+                    "propertyName": "portfolioSystem",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioSystem",
+                    "fileName": "PortfolioSystem.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Events Manager",
+                    "propertyName": "portfolioEventsManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioEventsManager",
+                    "fileName": "PortfolioEventsManager.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },
+                {
+                    "name": "Portfolio Formulas Manager",
+                    "propertyName": "portfolioFormulasManager",
+                    "functionName": "newPortfolioManagementBotModulesPortfolioFormulasManager",
+                    "fileName": "PortfolioFormulasManager.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio"
+                },                
+                {
+                    "name": "Exchange API",
+                    "propertyName": "exchangeAPI",
+                    "functionName": "newPortfolioManagementBotModulesExchangeAPI",
+                    "fileName": "ExchangeAPI.js",
+                    "folderName": "Portfolio-Bot/Low-Frequency-Portfolio/APIs"
+                }
+            ]
+        },
+        "plugins": [
+            "Portfolio Mines",
+            "Portfolio Systems",
+            "Portfolio Engines"
+        ],
+        "tasks": [
+            "Portfolio Tasks"
+        ]
+    },
+    {
+        "name": "Machine-Learning",
+        "propertyName": "machineLearning",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Learning Session Functions",
+                    "propertyName": "learningSessionFunctions",
+                    "functionName": "newMachineLearningFunctionLibraryLearningSessionFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Single Market Learning Bot",
+                    "propertyName": "singleMarketLearningBot",
+                    "functionName": "newMachineLearningBotModulesSingleMarketLearningBot",
+                    "fileName": "SingleMarketLearningBot.js",
+                    "folderName": "Learning-Bot",
+                    "botType": "Learning Bot"
+                },
+                {
+                    "name": "Learning Session",
+                    "propertyName": "learningSession",
+                    "functionName": "newMachineLearningBotModulesLearningSession",
+                    "fileName": "LearningSession.js",
+                    "folderName": "Learning-Bot"
+                },
+                {
+                    "name": "Learning Process",
+                    "propertyName": "learningProcess",
+                    "functionName": "newMachineLearningBotModulesLearningProcess",
+                    "fileName": "LearningProcess.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Engine",
+                    "propertyName": "learningEngine",
+                    "functionName": "newMachineLearningBotModulesLearningEngine",
+                    "fileName": "LearningEngine.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Output",
+                    "propertyName": "learningOutput",
+                    "functionName": "newMachineLearningBotModulesLearningOutput",
+                    "fileName": "LearningOutput.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Simulation",
+                    "propertyName": "learningSimulation",
+                    "functionName": "newMachineLearningBotModulesLearningSimulation",
+                    "fileName": "LearningSimulation.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Episode",
+                    "propertyName": "learningEpisode",
+                    "functionName": "newMachineLearningBotModulesLearningEpisode",
+                    "fileName": "LearningEpisode.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning Records",
+                    "propertyName": "learningRecords",
+                    "functionName": "newMachineLearningBotModulesLearningRecords",
+                    "fileName": "LearningRecords.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "Learning System",
+                    "propertyName": "learningSystem",
+                    "functionName": "newMachineLearningBotModulesLearningSystem",
+                    "fileName": "LearningSystem.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                }
+            ]
+        },
+        "plugins": [
+            "Learning Mines",
+            "Learning Systems",
+            "Learning Engines"
+        ],
+        "tasks": [
+            "Learning Tasks"
+        ]
+    },
+    {
+        "name": "Visual-Scripting",
+        "propertyName": "visualScripting",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Shortcut Keys",
+                    "propertyName": "shortcutKeys",
+                    "functionName": "newVisualScriptingFunctionLibraryShortcutKeys"
+                },
+                {
+                    "name": "Reference Attach Detach",
                     "propertyName": "attachDetach",
-                    "functionName": "newSuperalgosFunctionLibraryAttachDetach"
+                    "functionName": "newVisualScriptingFunctionLibraryReferenceAttachDetach"
                 },
                 {
                     "name": "Chain Attach Detach",
                     "propertyName": "chainAttachDetach",
-                    "functionName": "newSuperalgosFunctionLibraryChainAttachDetach"
+                    "functionName": "newVisualScriptingFunctionLibraryChainAttachDetach"
                 },
                 {
                     "name": "Node Deleter",
                     "propertyName": "nodeDeleter",
-                    "functionName": "newSuperalgosFunctionLibraryNodeDeleter"
+                    "functionName": "newVisualScriptingFunctionLibraryNodeDeleter"
+                },
+                {
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingFunctionLibraryNodeChildren"
                 },
                 {
                     "name": "Ui Objects From Nodes",
                     "propertyName": "uiObjectsFromNodes",
-                    "functionName": "newSuperalgosFunctionLibraryUiObjectsFromNodes"
+                    "functionName": "newVisualScritingFunctionLibraryUiObjectsFromNodes"
                 },
                 {
                     "name": "Protocol Node",
                     "propertyName": "protocolNode",
-                    "functionName": "newSuperalgosFunctionLibraryProtocolNode"
+                    "functionName": "newVisualScriptingFunctionLibraryProtocolNode"
                 },
                 {
                     "name": "Node Cloning",
                     "propertyName": "nodeCloning",
-                    "functionName": "newSuperalgosFunctionLibraryNodeCloning"
-                },
-                {
-                    "name": "Shortcut Keys",
-                    "propertyName": "shortcutKeys",
-                    "functionName": "newSuperalgosFunctionLibraryShortcutKeys"
+                    "functionName": "newVisualScriptingFunctionLibraryNodeCloning"
                 },
                 {
                     "name": "On Focus",
                     "propertyName": "onFocus",
-                    "functionName": "newSuperalgosFunctionLibraryOnFocus"
-                },
-                {
-                    "name": "Super Scripts Functions",
-                    "propertyName": "superScriptsFunctions",
-                    "functionName": "newSuperalgosFunctionLibrarySuperScriptsFunctions"
-                },
-                {
-                    "name": "Webhook Functions",
-                    "propertyName": "webhookFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryWebhookFunctions"
-                },
-                {
-                    "name": "Dependencies Filter",
-                    "propertyName": "dependenciesFilter",
-                    "functionName": "newSuperalgosFunctionLibraryDependenciesFilter"
+                    "functionName": "newVisualScriptingFunctionLibraryOnFocus"
                 },
                 {
                     "name": "Node Path",
                     "propertyName": "nodePath",
-                    "functionName": "newSuperalgosFunctionLibraryNodePath"
-                },
-                {
-                    "name": "Task Functions",
-                    "propertyName": "taskFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryTaskFunctions"
-                },
-                {
-                    "name": "Trading Session Functions",
-                    "propertyName": "tradingSessionFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryTradingSessionFunctions"
-                },
-                {
-                    "name": "Learning Session Functions",
-                    "propertyName": "learningSessionFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryLearningSessionFunctions"
-                },
-                {
-                    "name": "Crypto Ecosystem Functions",
-                    "propertyName": "cryptoEcosystemFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryCryptoEcosystemFunctions"
-                },
-                {
-                    "name": "Mine Functions",
-                    "propertyName": "mineFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryMineFunctions"
-                },
-                {
-                    "name": "Data Storage Functions",
-                    "propertyName": "dataStorageFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryDataStorageFunctions"
-                },
-                {
-                    "name": "Charting Space Functions",
-                    "propertyName": "chartingSpaceFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryChartingSpaceFunctions"
-                },
-                {
-                    "name": "Plugins Functions",
-                    "propertyName": "pluginsFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryPluginsFunctions"
-                },
-                {
-                    "name": "Workspace Functions",
-                    "propertyName": "workspaceFunctions",
-                    "functionName": "newSuperalgosFunctionLibraryWorkspaceFunctions"
+                    "functionName": "newVisualScriptingFunctionLibraryNodePath"
                 }
             ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
             "utilities": [
                 {
                     "name": "Branches",
                     "propertyName": "branches",
-                    "functionName": "newSuperalgosUtilitiesBranches"
-                },
-                {
-                    "name": "Clipboard",
-                    "propertyName": "clipboard",
-                    "functionName": "newSuperalgosUtilitiesClipboard"
-                },
-                {
-                    "name": "Coordinate Transformations",
-                    "propertyName": "coordinateTransformations",
-                    "functionName": "newSuperalgosUtilitiesCoordinateTransformations"
-                },
-                {
-                    "name": "Date Rate Transformations",
-                    "propertyName": "dateRateTransformations",
-                    "functionName": "newSuperalgosUtilitiesDateRateTransformations"
-                },
-                {
-                    "name": "Dates",
-                    "propertyName": "dates",
-                    "functionName": "newSuperalgosUtilitiesDates"
-                },
-                {
-                    "name": "Download",
-                    "propertyName": "download",
-                    "functionName": "newSuperalgosUtilitiesDownload"
-                },
-                {
-                    "name": "Draw Print",
-                    "propertyName": "drawPrint",
-                    "functionName": "newSuperalgosUtilitiesDrawPrint"
+                    "functionName": "newVisualScriptingUtilitiesBranches"
                 },
                 {
                     "name": "Hierarchy",
                     "propertyName": "hierarchy",
-                    "functionName": "newSuperalgosUtilitiesHierarchy"
+                    "functionName": "newVisualScriptingUtilitiesHierarchy"
                 },
                 {
                     "name": "Load Save Frame",
                     "propertyName": "loadSaveFrame",
-                    "functionName": "newSuperalgosUtilitiesLoadSaveFrame"
-                },
-                {
-                    "name": "Tutorial",
-                    "propertyName": "tutorial",
-                    "functionName": "newSuperalgosUtilitiesTutorial"
-                },
-                {
-                    "name": "Menu",
-                    "propertyName": "menu",
-                    "functionName": "newSuperalgosUtilitiesMenu"
+                    "functionName": "newVisualScriptingUtilitiesLoadSaveFrame"
                 },
                 {
                     "name": "Meshes",
                     "propertyName": "meshes",
-                    "functionName": "newSuperalgosUtilitiesMeshes"
+                    "functionName": "newVisualScriptingUtilitiesMeshes"
                 },
                 {
-                    "name": "Children",
-                    "propertyName": "children",
-                    "functionName": "newSuperalgosUtilitiesNodeChildren"
+                    "name": "Node Children",
+                    "propertyName": "nodeChildren",
+                    "functionName": "newVisualScriptingUtilitiesNodeChildren"
                 },
                 {
                     "name": "Node Config",
                     "propertyName": "nodeConfig",
-                    "functionName": "newSuperalgosUtilitiesNodeConfig"
+                    "functionName": "newVisualScriptingUtilitiesNodeConfig"
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Node Functions",
+                    "propertyName": "nodeFunctions",
+                    "functionName": "newVisualScriptingUtilitiesNodeFunctions",
+                    "fileName": "NodeFunctions.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Foundations",
+        "propertyName": "foundations",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Webhook Functions",
+                    "propertyName": "webhookFunctions",
+                    "functionName": "newFoundationsFunctionLibraryWebhookFunctions"
+                },
+                {
+                    "name": "Dependencies Filter",
+                    "propertyName": "dependenciesFilter",
+                    "functionName": "newFoundationsFunctionLibraryDependenciesFilter"
+                },
+                {
+                    "name": "Task Functions",
+                    "propertyName": "taskFunctions",
+                    "functionName": "newFoundationsFunctionLibraryTaskFunctions"
+                },
+                {
+                    "name": "Crypto Ecosystem Functions",
+                    "propertyName": "cryptoEcosystemFunctions",
+                    "functionName": "newFoundationsFunctionLibraryCryptoEcosystemFunctions"
+                },
+                {
+                    "name": "Product Functions",
+                    "propertyName": "productFunctions",
+                    "functionName": "newFoundationsFunctionLibraryProductFunctions"
+                },
+                {
+                    "name": "Data Storage Functions",
+                    "propertyName": "dataStorageFunctions",
+                    "functionName": "newFoundationsFunctionLibraryDataStorageFunctions"
+                },
+                {
+                    "name": "Charting Space Functions",
+                    "propertyName": "chartingSpaceFunctions",
+                    "functionName": "newFoundationsFunctionLibraryChartingSpaceFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [
+                {
+                    "name": "Zoom",
+                    "propertyName": "zoom",
+                    "functionName": "newFoundationsGlobalsZoom"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Clipboard",
+                    "propertyName": "clipboard",
+                    "functionName": "newFoundationsUtilitiesClipboard"
+                },
+                {
+                    "name": "Coordinate Transformations",
+                    "propertyName": "coordinateTransformations",
+                    "functionName": "newFoundationsUtilitiesCoordinateTransformations"
+                },
+                {
+                    "name": "Date Rate Transformations",
+                    "propertyName": "dateRateTransformations",
+                    "functionName": "newFoundationsUtilitiesDateRateTransformations"
+                },
+                {
+                    "name": "Dates",
+                    "propertyName": "dates",
+                    "functionName": "newFoundationsUtilitiesDates"
+                },
+                {
+                    "name": "Download",
+                    "propertyName": "download",
+                    "functionName": "newFoundationsUtilitiesDownload"
+                },
+                {
+                    "name": "Draw Print",
+                    "propertyName": "drawPrint",
+                    "functionName": "newFoundationsUtilitiesDrawPrint"
+                },
+                {
+                    "name": "Tutorial",
+                    "propertyName": "tutorial",
+                    "functionName": "newFoundationsUtilitiesTutorial"
+                },
+                {
+                    "name": "Menu",
+                    "propertyName": "menu",
+                    "functionName": "newFoundationsUtilitiesMenu"
                 },
                 {
                     "name": "Folders",
                     "propertyName": "folders",
-                    "functionName": "newSuperalgosUtilitiesFolders"
+                    "functionName": "newFoundationsUtilitiesFolders"
                 },
                 {
                     "name": "Strings",
                     "propertyName": "strings",
-                    "functionName": "newSuperalgosUtilitiesStrings"
-                },
-                {
-                    "name": "Languages",
-                    "propertyName": "languages",
-                    "functionName": "newSuperalgosUtilitiesLanguages"
+                    "functionName": "newFoundationsUtilitiesStrings"
                 },
                 {
                     "name": "Git Branches",
                     "propertyName": "gitBranches",
-                    "functionName": "newSuperalgosUtilitiesGitBranches"
-                },
-                {
-                    "name": "Docs",
-                    "propertyName": "docs",
-                    "functionName": "newSuperalgosUtilitiesDocs"
+                    "functionName": "newFoundationsUtilitiesGitBranches"
                 },
                 {
                     "name": "Status Bar",
                     "propertyName": "statusBar",
-                    "functionName": "newSuperalgosUtilitiesStatusBar"
+                    "functionName": "newFoundationsUtilitiesStatusBar"
                 }
             ],
             "spaces": [
@@ -229,123 +617,97 @@
                     "name": "Floating Space",
                     "folderName": "Floating-Space",
                     "propertyName": "floatingSpace",
-                    "functionName": "newSuperalgosFloatingSpace",
+                    "functionName": "newFoundationsFloatingSpace",
                     "initializationIndex": 0,
                     "animationPhysicsIndex": 1,
                     "animationDrawIndex": 0,
                     "onMouseWheelIndex": 6,
-                    "onMouseOverIndex": 8,
-                    "onMouseClickIndex": 8,
-                    "onMouseDownIndex": 8
+                    "onMouseOverIndex": 6,
+                    "onMouseClickIndex": 5,
+                    "onMouseDownIndex": 5
                 },
                 {
                     "name": "Top Space",
                     "folderName": "Top-Space",
                     "propertyName": "topSpace",
-                    "functionName": "newSuperalgosTopSpace",
+                    "functionName": "newFoundationsTopSpace",
                     "initializationIndex": 1,
-                    "animationPhysicsIndex": 7,
-                    "animationDrawIndex": 5,
-                    "onMouseOverIndex": 4,
-                    "onMouseClickIndex": 4,
-                    "onMouseDownIndex": 4
+                    "animationPhysicsIndex": 5,
+                    "animationDrawIndex": 4,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
                 },
                 {
                     "name": "Cockpit Space",
                     "folderName": "Cocksit-Space",
                     "propertyName": "cockpitSpace",
-                    "functionName": "newSuperalgosCockpitSpace",
+                    "functionName": "newFoundationsCockpitSpace",
                     "initializationIndex": 2,
                     "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 6,
+                    "animationDrawIndex": 5,
                     "onMouseWheelIndex": 4,
-                    "onMouseOverIndex": 5,
-                    "onMouseClickIndex": 5,
-                    "onMouseDownIndex": 5
-                },
-                {
-                    "name": "Design Space",
-                    "folderName": "Design-Space",
-                    "propertyName": "designSpace",
-                    "functionName": "newSuperalgosDesignSpace",
-                    "initializationIndex": 3,
-                    "animationPhysicsIndex": 3,
-                    "animationDrawIndex": 2,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 3,
-                    "onMouseClickIndex": 3,
-                    "onMouseDownIndex": 3
-                },
-                {
-                    "name": "Panel Space",
-                    "folderName": "Panel-Space",
-                    "propertyName": "panelSpace",
-                    "functionName": "newSuperalgosPanelSpace",
-                    "initializationIndex": 4,
-                    "animationPhysicsIndex": 4,
-                    "animationDrawIndex": 3,
-                    "onMouseWheelIndex": 3,
-                    "onMouseOverIndex": 6,
-                    "onMouseClickIndex": 6,
-                    "onMouseDownIndex": 6
-                },
-                {
-                    "name": "Charting Space",
-                    "folderName": "Charting-Space",
-                    "propertyName": "chartingSpace",
-                    "functionName": "newSuperalgosChartingSpace",
-                    "initializationIndex": 5,
-                    "animationPhysicsIndex": 2,
-                    "animationDrawIndex": 1,
-                    "onMouseWheelIndex": 5,
-                    "onMouseOverIndex": 7,
-                    "onMouseClickIndex": 7,
-                    "onMouseDownIndex": 7
-                },
-                {
-                    "name": "Side Space",
-                    "folderName": "Floating-Space",
-                    "propertyName": "sideSpace",
-                    "functionName": "newSuperalgosSideSpace",
-                    "initializationIndex": 6,
-                    "animationPhysicsIndex": 8,
-                    "animationDrawIndex": 8,
-                    "onMouseWheelIndex": 2,
-                    "onMouseOverIndex": 2,
-                    "onMouseClickIndex": 2,
-                    "onMouseDownIndex": 2
-                },
-                {
-                    "name": "Docs Space",
-                    "folderName": "Docs-Space",
-                    "propertyName": "docsSpace",
-                    "functionName": "newSuperalgosDocSpace",
-                    "initializationIndex": 7,
-                    "animationPhysicsIndex": 5,
-                    "animationDrawIndex": 7,
-                    "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
                     "onMouseDownIndex": 1
                 },
                 {
+                    "name": "Panel Space",
+                    "folderName": "Panel-Space",
+                    "propertyName": "panelSpace",
+                    "functionName": "newFoundationsPanelSpace",
+                    "initializationIndex": 4,
+                    "animationPhysicsIndex": 4,
+                    "animationDrawIndex": 3,
+                    "onMouseWheelIndex": 3,
+                    "onMouseOverIndex": 3,
+                    "onMouseClickIndex": 2,
+                    "onMouseDownIndex": 2
+                },
+                {
+                    "name": "Charting Space",
+                    "folderName": "Charting-Space",
+                    "propertyName": "chartingSpace",
+                    "functionName": "newFoundationsChartingSpace",
+                    "initializationIndex": 5,
+                    "animationPhysicsIndex": 2,
+                    "animationDrawIndex": 1,
+                    "onMouseWheelIndex": 5,
+                    "onMouseOverIndex": 4,
+                    "onMouseClickIndex": 6,
+                    "onMouseDownIndex": 6
+                },
+                {
+                    "name": "Side Space",
+                    "folderName": "Floating-Space",
+                    "propertyName": "sideSpace",
+                    "functionName": "newFoundationsSideSpace",
+                    "initializationIndex": 6,
+                    "animationPhysicsIndex": 6,
+                    "animationDrawIndex": 6,
+                    "onMouseWheelIndex": 2,
+                    "onMouseOverIndex": 2,
+                    "onMouseClickIndex": 3,
+                    "onMouseDownIndex": 3
+                },
+                {
                     "name": "Chat Space",
                     "folderName": "Chat-Space",
                     "propertyName": "chatSpace",
-                    "functionName": "newSuperalgosChatSpace"
+                    "functionName": "newFoundationsChatSpace"
                 },
                 {
-                    "name": "Tutorial Space",
-                    "folderName": "Tutorial-Space",
-                    "propertyName": "tutorialSpace",
-                    "functionName": "newSuperalgosTutorialSpace",
+                    "name": "Code Editor Space",
+                    "folderName": "CodeEditor-Space",
+                    "propertyName": "codeEditorSpace",
+                    "functionName": "newFoundationsCodeEditorSpace",
                     "initializationIndex": 8,
-                    "animationPhysicsIndex": 6,
-                    "animationDrawIndex": 4,
-                    "onMouseWheelIndex": 0,
-                    "onMouseOverIndex": 0,
-                    "onMouseClickIndex": 0,
-                    "onMouseDownIndex": 0
+                    "animationPhysicsIndex": 8,
+                    "animationDrawIndex": 8,
+                    "onMouseWheelIndex": 7,
+                    "onMouseOverIndex": 5,
+                    "onMouseClickIndex": 4,
+                    "onMouseDownIndex": 4
                 }
             ]
         },
@@ -354,61 +716,55 @@
                 {
                     "name": "Time Frames",
                     "propertyName": "timeFrames",
-                    "functionName": "newSuperalgosGlobalsTimeFrames",
+                    "functionName": "newFoundationsGlobalsTimeFrames",
                     "fileName": "TimeFrames.js"
                 },
                 {
                     "name": "Standard Responses",
                     "propertyName": "standardResponses",
-                    "functionName": "newSuperalgosGlobalsStandardResponses",
+                    "functionName": "newFoundationsGlobalsStandardResponses",
                     "fileName": "StandardResponses.js"
-                },
-                {
-                    "name": "Time Constants",
-                    "propertyName": "timeConstants",
-                    "functionName": "newSuperalgosGlobalsTimeConstants",
-                    "fileName": "TimeConstants.js"
                 },
                 {
                     "name": "Process Variables",
                     "propertyName": "processVariables",
-                    "functionName": "newSuperalgosGlobalsProcessVariables",
+                    "functionName": "newFoundationsGlobalsProcessVariables",
                     "fileName": "ProcessVariables.js"
                 },
                 {
                     "name": "Process Constants",
                     "propertyName": "processConstants",
-                    "functionName": "newSuperalgosGlobalsProcessConstants",
+                    "functionName": "newFoundationsGlobalsProcessConstants",
                     "fileName": "ProcessConstants.js"
                 },
                 {
                     "name": "Process Module Objects",
                     "propertyName": "processModuleObjects",
-                    "functionName": "newSuperalgosGlobalsModuleObjects",
+                    "functionName": "newFoundationsGlobalsModuleObjects",
                     "fileName": "ProcessModuleObjects.js"
                 },
                 {
                     "name": "Task Variables",
                     "propertyName": "taskVariables",
-                    "functionName": "newSuperalgosGlobalsTaskVariables",
+                    "functionName": "newFoundationsGlobalsTaskVariables",
                     "fileName": "TaskVariables.js"
                 },
                 {
                     "name": "Task Constants",
                     "propertyName": "taskConstants",
-                    "functionName": "newSuperalgosGlobalsTaskConstants",
+                    "functionName": "newFoundationsGlobalsTaskConstants",
                     "fileName": "TaskConstants.js"
                 },
                 {
                     "name": "NODE JS Constants",
                     "propertyName": "nodeJSConstants",
-                    "functionName": "newSuperalgosGlobalsNodeJSConstants",
+                    "functionName": "newFoundationsGlobalsNodeJSConstants",
                     "fileName": "NodeJSConstants.js"
                 },
                 {
                     "name": "Logger Variables",
                     "propertyName": "loggerVariables",
-                    "functionName": "newSuperalgosGlobalsLoggerVariables",
+                    "functionName": "newFoundationsGlobalsLoggerVariables",
                     "fileName": "LoggerVariables.js"
                 }
             ],
@@ -416,95 +772,95 @@
                 {
                     "name": "Node JS Functions",
                     "propertyName": "nodeJSFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesNodeJSFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesNodeJSFunctions",
                     "fileName": "NodeJSFunctions.js"
                 },
                 {
                     "name": "Task Functions",
                     "propertyName": "taskFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesTaskFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesTaskFunctions",
                     "fileName": "TaskFunctions.js"
                 },
                 {
                     "name": "Process Functions",
                     "propertyName": "processFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesProcessFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesProcessFunctions",
                     "fileName": "ProcessFunctions.js"
                 },
                 {
                     "name": "Session Functions",
                     "propertyName": "sessionFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesSessionFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesSessionFunctions",
                     "fileName": "SessionFunctions.js"
                 },
                 {
                     "name": "Single Market Functions",
                     "propertyName": "singleMarketFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesSingleMarketFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesSingleMarketFunctions",
                     "fileName": "SingleMarketFunctions.js"
                 },
                 {
                     "name": "Data Dependencies Functions",
                     "propertyName": "dataDependenciesFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesDataDependenciesFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesDataDependenciesFunctions",
                     "fileName": "DataDependenciesFunctions.js"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Functions",
+                    "propertyName": "fromOneMinToMultiTimeFrameFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesFromOneMinToMultiTimeFrameFunctions",
+                    "fileName": "FromOneMinToMultiTimeFrameFunctions.js"
                 },
                 {
                     "name": "Process Files Functions",
                     "propertyName": "processFilesFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesProcessFilesFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesProcessFilesFunctions",
                     "fileName": "ProcessFilesFunctions.js"
                 },
                 {
                     "name": "Output Management Functions",
                     "propertyName": "outputManagementFunctions",
-                    "functionName": "newSuperalgosFunctionLibrariesOutputManagementFunctions",
+                    "functionName": "newFoundationsFunctionLibrariesOutputManagementFunctions",
                     "fileName": "OutputManagementFunctions.js"
                 }
             ],
             "utilities": [
                 {
-                    "name": "Node Functions",
-                    "propertyName": "nodeFunctions",
-                    "functionName": "newSuperalgosUtilitiesNodeFunctions",
-                    "fileName": "NodeFunctions.js"
-                },
-                {
                     "name": "Date Time Functions",
                     "propertyName": "dateTimeFunctions",
-                    "functionName": "newSuperalgosUtilitiesDateTimeFunctions",
+                    "functionName": "newFoundationsUtilitiesDateTimeFunctions",
                     "fileName": "DateTimeFunctions.js"
                 },
                 {
                     "name": "Miscellaneous Functions",
                     "propertyName": "miscellaneousFunctions",
-                    "functionName": "newSuperalgosUtilitiesMiscellaneousFunctions",
+                    "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
                     "fileName": "MiscellaneousFunctions.js"
                 },
                 {
-                    "name": "Docs Functions",
-                    "propertyName": "docsFunctions",
-                    "functionName": "newSuperalgosUtilitiesDocsFunctions",
-                    "fileName": "DocsFunctions.js"
+                    "name": "Error Handling Functions",
+                    "propertyName": "errorHandlingFunctions",
+                    "functionName": "newFoundationsUtilitiesErrorHandlingFunctions",
+                    "fileName": "ErrorHandlingFunctions.js"
                 }
             ],
             "taskModules": [
                 {
                     "name": "Event Server Client",
                     "propertyName": "eventServerClient",
-                    "functionName": "newSuperalgosTaskModulesEventServerClient",
+                    "functionName": "newFoundationsTaskModulesEventServerClient",
                     "fileName": "EventServerClient.js"
                 },
                 {
                     "name": "File Storage",
                     "propertyName": "fileStorage",
-                    "functionName": "newSuperalgosTaskModulesFileStorage",
+                    "functionName": "newFoundationsTaskModulesFileStorage",
                     "fileName": "FileStorage.js"
                 },
                 {
                     "name": "Debug Log",
                     "propertyName": "debugLog",
-                    "functionName": "newSuperalgosTaskModulesDebugLog",
+                    "functionName": "newFoundationsTaskModulesDebugLog",
                     "fileName": "DebugLog.js"
                 }
             ],
@@ -512,344 +868,354 @@
                 {
                     "name": "Status Report",
                     "propertyName": "statusReport",
-                    "functionName": "newSuperalgosProcessModulesStatusReport",
+                    "functionName": "newFoundationsProcessModulesStatusReport",
                     "fileName": "StatusReport.js"
                 },
                 {
                     "name": "Status Dependencies",
                     "propertyName": "statusDependencies",
-                    "functionName": "newSuperalgosProcessModulesStatusDependencies",
+                    "functionName": "newFoundationsProcessModulesStatusDependencies",
                     "fileName": "StatusDependencies.js"
                 },
                 {
                     "name": "Data Dependencies",
                     "propertyName": "dataDependencies",
-                    "functionName": "newSuperalgosProcessModulesDataDependencies",
+                    "functionName": "newFoundationsProcessModulesDataDependencies",
                     "fileName": "DataDependencies.js"
                 },
                 {
                     "name": "Dataset",
                     "propertyName": "dataset",
-                    "functionName": "newSuperalgosProcessModulesDataset",
+                    "functionName": "newFoundationsProcessModulesDataset",
                     "fileName": "Dataset.js"
                 },
                 {
                     "name": "Process Execution Events",
                     "propertyName": "processExecutionEvents",
-                    "functionName": "newSuperalgosProcessModulesProcessExecutionEvents",
+                    "functionName": "newFoundationsProcessModulesProcessExecutionEvents",
                     "fileName": "ProcessExecutionEvents.js"
                 },
                 {
                     "name": "Process Output",
                     "propertyName": "processOutput",
-                    "functionName": "newSuperalgosProcessModulesProcessOutput",
+                    "functionName": "newFoundationsProcessModulesProcessOutput",
                     "fileName": "ProcessOutput.js"
                 }
+            ]
+        },
+        "PL": {
+            "utilities": [
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
+                }
+            ]
+        },
+        "SA": {
+            "globals": [
+                {
+                    "name": "Time Constants",
+                    "propertyName": "timeConstants",
+                    "functionName": "newFoundationsGlobalsTimeConstants",
+                    "fileName": "TimeConstants.js"
+                },
+                {
+                    "name": "Schemas",
+                    "propertyName": "schemas",
+                    "functionName": "newFoundationsGlobalsSchemas",
+                    "fileName": "Schemas.js"
+                }
             ],
+            "utilities": [
+                {
+                    "name": "Miscellaneous Functions",
+                    "propertyName": "miscellaneousFunctions",
+                    "functionName": "newFoundationsUtilitiesMiscellaneousFunctions",
+                    "fileName": "MiscellaneousFunctions.js"
+                },
+                {
+                    "name": "Files And Directories",
+                    "propertyName": "filesAndDirectories",
+                    "functionName": "newFoundationsUtilitiesFilesAndDirectories",
+                    "fileName": "FilesAndDirectories.js"
+                },
+                {
+                    "name": "Http Responses",
+                    "propertyName": "httpResponses",
+                    "functionName": "newFoundationsUtilitiesHttpResponses",
+                    "fileName": "HttpResponses.js"
+                },
+                {
+                    "name": "Http Requests",
+                    "propertyName": "httpRequests",
+                    "functionName": "newFoundationsUtilitiesHttpRequests",
+                    "fileName": "HttpRequests.js"
+                },
+                {
+                    "name": "Async Functions",
+                    "propertyName": "asyncFunctions",
+                    "functionName": "newFoundationsUtilitiesAsyncFunctions",
+                    "fileName": "AsyncFunctions.js"
+                },
+                {
+                    "name": "Encryption",
+                    "propertyName": "encryption",
+                    "functionName": "newFoundationsUtilitiesEncryption",
+                    "fileName": "Encryption.js"
+                }
+            ]
+        },
+        "plugins": [
+            "Tutorials",
+            "API Maps"
+        ],
+        "products": [
+            "Data Products",
+            "Trading Products",
+            "Learning Products"
+        ]
+    },
+    {
+        "name": "Data-Mining",
+        "propertyName": "dataMining",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Mine Functions",
+                    "propertyName": "mineFunctions",
+                    "functionName": "newDataMiningFunctionLibraryMineFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "TS": {
             "botModules": [
                 {
                     "name": "Single Market Sensor Bot",
                     "propertyName": "singleMarketSensorBot",
-                    "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketSensorBot",
                     "fileName": "SingleMarketSensorBot.js",
                     "folderName": "Sensor-Bot",
                     "botType": "Sensor Bot"
                 },
                 {
-                    "name": "Single Market Sensor Bot",
-                    "propertyName": "singleMarketSensorBot",
-                    "functionName": "newSuperalgosBotModulesSingleMarketSensorBot",
-                    "fileName": "SingleMarketSensorBot.js",
-                    "folderName": "Sensor-Bot/"
-                },
-                {
                     "name": "Exchange Raw Data Historic OHLCVs",
                     "propertyName": "historicOHLCVs",
-                    "functionName": "newSuperalgosBotModulesHistoricOHLCVs",
+                    "functionName": "newDataMiningBotModulesHistoricOHLCVs",
                     "fileName": "HistoricOHLCVs.js",
                     "folderName": "Sensor-Bot/Exchange-Raw-Data"
                 },
                 {
-                    "name": "Webhooks Check Webhook",
-                    "propertyName": "checkWebhook",
-                    "functionName": "newSuperalgosBotModulesCheckWebhook",
-                    "fileName": "CheckWebhook.js",
-                    "folderName": "Sensor-Bot/Webhooks"
+                    "name": "Single Market API Data Fetcher Bot",
+                    "propertyName": "singleMarketAPIDataFetcherBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketAPIDataFetcherBot",
+                    "fileName": "SingleMarketAPIDataFetcherBot.js",
+                    "folderName": "API-Data-Fetcher-Bot",
+                    "botType": "API Data Fetcher Bot"
+                },
+                {
+                    "name": "API Data Fetcher Fetching Process",
+                    "propertyName": "fetchingProcess",
+                    "functionName": "newDataMiningBotModulesFetchingProcess",
+                    "fileName": "FetchingProcess.js",
+                    "folderName": "API-Data-Fetcher-Bot"
                 },
                 {
                     "name": "Single Market Indicator Bot",
                     "propertyName": "singleMarketIndicatorBot",
-                    "functionName": "newSuperalgosBotModulesSingleMarketIndicatorBot",
+                    "functionName": "newDataMiningBotModulesSingleMarketIndicatorBot",
                     "fileName": "SingleMarketIndicatorBot.js",
                     "folderName": "Indicator-Bot",
                     "botType": "Indicator Bot"
                 },
                 {
-                    "name": "Candles Volumes Multi Period Daily",
-                    "propertyName": "candlesVolumesMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodDaily",
-                    "fileName": "CandlesVolumesMultiPeriodDaily.js",
+                    "name": "Candles Volumes Multi Time Frame Daily",
+                    "propertyName": "candlesVolumesMultiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesCandlesVolumesMultiTimeFrameDaily",
+                    "fileName": "CandlesVolumesMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
-                    "name": "Candles Volumes Multi Period Market",
-                    "propertyName": "candlesVolumesMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesCandlesVolumesMultiPeriodMarket",
-                    "fileName": "CandlesVolumesMultiPeriodMarket.js",
+                    "name": "Candles Volumes Multi Time Frame Market",
+                    "propertyName": "candlesVolumesMultiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesCandlesVolumesMultiTimeFrameMarket",
+                    "fileName": "CandlesVolumesMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot/Candles-Volumes"
                 },
                 {
-                    "name": "Bollinger Bands Multi Period Daily",
-                    "propertyName": "bollingerBandsMultiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodDaily",
-                    "fileName": "BollingerBandsMultiPeriodDaily.js",
+                    "name": "Bollinger Bands Multi Time Frame Daily",
+                    "propertyName": "bollingerBandsMultiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesBollingerBandsMultiTimeFrameDaily",
+                    "fileName": "BollingerBandsMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Bollinger Bands Multi Period Market",
-                    "propertyName": "bollingerBandsMultiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesBollingerBandsMultiPeriodMarket",
-                    "fileName": "BollingerBandsMultiPeriodMarket.js",
+                    "name": "Bollinger Bands Multi Time Frame Market",
+                    "propertyName": "bollingerBandsMultiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesBollingerBandsMultiTimeFrameMarket",
+                    "fileName": "BollingerBandsMultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot/Bollinger-Bands"
                 },
                 {
-                    "name": "Multi Period Market",
-                    "propertyName": "multiPeriodMarket",
-                    "functionName": "newSuperalgosBotModulesMultiPeriodMarket",
-                    "fileName": "MultiPeriodMarket.js",
+                    "name": "Multi Time Frame Market",
+                    "propertyName": "multiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesMultiTimeFrameMarket",
+                    "fileName": "MultiTimeFrameMarket.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Multi Period Daily",
-                    "propertyName": "multiPeriodDaily",
-                    "functionName": "newSuperalgosBotModulesMultiPeriodDaily",
-                    "fileName": "MultiPeriodDaily.js",
+                    "name": "Multi Time Frame Daily",
+                    "propertyName": "multiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesMultiTimeFrameDaily",
+                    "fileName": "MultiTimeFrameDaily.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Market",
+                    "propertyName": "fromOneMinToMultiTimeFrameMarket",
+                    "functionName": "newDataMiningBotModulesFromOneMinToMultiTimeFrameMarket",
+                    "fileName": "FromOneMinToMultiTimeFrameMarket.js",
+                    "folderName": "Indicator-Bot"
+                },
+                {
+                    "name": "From One Min To Multi Time Frame Daily",
+                    "propertyName": "fromOneMinToMultiTimeFrameDaily",
+                    "functionName": "newDataMiningBotModulesFromOneMinToMultiTimeFrameDaily",
+                    "fileName": "FromOneMinToMultiTimeFrameDaily.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
                     "name": "Indicator Output",
                     "propertyName": "indicatorOutput",
-                    "functionName": "newSuperalgosBotModulesIndicatorOutput",
+                    "functionName": "newDataMiningBotModulesIndicatorOutput",
                     "fileName": "IndicatorOutput.js",
                     "folderName": "Indicator-Bot"
                 },
                 {
-                    "name": "Single Market Trading Bot",
-                    "propertyName": "singleMarketTradingBot",
-                    "functionName": "newSuperalgosBotModulesSingleMarketTradingBot",
-                    "fileName": "SingleMarketTradingBot.js",
-                    "folderName": "Trading-Bot",
-                    "botType": "Trading Bot"
-                },
-                {
-                    "name": "Trading Session",
-                    "propertyName": "tradingSession",
-                    "functionName": "newSuperalgosBotModulesTradingSession",
-                    "fileName": "TradingSession.js",
-                    "folderName": "Trading-Bot"
-                },
-                {
-                    "name": "Social Bots",
-                    "propertyName": "socialBots",
-                    "functionName": "newSuperalgosBotModulesSocialBots",
-                    "fileName": "SocialBots.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Telegram Bot",
-                    "propertyName": "telegramBot",
-                    "functionName": "newSuperalgosBotModulesTelegramBot",
-                    "fileName": "TelegramBot.js",
-                    "folderName": "Trading-Bot/Announcements"
-                },
-                {
-                    "name": "Trading Process",
-                    "propertyName": "tradingProcess",
-                    "functionName": "newSuperalgosBotModulesTradingProcess",
-                    "fileName": "TradingProcess.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Engine",
-                    "propertyName": "tradingEngine",
-                    "functionName": "newSuperalgosBotModulesTradingEngine",
-                    "fileName": "TradingEngine.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Output",
-                    "propertyName": "tradingOutput",
-                    "functionName": "newSuperalgosBotModulesTradingOutput",
-                    "fileName": "TradingOutput.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Simulation",
-                    "propertyName": "tradingSimulation",
-                    "functionName": "newSuperalgosBotModulesTradingSimulation",
-                    "fileName": "TradingSimulation.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Episode",
-                    "propertyName": "tradingEpisode",
-                    "functionName": "newSuperalgosBotModulesTradingEpisode",
-                    "fileName": "TradingEpisode.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Records",
-                    "propertyName": "tradingRecords",
-                    "functionName": "newSuperalgosBotModulesTradingRecords",
-                    "fileName": "TradingRecords.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading System",
-                    "propertyName": "tradingSystem",
-                    "functionName": "newSuperalgosBotModulesTradingSystem",
-                    "fileName": "TradingSystem.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Stages",
-                    "propertyName": "tradingStages",
-                    "functionName": "newSuperalgosBotModulesTradingStages",
-                    "fileName": "TradingStages.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Strategy",
-                    "propertyName": "tradingStrategy",
-                    "functionName": "newSuperalgosBotModulesTradingStrategy",
-                    "fileName": "TradingStrategy.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Execution",
-                    "propertyName": "tradingExecution",
-                    "functionName": "newSuperalgosBotModulesTradingExecution",
-                    "fileName": "TradingExecution.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Position",
-                    "propertyName": "tradingPosition",
-                    "functionName": "newSuperalgosBotModulesTradingPosition",
-                    "fileName": "TradingPosition.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Announcements",
-                    "propertyName": "announcements",
-                    "functionName": "newSuperalgosBotModulesAnnouncements",
-                    "fileName": "Announcements.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Snapshots",
-                    "propertyName": "snapshots",
-                    "functionName": "newSuperalgosBotModulesSnapshots",
-                    "fileName": "Snapshots.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Trading Orders",
-                    "propertyName": "tradingOrders",
-                    "functionName": "newSuperalgosBotModulesTradingOrders",
-                    "fileName": "TradingOrders.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Orders Simulations",
-                    "propertyName": "ordersSimulations",
-                    "functionName": "newSuperalgosBotModulesOrdersSimulations",
-                    "fileName": "OrdersSimulations.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Orders Calculations",
-                    "propertyName": "ordersCalculations",
-                    "functionName": "newSuperalgosBotModulesOrdersCalculations",
-                    "fileName": "OrdersCalculations.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading"
-                },
-                {
-                    "name": "Exchange API",
-                    "propertyName": "exchangeAPI",
-                    "functionName": "newSuperalgosBotModulesExchangeAPI",
-                    "fileName": "ExchangeAPI.js",
-                    "folderName": "Trading-Bot/Low-Frequency-Trading/APIs"
-                },
-                {
-                    "name": "Learning Process",
-                    "propertyName": "learningProcess",
-                    "functionName": "newSuperalgosBotModulesLearningProcess",
-                    "fileName": "LearningProcess.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Engine",
-                    "propertyName": "learningEngine",
-                    "functionName": "newSuperalgosBotModulesLearningEngine",
-                    "fileName": "LearningEngine.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Output",
-                    "propertyName": "learningOutput",
-                    "functionName": "newSuperalgosBotModulesLearningOutput",
-                    "fileName": "LearningOutput.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Simulation",
-                    "propertyName": "learningSimulation",
-                    "functionName": "newSuperalgosBotModulesLearningSimulation",
-                    "fileName": "LearningSimulation.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Episode",
-                    "propertyName": "learningEpisode",
-                    "functionName": "newSuperalgosBotModulesLearningEpisode",
-                    "fileName": "LearningEpisode.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning Records",
-                    "propertyName": "learningRecords",
-                    "functionName": "newSuperalgosBotModulesLearningRecords",
-                    "fileName": "LearningRecords.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
-                },
-                {
-                    "name": "Learning System",
-                    "propertyName": "learningSystem",
-                    "functionName": "newSuperalgosBotModulesLearningSystem",
-                    "fileName": "LearningSystem.js",
-                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                    "name": "Webhooks Check Webhook",
+                    "propertyName": "checkWebhook",
+                    "functionName": "newDataMiningBotModulesCheckWebhook",
+                    "fileName": "CheckWebhook.js",
+                    "folderName": "Sensor-Bot/Webhooks"
                 }
             ]
         },
-        "CL": {}
+        "plugins": [
+            "Data Mines"
+        ],
+        "tasks": [
+            "Data Tasks"
+        ]
+    },
+    {
+        "name": "Workspaces",
+        "propertyName": "workspaces",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Node Action Workspace Functions",
+                    "propertyName": "workspaceFunctions",
+                    "functionName": "newWorkspacesNodeActionWorkspaceFunctions"
+                }
+            ],
+            "systemActionFunctions": [
+                {
+                    "name": "System Action Workspace Functions",
+                    "propertyName": "workspaceFunctions",
+                    "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
+                }
+            ],
+            "functionLibraries": [],
+            "spaces": [
+                {
+                    "name": "Design Space",
+                    "folderName": "Design-Space",
+                    "propertyName": "designSpace",
+                    "functionName": "newWorkspacesDesignSpace",
+                    "initializationIndex": 3,
+                    "animationPhysicsIndex": 3,
+                    "animationDrawIndex": 2,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Workspace Space",
+                    "folderName": "Workspace-Space",
+                    "propertyName": "workspaceSpace",
+                    "functionName": "newWorkspacesWorkspaceSpace",
+                    "initializationIndex": 7,
+                    "animationPhysicsIndex": 7,
+                    "animationDrawIndex": 7,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        }
+    },
+    {
+        "name": "Community-Plugins",
+        "propertyName": "communityPlugins",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newPluginsFunctionLibraryPluginsFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": [
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newPluginsUtilitiesPlugins"
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Plugins",
+                    "propertyName": "plugins",
+                    "functionName": "newPluginsUtilitiesPlugins",
+                    "fileName": "Plugins.js"
+                },
+                {
+                    "name": "Nodes",
+                    "propertyName": "nodes",
+                    "functionName": "newPluginsUtilitiesNodes",
+                    "fileName": "Nodes.js"
+                }
+            ]
+        },
+        "plugins": []
     },
     {
         "name": "Ethereum",
         "propertyName": "ethereum",
         "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Accounts",
+                    "propertyName": "accounts",
+                    "functionName": "newEthereumFunctionLibraryAccounts"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
             "globals": [
                 {
                     "name": "ChainIds",
                     "propertyName": "chainIds",
                     "functionName": "newEthereumGlobalsChainIds"
-                }
-            ],
-            "functionLibraries": [
-                {
-                    "name": "Accounts",
-                    "propertyName": "accounts",
-                    "functionName": "newEthereumFunctionLibraryAccounts"
                 }
             ],
             "utilities": [
@@ -865,9 +1231,9 @@
                     "folderName": "Blockchain-Space",
                     "propertyName": "blockchainSpace",
                     "functionName": "newEthereumBlockchainSpace",
-                    "initializationIndex": 0,
-                    "animationPhysicsIndex": 0,
-                    "animationDrawIndex": 0,
+                    "initializationIndex": 9,
+                    "animationPhysicsIndex": 9,
+                    "animationDrawIndex": 9,
                     "onMouseWheelIndex": 0,
                     "onMouseOverIndex": 0,
                     "onMouseClickIndex": 0,
@@ -878,9 +1244,9 @@
                     "folderName": "Wallet-Space",
                     "propertyName": "walletSpace",
                     "functionName": "newEthereumWalletSpace",
-                    "initializationIndex": 1,
-                    "animationPhysicsIndex": 1,
-                    "animationDrawIndex": 1,
+                    "initializationIndex": 10,
+                    "animationPhysicsIndex": 10,
+                    "animationDrawIndex": 10,
                     "onMouseWheelIndex": 1,
                     "onMouseOverIndex": 1,
                     "onMouseClickIndex": 1,
@@ -889,6 +1255,863 @@
             ]
         },
         "TS": {},
-        "CL": {}
+        "PL": {}
+    },
+    {
+        "name": "TensorFlow",
+        "propertyName": "tensorflow",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "globals": [],
+            "utilities": [],
+            "spaces": []
+        },
+        "TS": {
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [],
+            "botModules": [
+                {
+                    "name": "TensorFlow Library",
+                    "propertyName": "tensorFlowLibrary",
+                    "functionName": "newTensorFlowBotModulesTensorFlowLibrary",
+                    "fileName": "TensorFlowLibrary.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "TensorFlow Models Manager",
+                    "propertyName": "tensorFlowModelsManager",
+                    "functionName": "newTensorFlowModelsManager",
+                    "fileName": "TensorFlowModelsManager.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                },
+                {
+                    "name": "ML Data Manager",
+                    "propertyName": "mlData",
+                    "functionName": "newMLDataObj",
+                    "fileName": "MLDataManager.js",
+                    "folderName": "Learning-Bot/Low-Frequency-Learning"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Education",
+        "propertyName": "education",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [
+                {
+                    "name": "Docs Statistics Functions",
+                    "propertyName": "docsStatisticsFunctions",
+                    "functionName": "newEducationFunctionLibraryDocsStatisticsFunctions"
+                }
+            ],
+            "globals": [
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationGlobalsDocs"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Languages",
+                    "propertyName": "languages",
+                    "functionName": "newEducationUtilitiesLanguages"
+                },
+                {
+                    "name": "Docs",
+                    "propertyName": "docs",
+                    "functionName": "newEducationUtilitiesDocs"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "Docs Space",
+                    "folderName": "Docs-Space",
+                    "propertyName": "docsSpace",
+                    "functionName": "newEducationDocSpace",
+                    "initializationIndex": 11,
+                    "animationPhysicsIndex": 11,
+                    "animationDrawIndex": 11,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Tutorial Space",
+                    "folderName": "Tutorial-Space",
+                    "propertyName": "tutorialSpace",
+                    "functionName": "newEducationTutorialSpace",
+                    "initializationIndex": 12,
+                    "animationPhysicsIndex": 12,
+                    "animationDrawIndex": 12,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        },
+        "TS": {
+            "globals": [],
+            "functionLibraries": [],
+            "utilities": [
+                {
+                    "name": "Docs Functions",
+                    "propertyName": "docsFunctions",
+                    "functionName": "newEducationUtilitiesDocsFunctions",
+                    "fileName": "DocsFunctions.js"
+                }
+            ],
+            "taskModules": [],
+            "processModules": [],
+            "botModules": []
+        },
+        "PL": {}
+    },
+    {
+        "name": "Governance",
+        "propertyName": "governance",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Assets",
+                    "propertyName": "assets",
+                    "functionName": "newGovernanceFunctionLibraryAssets"
+                },
+                {
+                    "name": "Claims",
+                    "propertyName": "claims",
+                    "functionName": "newGovernanceNodeActionFunctionsClaims"
+                },
+                {
+                    "name": "Plugins Functions",
+                    "propertyName": "pluginsFunctions",
+                    "functionName": "newGovernanceFunctionLibraryPluginsFunctions"
+                },
+                {
+                    "name": "Profile Constructor",
+                    "propertyName": "profileConstructor",
+                    "functionName": "newGovernanceFunctionLibraryProfileConstructor"
+                },
+                {
+                    "name": "Votes",
+                    "propertyName": "votes",
+                    "functionName": "newGovernanceNodeActionFunctionsVotes"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [
+                {
+                    "name": "Token Power",
+                    "propertyName": "tokenPower",
+                    "functionName": "newGovernanceFunctionLibraryTokenPower"
+                },
+                {
+                    "name": "Token Mining",
+                    "propertyName": "tokenMining",
+                    "functionName": "newGovernanceFunctionLibraryTokenMining"
+                },
+                {
+                    "name": "Voting Program",
+                    "propertyName": "votingProgram",
+                    "functionName": "newGovernanceFunctionLibraryVotingProgram"
+                },
+                {
+                    "name": "Delegation Program",
+                    "propertyName": "delegationProgram",
+                    "functionName": "newGovernanceFunctionLibraryDelegationProgram"
+                },
+                {
+                    "name": "Tokens",
+                    "propertyName": "tokens",
+                    "functionName": "newGovernanceFunctionLibraryTokens"
+                },
+                {
+                    "name": "Weights",
+                    "propertyName": "weights",
+                    "functionName": "newGovernanceFunctionLibraryWeights"
+                },
+                {
+                    "name": "Claims Program",
+                    "propertyName": "claimsProgram",
+                    "functionName": "newGovernanceFunctionLibraryClaimsProgram"
+                },
+                {
+                    "name": "Distribution Process",
+                    "propertyName": "distributionProcess",
+                    "functionName": "newGovernanceFunctionLibraryDistributionProcess"
+                },
+                {
+                    "name": "Referral Program",
+                    "propertyName": "referralProgram",
+                    "functionName": "newGovernanceFunctionLibraryReferralProgram"
+                },
+                {
+                    "name": "Support Program",
+                    "propertyName": "supportProgram",
+                    "functionName": "newGovernanceFunctionLibrarySupportProgram"
+                },
+                {
+                    "name": "Influencer Program",
+                    "propertyName": "influencerProgram",
+                    "functionName": "newGovernanceFunctionLibraryInfluencerProgram"
+                },
+                {
+                    "name": "Mentorship Program",
+                    "propertyName": "mentorshipProgram",
+                    "functionName": "newGovernanceFunctionLibraryMentorshipProgram"
+                },
+                {
+                    "name": "Staking Program",
+                    "propertyName": "stakingProgram",
+                    "functionName": "newGovernanceFunctionLibraryStakingProgram"
+                },
+                {
+                    "name": "Liquidity Program",
+                    "propertyName": "liquidityProgram",
+                    "functionName": "newGovernanceFunctionLibraryLiquidityProgram"
+                },
+                {
+                    "name": "Github Program",
+                    "propertyName": "githubProgram",
+                    "functionName": "newGovernanceFunctionLibraryGithubProgram"
+                },
+                {
+                    "name": "Airdrop Program",
+                    "propertyName": "airdropProgram",
+                    "functionName": "newGovernanceFunctionLibraryAirdropProgram"
+                }
+            ],
+            "globals": [
+                {
+                    "name": "Designer",
+                    "propertyName": "designer",
+                    "functionName": "newGovernanceGlobalsDesigner"
+                },
+                {
+                    "name": "Reports",
+                    "propertyName": "reports",
+                    "functionName": "newGovernanceGlobalsReports"
+                },
+                {
+                    "name": "SA Token",
+                    "propertyName": "saToken",
+                    "functionName": "newGovernanceGlobalsSaToken"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Pools",
+                    "propertyName": "pools",
+                    "functionName": "newGovernanceUtilitiesPools"
+                },
+                {
+                    "name": "Decendent Program",
+                    "propertyName": "decendentProgram",
+                    "functionName": "newGovernanceUtilitiesDecendentProgram"
+                },
+                {
+                    "name": "Bonus Program",
+                    "propertyName": "bonusProgram",
+                    "functionName": "newGovernanceUtilitiesBonusProgram"
+                },
+                {
+                    "name": "Validations",
+                    "propertyName": "validations",
+                    "functionName": "newGovernanceUtilitiesValidations"
+                },
+                {
+                    "name": "Tables",
+                    "propertyName": "tables",
+                    "functionName": "newGovernanceUtilitiesTables"
+                },
+                {
+                    "name": "Descendent Tables",
+                    "propertyName": "decendentTables",
+                    "functionName": "newGovernanceUtilitiesDecendentTables"
+                },
+                {
+                    "name": "Common Tables",
+                    "propertyName": "commonTables",
+                    "functionName": "newGovernanceUtilitiesCommonTables"
+                },
+                {
+                    "name": "Filters",
+                    "propertyName": "filters",
+                    "functionName": "newGovernanceUtilitiesFilters"
+                },
+                {
+                    "name": "Conversions",
+                    "propertyName": "conversions",
+                    "functionName": "newGovernanceUtilitiesConversions"
+                }
+            ],
+            "spaces": [
+                {
+                    "name": "User Profile Space",
+                    "folderName": "User-Profile-Space",
+                    "propertyName": "userProfileSpace",
+                    "functionName": "newGovernanceUserProfileSpace",
+                    "initializationIndex": 13,
+                    "animationPhysicsIndex": 13,
+                    "animationDrawIndex": 13,
+                    "onMouseWheelIndex": 0,
+                    "onMouseOverIndex": 0,
+                    "onMouseClickIndex": 0,
+                    "onMouseDownIndex": 0
+                },
+                {
+                    "name": "Reports Space",
+                    "folderName": "Reports-Space",
+                    "propertyName": "reportsSpace",
+                    "functionName": "newGobernanceReportsSpace",
+                    "initializationIndex": 14,
+                    "animationPhysicsIndex": 14,
+                    "animationDrawIndex": 14,
+                    "onMouseWheelIndex": 1,
+                    "onMouseOverIndex": 1,
+                    "onMouseClickIndex": 1,
+                    "onMouseDownIndex": 1
+                }
+            ]
+        },
+        "TS": {},
+        "PL": {},
+        "plugins": [
+            "User Profiles",
+            "Pools",
+            "Assets",
+            "Features",
+            "Positions"
+        ]
+    },
+    {
+        "name": "Network",
+        "propertyName": "network",
+        "NT": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "Web Sockets Interface",
+                    "propertyName": "webSocketsInterface",
+                    "functionName": "newNetworkModulesWebSocketsInterface",
+                    "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newNetworkModulesHttpInterface",
+                    "fileName": "HttpInterface.js"
+                }
+            ],
+            "utilities": []
+        },
+        "SA": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newNetworkGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "Web Sockets Network Client",
+                    "propertyName": "webSocketsNetworkClient",
+                    "functionName": "newNetworkModulesWebSocketsNetworkClient",
+                    "fileName": "WebSocketsNetworkClient.js"
+                },
+                {
+                    "name": "Http Network Client",
+                    "propertyName": "webHttpNetworkClient",
+                    "functionName": "newNetworkModulesHttpNetworkClient",
+                    "fileName": "HttpNetworkClient.js"
+                },
+                {
+                    "name": "App Bootstraping Process",
+                    "propertyName": "appBootstrapingProcess",
+                    "functionName": "newNetworkModulesAppBootstrapingProcess",
+                    "fileName": "AppBootstrapingProcess.js"
+                },
+                {
+                    "name": "P2P Network",
+                    "propertyName": "p2pNetwork",
+                    "functionName": "newNetworkModulesP2PNetwork",
+                    "fileName": "P2PNetwork.js"
+                },
+                {
+                    "name": "P2P Network Node",
+                    "propertyName": "p2pNetworkNode",
+                    "functionName": "newNetworkModulesP2PNetworkNode",
+                    "fileName": "P2PNetworkNode.js"
+                },
+                {
+                    "name": "P2P Network Peers",
+                    "propertyName": "p2pNetworkPeers",
+                    "functionName": "newNetworkModulesP2PNetworkPeers",
+                    "fileName": "P2PNetworkPeers.js"
+                },
+                {
+                    "name": "P2P Network Head",
+                    "propertyName": "p2pNetworkStart",
+                    "functionName": "newNetworkModulesP2PNetworkStart",
+                    "fileName": "P2PNetworkStart.js"
+                },
+                {
+                    "name": "P2P Network Client Identity",
+                    "propertyName": "p2pNetworkClientIdentity",
+                    "functionName": "newNetworkModulesP2PNetworkClientIdentity",
+                    "fileName": "P2PNetworkClientIdentity.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "App Client Network Node Picker",
+                    "propertyName": "appClientNetworkNodePicker",
+                    "functionName": "newAppClientNetworkNetworkNodePicker",
+                    "fileName": "AppClientNetworkNodePicker.js"
+                }
+            ]
+        },
+        "plugins": [
+            "P2P-Networks"
+        ]
+    },
+    {
+        "name": "Social-Trading",
+        "propertyName": "socialTrading",
+        "NT": {
+            "globals": [],
+            "modules": [
+                {
+                    "name": "User Profiles",
+                    "propertyName": "queriesUserProfiles",
+                    "functionName": "newSocialTradingModulesQueriesUserProfiles",
+                    "fileName": "Queries/UserProfiles.js"
+                },
+                {
+                    "name": "Unfollowed User Profiles",
+                    "propertyName": "queriesUnfollowedUserProfiles",
+                    "functionName": "newSocialTradingModulesQueriesUnfollowedUserProfiles",
+                    "fileName": "Queries/UnfollowedUserProfiles.js"
+                },
+                {
+                    "name": "Bot Profile Stats",
+                    "propertyName": "queriesBotProfileStats",
+                    "functionName": "newSocialTradingModulesQueriesBotProfileStats",
+                    "fileName": "Queries/BotProfileStats.js"
+                },
+                {
+                    "name": "User Profile Stats",
+                    "propertyName": "queriesUserProfileStats",
+                    "functionName": "newSocialTradingModulesQueriesUserProfileStats",
+                    "fileName": "Queries/UserProfileStats.js"
+                },
+                {
+                    "name": "Profile Posts",
+                    "propertyName": "queriesProfilePosts",
+                    "functionName": "newSocialTradingModulesQueriesProfilePosts",
+                    "fileName": "Queries/ProfilePosts.js"
+                },
+                {
+                    "name": "Profile Followers",
+                    "propertyName": "queriesProfileFollowers",
+                    "functionName": "newSocialTradingModulesQueriesProfileFollowers",
+                    "fileName": "Queries/ProfileFollowers.js"
+                },
+                {
+                    "name": "Profile Following",
+                    "propertyName": "queriesProfileFollowing",
+                    "functionName": "newSocialTradingModulesQueriesProfileFollowing",
+                    "fileName": "Queries/ProfileFollowing.js"
+                },
+                {
+                    "name": "Post Replies",
+                    "propertyName": "queriesPostReplies",
+                    "functionName": "newSocialTradingModulesQueriesPostReplies",
+                    "fileName": "Queries/PostReplies.js"
+                },
+                {
+                    "name": "Events",
+                    "propertyName": "queriesEvents",
+                    "functionName": "newSocialTradingModulesQueriesEvents",
+                    "fileName": "Queries/Events.js"
+                },
+                {
+                    "name": "Social Graph Network Service",
+                    "propertyName": "socialGraphNetworkService",
+                    "functionName": "newSocialTradingModulesSocialGraphNetworkService",
+                    "fileName": "SocialGraphNetworkService.js"
+                },
+                {
+                    "name": "Query",
+                    "propertyName": "query",
+                    "functionName": "newSocialTradingModulesQuery",
+                    "fileName": "Query.js"
+                },
+                {
+                    "name": "Event",
+                    "propertyName": "event",
+                    "functionName": "newSocialTradingModulesEvent",
+                    "fileName": "Event.js"
+                },
+                {
+                    "name": "Signal",
+                    "propertyName": "signal",
+                    "functionName": "newSocialTradingModulesSignal",
+                    "fileName": "Signal.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newSocialTradingModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Peer Interface",
+                    "propertyName": "peerInterface",
+                    "functionName": "newSocialTradingModulesPeerInterface",
+                    "fileName": "PeerInterface.js"
+                },
+                {
+                    "name": "Storage",
+                    "propertyName": "storage",
+                    "functionName": "newSocialTradingModulesStorage",
+                    "fileName": "Storage.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Queries Validations",
+                    "propertyName": "queriesValidations",
+                    "functionName": "newSocialTradingUtilitiesQueriesValidations",
+                    "fileName": "QueriesValidations.js"
+                }
+            ]
+        },
+        "SA": {
+            "modules": [
+                {
+                    "name": "User Profile",
+                    "propertyName": "socialGraphUserProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphUserProfile",
+                    "fileName": "Social-Graph/UserProfile.js"
+                },
+                {
+                    "name": "Bot Profile",
+                    "propertyName": "socialGraphBotProfile",
+                    "functionName": "newSocialTradingModulesSocialGraphBotProfile",
+                    "fileName": "Social-Graph/BotProfile.js"
+                },
+                {
+                    "name": "Post",
+                    "propertyName": "socialGraphPost",
+                    "functionName": "newSocialTradingModulesSocialGraphPost",
+                    "fileName": "Social-Graph/Post.js"
+                },
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newSocialTradingModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                }
+            ],
+            "globals": [
+                {
+                    "name": "Query Constants",
+                    "propertyName": "queryConstants",
+                    "functionName": "newSocialTradingGlobalsQueryConstants",
+                    "fileName": "QueryConstants.js"
+                },
+                {
+                    "name": "Query Types",
+                    "propertyName": "queryTypes",
+                    "functionName": "newSocialTradingGlobalsQueryTypes",
+                    "fileName": "QueryTypes.js"
+                },
+                {
+                    "name": "Event Types",
+                    "propertyName": "eventTypes",
+                    "functionName": "newSocialTradingGlobalsEventTypes",
+                    "fileName": "EventTypes.js"
+                },
+                {
+                    "name": "Signal Types",
+                    "propertyName": "signalTypes",
+                    "functionName": "newSocialTradingGlobalsSignalTypes",
+                    "fileName": "SignalTypes.js"
+                },
+                {
+                    "name": "Post Types",
+                    "propertyName": "postTypes",
+                    "functionName": "newSocialTradingGlobalsPostTypes",
+                    "fileName": "PostTypes.js"
+                },
+                {
+                    "name": "Reaction Types",
+                    "propertyName": "reactionTypes",
+                    "functionName": "newSocialTradingGlobalsReactionTypes",
+                    "fileName": "ReactionTypes.js"
+                }
+            ]
+        },
+        "DK": {
+            "globals": [],
+            "modules": [
+                {
+                    "name": "Http Interface",
+                    "propertyName": "httpInterface",
+                    "functionName": "newDesktopModulesHttpInterface",
+                    "fileName": "HttpInterface.js"
+                },
+                {
+                    "name": "Web Sockets Interface",
+                    "propertyName": "webSocketsInterface",
+                    "functionName": "newDesktopModulesWebSocketsInterface",
+                    "fileName": "WebSocketsInterface.js"
+                },
+                {
+                    "name": "Web App Interface",
+                    "propertyName": "webAppInterface",
+                    "functionName": "newSocialTradingModulesWebAppInterface",
+                    "fileName": "WebAppInterface.js"
+                },
+                {
+                    "name": "Social Graph",
+                    "propertyName": "socialGraph",
+                    "functionName": "newSocialTradingModulesSocialGraph",
+                    "fileName": "SocialGraph.js"
+                }
+            ],
+            "utilities": []
+        },
+        "UI": {
+            "modules": [
+                {
+                    "name": "Web Sockets WebApp Client",
+                    "propertyName": "webSocketsWebAppClient",
+                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
+                    "fileName": "WebSocketsWebAppClient.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Social-Bots",
+        "propertyName": "socialBots",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Social Bots Functions",
+                    "propertyName": "socialBotsFunctions",
+                    "functionName": "newSocialBotsFunctionLibrarySocialBotsFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "SA": {
+            "botModules": [
+                {
+                    "name": "Discord Bot",
+                    "propertyName": "discordBot",
+                    "functionName": "newSocialBotsBotModulesDiscordBot",
+                    "fileName": "DiscordBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Slack Bot",
+                    "propertyName": "slackBot",
+                    "functionName": "newSocialBotsBotModulesSlackBot",
+                    "fileName": "SlackBot.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Twitter Bot",
+                    "propertyName": "twitterBot",
+                    "functionName": "newSocialBotsBotModulesTwitterBot",
+                    "fileName": "TwitterBot.js",
+                    "folderName": ""
+                }
+            ]
+        },
+        "TS": {
+            "botModules": [
+                {
+                    "name": "Announcements",
+                    "propertyName": "announcements",
+                    "functionName": "newSocialBotsBotModulesAnnouncements",
+                    "fileName": "Announcements.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Social Bots",
+                    "propertyName": "socialBots",
+                    "functionName": "newSocialBotsBotModulesSocialBots",
+                    "fileName": "SocialBots.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Telegram Bot",
+                    "propertyName": "telegramBot",
+                    "functionName": "newSocialBotsBotModulesTelegramBot",
+                    "fileName": "TelegramBot.js",
+                    "folderName": ""
+                }
+            ]
+        }
+    },
+    {
+        "name": "Trading-Signals",
+        "propertyName": "tradingSignals",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Trading Signals Functions",
+                    "propertyName": "tradingSignalsFunctions",
+                    "functionName": "newSocialBotsFunctionLibraryTradingSignalsFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "NT": {
+            "modules":[
+                {
+                    "name": "Trading Signals Network Service",
+                    "propertyName": "tradingSignalsNetworkService",
+                    "functionName": "newTradingSignalsModulesTradingSignalsNetworkService",
+                    "fileName": "TradingSignalsNetworkService.js"
+                },
+                {
+                    "name": "Client Interface",
+                    "propertyName": "clientInterface",
+                    "functionName": "newTradingSignalsModulesClientInterface",
+                    "fileName": "ClientInterface.js"
+                },
+                {
+                    "name": "Peer Interface",
+                    "propertyName": "peerInterface",
+                    "functionName": "newTradingSignalsModulesPeerInterface",
+                    "fileName": "PeerInterface.js"
+                }
+            ]
+        },
+        "TS": {
+            "modules": [
+                {
+                    "name": "Outgoing Trading Signals",
+                    "propertyName": "outgoingTradingSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingTradingSignals",
+                    "fileName": "OutgoingTradingSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Trading Signals",
+                    "propertyName": "incomingTradingSignals",
+                    "functionName": "newTradingSignalsModulesIncomingTradingSignals",
+                    "fileName": "IncomingTradingSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Outgoing Candle Signals",
+                    "propertyName": "outgoingCandleSignals",
+                    "functionName": "newTradingSignalsModulesOutgoingCandleSignals",
+                    "fileName": "OutgoingCandleSignals.js",
+                    "folderName": ""
+                },
+                {
+                    "name": "Incoming Candle Signals",
+                    "propertyName": "incomingCandleSignals",
+                    "functionName": "newTradingSignalsModulesIncomingCandleSignals",
+                    "fileName": "IncomingCandleSignals.js",
+                    "folderName": ""
+                }
+            ]
+        },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signal Validations",
+                    "propertyName": "signalValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
+                    "fileName": "SignalValidations.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Open-Storage",
+        "propertyName": "openStorage",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {},
+        "SA": {
+            "modules": [
+                {
+                    "name": "Open Storage Client",
+                    "propertyName": "openStorageClient",
+                    "functionName": "newOpenStorageModulesOpenStorageClient",
+                    "fileName": "OpenStorageClient.js",
+                    "folderName": ""
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Github Storage",
+                    "propertyName": "githubStorage",
+                    "functionName": "newOpenStorageUtilitiesGithubStorage",
+                    "fileName": "GithubStorage.js"
+                }
+            ]
+        }
+    },
+    {
+        "name": "Simulation",
+        "propertyName": "simulation",
+        "UI": {
+            "nodeActionFunctions": [],
+            "systemActionFunctions": [],
+            "functionLibraries": [],
+            "utilities": []
+        },
+        "TS": {
+            "functionLibraries": [
+                {
+                    "name": "Simulation Functions",
+                    "propertyName": "simulationFunctions",
+                    "functionName": "newSimulationFunctionLibrariesSimulationFunctions",
+                    "fileName": "SimulationFunctions.js"
+                },
+                {
+                    "name": "Output Records Functions",
+                    "propertyName": "outputRecordsFunctions",
+                    "functionName": "newSimulationFunctionLibrariesOutputRecordsFunctions",
+                    "fileName": "OutputRecordsFunctions.js"
+                }
+            ]
+        },
+        "SA": {}
     }
 ]

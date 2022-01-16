@@ -1,0 +1,38 @@
+{
+    "type": "Signals Providers",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "label": "Add Signals Provider",
+            "relatedUiObject": "Signals Provider",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Foundations"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 1,
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Ecosystem->"
+    },
+    "propertyNameAtParent": "signalsProviders",
+    "childrenNodesProperties": [
+        {
+            "name": "signalsProviders",
+            "type": "array",
+            "childType": "Signals Provider",
+            "autoAdd": true
+        }
+    ],
+    "icon": "bitcoin"
+}

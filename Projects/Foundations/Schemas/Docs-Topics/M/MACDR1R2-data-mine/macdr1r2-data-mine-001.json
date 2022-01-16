@@ -1,0 +1,16 @@
+{
+    "topic": "MACD R1 & R2 Data Mine",
+    "pageNumber": 1,
+    "type": "MACD R1 & R2 by @BlaaSwe",
+    "definition": {
+        "text": "This data mine consists of the MACD R1 and MACD R2 indicators, which stems from the linked research paper below in which the authors implement an enchanced version of the MACD indicator by adding conditional triggers. In so doing the false crossover signals are greatly reduced.",
+        "updated": 1611661320849
+    },
+    "paragraphs": [
+		{
+			"style": "Link",
+			"text": "A Refined MACD Indicator — Evidence against the Random Walk Hypothesis? from G Meisner et al. (2001)->http://www.assumptionjournal.au.edu/index.php/abacjournal/article/view/732/",
+			"updated": 1611661320849
+		}
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "tutorial": "Basic Education",
+    "pageNumber": 45,
+    "type": "Tutorial Step - GIF Saving Plugins",
+    "definition": {
+        "text": "This step will play a video in full screen mode.",
+        "updated": 1628348731575,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+                "updated": 1634589326828
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/save-plugins.gif",
+            "updated": 1628348627960
+        }
+    ]
+}

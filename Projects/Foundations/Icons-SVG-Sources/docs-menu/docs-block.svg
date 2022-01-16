@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="96 11 512 512" style="enable-background:new 96 11 512 512;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{fill:#E6EAEA;}
+	.st2{fill:#CDD4D5;}
+	.st3{fill:#FD6A33;}
+	.st4{fill:#F0353D;}
+	.st5{fill:#FFFFFF;}
+	.st6{fill:#9BAAAB;}
+</style>
+<g id="Layer_1_1_">
+	<rect x="795" y="-368" class="st0" width="513" height="512"/>
+</g>
+<g>
+	<path class="st1" d="M538.2,11.2H166.6c-5.5,0-9.9,5-9.9,11.2v364.1l124.7,136.3h256.8c5.5,0,9.9-5,9.9-11.2V22.3
+		C548,16.2,543.7,11.2,538.2,11.2z"/>
+	<path class="st2" d="M166.9,11.2c-5.7,0-10.2,5-10.2,11.2v364.1l124.7,136.3h70.9V11L166.9,11.2L166.9,11.2z"/>
+	<rect x="352" y="161.1" class="st3" width="196.1" height="191.1"/>
+	<rect x="155.9" y="161" class="st4" width="196.1" height="191.1"/>
+	<path class="st1" d="M219,205.5c-5.7,0-10.2,5-10.2,11.2c0,6.1,4.6,11.2,10.2,11.2h133.3v-22.3L219,205.5L219,205.5z"/>
+	<path class="st5" d="M496.4,216.6c0-6.1-4.6-11.2-10.2-11.2H352.3v22.3h133.8C491.8,227.8,496.4,222.9,496.4,216.6z"/>
+	<path class="st1" d="M219,281c-5.7,0-10.2,5-10.2,11.2c0,6.1,4.6,11.2,10.2,11.2h133.3V281H219z"/>
+	<path class="st5" d="M496.4,292.2c0-6.1-4.6-11.2-10.2-11.2H352.3v22.3h133.8C491.8,303.3,496.4,298.3,496.4,292.2z"/>
+	<path class="st6" d="M219,386.5c-5.7,0-10.2,5-10.2,11.2c0,6.1,4.6,11.2,10.2,11.2h133.3v-22.3H219V386.5z"/>
+	<path class="st2" d="M496.4,397.7c0-6.1-4.6-11.2-10.2-11.2H352.3v22.3h133.8C491.8,408.8,496.4,403.8,496.4,397.7z"/>
+	<g>
+		<path id="SVGCleanerId_0_1_" class="st6" d="M271.3,386.5H156.8L281.6,523V397.7C281.6,391.4,277,386.5,271.3,386.5z"/>
+	</g>
+	<path class="st6" d="M218.7,100c-5.7,0-10.2,5-10.2,11.2c0,6.1,4.6,11.2,10.2,11.2H352v-22.3L218.7,100L218.7,100z"/>
+	<path class="st2" d="M496.1,111.1c0-6.1-4.6-11.2-10.2-11.2H352v22.3h133.8C491.5,122.3,496.1,117.4,496.1,111.1z"/>
+</g>
+</svg>

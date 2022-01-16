@@ -1,0 +1,54 @@
+{
+    "type": "Environment Flags",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "mode",
+            "label": "Add Debug Mode",
+            "relatedUiObject": "Debug Mode",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Add UI Object",
+            "actionProject": "Visual-Scripting",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "mode",
+            "label": "Add Production Mode",
+            "relatedUiObject": "Production Mode",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "TensorFlow"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->Execution Environment->"
+    },
+    "propertyNameAtParent": "environmentFlags",
+    "childrenNodesProperties": [
+        {
+            "name": "mode",
+            "type": "node",
+            "childType": "Debug Mode"
+        },
+        {
+            "name": "mode",
+            "type": "node",
+            "childType": "Production Mode"
+        }
+    ],
+    "icon": "tensorflow"
+}

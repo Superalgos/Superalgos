@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 29,
+    "type": "TS LF Trading Bot Error - Percentage Filled Node Missing",
+    "definition": {
+        "text": "A Percentage Filled node was expected but not found at the node where the error originated.",
+        "updated": 1611649967038
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Percentage Filled Node Missing",
+            "updated": 1611650726302
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

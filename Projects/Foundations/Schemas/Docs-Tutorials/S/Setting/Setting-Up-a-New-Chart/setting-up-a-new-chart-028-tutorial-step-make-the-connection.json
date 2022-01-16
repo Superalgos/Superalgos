@@ -1,0 +1,97 @@
+{
+    "tutorial": "Setting Up a New Chart",
+    "pageNumber": 28,
+    "type": "Tutorial Step - Make the Connection",
+    "definition": {
+        "text": "You got this. Creating references is a piece of cake. Let's make the connection!",
+        "icon": {
+            "name": "delink-node",
+            "project": "Foundations"
+        },
+        "updated": 1619024303385,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Crear referencias es pan comido. ¡Hagamos la conexión!",
+                "updated": 1628724876371
+            },
+            {
+                "language": "RU",
+                "text": "Ты получил это. Создание ссылок - это кусок пирога. Давайте сделаем связь!",
+                "updated": 1639078956290
+            },
+            {
+                "language": "DE",
+                "text": "Sie haben es erfasst. Das Erstellen von Referenzen ist ein Kinderspiel. Lassen Sie uns die Verbindung herstellen!",
+                "updated": 1639275952869
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Out of the three Data Mine Products nodes available, we are going to link our chart to the Candles Data Mine.",
+            "updated": 1620047769383,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "De los tres nodo Data Mine Products disponible, vamos a vincular nuestro gráfico a el Candles Data Mine.",
+                    "updated": 1628724969263
+                },
+                {
+                    "language": "RU",
+                    "text": "Из трех доступных узлов Data Mine Products, мы собираемся связать наш график с Candles Data Mine.",
+                    "updated": 1639079114291
+                },
+                {
+                    "language": "DE",
+                    "text": "Von den drei verfügbaren Data Mine Products Knoten werden wir unser Diagramm mit dem Candles Data Mine verknüpfen.",
+                    "updated": 1639276049917
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Find the Layer Manager under the Timeline Chart you added earlier. Then establish a reference from it to the Candles Data Mine Products node.",
+            "updated": 1620556116868,
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Encuentra el Layer Manager bajo el Timeline Chart que agregaste anteriormente. A continuación, establece una referencia a los nodos Candles Data Mine Products.",
+                    "updated": 1628725030976
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите Менеджер слоев (Layer Manager) под диаграммой временной шкалы, которую вы добавили ранее. Затем установите ссылку от него на узел Candles Data Mine Products .",
+                    "updated": 1639079226902
+                },
+                {
+                    "language": "DE",
+                    "text": "Suchen Sie den Layer Manager unter dem Timeline Chart, das Sie zuvor hinzugefügt haben. Stellen Sie dann einen Verweis von diesem auf den Knoten Candles Data Mine Products her.",
+                    "updated": 1639276151360
+                }
+            ]
+        },
+        {
+            "style": "Success",
+            "text": "If things are connected correctly, the name of the data mine should appear over the layer manager.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Si las cosas están conectadas correctamente, el nombre de la mina de datos debería aparecer sobre el layer manager.",
+                    "updated": 1628725407610
+                },
+                {
+                    "language": "RU",
+                    "text": "Если все подключено правильно, название шахты данных должно появиться над менеджером слоев.",
+                    "updated": 1639079253592
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn alles richtig angeschlossen ist, sollte der Name der Datenmine über dem Ebenenmanager erscheinen.",
+                    "updated": 1639276219407
+                }
+            ]
+        }
+    ]
+}

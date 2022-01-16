@@ -1,0 +1,82 @@
+.post {
+    min-width: 5rem; /* todo needs to set a minimum width, but overriding from parent*/
+    max-width: 100%;
+    min-height: 5rem; /* todo needs tbd. needed actually? */
+    max-height: 100%; /* todo need to be 8rem, but is collapsing without scroll. need fix*/
+    padding: 0.5rem;
+}
+
+.postWrapper{
+    width: 40rem;
+}
+
+.postWrapper:hover { /* todo need to change color on over */
+
+}
+
+.postAvatarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+}
+
+.postUserName {
+    justify-content: center;
+    align-items: center;
+    padding: 0.75rem;
+}
+
+.postBody {
+    max-width: 100%;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    padding-left: 2.8rem;
+    overflow: auto;
+}
+
+
+.postFooterIconContainerTransition {
+    width: 10%;
+    transition: width 2s;
+}
+
+.postFooterIconContainerTransition:hover {
+    width: 90%;
+}
+
+.postFooterIconLike {
+    width: 40px;
+    height: 40px;
+}
+
+.postFooterIconSpeedDial {
+    display: flex;
+    min-width: 100%;
+    max-width: max-content;
+    width: 100%;
+}
+
+.postFooterIconCounter {
+    display: flex;
+    align-items: center;
+    width: 1.90rem;
+}
+
+.footerReplyContainer{
+    display: block;
+}
+
+.collapse-button {
+    display: block;
+    width: 100%;
+}
+
+.collapse-content.collapsed {
+    display: none;
+}
+
+.collapsed-content.expanded {
+    display: block;
+}

@@ -1,0 +1,111 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 97,
+    "type": "Tutorial Step - Let's Do This!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "live-trading-session"
+        },
+        "text": "We've gone through the 3-point checklist and we are ready to go, so let's get on with it!",
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Abbiamo completato tutti e tre i punti sulla nostra checklist e siamo pronti a partire!",
+                "updated": 1618071368189,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante!",
+                "updated": 1624483496936,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Wir sind die 3-Punkte-Checkliste durchgegangen und sind bereit, also legen wir los!",
+                "updated": 1634245028451
+            },
+            {
+                "language": "TR",
+                "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım!",
+                "updated": 1636573370550
+            },
+            {
+                "language": "ID",
+                "text": "Kita telah melalui 3-point checklist dan kita siap berangkat, jadi mari kita lanjutkan!",
+                "updated": 1640576693623
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Run the Lightning Strike Task, and then run the Lightning Strike Live Trading Session further down the hierarchy!",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Lancia la Lightning Strike Task, e poi lancia la Lightning Strike Live Trading Session a destra!",
+                    "updated": 1618071413222,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session abajo en la jerarquía!",
+                    "updated": 1625928738040,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Führen Sie den Lightning Strike Task aus, und starten Sie dann die Lightning Strike Live Trading Session weiter unten in der Hierarchie!",
+                    "updated": 1634245034579
+                },
+                {
+                    "language": "TR",
+                    "text": "Lightning Strike Görevini ( Lightning Strike Task ) çalıştırın ve ardından Lightning Strike Live Trading Seansını çalıştırın (Hiyerarşinin daha aşağısında göreceksiniz)",
+                    "updated": 1636573921437
+                },
+                {
+                    "language": "ID",
+                    "text": "Run Lightning Strike Task, dan kemudian jalankan Lightning Strike Live Trading Session lebih jauh ke bawah hierarchy!",
+                    "updated": 1640576740486
+                }
+            ],
+            "updated": 1622233324259
+        },
+        {
+            "style": "Note",
+            "text": "Once you run the session, the trading bot may have to wait up to 60 seconds for the last indicator to finish processing. Once it does, you will see the current date and a 0% progress notice under the Trading Process Instance, which will remain like that throughout the run, because we are not setting a time limit for the session.",
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Una volta lanciata la sessione, il trading bot può dover attendere fino a 60 secondi perchè gli ultimi indicatori terminino. Una volta completati, vedrai la data corrente e un progresso dello 0% sotto la Trading Process Instance, che rimarrà così per tutta la durata della sessione.",
+                    "updated": 1618071515418,
+                    "style": "Note"
+                },
+                {
+                    "language": "ES",
+                    "text": "Una vez que ejecute la sesión, es posible que el Trading Bot tenga que esperar hasta 60 segundos para que el último indicador termine de procesarse. Una vez que lo haga, verá la fecha actual y un aviso de progreso del 0% en la Trading Process Instance, que permanecerá así durante toda la ejecución, porque no estamos estableciendo un límite de tiempo para la sesión.",
+                    "updated": 1624483658880,
+                    "style": "Note"
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald Sie die Sitzung gestartet haben, muss der Trading-Bot möglicherweise bis zu 60 Sekunden warten, bis der letzte Indikator verarbeitet ist. Sobald dies der Fall ist, sehen Sie das aktuelle Datum und eine 0%-Fortschrittsanzeige unter der Trading Process Instance, die während des gesamten Laufs so bleibt, da wir kein Zeitlimit für die Sitzung festlegen.",
+                    "updated": 1634245041595
+                },
+                {
+                    "language": "TR",
+                    "text": "Oturumu çalıştırdığınızda, işlem botunun son göstergenin işlemeyi bitirmesi için 60 saniyeye kadar beklemesi gerekebilir. Bunu yaptıktan sonra, Trading Process Instance düğümü altında geçerli tarihi ve %0 ilerleme bildirimini göreceksiniz, bu, oturum için bir zaman sınırı belirlemediğimizden çalışma boyunca böyle kalacaktır.",
+                    "updated": 1636574569129
+                },
+                {
+                    "language": "ID",
+                    "text": "Setelah kamu menjalankan session, trading bot mungkin harus menunggu hingga 60 detik untuk indikator terakhir menyelesaikan pemrosesan. Setelah itu, kamu akan melihat tanggal saat ini dan pemberitahuan kemajuan 0% di bawah Trading Process Instance, yang akan tetap seperti itu sepanjang perjalanan, karena kita tidak menetapkan time limit untuk session tersebut.",
+                    "updated": 1640576857077
+                }
+            ],
+            "updated": 1622233370311
+        }
+    ]
+}

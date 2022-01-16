@@ -1,0 +1,44 @@
+{
+    "topic": "Governance Definitions",
+    "pageNumber": "4",
+    "type": "Features Hierarchy",
+    "definition": {
+        "text": "Each project may define Features, so that the Community may incentivize desired directions of development.",
+        "updated": 1624720133681
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Features->Definition",
+            "updated": 1624720223930
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Features->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Feature Class Nodes"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature Class->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature Class->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Feature Nodes"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Feature->Content"
+        }
+    ]
+}

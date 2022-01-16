@@ -1,0 +1,241 @@
+{
+    "tutorial": "Beyond the Basics",
+    "pageNumber": 3,
+    "type": "Tutorial Step - You Are In Command",
+    "definition": {
+        "text": "Let's talk about my friend, the search box in the Docs. She has a bit of a double life: she searches, but also commands!",
+        "updated": 1616756994691,
+        "icon": {
+            "name": "Strategy\\strategy-manage-stage",
+            "project": "Foundations"
+        },
+        "translations": [
+            {
+                "language": "IT",
+                "text": "Ora ti parlo della mia amica, la barra di ricerca nei Docs. Diciamo che ha una doppia vita: non solo cerca, ma comanda pure! ",
+                "updated": 1619631665874,
+                "style": "Definition"
+            },
+            {
+                "language": "ES",
+                "text": "Hablemos de mi amigo, el cuadro de búsqueda en Documentos. Tiene una doble vida: busca, ¡pero también manda!",
+                "updated": 1628112617535,
+                "style": "Definition"
+            },
+            {
+                "language": "DE",
+                "text": "Reden wir über meine Freundin, das Suchfeld in den Docs. Sie führt ein Doppelleben: Sie sucht, aber sie befiehlt auch!",
+                "updated": 1634819878309
+            },
+            {
+                "language": "TR",
+                "text": "Dokümanlar'daki arama kutusu olan arkadaşım hakkında konuşalım. Biraz çifte hayatı var: hem araştırıyor hem de emrediyor!",
+                "updated": 1639861462859
+            },
+            {
+                "language": "RU",
+                "text": "Давайте поговорим о моем друге, поисковой строке в документах (Docs). У нее немного двойная жизнь: она не только ищет, но и командует!",
+                "updated": 1640154340830
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I mean the search box is also a command line interface! The current list of commands has to do with:",
+            "updated": 1616757022931,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Quello che voglio dire è che la barra di ricerca è anche una riga di comando! La lista di comandi riguarda:",
+                    "updated": 1619631729737,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "El cuadro de búsqueda también es interfaz de línea de comandos! La lista de comandos tiene que ver con:",
+                    "updated": 1628113873377,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich meine, das Suchfeld ist auch eine Befehlszeilenschnittstelle! Die aktuelle Liste der Befehle hat zu tun mit:",
+                    "updated": 1634819893918
+                },
+                {
+                    "language": "TR",
+                    "text": "Yani arama kutusu aynı zamanda bir komut satırı arayüzüdür! Geçerli komut listesi şunlarla ilgilidir:",
+                    "updated": 1639861481713
+                },
+                {
+                    "language": "RU",
+                    "text": "То есть, окно поиска - это еще и интерфейс командной строки! Текущий список команд включает в себя:",
+                    "updated": 1640154364407
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Producing and editing the Docs.",
+            "updated": 1616757048012,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Produzione e modifica della documentazione",
+                    "updated": 1619631754180,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Producir y editar los documentos.",
+                    "updated": 1628113477717,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Erstellen und Bearbeiten der Docs.",
+                    "updated": 1634819900164
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanların üretilmesi ve düzenlenmesi.",
+                    "updated": 1639861494950
+                },
+                {
+                    "language": "RU",
+                    "text": "Производство и редактирование документов.",
+                    "updated": 1640154376361
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Getting updates.",
+            "translations": [
+                {
+                    "language": "ES",
+                    "text": "Obteniendo actualizaciones.",
+                    "updated": 1628113492383,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktualisierungen erhalten.",
+                    "updated": 1634819905627
+                },
+                {
+                    "language": "TR",
+                    "text": "Güncellemelerin alınması.",
+                    "updated": 1639861514290
+                },
+                {
+                    "language": "RU",
+                    "text": "Получение обновлений.",
+                    "updated": 1640154387384
+                }
+            ]
+        },
+        {
+            "style": "List",
+            "text": "Contributing work to the project.",
+            "updated": 1610657381257,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Aggiungere il proprio contributo al progetto",
+                    "updated": 1619631772476,
+                    "style": "List"
+                },
+                {
+                    "language": "ES",
+                    "text": "Contribuir con trabajo al proyecto.",
+                    "updated": 1628113514180,
+                    "style": "List"
+                },
+                {
+                    "language": "DE",
+                    "text": "Arbeiten zum Projekt beitragen.",
+                    "updated": 1634819911378
+                },
+                {
+                    "language": "TR",
+                    "text": "Projeye katkı sağlamak.",
+                    "updated": 1639861525708
+                },
+                {
+                    "language": "RU",
+                    "text": "Внесение вклада в проект.",
+                    "updated": 1640154397107
+                }
+            ]
+        },
+        {
+            "style": "Callout",
+            "text": "Let's work on a practical example that involves the two! I'll teach you how to edit the docs, and how to contribute, using a couple of commands!",
+            "updated": 1610820646564,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Lavoreremo su un esempio pratico che riguarda entrambe le cose! Ti insegnerò come modificare i docs e contribuire, usando un paio di comandi!",
+                    "updated": 1619631824997,
+                    "style": "Callout"
+                },
+                {
+                    "language": "ES",
+                    "text": "¡Trabajemos en un ejemplo práctico! ¡Te enseñaré cómo editar los documentos y cómo contribuir con un par de comandos!",
+                    "updated": 1628113897204,
+                    "style": "Callout"
+                },
+                {
+                    "language": "DE",
+                    "text": "Lassen Sie uns an einem praktischen Beispiel arbeiten, das diese beiden Punkte beinhaltet! Ich zeige Ihnen, wie Sie die Dokumente bearbeiten und wie Sie mit einigen Befehlen zum Projekt beitragen können!",
+                    "updated": 1634819926122
+                },
+                {
+                    "language": "TR",
+                    "text": "İkisini içeren pratik bir örnek üzerinde çalışalım! Size dokümanları nasıl düzenleyeceğinizi ve birkaç komut kullanarak nasıl katkıda bulunacağınızı öğreteceğim!",
+                    "updated": 1639861545268
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте поработаем над практическим примером, в котором задействованы эти два аспекта! Я научу вас, как редактировать документы и как вносить вклад, используя пару команд!",
+                    "updated": 1640154428249
+                }
+            ]
+        },
+        {
+            "style": "Text",
+            "text": "I'll set up the next few steps with a little story... I hope you like the idea!",
+            "updated": 1610820358700,
+            "translations": [
+                {
+                    "language": "IT",
+                    "text": "Presenterò i prossimi step con una breve storia...spero ti piaccia l'idea!",
+                    "updated": 1619631849733,
+                    "style": "Text"
+                },
+                {
+                    "language": "ES",
+                    "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea!",
+                    "updated": 1628113581278,
+                    "style": "Text"
+                },
+                {
+                    "language": "DE",
+                    "text": "Ich werde die nächsten Schritte mit einer kleinen Geschichte einleiten... Ich hoffe, die Idee gefällt Ihnen!",
+                    "updated": 1634819933239
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonraki birkaç adımı küçük bir hikayeyle hazırlayacağım... Umarım fikri beğenirsiniz!",
+                    "updated": 1639861563729
+                },
+                {
+                    "language": "RU",
+                    "text": "Я изложу следующие несколько шагов с помощью небольшой истории... Надеюсь, вам понравится идея!",
+                    "updated": 1640154447255
+                }
+            ]
+        }
+    ]
+}

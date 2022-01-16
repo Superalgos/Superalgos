@@ -1,0 +1,20 @@
+{
+    "topic": "TS LF Trading Bot Errors",
+    "pageNumber": 33,
+    "type": "TS LF Trading Bot Error - Size Filled Node Missing",
+    "definition": {
+        "text": "A Size Filled node was expected but not found at the node where the error originated.",
+        "updated": 1611650056396
+    },
+    "paragraphs": [
+        {
+            "style": "Error",
+            "text": "Size Filled Node Missing",
+            "updated": 1611650810373
+        },
+        {
+            "style": "Success",
+            "text": "Add the missing node and try again."
+        }
+    ]
+}

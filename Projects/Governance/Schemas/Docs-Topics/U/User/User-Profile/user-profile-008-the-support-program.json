@@ -1,0 +1,75 @@
+{
+    "topic": "User Profile",
+    "pageNumber": 8,
+    "type": "The Support Program",
+    "definition": {
+        "text": "Let's reward Community Mods so that they keep up the good work, and so that more people want to join the team!",
+        "updated": 1630495305649,
+        "translations": [
+            {
+                "language": "ES",
+                "text": "Premiemos a los Community Mods  para que ellos continúen haciendo un buen trabajo, y por eso más gente querrá sumarse al equipo!",
+                "updated": 1633543661376
+            },
+            {
+                "language": "RU",
+                "text": "Если вы умеете с хорошо объяснять вещи, находите удовольствие в помощи людям и хотите внести свой вклад в проект, то использование Community Mod может быть большим для вас и для проекта!",
+                "updated": 1639128935883
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Governance->Node->Support Program->Definition",
+            "updated": 1624732912622
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->Support Program->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Your Favorite Supporters",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ваши лучшие помощники",
+                    "updated": 1639128754469
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Supporter->Definition"
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Node->User Supporter->Content"
+        },
+        {
+            "style": "Title",
+            "text": "Becoming a Community Mod",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вступление в Community Mod",
+                    "updated": 1639128810007
+                }
+            ]
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Community Mods->Definition",
+            "updated": 1624733385331
+        },
+        {
+            "style": "Include",
+            "text": "Governance->Concept->Community Mods->Content"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

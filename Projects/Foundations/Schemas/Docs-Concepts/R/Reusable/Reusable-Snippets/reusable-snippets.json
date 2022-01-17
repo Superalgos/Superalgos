@@ -453,8 +453,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Чтобы переключиться в ветку разработки:",
-                    "updated": 1638294977472
+                    "text": "Чтобы перейти к ветке plugins-docs(устарела) или ветке develop:",
+                    "updated": 1641834425134
                 }
             ]
         },
@@ -486,8 +486,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Выберите Develop под заголовком Contributions Branch.",
-                    "updated": 1638295021031
+                    "text": "Выберите Develop или Master (только если вам специально сказали перейти в ветку Master) под заголовком Contributions Branch.",
+                    "updated": 1641834468741
                 }
             ]
         },
@@ -503,8 +503,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Затем выберите Develop под заголовком Choose the Current Branch.",
-                    "updated": 1638295062350
+                    "text": "Затем выберите Develop или Master (только если вам специально сказали перейти в ветку Master) под заголовком Choose the Current Branch. ",
+                    "updated": 1641834498609
                 }
             ]
         },

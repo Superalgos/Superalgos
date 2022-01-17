@@ -56,27 +56,27 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
 
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
-                if(queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA){
+                if (queryMessage.queryType === SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA) {
 
-                    if(!queryMessage.userProfileId & !queryMessage.username){
+                    if (!queryMessage.userProfileId & !queryMessage.username) {
                         queryMessage.userProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId;
-                        queryMessage.username =SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
+                        queryMessage.username = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileHandle;
                     }
 
-                    response = await getUserProfileData(queryMessage.username,queryMessage.userProfileId)
-                }  else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
+                    response = await getUserProfileData(queryMessage.username, queryMessage.userProfileId)
+                } else if (queryMessage.queryType !== SA.projects.socialTrading.globals.queryTypes.EVENTS) {
                     response = {
                         result: 'Ok',
                         message: 'Web App Interface Query Processed.',
                         data: await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     }
-                }
-                else{
+                } else {
                     let events = await DK.desktopApp.p2pNetworkPeers.sendMessage(JSON.stringify(messageHeader))
                     for (let i = 0; i < events.length; i++) {
                         let event = events[i]
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {
                             event.postText = await getPostText(event.emitterUserProfile.userProfileHandle, event.emitterPost.emitterPostHash, event.timestamp)
+                            // TODO LOUI get user profile image
                         }
                     }
 
@@ -87,7 +87,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     }
                 }
 
-                // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Response Sent', JSON.stringify(response))
 
                 return response
             }
@@ -134,12 +133,10 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                     */
                     eventMessage.emitterPostHash = await savePostAtStorage(eventMessage.postText, commitMessage, eventMessage.timestamp)
                     eventMessage.postText = undefined
-                }
-                 else if(eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE)
-                 {
+                } else if (eventMessage.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE) {
                     let commitMessage = "Edit User Profile";
-                    eventMessage.emitterPostHash = await saveUserAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
-            }
+                    eventMessage.emitterPostHash = await saveUserProfileAtStorage(SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId, eventMessage.body, commitMessage)
+                }
 
                 eventMessage.emitterUserProfileId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_APP_SIGNING_ACCOUNT).userProfileId
                 messageHeader.eventMessage = JSON.stringify(eventMessage)
@@ -170,7 +167,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         which has a clone of the remote git repository, and once done, we push
         the changes to the public git repo.
         */
-        const { createHash } = await import('crypto')
+        const {createHash} = await import('crypto')
         const hash = createHash('sha256')
         let post = {
             timestamp: timestamp,
@@ -182,7 +179,6 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         const fileName = fileHash + ".json"
         const filePath = './My-Social-Trading-Data/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
-        console.log(filePath)
 
         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, fileContent)
@@ -201,31 +197,36 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         return fileHash
     }
 
-    async function saveUserAtStorage(userProfileId, profileData, commitMessage) {
+    async function saveUserProfileAtStorage(userProfileId, profileData, commitMessage) {
         /*
         Each user, has a git repository that acts as his publicly accessible
-        storage for posts.
+        storage for data.
 
         They way we store post there is first saving the data at the local disk
         which has a clone of the remote git repository, and once done, we push
         the changes to the public git repo.
         */
-        const { createHash } = await import('crypto')
+        const {createHash} = await import('crypto')
         const hash = createHash('sha256')
 
         const fileContent = JSON.stringify(userProfileId, undefined, 4)
         const fileHash = hash.update(fileContent).digest('hex')
         const fileName = fileHash + ".json"
-        const filePath = './My-Social-Trading-Data/User-Profile/';
+        const filePath = '../My-Social-Trading-Data/User-Profile/';
 
         SA.projects.foundations.utilities.filesAndDirectories.mkDirByPathSync(filePath + '/')
         SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(profileData))
 
+        let superalgosRoot = SA.nodeModules.path.dirname(process.cwd());
+
+
         const options = {
-            baseDir: process.cwd() + '/My-Social-Trading-Data',
+            baseDir: superalgosRoot + '/My-Social-Trading-Data',
             binary: 'git',
             maxConcurrentProcesses: 6,
         }
+
+        console.log(options.baseDir)
         const git = SA.nodeModules.simpleGit(options)
 
         await git.add('./*')
@@ -243,38 +244,38 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         */
         let promise = new Promise((resolve, reject) => {
 
-            const fileName = postHash + ".json"
-            const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
+                const fileName = postHash + ".json"
+                const filePath = 'My-Social-Trading-Data/main/User-Posts/' + SA.projects.foundations.utilities.filesAndDirectories.pathFromDate(timestamp)
 
-            const fetch = SA.nodeModules.nodeFetch
-            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName;
+                const fetch = SA.nodeModules.nodeFetch
+                let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName;
 
-            fetch(url)
-                .then((response) => {
+                fetch(url)
+                    .then((response) => {
 
-                    if (response.status != 200) {
-                        console.log("getPostText", 'Github.com responded with status ' , response.status, 'url',url )
-                        throw new createError.NotFound();
-                    }
+                        if (response.status != 200) {
+                            console.log("getPostText", 'Github.com responded with status ', response.status, 'url', url)
+                            throw new createError.NotFound();
+                        }
 
-                    response.text().then(body => {
-                        post = JSON.parse(body)
-                        resolve(post.postText)
+                        response.text().then(body => {
+                            post = JSON.parse(body)
+                            resolve(post.postText)
+                        })
                     })
-                })
-                .catch(err => {
-                    resolve('Post Text could not be fetched. ' + err.message)
-                })
+                    .catch(err => {
+                        resolve('Post Text could not be fetched. ' + err.message)
+                    })
 
-        }
+            }
         )
 
         return promise
     }
 
-    async function getUserProfileData(userProfileHandle,userProfileId) {
+    async function getUserProfileData(userProfileHandle, userProfileId) {
 
-        const { createHash } = await import('crypto')
+        const {createHash} = await import('crypto')
         const hash = createHash('sha256')
         const fileContent = JSON.stringify(userProfileId, undefined, 4)
         const fileHash = hash.update(fileContent).digest('hex')
@@ -288,38 +289,38 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
         */
         let promise = new Promise((resolve, reject) => {
 
-            const filePath = 'My-Social-Trading-Data/main/User-Profile/'
+                const filePath = 'My-Social-Trading-Data/main/User-Profile/'
 
-            const fetch = SA.nodeModules.nodeFetch
-            let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
+                const fetch = SA.nodeModules.nodeFetch
+                let url = 'https://raw.githubusercontent.com/' + userProfileHandle + '/' + filePath + '/' + fileName
 
-            fetch(url)
-                .then((response) => {
+                fetch(url)
+                    .then((response) => {
 
-                    if (response.status != 200) {
-                        console.log("getUserProfileData", 'Github.com responded with status ' , response.status, 'url',url )
-                        throw new createError.NotFound();
-                    }
+                        if (response.status != 200) {
+                            console.log("getUserProfileData", 'Github.com responded with status ', response.status, 'url', url)
+                            throw new createError.NotFound();
+                        }
 
-                    response.text().then(body => {
-                        userProfile = JSON.parse(body);
-                        userProfile.userProfileId = userProfileId;
-                        userProfile.username = userProfileHandle;
-                        resolve(responseData('Ok','Web App Interface Query Processed.',userProfile))
+                        response.text().then(body => {
+                            userProfile = JSON.parse(body);
+                            userProfile.userProfileId = userProfileId;
+                            userProfile.username = userProfileHandle;
+                            resolve(responseData('Ok', 'Web App Interface Query Processed.', userProfile))
+                        })
                     })
-                })
-                .catch(err => {
-                    const response  = { userProfileId: userProfileId , username:userProfileHandle }
-                    resolve(responseData('Ok','Web App Interface Query Processed.',response,err));
-                })
+                    .catch(err => {
+                        const response = {userProfileId: userProfileId, username: userProfileHandle, missingProfile: true}
+                        resolve(responseData('Ok', 'Web App Interface Query Processed.', response, err));
+                    })
 
-        }
+            }
         )
 
         return promise
     }
 
-    async function responseData(result, message, data, error){
+    async function responseData(result, message, data, error) {
         return {
             result: result,
             message: message,

@@ -53,7 +53,16 @@
     box-shadow: none !important;
     margin: 0.20rem !important;
 }
-
+/* below code is speed dial selectors for reaction icons. need clean up, not achieved the action intended.
+    needs to be relative position (just above the current position, 40px aprox)
+*/
 .MuiSpeedDial-actions{
     margin-left: -45px !important;
+    bottom: 40px;
+    left: -40px;
+    pointer-events: auto !important;
+    border-radius: 20px;
+    background-clip: content-box;
+    background-color: white;
+    position: inherit;
 }

@@ -17,8 +17,12 @@ import styled from "@emotion/styled";
 import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import pfp from "../../images/superalgos.png";
+import {useDispatch} from "react-redux";
+import {setActualProfile} from "../../store/slices/Profile.slice";
 
-const UserProfileModal = ({user, close, updateProfileCallback}) => {
+const UserProfileModal = ({user, close}) => {
+    const dispatch = useDispatch();
+
     useEffect(() => {
         return () => setUserInfo(user);
     }, []);
@@ -69,7 +73,7 @@ const UserProfileModal = ({user, close, updateProfileCallback}) => {
     const saveProfile = async () => {
         let {result} = await updateProfile(userInfo).then(response => response.json());
         if (result === STATUS_OK) {
-            updateProfileCallback();
+            dispatch(setActualProfile(userInfo));
             close();
         }
     }

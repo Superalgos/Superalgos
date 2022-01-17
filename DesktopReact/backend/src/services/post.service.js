@@ -12,6 +12,7 @@ const getPosts = async (req, res) => {
         }
     
         let query = {
+            networkService: 'Social Graph',
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
@@ -39,6 +40,7 @@ const createPost = async (body, res) => {
         }
 
         event = {
+            networkService: 'Social Graph',
             requestType: 'Event',
             eventMessage: JSON.stringify(eventMessage)
         }

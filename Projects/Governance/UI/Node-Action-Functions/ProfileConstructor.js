@@ -222,7 +222,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
             return
         }
 
-        let algoTradersPlatform = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform')
+        let algoTradersPlatformApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Algo Traders Platform App')
         let socialTradingDesktopApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Desktop App')
         let socialTradingMobileApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Mobile App')
         let socialTradingServerApp = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.userApps, 'Social Trading Server App')
@@ -231,7 +231,7 @@ function newGovernanceFunctionLibraryProfileConstructor() {
         let socialPersonas = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.socialPersonas, 'Social Persona')
         let p2pNetworkNodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(userProfile.p2pNetworkNodes, 'P2P Network Node')
 
-        addSigningAccounts(algoTradersPlatform, 'Algo Traders Platform')
+        addSigningAccounts(algoTradersPlatformApp, 'Algo Traders Platform')
         addSigningAccounts(socialTradingDesktopApp, 'Social Trading Desktop App')
         addSigningAccounts(socialTradingMobileApp, 'Social Trading Mobile App')
         addSigningAccounts(socialTradingServerApp, 'Social Trading Server App')
@@ -337,19 +337,27 @@ function newGovernanceFunctionLibraryProfileConstructor() {
                     let signingAccount = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                         targetNode,
                         'Signing Account',
-                        rootNodes
+                        rootNodes,
+                        'Governance'
                     )
                     /*
                     Let's get a cool name for this node. 
                     */
                     targetNode.name = targetNodeType + " #" + targetNodeTypeCount
                     let codeName = targetNodeType.replaceAll(' ', '-') + "-" + targetNodeTypeCount
+                    let handle = userProfileHandle + '-' + codeName
                     /*
                     We store at the User Profile the Signed userProfileHandle
                     */
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'codeName', codeName)
                     UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(signingAccount.payload, 'signature', signature)
+                    /*
+                    For Social Entities, we will automatically create a default handle
+                    */
+                    if (targetNode.type === "Social Persona" || targetNode.type === "Social Trading Bot") {
+                        UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'handle', handle)
+                    }
                     /*
                     Save User Profile Plugin
                     */

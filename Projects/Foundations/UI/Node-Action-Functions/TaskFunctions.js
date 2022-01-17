@@ -192,7 +192,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             /*
             Open Storage Nodes
             */
-            'Available Storage->Storage Container Reference->Storage Container->Github Storage->Superalgos Storage->'
+            'Available Storage->Storage Container Reference->Github Storage Container->Superalgos Storage Container->Github Storage->Superalgos Storage->'
 
         let taskDefinition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -234,21 +234,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         let managedTasksDefinition =
             UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, managedTasksLightingPath);
 
-        /*
-        We will also send all the project schemas we have to the Task Server.
-        */
-        let projectSchemas = []
-        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
-            let projectDefinition = PROJECTS_SCHEMA[k]
-            let project = {
-                name: projectDefinition.name,
-                schema: SCHEMAS_BY_PROJECT.get(projectDefinition.name).array.appSchema
-            }
-            projectSchemas.push(project)
-        }
-
         let event = {
-            projectSchemas: JSON.stringify(projectSchemas),
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),

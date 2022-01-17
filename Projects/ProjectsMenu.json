@@ -86,6 +86,12 @@
                 }
             },
             {
+                "label": "Undo/Redo",
+                "submenuConstructorFunction": {
+                    "name": "undoRedoSubmenu"
+                }
+            },
+            {
                 "label": "User Workspaces",
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",

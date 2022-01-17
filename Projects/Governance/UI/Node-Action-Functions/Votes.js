@@ -8,6 +8,8 @@ function newGovernanceNodeActionFunctionsVotes() {
 
     function installMissingVotes(node, rootNodes) {
         if (node.payload === undefined) { return }
+
+        let newUiObjects = []
         if (node.payload.referenceParent === undefined) {
             node.payload.uiObject.setErrorMessage(
                 'To install votes you need a Reference Parent',
@@ -16,6 +18,8 @@ function newGovernanceNodeActionFunctionsVotes() {
             return
         }
         scanNodeBranch(node, node.payload.referenceParent)
+
+        return newUiObjects
 
         function scanNodeBranch(originNode, destinationNode) {
             if (
@@ -46,6 +50,9 @@ function newGovernanceNodeActionFunctionsVotes() {
 
                             if (originNodeChild === undefined) {
                                 originNodeChild = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                if (originNodeChild !== undefined && originNodeChild.payload.parentNode === node) {
+                                    newUiObjects.push(originNodeChild)
+                                }
                             }
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                             scanNodeBranch(originNodeChild, destinationNodeChild)
@@ -63,6 +70,9 @@ function newGovernanceNodeActionFunctionsVotes() {
 
                                     if (originNodeChild === undefined) {
                                         originNodeChild = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(originNode, originNodeChildType)
+                                        if (originNodeChild !== undefined && originNodeChild.payload.parentNode === node) {
+                                            newUiObjects.push(originNodeChild)
+                                        }
                                     }
                                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(originNodeChild, destinationNodeChild)
                                     scanNodeBranch(originNodeChild, destinationNodeChild)

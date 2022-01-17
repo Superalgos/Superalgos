@@ -12,8 +12,8 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Storage Container",
-            "relatedUiObject": "Storage Container",
+            "label": "Add Superalgos Storage Container",
+            "relatedUiObject": "Superalgos Storage Container",
             "relatedUiObjectProject": "Open-Storage"
         },      
         {
@@ -41,9 +41,9 @@
     "propertyNameAtParent": "superalgosStorage",
     "childrenNodesProperties": [
         {
-            "name": "storageContainers",
+            "name": "superalgosStorageContainers",
             "type": "array",
-            "childType": "Storage Container",
+            "childType": "Superalgos Storage Container",
             "autoAdd": false
         }
     ]

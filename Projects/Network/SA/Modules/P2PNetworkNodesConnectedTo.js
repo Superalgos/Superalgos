@@ -35,7 +35,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         callerRole,
         p2pNetworkClientIdentity,
         p2pNetwork,
-        p2pNetworkInterface,
+        p2pNetworkClient,
         maxOutgoingPeers
     ) {
 
@@ -63,7 +63,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                     callerRole, 
                     p2pNetworkClientIdentity, 
                     peer.p2pNetworkNode, 
-                    p2pNetworkInterface,
+                    p2pNetworkClient,
                     onConnectionClosed
                     )
                     .then(addPeer)

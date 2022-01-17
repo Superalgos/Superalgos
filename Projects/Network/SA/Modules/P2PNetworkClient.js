@@ -8,8 +8,8 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         p2pNetworkClientIdentity: undefined,
         p2pNetworkReachableNodes: undefined,
         p2pNetworkNodesConnectedTo: undefined,
-        p2pNetworkInterface: undefined,
         socialGraphNetworkServiceClient: undefined,
+        eventReceivedCallbackFunction: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -24,8 +24,11 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         userAppSigningAccountCodeName,
         targetNetworkType,
         targetNetworkCodeName,
-        maxOutgoingPeers
+        maxOutgoingPeers,
+        eventReceivedCallbackFunction
     ) {
+
+        thisObject.eventReceivedCallbackFunction = eventReceivedCallbackFunction
 
         await setupNetwork()
         await setupNetworkServices()
@@ -54,10 +57,6 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.p2pNetworkClientIdentity
             )
             /*
-            This is where we will process all the events comming from the p2p network.
-            */
-            thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
-            /*
             Set up the connections to network nodes.
             */
             thisObject.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
@@ -65,7 +64,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 'Network Client',
                 thisObject.p2pNetworkClientIdentity,
                 thisObject.p2pNetworkReachableNodes,
-                thisObject.p2pNetworkInterface,
+                thisObject,
                 maxOutgoingPeers
             )
         }

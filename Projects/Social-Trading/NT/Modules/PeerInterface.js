@@ -97,7 +97,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         We will not accept events that have already been processed.
         */
 
-        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Warning',
                 message: 'Peer Interface Event Already Exists.'
@@ -107,7 +107,7 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         /*
         We are going to validate the Signature of this event.
         */
-        let response = NT.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
+        let response = SA.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
         if (response !== undefined) { return response }
         /*
         At the Peer Interface, events are received from another Network Node. 
@@ -148,8 +148,8 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
             event.initialize(eventReceived)
             event.run()
 
-            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
-            NT.projects.network.globals.memory.arrays.EVENTS.push(event)
+            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
 
             let response = {
                 result: 'Ok',

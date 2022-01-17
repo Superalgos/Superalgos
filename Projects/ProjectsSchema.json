@@ -1815,12 +1815,6 @@
                     "fileName": "QueriesValidations.js"
                 },
                 {
-                    "name": "Event Signature Validations",
-                    "propertyName": "eventSignatureValidations",
-                    "functionName": "newSocialTradingUtilitiesEventSignatureValidations",
-                    "fileName": "EventSignatureValidations.js"
-                },
-                {
                     "name": "Broadcasting Filter",
                     "propertyName": "broadcastingFilter",
                     "functionName": "newSocialTradingUtilitiesBroadcastingFilter",
@@ -1909,6 +1903,14 @@
                     "propertyName": "reactionTypes",
                     "functionName": "newSocialTradingGlobalsReactionTypes",
                     "fileName": "ReactionTypes.js"
+                }
+            ],
+            "utilities": [
+                {
+                    "name": "Event Signature Validations",
+                    "propertyName": "eventSignatureValidations",
+                    "functionName": "newSocialTradingUtilitiesEventSignatureValidations",
+                    "fileName": "EventSignatureValidations.js"
                 }
             ]
         },

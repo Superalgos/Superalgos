@@ -6,6 +6,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
     let thisObject = {
         userAppSigningAccountCodeName: undefined,
         socialGraphNetworkServiceProxy: undefined,
+        p2pNetworkInterface: undefined,
         messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
@@ -16,6 +17,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
     function finalize() {
         thisObject.userAppSigningAccountCodeName = undefined
         thisObject.socialGraphNetworkServiceProxy = undefined
+        thisObject.p2pNetworkInterface = undefined
     }
 
     function initialize(
@@ -28,6 +30,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
         let appBootstrapingProcess = SA.projects.socialTrading.modules.appBootstrapingProcess.newSocialTradingAppBootstrapingProcess()
         appBootstrapingProcess.run()
+        /*
+        This is where we will process all the events comming from the p2p network.
+        */
+        thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
+        thisObject.p2pNetworkInterface.initialize()
     }
 
     async function messageReceived(messageHeader) {
@@ -181,7 +188,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     sending this message to the P2P Network.
                     */
                     if (response.result !== "Ok") {
-                        console.log('[WARN] Post could not be saved. Reason: ' + response.message )
+                        console.log('[WARN] Post could not be saved. Reason: ' + response.message)
                         return response
                     }
                 }

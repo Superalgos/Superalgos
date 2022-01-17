@@ -31,7 +31,8 @@ exports.newDesktopApp = function newDesktopApp() {
                 global.env.DESKTOP_APP_SIGNING_ACCOUNT,
                 global.env.DESKTOP_TARGET_NETWORK_TYPE,
                 global.env.DESKTOP_TARGET_NETWORK_CODENAME,
-                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
+                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
+                eventReceived
             )
         }
 
@@ -51,6 +52,10 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
             console.log('Desktop Client Http Interface ................................................ Listening at port ' + DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
+        }
+
+        function eventReceived(event) {
+            console.log("This event has just arrived from the P2P Network: " + JSON.stringify(event))
         }
     }
 }

@@ -159,6 +159,16 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                             case 'Trading Signals': {
                                                 break
                                             }
+                                            default: {
+                                                let response = {
+                                                    result: 'Error',
+                                                    message: 'Network Service Not Supported.'
+                                                }
+                                                response.messageId = messageHeader.messageId
+                                                caller.socket.send(JSON.stringify(response))
+                                                caller.socket.close()
+                                                return
+                                            }
                                         }
                                         break
                                     }
@@ -188,6 +198,16 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                             }
                                             case 'Trading Signals': {
                                                 break
+                                            }
+                                            default: {
+                                                let response = {
+                                                    result: 'Error',
+                                                    message: 'Network Service Not Supported.'
+                                                }
+                                                response.messageId = messageHeader.messageId
+                                                caller.socket.send(JSON.stringify(response))
+                                                caller.socket.close()
+                                                return
                                             }
                                         }
                                         break
@@ -604,7 +624,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         try {
             for (let i = 0; i < boradcastTo.length; i++) {
                 let networkClient = boradcastTo[i]
-                networkClient.socket.send(messageHeader.payload)
+                networkClient.socket.send(JSON.stringify(messageHeader))
             }
             return true
         } catch (err) {

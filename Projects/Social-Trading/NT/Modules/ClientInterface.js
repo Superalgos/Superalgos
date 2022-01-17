@@ -48,7 +48,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             return response
         }
 
-        if (messageHeader.requestType !== 'Event' && messageHeader.requestType !== 'Query' && messageHeader.requestType !== 'Signal') {
+        if (messageHeader.requestType !== 'Event' && messageHeader.requestType !== 'Query') {
             let response = {
                 result: 'Error',
                 message: 'Client Interface requestType Not Supported.'
@@ -270,7 +270,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         /*
         We will not accept events that have already been processed.
         */
-        if (NT.projects.network.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
+        if (SA.projects.socialTrading.globals.memory.maps.EVENTS.get(eventReceived.eventId) !== undefined) {
             let response = {
                 result: 'Error',
                 message: 'Client Interface Event Already Exists.'
@@ -280,7 +280,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         /*
         We are going to validate the Signature of this event.
         */
-        let response = NT.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
+        let response = SA.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
         if (response !== undefined) { return response }
         /*
         Here we will process the event and change the state of the Social Graph.
@@ -290,8 +290,8 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             event.initialize(eventReceived)
             event.run()
 
-            NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
-            NT.projects.network.globals.memory.arrays.EVENTS.push(event)
+            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
+            SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
 
             let response = {
                 result: 'Ok',

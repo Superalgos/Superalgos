@@ -43,6 +43,7 @@ exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
         /*
         Setting up external dependencies.
         */
+        /* TODO gonza, check whats not needed from here*/
         SA.nodeModules = {
             fs: require('fs'),
             util: require('util'),

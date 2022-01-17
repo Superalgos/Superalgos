@@ -543,13 +543,28 @@ function newWorkspacesSystemActionUndoRedo() {
         undoStack = UI.projects.workspaces.spaces.designSpace.workspace.undoStack
         redoStack = UI.projects.workspaces.spaces.designSpace.workspace.redoStack
         let subMenu = []
+        /* 23 and 41 are the height of different menu items; -1 to be safe */
+        let maxItems = Math.floor((browserCanvas.height - TOP_SPACE_HEIGHT - COCKPIT_SPACE_HEIGHT - 4 * 23) / 41) - 1
+        let maxRedoItems = (redoStack.length + undoStack.length < maxItems) ?
+            redoStack.length :
+            (redoStack.length < maxItems / 2) ?
+                redoStack.length :
+                (undoStack.length < maxItems / 2) ?
+                    maxItems - undoStack.length :
+                    Math.floor(maxItems / 2)
+        let maxUndoItems = (redoStack.length + undoStack.length < maxItems) ?
+            undoStack.length :
+            maxItems - maxRedoItems
         let label
         let action
 
         if (redoStack.length > 0) {
             subMenu.push({label: 'Redo'})
+            if (maxRedoItems < redoStack.length) {
+                subMenu.push({label: '...'})
+            }
 
-            for (let i = redoStack.length - 1; i > 0; i--) {
+            for (let i = maxRedoItems - 1; i > 0; i--) {
                 label = '... ' + redoStack[i].action.name
                     + ' @ ' + redoStack[i].action.node.type
                     + ' ' +redoStack[i].action.node.name
@@ -573,12 +588,16 @@ function newWorkspacesSystemActionUndoRedo() {
             action = {name: 'undo', params: [undoStack.length - 1]}
             subMenu.push({label: label, action: action})
 
-            for (let i = undoStack.length - 2; i >= 0; i--) {
+            for (let i = undoStack.length - 2; i >= undoStack.length - maxUndoItems; i--) {
                 label = '... ' + undoStack[i].action.name 
                     + ' @ ' + undoStack[i].action.node.type
                     + ' ' +undoStack[i].action.node.name
                 action = {name: 'undo', params: [i]}
                 subMenu.push({label: label, action: action})
+            }
+
+            if (maxUndoItems < undoStack.length) {
+                subMenu.push({label: '...'})
             }
         }
 

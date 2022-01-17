@@ -20,6 +20,11 @@
                 "updated": 1639147600414
             },
             {
+                "language": "TR",
+                "text": "Özet: Herhangi bir noktada sadece bir tanesi ticaret yapabilirken, neden bir ticaret sistemi içinde birden fazla stratejiye sahip olmak isteyeyim?",
+                "updated": 1640695829178
+            },
+            {
                 "language": "RU",
                 "text": "Зачем мне иметь несколько стратегий в торговой системе, если одновременно может торговать только одна из них?",
                 "updated": 1640884479971
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Bevor wir diese brennende Frage beantworten, wollen wir uns ein paar Beispiele ansehen. Werfen Sie einen Blick auf die beiden Strategien innerhalb des Weak-hands Buster (WHB v2) Trading Systems!",
                     "updated": 1639147593633
+                },
+                {
+                    "language": "TR",
+                    "text": "Can alıcı soruyu cevaplamadan önce, birkaç örneğe bakalım. Tradeing System Weak-Hands Buster (WHB v2) içindeki iki stratejiye bir göz atın!",
+                    "updated": 1640781477384
                 },
                 {
                     "language": "RU",
@@ -63,6 +73,11 @@
                     "updated": 1639147584483
                 },
                 {
+                    "language": "TR",
+                    "text": "Trigger Stage'deki Trigger On Event tanımlarını keşfedin ve iki stratejinin farkına varabilecek misin bir bak.",
+                    "updated": 1640696826020
+                },
+                {
                     "language": "RU",
                     "text": "Изучите определения события Trigger On Event на этапе Trigger Stage и посмотрите, заметите ли вы разницу между ними.",
                     "updated": 1640884544708
@@ -82,6 +97,11 @@
                     "language": "DE",
                     "text": "Im Namen jeder Strategie ist ein Hinweis enthalten!",
                     "updated": 1639147581203
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Her stratejinin adında bir ipucu var!",
+                    "updated": 1640698040386
                 },
                 {
                     "language": "RU",

@@ -1,6 +1,5 @@
 import './App.css';
 import Sidebar from "../sidebar/Sidebar";
-import {Stack} from "@mui/material";
 import {Outlet, useNavigate} from "react-router-dom";
 import UsersSidebar from "../usersSidebar/UsersSidebar";
 import {useDispatch, useSelector} from "react-redux";
@@ -31,13 +30,13 @@ function App() {
 
     return (
         <div className="app">
-            <Stack className="app"
-                   direction="row"
-                   justifyContent="space-around">
-                <Sidebar/>
+            {/*<Stack className="appContainer"
+                   direction="row">*/}
+
+                    <Sidebar/>
                 <Outlet className="middleSection"/>
                 <UsersSidebar/>
-            </Stack>
+            {/*</Stack>*/}
         </div>
     );
 }

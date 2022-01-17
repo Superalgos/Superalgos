@@ -15,6 +15,11 @@
                 "updated": 1639148104019
             },
             {
+                "language": "TR",
+                "text": "Özet: Hoş Geldiniz öğreticisi sırasında parçalı yapı kavramından bahsettim... Hatırladınız mı?",
+                "updated": 1640781701548
+            },
+            {
                 "language": "RU",
                 "text": "Я упоминал концепцию гранулярности в учебнике Welcome... помните?",
                 "updated": 1640885878435
@@ -32,6 +37,11 @@
                     "updated": 1639148158865
                 },
                 {
+                    "language": "TR",
+                    "text": "Granularity,karmaşıklığı ele almanıza yardımcı olan bir cihazdır. Stratejilerin karmaşık bir kural ve tanım ağına dönüşmesine izin vermek yerine, karmaşık mantığı parçalara ayırmak ve daha küçük birimlerle başa çıkmak her zaman tercih edilir.",
+                    "updated": 1640781986760
+                },
+                {
                     "language": "RU",
                     "text": "Гранулярность - это инструмент, который помогает справиться со сложностью. Вместо того чтобы позволять стратегиям разрастаться в сложную паутину правил и определений, всегда предпочтительнее разделить сложную логику на части и работать с более мелкими единицами.",
                     "updated": 1640885899204
@@ -47,6 +57,11 @@
                     "language": "DE",
                     "text": "Die Aufteilung komplexer Logik in mehrere Strategien hilft dabei, Strategien einfach und verständlich zu halten. So lassen sich Strategien leichter debuggen und warten!",
                     "updated": 1639148161537
+                },
+                {
+                    "language": "TR",
+                    "text": "Karmaşık mantığı birden çok stratejiye bölmek, stratejilerin basit ve anlaşılır tutulmasına yardımcı olur. Bu, stratejilerin hata ayıklamasını ve bakımını kolaylaştırır!",
+                    "updated": 1640782237916
                 },
                 {
                     "language": "RU",

@@ -6,7 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedPost} from '../../store/slices/post.slice'
 import {ArrowBackOutlined} from "@mui/icons-material";
-import PostFooter from "../postFooter/PostFooter";
+import PostFooter from "../PostFooter/PostFooter";
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();

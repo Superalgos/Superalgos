@@ -4,9 +4,9 @@ import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
 import {Skeleton, Stack} from "@mui/material";
 import {STATUS_OK} from "../../api/httpConfig";
 import {getPaginationProfiles} from "../../api/profile.httpService";
-import UserCard from "../userCard/UserCard";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
+import UserCard from "../UserCard/UserCard";
 
 
 /* TODO remove unused code */

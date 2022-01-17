@@ -1,12 +1,12 @@
 import './App.css';
 import Sidebar from "../sidebar/Sidebar";
 import {Outlet, useNavigate} from "react-router-dom";
-import UsersSidebar from "../usersSidebar/UsersSidebar";
 import {useDispatch, useSelector} from "react-redux";
 import {getProfile} from "../../api/profile.httpService";
 import {useEffect} from "react";
 import {STATUS_OK} from "../../api/httpConfig";
 import {setActualProfile} from "../../store/slices/Profile.slice";
+import UsersSidebar from "../UsersSidebar/UsersSidebar";
 
 function App() {
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ function App() {
 
                     <Sidebar/>
                 <Outlet className="middleSection"/>
-                <UsersSidebar/>
+            <UsersSidebar/>
             {/*</Stack>*/}
         </div>
     );

@@ -3,8 +3,8 @@
     "pageNumber": 2,
     "type": "Tutorial - The Advanced Stuff!",
     "definition": {
-        "text": "You're still around, now with the first two tutorials under your belt! You're family already! Welcome to the Community!",
-        "updated": 1616757706219,
+        "text": "Du bist immer noch da und hast die ersten beiden Tutorials hinter Dir! Du gehörst schon zur Familie! Willkommen in der Community!",
+        "updated": 1642446983196,
         "icon": {
             "name": "Tutorial\\tutorial",
             "project": "Foundations"
@@ -42,8 +42,8 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "In this tutorial, you will learn to keep your system up to date, use the built-in command line, switch branches, and a few more tricks that will make your life easier!",
-            "updated": 1616871630234,
+            "text": "In diesem Tutorial lernst du, das System auf dem neuesten Stand zu halten, die eingebaute Kommandozeile zu nutzen, Zweige zu wechseln und einige weitere Tricks, die dir das Leben erleichtern werden!",
+            "updated": 1642447236682,
             "translations": [
                 {
                     "language": "IT",
@@ -76,8 +76,8 @@
         },
         {
             "style": "Note",
-            "text": "The skills you will learn will also allow you to start contributing to the project! Remember, this is a community project... We are all expected to give back and help improve the software!",
-            "updated": 1617034994342,
+            "text": "Die Fähigkeiten, die du erlernen wirst, werden es dir auch ermöglichen, einen Beitrag zum Projekt zu leisten! Denke daran, dass dies ein Gemeinschaftsprojekt ist... Es wird von uns allen erwartet, dass wir etwas zurückgeben und helfen, die Software zu verbessern!",
+            "updated": 1642447270041,
             "translations": [
                 {
                     "language": "IT",
@@ -110,8 +110,8 @@
         },
         {
             "style": "Link",
-            "text": "By the way, contributing to the project earns you Superalgos (SA) tokens! Click to learn more!->superalgos.org/token-overview.shtml",
-            "updated": 1617035100951,
+            "text": "Übrigens, wenn du dich an dem Projekt beteiligen willst, erhälst du Superalgos (SA)-Marken! Klicken hier, um mehr zu erfahren!->superalgos.org/token-overview.shtml",
+            "updated": 1642447371810,
             "translations": [
                 {
                     "language": "DE",

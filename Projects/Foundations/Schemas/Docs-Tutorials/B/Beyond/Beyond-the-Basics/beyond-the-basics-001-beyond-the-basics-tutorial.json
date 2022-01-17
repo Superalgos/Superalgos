@@ -3,8 +3,8 @@
     "pageNumber": 1,
     "type": "Beyond the Basics Tutorial",
     "definition": {
-        "text": "This tutorial covers the setup to allow the app to interact with your Github fork, the commands to update the app, switching branches, and how to contribute to the project.",
-        "updated": 1616697721841,
+        "text": "Dieses Tutorial behandelt die Einrichtung der App, damit diese mit deinem Github-Fork interagieren kann, sowie die Befehle zum Aktualisieren der App, das Wechseln von Zweigen und wie man zum Projekt beiträgt.",
+        "updated": 1642447161346,
         "translations": [
             {
                 "language": "ES",

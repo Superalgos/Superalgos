@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Не удалось изменить текущую ветку. Наиболее вероятная причина заключается в том, что у вас есть изменения, которые вы еще не внесли. Выполните команду App Contribute Command, чтобы отправить эти изменения в основной репозиторий, и попробуйте выполнить эту команду снова.",
                 "updated": 1640236545893
+            },
+            {
+                "language": "DE",
+                "text": "Es war nicht möglich, den aktuellen Zweig zu ändern. Die wahrscheinlichste Ursache ist, dass du Änderungen hast, die noch nicht übertragen wurden. Führe den Befehl App Contribute aus, um diese Änderungen an das Hauptrepository zu senden, und versuche diesen Befehl erneut.",
+                "updated": 1642450974989
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Более подробную информацию о том, что вызвало этот сбой в переключении, можно найти ниже.",
                     "updated": 1640236559939
+                },
+                {
+                    "language": "DE",
+                    "text": "Detailliertere Informationen über die Ursache dieses Fehlers findest du weiter unten.",
+                    "updated": 1642450936495
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "В следующем разделе вы найдете информацию, записанную при возникновении ошибки.",
                     "updated": 1640236577722
+                },
+                {
+                    "language": "DE",
+                    "text": "Im folgenden Abschnitt finden Sie die Informationen, die beim Auftreten des Fehlers aufgezeichnet wurden.",
+                    "updated": 1642450751632
                 }
             ]
         },
@@ -57,6 +72,11 @@
                     "language": "RU",
                     "text": "Вы увидите информацию только в том случае, если вы открыли эту страницу в результате фактического возникновения ошибки.",
                     "updated": 1640236589261
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Informationen werden nur angezeigt, wenn Sie diese Seite geöffnet haben, weil der Fehler tatsächlich aufgetreten ist.",
+                    "updated": 1642450803781
                 }
             ]
         },
@@ -72,6 +92,11 @@
                     "language": "RU",
                     "text": "Ниже приведено сообщение об ошибке исключения, возникшего на клиенте:",
                     "updated": 1640236618321
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird die Fehlermeldung der beim Client aufgetretenen Fehler angezeigt:",
+                    "updated": 1642450916759
                 }
             ]
         },
@@ -91,6 +116,11 @@
                     "language": "RU",
                     "text": "Ниже приведен стек ошибок исключения, возникшего на клиенте:",
                     "updated": 1640236637427
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden ist der Fehlerstatus der beim Client aufgetretenen Fehler dargestellt:",
+                    "updated": 1642450909762
                 }
             ]
         },
@@ -110,6 +140,11 @@
                     "language": "RU",
                     "text": "Ниже приведен код ошибки исключения, возникшего на клиенте:",
                     "updated": 1640236650484
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden wird der Fehlercode der beim Client aufgetretenen Ausnahme angegeben:",
+                    "updated": 1642450868285
                 }
             ]
         },
@@ -129,6 +164,11 @@
                     "language": "RU",
                     "text": "Ниже приведены все детали ошибки исключения, возникшего на клиенте:",
                     "updated": 1640236672925
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Folgenden werden alle Fehlerdetails der beim Client aufgetretenen Fehler aufgeführt:",
+                    "updated": 1642450897359
                 }
             ]
         },

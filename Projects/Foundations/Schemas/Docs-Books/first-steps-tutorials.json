@@ -248,6 +248,10 @@
             "text": "Foundations->Concept->List of Plugin Workspaces and Tutorials->Content",
             "updated": 1610955413534
         },
+	{   "style": "Chapter",
+	    "text": "I->Foundations->Tutorial->Welcome to Superalgos!->This tutorial introduces you to the Superalgos universe. It walks you through the main areas of the system, teaches you the basic operation, walks you through the process of backtesting a demo Trading System, and even sets you up with your first Live TradingSession.",
+	    "updated" : 1617207891956
+	},
         {
             "style": "Chapter",
             "text": "II->Foundations->Tutorial->Basic Education->This tutorial complements the information delivered in the Welcome to Superalgos Tutorial, focusing on the Nodes Menu, Backups, Clones and Shares, Plugins, Workspaces, References, and more.",

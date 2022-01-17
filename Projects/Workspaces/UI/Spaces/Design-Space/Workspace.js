@@ -260,7 +260,7 @@ function newWorkspace() {
                         /* for a label-only item */
                         } else if (
                             item.label !== undefined &&
-                            item.action === undefined || item.subMenu === undefined || item.submenuConstructorFunction === undefined
+                            item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
                             ) {
                             html = html + '<il class="label">' + item.label + '</il>'
                         }

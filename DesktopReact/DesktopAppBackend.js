@@ -1,14 +1,10 @@
 exports.newDesktopAppBackend = function newDesktopAppBackend() {
 
     let thisObject = {
-        appBootstrapingProcess: undefined,
-        p2pNetworkClientIdentity: undefined,
-        p2pNetworkReachableNodes: undefined,
-        p2pNetworkNodesConnectedTo: undefined,
         webSocketsInterface: undefined,
+        httpInterface: undefined,
         webAppInterface: undefined,
-        p2pNetworkInterface: undefined,
-        socialGraph: undefined,
+        p2pNetworkClient: undefined,
         run: run
     }
 
@@ -18,61 +14,42 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
 
     async function run() {
 
+        /* Desktop App Interfaces */
+        let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
+
         await setupNetwork()
-        await setupServices()
+        await setupInterfaces()
 
         async function setupNetwork() {
             /*
-            We set up ourselves as a Network Client.
+            We set up the P2P Network Client.
             */
-            thisObject.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
-            /*
-            We will read all user profiles plugins and get from there our network identity.
-            */
-            thisObject.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-            await thisObject.appBootstrapingProcess.run(global.env.DESKTOP_APP_SIGNING_ACCOUNT, thisObject.p2pNetworkClientIdentity)
-            /*
-            We set up the P2P Network.
-            */
-            thisObject.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
-            await thisObject.p2pNetworkReachableNodes.initialize(
-                'Network Client',
-                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+            thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
+            await thisObject.p2pNetworkClient.initialize(
+                global.env.DESKTOP_APP_SIGNING_ACCOUNT,
                 global.env.DESKTOP_TARGET_NETWORK_TYPE,
-                thisObject.p2pNetworkClientIdentity
-            )
-            /*
-            This is where we will process all the events comming from the p2p network.
-            */
-            thisObject.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
-            /*
-            Set up the connections to network nodes.
-            */
-            thisObject.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
-            await thisObject.p2pNetworkNodesConnectedTo.initialize(
-                'Network Client',
-                thisObject.p2pNetworkClientIdentity,
-                thisObject.p2pNetworkReachableNodes,
-                thisObject.p2pNetworkInterface,
-                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS
+                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
+                eventReceived
             )
         }
 
-        async function setupServices() {
+        async function setupInterfaces() {
             /*
             This is where we will process all the messages comming from our web app.
             */
-            thisObject.webAppInterface = DK.projects.socialTrading.modules.webAppInterface.newSocialTradingModulesWebAppInterface()
+            thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
             thisObject.webAppInterface.initialize()
-            /*
-            This is the Personal Social Graph for the user running this App.
+            /* 
+            These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
-            thisObject.socialGraph = DK.projects.socialTrading.modules.socialGraph.newSocialTradingModulesSocialGraphNetworkServiceClient()
-            await thisObject.socialGraph.initialize()
-
             let express = require('./backend/src/expressServer.js')
             express.DesktopBackend(DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
             console.log(`express Interface ................................................ Listening at port ${DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
+        }
+
+        function eventReceived(event) {
+            console.log("This event has just arrived from the P2P Network: " + JSON.stringify(event))
         }
     }
 }

@@ -66,6 +66,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     allNodesInPluginsMap
                 )
 
+                if (p2pNetwork === undefined) {
+                    console.log('[WARN] P2P Network Plugin could not be loadded into memory: ' + p2pNetworkPlugin.name)
+                    continue
+                }
+
                 SA.projects.network.globals.memory.maps.P2P_NETWORKS_BY_ID.set(p2pNetwork.id, p2pNetwork)
             }
         }
@@ -97,6 +102,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     allNodesInPluginsMap
                 )
 
+                if (userProfile === undefined) {
+                    console.log('[WARN] User Profile Plugin could not be loadded into memory: ' + userProfilePlugin.name)
+                    continue
+                }
+
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, userProfile)
             }
         }
@@ -122,9 +132,9 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 let signatureObject = userProfile.config.signature
                 let web3 = new SA.nodeModules.web3()
                 userProfile.blockchainAccount = web3.eth.accounts.recover(signatureObject)
-                
+
                 let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
-                
+
                 loadSigningAccounts()
                 loadStorageContainers()
 
@@ -214,8 +224,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     /*
                     Identify Storage Containers of each profiles and load them to memory.
                     */
-                    let storageContainers 
-                    
+                    let storageContainers
+
                     storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Github Storage Container')
                     addContainersToMemoryMap()
                     storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Superalgos Storage Container')

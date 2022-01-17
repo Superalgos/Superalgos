@@ -54,9 +54,11 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     try {
                         let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                         event.initialize(storedEvent)
-                        NT.projects.network.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                        NT.projects.network.globals.memory.arrays.EVENTS.push(event)
-                        indexLastSavedEvent = NT.projects.network.globals.memory.arrays.EVENTS.length - 1
+                        event.run()
+                        
+                        SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                        SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+                        indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
                     } catch (err) {
                         if (err.stack !== undefined) {
                             console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
@@ -94,8 +96,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             let eventsToSave = []
             let minuteToSave
 
-            for (let i = indexLastSavedEvent + 1; i < NT.projects.network.globals.memory.arrays.EVENTS.length; i++) {
-                let event = NT.projects.network.globals.memory.arrays.EVENTS[i]
+            for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
+                let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
 
                 let currentMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                 let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
@@ -114,13 +116,14 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     let eventToSave = {
                         eventId: event.eventId,
                         eventType: event.eventType,
-                        emitterUserProfileId: event.emitterUserProfileId,
-                        targetUserProfileId: event.targetUserProfileId,
-                        emitterBotProfileId: event.emitterBotProfileId,
-                        targetBotProfileId: event.targetBotProfileId,
-                        emitterPostHash: event.emitterPostHash,
+                        originSocialPersonaId: event.originSocialPersonaId,
+                        targetSocialPersonaId: event.targetSocialPersonaId,
+                        originSocialTradingBotId: event.originSocialTradingBotId,
+                        targetSocialTradingBotId: event.targetSocialTradingBotId,
+                        originPostHash: event.originPostHash,
                         targetPostHash: event.targetPostHash,
                         timestamp: event.timestamp,
+                        fileKeys: event.fileKeys,
                         botAsset: event.botAsset,
                         botExchange: event.botExchange,
                         botEnabled: event.botEnabled

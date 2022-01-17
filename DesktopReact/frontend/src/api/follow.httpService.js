@@ -1,7 +1,4 @@
-import {
-    POST,
-    httpRequest
-} from './httpConfig'
+import {httpRequest, POST} from './httpConfig'
 
 
 function followUser(userProfileId, eventType) {

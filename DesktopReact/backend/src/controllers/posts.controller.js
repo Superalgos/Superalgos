@@ -1,7 +1,7 @@
 const { postService } = require('../services');
 
 const getPosts = async (req, res) => {
-  const result = await postService.getPosts(req.query.userId);
+  const result = await postService.getPosts(req);
   res.send(result);
 };
 

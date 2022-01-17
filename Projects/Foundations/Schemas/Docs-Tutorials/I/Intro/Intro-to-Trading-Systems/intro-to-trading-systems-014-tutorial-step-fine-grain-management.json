@@ -15,6 +15,11 @@
                 "updated": 1639148239837
             },
             {
+                "language": "TR",
+                "text": "Özet: Karmaşık işlem mantığını birden fazla stratejiye böldüğünüzde, ortaya çıkan işlemleri farklı şekilde yönetme fırsatı elde edersiniz!",
+                "updated": 1640782750024
+            },
+            {
                 "language": "RU",
                 "text": "Когда сложная торговая логика разделена на несколько стратегий, вы получаете возможность управлять результирующими сделками по-разному!",
                 "updated": 1640886130902
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Wir sind noch nicht darauf eingegangen, wie Strategien definiert werden, aber Sie wissen, dass Superalgos die Verwaltung von Take Profit- und Stop Loss-Zielen ermöglicht...",
                     "updated": 1639148246835
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejilerin nasıl tanımlandıklarına henüz girmedik, ancak Superalgos'un kar al (take profit) ve zararı durdur'u (stop loss) yönetmeye izin verdiğini biliyorsunuz...",
+                    "updated": 1640782959600
                 },
                 {
                     "language": "RU",
@@ -48,6 +58,11 @@
                     "updated": 1639148259702
                 },
                 {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemindeki her stratejinin pozisyonları yönetmek için kendi mantığı olabilir!",
+                    "updated": 1640782988636
+                },
+                {
                     "language": "RU",
                     "text": "Каждая стратегия в торговой системе может иметь свою собственную логику управления позициями!",
                     "updated": 1640886153976
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Wenn Sie mehrere Variationen der gleichen Logik verwenden, z.B. um eine Position zu übernehmen, dann müssen Sie wahrscheinlich auch mehrere Variationen für die Verwaltung der Position verwenden. Es ist einfacher und sauberer, beides in separaten Strategien zu tun.",
                     "updated": 1639148274175
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin bir pozisyon almak için aynı mantığın birden fazla varyasyonunu ele alıyorsanız, pozisyonu yönetmek için muhtemelen birden fazla varyasyonu ele almanız gerekecektir. Her ikisini de ayrı stratejilerde yapmak daha kolay ve daha temizdir.",
+                    "updated": 1640783017126
                 },
                 {
                     "language": "RU",

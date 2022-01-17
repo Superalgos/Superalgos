@@ -14,12 +14,12 @@ import {
     Autorenew
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
-import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
 import {dialStyle} from "./reactionsStyle";
 import {reactedPost} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import {useDispatch} from "react-redux";
 import {setModalPost} from "../../store/slices/post.slice";
+import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({

@@ -76,6 +76,7 @@ exports.newSocialTradingModulesWebAppInterface = function newSocialTradingModule
                         let event = events[i]
                         if (event.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST) {
                             event.postText = await getPostText(event.emitterUserProfile.userProfileHandle, event.emitterPost.emitterPostHash, event.timestamp)
+                            // TODO LOUI get user profile image
                         }
                     }
 

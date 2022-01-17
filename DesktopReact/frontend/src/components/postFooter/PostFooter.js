@@ -10,11 +10,11 @@ import {
     OutletOutlined,
     SentimentVeryDissatisfied,
     SentimentVeryDissatisfiedOutlined,
-    ThumbUp
+    ThumbUp,
+    Autorenew
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
-import {actionsNav} from './interactionsConfig.json';
-import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
+import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
 import {dialStyle} from "./reactionsStyle";
 import {reactedPost} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
@@ -30,7 +30,40 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
+
 const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props needed? review
+    const actionsNav = [
+        {
+            "id": 1,
+            "name": "Love",
+            "icon": "FavoriteBorder"
+        },
+        {
+            "id": 2,
+            "name": "Haha",
+            "icon": "Mood"
+        },
+        {
+            "id": 3,
+            "name": "Wow",
+            "icon": "OutletOutlined"
+        },
+        {
+            "id": 4,
+            "name": "Sad",
+            "icon": "SentimentVeryDissatisfied"
+        },
+        {
+            "id": 5,
+            "name": "Angry",
+            "icon": "SentimentVeryDissatisfiedOutlined"
+        },
+        {
+            "id": 6,
+            "name": "Care",
+            "icon": "AccessibilityNewOutlined"
+        }
+    ]
     //console.log(actualReaction)
 
     // gets values from httpService.js array reactToPost function
@@ -40,7 +73,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const dispatch = useDispatch();
     const BadgeCounterValue = () => {
         setLikeBadgeValue(reactions[0][1]) // need an callback
-        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i,k]) => [i,k]);
+        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
         setBadgeValues(reactionsValue)
 
     }
@@ -54,8 +87,10 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         console.log('clicked repost')
     }
 
-    const HandleCommentContainer = () => {
+    const HandleCommentContainer = (e) => {
+        e.stopPropagation()
         setReplyModal(!replyModal);
+        console.log("Hello from Comment")
         dispatch(setModalPost(postData))
     }
 
@@ -69,8 +104,8 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         //console.log(`click on button ${name}, id ${id}`)
     }
 
-    const getIcon = (icon) =>{
-        switch(icon){
+    const getIcon = (icon) => {
+        switch (icon) {
             case "FavoriteBorder":
                 return <FavoriteBorder/>
             case "Mood":
@@ -111,16 +146,17 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         return <div className="footerCommentContainer">
             <Stack className="postFooterComment" direction="row">
                 <IconButton className="commentIconButton" size="small"
-                            onClick={(e) => e.stopPropagation(HandleCommentContainer)}> {/* need review, correct way?*/}
+                            onClick={HandleCommentContainer}>
                     <MessageOutlined/>
                 </IconButton>
-                {replyModal ? <FooterReplyModal show={replyModal} close={HandleCommentContainer}/>: null } {/* todo pass postData to the modal from props */}
+                {replyModal ? <FooterReplyModal show={replyModal}
+                                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
             </Stack>
-            {/*<Stack className="postFooterRepost" direction="row"> todo not implemented yet
+            <Stack className="postFooterRepost" direction="row"> {/*todo not implemented yet*/}
                 <IconButton className="repostIconButton" onClick={handleRepost} size="small">
                     <Autorenew/>
                 </IconButton>
-            </Stack>*/}
+            </Stack>
         </div>
     }
 
@@ -143,7 +179,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                                 onClick={handleReactions}>
                             </ThumbUp>
                         </StyledBadge>}
-                        direction="right">
+                        direction="right"> {/* todo direction of the reactions, changing this breaks the layout bad...*/}
                         {actionsNav.map(e => {
                             const {id, name, badgeCounter, icon} = e;
                             return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */

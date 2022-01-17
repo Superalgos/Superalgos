@@ -488,6 +488,7 @@ function newWorkspacesSystemActionUndoRedo() {
                         let previousJsCode = node.javascriptCode.code
                         node.javascriptCode.code = redoStack[i].previousJsCode
                         redoStack[i].previousJsCode = previousJsCode
+                        break
 
                     case 'Reference Attach':
                         referenceParent = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(redoStack[i].relatedNodeId)

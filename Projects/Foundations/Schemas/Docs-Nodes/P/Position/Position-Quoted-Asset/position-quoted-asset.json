@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Position Quoted Asset отслеживает эволюцию переменных, связанных с котируемым активом, на протяжении всей позиции.",
                 "updated": 1640345581958
+            },
+            {
+                "language": "TR",
+                "text": "Position Quoted Asset düğümü, pozisyon boyunca kote varlıkla ilgili değişkenlerin gelişimini takip eder.",
+                "updated": 1642402159627
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
                     "updated": 1640345596840
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelerin aTrading Engine bölümündeki temel varlık ve kote varlık sayfasında temel varlık ve kote varlık hesaplarının nasıl tutulduğu hakkında daha fazla bilgi edinin.",
+                    "updated": 1642402177709
                 }
             ]
         }

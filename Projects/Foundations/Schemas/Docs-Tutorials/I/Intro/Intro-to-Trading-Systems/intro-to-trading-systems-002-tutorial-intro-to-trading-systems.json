@@ -47,6 +47,11 @@
                     "updated": 1639147244565
                 },
                 {
+                    "language": "TR",
+                    "text": "Superalgos'ta yerleşik altyapının geri kalanı (veri madenciliği ve görselleştirme, ticaret botu ve ticaret motoru, görsel strateji tasarımcısı ve hata ayıklayıcı) istihbarat pastasında önemli bir hakka sahiptir, ancak bunun tasarımı desteklemek,ticaret sistemlerinin test edilmesi ve konuşlandırılması için geliştirildiğini iddia etmek adil olur!",
+                    "updated": 1640691683945
+                },
+                {
                     "language": "RU",
                     "text": "Остальная инфраструктура, встроенная в Superalgos - поиск и визуализация данных, торговый бот и торговый движок, визуальный конструктор стратегий и отладчик - все они имеют значительную долю в интеллектуальном пироге, но справедливо будет утверждать, что они были разработаны для поддержки проектирования, тестирования и развертывания торговых систем!",
                     "updated": 1640878693629
@@ -66,6 +71,11 @@
                     "language": "DE",
                     "text": "In diesem ersten Tutorial wird erklärt, wie Superalgos ein Trading System anzeigt und behandelt. In den weiteren Tutorials der Serie lernen Sie, wie man sie baut!",
                     "updated": 1639147247333
+                },
+                 {
+                    "language": "TR",
+                    "text": "Bu ilk öğretici, Superalgos'un bir Ticaret Sistemini ( Trading System ) nasıl görüntülediğini ve işlediğini açıklar. Serideki diğer öğreticiler size bunları nasıl oluşturacağınızı öğretir!",
+                    "updated": 1640692121876
                 },
                 {
                     "language": "RU",

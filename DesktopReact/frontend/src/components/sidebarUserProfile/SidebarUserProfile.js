@@ -22,7 +22,9 @@ const SidebarUserProfile = () => {
                            alt="ProfilePic"/>
             )}
 
-        <CardContent className="sidebarProfileCardContent">
+        <CardContent sx={{
+            display: {xs: 'none', sm: 'none', md: 'none', lg: 'block'}}}
+                     className="sidebarProfileCardContent">
             {/*TODO name should not exceed certain length */}
             <Typography className="username" variant="body1">{user.name}</Typography>
             <Typography className="userHandle" variant="subtitle2">

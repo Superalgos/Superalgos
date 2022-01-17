@@ -6,16 +6,18 @@ Typography{
     /*height: 100%;*/
     position: relative;
     /*min-width: 13rem;*/
-    margin-left: auto;
+    /*margin-left: auto;*/
     /*margin-right: auto;*/
 }
 
 .sidebarMini .css-1d6wzja-MuiButton-startIcon { /*centers the icons when collapse*/
+    /* TODO REMOVE  css-1d6wzja-MuiButton-startIcon and apply correct card*/
     margin-right: 0;
     margin-left: 0;
 }
 
 .css-12i7wg6-MuiPaper-root-MuiDrawer-paper { /*remove the line on the right in the containers*/
+    /* TODO REMOVE  css-12i7wg6-MuiPaper-root-MuiDrawer-paper and apply correct card*/
     border-right: 0 !important;
 }
 

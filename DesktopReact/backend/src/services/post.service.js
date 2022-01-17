@@ -1,12 +1,11 @@
 
-const getPosts = async (userId, res) => {
+const getPosts = async (req, res) => {
 
-    
     try {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
-            emitterUserProfileId: undefined,
+            originSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 100,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -33,7 +32,7 @@ const createPost = async (body, res) => {
         let event;
 
         eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_POST,
+            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             postText: body.postText,
             timestamp: (new Date()).valueOf()

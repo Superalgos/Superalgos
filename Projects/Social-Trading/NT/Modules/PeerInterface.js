@@ -73,7 +73,6 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         signature,
         connectedUserProfiles
     ) {
-
         let eventReceived
         try {
             eventReceived = JSON.parse(eventMessage)
@@ -111,13 +110,44 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
         let response = NT.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
         if (response !== undefined) { return response }
         /*
+        At the Peer Interface, events are received from another Network Node. 
+        We get the Social Entity in this case, to know who is following it.
+        */
+        let socialEntityId
+        let socialEntity
+        if (eventReceived.originSocialPersonaId !== undefined) {
+            socialEntityId = eventReceived.originSocialPersonaId
+            socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+        }
+        if (eventReceived.originSocialTradingBotId !== undefined) {
+            socialEntityId = eventReceived.originSocialTradingBotId
+            socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
+        }
+        /*
+        We wiil check that the Social Entity exists.
+        */
+        if (socialEntityId === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity Id Undefined.'
+            }
+            return response
+        }
+        if (socialEntity === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity Undefined.'
+            }
+            return response
+        }
+        /*
         Here we will process the event and change the state of the Social Graph.
         */
         try {
             let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
             event.initialize(eventReceived)
             event.run()
-            
+
             NT.projects.network.globals.memory.maps.EVENTS.set(eventReceived.eventId, event)
             NT.projects.network.globals.memory.arrays.EVENTS.push(event)
 
@@ -126,8 +156,11 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
                 message: 'Peer Interface Event Processed.'
             }
 
-            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(connectedUserProfiles)
-
+            event.finalize()
+            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
+                connectedUserProfiles,
+                socialEntity
+            )
             return response
 
         } catch (err) {

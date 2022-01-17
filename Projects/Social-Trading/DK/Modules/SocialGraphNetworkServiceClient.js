@@ -181,6 +181,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     sending this message to the P2P Network.
                     */
                     if (response.result !== "Ok") {
+                        console.log('[WARN] Post could not be saved. Reason: ' + response.message )
                         return response
                     }
                 }

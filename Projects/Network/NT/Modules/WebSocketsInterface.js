@@ -193,9 +193,19 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         break
                                     }
                                 }
-                                if (response.result === 'Ok' && boradcastTo !== undefined) {
+                                /*
+                                boradcastTo represents the clients we need to bloadcast this message to.
+                                If it is an empty array, we wont broadcast to clients, but we will broadcast
+                                to other peers. If it is undefined that means that it is not a type of 
+                                message that should be broadcasted at all.
+                                We need boradcastTo to be at least an empty 
+                                */
+                                if (
+                                    response.result === 'Ok' &&
+                                    boradcastTo !== undefined
+                                ) {
                                     broadcastToPeers(messageHeader, caller)
-                                    broadcastToClients(messageHeader, caller, boradcastTo)
+                                    broadcastToClients(messageHeader, boradcastTo)
                                 }
                                 break
                             }
@@ -590,15 +600,10 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         }
     }
 
-    function broadcastToClients(messageHeader, caller, networkClients) {
+    function broadcastToClients(messageHeader, boradcastTo) {
         try {
-            let callerIdToAVoid
-            if (caller !== undefined && caller.role === 'Network Client') {
-                callerIdToAVoid = caller.socket.id
-            }
-            for (let i = 0; i < networkClients.length; i++) {
-                let networkClient = networkClients[i]
-                if (networkClient.socket.id === callerIdToAVoid) { continue }
+            for (let i = 0; i < boradcastTo.length; i++) {
+                let networkClient = boradcastTo[i]
                 networkClient.socket.send(messageHeader.payload)
             }
             return true

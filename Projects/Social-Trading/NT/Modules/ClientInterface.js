@@ -129,7 +129,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 message: 'Social Entity sending the Query is unrelated to a User Profile.'
             }
             return response
-        }           
+        }
         if (userProfileBySocialEntity.id !== userProfile.id) {
             let response = {
                 result: 'Error',
@@ -213,12 +213,35 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
         belongs to the User Profile that is connected at the Network Node.
         */
         let socialEntityId
+        let socialEntity
         if (eventReceived.originSocialPersonaId !== undefined) {
             socialEntityId = eventReceived.originSocialPersonaId
+            socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
         }
         if (eventReceived.originSocialTradingBotId !== undefined) {
             socialEntityId = eventReceived.originSocialTradingBotId
+            socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
         }
+        /*
+        We wiil check that the Social Entity exists.
+        */
+        if (socialEntityId === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity Id Undefined.'
+            }
+            return response
+        }
+        if (socialEntity === undefined) {
+            let response = {
+                result: 'Error',
+                message: 'Social Entity Undefined.'
+            }
+            return response
+        }
+        /*
+        Get the User Profile that has those Social Entities.
+        */
         let userProfileBySocialEntity = SA.projects.socialTrading.globals.memory.maps.USER_PROFILES_BY_SOCIAL_ENTITY_ID.get(socialEntityId)
         if (userProfileBySocialEntity === undefined) {
             let response = {
@@ -226,7 +249,7 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
                 message: 'Social Entity sending the Event is unrelated to a User Profile.'
             }
             return response
-        }        
+        }
         if (userProfileBySocialEntity.id !== userProfile.id) {
             let response = {
                 result: 'Error',
@@ -276,7 +299,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
             }
 
             event.finalize()
-            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(connectedUserProfiles)
+            response.boradcastTo = NT.projects.socialTrading.utilities.broadcastingFilter.filterFollowersFromUserProfiles(
+                connectedUserProfiles,
+                socialEntity
+            )
 
             return response
 

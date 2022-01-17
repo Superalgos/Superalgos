@@ -5975,8 +5975,8 @@
                         "id": "c2bf40fb-614e-4348-9b74-527c30320500",
                         "savedPayload": {
                             "position": {
-                                "x": 37019.090217757315,
-                                "y": 19541.04181659865
+                                "x": 37148.090217757315,
+                                "y": 19773.84943773398
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -7735,8 +7735,8 @@
                         "id": "c4457bab-8e2e-4338-8aac-d0b8cb106708",
                         "savedPayload": {
                             "position": {
-                                "x": 36701.95818340135,
-                                "y": 19275.909782242685
+                                "x": 36573.82614904539,
+                                "y": 19514.04181659865
                             },
                             "targetPosition": {
                                 "x": 36785.95818340135,
@@ -7872,8 +7872,8 @@
                     "id": "82f25e49-df63-4a92-996e-1b9e7fee3b53",
                     "savedPayload": {
                         "position": {
-                            "x": 37017.19237886467,
-                            "y": 18934
+                            "x": 36790.19237886467,
+                            "y": 19209.807621135333
                         },
                         "targetPosition": {
                             "x": 36940.19237886467,
@@ -8076,8 +8076,156 @@
                     "id": "b2f62350-ee06-4de9-abc7-a893b52aa8df",
                     "savedPayload": {
                         "position": {
-                            "x": 36950.19237886467,
-                            "y": 18695
+                            "x": 36640.19237886467,
+                            "y": 18650
+                        },
+                        "targetPosition": {
+                            "x": 36940.19237886467,
+                            "y": 18650
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "availableStorage": {
+                    "type": "Available Storage",
+                    "name": "New Available Storage",
+                    "config": "{}",
+                    "project": "Open-Storage",
+                    "storageContainerReferences": [
+                        {
+                            "type": "Storage Container Reference",
+                            "name": "My-Social-Trading-Data",
+                            "config": "{}",
+                            "project": "Open-Storage",
+                            "id": "a9b34d3e-a3f9-4bad-8938-e0cc739a223f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 36530.384757729335,
+                                    "y": 18240.192378864667
+                                },
+                                "targetPosition": {
+                                    "x": 36790.19237886467,
+                                    "y": 18390.192378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Github Storage Container",
+                                    "name": "My-Social-Trading-Data",
+                                    "id": "f8326dbb-0b25-4115-8063-c3090e33bcfb"
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Luis-Fernando-Molina",
+                                        "User Profile",
+                                        "Governance",
+                                        "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                                    ],
+                                    [
+                                        "New User Storage",
+                                        "User Storage",
+                                        "Open-Storage",
+                                        "70d2d75b-ad84-4386-93f5-13ad56c111f7"
+                                    ],
+                                    [
+                                        "New Github Storage",
+                                        "Github Storage",
+                                        "Open-Storage",
+                                        "f141613b-ea77-425c-8e3b-9874a638fcab"
+                                    ],
+                                    [
+                                        "My-Social-Trading-Data",
+                                        "Github Storage Container",
+                                        "Open-Storage",
+                                        "f8326dbb-0b25-4115-8063-c3090e33bcfb"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Storage Container Reference",
+                            "name": "My-Social-Trading-Data-Backup",
+                            "config": "{}",
+                            "project": "Open-Storage",
+                            "id": "a647bd5b-031c-456c-a34e-d54fc1cc7723",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 36790.19237886467,
+                                    "y": 18090.192378864667
+                                },
+                                "targetPosition": {
+                                    "x": 36790.19237886467,
+                                    "y": 18390.192378864667
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Github Storage Container",
+                                    "name": "My-Social-Trading-Data-Backup",
+                                    "id": "993a9c73-3415-4a69-8fd1-d8bd0b66e5b6"
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "Luis-Fernando-Molina",
+                                        "User Profile",
+                                        "Governance",
+                                        "a8de78f0-c3e4-4a2a-b7e8-f659073969db"
+                                    ],
+                                    [
+                                        "New User Storage",
+                                        "User Storage",
+                                        "Open-Storage",
+                                        "70d2d75b-ad84-4386-93f5-13ad56c111f7"
+                                    ],
+                                    [
+                                        "New Github Storage",
+                                        "Github Storage",
+                                        "Open-Storage",
+                                        "f141613b-ea77-425c-8e3b-9874a638fcab"
+                                    ],
+                                    [
+                                        "My-Social-Trading-Data-Backup",
+                                        "Github Storage Container",
+                                        "Open-Storage",
+                                        "993a9c73-3415-4a69-8fd1-d8bd0b66e5b6"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "id": "a25826af-af71-485c-b468-d1a3141d91f7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36790.19237886467,
+                            "y": 18390.192378864667
                         },
                         "targetPosition": {
                             "x": 36940.19237886467,
@@ -8133,7 +8281,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8784,7 +8932,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

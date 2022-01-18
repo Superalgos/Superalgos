@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir werden nun die Charts bearbeiten und dabei den Schwerpunkt auf das Trigger On Event legen!",
                 "updated": 1639262218264
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi grafikleri düzenleyeceğiz ve Tetikleme Etkinliğine ( Trigger On Event ) odaklanacağız!",
+                "updated": 1641653099361
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass das Trigger-On-Ereignis bei jeder Strategie innerhalb eines Trading Systems bestimmt, welche der Strategien im aktuellen Kontext gehandelt wird. In unserem Fall werden wir mindestens zwei Strategien haben, und wir wollen, dass jede von ihnen auf verschiedene Trends spezialisiert ist.",
                     "updated": 1639262228333
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi içindeki herhangi bir strateji için tetikleme olayının (trigger on event), mevcut bağlamda hangi stratejinin işlem yapacağını belirlediğini unutmayın. Bizim durumumuzda, en az iki stratejimiz olacak ve her birinin farklı trendlerde uzmanlaşmasını istiyoruz.",
+                    "updated": 1641653112167
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Das erste Problem besteht darin, den Trend zu bestimmen! Wie gehen wir dabei vor?",
                     "updated": 1639262240587
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk işimiz trendi belirlemek! Peki bunu nasıl yapacağız?",
+                    "updated": 1641653125211
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Wie Sie sich vielleicht vorstellen können, werden wir uns mit den Bollinger Bands beschäftigen!",
                     "updated": 1639262255755
+                },
+                {
+                    "language": "TR",
+                    "text": "Tahmin edebileceğiniz gibi, Bollinger Gruplarına bakacağız!",
+                    "updated": 1641653133727
                 }
             ]
         }

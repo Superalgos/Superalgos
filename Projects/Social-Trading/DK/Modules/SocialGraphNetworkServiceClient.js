@@ -322,6 +322,26 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
 
                 switch (profileMessage.profileType) {
+                    case SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE: {
+                        return await createUserProfile(
+                            profileMessage
+                        )
+                    }
+                    case SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY: {
+                        return await createSocialEntity(
+                            profileMessage
+                        )
+                    }
+                    case SA.projects.socialTrading.globals.profileTypes.DELETE_SOCIAL_ENTITY: {
+                        return await deleteSocialEntity(
+                            profileMessage
+                        )
+                    }
+                    case SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES: {
+                        return await listSocialEntities(
+                            profileMessage
+                        )
+                    }
                     case SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY: {
                         return await saveSocialEntityAtStorage(
                             profileMessage
@@ -555,6 +575,22 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
             }
         }
+    }
+
+    async function createUserProfile() {
+
+    }
+
+    async function createSocialEntity() {
+
+    }
+
+    async function deleteSocialEntity() {
+
+    }
+
+    async function listSocialEntities() {
+
     }
 
     async function saveSocialEntityAtStorage(

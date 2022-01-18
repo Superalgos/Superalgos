@@ -2,8 +2,8 @@ const getProfiles = async (req, res) => {
 
     try {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
-            emitterUserProfileId: undefined,
+            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
+            originSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
             amountRequested: 3,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
@@ -26,8 +26,8 @@ const getProfiles = async (req, res) => {
 const paginateProfiles = async(initialIndex, pagination, res) => {
         try{
             const queryMessage = {
-                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_USER_PROFILES,
-                emitterUserProfileId: undefined,
+                queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
+                originSocialPersonaId: undefined,
                 initialIndex: initialIndex ? initialIndex : 0 ,
                 amountRequested: pagination ? pagination : 3,
                 direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
@@ -57,7 +57,7 @@ const followProfile = async (userProfileId, eventType, res) => {
         let eventMessage = {
             eventType: eventType,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            targetUserProfileId: userProfileId,
+            targetSocialPersonaId: userProfileId,
             timestamp: (new Date()).valueOf()
         }
 
@@ -80,8 +80,8 @@ const editProfile = async (body, res) => {
 
     try {
         let eventMessage = {
-            eventType: SA.projects.socialTrading.globals.eventTypes.NEW_USER_PROFILE,
-            emitterUserProfileId: undefined,
+            eventType: SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY,
+            originSocialPersonaId: undefined,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
             body:body,
             timestamp: (new Date()).valueOf()
@@ -105,8 +105,8 @@ const getProfile = async (userProfileId, username,res) => {
 
     try {
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.USER_PROFILE_DATA,
-            emitterUserProfileId: undefined,
+            queryType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
+            originSocialPersonaId: undefined,
             userProfileId: userProfileId,
             username:username
         }

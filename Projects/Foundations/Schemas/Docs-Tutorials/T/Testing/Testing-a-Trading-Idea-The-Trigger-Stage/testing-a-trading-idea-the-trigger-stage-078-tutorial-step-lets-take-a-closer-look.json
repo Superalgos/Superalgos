@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert!",
                 "updated": 1639391418728
+            },
+            {
+                "language": "TR",
+                "text": "Nasıl çalıştığını anlayabilmeniz ve grafikte gördüğümüz her şeyi açmak için birkaç dakikanızı ayıracağız!",
+                "updated": 1641665982894
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Die Tatsache, dass die Strategie fünfmal hintereinander in fünf aufeinanderfolgenden Kerzen ausgelöst und geschlossen wird, muss Folgendes bedeuten:",
                     "updated": 1639391427003
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejinin art arda beş kez arka arkaya beş mumda tetiklenip kapatılmış olması şu anlama gelmelidir:",
+                    "updated": 1641665993012
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Das Trigger On Event Ereignis ist bei jeder dieser Kerzen gültig.",
                     "updated": 1639391461998
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleme Olayı ( Trigger On Event olayı ) bu mumların her biri için geçerlidir.",
+                    "updated": 1641666005462
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen!",
                     "updated": 1639391468626
+                },
+                {
+                    "language": "TR",
+                    "text": "Pozisyon Al Etkinliği ( Take Position Event ) bu mumların her biri için de geçerlidir!",
+                    "updated": 1641666021826
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft!",
                     "updated": 1639391474980
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Aynı zamanda stratejinin aynı mum üzerinde tetikleneceği ve pozisyonu alacağı anlamına gelir! Şimdi tüm bunların doğru olup olmadığını kontrol edelim!",
+                    "updated": 1641666038197
                 }
             ]
         }

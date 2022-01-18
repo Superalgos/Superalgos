@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Stellen Sie es sich so vor: Wir haben zwei verschiedene Marktsituationen identifiziert, die diese Idee entkräften würden!",
                 "updated": 1639265844556
+            },
+            {
+                "language": "TR",
+                "text": "Bunu şu şekilde düşünün: Bu fikri geçersiz kılacak iki farklı piyasa durumu belirledik!",
+                "updated": 1641654716343
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Wir werden jede Bedingung in einer separaten Situation einrichten!",
                     "updated": 1639265851505
+                },
+                {
+                    "language": "TR",
+                    "text": "Her koşulu farklı durumda ayarlayacağız!",
+                    "updated": 1641654763863
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Richten Sie die erste Bedingung in der bestehenden Situation und die zweite Bedingung in einer neuen Situation ein (fügen Sie eine Situation über das Menü des Trigger Off Event hinzu).",
                     "updated": 1639265871809
+                },
+                {
+                    "language": "TR",
+                    "text": "İlk koşulu mevcut durumda ve ikinci koşulu yeni bir durumda ayarlayın ( Trigger Off Event ) menüsü aracılığıyla bir durum ( Situation ) ekleyin.",
+                    "updated": 1641654775591
                 }
             ]
         },

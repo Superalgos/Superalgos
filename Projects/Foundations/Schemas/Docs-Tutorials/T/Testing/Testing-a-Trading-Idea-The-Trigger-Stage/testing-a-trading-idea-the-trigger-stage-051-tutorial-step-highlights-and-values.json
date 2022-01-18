@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Kommen wir zu einem spannenderen Thema! Ich zeige Ihnen, wie Sie die Validierung von Bedingungen mit den Ebenen \"Highlights\" und \"Werte\" überprüfen können.",
                 "updated": 1639388506323
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Heyecan verici bir konuya gelelim! Öne Çıkanlar ve Değerler seviyelerini kullanarak koşulların doğrulanmasını nasıl kontrol edeceğinizi göstereceğim.",
+                "updated": 1641661921968
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Gehen Sie zum Ebenenmanager des Trading Systems und aktivieren Sie die Ebenen \"Trading System Highlights\" und \"Trading System Values\"...",
                     "updated": 1639388623984
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve \"Ticaret Sisteminde Öne Çıkanlar \"(Trading System Highlights) ve \"Ticaret Sistem Değerleri\"(Trading System Values) katmanlarını açın...",
+                    "updated": 1641661955035
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie nun den Mauszeiger über die Kerze, bei der die Strategie ausgelöst wird!",
                     "updated": 1639388640820
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi fare imlecini stratejiyi tetikleyen mumun üzerine getirin!",
+                    "updated": 1641661969200
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Nutzen Sie dieses Hilfsmittel, wenn die Dinge nicht so laufen, wie Sie es erwarten würden! So können Sie herausfinden, warum ein Ereignis nicht auslöst, wenn Sie denken, dass es das sollte!",
                     "updated": 1639388647566
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu aracı, işler beklediğiniz gibi gitmediğinde kullanın! Bu, olması gerektiğini düşündüğünüz bir olayın neden tetiklenmediğini öğrenmenin harika bir yoludur!",
+                    "updated": 1641661985597
                 }
             ]
         }

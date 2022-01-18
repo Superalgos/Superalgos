@@ -12,8 +12,8 @@
             "action": "Add UI Object",
             "actionProject": "Visual-Scripting",
             "actionFunction": "payload.executeAction",
-            "label": "Add Storage Container",
-            "relatedUiObject": "Storage Container",
+            "label": "Add Github Storage Container",
+            "relatedUiObject": "Github Storage Container",
             "relatedUiObjectProject": "Open-Storage"
         },      
         {
@@ -41,9 +41,9 @@
     "propertyNameAtParent": "githubStorage",
     "childrenNodesProperties": [
         {
-            "name": "storageContainers",
+            "name": "githubStorageContainers",
             "type": "array",
-            "childType": "Storage Container",
+            "childType": "Github Storage Container",
             "autoAdd": false
         }
     ]

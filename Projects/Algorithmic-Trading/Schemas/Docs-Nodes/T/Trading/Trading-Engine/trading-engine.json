@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Вы будете использовать эту иерархию для двух основных целей:",
                     "updated": 1638338966721
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu hiyerarşiyi iki ana amaç için kullanacaksınız:",
+                    "updated": 1642504350982
                 }
             ]
         },
@@ -44,6 +49,11 @@
                     "language": "RU",
                     "text": "Чтобы позволить вашим торговым системам получить доступ к информации, обрабатываемой торговым ботом. Это позволяет стратегиям отслеживать и реагировать на текущие и прошлые события, в том числе связанные с обменом, такие как размещенные или исполненные заявки, во время работы бота.",
                     "updated": 1638339042173
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemlerinizin ticaret botu tarafından işlenen bilgilere erişmesine izin vermek. Bu, stratejilerin, bot çalışırken verilen veya doldurulan siparişler gibi değiş tokuşla ilgili olanlar da dahil olmak üzere mevcut ve geçmiş olayları takip etmesine ve bunlara tepki vermesine olanak tanır.",
+                    "updated": 1642504373870
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Для отслеживания действий торгового бота через визуальную среду Design Space и панели над графиками. Анализируя информацию о времени выполнения, вы можете получить подробное представление о том, что происходит, когда и почему в течение торговой сессии.",
                     "updated": 1638339093835
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı görsel ortamı ve çizelgeler üzerindeki paneller aracılığıyla alım satım botunun eylemlerini takip etmek. Çalışma zamanı bilgilerini analiz ederek, bir alım satım seansı boyunca ne olduğu, ne zaman ve neden olduğu hakkında ayrıntılı bir anlayış elde edebilirsiniz.",
+                    "updated": 1642504426556
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "language": "RU",
                     "text": "Часто задаваемые вопросы",
                     "updated": 1638339158409
+                },
+                {
+                    "language": "TR",
+                    "text": "Sıkça Sorulan Sorular",
+                    "updated": 1642504438443
                 }
             ]
         },
@@ -77,6 +97,11 @@
                     "language": "RU",
                     "text": "Может ли Trading Engine использоваться совместно двумя торговыми ботами?",
                     "updated": 1638339236191
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Motoru iki Ticaret Botu arasında paylaşılabilir mi?",
+                    "updated": 1642504459878
                 }
             ]
         },
@@ -89,6 +114,11 @@
                     "language": "RU",
                     "text": "Один и тот же торговый движок можно использовать в нескольких торговых сессиях, потому что это просто представление структуры данных на основе узлов.",
                     "updated": 1638339266880
+                },
+                {
+                    "language": "TR",
+                    "text": "Aynı ticaret motoru, bir veri yapısının yalnızca düğüm tabanlı bir temsili olduğundan, birden fazla ticaret oturumunda kullanılabilir.",
+                    "updated": 1642504933300
                 }
             ]
         },
@@ -101,6 +131,11 @@
                     "language": "RU",
                     "text": "Каждый раз, когда запускается задача Task, снимок этой структуры данных вместе со снимком сети и определениями ботов в их Data Mine отправляется из UI на сервер задач Task Server, а оттуда используется запущенным ботом. Это означает, что второй бот может получить тот же снимок состояния Trading Engine, и он никогда не узнает, были ли другие боты загружены той же информацией или нет.",
                     "updated": 1638339437677
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Görev her çalıştırıldığında, Veri Madeni'ndeki (Data Mine) Ağ ve Bot tanımlarının bir anlık görüntüsü ile birlikte bu veri yapısının bir anlık görüntüsü UI'den Görev Sunucusuna (Task Manager) gönderilir ve oradan çalışan Bot tarafından tüketilir. Bu, ikinci bir Botun aynı Ticaret Motoru anlık görüntüsünü alabileceği ve diğer botların aynı bilgilerle beslenip beslenmediğini asla bilemeyeceği anlamına gelir.",
+                    "updated": 1642505103739
                 }
             ]
         },
@@ -112,6 +147,11 @@
                     "language": "RU",
                     "text": "Нужно ли мне что-то менять в Trading Engine?",
                     "updated": 1638339586902
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Engine'de bir şeyi değiştirmem gerekiyor mu?",
+                    "updated": 1642505117563
                 }
             ]
         },
@@ -123,6 +163,11 @@
                     "language": "RU",
                     "text": "Вам не нужно ничего физически менять внутри Trading Engine через UI. Trading Engine - это визуальное представление структуры данных, которую торговая система использует, так сказать, для хранения своих значений.",
                     "updated": 1638339666496
+                },
+                {
+                    "language": "TR",
+                    "text": "UI aracılığıyla ticaret motorunun içindeki hiçbir şeyi fiziksel olarak değiştirmeniz gerekmez. Ticaret motoru, ticaret sisteminin değerlerini depolamak için kullandığı veri yapısının görsel bir temsilidir.",
+                    "updated": 1642505145310
                 }
             ]
         },
@@ -134,6 +179,11 @@
                     "language": "RU",
                     "text": "Могу ли я изменить значения в Trading Engine?",
                     "updated": 1638339692515
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Engine içindeki değerleri değiştirebilir miyim?",
+                    "updated": 1642505156525
                 }
             ]
         },
@@ -146,6 +196,11 @@
                     "language": "RU",
                     "text": "Вы получаете доступ к Trading Engine из своей торговой системы, если в ней есть что-то, что вы хотели бы изменить. В этом вся цель узла User Defined Code.",
                     "updated": 1638339838848
+                },
+                {
+                    "language": "TR",
+                    "text": "Değiştirmek istediğiniz bir şey varsa, Ticaret Motoruna (Trading Engine) ticaret sisteminizden (Trading System) erişirsiniz. Kullanıcı Tanımlı Kod (User Defined Code) düğümünün tüm amacı budur.",
+                    "updated": 1642505339750
                 }
             ]
         }

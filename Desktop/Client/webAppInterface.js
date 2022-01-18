@@ -34,7 +34,9 @@ exports.newWebAppInterface = function newWebAppInterface() {
 
         switch (messageHeader.networkService) {
             case 'Social Graph': {
-                return await DK.desktopApp.p2pNetworkClient.socialGraphNetworkServiceClient.sendMessage(messageHeader)
+                let response = await DK.desktopApp.p2pNetworkClient.socialGraphNetworkServiceClient.sendMessage(messageHeader)
+                console.log(response)
+                return response
             }
             case 'Trading Signals': {
                 break

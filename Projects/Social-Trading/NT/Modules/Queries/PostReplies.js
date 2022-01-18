@@ -27,14 +27,14 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         thisObject.post = undefined
     }
 
-    function initialize(queryReceived) {
+    function initialize(queryReceived){
+
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
 
         thisObject.array = Array.from(thisObject.post.replies)
 
-        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
-
     }
 
     function run() {
@@ -47,7 +47,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
-                    addToResponse(arrayItem)
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
@@ -55,7 +55,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
-                    addToResponse(arrayItem)
+                    addToResponse(arrayItem[1])
                 }
                 break
             }

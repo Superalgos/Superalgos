@@ -1,14 +1,14 @@
-import "./Post.css"
-import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
-import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
-import {setSelectedPost} from '../../store/slices/post.slice'
+import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect, useState} from "react";
+import {setSelectedPost} from "../../store/slices/post.slice";
+import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
 import {ArrowBackOutlined} from "@mui/icons-material";
+import pic from "../../images/superalgos.png";
+import PostFooter from "../PostFooter/PostFooter";
 
-
-const Post = ({postData}) => {
+const EventPost = ({postData}) => {
+    console.log(postData)
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -74,10 +74,9 @@ const Post = ({postData}) => {
                 <Stack className="postBody">
                     {postText ? postText.toString() : ''}
                 </Stack>
-                {/*<PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>*/}
+                <PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
             </Card>
         </div>
     );
 };
-
-export default Post;
+export default EventPost;

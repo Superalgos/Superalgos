@@ -15,6 +15,11 @@
                 "updated": 1639252880126
             },
             {
+                "language": "RU",
+                "text": "Мы имеем представление о том, что происходит на часовом графике. Давайте немного увеличим масштаб и посмотрим на промежуточную перспективу.",
+                "updated": 1640890947841
+            },
+            {
                 "language": "TR",
                 "text": "Özet: 1 saatlik zaman çerçevesinde neler olup bittiğine dair bir fikrimiz var. Biraz uzaklaşıp orta vadeye bir göz atalım.",
                 "updated": 1640947862345
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Ich habe Sie soeben zum 4H-Chart mit denselben Daten gebracht. Beachten Sie das Folgende:",
                     "updated": 1639252893103
+                },
+                {
+                    "language": "RU",
+                    "text": "Я только что привел вам 4-часовой график, на те же даты. Обратите внимание на следующее:",
+                    "updated": 1640890979297
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639252904620
                 },
                 {
+                    "language": "RU",
+                    "text": "Пробой: Пробой, который мы видели на графике 1H, также очевиден и на графике 4H.",
+                    "updated": 1640891000194
+                },
+                {
                     "language": "TR",
                     "text": "Arıza: 1H çizelgesinde gördüğümüz arıza, 4H çizelgesinde de belirgindir.",
                     "updated": 1640947893385
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Unmittelbare Vergangenheit: Vor dem Zusammenbruch am 10. April bewegte sich der Markt schon eine Weile.",
                     "updated": 1639252911166
+                },
+                {
+                    "language": "RU",
+                    "text": "Недалекое прошлое: До пробоя 10 апреля рынок некоторое время колебался.",
+                    "updated": 1640891016578
                 },
                 {
                     "language": "TR",
@@ -80,6 +100,11 @@
                     "updated": 1639252918205
                 },
                 {
+                    "language": "RU",
+                    "text": "До этого: Рынок имел тенденцию к росту - то есть промежуточный краткосрочный тренд был восходящим.",
+                    "updated": 1640891031767
+                },
+                {
                     "language": "TR",
                     "text": "Bundan önce: Piyasa yükseliş eğilimindeydi - yani orta vadeli bir yükseliş trendindeydi.",
                     "updated": 1640947927156
@@ -94,6 +119,11 @@
                     "language": "DE",
                     "text": "Abwärtstrend: Der Zusammenbruch am 10. April markierte den Beginn eines Abwärtstrends im mittelfristigen Bereich.",
                     "updated": 1639252924187
+                },
+                {
+                    "language": "RU",
+                    "text": "Нисходящий тренд: Пробой 10 апреля ознаменовал начало нисходящего тренда в среднесрочной перспективе.",
+                    "updated": 1640891045651
                 },
                 {
                     "language": "TR",

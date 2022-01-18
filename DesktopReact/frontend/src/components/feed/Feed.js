@@ -1,7 +1,7 @@
 import './Feed.css';
 import PostPlaceholder from "../postPlaceholder/PostPlaceholder";
 import PostsFeed from "../postsFeed/PostsFeed";
-import {getPosts} from "../../api/post.httpService";
+import {getFeed} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import React, {useEffect, useState} from "react";
@@ -12,7 +12,7 @@ const Feed = () => {
 
     const loadPosts = async () => {
         setLoading(true)
-        getPosts().then(promiseResponse => {
+        getFeed().then(promiseResponse => {
             const mappedPosts = [];
             let parsedPromiseResponse = promiseResponse.json();
             parsedPromiseResponse.then(response => {

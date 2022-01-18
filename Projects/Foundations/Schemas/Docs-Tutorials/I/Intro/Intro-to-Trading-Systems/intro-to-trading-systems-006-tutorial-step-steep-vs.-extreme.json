@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Farkı buldun mu? Bunu yapmadıysan endişelenme! Çok sayıda koşul var! Sana bir ipucu daha vereceğim!",
                 "updated": 1640698180246
+            },
+            {
+                "language": "RU",
+                "text": "Нашли ли вы разницу? Не волнуйтесь, если не нашли! Есть много условий! Я дам вам еще одну подсказку!",
+                "updated": 1640885179976
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Tekrar bakın ve Trigger On Event'in ilk yedi koşulunun her iki stratejide de aynı olduğuna dikkat edin! Kalan koşullar farklı olsa da!",
                     "updated": 1640698370398
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите еще раз и обратите внимание, что первые семь условий события Trigger On Event одинаковы для обеих стратегий! А вот остальные условия отличаются!",
+                    "updated": 1640885199706
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "İpucu: Daha kolay karşılaştırma için bir stratejinin Etkinliğinde Tetikleyiciyi ( Trigger On Event ) sürükleyebilir ve diğer stratejinin olayına daha yakın bir yere sabitleyebilirsiniz!",
                     "updated": 1640698729201
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете перетащить событие Trigger On Event одной стратегии и прикрепить его ближе к событию другой стратегии для более удобного сравнения!",
+                    "updated": 1640885217988
                 }
             ]
         }

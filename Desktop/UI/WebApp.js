@@ -19,13 +19,13 @@ function newWebApp() {
 
     async function initialize() {
         try {
-            
+
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
 
-            thisObject.webSocketsWebAppClient = newWebSocketsWebAppClient()            
+            thisObject.webSocketsWebAppClient = newWebSocketsWebAppClient()
             await thisObject.webSocketsWebAppClient.initialize()
-            
+
             loadWUserProfileTimeline()
             loadWhoToFollow()
             setupEventHandlers()
@@ -153,7 +153,7 @@ function newWebApp() {
 
                     switch (event.eventType) {
                         case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
-                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " POSTED " + event.postText)
+                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " POSTED " + event.postText + ' ' + event.originPostHash)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
@@ -405,14 +405,30 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
+            /* NEW QUERY TEST */
+            queryMessage = {
+                queryType: SA.projects.socialTrading.globals.queryTypes.POST,
+                originPostHash: "0x66d959e1d33e26e47c2ba108da18015ff2dafc87569184ca051553d52aff97a2"
+            }
+
+            event = {
+                networkService: 'Social Graph',
+                requestType: 'Query',
+                queryMessage: JSON.stringify(queryMessage)
+            }
+
             await thisObject.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
-                .then(resolve)
+                .then(onSuccess)
                 .catch(onError)
 
+            function onSuccess(reponse) {
+                console.log(reponse)
+                resolve()
+            }
             function onError(errorMessage) {
-                console.log('[ERROR] Event not executed. ' + errorMessage)
+                console.log('[ERROR] Event not executed. ' + JSON.stringify(errorMessage))
                 console.log('[ERROR] event = ' + JSON.stringify(event))
                 reject(errorMessage)
             }

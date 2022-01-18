@@ -25,6 +25,11 @@
                     "language": "DE",
                     "text": "Ich werde die folgenden Themen behandeln:",
                     "updated": 1641729122874
+                },
+                {
+                    "language": "RU",
+                    "text": "Я затрону следующие темы:",
+                    "updated": 1640928868392
                 }
             ]
         },
@@ -36,6 +41,11 @@
                     "language": "DE",
                     "text": "Architecture: Architektonischer Überblick über das System.",
                     "updated": 1641729131556
+                },
+                {
+                    "language": "RU",
+                    "text": "Архитектура: Архитектурный обзор системы.",
+                    "updated": 1640928895162
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "DE",
                     "text": "Client: Wie der Client organisiert ist.",
                     "updated": 1641729140526
+                },
+                {
+                    "language": "RU",
+                    "text": "Клиент: Как организован клиент (Client).",
+                    "updated": 1640928990449
                 }
             ]
         },
@@ -60,6 +75,17 @@
                     "updated": 1641729148232
                 }
             ]
+                },
+                {
+                    "language": "RU",
+                    "text": "Фронтенд: Как работает пользовательский интерфейс (UI).",
+                    "updated": 1640929013142
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "->"
         },
         {
             "style": "Note",
@@ -69,6 +95,11 @@
                     "language": "DE",
                     "text": "Dies ist ein 3 Jahre altes Projekt, das einige Male gewechselt hat, um den aktuellen Entwicklungsstand zu erreichen. Ursprünglich war es für Trading-Bots-Wettbewerbe gedacht und konzentriert sich jetzt auf die Automatisierung des Krypto-Handels im Allgemeinen. Der wichtigste technische Umschwung fand statt, als wir beschlossen, von einer zentralisierten, cloudbasierten Anwendung zu einem dezentralen Netzwerk von Knoten zu wechseln.",
                     "updated": 1641729160556
+                },
+                {
+                    "language": "RU",
+                    "text": "Это проект трехлетней давности, который несколько раз менял направление развития, чтобы достичь своего нынешнего состояния. Изначально он предназначался для соревнований торговых ботов, а теперь сосредоточен на автоматизации криптотрейдинга в целом. Основной технический поворот произошел, когда мы решили перейти от централизованного облачного приложения к децентрализованной сети узлов.",
+                    "updated": 1640929034831
                 }
             ]
         }

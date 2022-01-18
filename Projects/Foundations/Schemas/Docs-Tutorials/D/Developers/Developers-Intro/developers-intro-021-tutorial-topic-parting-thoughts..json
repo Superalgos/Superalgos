@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wie Sie sehen können, ist Superalgos viel mehr als ein Handelsbot. Es ist eine ganzheitliche Infrastruktur, um die Komplexität für die Nutzer so einfach wie möglich zu verwalten.",
                 "updated": 1641736908954
+           },
+           {
+                "language": "RU",
+                "text": "Как видите, Superalgos - это гораздо больше, чем просто торговый бот. Это целостная инфраструктура для управления сложностями самым простым для пользователей способом.",
+                "updated": 1640932109754
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "In dieser Einführung wurden die wichtigsten Themen des Systems behandelt, in der Hoffnung, dass es Ihnen hilft, die Grundlagen zu verstehen, auf denen das System aufgebaut ist.",
                     "updated": 1641736921927
+               },
+               {
+                    "language": "RU",
+                    "text": "Это введение охватывает темы самого высокого уровня в надежде, что оно поможет вам понять основы, на которых строится система.",
+                    "updated": 1640932129152
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Wir hoffen, dass Sie uns zustimmen, dass es eine gute Idee ist, diese Infrastruktur wiederzuverwenden, um Handelsintelligenz aufzubauen, anstatt einen Handelsbot von Grund auf zu programmieren. Wir hoffen, dass noch mehr Entwickler sich uns anschließen werden!",
                     "updated": 1641736937320
+               },
+               {                    
+                    "language": "RU",
+                    "text": "Мы надеемся, что вы согласны с тем, что это хорошая идея - использовать эту инфраструктуру для создания торгового интеллекта, а не создавать торгового бота с нуля. Мы надеемся, что к нам присоединится больше разработчиков!",
+                    "updated": 1640932145724
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Wenn Ihnen das Projekt gefällt, gibt es viele Möglichkeiten, einen Beitrag zu leisten. Werfen Sie einen Blick auf diese Seite mit der Roadmap, wie Sie Teil des Teams werden können.",
                     "updated": 1641736942963
+               },
+               {
+                    "language": "RU",
+                    "text": "Если вам нравится проект, есть много способов внести свой вклад. Взгляните на эту страницу, где представлена дорожная карта для того, чтобы стать частью команды.",
+                    "updated": 1640932177605
                 }
             ]
         }

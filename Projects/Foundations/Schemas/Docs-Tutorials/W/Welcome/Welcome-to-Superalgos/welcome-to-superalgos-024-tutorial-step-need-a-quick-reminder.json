@@ -89,8 +89,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Если Вам когда-нибудь понадобится напоминание по любой из этих тем...",
-                    "updated": 1635611733808,
+                    "text": "Если вам понадобится напоминание о любой из этих тем, вы можете воспроизвести любую тему или шаг учебника.",
+                    "updated": 1641808901861,
                     "style": "Text"
                 },
                 {
@@ -109,6 +109,11 @@
                     "language": "TR",
                     "text": "Beni tasarım alanının sol alt köşesinde bulabilir, konuların ve adımların hiyerarşisine göz atabilir ve herhangi birinde Oynat'a tıklayabilirsiniz. Konular, ana Öğretici düğümünün sağ tarafından başlayarak saat yönünde düzenlenir.",
                     "updated": 1639142707800
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете найти меня в левом нижнем углу пространства проектирования (Design Space), просмотреть иерархию тем и шагов и нажать кнопку Play на любом из них. Темы расположены по часовой стрелке, начиная с правой стороны главного узла Tutorial.",
+                    "updated": 1641809006337
                 }
             ]
         },

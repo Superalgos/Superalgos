@@ -110,6 +110,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
             )
 
             thisObject.posts.set(originPostHash, post)
+            SA.projects.socialTrading.globals.memory.maps.POSTS.set(originPostHash, post)
         }
     }
 
@@ -122,6 +123,7 @@ exports.newSocialTradingModulesSocialGraphSocialTradingBot = function newSocialT
             let post = thisObject.posts.get(originPostHash)
             post.finalize()
             thisObject.posts.delete(originPostHash)
+            SA.projects.socialTrading.globals.memory.maps.POSTS.delete(originPostHash)
         }
     }
 

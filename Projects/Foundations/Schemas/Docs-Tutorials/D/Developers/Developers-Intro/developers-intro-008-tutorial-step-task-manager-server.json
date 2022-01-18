@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der Task Manager Server ist ein einfacher Server, der die Ausführung von Task Server Node.js Prozessen verwaltet. Er behält den Überblick über alle Instanzen, die zu einem bestimmten Zeitpunkt laufen, und ermöglicht es der Benutzeroberfläche, zu entscheiden, wann weitere Instanzen ausgeführt oder eine der laufenden Instanzen gestoppt werden soll.",
                 "updated": 1641729859188
+                },
+                {
+                "language": "RU",
+                "text": "Task Manager Server - это простой сервер для управления выполнением процессов Task Servers Node.js. Он отслеживает все экземпляры, запущенные в данный момент времени, и позволяет пользовательскому интерфейсу решать, когда запустить больше экземпляров или остановить любой из них.",
+                "updated": 1640930037741
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Der Task Manager Server stellt der Benutzeroberfläche die folgenden Befehle zur Verfügung:",
                     "updated": 1641729865583
+                },
+                {
+                    "language": "RU",
+                    "text": "Task Manager Server предоставляет следующие команды для пользовательского интерфейса:",
+                    "updated": 1640930058186
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Run Task: Wird verwendet, um einen neuen Task auszuführen, der einen Node.js Fork-Prozess erzeugt, in dem ein Task Server ausgeführt wird.",
                     "updated": 1641729885979
+                },
+                {
+                    "language": "RU",
+                    "text": "Запустить задачу: Используется для запуска новой задачи, порождает форк-процесс Node.js, в котором запускается сервер задач Task Server.",
+                    "updated": 1640930117281
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Stop Task:  Sendet eine fork-process-Nachricht an die Task Server-Instanz, die gestoppt werden soll.",
                     "updated": 1641729897785
+                },
+                {
+                    "language": "RU",
+                    "text": "Остановить задачу: Отправляет сообщение fork-process-message экземпляру сервера задач, который необходимо остановить.",
+                    "updated": 1640930139371
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Task Status: Teilt dem Aufrufer mit, ob die angegebene Task-ID einem laufenden Task entspricht oder nicht.",
                     "updated": 1641729904531
+                },
+                {
+                    "language": "RU",
+                    "text": "Статус задачи: Сообщает вызывающей стороне, соответствует ли предоставленный идентификатор задачи запущенной задаче или нет.",
+                    "updated": 1640930157215
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dies ist eine einfache Implementierung eines Web-Sockets-Servers. Er ermöglicht es der Benutzeroberfläche oder anderen Diensten, über WS mit dem Eventserver zu kommunizieren.",
                 "updated": 1641729694113
+                },
+                {
+                "language": "RU",
+                "text": "Это простая реализация сервера веб-сокетов. Он позволяет пользовательскому интерфейсу или любой другой службе взаимодействовать с сервером событий (Events Server) через WS.",
+                "updated": 1640929765459
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Das System erlaubt es den verschiedenen Prozessen nicht, über WS miteinander zu kommunizieren. Sie können lediglich mit dem Eventserver kommunizieren, um Ereignisse zu abonnieren oder auszusenden.",
                     "updated": 1641729703046
+                },
+                {
+                    "language": "RU",
+                    "text": "Система не позволяет различным процессам общаться друг с другом через WS. Все, что они могут делать, это общаться с сервером Events Server для подписки на события или для отправки событий.",
+                    "updated": 1640929821617
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Der Web Socket Server ermöglicht diesen indirekten Kommunikationsmechanismus zwischen allen Prozessen und der Benutzeroberfläche, die auf einem einzigen Rechner laufen, sowie die Kommunikation zwischen Prozessen, die auf verschiedenen Rechnern laufen.",
                     "updated": 1641729708873
+                },
+                {
+                    "language": "RU",
+                    "text": "Web Socket Server обеспечивает этот механизм непрямой связи между всеми процессами и пользовательским интерфейсом, запущенными на одной машине, а также связь между процессами, запущенными на разных машинах.",
+                    "updated": 1640929843569
                 }
             ]
         }

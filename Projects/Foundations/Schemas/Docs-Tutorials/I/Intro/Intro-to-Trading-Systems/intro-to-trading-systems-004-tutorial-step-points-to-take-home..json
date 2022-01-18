@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Önceki okumada bazı temel dersler vardı: çoklu stratejiler, tek pozisyonlar ve öncelik.",
                 "updated": 1640695041498
+            },
+            {
+                "language": "RU",
+                "text": "В предыдущем материале есть несколько ключевых выводов: разнообразные стратегии, одиночные позиции и приоритет.",
+                "updated": 1640878901439
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Bundan sonra ne olacağına dair bazı zihinsel notlar alalım:",
                     "updated": 1640695075073
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте сделаем несколько мысленных заметок для того, что будет дальше:",
+                    "updated": 1640878912690
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Bir ticaret sisteminde birden fazla strateji bir arada bulunabilir - istediğiniz kadar.",
                     "updated": 1640695353160
+                },
+                {
+                    "language": "RU",
+                    "text": "В рамках торговой системы могут сосуществовать несколько стратегий - столько, сколько вы пожелаете.",
+                    "updated": 1640878924519
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "Herhangi bir anda bir açık pozisyona sahip yalnızca bir aktif stratejiye izin verilir.",
                     "updated": 1640695386636
+                },
+                {
+                    "language": "RU",
+                    "text": "Разрешается только одна активная стратегия с одной открытой позицией в произвольный момент времени.",
+                    "updated": 1640879010551
                 }
             ]
         },
@@ -108,6 +128,11 @@
                     "language": "TR",
                     "text": "Öncelik, Ticaret Sistemi ( Trading System ) düğümü etrafında stratejilerin tanımlandığı sırayla verilir. Elbette sırayı değiştirebilirsin!",
                     "updated": 1640695499601
+                },
+                {
+                    "language": "RU",
+                    "text": "Приоритет отдается порядку, в котором стратегии определены вокруг узла Trading System. Вы конечно же можете изменить этот порядок!",
+                    "updated": 1640879040636
                 }
             ]
         },
@@ -129,6 +154,11 @@
                     "language": "TR",
                     "text": "Not: Muhtemelen nedenini soruyorsundur? Bu kurallar, keyfi mi? İyi bir sebepten dolayı öyle!",
                     "updated": 1640695584520
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы, наверное, спрашиваете, почему? Неужели эти правила звучат произвольно? Так и есть, и на то есть веские причины!",
+                    "updated": 1640879082478
                 }
             ]
         }

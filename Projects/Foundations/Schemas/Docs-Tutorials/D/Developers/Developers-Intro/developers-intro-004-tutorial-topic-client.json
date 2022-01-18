@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Ist eine Sammlung von Servern, die auf einem einzigen Node.js-Prozess laufen.",
                 "updated": 1641729279193
+                },
+                {
+                "language": "RU",
+                "text": "Это набор серверов, работающих на одном процессе Node.js.",
+                "updated": 1640929257887
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Die Server sind:",
                     "updated": 1641729286974
+                },
+                {
+                    "language": "RU",
+                    "text": "К серверам относятся:",
+                    "updated": 1640929268862
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Web Server: Liefert alle JS-Dateien, die die Benutzeroberfläche bilden, an den Browser.",
                     "updated": 1641729295065
+                },
+                {
+                    "language": "RU",
+                    "text": "Web Server: Передает браузеру все JS-файлы, формирующие пользовательский интерфейс.",
+                    "updated": 1640929289557
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Web Sockets Server: Ermöglicht es der Benutzeroberfläche, den Client über WS zu erreichen.",
                     "updated": 1641729303749
+                },
+                {
+                    "language": "RU",
+                    "text": "Web Sockets Server: Позволяет пользовательскому интерфейсу связаться с клиентом через WS.",
+                    "updated": 1640929317198
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Events Server: Ermöglicht der Benutzeroberfläche die Kommunikation mit dem Task-Manager-Server und allen Prozessinstanzen des Task-Servers über Ereignisse über WS.",
                     "updated": 1641729315949
+                },
+                {
+                    "language": "RU",
+                    "text": "Events Server: Позволяет пользовательскому интерфейсу взаимодействовать с сервером Task Manager Server и всеми экземплярами процессов Task Servers через события по WS.",
+                    "updated": 1640929383956
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Task Manager Server: Ändert die Prozesse des Task-Servers auf der Grundlage von Benutzerbefehlen.",
                     "updated": 1641729323973
+                },
+                {
+                    "language": "RU",
+                    "text": "Task Manager Server: Управление процессами Task Servers на основе команд пользователя.",
+                    "updated": 1640929426641
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "DE",
                     "text": "Alle diese Server wurden speziell für Superalgos entwickelt. Wir ziehen es vor, nur auf grundsoliden, weit verbreiteten Low-Level-Bibliotheken aufzubauen, wie z.B. WS.",
                     "updated": 1641729330917
+                },
+                {
+                    "language": "RU",
+                    "text": "Все эти серверы являются встроенными в Superalgos. Мы предпочитаем строить только на основе надежных, широко используемых низкоуровневых библиотек, таких как WS, например.",
+                    "updated": 1640929481445
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Das Frontend ist im Wesentlichen eine Javascript-Webapplikation, die im Browser läuft.",
                 "updated": 1641730035452
+                },
+                {
+                "language": "RU",
+                "text": "Фронтенд - это, по сути, веб-приложение на Javascript, работающее в браузере.",
+                "updated": 1640930357289
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Bis heute enthält es:",
                     "updated": 1641730045137
+                },
+                {
+                    "language": "RU",
+                    "text": "На сегодняшний день он содержит:",
+                    "updated": 1640930371605
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Canvas App: Der größte Teil der Funktionalität befindet sich hier. Der Name spiegelt die Tatsache wider, dass der größte Teil der Benutzeroberfläche in einem HTML 5 Canvas-Objekt gerendert wird.",
                     "updated": 1641730056815
+                },
+                {
+                    "language": "RU",
+                    "text": "Canvas App: Большая часть функциональности находится здесь. Название отражает тот факт, что большая часть пользовательского интерфейса отображается в объекте canvas HTML 5.",
+                    "updated": 1640931047397
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Dateikomponente: Enthält die Mechanismen zum Lesen von Datendateien in einer Weise, die für die Navigation durch große Datensätze geeignet ist, während die Informationen in Echtzeit geplottet werden.",
                     "updated": 1641730064199
+                },
+                {
+                    "language": "RU",
+                    "text": "Files Components: Включает в себя механизмы для чтения файлов данных таким образом, который подходит для навигации по большим наборам данных при построении графиков в режиме реального времени.",
+                    "updated": 1640931032879
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Die Benutzeroberfläche wurde vollständig intern entwickelt. Wir haben kein Framework wiederverwendet, um den Designbereich oder die Diagramme anzuzeigen.",
                     "updated": 1641730083394
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс был полностью разработан собственными силами. Мы не использовали никаких фреймворков для отображения пространства проектирования или графиков.",
+                    "updated": 1640930587254
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Die Benutzeroberfläche wurde nur in Chrome getestet.",
                     "updated": 1641730090319
+                },
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс протестирован только в Chrome.",
+                    "updated": 1640930597068
                 }
             ]
         }

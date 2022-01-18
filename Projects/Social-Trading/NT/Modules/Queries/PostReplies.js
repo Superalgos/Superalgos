@@ -27,14 +27,14 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         thisObject.post = undefined
     }
 
-    function initialize(queryReceived) {
+    function initialize(queryReceived){
+
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
 
         thisObject.array = Array.from(thisObject.post.replies)
 
-        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
-
     }
 
     function run() {
@@ -47,7 +47,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
-                    addToResponse(arrayItem)
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
@@ -55,7 +55,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
-                    addToResponse(arrayItem)
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
@@ -73,11 +73,29 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                fileKeys: fileKeys,
+                fileKeys: post.fileKeys,
                 repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions),
-                reaction: post.reactionsByProfile.get(thisObject.socialEntity.id)
+                reaction: post.reactionsBySocialEntity.get(thisObject.socialEntity.id)
             }
+
+            let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(postResponse.originSocialPersonaId)
+            let originSocialTradingBot = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(postResponse.originSocialTradingBotId)
+
+            if (originSocialPersona !== undefined) {
+                let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
+                query.initialize({ targetSocialPersonaId: event.originSocialPersonaId })
+                postResponse.originSocialPersona = query.run()
+                query.finalize()
+            }
+
+            if (originSocialTradingBot !== undefined) {
+                let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
+                query.initialize({ targetSocialPersonaId: event.originSocialPersonaId, targetSocialTradingBotId: originSocialTradingBotId })
+                postResponse.originSocialTradingBot = query.run()
+                query.finalize()
+            }
+
             response.push(postResponse)
         }
     }

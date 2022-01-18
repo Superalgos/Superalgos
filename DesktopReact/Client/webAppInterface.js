@@ -1,11 +1,11 @@
 exports.newWebAppInterface = function newWebAppInterface() {
     /*
     This module handles the incoming messages from the Web App.
-    At it's current version, it will just routes the to the Network
+    At its current version, it will just route the messages to the Network
     Service Client that is going to process them.
     */
     let thisObject = {
-        messageReceived: messageReceived,
+        sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
     }
@@ -20,7 +20,7 @@ exports.newWebAppInterface = function newWebAppInterface() {
 
     }
 
-    async function messageReceived(message) {
+    async function sendMessage(message) {
         let messageHeader
         try {
             messageHeader = JSON.parse(message)
@@ -34,7 +34,7 @@ exports.newWebAppInterface = function newWebAppInterface() {
 
         switch (messageHeader.networkService) {
             case 'Social Graph': {
-                return await DK.desktopApp.p2pNetworkClient.socialGraphNetworkServiceClient.messageReceived(messageHeader)
+                return await DK.desktopApp.p2pNetworkClient.socialGraphNetworkServiceClient.sendMessage(messageHeader)
             }
             case 'Trading Signals': {
                 break

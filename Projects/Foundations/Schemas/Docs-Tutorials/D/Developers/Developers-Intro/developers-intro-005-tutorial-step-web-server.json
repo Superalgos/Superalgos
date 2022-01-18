@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der Webserver hat zwei Hauptziele: Er liefert alle JS-Dateien, die die Webanwendung bilden, und alle Datendateien, die in den Diagrammen gezeichnet werden sollen, an den Browser, der die Benutzeroberfläche ausführt.",
                 "updated": 1641729528371
+                },
+                {
+                "language": "RU",
+                "text": "У веб-сервера две основные задачи: он обслуживает все JS-файлы, формирующие веб-приложение, и все файлы данных для построения графиков в браузере, в котором запущен пользовательский интерфейс.",
+                "updated": 1640929553664
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Die vollständige Liste, die der Web Server verwendet, lautet:",
                     "updated": 1641729540947
+                },
+                {
+                    "language": "RU",
+                    "text": "Полный список, который использует Web Server, следующий:",
+                    "updated": 1640929564156
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "JS-Dateien: Ermöglicht die Ausführung der Webanwendung in einem Browser.",
                     "updated": 1641729549011
+                },
+                {
+                    "language": "RU",
+                    "text": "JS-файлы: Позволяет веб-приложению работать в браузере.",
+                    "updated": 1640929584394
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "JSON Data Files: Ermöglicht der UI den Zugriff auf die zu plottenden Daten.",
                     "updated": 1641729562486
+                },
+                {
+                    "language": "RU",
+                    "text": "Файлы данных JSON: Позволяет пользовательскому интерфейсу получить доступ к данным для построения графика.",
+                    "updated": 1640929594454
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Bilder: Die auf der Benutzeroberfläche verwendeten Bilder werden vom Webserver bereitgestellt.",
                     "updated": 1641729576069
+                },
+                {
+                    "language": "RU",
+                    "text": "Изображения: Изображения, используемые в пользовательском интерфейсе, передаются с веб-сервера.",
+                    "updated": 1640929614143
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "JSON Workspaces-Dateien: Ermöglichen es den Benutzern, Definitionen für verschiedene Workspaces zu erstellen.",
                     "updated": 1641729586701
+                },
+                {
+                    "language": "RU",
+                    "text": "Файлы JSON рабочих пространств: Позволяет пользователям создавать определения на разных рабочих пространствах.",
+                    "updated": 1640929655619
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "DE",
                     "text": "JSON-Plugin-Dateien: Dateien, die der Einfachheit halber automatisch in die Workspaces aufgenommen werden.",
                     "updated": 1641729597034
+                },
+                {
+                    "language": "RU",
+                    "text": "Файлы JSON плагинов: Файлы, которые автоматически включаются в рабочие пространства для удобства.",
+                    "updated": 1640929699584
                 }
             ]
         }

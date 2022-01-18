@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Her strateji, farklı zaman dilimlerinde piyasanın durumunu analiz ederek belirli piyasa koşullarında uzmanlaşmıştır!",
                 "updated": 1640780494699
+            },
+            {
+                "language": "RU",
+                "text": "Каждая стратегия специализируется на конкретных рыночных условиях, анализируя состояние рынка на разных таймфреймах!",
+                "updated": 1640885757836
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Her stratejinin adına bir göz atın... 3H Down, 2H Down, 4H Up...",
                     "updated": 1640780577332
+                },
+                {
+                    "language": "RU",
+                    "text": "Взгляните на название каждой стратегии... 3H Down, 2H Down, 4H Up...",
+                    "updated": 1640885772414
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Olay tetikleyicisini (the trigger on event) tanımlayan koşulları incelerseniz, 3H Down, 3 saatlik zaman dilimi düşüş trendindeyken belirli stratejinin tetiklendiğini ifade ettiğini fark edeceksiniz.",
                     "updated": 1640780697748
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучите условия, определяющие событие срабатывания, вы заметите, что 3H Down означает, что данная стратегия срабатывает, когда 3-часовой временной интервал находится в нисходящем тренде.",
+                    "updated": 1640885793199
                 }
             ],
             "updated": 1640641128265
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Not: Stratejilerin her biri belirli bir zaman diliminde ve trendde uzmanlaşmıştır!",
                     "updated": 1640780716542
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая из стратегий специализируется на определенном таймфрейме и тренде!",
+                    "updated": 1640885805445
                 }
             ],
             "updated": 1640641202569

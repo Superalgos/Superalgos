@@ -108,6 +108,7 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
             )
 
             thisObject.posts.set(originPostHash, post)
+            SA.projects.socialTrading.globals.memory.maps.POSTS.set(originPostHash, post)
         }
     }
 
@@ -120,6 +121,7 @@ exports.newSocialTradingModulesSocialGraphSocialPersona = function newSocialTrad
             let post = thisObject.posts.get(originPostHash)
             post.finalize()
             thisObject.posts.delete(originPostHash)
+            SA.projects.socialTrading.globals.memory.maps.POSTS.delete(originPostHash)
         }
     }
 

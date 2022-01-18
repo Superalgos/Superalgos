@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Der Eventserver stellt das Kommunikationsmodell zwischen Prozessen und der Benutzeroberfläche bereit. Er erlaubt im Wesentlichen jeder Entität innerhalb eines Prozesses, einen systemweiten Event-Handler zu erstellen und jeder anderen Entität innerhalb eines Prozesses (oder der Benutzeroberfläche) zu erlauben, Events bei diesem Event-Handler zu abonnieren oder zu emittieren.",
                 "updated": 1641729769800
+                },
+                {
+                "language": "RU",
+                "text": "Events Server обеспечивает модель взаимодействия между процессами и пользовательским интерфейсом. По сути, он позволяет любому объекту внутри каждого процесса создать общесистемный обработчик событий и позволить любому другому объекту внутри процесса (или пользовательского интерфейса) подписываться на события в этом обработчике.",
+                "updated": 1640929889192
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Ereignisbasierte Kommunikation findet statt zwischen:",
                     "updated": 1641729776199
+                },
+                {
+                    "language": "RU",
+                    "text": "Связь, основанная на событиях, происходит между:",
+                    "updated": 1640929910880
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "UI and Task Manager: Zum Starten und Stoppen von Task-Server-Prozessen.",
                     "updated": 1641729787523
+                },
+                {
+                    "language": "RU",
+                    "text": "UI и Task Manager: Для запуска и остановки процессов Task Server.",
+                    "updated": 1640929930935
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Task Server and UI: Um eine Online-Rückmeldung darüber zu erhalten, was auf dem Task-Server vor sich geht, und um relevante Statusinformationen auf der Benutzeroberfläche anzuzeigen.",
                     "updated": 1641729799669
+                },
+                {
+                    "language": "RU",
+                    "text": "Task Server и UI: Получение обратной связи в режиме онлайн о том, что происходит на сервере задач, для отображения соответствующей информации о состоянии на пользовательском интерфейсе.",
+                    "updated": 1640929963627
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Die Kommunikation zwischen der Benutzeroberfläche und dem Webserver erfolgt ausschließlich über HTTP.",
                     "updated": 1641729806533
+                },
+                {
+                    "language": "RU",
+                    "text": "Связь между пользовательским интерфейсом и веб-сервером осуществляется только по протоколу HTTP.",
+                    "updated": 1640929991345
                 }
             ]
         }

@@ -142,28 +142,10 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         />
     }
 
-    const FooterComponent = () => {
-        return <div className="footerCommentContainer">
-            <Stack className="postFooterComment" direction="row">
-                <IconButton className="commentIconButton" size="small"
-                            onClick={HandleCommentContainer}>
-                    <MessageOutlined/>
-                </IconButton>
-                {replyModal ? <FooterReplyModal show={replyModal}
-                                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
-            </Stack>
-            <Stack className="postFooterRepost" direction="row"> {/*todo not implemented yet*/}
-                <IconButton className="repostIconButton" onClick={handleRepost} size="small">
-                    <Autorenew/>
-                </IconButton>
-            </Stack>
-        </div>
-    }
-
     return (
         <div className="postFooterContainer">
             <Stack className="postFooterContainerStack" direction="row">
-                <Stack className="postFooterContainerSpeedDial" direction="row">
+                <div className="postFooterContainerSpeedDial">
                     <SpeedDial
                         FabProps={{ /*Access to props of SpeedDial*/
                             style: {...dialStyle}
@@ -185,8 +167,22 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                             return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */
                         })}
                     </SpeedDial>
-                </Stack>
-                <FooterComponent/>
+                </div>
+                <div className="footerCommentContainer">
+                    <div className="postFooterComment">
+                        <IconButton className="commentIconButton" size="small"
+                                    onClick={HandleCommentContainer}>
+                            <MessageOutlined/>
+                        </IconButton>
+                        {replyModal ? <FooterReplyModal show={replyModal}
+                                                        close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
+                    </div>
+                    <div className="postFooterRepost"> {/*todo not implemented yet*/}
+                        <IconButton className="repostIconButton" onClick={handleRepost} size="small">
+                            <Autorenew/>
+                        </IconButton>
+                    </div>
+                </div>
             </Stack>
         </div>
     );

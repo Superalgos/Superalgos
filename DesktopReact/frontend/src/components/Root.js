@@ -7,6 +7,7 @@ import Feed from "./feed/Feed";
 import PostPlaceholder from "./postPlaceholder/PostPlaceholder";
 import Post from "./post/Post";
 import Signup from "./signUp/Signup";
+import ReplyFeed from "./replyFeed/ReplyFeed";
 
 const Root = () => {
     return (
@@ -19,7 +20,7 @@ const Root = () => {
                     </Route>
                     <Route path='postPlaceholder' element={<PostPlaceholder/>}/>
                     <Route path='post'>
-                        <Route path={':postId'} element={<Post/>}/> {/* TODO handle this post data*/}
+                        <Route path={':postId'} element={<ReplyFeed/>}/> {/* TODO handle this post data*/}
                     </Route>
                 </Route>
                 <Route path='/signUp' element={<Signup/>}/>

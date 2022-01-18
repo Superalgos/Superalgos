@@ -1,0 +1,17 @@
+.middleSection{
+    width: 40rem;
+}
+.editProfileCloseBtn{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0 ;
+}
+.postPlaceholderButton {
+    height: 1.5rem;
+    width: 5rem;
+}
+.response {
+    padding: 1rem 0 ;
+    align-items: center;
+}

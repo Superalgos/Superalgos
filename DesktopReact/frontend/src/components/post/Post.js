@@ -51,19 +51,8 @@ const Post = ({postData}) => {
 
     return (
         <div className="postWrapper">
-            <Collapse in={false}> {/* todo Not working, check state */}
-                <div className="editProfileHeader">
-                    <div className="editProfileCloseBtn">
-                        <ArrowBackOutlined/> {/* todo need onClick to go back to home */}
-                    </div>
-                    <div className="editProfileHeaderTitleAndBtn">
-                        <Typography className="editProfileTitle" variant="h5">
-                            Back
-                        </Typography>
-                    </div>
-                </div>
-            </Collapse>
             <Card className="post">
+                {/* TODO remove stacks inside of stacks*/}
                 <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
                     <Stack className="postAvatarContainer">
                         <Avatar src={pic}/>

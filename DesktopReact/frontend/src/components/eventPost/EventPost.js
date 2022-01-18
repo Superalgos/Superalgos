@@ -5,6 +5,7 @@ import {setSelectedPost} from "../../store/slices/post.slice";
 import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
 import {ArrowBackOutlined} from "@mui/icons-material";
 import pic from "../../images/superalgos.png";
+import PostFooter from "../PostFooter/PostFooter";
 
 const EventPost = ({postData}) => {
     console.log(postData)

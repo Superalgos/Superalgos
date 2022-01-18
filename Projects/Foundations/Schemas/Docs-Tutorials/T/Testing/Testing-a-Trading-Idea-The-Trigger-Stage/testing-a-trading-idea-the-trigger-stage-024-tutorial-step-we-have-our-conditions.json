@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Похоже, что мы наконец-то придумали, как определить нисходящий тренд... давайте определим его как два условия!",
                 "updated": 1640940263525
+            },
+            {
+                "language": "TR",
+                "text": "Sonunda bir düşüş trendi tanımlamanın yolunu bulduk gibi görünüyor... İki koşul belirleyelim!",
+                "updated": 1641654018928
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Условие 1: свойство direction продукта bollingerSubChannel на 24-х часовом графике имеет значение Down. Вставьте правильный синтаксис:",
                     "updated": 1640940334924
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul 1: bollingerSubChannel ürününün yön özelliği 24 saatlik grafikte aşağı yönlüdür. Doğru sözdizimini girin:",
+                    "updated": 1641654031506
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "RU",
                     "text": "Условие 2: свойство slope продукта bollingerSubChannel не является Side на 24-x часовом графике. Вставьте правильный синтаксис:",
                     "updated": 1640940363124
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşul 2: bollingerSubChannel  eğim özelliği 24 saatlik çizelgede yer almıyor, doğru sözdizimini girin:",
+                    "updated": 1641654047315
                 }
             ]
         },

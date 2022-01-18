@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Прежде чем мы перейдем к написанию определений для события Trigger On Event, вам необходимо получить базовое образование по этим фундаментальным темам!",
                 "updated": 1640934574740
+            },
+            {
+                "language": "TR",
+                "text": "Bir olayı neyin tetiklediğinin tanımlamasına geçmeden önce, bu temel konulara aşina olmanız gerekir!",
+                "updated": 1641652431572
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Если вы еще не сделали этого, пожалуйста, прочитайте эту страницу с описанием понятий \"Situation\", \"Condition\" и \"Formula\". Это ключевые понятия, которые составляют большинство определений в стратегии!",
                     "updated": 1640934644239
+                },
+                {
+                    "language": "TR",
+                    "text": "Henüz yapmadıysanız, lütfen durum(situations), koşul(conditions) ve formül(formulas) kavramlarını özetleyen bu sayfayı okuyun. Bunlar, bir stratejideki çoğu tanımı oluşturan anahtar kavramlardır!",
+                    "updated": 1641652442299
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Не беспокойтесь о синтаксисе в примерах. Мы скоро дойдем до этого! Если вы не являетесь разработчиком, сосредоточьтесь на простых примерах.",
                     "updated": 1640934658771
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Örneklerdeki sözdizimi hakkında endişelenmeyin. Buna birazdan geleceğiz! Geliştirici değilseniz, basit örneklere odaklanın.",
+                    "updated": 1641652452166
                 }
             ]
         }

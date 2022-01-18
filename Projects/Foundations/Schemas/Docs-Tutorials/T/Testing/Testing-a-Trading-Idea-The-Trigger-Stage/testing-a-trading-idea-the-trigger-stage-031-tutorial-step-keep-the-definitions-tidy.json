@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Старайтесь придерживаться хорошей практике давать соответствующие имена или метки узлам, содержащим определения!",
                 "updated": 1640946360643
+            },
+            {
+                "language": "TR",
+                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek uygulamayı sürdürmeye çalışın!",
+                "updated": 1641654986741
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Учитывайте, что по мере совершенствования стратегия будет усложняться! Хорошо уметь определять условия и ситуации без проверки кода!",
                     "updated": 1640946396531
+                },
+                {
+                    "language": "TR",
+                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Kodunuzu kontrol etmeden koşulları ve durumları belirleyebilmeniz iyi olur!",
+                    "updated": 1641655015075
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Вы также сможете определить, какая ситуация вызвала событие, прямо по графикам!",
                     "updated": 1640946410762
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, olayı tetikleyen durumu doğrudan grafiklerden de belirleyebileceksiniz!",
+                    "updated": 1641655028852
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Вы можете обозначить первую ситуацию и первое условие одним и тем же именем - 24H Up, а второе - следующим: 24H Side.",
                     "updated": 1640946426685
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: İlk durumu ve ilk koşulu aynı adla, 24h Up ve ikincisini şu şekilde belirtebilirsiniz: 24h Side.",
+                    "updated": 1641655041827
                 }
             ]
         }

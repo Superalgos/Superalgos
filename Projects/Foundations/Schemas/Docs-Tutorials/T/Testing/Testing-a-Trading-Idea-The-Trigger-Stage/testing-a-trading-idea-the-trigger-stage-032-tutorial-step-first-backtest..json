@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Теперь, когда у нас есть эти основные определения, мы можем провести первый бэктест.",
                 "updated": 1640946438270
+            },
+            {
+                "language": "TR",
+                "text": "Artık temel tanımları oluşturduğumuza göre, ilk geriye dönük testi yapabiliriz.",
+                "updated": 1641655073364
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Мы еще не готовы проверить эту идею, так как определили только события срабатывания и выключения. Мы просто хотим убедиться в правильности наших определений.",
                     "updated": 1640946516170
+                },
+                {
+                    "language": "TR",
+                    "text": "Sadece Trigger on ve Trigger off olaylarını tanımladığımız için fikri test etmeye henüz hazır değiliz. Sadece doğru tanımlara sahip olduğumuzdan emin olmak istiyoruz.",
+                    "updated": 1641655087790
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Хотя стратегия в конечном итоге будет включать логику, относящуюся к часовому графику, текущие определения касаются только 24-х часового графика.",
                     "updated": 1640947061172
+                },
+                {
+                    "language": "TR",
+                    "text": "Strateji daha sonra 1H grafiği için bir mantık içerecek olsa da, mevcut tanımlar yalnızca 24h grafiği ile ilgilidir.",
+                    "updated": 1641655099074
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Мы проведем бэктестинг с 1 января по 1 октября 2020 года на 24-х часовом таймфрейме. Посмотрите на параметры Time Range и Time Frame и убедитесь, что они соответствуют вышеуказанным!",
                     "updated": 1640947050891
+                },
+                {
+                    "language": "TR",
+                    "text": "1 Ocak ile 1 Ekim 2020 arasında 24 saatlik zaman diliminde bir geriye dönük test oturumu gerçekleştireceğiz. Zaman Aralığı ( Time Range ) ve Zaman Çerçevesi ( Time Frame ) parametrelerine bir göz atın ve yukarıdakilerle eşleştiğinden emin olun!",
+                    "updated": 1641655130777
                 }
             ]
         }

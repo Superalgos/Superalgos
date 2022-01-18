@@ -19,8 +19,13 @@ function newConfigEditor() {
     }
 
 
-    function activate(action) {
+    async function activate(action) {
+        let historyObjectOnHold = {
+            action: action,
+            previousConfig: action.node.config
+        }
         UI.projects.foundations.spaces.codeEditorSpace.openSpaceArea(action.node, codeEditorType.CONFIG)
+        UI.projects.workspaces.spaces.designSpace.workspace.undoStackOnHold.push(historyObjectOnHold)
     }
 
 }

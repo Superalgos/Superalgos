@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Die Take-Position-Bedingungen erfordern, dass zwei aufeinanderfolgende 1H-Kerzen unterhalb des unteren Bollinger Bandes schließen!",
                 "updated": 1639391585181
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon alma koşulları (take position conditions) iki ardışık 1H mumunun alt Bollinger Bandının altında kapanmasını gerektirir!",
+                "updated": 1641666118571
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Das ist ganz einfach zu überprüfen! Wir haben den ersten Abschluss der Trigger Stage bei 9hs, nachdem die 7hs und 8hs Kerzen unterhalb des unteren Bandes geschlossen haben. So weit, so gut!",
                     "updated": 1639391592557
+                },
+                {
+                    "language": "TR",
+                    "text": "Kontrol etmek çok kolay! 7hs ve 8hs mumlar alt bandın altında kapandıktan sonra 9hs'de Tetik Aşamasının ilk kapanışına sahibiz. Çok uzak çok iyi!",
+                    "updated": 1641666130677
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Wir haben vier weitere aufeinanderfolgende stündliche Schlusskurse unterhalb des unteren Bandes! Bei jeder von ihnen ist die Bedingung von zwei aufeinanderfolgenden Schlusskursen unterhalb des unteren Bandes erfüllt! Nachdem wir nun verstanden haben, was wir auf diesem Chart sehen, wollen wir diskutieren, was dies für unsere Handelsidee bedeutet!",
                     "updated": 1639391600196
+                },
+                {
+                    "language": "TR",
+                    "text": "alt bandın altında art arda dört saatlik kapanış fiyatımız daha var! Her biri, alt bandın altında iki ardışık kapanış fiyatı koşulunu yerine getirir! Şimdi bu grafikte ne gördüğümüzü anladığımıza göre, bunun ticaret fikrimiz için ne anlama geldiğini tartışalım!",
+                    "updated": 1641666140591
                 }
             ]
         }

@@ -269,7 +269,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             let socketMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 messageType: 'Request',
-                networkService: 'Social Graph',
                 payload: message
             }
             onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)

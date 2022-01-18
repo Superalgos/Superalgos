@@ -73,13 +73,13 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                 async function onMenssage(message) {
                     try {
-                        let messageHeader
+                        let socketMessage
                         try {
-                            messageHeader = JSON.parse(message)
+                            socketMessage = JSON.parse(message)
                         } catch (err) {
                             let response = {
                                 result: 'Error',
-                                message: 'messageHeader Not Coorrect JSON Format.'
+                                message: 'socketMessage Not Coorrect JSON Format.'
                             }
                             caller.socket.send(JSON.stringify(response))
                             caller.socket.close()
@@ -88,7 +88,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         /*
                         We will run some validations.
                         */
-                        if (messageHeader.messageType === undefined) {
+                        if (socketMessage.messageType === undefined) {
                             let response = {
                                 result: 'Error',
                                 message: 'messageType Not Provided.'
@@ -98,9 +98,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                             return
                         }
 
-                        switch (messageHeader.messageType) {
+                        switch (socketMessage.messageType) {
                             case "Handshake": {
-                                handshakeProducedure(caller, calledTimestamp, messageHeader)
+                                handshakeProducedure(caller, calledTimestamp, socketMessage)
                                 break
                             }
                             case "Request": {
@@ -110,18 +110,31 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         result: 'Error',
                                         message: 'Handshake Not Done Yet.'
                                     }
-                                    response.messageId = messageHeader.messageId
+                                    response.messageId = socketMessage.messageId
                                     caller.socket.send(JSON.stringify(response))
                                     caller.socket.close()
                                     return
                                 }
 
-                                if (messageHeader.networkService === undefined) {
+                                let payload
+                                try {
+                                    payload = JSON.parse(socketMessage.payload)
+                                } catch (err) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Payload Not Correct JSON Format.'
+                                    }
+                                    response.messageId = socketMessage.messageId
+                                    caller.socket.send(JSON.stringify(response))
+                                    caller.socket.close()
+                                }
+
+                                if (payload.networkService === undefined) {
                                     let response = {
                                         result: 'Error',
                                         message: 'Network Service Undifined.'
                                     }
-                                    response.messageId = messageHeader.messageId
+                                    response.messageId = socketMessage.messageId
                                     caller.socket.send(JSON.stringify(response))
                                     caller.socket.close()
                                     return
@@ -132,24 +145,24 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
 
                                 switch (caller.role) {
                                     case 'Network Client': {
-                                        switch (messageHeader.networkService) {
+                                        switch (payload.networkService) {
                                             case 'Social Graph': {
                                                 if (NT.networkApp.socialGraphNetworkService !== undefined) {
                                                     response = await NT.networkApp.socialGraphNetworkService.clientInterface.messageReceived(
-                                                        messageHeader.payload,
+                                                        payload,
                                                         caller.userProfile,
                                                         thisObject.networkClients
                                                     )
                                                     boradcastTo = response.boradcastTo
                                                     response.boradcastTo = undefined
-                                                    response.messageId = messageHeader.messageId
+                                                    response.messageId = socketMessage.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                 } else {
                                                     let response = {
                                                         result: 'Error',
                                                         message: 'Social Graph Network Service Not Running.'
                                                     }
-                                                    response.messageId = messageHeader.messageId
+                                                    response.messageId = socketMessage.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                     caller.socket.close()
                                                     return
@@ -164,7 +177,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                                     result: 'Error',
                                                     message: 'Network Service Not Supported.'
                                                 }
-                                                response.messageId = messageHeader.messageId
+                                                response.messageId = socketMessage.messageId
                                                 caller.socket.send(JSON.stringify(response))
                                                 caller.socket.close()
                                                 return
@@ -173,23 +186,23 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                         break
                                     }
                                     case 'Network Peer': {
-                                        switch (messageHeader.networkService) {
+                                        switch (socketMessage.networkService) {
                                             case 'Social Graph': {
                                                 if (NT.networkApp.socialGraphNetworkService !== undefined) {
                                                     response = await NT.networkApp.socialGraphNetworkService.peerInterface.messageReceived(
-                                                        messageHeader.payload,
+                                                        payload,
                                                         thisObject.networkClients
                                                     )
                                                     boradcastTo = response.boradcastTo
                                                     response.boradcastTo = undefined
-                                                    response.messageId = messageHeader.messageId
+                                                    response.messageId = socketMessage.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                 } else {
                                                     let response = {
                                                         result: 'Error',
                                                         message: 'Social Graph Network Service Not Running.'
                                                     }
-                                                    response.messageId = messageHeader.messageId
+                                                    response.messageId = socketMessage.messageId
                                                     caller.socket.send(JSON.stringify(response))
                                                     caller.socket.close()
                                                     return
@@ -204,7 +217,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                                     result: 'Error',
                                                     message: 'Network Service Not Supported.'
                                                 }
-                                                response.messageId = messageHeader.messageId
+                                                response.messageId = socketMessage.messageId
                                                 caller.socket.send(JSON.stringify(response))
                                                 caller.socket.close()
                                                 return
@@ -224,8 +237,8 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                                     response.result === 'Ok' &&
                                     boradcastTo !== undefined
                                 ) {
-                                    broadcastToPeers(messageHeader, caller)
-                                    broadcastToClients(messageHeader, boradcastTo)
+                                    broadcastToPeers(socketMessage, caller)
+                                    broadcastToClients(socketMessage, boradcastTo)
                                 }
                                 break
                             }
@@ -251,12 +264,12 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 removeCaller(caller)
             }
 
-            function handshakeProducedure(caller, calledTimestamp, messageHeader) {
+            function handshakeProducedure(caller, calledTimestamp, socketMessage) {
                 /*
                 The handshake procedure have 2 steps, we need to know
                 now which one we are at. 
                 */
-                if (messageHeader.step === undefined) {
+                if (socketMessage.step === undefined) {
                     let response = {
                         result: 'Error',
                         message: 'step Not Provided.'
@@ -265,7 +278,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     caller.socket.close()
                     return
                 }
-                if (messageHeader.step !== 'One' && messageHeader.step !== 'Two') {
+                if (socketMessage.step !== 'One' && socketMessage.step !== 'Two') {
                     let response = {
                         result: 'Error',
                         message: 'step Not Supported.'
@@ -274,7 +287,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     caller.socket.close()
                     return
                 }
-                switch (messageHeader.step) {
+                switch (socketMessage.step) {
                     case 'One': {
                         handshakeStepOne()
                         break
@@ -288,7 +301,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The caller needs to identify itself as either a Network Client or Peer.
                     */
-                    if (messageHeader.callerRole === undefined) {
+                    if (socketMessage.callerRole === undefined) {
                         let response = {
                             result: 'Error',
                             message: 'callerRole Not Provided.'
@@ -298,7 +311,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         return
                     }
 
-                    if (messageHeader.callerRole !== 'Network Client' && messageHeader.callerRole !== 'Network Peer') {
+                    if (socketMessage.callerRole !== 'Network Client' && socketMessage.callerRole !== 'Network Peer') {
                         let response = {
                             result: 'Error',
                             message: 'callerRole Not Supported.'
@@ -308,7 +321,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         return
                     }
 
-                    caller.role = messageHeader.callerRole
+                    caller.role = socketMessage.callerRole
                     /*
                     We will check that we have not exeeded the max amount of callers.
                     */
@@ -341,7 +354,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The caller needs to provide it's User Profile Handle.
                     */
-                    if (messageHeader.callerProfileHandle === undefined) {
+                    if (socketMessage.callerProfileHandle === undefined) {
                         let response = {
                             result: 'Error',
                             message: 'callerProfileHandle Not Provided.'
@@ -350,11 +363,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         caller.socket.close()
                         return
                     }
-                    caller.userProfileHandle = messageHeader.callerProfileHandle
+                    caller.userProfileHandle = socketMessage.callerProfileHandle
                     /*
                     The caller needs to provide a callerTimestamp.
                     */
-                    if (messageHeader.callerTimestamp === undefined) {
+                    if (socketMessage.callerTimestamp === undefined) {
                         let response = {
                             result: 'Error',
                             message: 'callerTimestamp Not Provided.'
@@ -366,7 +379,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     The callerTimestamp can not be more that 1 minute old.
                     */
-                    if (calledTimestamp - messageHeader.callerTimestamp > 60000) {
+                    if (calledTimestamp - socketMessage.callerTimestamp > 60000) {
                         let response = {
                             result: 'Error',
                             message: 'callerTimestamp Too Old.'
@@ -380,9 +393,9 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     Network Node identity.
                     */
                     let signedMessage = {
-                        callerProfileHandle: messageHeader.callerProfileHandle,
+                        callerProfileHandle: socketMessage.callerProfileHandle,
                         calledProfileHandle: SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).userProfileHandle,
-                        callerTimestamp: messageHeader.callerTimestamp,
+                        callerTimestamp: socketMessage.callerTimestamp,
                         calledTimestamp: calledTimestamp
                     }
                     let signature = web3.eth.accounts.sign(JSON.stringify(signedMessage), SA.secrets.signingAccountSecrets.map.get(global.env.P2P_NETWORK_NODE_SIGNING_ACCOUNT).privateKey)
@@ -411,7 +424,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                     /*
                     We will check the signature at the message. 
                     */
-                    if (messageHeader.signature === undefined) {
+                    if (socketMessage.signature === undefined) {
                         let response = {
                             result: 'Error',
                             message: 'signature Not Provided.'
@@ -421,7 +434,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                         return
                     }
 
-                    let signature = JSON.parse(messageHeader.signature)
+                    let signature = JSON.parse(socketMessage.signature)
                     caller.userAppBlockchainAccount = web3.eth.accounts.recover(signature)
 
                     if (caller.userAppBlockchainAccount === undefined) {
@@ -593,7 +606,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 }
             }
 
-            function broadcastToPeers(messageHeader, caller) {
+            function broadcastToPeers(socketMessage, caller) {
                 /*
                 The Boradcast to network peers is not done via 
                 the network peers incomming connections, but
@@ -606,7 +619,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
                 for (let i = 0; i < NT.networkApp.p2pNetworkNodesConnectedTo.peers.length; i++) {
                     let peer = NT.networkApp.p2pNetworkNodesConnectedTo.peers[i]
                     if (peer.p2pNetworkNode.node.id === callerIdToAVoid) { continue }
-                    peer.webSocketsClient.sendMessage(messageHeader.payload)
+                    peer.webSocketsClient.sendMessage(socketMessage.payload)
                         .catch(onError)
 
                     function onError() {
@@ -620,11 +633,11 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         }
     }
 
-    function broadcastToClients(messageHeader, boradcastTo) {
+    function broadcastToClients(socketMessage, boradcastTo) {
         try {
             for (let i = 0; i < boradcastTo.length; i++) {
                 let networkClient = boradcastTo[i]
-                networkClient.socket.send(JSON.stringify(messageHeader))
+                networkClient.socket.send(JSON.stringify(socketMessage))
             }
             return true
         } catch (err) {

@@ -4,6 +4,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
         webSocketsInterface: undefined,
         httpInterface: undefined,
         webAppInterface: undefined,
+        p2pNetworkInterface: undefined,
         p2pNetworkClient: undefined,
         run: run
     }
@@ -16,9 +17,24 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
 
         /* Desktop App Interfaces */
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
+        let P2P_NETWORK_INTERFACE_MODULE = require('./Client/p2pNetworkInterface.js')
 
+        await initialSetupInterfaces()
         await setupNetwork()
-        await setupInterfaces()
+        await finalSetupInterfaces()
+
+        async function initialSetupInterfaces() {
+            /*
+            This is what we are going to use to send messages to the P2P Network.
+            */
+            thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
+            thisObject.webAppInterface.initialize()
+            /*
+            This is what we are going to use to receive events from the P2P Network.
+            */
+            thisObject.p2pNetworkInterface = P2P_NETWORK_INTERFACE_MODULE.newP2PNetworkInterface()
+            thisObject.p2pNetworkInterface.initialize()
+        }
 
         async function setupNetwork() {
             /*
@@ -34,22 +50,13 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
             )
         }
 
-        async function setupInterfaces() {
-            /*
-            This is where we will process all the messages comming from our web app.
-            */
-            thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
-            thisObject.webAppInterface.initialize()
+        async function finalSetupInterfaces() {
             /* 
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
             let express = require('./backend/src/expressServer.js')
             express.DesktopBackend(DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort, SA, DK);
             console.log(`express Interface ................................................ Listening at port ${DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort}`);
-        }
-
-        function eventReceived(event) {
-            console.log("This event has just arrived from the P2P Network: " + JSON.stringify(event))
         }
     }
 }

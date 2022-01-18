@@ -5,6 +5,7 @@ function newWebApp() {
     Everything is being coded here until some structure emerges. 
     */
     let thisObject = {
+        webSocketsWebAppClient: undefined,
         messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
@@ -18,9 +19,13 @@ function newWebApp() {
 
     async function initialize() {
         try {
+            
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
-            await UI.projects.socialTrading.modules.webSocketsWebAppClient.initialize()
+
+            thisObject.webSocketsWebAppClient = newWebSocketsWebAppClient()            
+            await thisObject.webSocketsWebAppClient.initialize()
+            
             loadWUserProfileTimeline()
             loadWhoToFollow()
             setupEventHandlers()
@@ -115,7 +120,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+        await thisObject.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
             .then(addToContentDiv)
@@ -186,7 +191,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+        await thisObject.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
             .then(addWhoToFollowTable)
@@ -364,7 +369,7 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
-            await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+            await thisObject.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
                 .then(resolve)
@@ -402,7 +407,7 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
-            await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+            await thisObject.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
                 .then(resolve)

@@ -10,6 +10,7 @@ function newWebAppLoader() {
     async function loadModules() {
         try {
             let modulesArray = [
+                'WebSocketsWebAppClient.js',
                 'WebDebugLog.js',
                 'WebApp.js'
             ]

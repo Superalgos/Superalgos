@@ -1932,14 +1932,7 @@
             "utilities": []
         },
         "UI": {
-            "modules": [
-                {
-                    "name": "Web Sockets WebApp Client",
-                    "propertyName": "webSocketsWebAppClient",
-                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
-                    "fileName": "WebSocketsWebAppClient.js"
-                }
-            ]
+            "modules": []
         }
     },
     {

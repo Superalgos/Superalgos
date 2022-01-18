@@ -192,7 +192,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             /*
             Open Storage Nodes
             */
-            'Available Storage->Storage Container Reference->Storage Container->Github Storage->Superalgos Storage->'
+            'Available Storage->Storage Container Reference->Github Storage Container->Superalgos Storage Container->Github Storage->Superalgos Storage->'
 
         let taskDefinition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, taskLightingPath)
 
@@ -234,21 +234,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
         let managedTasksDefinition =
             UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node, false, true, true, false, false, managedTasksLightingPath);
 
-        /*
-        We will also send all the project schemas we have to the Task Server.
-        */
-        let projectSchemas = []
-        for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
-            let projectDefinition = PROJECTS_SCHEMA[k]
-            let project = {
-                name: projectDefinition.name,
-                schema: SCHEMAS_BY_PROJECT.get(projectDefinition.name).array.appSchema
-            }
-            projectSchemas.push(project)
-        }
-
         let event = {
-            projectSchemas: JSON.stringify(projectSchemas),
             taskId: node.id,
             taskName: node.name,
             taskDefinition: JSON.stringify(taskDefinition),
@@ -752,23 +738,23 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function addMissingProjectDataTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Data Tasks', 'Data Tasks')
+        return addMissingProjectTasks(node, rootNodes, 'Project Data Tasks', 'Data Tasks')
     }
 
     function addMissingProjectTradingTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks', 'Trading Tasks')
+        return addMissingProjectTasks(node, rootNodes, 'Project Trading Tasks', 'Trading Tasks')
     }
 
     function addMissingProjectPortfolioTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Portfolio Tasks', 'Portfolio Tasks')
+        return addMissingProjectTasks(node, rootNodes, 'Project Portfolio Tasks', 'Portfolio Tasks')
     }
 
     function addMissingProjectLearningTasks(node, rootNodes) {
-        addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks', 'Learning Tasks')
+        return addMissingProjectTasks(node, rootNodes, 'Project Learning Tasks', 'Learning Tasks')
     }
 
     function addMissingProjectTasks(node, rootNodes, newNodeType, taskType) {
-
+        let newUiObjects = []
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -784,30 +770,36 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType, undefined, node.project)
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                            if (projectTasks !== undefined) {
+                                newUiObjects.push(projectTasks)
+                            }
                         }
                     }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingExchangeDataTasks(node, rootNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks')
+        return addMissingExchangeTasks(node, rootNodes, 'Exchange Data Tasks')
     }
 
     function addMissingExchangeTradingTasks(node, rootNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks')
+        return addMissingExchangeTasks(node, rootNodes, 'Exchange Trading Tasks')
     }
 
     function addMissingExchangePortfolioTasks(node, rootNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Portfolio Tasks')
+        return addMissingExchangeTasks(node, rootNodes, 'Exchange Portfolio Tasks')
     }
 
     function addMissingExchangeLearningTasks(node, rootNodes) {
-        addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks')
+        return addMissingExchangeTasks(node, rootNodes, 'Exchange Learning Tasks')
     }
 
     function addMissingExchangeTasks(node, rootNodes, newNodeType) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === 'Crypto Ecosystem') {
@@ -819,30 +811,36 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, cryptoExchange, true) === true) {
                             let exchangeTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType)
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(exchangeTasks, cryptoExchange)
+                            if (exchangeTasks !== undefined) {
+                                newUiObjects.push(exchangeTasks)
+                            }
                         }
                     }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingMarketDataTasks(node) {
-        addMissingMarketTasks(node, 'Market Data Tasks')
+        return addMissingMarketTasks(node, 'Market Data Tasks')
     }
 
     function addMissingMarketTradingTasks(node) {
-        addMissingMarketTasks(node, 'Market Trading Tasks')
+        return addMissingMarketTasks(node, 'Market Trading Tasks')
     }
 
     function addMissingMarketPortfolioTasks(node) {
-        addMissingMarketTasks(node, 'Market Portfolio Tasks')
+        return addMissingMarketTasks(node, 'Market Portfolio Tasks')
     }
 
     function addMissingMarketLearningTasks(node) {
-        addMissingMarketTasks(node, 'Market Learning Tasks')
+        return addMissingMarketTasks(node, 'Market Learning Tasks')
     }
 
     function addMissingMarketTasks(node, newNodeType) {
+        let newUiObjects = []
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
         if (node.payload.referenceParent.exchangeMarkets === undefined) { return }
@@ -855,27 +853,33 @@ function newFoundationsFunctionLibraryTaskFunctions() {
             if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, market, true) === true) {
                 let marketDataTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType)
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(marketDataTasks, market)
+                if (marketDataTasks !== undefined) {
+                    newUiObjects.push(marketDataTasks)
+                }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingDataMineTasks(node, rootNodes) {
-        addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks')
+        return addMissingMineTasks(node, rootNodes, 'Data Mine', 'Data Mine Tasks')
     }
 
     function addMissingTradingMineTasks(node, rootNodes) {
-        addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks')
+        return addMissingMineTasks(node, rootNodes, 'Trading Mine', 'Trading Mine Tasks')
     }
 
     function addMissingPortfolioMineTasks(node, rootNodes) {
-        addMissingMineTasks(node, rootNodes, 'Portfolio Mine', 'Portfolio Mine Tasks')
+        return addMissingMineTasks(node, rootNodes, 'Portfolio Mine', 'Portfolio Mine Tasks')
     }
 
     function addMissingLearningMineTasks(node, rootNodes) {
-        addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks')
+        return addMissingMineTasks(node, rootNodes, 'Learning Mine', 'Learning Mine Tasks')
     }
 
     function addMissingMineTasks(node, rootNodes, rootNodeType, newNodeType) {
+        let newUiObjects = []
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
             if (rootNode.type === rootNodeType) {
@@ -884,19 +888,29 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, mine, true) === true) {
                     let dataMineTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, newNodeType)
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dataMineTasks, mine)
+                    if (dataMineTasks !== undefined) {
+                        newUiObjects.push(dataMineTasks)
+                    }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllTasks(node, rootNodes) {
         if (node.payload === undefined) { return }
         if (node.payload.referenceParent === undefined) { return }
+        
+        let newUiObjects = []
 
         let taskManager = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Task Manager');
         taskManager.name = node.payload.referenceParent.name
         taskManager.payload.floatingObject.collapseToggle()
-
+        if (taskManager !== undefined) {
+            newUiObjects.push(taskManager)
+        }
+        
         switch (node.type) {
             case 'Data Mine Tasks': {
                 addDataTasks()
@@ -1199,5 +1213,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
                 }
             }
         }
+
+        return newUiObjects
     }
 }

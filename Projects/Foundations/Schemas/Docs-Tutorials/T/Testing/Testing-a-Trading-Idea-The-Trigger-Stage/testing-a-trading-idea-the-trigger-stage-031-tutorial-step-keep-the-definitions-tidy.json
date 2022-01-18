@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Versuchen Sie, die gute Praxis beizubehalten, den Knoten, die Definitionen enthalten, entsprechende Namen oder Bezeichnungen zu geben!",
                 "updated": 1639265931417
+            },
+            {
+                "language": "RU",
+                "text": "Старайтесь придерживаться хорошей практике давать соответствующие имена или метки узлам, содержащим определения!",
+                "updated": 1640946360643
+            },
+            {
+                "language": "TR",
+                "text": "Tanımları içeren düğümlere uygun adlar veya etiketler vererek uygulamayı sürdürmeye çalışın!",
+                "updated": 1641654986741
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Bedenken Sie, dass die Komplexität der Strategie mit dem Fortschritt zunehmen wird! Es ist gut, wenn Sie Bedingungen und Situationen erkennen können, ohne den Code zu überprüfen!",
                     "updated": 1639265940339
+                },
+                {
+                    "language": "RU",
+                    "text": "Учитывайте, что по мере совершенствования стратегия будет усложняться! Хорошо уметь определять условия и ситуации без проверки кода!",
+                    "updated": 1640946396531
+                },
+                {
+                    "language": "TR",
+                    "text": "İlerledikçe stratejinin karmaşıklığının artacağını aklınızda bulundurun! Kodunuzu kontrol etmeden koşulları ve durumları belirleyebilmeniz iyi olur!",
+                    "updated": 1641655015075
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Sie werden auch in der Lage sein, die Situation, die das Ereignis ausgelöst hat, direkt in den Diagrammen zu erkennen!",
                     "updated": 1639265952036
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также сможете определить, какая ситуация вызвала событие, прямо по графикам!",
+                    "updated": 1640946410762
+                },
+                {
+                    "language": "TR",
+                    "text": "Ayrıca, olayı tetikleyen durumu doğrudan grafiklerden de belirleyebileceksiniz!",
+                    "updated": 1641655028852
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Sie können die erste Situation und die erste Bedingung mit demselben Namen bezeichnen, 24H Up, und die zweite mit dem folgenden: 24H Seite.",
                     "updated": 1639265958681
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете обозначить первую ситуацию и первое условие одним и тем же именем - 24H Up, а второе - следующим: 24H Side.",
+                    "updated": 1640946426685
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: İlk durumu ve ilk koşulu aynı adla, 24h Up ve ikincisini şu şekilde belirtebilirsiniz: 24h Side.",
+                    "updated": 1641655041827
                 }
             ]
         }

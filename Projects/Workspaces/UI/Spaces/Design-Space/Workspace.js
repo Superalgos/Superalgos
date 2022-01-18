@@ -28,6 +28,10 @@ function newWorkspace() {
         getNodeById: getNodeById,
         stopAllRunningTasks: stopAllRunningTasks,
         executeAction: executeAction,
+        buildSystemMenu: buildSystemMenu,
+        undoStack: undefined,
+        redoStack: undefined,
+        undoStackOnHold: undefined,
         physics: physics,
         draw: draw,
         spawn: spawn,
@@ -42,6 +46,10 @@ function newWorkspace() {
 
     thisObject.workspaceNode = {}
     thisObject.workspaceNode.rootNodes = []
+    thisObject.undoStack = []
+    thisObject.redoStack = []
+    // history elements for code and config edit are held here until actual changes are made:
+    thisObject.undoStackOnHold = []
 
     let savingWorkspaceIntervalId
     let workingAtTask = 0
@@ -249,6 +257,12 @@ function newWorkspace() {
                             let subMenu = await systemActionSwitch.executeAction(item.submenuConstructorFunction)
                             addMenuItem(subMenu)
                             html = html + '</ul></il>'
+                        /* for a label-only item */
+                        } else if (
+                            item.label !== undefined &&
+                            item.action === undefined && item.subMenu === undefined && item.submenuConstructorFunction === undefined
+                            ) {
+                            html = html + '<il class="label">' + item.label + '</il>'
                         }
                     }
                 }
@@ -491,6 +505,8 @@ function newWorkspace() {
                             thisObject.workspaceNode = loadedWorkspaceNode
                             thisObject.workspaceNode.project = 'Foundations'
                             loadedWorkspaceNode = undefined
+                            thisObject.undoStack = []
+                            thisObject.redoStack = []
                             /* rebuild the system menu for the new workspace, as present project heads might have changed */
                             buildSystemMenu()
                             workingAtTask = 6

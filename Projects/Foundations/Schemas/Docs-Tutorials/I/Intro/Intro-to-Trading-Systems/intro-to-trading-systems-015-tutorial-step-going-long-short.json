@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Karmaşık mantığı birden fazla stratejiye bölmenin iyi bir fikir olmasının üç ana nedenini ele aldık...",
                 "updated": 1640783087850
+            },
+            {
+                "language": "RU",
+                "text": "Мы рассмотрели три основные причины, по которым целесообразно разделить сложную логику на несколько стратегий...",
+                "updated": 1640886220533
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Ayrıca, bunu yapan ticaret sistemlerinin birkaç örneğini de ele aldık. Akla gelen başka bir örnek daha var:",
                     "updated": 1640783129893
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы также рассмотрели несколько примеров торговых систем, делающих именно это. Есть и другой пример, который приходит на ум:",
+                    "updated": 1640886233628
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Uzun ve kısa: hem uzun hem de kısa olan bir strateji geliştirmek muhtemelen iyi bir fikir değildir. Mantığı ayırın ve uzun pozisyonlar için bir strateji ve kısa pozisyonlar için başka bir strateji geliştirin!",
                     "updated": 1640783506574
+                },
+                {
+                    "language": "RU",
+                    "text": "И длинные, и короткие: разработка стратегии, которая работает и в длинную, и в короткую позицию, вероятно, не очень хорошая идея. Разделите логику и постройте одну стратегию для длинных позиций, а другую - для коротких!",
+                    "updated": 1640886343305
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": " İpucu: KISS ilkesini unutmayın!",
                     "updated": 1640783268317
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните принцип KISS!",
+                    "updated": 1640886407882
                 }
             ]
         }

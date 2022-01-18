@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Давайте проведем бэктестинг! Это должно быть довольно быстро, поскольку мы тестируем исторические данные за шесть месяцев на дневных файлах.",
                 "updated": 1640545585904
+            },
+            {
+                "language": "TR",
+                "text": "Hadi biraz geriye dönük test yapalım! Günlük dosyalarda altı aylık geçmiş verileri test ettiğimiz için bu oldukça hızlı olmalı.",
+                "updated": 1641755083890
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Выполнение торговой задачи очень похоже на выполнение задачи по добыче данных. Разница заключается в том, что после выполнения задачи необходимо также запустить торговую сессию.",
                     "updated": 1640545614495
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret görevi yürütmek, bir veri madenciliği görevi yürütmeye oldukça benzer. Aradaki fark, görevi çalıştırdıktan sonra, ticaret oturumunu da (Trading Session) çalıştırmanız gerektiğidir.",
+                    "updated": 1641755132500
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Выберите Run в меню Task, а затем выберите Run в меню Backtesting Session.",
                     "updated": 1640545626836
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev menüsünde (Task) Çalıştır'ı (Run) seçin ve ardından Geri Test Oturumu (Backtesting Session) menüsünde Çalıştır'ı (Run) seçin.",
+                    "updated": 1641755268205
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "RU",
                     "text": "Когда сессия Backtesting Session сообщит о завершении, остановите задачу и нажмите кнопку Next для продолжения.",
                     "updated": 1640545646166
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri Test Oturumu (backtesting Session) bittiğini bildirdiğinde, görevi durdurun ve devam etmek için İleri'ye tıklayın.",
+                    "updated": 1641755306758
                 }
             ]
         }

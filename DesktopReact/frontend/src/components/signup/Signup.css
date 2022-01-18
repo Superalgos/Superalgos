@@ -1,0 +1,69 @@
+.signupContainer{
+    padding: 0.5rem;
+    /*max-width: 40rem;*/
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.signupCardContainer {
+    min-width: 20rem;
+    max-width: 40rem;
+}
+
+.signupCardContent{
+
+}
+
+.signupHeader {
+    width: 100%;
+}
+
+.signupTitleContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.signupTitle{
+
+}
+
+.signupInputBoxesContainer{
+
+}
+
+.signupFormControl{
+    width: 100%;
+    margin: 0.5rem 0 !important;
+}
+
+.signupFooter{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.banner {
+    height: 10rem;
+}
+
+.profileCard {
+    margin-top: -5rem;
+    display: flex;
+    flex-direction: row;
+    height: 8rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    vertical-align: center;
+}
+.profilePicBG {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background: none no-repeat scroll 0 0 #fff;*/
+    position: relative;
+    height: 8rem !important;
+    width: 8rem !important;
+    border-radius: 50%;
+}

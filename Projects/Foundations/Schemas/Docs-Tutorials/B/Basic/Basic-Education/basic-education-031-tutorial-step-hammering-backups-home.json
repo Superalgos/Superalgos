@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bunu iyice pekiştirmek için az önce okuduğunuz örneklerin üzerinden geçelim!",
                 "updated": 1639602759421
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим те же примеры, о которых вы только что прочитали, чтобы вы выучили их наизусть!",
+                "updated": 1640870699527
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": " Lightning Strike Task düğümünün yedeğini alın ve orijinal görevi silmeden geri yükleyin. Ardından işlemi tekrarlayın, ancak yedeklemeyi geri yüklemeden önce orijinal görevi silin.",
                     "updated": 1639602833481
+                },
+                {
+                    "language": "RU",
+                    "text": "Создайте резервную копию задачи Lightning Strike и восстановите ее, не удаляя исходную задачу (Task). Затем повторите операцию, но удалите исходную задачу перед восстановлением резервной копии.",
+                    "updated": 1640870770776
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "DE",
                     "text": "Vergewissern Sie sich, dass in beiden Fällen die ausgehenden Verweise, die von den Knoten Trading System Reference und Trading Engine Reference ausgehen, erhalten bleiben.",
                     "updated": 1634585747278
+                },
+                {
+                    "language": "RU",
+                    "text": "Убедитесь, что в обоих случаях сохраняются исходящие ссылки, созданные на узлах Trading System Reference и Trading Engine Reference.",
+                    "updated": 1640870791755
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "TR",
                     "text": "Giden referansların her zaman korunduğunu unutmayın!",
                     "updated": 1639602969456
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что исходящие ссылки всегда сохраняются!",
+                    "updated": 1640870803361
                 }
             ]
         }

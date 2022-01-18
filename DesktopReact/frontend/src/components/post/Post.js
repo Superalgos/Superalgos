@@ -2,11 +2,11 @@ import "./Post.css"
 import React, {useEffect, useState} from 'react';
 import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
-import PostFooter from "../PostFooter/PostFooter";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedPost} from '../../store/slices/post.slice'
 import {ArrowBackOutlined} from "@mui/icons-material";
+
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
@@ -14,7 +14,7 @@ const Post = ({postData}) => {
     const dispatch = useDispatch();
     const selectedPost = useSelector(state => state.post.selectedPost);
     const [post, setPost] = useState({});
-    const [collapse, setCollapse] = useState();
+    const [collapse, setCollapse] = useState(true);
     const ToggleCollapse = () => setCollapse(!collapse);
 
     useEffect(() => {
@@ -29,27 +29,25 @@ const Post = ({postData}) => {
         }
     }, [])
 
-    if (!post.emitterUserProfile) {
+    if (!post.originSocialPersonaId) {
         return <></>
     }
 
     const {
-        emitterUserProfile: {userProfileHandle: userName},
-        postText: postBody,
-        eventId: postId,
-        emitterPost: {reactions: reactions}
+        originSocialPersonaId,
+        postText,
+        reactions,
+        originPostHash
     } = post;
 
     const handlePostClick = (e) => {
-        /*
-                if (postIdParameter !== postId) {
-                    e.preventDefault()
-                    dispatch(setSelectedPost(postData))
-                    navigate(`/post/${postId}`) //todo implement reply feed
-                }
-
-         */
+        if (postIdParameter !== originPostHash) {
+            e.preventDefault()
+            dispatch(setSelectedPost(postData))
+            navigate(`/post/${originPostHash}`) //todo implement reply feed
+        }
     }
+
     return (
         <div className="postWrapper">
             <Collapse in={false}> {/* todo Not working, check state */}
@@ -70,14 +68,15 @@ const Post = ({postData}) => {
                         <Avatar src={pic}/>
                     </Stack>
                     <Stack className="postUserName">
-                        {userName}
+                        {originSocialPersonaId}
                     </Stack>
                 </Stack>
                 <Stack className="postBody">
-                    {postBody ? postBody.toString() : ''}
+                    {postText ? postText.toString() : ''}
                 </Stack>
-                <PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>
-            </Card></div>
+                {/*<PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>*/}
+            </Card>
+        </div>
     );
 };
 

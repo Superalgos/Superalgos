@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Uzmanlık, daha verimli ticaret sistemleri tasarlamaya yol açabilecek çok ilginç bir kavramdır!",
                 "updated": 1640782402866
+            },
+            {
+                "language": "RU",
+                "text": "Специализация - это очень интересная концепция, которая может привести к созданию более эффективных торговых систем!",
+                "updated": 1640885958098
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Çoğu stratejinin belirli piyasa koşullarında daha iyi performans gösterdiği bilinen bir gerçektir.",
                     "updated": 1640782429429
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошо известно, что большинство стратегий лучше работают в определенных рыночных условиях.",
+                    "updated": 1640885968020
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "BB Top Bounce'da olduğu gibi, tek bir ticaret sistemi, her biri belirli eğilimler, oynaklık aralıkları veya başka herhangi bir piyasa parametresi konusunda uzmanlaşmış birden fazla stratejiye sahip olabilir.",
                     "updated": 1640782461681
+                },
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с BB Top Bounce, одна торговая система может включать в себя несколько стратегий, каждая из которых специализируется на определенных трендах, диапазонах волатильности или любых других параметрах рынка.",
+                    "updated": 1640885984968
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "İpucu: Bir dizi piyasa koşulunu değerlendirmek için bir strateji tasarlamak yerine, odaklanmalarını sağlayın!",
                     "updated": 1640782482786
+                },
+                {
+                    "language": "RU",
+                    "text": "Вместо того чтобы разрабатывать стратегию для оценки целого ряда рыночных условий, сосредоточьтесь именно на них!",
+                    "updated": 1640886033732
                 }
             ]
         }

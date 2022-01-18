@@ -228,7 +228,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Pin / Unpin',
-                actionFunction: floatingObject.pinToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getPinStatus,
                 currentStatus: false,
                 label: undefined,
@@ -244,7 +245,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Tension Level',
-                actionFunction: floatingObject.angleToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getAngleToParent,
                 currentStatus: true,
                 label: undefined,
@@ -259,7 +261,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Distance to Parent',
-                actionFunction: floatingObject.distanceToParentToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getDistanceToParent,
                 currentStatus: true,
                 label: undefined,
@@ -274,7 +277,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Change Arrangement Style',
-                actionFunction: floatingObject.arrangementStyleToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getArrangementStyle,
                 currentStatus: true,
                 label: undefined,
@@ -289,7 +293,8 @@ function newUiObjectConstructor() {
         menuItemsInitialValues.push(
             {
                 action: 'Freeze / Unfreeze',
-                actionFunction: floatingObject.freezeToggle,
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
                 actionStatus: floatingObject.getFreezeStatus,
                 currentStatus: true,
                 label: undefined,

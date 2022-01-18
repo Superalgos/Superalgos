@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bir geliştiriciyseniz ve tercih ettiğiniz değişim test edilmediyse, bize katılabilir ve teste yardımcı olabilirsiniz!",
                 "updated": 1639820286972
+            },
+            {
+                "language": "RU",
+                "text": "Если вы являетесь разработчиком и предпочитаемый вами биржа не была протестирована, вы можете присоединиться к усилиям и помочь в тестировании!",
+                "updated": 1640875445774
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Dokümanlar'daki bu konu, bir borsadan veri getirmesini sağlamak için Sensör Botu'nda ( Sensor Bot ) nasıl hata ayıklanılacağını açıklar. Borsa Superalgos'un gerektirdiği temel özellikleri destekliyorsa, bir çözümünüz var demektir.",
                     "updated": 1639820492644
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта тема в документации объясняет, как отладить Sensor Bot, чтобы заставить его получать данные с биржи. Если биржа поддерживает основные функции, требуемые Superalgos, то в итоге у вас должно получиться решение!",
+                    "updated": 1640875470175
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Çözümü Toplulukla paylaşmak değerli bir katkıdır. Gelen herkes de en sevdiği borsanın tadını çıkarabilir!",
                     "updated": 1639820542894
+                },
+                {
+                    "language": "RU",
+                    "text": "Поделиться решением с Сообществом - это ценный вклад. Каждый, кто придет следующим, тоже сможет насладиться любимой биржей!",
+                    "updated": 1640875498456
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Diğer borsaları kurmaya başlamadan önce tüm eğitimleri yaparak Superalgos eğitiminizi tamamlamanızı şiddetle tavsiye ederiz.",
                     "updated": 1639820558610
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы настоятельно рекомендуем вам завершить обучение на Superalgos, пройдя все учебники, прежде чем приступать к настройке других бирж.",
+                    "updated": 1640875514056
                 }
             ]
         }

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Birden fazla strateji içeren ticaret sistemlerinin iki örneğini ele aldık... Onlardan ne öğrenebiliriz?",
                 "updated": 1640781128057
+            },
+            {
+                "language": "RU",
+                "text": "Мы рассмотрели два примера торговых систем с несколькими стратегиями... чему мы можем у них научиться?",
+                "updated": 1640885818372
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Weak-hands Buster durumunda, her strateji aynı ticaret fikrinin belirli bir durumunu temsil eder. BB Top Bounce durumunda, her strateji belirli piyasa koşullarında uzmanlaşmıştır.",
                     "updated": 1640781585878
+                },
+                {
+                    "language": "RU",
+                    "text": "В случае с Weak-hands Buster каждая стратегия представляет собой частный случай одной и той же торговой идеи. В случае BB Top Bounce каждая стратегия специализируется на конкретных рыночных условиях.",
+                    "updated": 1640885833211
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Sonraki birkaç adımda, aynı ticaret sistemi içinde birden fazla strateji kullanmanın etkilerini ortaya çıkaracağız ve son olarak, can alıcı soruyu yanıtlayacağız: neden böyle bir kurulumu kullanmak isteyelim?",
                     "updated": 1640781381357
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующих нескольких шагах мы расскажем о последствиях использования нескольких стратегий в рамках одной торговой системы и, наконец, ответим на животрепещущий вопрос: зачем нам нужна такая система?",
+                    "updated": 1640885850270
                 }
             ]
         }

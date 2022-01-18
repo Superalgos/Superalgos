@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Was steht in diesen Aufzählungszeichen? Bewegen Sie die Maus auf einen der Fehlerpunkte in der obersten Zeile und sehen Sie, was passiert!",
                 "updated": 1639267409261
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu kurşun ne diyor? Üst sıradaki hata noktalarından birinin üzerine gelin ve neler olduğunu görün!",
+                "updated": 1641660541095
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "DE",
                     "text": "Für jeden vom Trading-Bot behandelten Fehler gibt es in den Docs eine Seite mit einer von Menschen verfassten Beschreibung, warum der Fehler aufgetreten ist, sowie kontextbezogene technische Informationen, die Ihnen helfen sollen, die Ursachen des Fehlers zu erkennen und zu beheben.",
                     "updated": 1639267429241
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret botu tarafından işlenen her hata için, dokümanlarda, hatanın neden oluştuğuna dair geliştiriciler tarafından yazılmış bir açıklamanın yanı sıra, hatanın nedenini belirlemenize ve gidermenize yardımcı olacak bağlamsal teknik bilgiler içeren bir sayfa bulunur.",
+                    "updated": 1641660577721
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Schauen Sie sich diese Seite genau an!",
                     "updated": 1639267434887
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu sayfaya yakından bir göz atın!",
+                    "updated": 1641660610456
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "DE",
                     "text": "Es gibt viele Informationen, die auf die Ursachen des Fehlers hinweisen, aber es gibt noch einiges an Detektivarbeit zu tun!",
                     "updated": 1639267440249
+                },
+                {
+                    "language": "TR",
+                    "text": "Başarısızlığın temel nedenine işaret eden çok fazla bilgi var, ancak hala yapılacak oldukça fazla dedektiflik işi var!",
+                    "updated": 1641660628252
                 }
             ]
         },

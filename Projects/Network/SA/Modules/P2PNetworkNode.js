@@ -9,7 +9,6 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         node: undefined,
         blockchainAccount: undefined,
         userProfile: undefined,
-        userSocialProfile: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -25,7 +24,6 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
     function initialize(
         node,
         userProfile,
-        userSocialProfile,
         blockchainAccount
     ) {
         /*
@@ -33,7 +31,6 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
         */
         thisObject.node = node
         thisObject.userProfile = userProfile
-        thisObject.userSocialProfile = userSocialProfile
         thisObject.blockchainAccount = blockchainAccount
        
         if (

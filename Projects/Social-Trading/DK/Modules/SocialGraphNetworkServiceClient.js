@@ -7,7 +7,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
         userAppSigningAccountCodeName: undefined,
         socialGraphNetworkServiceProxy: undefined,
         p2pNetworkInterface: undefined,
-        messageReceived: messageReceived,
+        sendMessage: sendMessage,
         initialize: initialize,
         finalize: finalize
     }
@@ -37,7 +37,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
         thisObject.p2pNetworkInterface.initialize()
     }
 
-    async function messageReceived(messageHeader) {
+    async function sendMessage(messageHeader) {
 
         switch (messageHeader.requestType) {
             case 'Query': {

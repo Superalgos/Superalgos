@@ -32,7 +32,7 @@ exports.newSocialTradingUtilitiesBroadcastingFilter = function newSocialTradingU
 
             function findWhoIsFollowing(socialEntities) {
                 for (let j = 0; j < socialEntities.length; j++) {
-                    socialEntity = socialEntities[j]
+                    let socialEntity = socialEntities[j]
 
                     if (socialEntity.id === originSocialEntity.id) { continue }
 

@@ -4,6 +4,7 @@ exports.newDesktopApp = function newDesktopApp() {
         webSocketsInterface: undefined,
         httpInterface: undefined,
         webAppInterface: undefined,
+        p2pNetworkInterface: undefined,
         p2pNetworkClient: undefined,
         run: run
     }
@@ -18,9 +19,24 @@ exports.newDesktopApp = function newDesktopApp() {
         let WEB_SOCKETS_INTERFACE_MODULE = require('./Client/webSocketsInterface.js')
         let HTTP_INTERFACE_MODULE = require('./Client/httpInterface.js')
         let WEB_APP_INTERFACE_MODULE = require('./Client/webAppInterface.js')
+        let P2P_NETWORK_INTERFACE_MODULE = require('./Client/p2pNetworkInterface.js')
 
+        await initialSetupInterfaces()
         await setupNetwork()
-        await setupInterfaces()
+        await finalSetupInterfaces()
+
+        async function initialSetupInterfaces() {
+            /*
+            This is what we are going to use to send messages to the P2P Network.
+            */
+            thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
+            thisObject.webAppInterface.initialize()
+            /*
+            This is what we are going to use to receive events from the P2P Network.
+            */
+            thisObject.p2pNetworkInterface = P2P_NETWORK_INTERFACE_MODULE.newP2PNetworkInterface()
+            thisObject.p2pNetworkInterface.initialize()
+        }
 
         async function setupNetwork() {
             /*
@@ -32,16 +48,11 @@ exports.newDesktopApp = function newDesktopApp() {
                 global.env.DESKTOP_TARGET_NETWORK_TYPE,
                 global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                 global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
-                eventReceived
+                thisObject.p2pNetworkInterface.eventReceived
             )
         }
 
-        async function setupInterfaces() {
-            /*
-            This is where we will process all the messages comming from our web app.
-            */
-            thisObject.webAppInterface = WEB_APP_INTERFACE_MODULE.newWebAppInterface()
-            thisObject.webAppInterface.initialize()
+        async function finalSetupInterfaces() {
             /* 
             These are the Network Interfaces by which the Web App interacts with this Desktop Client.
             */
@@ -52,10 +63,6 @@ exports.newDesktopApp = function newDesktopApp() {
             thisObject.httpInterface = HTTP_INTERFACE_MODULE.newHttpInterface()
             thisObject.httpInterface.initialize()
             console.log('Desktop Client Http Interface ................................................ Listening at port ' + DK.desktopApp.p2pNetworkClient.p2pNetworkClientIdentity.node.config.webPort)
-        }
-
-        function eventReceived(event) {
-            console.log("This event has just arrived from the P2P Network: " + JSON.stringify(event))
         }
     }
 }

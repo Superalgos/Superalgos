@@ -1128,7 +1128,7 @@
                     "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
                 },
                 {
-                    "name": "Undo/Redo",
+                    "name": "Undo Redo",
                     "propertyName": "undoRedo",
                     "functionName": "newWorkspacesSystemActionUndoRedo"
                 }

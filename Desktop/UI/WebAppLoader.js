@@ -105,7 +105,7 @@ function newWebAppLoader() {
 
                     REQUIREJS([path], onRequired)
 
-                    function onRequired(pModule) {
+                    function onRequired() {
                         try {
 
                             downloadedCounter++

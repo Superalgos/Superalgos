@@ -62,7 +62,7 @@ exports.newWebSocketsInterface = function newWebSocketsInterface() {
                             return
                         }
 
-                        await DK.desktopApp.webAppInterface.messageReceived(messageHeader.payload)
+                        await DK.desktopApp.webAppInterface.sendMessage(messageHeader.payload)
                             .then(sendResponseToWebApp)
                             .catch(onError)
 

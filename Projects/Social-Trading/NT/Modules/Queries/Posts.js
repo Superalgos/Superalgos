@@ -27,7 +27,9 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
 
     function initialize(queryReceived) {
         NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
+
         thisObject.array = Array.from(thisObject.socialEntity.posts)
+
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 

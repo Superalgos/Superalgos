@@ -80,11 +80,11 @@ const createPost =  async (body, res) => {
 };
 
 
-const getReplies = async(req,res) =>{
+const getReplies = async(postHash,res) =>{
     try {
 
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.REPLY,
+            queryType: SA.projects.socialTrading.globals.queryTypes.POST_REPLIES,
             originSocialPersonaId: undefined,
             targetSocialPersonaId: postHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,

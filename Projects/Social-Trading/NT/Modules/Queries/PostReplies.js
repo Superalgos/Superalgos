@@ -27,14 +27,14 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         thisObject.post = undefined
     }
 
-    function initialize(queryReceived) {
+    function initialize(queryReceived){
+
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
 
         thisObject.array = Array.from(thisObject.post.replies)
 
-        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
-
     }
 
     function run() {

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir sind nur noch wenige Schritte davon entfernt, die erste Handelsidee vollständig testen zu können! Aber vorher müssen Sie noch ein oder zwei Dinge lernen!",
                 "updated": 1639394888158
+            },
+            {
+                "language": "TR",
+                "text": "Özet: İlk ticaret fikrini tam olarak test etmekten sadece birkaç adım uzaktayız! Ama ondan önce, bir iki şey öğrenmelisin!",
+                "updated": 1641667867083
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Im dritten Tutorial dieser Reihe haben wir die Definitionen und Feinheiten der Trigger Stage behandelt.",
                     "updated": 1639394915299
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu serideki üçüncü öğreticide, Tetik Aşamasının ( Trigger Stage ) tanımlarını ve inceliklerini ele aldık.",
+                    "updated": 1641667876807
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "In diesem Tutorium werden wir die grundlegenden Definitionen der übrigen Phasen vervollständigen, damit wir unsere Hypothese endlich testen können!",
                     "updated": 1639394923042
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğreticide, sonunda varsayımımızı test edebilmemiz için kalan aşamaların temel tanımlarını tamamlayacağız!",
+                    "updated": 1641667891412
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Ich empfehle Ihnen dringend, die ersten drei Tutorien der Reihe zu lesen, bevor Sie dieses Tutorial bearbeiten! Die Geschichte wird von einem zum nächsten weitergeführt!",
                     "updated": 1639394931304
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu eğitime başlamadan önce serideki ilk üç öğreticiyi okumanızı şiddetle tavsiye ederim! Çünki Hikayeler bir biri ile bağlantılı!",
+                    "updated": 1641667912482
                 }
             ]
         }

@@ -75,6 +75,7 @@ function newUiObject() {
     thisObject.container.frame.radius = 0
     thisObject.container.frame.position.x = 0
     thisObject.container.frame.position.y = 0
+    thisObject.container.uiObject = thisObject
 
     let icon
     let executingIcon

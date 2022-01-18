@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Superalgos strebt danach, die Dinge einfach zu halten, und das sollten Sie auch tun, denn das ist der beste Weg, um die zunehmende Komplexität zu bewältigen!",
                 "updated": 1639265605790
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos işleri basit tutmaya çalışır ve siz de böyle yapmalısınız çünkü artan karmaşıklıkla başa çıkmanın en iyi yolu budur!",
+                "updated": 1641654461543
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Bedingungen sollten so einfach (granular) wie möglich sein, weil:",
                     "updated": 1639265632592
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşullar mümkün olduğunca basit ama ayrıntılı olmalıdır, çünkü:",
+                    "updated": 1641654483527
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Es erleichtert die Fehlersuche in der Syntax: Wenn Sie die Logik in einer einzigen Bedingung anhäufen, ist es schwer, Fehler zu finden, die Sie möglicherweise eingeführt haben.",
                     "updated": 1639265643416
+                },
+                {
+                    "language": "TR",
+                    "text": "Sözdiziminde hata ayıklamayı kolaylaştırır: mantığı tek bir koşulda topladığınızda, eklemiş olabileceğiniz herhangi bir hatayı bulmak zordur.",
+                    "updated": 1641654501372
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Es erleichtert die Fehlersuche in der Strategie: Wenn Sie die Logik in verschiedene Bedingungen aufteilen, können Sie genau sehen, welcher Teil der Logik wahr oder falsch ist.",
                     "updated": 1639265656108
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejide hata ayıklamayı kolaylaştırır: mantığı farklı koşullara bölerseniz, mantığın tam olarak hangi bölümünün doğru veya yanlış olduğunu görebilirsiniz.",
+                    "updated": 1641654517648
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Die Strategie ist leichter zu pflegen und zu aktualisieren: Granulare Bedingungen machen alles einfacher zu verstehen und nachzuvollziehen.",
                     "updated": 1639265661578
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejiyi sürdürmeyi ve yükseltmeyi kolaylaştırır: ayrıntılı koşullar, her şeyin anlaşılmasını ve takip edilmesini kolaylaştırır.",
+                    "updated": 1641654533068
                 }
             ]
         }

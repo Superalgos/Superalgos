@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Sollte das Testen einer Handelsidee schwarze oder weiße Ergebnisse liefern? Das ist eine gute Frage... eine, die nur Sie beantworten können!",
                 "updated": 1639418979109
+            },
+            {
+                "language": "TR",
+                "text": "Bir ticaret fikrini test etmek iyi yoksa kötü sonuçlar mı üretmeli? Bu iyi bir soru... sadece senin cevaplayabileceğin bir soru!",
+                "updated": 1641807680233
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Sind Ihre Testkriterien grundsolide? Wenn Sie den Testkriterien vertrauen und davon überzeugt sind, dass die Vorhersage erfüllt werden muss, damit sich die Idee lohnt, sollten Sie sich wahrscheinlich an die harten Zahlen halten.",
                     "updated": 1639418990659
+                },
+                {
+                    "language": "TR",
+                    "text": "Test kriterleriniz kaya gibi sağlam mı? Test kriterlerine güveniyorsanız ve fikrin değerli olması için tahminin karşılanması gerektiğine inanıyorsanız, muhtemelen kesin sayılara bağlı kalmalısınız.",
+                    "updated": 1641808507819
                 }
             ]
         },

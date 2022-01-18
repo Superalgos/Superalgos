@@ -10,6 +10,7 @@ function newWebAppLoader() {
     async function loadModules() {
         try {
             let modulesArray = [
+                'WebSocketsWebAppClient.js',
                 'WebDebugLog.js',
                 'WebApp.js'
             ]
@@ -105,7 +106,7 @@ function newWebAppLoader() {
 
                     REQUIREJS([path], onRequired)
 
-                    function onRequired(pModule) {
+                    function onRequired() {
                         try {
 
                             downloadedCounter++

@@ -4,19 +4,20 @@ const getPosts = async (req, res) => {
     try {
 
         let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
+            queryType: SA.projects.socialTrading.globals.queryTypes.POSTS,
             originSocialPersonaId: undefined,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
-            amountRequested: 100,
+            amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
         }
     
         let query = {
+            networkService: 'Social Graph',
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
     
-        return await webAppInterface.messageReceived(
+        return await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
         
@@ -39,11 +40,12 @@ const createPost = async (body, res) => {
         }
 
         event = {
+            networkService: 'Social Graph',
             requestType: 'Event',
             eventMessage: JSON.stringify(eventMessage)
         }
 
-        return await webAppInterface.messageReceived(
+        return await webAppInterface.sendMessage(
             JSON.stringify(event)
         );
     } catch (e) {

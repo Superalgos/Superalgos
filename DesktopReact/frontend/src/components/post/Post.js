@@ -34,10 +34,10 @@ const Post = ({postData}) => {
     }
 
     const {
-        originSocialPersona: {userProfileHandle: userName},
+        originSocialPersona: {socialPersonaHandle: userName},
         postText: postBody,
         eventId: postId,
-        originPost: {reactions: reactions}
+        // originPost: {reactions: reactions}
     } = post;
 
     const handlePostClick = (e) => {
@@ -47,9 +47,9 @@ const Post = ({postData}) => {
                     dispatch(setSelectedPost(postData))
                     navigate(`/post/${postId}`) //todo implement reply feed
                 }
-
          */
     }
+
     return (
         <div className="postWrapper">
             <Collapse in={false}> {/* todo Not working, check state */}
@@ -76,7 +76,7 @@ const Post = ({postData}) => {
                 <Stack className="postBody">
                     {postBody ? postBody.toString() : ''}
                 </Stack>
-                <PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>
+                {/*<PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>*/}
             </Card>
         </div>
     );

@@ -20,6 +20,11 @@
                 "language": "DE",
                 "text": "Bearbeiten Sie die Konfiguration aller neuen Vermögenswerte, die in dem Ticker aufgenommen werden sollen (wie von der Börse aufgelistet), in der Eigenschaft codeName.",
                 "updated": 1635742495525
+            },
+            {
+                "language": "TR",
+                "text": "Özet: codeName özelliğinde (değişim tarafından listelendiği gibi) ticker'a dahil edilecek tüm yeni varlıkların yapılandırmasını düzenleyin.",
+                "updated": 1642085731875
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "DE",
                     "text": "Zum Beispiel:",
                     "updated": 1635742555141
+                },
+                {
+                    "language": "TR",
+                    "text": "Örneğin:",
+                    "updated": 1642085749932
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "DE",
                     "text": "Wenn das Symbol für die konfigurierten Vermögenswerte in der Bildbibliothek vorhanden ist, wird das Standardsymbol automatisch ersetzt.",
                     "updated": 1635742650600
+                },
+                {
+                    "language": "TR",
+                    "text": " Not: Yapılandırılan varlıkların simgesi görüntü kitaplığında varsa, varsayılan simge otomatik olarak değiştirilir.",
+                    "updated": 1642085926380
                 }
             ]
         }

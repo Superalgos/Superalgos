@@ -16,6 +16,11 @@
                 "language": "RU",
                 "text": "Используйте это руководство, если вы когда-нибудь захотите загрузить профиль пользователя User Profile в любую из рабочих пространств управления Governance Workspaces.",
                 "updated": 1639042394664
+            },
+            {
+                "language": "DE",
+                "text": "Verwende diese Anleitung, wenn du ein Benutzerprofil in einen der Governance-Arbeitsbereiche laden möchtest.",
+                "updated": 1642521581419
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Допустим, вы хотите объявить своего реферера в реферальной программе Referral Program или, возможно, вы хотите поддержать заявления о вкладе Contribution Claims другого разработчика.",
                     "updated": 1639042520528
+                },
+                {
+                    "language": "DE",
+                    "text": "Nehmen wir an, du möchtest deinen Empfehlungsgeber im Empfehlungsprogramm angeben, oder vielleicht möchtest du die Beitragsforderungen eines anderen Entwicklers unterstützen.",
+                    "updated": 1642521618253
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "В любом случае вам нужно будет загрузить профиль пользователя соответствующего лица, чтобы вы могли установить соответствующие ссылки.",
                     "updated": 1639042536737
+                },
+                {
+                    "language": "DE",
+                    "text": "In jedem Fall musst du das Benutzerprofil der betreffenden Person laden, damit du die entsprechenden Referenzen erstellen kannst.",
+                    "updated": 1642521648798
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Или, может быть, вы хотите загрузить свой собственный профиль пользователя в одно из других рабочих пространств управления. В конце концов, это тот же процесс!",
                     "updated": 1639042558495
+                },
+                {
+                    "language": "DE",
+                    "text": "Oder vielleicht möchtest du dein eigenes Benutzerprofil in einen der anderen Governance-Arbeitsbereiche laden. Es ist ja schließlich derselbe Prozess!",
+                    "updated": 1642521672623
                 }
             ]
         },
@@ -82,6 +102,11 @@
                     "language": "RU",
                     "text": "Начните Здесь!",
                     "updated": 1639042579656
+                },
+                {
+                    "language": "DE",
+                    "text": "Beginne hier!",
+                    "updated": 1642521691603
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Узнайте имя профиля пользователя. Если вы знаете личность человека на Github.com, это все, что вам нужно знать. Если вы этого не сделаете, вам, возможно, придется связаться с этим человеком и спросить! Если это ваш профиль, то особо много делать в этом плане не нужно!",
                     "updated": 1639042610884
+                },
+                {
+                    "language": "DE",
+                    "text": "Finde den Namen des Benutzerprofils der Person heraus. Wenn du die Identität der Person auf Github.com kennst, dann ist das alles, was du wissen musst. Wenn du das nicht wieißt, musst du die Person kontaktieren und fragen! Wenn es Ihr Profil ist, musst du in dieser Hinsicht nicht viel tun!",
+                    "updated": 1642521744617
                 }
             ]
         },
@@ -116,6 +146,11 @@
                     "language": "RU",
                     "text": "Убедитесь, что файл с таким же именем существует по следующему пути в папке Superalgos на вашем жестком диске ...",
                     "updated": 1639042633703
+                },
+                {
+                    "language": "DE",
+                    "text": "Vergewissere dich, dass eine Datei mit demselben Namen in folgendem Pfad im Superalgos-Ordner auf deiner Festplatte existiert...",
+                    "updated": 1642521771971
                 }
             ]
         },
@@ -137,6 +172,11 @@
                     "language": "RU",
                     "text": "Если файл не существует, убедитесь, что у вас установлена ​​последняя версия приложения. Если он все еще отсутствует после обновления, сообщите об этом человеку и дождитесь отправки профиля.",
                     "updated": 1639042662104
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Datei nicht vorhanden ist, stelle sicher, dass du die neueste Version der App hast. Wenn die Datei nach der Aktualisierung immer noch nicht vorhanden ist, informiere die Person und warte, bis das Profil übermittelt wird.",
+                    "updated": 1642521829541
                 }
             ]
         },
@@ -154,6 +194,11 @@
                     "language": "RU",
                     "text": "Если файл есть и вы уже находитесь в рабочем пространстве, с которым хотите работать, перейдите в иерархию подключаемых модулей Plugins и найдите фиктивный файл подключаемого модуля Dummy Plugin File в разделе Plugin User Profiles > Governance Plugin Project.",
                     "updated": 1639042818731
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Datei vorhanden ist und du dich bereits in dem Arbeitsbereich befindest, mit dem du arbeiten möchtest, gehe zur Plugin-Hierarchie und suche die Dummy-Plugin-Datei unter Plugin-Benutzerprofile > Plugin-Projekt verwalten.",
+                    "updated": 1642521885782
                 }
             ]
         },
@@ -170,6 +215,11 @@
                     "language": "RU",
                     "text": "Получите доступ к конфигурации фиктивного профиля Dummy profile и измените свойство fileName, используя соответствующее имя (имя пользователя Github.com). Также замените имя узла, чтобы в дальнейшем избежать путаницы.",
                     "updated": 1639042920729
+                },
+                {
+                    "language": "DE",
+                    "text": "Greife auf die Konfiguration des Dummy-Profils zu und ändere die Eigenschaft fileName durch den entsprechenden Namen (Github.com-Benutzername). Ersetze auch den Namen des Knotens, um spätere Verwechslungen zu vermeiden.",
+                    "updated": 1642521921983
                 }
             ]
         },
@@ -186,6 +236,11 @@
                     "language": "RU",
                     "text": "Сохраните текущую рабочее пространство с помощью Ctrl + Alt + Shift + Key-S и обновите страницу.",
                     "updated": 1639042969308
+                },
+                {
+                    "language": "DE",
+                    "text": "Speicher den aktuellen Arbeitsbereich mit Ctrl + Alt + Shift + Key-S und aktualisiere die Seite.",
+                    "updated": 1642521968704
                 }
             ]
         },
@@ -202,6 +257,11 @@
                     "language": "RU",
                     "text": "После перезагрузки страницы вы должны увидеть новый профиль вместе с остальными! Вот и все!",
                     "updated": 1639042982662
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald die Seite neu geladen ist, solltest du das neue Profil zusammen mit dem Rest sehen! Das war's!",
+                    "updated": 1642521994589
                 }
             ]
         }

@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Tebrikler! Temel Eğitiminden mezun oldunuz ve daha ileri seviyelere geçmeye hazırsınız!",
                 "updated": 1639837530748
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляем! Вы закончили базовое обучение и готовы перейти к более сложным вещам!",
+                "updated": 1640877555296
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Sonraki eğitimde uygulamanızı nasıl güncelleyeceğinizi, geliştirme dalındaki sürümü test etmek için dalları nasıl değiştireceğinizi, Dokümanlar hakkında birkaç püf noktası ve daha fazlasını öğreneceksiniz!",
                     "updated": 1639837561573
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем уроке вы узнаете, как обновлять приложение, переключаться между ветками для тестирования версии в ветке develop, несколько хитростей, связанных с Docs, и многое другое!",
+                    "updated": 1640877589274
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Ayrıca bu noktaya kadar Superalgos ile olan deneyiminiz hakkında bir inceleme gönderebileceksiniz!",
                     "updated": 1639837576185
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы также сможете оставить отзыв о своем опыте работы с Superalgos на данный момент!",
+                    "updated": 1640877621521
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Superalgos ile ilerlerken, bu eğitimde veya bir öncekinde ele alınan konularda tazelemeye ihtiyacınız olabilir! Bu standart bir uygulamadır, bu yüzden tüm püf noktalarını öğrenene kadar tekrar etmeyi ihmal etmeyin!",
                     "updated": 1639837606771
+                },
+                {
+                    "language": "RU",
+                    "text": "По мере освоения Superalgos вам может понадобиться освежить в памяти темы, затронутые в этом или предыдущем уроке! Это обычная практика, так что возвращайтесь, пока не выучите все хитрости!",
+                    "updated": 1640877652521
                 }
             ]
         }

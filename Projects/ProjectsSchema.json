@@ -1126,6 +1126,11 @@
                     "name": "Workspace Functions",
                     "propertyName": "workspaceFunctions",
                     "functionName": "newWorkspacesSystemActionWorkspaceFunctions"
+                },
+                {
+                    "name": "Undo Redo",
+                    "propertyName": "undoRedo",
+                    "functionName": "newWorkspacesSystemActionUndoRedo"
                 }
             ],
             "functionLibraries": [],
@@ -1735,6 +1740,12 @@
                     "fileName": "Queries/Posts.js"
                 },
                 {
+                    "name": "Post",
+                    "propertyName": "queriesPost",
+                    "functionName": "newSocialTradingModulesQueriesPost",
+                    "fileName": "Queries/Post.js"
+                },
+                {
                     "name": "Followers",
                     "propertyName": "queriesFollowers",
                     "functionName": "newSocialTradingModulesQueriesFollowers",
@@ -1927,14 +1938,7 @@
             "utilities": []
         },
         "UI": {
-            "modules": [
-                {
-                    "name": "Web Sockets WebApp Client",
-                    "propertyName": "webSocketsWebAppClient",
-                    "functionName": "newSocialTradingModulesWebSocketsWebAppClient",
-                    "fileName": "WebSocketsWebAppClient.js"
-                }
-            ]
+            "modules": []
         }
     },
     {

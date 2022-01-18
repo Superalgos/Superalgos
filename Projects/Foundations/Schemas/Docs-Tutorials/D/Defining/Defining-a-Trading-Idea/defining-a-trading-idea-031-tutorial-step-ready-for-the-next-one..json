@@ -15,6 +15,11 @@
                 "updated": 1639253799245
             },
             {
+                "language": "RU",
+                "text": "Учебник справа - следующий в серии о проектировании торговых систем. Продолжим?",
+                "updated": 1640892488897
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Sağdaki öğretici, ticaret sistemleri tasarlamakla ilgili serinin bir sonraki öğreticisi. Devam elim mi?\n",
                 "updated": 1640953504830
@@ -32,6 +37,11 @@
                     "updated": 1639253809021
                 },
                 {
+                    "language": "RU",
+                    "text": "Следующий урок в этой серии посвящен реализации идей, которые мы только что придумали, в торговой системе, чтобы их можно было проверить.",
+                    "updated": 1640892507099
+                },
+                {
                     "language": "TR",
                     "text": "Serideki bir sonraki öğretici, test edilebilmesi için yeni bulduğumuz fikirleri bir Ticaret Sisteminde ( Trading System ) uygulamakla ilgilidir.",
                     "updated": 1640953541935
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Klicken Sie auf \"Next\", um dieses Tutorial zu beenden, und wählen Sie \"Play\" im nächsten Tutorial, wenn Sie bereit sind!",
                     "updated": 1639253837290
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку Next, чтобы закончить этот урок, и выберите Play для следующего урока, когда будете готовы!",
+                    "updated": 1640892580865
                 },
                 {
                     "language": "TR",

@@ -5,6 +5,7 @@ function newWebApp() {
     Everything is being coded here until some structure emerges. 
     */
     let thisObject = {
+        webSocketsWebAppClient: undefined,
         messageReceived: messageReceived,
         initialize: initialize,
         finalize: finalize
@@ -18,9 +19,13 @@ function newWebApp() {
 
     async function initialize() {
         try {
+
             setupRootObject(UI, 'UI')
             setupRootObject(SA, 'SA')
-            await UI.projects.socialTrading.modules.webSocketsWebAppClient.initialize()
+
+            thisObject.webSocketsWebAppClient = newWebSocketsWebAppClient()
+            await thisObject.webSocketsWebAppClient.initialize()
+
             loadWUserProfileTimeline()
             loadWhoToFollow()
             setupEventHandlers()
@@ -115,7 +120,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+        await thisObject.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
             .then(addToContentDiv)
@@ -148,7 +153,7 @@ function newWebApp() {
 
                     switch (event.eventType) {
                         case SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST: {
-                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " POSTED " + event.postText)
+                            textNode = document.createTextNode(event.originSocialPersona.socialPersonaHandle + " POSTED " + event.postText + ' ' + event.originPostHash)
                             break
                         }
                         case SA.projects.socialTrading.globals.eventTypes.FOLLOW_USER_PROFILE: {
@@ -186,7 +191,7 @@ function newWebApp() {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+        await thisObject.webSocketsWebAppClient.sendMessage(
             JSON.stringify(query)
         )
             .then(addWhoToFollowTable)
@@ -351,7 +356,6 @@ function newWebApp() {
             let event
 
             eventMessage = {
-                networkService: 'Social Graph',
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 targetSocialPersonaId: id,
@@ -364,7 +368,7 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
-            await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+            await thisObject.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
                 .then(resolve)
@@ -389,7 +393,6 @@ function newWebApp() {
             let event
 
             eventMessage = {
-                networkService: 'Social Graph',
                 eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 postText: postText,
@@ -402,14 +405,30 @@ function newWebApp() {
                 eventMessage: JSON.stringify(eventMessage)
             }
 
-            await UI.projects.socialTrading.modules.webSocketsWebAppClient.sendMessage(
+            /* NEW QUERY TEST */
+            queryMessage = {
+                queryType: SA.projects.socialTrading.globals.queryTypes.POST,
+                originPostHash: "0x66d959e1d33e26e47c2ba108da18015ff2dafc87569184ca051553d52aff97a2"
+            }
+
+            event = {
+                networkService: 'Social Graph',
+                requestType: 'Query',
+                queryMessage: JSON.stringify(queryMessage)
+            }
+
+            await thisObject.webSocketsWebAppClient.sendMessage(
                 JSON.stringify(event)
             )
-                .then(resolve)
+                .then(onSuccess)
                 .catch(onError)
 
+            function onSuccess(reponse) {
+                console.log(reponse)
+                resolve()
+            }
             function onError(errorMessage) {
-                console.log('[ERROR] Event not executed. ' + errorMessage)
+                console.log('[ERROR] Event not executed. ' + JSON.stringify(errorMessage))
                 console.log('[ERROR] event = ' + JSON.stringify(event))
                 reject(errorMessage)
             }

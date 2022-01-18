@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir sind bereit, die Bedingung unter dem Take Position Event einzurichten! Los geht's!",
                 "updated": 1639389612098
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyon Al Etkinliğ ( Take Position Event ) kapsamında durumu oluşturmaya hazırız! İşte başlıyoruz!",
+                "updated": 1641663601544
             }
         ]
     },
@@ -31,6 +36,11 @@
                     "language": "DE",
                     "text": "Kopieren Sie die Anweisung und fügen Sie sie ein!",
                     "updated": 1639389620248
+                },
+                {
+                    "language": "TR",
+                    "text": "Açıklamayı kopyalayıp yapıştırın!",
+                    "updated": 1641663614250
                 }
             ]
         },
@@ -43,6 +53,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, der Bedingung einen aussagekräftigen Namen zu geben! 1H Breakdown?",
                     "updated": 1639389629142
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Duruma açıklayıcı bir ad vermeyi unutmayın! 1H Breakdown?",
+                    "updated": 1641663623590
                 }
             ]
         }

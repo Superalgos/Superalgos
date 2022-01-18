@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bir noktada, bir referans oluşturmanız gerekecek, bu yüzden gereken zorlu becerileri geliştirmek için bazı temel eğitimler yapalım!",
                 "updated": 1639486721337
+            },
+            {
+                "language": "RU",
+                "text": "В какой-то момент вам понадобится создать справочник, поэтому давайте проведем базовую подготовку, чтобы развить необходимые важные навыки!",
+                "updated": 1640869395851
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "İşlem Sistemi Referans ( Trading System Reference ) düğümünün menüsündeki bağlantı kesme düğmesine çift tıklayın!",
                     "updated": 1639486776130
+                },
+                {
+                    "language": "RU",
+                    "text": "Дважды нажмите кнопку отсоединения в меню узла Trading System Reference!",
+                    "updated": 1640869430370
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Not: Referansı kaldırdınız! Ama merak etmeyin... sonraki adımlarda yeniden oluşturacağız!",
                     "updated": 1639486829739
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы только что сломали ссылку! Но не волнуйтесь... мы восстановим ее в следующих шагах!",
+                    "updated": 1640869454260
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Bir referans oluşturmak için, bir düğüm eklerken kullandığınız yolun aynısını izleyin. Yani, referansın başlayacağı düğüme sağ tıklayın, referansın oluşturulacağı düğümün yakınına sürükleyin ve turuncu halka göründüğünde tıklamayı bırakın. (Düğümü, farenizin sağ tuşuna basılı şekilde CTRL+ sağ,sol,aşağı ve yukarı ok tuşlarını kullanarak sürükleyebilirsiniz.)",
                     "updated": 1639487060734
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы создать ссылку, выполните те же действия, что и для присоединения узла. То есть щелкните правой кнопкой мыши на узле, от которого будет исходить ссылка, перетащите его близко к узлу, с которым будет установлена ссылка, и отпустите кнопку, как только появится оранжевое кольцо!",
+                    "updated": 1640869478583
                 }
             ]
         },

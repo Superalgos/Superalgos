@@ -33,6 +33,11 @@
                 "updated": 1636698021188
             },
             {
+                "language": "RU",
+                "text": "Я слышал, мой друг, что учебник Welcome to Superalgos показал вам все необходимое и заворожил вас несколькими простыми трюками... Вот это показуха!",
+                "updated": 1640858585433
+            },
+            {
                 "language": "ID",
                 "text": "Aku mendengar temanku  Welcome to Superalgos Tutorial menunjukkan kamu sekeliling bot serta memperkenalkan beberapa trik mudah... Pertunjukan yang luar biasa bukan!",
                 "updated": 1641093078598
@@ -68,6 +73,11 @@
                     "updated": 1636698045347
                 },
                 {
+                    "language": "RU",
+                    "text": "Что ж, теперь пора работать!",
+                    "updated": 1640858607562
+                },
+                {
                     "language": "ID",
                     "text": "Nah, sekarang saatnya untuk kita bekerja!",
                     "updated": 1641092624533
@@ -99,6 +109,11 @@
                     "language": "TR",
                     "text": "Superalgos'u öğrenmek oldukça zahmetli bir iştir! Zor olduğu için değil, sistem çok geniş, son derece esnek ve yeni bir paradigma üzerine kurulu olduğu için...",
                     "updated": 1636698298697
+                },
+                {
+                    "language": "RU",
+                    "text": "Изучение Superalgos - довольно сложное занятие! Не потому, что это сложно, а потому, что система обширна, чрезвычайно гибка и построена на новой парадигме, которая не очевидна в начале...",
+                    "updated": 1640858657887
                 },
                 {
                     "language": "ID",
@@ -135,6 +150,11 @@
                     "updated": 1636698446384
                 },
                 {
+                    "language": "RU",
+                    "text": "Но не волнуйтесь! Если вы будете внимательны и пройдете все доступные уроки, вы сможете справиться с кривой обучения как чемпион! Тем не менее, имейте в виду... большинство людей проходят учебники не один раз!",
+                    "updated": 1640858678160
+                },
+                {    
                     "language": "ID",
                     "text": "Tapi jangan khawatir! Jika kamu memperhatikan dan mengikuti semua tutorial yang ada, Kamu akan dapat mengatasi kesulitan dengan mudah! Tetap harus diperhatikan... kebanyakan orang melakukan tutorial lebih dari sekali!",
                     "updated": 1641092815981

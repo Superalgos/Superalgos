@@ -7,16 +7,37 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels."
+        "text": "The Panel Space is where all panels defined by plotters exist. The space has its own physics engine which governs the way users interact with panels, and panels with other panels.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Panel Space - это место, где существуют все панели, определенные плоттерами. Пространство имеет свой собственный физический движок, который управляет тем, как пользователи взаимодействуют с панелями, а панели - с другими панелями.",
+                "updated": 1640931881651
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space."
+            "text": "Panels are constrained within the boundaries of the Panel Space, which matches the boundaries of the Charting Space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Панели ограничены границами пространства панелей (Panel Space), которое совпадает с границами пространства Charting Space.",
+                    "updated": 1640931922223
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it."
+            "text": "Although the panel space has existed since the project's inception, it is still quite underdeveloped, and there is a lot of room to improve it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя пространство панелей существует с момента создания проекта, оно все еще довольно слабо развито, и есть много возможностей для его улучшения.",
+                    "updated": 1640931957540
+                }
+            ]
         }
     ]
 }

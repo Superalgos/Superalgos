@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Ende März und Anfang April haben wir zwei weitere Fails. Was können wir dazu sagen?",
                 "updated": 1639418858744
+            },
+            {
+                "language": "TR",
+                "text": "Mart sonu ve Nisan başında iki başarısızlığımız daha var. Bununla ilgili ne söyleyebiliriz?",
+                "updated": 1641803967876
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Die erste Position am 28. März scheint ein guter Einstieg gewesen zu sein, auch wenn das Ziel von 10 % nicht erreicht wurde. Sie blieb eine Zeit lang im Gewinn und erreichte am 30. März um 0 Uhr etwa 7%. Die zweite Position ist ein klarer Fehlschlag!",
                     "updated": 1639418867334
+                },
+                {
+                    "language": "TR",
+                    "text": "28 Mart'taki ilk pozisyon, %10 hedefine ulaşılamamasına rağmen iyi bir giriş olmuş gibi görünüyor. Bir süre kârda kaldı ve 30 Mart gece yarısı yaklaşık %7'ye ulaştı. İkinci pozisyon açık bir başarısızlıktır!",
+                    "updated": 1641804047796
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Schauen Sie sich den Kontext im 24-Stunden-Zeitrahmen an! Was meinen Sie dazu?",
                     "updated": 1639418875748
+                },
+                {
+                    "language": "TR",
+                    "text": "24 saatlik zaman dilimindeki bağlama bakın! Ne düşünüyorsun?",
+                    "updated": 1641804074542
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Für mich sieht es nach einem vernünftigen Kontext aus, um short zu gehen, aber was weiß ich schon?!",
                     "updated": 1639418882643
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Benim için, kısa sürede mantıklı bir bağlam gibi görünüyor?!",
+                    "updated": 1641805567334
                 }
             ]
         }

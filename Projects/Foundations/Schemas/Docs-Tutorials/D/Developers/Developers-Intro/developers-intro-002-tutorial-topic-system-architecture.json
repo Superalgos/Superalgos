@@ -7,28 +7,70 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Superalgos is essentially a Node.js application + a Web App."
+        "text": "Superalgos is essentially a Node.js application + a Web App.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Superalgos - это, по сути, приложение Node.js + веб-приложение.",
+                "updated": 1640929067288
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The overall idea is that Superalgos runs at users' machines. Advanced users may deploy multiple Superalgos nodes in a LAN and distribute tasks easily. In the current version, these nodes are not ready to be exposed to the Internet. Someday they will, and eventually, they will be able to provide services to other users. These services may include:"
+            "text": "The overall idea is that Superalgos runs at users' machines. Advanced users may deploy multiple Superalgos nodes in a LAN and distribute tasks easily. In the current version, these nodes are not ready to be exposed to the Internet. Someday they will, and eventually, they will be able to provide services to other users. These services may include:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Общая идея заключается в том, что Superalgos работает на машинах пользователей. Продвинутые пользователи могут развернуть несколько узлов Superalgos в локальной сети и легко распределять задачи. В текущей версии эти узлы не готовы к выходу в Интернет. Когда-нибудь это произойдет, и со временем они смогут предоставлять услуги другим пользователям. Эти услуги могут включать в себя:",
+                    "updated": 1640929122552
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Data Products: Pre-calculated indicators or studies."
+            "text": "Data Products: Pre-calculated indicators or studies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты данных: Предварительно рассчитанные индикаторы или исследования.",
+                    "updated": 1640929164300
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Backtest Execution: To scale testing capabilities."
+            "text": "Backtest Execution: To scale testing capabilities.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выполнение бэктеста: Для расширения возможностей тестирования.",
+                    "updated": 1640929196600
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Live Trading Execution: Only if trusted entities emerge."
+            "text": "Live Trading Execution: Only if trusted entities emerge.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Реальное исполнение торговых операций: Только при появлении доверенных организаций.",
+                    "updated": 1640929207259
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Data Processing Execution: External data processing power."
+            "text": "Data Processing Execution: External data processing power.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выполнение обработки данных: Способность внешней обработки данных.",
+                    "updated": 1640929234098
+                }
+            ]
         },
         {
             "style": "Link",

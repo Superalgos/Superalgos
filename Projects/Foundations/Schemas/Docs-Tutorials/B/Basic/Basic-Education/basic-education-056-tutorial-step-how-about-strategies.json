@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Topluluk ( Community ) ayrıca Ticaret Sistemlerine katkıda bulunabilir! Bu noktada, sadece birkaç tane var, ancak yakında daha fazlasının ortaya çıkacağını umuyoruz!",
                 "updated": 1639837225441
+            },
+            {
+                "language": "RU",
+                "text": "Сообщество также может внести свой вклад в создание торговых систем! На данный момент их всего несколько, но мы надеемся, что скоро появятся новые!",
+                "updated": 1640877429865
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Topluluk Ticaret Sistemleri ( Community Trading systems ) için yardım belgelerinde arama yapın.",
                     "updated": 1639837290950
+                },
+                {
+                    "language": "RU",
+                    "text": "Поищите в документах торговые системы сообщества!",
+                    "updated": 1640877498081
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Topluluğun katkıda bulunduğu stratejiler ( Strategies ),öğrenmeniz ve kullanabilmeniz için tamamen belgelenmiştir!",
                     "updated": 1639837347669
+                },
+                {
+                    "language": "RU",
+                    "text": "Стратегии, предложенные сообществом, полностью документированы, чтобы вы могли использовать их для обучения!",
+                    "updated": 1640877513728
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Superalgos ile birlikte gönderilen Ticaret Sistemlerinin tamamen işlevsel olabileceğini, ancak bunların yalnızca eğitim amaçlı kullanıma sunulduğunu unutmayın! Bunları nasıl kullandığınızdan tamamen siz sorumlusunuz! Ticaret (Trading ) riskli bir iştir!",
                     "updated": 1639837386122
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, что хотя торговые системы, поставляемые с Superalgos, могут быть полностью функциональными, они предоставляются только в образовательных целях! Вы несете полную ответственность за то, как вы их используете! Торговля - это рискованный бизнес!",
+                    "updated": 1640877535554
                 }
             ]
         }

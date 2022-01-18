@@ -15,6 +15,11 @@
                 "updated": 1639254839327
             },
             {
+                "language": "RU",
+                "text": "Вы определяете торговые стратегии, следуя протоколу Superalgos!",
+                "updated": 1640933682341
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Superalgos Protokolünü izleyerek ticaret stratejilerini belirlersiniz!",
                 "updated": 1641063263189
@@ -32,6 +37,11 @@
                     "updated": 1639254845363
                 },
                 {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте страницу о торговых стратегиях. Это основа всего, что мы будем обсуждать!",
+                    "updated": 1640933723769
+                },
+                {
                     "language": "TR",
                     "text": "Lütfen ticaret stratejileriyle ilgili bu sayfayı okuyun. Bu tartışacağımız her şeyin temelidir!",
                     "updated": 1641063292838
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Im letzten Absatz der Seite heißt es, dass der Rahmen flexibel genug ist, um Definitionen zu akzeptieren, die die starre Auslegung dessen, was eine Position ist, verbiegen. In diesem Tutorial konzentrieren wir uns auf eine typische Definition einer Strategie nach dem Lehrbuch, d.h. auf den Fall, für den das Framework optimiert ist. Andere Fälle werden wir in anderen Tutorials behandeln!",
                     "updated": 1639254855801
+                },
+                {
+                    "language": "RU",
+                    "text": "Последний абзац на этой странице гласит, что фреймворк достаточно гибок, чтобы принимать определения, которые отклоняются от жесткой интерпретации того, что такое позиция. В этом руководстве мы сосредоточимся на типичном определении стратегии по книге, то есть на случае, для которого фреймворк оптимизирован. Другие случаи мы рассмотрим в других учебниках!",
+                    "updated": 1640933763167
                 },
                 {
                     "language": "TR",

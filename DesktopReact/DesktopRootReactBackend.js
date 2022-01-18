@@ -43,6 +43,7 @@ exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
         /*
         Setting up external dependencies.
         */
+        /* TODO gonza, check whats not needed from here*/
         SA.nodeModules = {
             fs: require('fs'),
             util: require('util'),
@@ -55,9 +56,16 @@ exports.newDesktopBackendRoot = function newDesktopBackendRoot() {
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch'),
             graphql: require("@octokit/graphql"),
-            axios: require('axios')
+            axios: require('axios'),
+            crypto: require('crypto')
         }
         SA.version = require('../package.json').version
+        /* 
+        Setting up the App Schema Memory Map. 
+        */
+        let APP_SCHEMAS = require('../AppSchemas.js')
+        let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
+        await APP_SCHEMAS_MODULE.initialize()
         /*
         Setting up Secrets.
         */

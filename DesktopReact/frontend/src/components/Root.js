@@ -6,7 +6,7 @@ import NotFound from "./notFound/NotFound";
 import Feed from "./feed/Feed";
 import PostPlaceholder from "./postPlaceholder/PostPlaceholder";
 import Post from "./post/Post";
-import Signup from "./Signup/Signup";
+import Signup from "./signUp/Signup";
 
 const Root = () => {
     return (

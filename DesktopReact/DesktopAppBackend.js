@@ -46,7 +46,7 @@ exports.newDesktopAppBackend = function newDesktopAppBackend() {
                 global.env.DESKTOP_TARGET_NETWORK_TYPE,
                 global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                 global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
-                eventReceived
+                thisObject.p2pNetworkInterface.eventReceived
             )
         }
 

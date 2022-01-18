@@ -47,7 +47,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
-                    addToResponse(arrayItem)
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
@@ -55,7 +55,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
                     if (post === undefined) { break }
-                    addToResponse(arrayItem)
+                    addToResponse(arrayItem[1])
                 }
                 break
             }

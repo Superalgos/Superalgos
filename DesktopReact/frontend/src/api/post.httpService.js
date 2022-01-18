@@ -4,8 +4,12 @@ function createPost(postBody) {
     return httpRequest('/posts', POST, postBody);
 }
 
-function getPosts(queryParams) {
-    return httpRequest('/posts', GET, undefined, queryParams);
+function getPosts() {
+    return httpRequest('/posts', GET, undefined);
+}
+
+function getFeed() {
+    return httpRequest('/posts/feed', GET, undefined);
 }
 
 function reactedPost(postBody) {
@@ -15,5 +19,6 @@ function reactedPost(postBody) {
 export {
     createPost,
     getPosts,
-    reactedPost
+    reactedPost,
+    getFeed
 }

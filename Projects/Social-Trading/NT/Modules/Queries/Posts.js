@@ -26,10 +26,8 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
     }
 
     function initialize(queryReceived) {
-
-        thisObject.array = Array.from(thisObject.socialEntity.posts)
-
         NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
+        thisObject.array = Array.from(thisObject.socialEntity.posts)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 
@@ -41,16 +39,20 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
-                    if (arrayItem === undefined) { break }
-                    addToResponse(arrayItem)
+                    if (arrayItem === undefined) {
+                        break
+                    }
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
                 for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
                     let arrayItem = thisObject.array[i]
-                    if (arrayItem === undefined) { break }
-                    addToResponse(arrayItem)
+                    if (arrayItem === undefined) {
+                        break
+                    }
+                    addToResponse(arrayItem[1])
                 }
                 break
             }

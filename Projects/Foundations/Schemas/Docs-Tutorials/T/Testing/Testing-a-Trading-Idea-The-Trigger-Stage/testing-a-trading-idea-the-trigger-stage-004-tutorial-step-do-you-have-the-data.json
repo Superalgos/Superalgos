@@ -15,6 +15,11 @@
                 "updated": 1639254628470
             },
             {
+                "language": "RU",
+                "text": "Если вы не выполнили второй урок из этой серии, скорее всего, у вас нет данных, необходимых для выполнения этого урока!",
+                "updated": 1640933554398
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Serinin ikinci öğreticisini yapmadıysanız, bunu yapmak için ihtiyacınız olan verileri kaçırma ihtimaliniz yüksektir!",
                 "updated": 1641062779714
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Wenn Sie das zweite Tutorial gemacht haben, können Sie das Data Mining überspringen! Wenn nicht, dann fahre fort!",
                     "updated": 1639254659315
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы изучили второй учебник, то можете пропустить добычу данных! Если нет, то продолжайте!",
+                    "updated": 1640933568638
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639254666883
                 },
                 {
+                    "language": "RU",
+                    "text": "Сенсорный бот будет работать на рынке BTC/USDT (Binance) с 1 января 2020 года.",
+                    "updated": 1640933579236
+                },
+                {
                     "language": "TR",
                     "text": " Not: Sensör botu 1 Ocak 2020'den itibaren BTC/USDT pazarında (Binance) çalışacaktır.",
                     "updated": 1641062890801
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Daten auf diesem Markt, aber in einem anderen Zeitbereich haben, kann dies Ihre Daten beeinflussen! Lesen Sie die Dokumentation des Sensor-Bots, um zu erfahren, wie das geht!",
                     "updated": 1639254674621
+                },
+                {
+                    "language": "RU",
+                    "text": "Если у вас есть данные по этому рынку, но в другом временном диапазоне, это может повлиять на ваши данные! Прочтите документацию по сенсорному боту, чтобы узнать, как это сделать!",
+                    "updated": 1640933601632
                 },
                 {
                     "language": "TR",

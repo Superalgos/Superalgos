@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Karmaşık işlem mantığını birden fazla stratejiye böldüğünüzde, ortaya çıkan işlemleri farklı şekilde yönetme fırsatı elde edersiniz!",
                 "updated": 1640782750024
+            },
+            {
+                "language": "RU",
+                "text": "Когда сложная торговая логика разделена на несколько стратегий, вы получаете возможность управлять результирующими сделками по-разному!",
+                "updated": 1640886130902
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Stratejilerin nasıl tanımlandıklarına henüz girmedik, ancak Superalgos'un kar al (take profit) ve zararı durdur'u (stop loss) yönetmeye izin verdiğini biliyorsunuz...",
                     "updated": 1640782959600
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы еще не рассмотрели, как определяются стратегии, но вы знаете, что Superalgos позволяет управлять целями тейк-профита и стоп-лосса...",
+                    "updated": 1640886143633
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Bir ticaret sistemindeki her stratejinin pozisyonları yönetmek için kendi mantığı olabilir!",
                     "updated": 1640782988636
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая стратегия в торговой системе может иметь свою собственную логику управления позициями!",
+                    "updated": 1640886153976
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Örneğin bir pozisyon almak için aynı mantığın birden fazla varyasyonunu ele alıyorsanız, pozisyonu yönetmek için muhtemelen birden fazla varyasyonu ele almanız gerekecektir. Her ikisini de ayrı stratejilerde yapmak daha kolay ve daha temizdir.",
                     "updated": 1640783017126
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы используете несколько вариантов одной и той же логики, например, для взятия позиции, то вам, скорее всего, потребуется несколько вариантов управления позицией. Проще и понятнее делать то и другое в отдельных стратегиях.",
+                    "updated": 1640886206840
                 }
             ]
         }

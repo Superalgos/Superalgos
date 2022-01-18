@@ -15,6 +15,11 @@
                 "updated": 1639252841552
             },
             {
+                "language": "RU",
+                "text": "Мы только что обратили внимание на то, что произошло после пробоя полос на графике 1H... Что еще происходит с рынком?",
+                "updated": 1640890844270
+            },
+            {
                 "language": "TR",
                 "text": "Özet: 1H grafiğindeki grupların bu dağılımından sonra neler olduğunu not ettik... Piyasada başka neler oluyor?",
                 "updated": 1640947793962
@@ -32,6 +37,11 @@
                     "updated": 1639252848647
                 },
                 {
+                    "language": "RU",
+                    "text": "Посмотрите на ценовое движение несколькими свечами ранее!",
+                    "updated": 1640890863068
+                },
+                {
                     "language": "TR",
                     "text": "Birkaç mum öncesi fiyat hareketine bir bakın!",
                     "updated": 1640947810515
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Es gab zwei Durchbrüche vor dem von uns überprüften, einen am 9. April um 12 Uhr, und davor einen weiteren am 7. April um 21 Uhr. Beide Durchbrüche waren insofern signifikant, als die Kerzen weit unter dem unteren Band schlossen. In beiden Fällen stieg der Kurs jedoch wieder in die Bänder zurück.",
                     "updated": 1639252858517
+                },
+                {
+                    "language": "RU",
+                    "text": "До проверяемого нами пробоя было два пробоя, один 9 апреля на 12 часах, а до этого еще один 7 апреля на 21 часе. Оба пробоя были значительными, в том смысле, что свечи закрылись намного ниже нижней полосы. Однако в обоих случаях цена отскочила обратно к диапазонам.",
+                    "updated": 1640890890149
                 },
                 {
                     "language": "TR",

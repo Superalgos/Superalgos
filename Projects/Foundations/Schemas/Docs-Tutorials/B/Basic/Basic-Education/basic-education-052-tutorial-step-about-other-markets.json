@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Borsada listelenen işlem çiftlerinden herhangi biriyle çalışabilirsiniz! Exchange Markets düğümündeki kuruluma bir göz atın!",
                 "updated": 1639833320638
+            },
+            {
+                "language": "RU",
+                "text": "Вы можете работать с любым из рынков, перечисленных на бирже! Посмотрите на настройки в узле Exchange Markets!",
+                "updated": 1640875793247
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Yeni bir market'in (herhangi bir işlem çifti için) nasıl kurulacağı  ( Install a New Market Tutorial ) Çalışma Alanında gösterildiği için burada tekrar açıklanmayacaktır. Sadece kolay olduğunu bilmeni istedim!",
                     "updated": 1639833692046
+                },
+                {
+                    "language": "RU",
+                    "text": "Я не буду объяснять, как устанавливать новые рынки, поскольку эта тема рассматривается в учебнике Install a New Market Tutorial в Install a New Market Tutorial Plugin Workspace. Я просто хочу сообщить вам, что это просто!",
+                    "updated": 1640875839511
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "BTC/USDT Çiftinin menüsüne bir göz atın! \"Install Market\" ve \"Uninstall Market\" düğmelerine dikkat edin! Herhangi bir işlem çiftine ait marketi bu şekilde kurabilir ve kaldırabilirsiniz.",
                     "updated": 1639833782204
+                },
+                {
+                    "language": "RU",
+                    "text": "Взгляните на меню рынка BTC/USDT! Обратите внимание на кнопки \" Install Market\" и \"Uninstall Market\"! Вот как вы это делаете!",
+                    "updated": 1640875877271
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Bu konuyu burada kağtacağım ve zamanı geldiğinde Yeni Pazar Kurma Eğitimini ( Install a New Market Tutorial ) konusunda tekrar değineceğim.!",
                     "updated": 1639833840253
+                },
+                {
+                    "language": "RU",
+                    "text": "Я оставлю все как есть и предоставлю вам самим заняться установкой нового рынка, когда придет время!",
+                    "updated": 1640875902618
                 }
             ]
         }

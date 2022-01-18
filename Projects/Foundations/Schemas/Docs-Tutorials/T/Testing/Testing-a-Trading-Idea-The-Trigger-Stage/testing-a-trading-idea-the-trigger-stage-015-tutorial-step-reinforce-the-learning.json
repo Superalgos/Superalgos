@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Lassen Sie uns eine kurze Wiederholung der Syntax machen! Ich werde das so lange vorantreiben, bis Sie es gelernt haben!",
                 "updated": 1639261940684
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sözdiziminin hızlı bir incelemesini yapalım! Bunu öğrenene kadar seni zorlamaya devam edeceğim!",
+                "updated": 1641652670265
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "ERSTENS: Der Zeitrahmen! (d.h.: chart.at24hs)",
                     "updated": 1639261971493
+                },
+                {
+                    "language": "TR",
+                    "text": "BİR: Zaman çerçevesi! Örnek : (i.e.: chart.at24hs)",
+                    "updated": 1641652684413
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "ZWEITENS: Jedes Segment der Anweisung wird durch Punkte getrennt! (z.B.: like.this)",
                     "updated": 1639261992571
+                },
+                {
+                    "language": "TR",
+                    "text": "İKİ: Talimatın her bölümü noktalarla ayrılmıştır! Örnek : (i.e.: like.this)",
+                    "updated": 1641652701967
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "DRITTENS: Produktname und Eigenschaftsname werden durch den verwendeten Indikator bestimmt. Sie müssen sie nicht auswendig lernen, denn Sie können sie aus den Dokumenten kopieren und einfügen, wenn Sie sie brauchen!",
                     "updated": 1639262007009
+                },
+                {
+                    "language": "TR",
+                    "text": "ÜÇ: Ürün adı ve özellik adı kullanılan gösterge ile belirlenir. İhtiyaç duyduğunuzda belgelerden kopyalayıp yapıştırabileceğiniz için bunları ezberlemenize gerek yok!",
+                    "updated": 1641652714645
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "DE",
                     "text": "VIERTENS: Zusammengesetzte Wörter im Produkt- und Eigenschaftsnamen werden in Kleinbuchstaben geschrieben, d. h. das erste Wort wird klein geschrieben, die restlichen Wörter werden groß geschrieben!  (zumBeispielWieDiesHier)",
                     "updated": 1639262054728
+                },
+                {
+                    "language": "TR",
+                    "text": "DÖRT: Ürün ve özellik adlarındaki birleşik sözcükler küçük harflerle yazılır, geri kalan kelimeler büyük harfle yazılır! Örnek : (forExampleLikeThis)",
+                    "updated": 1641652726899
                 }
             ]
         }

@@ -15,6 +15,11 @@
                 "updated": 1639252176396
             },
             {
+                "language": "RU",
+                "text": "Давайте посмотрим на полосы Боллинджера! Если он еще не включен, найдите слой Bollinger Bands в менеджере слоев Masters.",
+                "updated": 1640890274542
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Bollinger Gruplarına bir göz atalım! Henüz açık değilse, Masters katman yöneticisinde Bollinger Bantları katmanını bulun.",
                 "updated": 1640870342350
@@ -32,6 +37,11 @@
                     "updated": 1639252193350
                 },
                 {
+                    "language": "RU",
+                    "text": "В центре индикатора находится 20-периодная скользящая средняя. Сверху имеется линия, расположенная на два стандартных отклонения выше скользящей средней. Мы называем эту линию верхней полосой. Также имеется линия, расположенная на два стандартных отклонения ниже скользящей средней. Эту линию мы называем нижней полосой. Вместе они представляют собой полосы Боллинджера.",
+                    "updated": 1640890308663
+                },
+                {
                     "language": "TR",
                     "text": "Gösterge, merkezde 20 dönemlik hareketli bir ortalamaya sahiptir. Üstte hareketli ortalamanın üzerinde iki standart sapma bulunan bir çizgiye sahiptir. Bu hatta üst bant diyoruz. Ayrıca hareketli ortalamanın iki standart sapma çizgisine sahiptir. Buna alt bant diyoruz. Bollinger Grupları.",
                     "updated": 1640871715867
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Beachten Sie, wie der Kurs seitwärts schwankt und an den oberen und unteren Bändern abprallt. Manchmal verlässt er die Grenzen der Bänder, entweder nach oben oder nach unten, aber meistens bleibt er innerhalb des Bereichs der Bänder.",
                     "updated": 1639252200054
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, как цена колеблется в боковом диапазоне, отскакивая от верхней и нижней полос. Иногда она может выходить за границы полос, либо выше, либо ниже, но большую часть времени она остается в пределах диапазона полос.",
+                    "updated": 1640890343579
                 },
                 {
                     "language": "TR",

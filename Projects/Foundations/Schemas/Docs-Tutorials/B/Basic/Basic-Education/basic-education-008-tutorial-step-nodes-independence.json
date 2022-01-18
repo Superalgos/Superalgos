@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Farklı alt düğümlerin açı ayarının ana düğüme göre nasıl değiştirdiğinize ve her birinin yeni ayara diğerlerinden bağımsız olarak nasıl tepki verdiğine dikkat edin!",
                 "updated": 1636746759816
+            },
+            {
+                "language": "RU",
+                "text": "Обратите внимание, как вы изменили настройку Angle to Parent для других родственных узлов, и каждый из них отреагировал на новую настройку независимо от остальных!",
+                "updated": 1640866233003
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Düğümler menüsünden her bir düğümün konumunu kontrol edersiniz. Ne ana düğüm ne de alt düğümlerin konumu etkileyemez... bu harika istisna dışında:",
                     "updated": 1636746814955
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы управляете положением каждого узла из меню узла. Ни родительский узел, ни его родственные узлы не могут влиять на положение... за исключением этого замечательного исключения:",
+                    "updated": 1640866220921
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Lightning Strike Backtesting Oturumuna gidin ve menünün sağ tarafından Kayıp Çocukları Ekle'yi ( Add Missing Children ) seçin!",
                     "updated": 1636746977214
+                },
+                {
+                    "language": "RU",
+                    "text": "Зайдите в сессию бэктестинга Lightning Strike и в правой части меню выберите Add Missing Children!",
+                    "updated": 1640866284989
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Sosyal Botlar ( Social Bots ) düğümünün, ana düğüm ayarını en yakın kardeşinden nasıl devraldığına dikkat edin!",
                     "updated": 1636747051481
+                },
+                {
+                    "language": "RU",
+                    "text": "Обратите внимание, что узел Social Bots унаследовал параметр Angle to Parent от своего ближайшего родственника!",
+                    "updated": 1640866319931
                 }
             ]
         },

@@ -16,6 +16,7 @@ function newContainer() {
         name: undefined,
         fitFunction: undefined,
         isVisibleFunction: undefined,
+        uiObject: undefined,
         displace: displace,
         initialize: initialize,
         finalize: finalize,
@@ -46,6 +47,15 @@ function newContainer() {
     let onDisplaceEventSubscriptionId
     let onDragStartedEventSubscriptionId
     let onDragFinishedEventSubscriptionId
+
+    /* for undo/redo dragging: */
+    let historyObject = {
+        action: {
+            name: 'Drag Node',
+            node: undefined
+        },
+        previousPosition: undefined
+    }
 
     return thisObject
 
@@ -191,10 +201,19 @@ function newContainer() {
     }
 
     function onDragStarted(event) {
+        historyObject.action.node = thisObject.uiObject.payload.node
+        historyObject.previousPosition = {
+            x: thisObject.uiObject.payload.position.x,
+            y: thisObject.uiObject.payload.position.y
+        }
+
         thisObject.eventHandler.raiseEvent('onDragStarted', event)
     }
 
     function onDragFinished(event) {
+        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
         thisObject.eventHandler.raiseEvent('onDragFinished', event)
     }
 

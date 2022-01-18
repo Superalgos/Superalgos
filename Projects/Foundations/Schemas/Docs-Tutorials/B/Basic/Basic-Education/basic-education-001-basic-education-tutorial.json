@@ -23,6 +23,11 @@
                 "updated": 1636699806597
             },
             {
+                "language": "RU",
+                "text": "Этот учебник дополняет информацию, предоставленную в учебнике Welcome to Superalgos, уделяя особое внимание узлам Nodes Menu, Backups, Clones, Shares, Plugins, Workspaces, References и др.",
+                "updated": 1640858460148
+            },
+            {
                 "language": "ID",
                 "text": "Tutorial ini melengkapi informasi yang disampaikan dalam Welcome to Superalgos Tutorial, dengan fokus pada Nodes Menu, Backups, Clones dan Shares, Plugins, Workspaces, References, dan banyak lagi.",
                 "updated": 1641092905709
@@ -39,6 +44,11 @@
                     "language": "DE",
                     "text": "Über dieses Tutorial",
                     "updated": 1634585391510
+                },
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640858477958
                 }
             ]
         },

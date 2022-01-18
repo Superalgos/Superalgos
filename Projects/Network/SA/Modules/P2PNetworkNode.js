@@ -8,9 +8,7 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
 
         node: undefined,
         blockchainAccount: undefined,
-        userSocialProfile: undefined,
-
-        /* Framework Functions */
+        userProfile: undefined,
         initialize: initialize,
         finalize: finalize
     }
@@ -25,14 +23,14 @@ exports.newNetworkModulesP2PNetworkNode = function newNetworkModulesP2PNetworkNo
 
     function initialize(
         node,
-        userSocialProfile,
+        userProfile,
         blockchainAccount
     ) {
         /*
         We will setup here the maps and arryas we will need to operate within the P2P Network.
         */
         thisObject.node = node
-        thisObject.userSocialProfile = userSocialProfile
+        thisObject.userProfile = userProfile
         thisObject.blockchainAccount = blockchainAccount
        
         if (

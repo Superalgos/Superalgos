@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Wissen Sie noch, was Referenzen sind und wie man sie herstellt? Schauen Sie sich das Video für eine kurze Auffrischung an!",
                 "updated": 1639399298946
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Referansların ne olduğunu ve nasıl yapılacağını hatırlıyor musunuz? Hızlı bir tazeleme için videoyu izleyin!",
+                "updated": 1641747204968
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Referenzen sind ein wichtiges Konzept in Superalgos, da sie Informationen über Knoten und Hierarchien hinweg in Beziehung setzen!",
                     "updated": 1639399310342
+                },
+                {
+                    "language": "TR",
+                    "text": "Referanslar ( References ), bilgileri düğümler ve hiyerarşiler arasında ilişkilendirdikleri için Superalgos'ta önemli bir kavramdır!",
+                    "updated": 1641747215209
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Sie müssen eine Referenz vom Knoten Market Sell Order im Handelssystem zum Knoten Market Sell Order #1 Market Order in der Hierarchie der Trading Engine herstellen! Machen Sie weiter! Tun Sie es!",
                     "updated": 1639399322670
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki Piyasa Satış Emri ( Market Sell Order )  düğümünden, ticaret motoru hiyerarşisindeki Piyasa Satış Emri ( Market Sell Order ) # 1  Piyasa Emri ( Market Order ) düğümüne bir referans oluşturmalısınız! Devam et ve yap!",
+                    "updated": 1641747230202
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Ich gebe Ihnen im nächsten Schritt ein paar Tipps, wenn Sie nicht sicher sind, wie Sie vorgehen sollen!",
                     "updated": 1639399331508
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunu nasıl yapacağınızdan emin değilseniz, bir sonraki adımda size birkaç ipucu vereceğim!",
+                    "updated": 1641747239642
                 }
             ]
         }

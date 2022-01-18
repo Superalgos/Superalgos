@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Я хочу кое-что сказать тебе, прежде чем мы продолжим, но я с трудом подбираю слова... Я просто не хочу показаться помешанным на контроле!",
                 "updated": 1640544202541
+            },
+            {
+                "language": "TR",
+                "text": "Devam etmeden önce sana söylemem gereken bir şey var, ama doğru kelimeleri bulmakta zorlanıyorum... Bir kontrol manyağı gibi görünmek istemem!",
+                "updated": 1641718268809
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Не то чтобы вы могли что-то сломать или что-то в этом роде... бояться нечего... просто... Я полагаюсь на свежее состояние рабочего пространства, чтобы предсказать, что вы увидите, когда я поведу вас куда-то. Я могу комментировать то, что вы испытаете во время путешествия, и использовать свои предсказания, чтобы сделать экскурсию более сочной и интересной! Итак...",
                     "updated": 1640544313672
+                },
+                {
+                    "language": "TR",
+                    "text": "Burası herhangi birşeyi bozabileceğiniz bi alan değil. Bu yüzden korkacak bir şey yok...  Sizi bir yere götürdüğümde ne göreceğinizi tahmin etmek için çalışma alanının yeni durumuna güveniyorum. Yolculuk boyunca deneyimleyeceğiniz şeyler hakkında yorum yapabilir ve tahminlerimi turu daha lezzetli ve ilginç kılmak için kullanabilirim! Böyle...",
+                    "updated": 1641718400300
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Не шалите слишком много, пока я вам не скажу! То есть, ты можешь осмотреться, но не устраивай беспорядок! Ладно! Делай, что хочешь! Если вдруг почувствуешь, что я тебя потерял, просто начни заново, с чистого рабочего пространства!",
                     "updated": 1640544532040
+                },
+                {
+                    "language": "TR",
+                    "text": "Ben söylemedikçe çok fazla oyalanma! Demek istediğim, etrafına bakabilirsin ama ortalığı dağıtma! İstediğini yap! Eğer seni kaybettiğimi hissedersen, yeni bir çalışma alanıyla yeniden başla!",
+                    "updated": 1641718475850
                 }
             ]
         }

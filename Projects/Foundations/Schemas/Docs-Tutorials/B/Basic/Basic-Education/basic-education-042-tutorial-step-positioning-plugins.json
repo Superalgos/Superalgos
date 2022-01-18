@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "İşte çılgın kısım... Plugin File Position düğümü, eklentinin çalışma alanında nereye yerleştirileceğini belirler!",
                 "updated": 1639812420896
+            },
+            {
+                "language": "RU",
+                "text": "А вот и самое интересное... узел Plugin File Position определяет, в каком месте рабочего пространства размещается плагин!",
+                "updated": 1640873487187
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu nedenle, Plugin File Position düğümünün üstünde Trading System düğümünü buldunuz!",
                     "updated": 1639812506781
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот почему вы нашли узел Trading System поверх узла Plugin File Position!",
+                    "updated": 1640873508309
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Trading System düğümünü sildiyseniz, çalışma alanını yeniden yüklediğinizde yeniden görünür! Çalışma alanı her yüklendiğinde eklentiler, eklenti dosyasından yüklenir!",
                     "updated": 1639813038452
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы удалите узел Trading System, он снова появится при следующей перезагрузке рабочего пространства! Плагины загружаются из файла плагинов при каждой загрузке рабочего пространства!",
+                    "updated": 1640873532831
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Denemekten çekinmeyin! Dilerseniz Trading System düğümünü silebilir ve sayfayı yenileyebilirsiniz. Devam etmek için Temel Eğitim Öğreticisini ( Basic Education Tutorial ) bulmanız ve menüdeki Devam Et' tuşuna  tıklamanız gerekeceğini unutmayın!",
                     "updated": 1639813134383
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь опробовать его! При желании вы можете удалить узел Trading System и обновить страницу. Имейте в виду, что вам нужно будет найти учебник Basic Education Tutorial и нажать кнопку Resume в меню, чтобы продолжить!",
+                    "updated": 1640873592970
                 }
             ]
         }

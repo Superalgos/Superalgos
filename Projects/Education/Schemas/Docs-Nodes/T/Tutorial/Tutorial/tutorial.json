@@ -580,7 +580,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "\"slider\": \"toBottom\" // Открывает область графиков",
+                    "text": "\"slider\": \"toBottom\" // Открывает пространство графиков",
                     "updated": 1638342112119
                 }
             ]

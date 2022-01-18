@@ -17,6 +17,11 @@
                 "updated": 1639251150861
             },
             {
+                "language": "RU",
+                "text": "Этот учебник научит вас формулировать проверяемую торговую идею. В некотором смысле это введение в систематический подход к торговле - важнейшую концепцию, которую необходимо усвоить для автоматизации стратегий. Пример, изложенный в этом уроке, в дальнейшем будет использоваться в остальных частях серии.",
+                "updated": 1640887454787
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Bu eğitim size test edilebilir bir ticaret fikrinin nasıl formüle edileceğini öğretir. Bir bakıma, stratejileri otomatikleştirmek için kavramanız gereken çok önemli bir kavram olan ticarete sistematik yaklaşıma bir giriş niteliğindedir. Bu öğreticide verilen örnek daha sonra dizinin geri kalanında kullanılacaktır.",
                 "updated": 1640858379007
@@ -27,7 +32,14 @@
         {
             "style": "Title",
             "text": "About This Tutorial",
-            "updated": 1617115088230
+            "updated": 1617115088230,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Об этом учебнике",
+                    "updated": 1640887463797
+                }
+            ]
         },
         {
             "style": "List",

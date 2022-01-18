@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Henüz yapmadıysanız, devam edin ve Trading System Reference düğümünden,Lightning Strike Trading System düğümüne bir referans oluşturun!",
                 "updated": 1639561668806
+            },
+            {
+                "language": "RU",
+                "text": "Если вы еще не сделали этого, перейдите по ссылке из Trading System Reference в торговую систему Lightning Strike!",
+                "updated": 1640870261141
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Referans oluşturmak için bu teknik biraz hantal veya pratik olmayabilir. Daha iyi bir fikriniz varsa veya nasıl geliştireceğinizi biliyorsanız, bu konuda fikrinizi bize ulaştırmaktan çekinmeyin.Bunu yaparkenaAşağıdakileri dikkate aldığınızdan emin olun:",
                     "updated": 1639561720192
+                },
+                {
+                    "language": "RU",
+                    "text": "Возможно, вы сочтете этот метод создания ссылки несколько неуклюжим или непрактичным. Если у вас есть идея получше или вы знаете, как ее улучшить, не стесняйтесь, откройте вопрос о запросе функции. Убедитесь, что вы учли следующее:",
+                    "updated": 1640870284394
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Karmaşık bir çalışma alanında, bir referans oluşturabileceğiniz yüzlerce düğüm olabilir.",
                     "updated": 1639561802732
+                },
+                {
+                    "language": "RU",
+                    "text": "В сложном рабочем пространстве могут быть сотни узлов, которые могут принимать ссылку.",
+                    "updated": 1640870320552
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Başvuru, belirli bir düğümden başka bir düğüme kesin olarak oluşturulmalıdır.",
                     "updated": 1639561860379
+                },
+                {
+                    "language": "RU",
+                    "text": "Ссылка должна быть однозначно установлена от конкретного узла к другому конкретному узлу.",
+                    "updated": 1640870336304
                 }
             ]
         },
@@ -146,6 +166,11 @@
                     "language": "TR",
                     "text": "Bu arada, referans oluşturma işlemini birkaç kez yaptığınızda o kadar da zor olmadığını göreceksiniz.!",
                     "updated": 1639561910211
+                },
+                {
+                    "language": "RU",
+                    "text": "А пока позвольте заверить вас, что это не так уж и сложно, если сделать это несколько раз!",
+                    "updated": 1640870349694
                 }
             ]
         },

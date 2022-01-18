@@ -1,0 +1,34 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 48,
+    "type": "Superalgos Review - Very Interesting Open Source Project",
+    "definition": {
+        "text": "An interesting and promising project with novel ways to collaborate and motivate.",
+        "updated": 1642174038123
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "I found this project via GitHub and my first impression is that it is very interesting and promising.",
+            "updated": 1642173671160
+        },
+        {
+            "style": "Text",
+            "text": "Managing not only the codebase, but also all the assets (Data Mines, Trading Algorithms, etc.) via git on GitHub so that all contributions are just commits and then designing an interface to make it possible to contribute in a user friendly way is something I have never seen before.",
+            "updated": 1642173717907
+        },
+        {
+            "style": "Text",
+            "text": "To incentivice contributions via SA Tokens is a really novel way to motivate people to contribute to open source that I also have never seen before.",
+            "updated": 1642173898947
+        },
+        {
+            "style": "Text",
+            "text": "Although the UI is sometimes clunky and laggy, and bugs definitely exist, I think that Superalgos has a promising future!"
+        },
+        {
+            "style": "Text",
+            "text": "eyerust"
+        }
+    ]
+}

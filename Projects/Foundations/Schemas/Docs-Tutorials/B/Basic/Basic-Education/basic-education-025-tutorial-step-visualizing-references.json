@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Fare imlecini giden bir referansa sahip bir düğümün üzerine getirdiğinizde, referans görünür hale gelir.",
                 "updated": 1639485863369
+            },
+            {
+                "language": "RU",
+                "text": "Когда вы наводите указатель мыши на узел с исходящей ссылкой, ссылка становится видимой.",
+                "updated": 1640869254654
             }
         ]
     },
@@ -56,6 +61,11 @@
                     "language": "TR",
                     "text": "Ancak tüm referansları görünür kılmanın da bir yolu var!",
                     "updated": 1639485880901
+                },
+                {
+                    "language": "RU",
+                    "text": "Но есть также способ сделать все ссылки видимыми!",
+                    "updated": 1640869265618
                 }
             ]
         },
@@ -85,6 +95,11 @@
                     "language": "TR",
                     "text": "Bu tuş kombinasyonuna basın: Ctrl + Shift + Key-R. Maci için: Cmd + Shift + Key-R",
                     "updated": 1639486068162
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите следующую комбинацию клавиш: Ctrl + Shift + Key-R или Cmd + Shift + Key-R на Mac",
+                    "updated": 1640869283933
                 }
             ]
         },
@@ -114,6 +129,11 @@
                     "language": "TR",
                     "text": "Artık hem Ticaret Sistemi Referansı ( Trading System Reference ) düğümünden hem de İşlem Motoru Referansı ( Trading Engine Reference ) düğümünden çıkan referansları görebilirsiniz.",
                     "updated": 1639488548092
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь вы можете видеть ссылки, исходящие как из узла Trading System Reference, так и из узла Trading Engine Reference.",
+                    "updated": 1640869303094
                 }
             ]
         },
@@ -143,6 +163,11 @@
                     "language": "TR",
                     "text": "Tasarım Alanı (Design Space ) haritasına erişmek ve görünür olabilecek diğer referansları görmek için sağ tıklayın.",
                     "updated": 1639486198724
+                },
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши, чтобы получить доступ к карте пространства проектирования (Design Space) и заметить другие ссылки, которые могут быть видны.",
+                    "updated": 1640869361556
                 }
             ]
         }

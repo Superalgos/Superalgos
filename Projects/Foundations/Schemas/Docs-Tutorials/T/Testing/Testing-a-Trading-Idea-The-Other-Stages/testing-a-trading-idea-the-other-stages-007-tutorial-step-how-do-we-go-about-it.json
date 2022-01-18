@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Denken Sie daran, dass wir die Position zum Abschluss der 1H-Kerze einnehmen, sobald das Ereignis \"Position einnehmen\" bestätigt wird.",
                 "updated": 1639395489264
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Unutmayın, \"pozisyon al\" olayı onaylandıktan sonra 1h Mumunu kapatmak için pozisyon alacağız.",
+                "updated": 1641668233874
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Was wäre dann ein angemessener Kurs?",
                     "updated": 1639395510815
+                },
+                {
+                    "language": "TR",
+                    "text": "O zaman makul bir oran ne olurdu?",
+                    "updated": 1641668255791
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Nun... eine gute Wahl wäre der Kurs am Ende der Kerze, richtig? Unsere Formel für den Zielkurs wäre dann:",
                     "updated": 1639395519356
+                },
+                {
+                    "language": "TR",
+                    "text": "Pekala... Mumun kapanışındaki kur iyi bir seçim olur, değil mi? O zaman hedef oran formülünüz şöyle olacaktır:",
+                    "updated": 1641668265525
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "DE",
                     "text": "Bearbeiten Sie die Formel mit der obigen Syntax!",
                     "updated": 1639395526472
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdaki sözdizimini kullanarak formülü düzenleyin!",
+                    "updated": 1641668275856
                 }
             ]
         }

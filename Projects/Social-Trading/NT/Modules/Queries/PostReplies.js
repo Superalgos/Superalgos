@@ -1,20 +1,20 @@
 exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingModulesQueriesPostReplies() {
     /*
-    Each Post regardless if it is authored by a User or Bot Profile,
-    can have replies. This query is designed for Network Clients to 
+    Each Post regardless if it is authored by a Social Persona or Social Trading Bot,
+    can have replies. This query is designed for Social Entities to 
     fetch the posts metadata that are replies to a certain post.
 
-    This is the query executed at the Network Client to fill the page
+    This is the query executed at the Social Trading App to fill the page
     of a certain post, with all its replies.
     */
     let thisObject = {
         array: undefined,
-        profile: undefined,
+        socialEntity: undefined,
         post: undefined,
         initialIndex: undefined,
         amountRequested: undefined,
         direction: undefined,
-        execute: execute,
+        run: run,
         initialize: initialize,
         finalize: finalize
     }
@@ -23,7 +23,7 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
 
     function finalize() {
         thisObject.array = undefined
-        thisObject.profile = undefined
+        thisObject.socialEntity = undefined
         thisObject.post = undefined
     }
 
@@ -31,13 +31,13 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
 
         thisObject.array = Array.from(thisObject.post.replies)
 
-        NT.projects.socialTrading.utilities.queriesValidations.profilesValidations(queryReceived, thisObject)
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
 
     }
 
-    function execute() {
+    function run() {
 
         let response = []
 
@@ -64,27 +64,19 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
 
         function addToResponse(post) {
 
-            let profileId
-            if (thisObject.profile.botProfileId !== undefined) {
-                profileId = thisObject.profile.botProfileId
-            } else {
-                profileId = thisObject.profile.userProfileId
-            }
-
             let postResponse = {
-                emitterUserProfileId: post.emitterUserProfileId,
-                targetUserProfileId: post.targetUserProfileId,
-                emitterBotProfileId: post.emitterBotProfileId,
-                targetBotProfileId: post.targetBotProfileId,
-                emitterPostHash: post.emitterPostHash,
+                originSocialPersonaId: post.originSocialPersonaId,
+                targetSocialPersonaId: post.targetSocialPersonaId,
+                originSocialTradingBotId: post.originSocialTradingBotId,
+                targetSocialTradingBotId: post.targetSocialTradingBotId,
+                originPostHash: post.originPostHash,
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                signalType: post.signalType,
-                signalData: post.signalData,
+                fileKeys: post.fileKeys,
                 repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions),
-                reaction: post.reactionsByProfile.get(profileId)
+                reaction: post.reactionsBySocialEntity.get(thisObject.socialEntity.id)
             }
             response.push(postResponse)
         }

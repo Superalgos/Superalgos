@@ -44,6 +44,11 @@
                     "language": "EL",
                     "text": "Σκεφτείτε τον χώρο χαρτογράφησης ως έναν τεράστιο πίνακα σχεδίασης. Μπορεί να έχετε πολλές πληροφορίες σχεδιασμένες σε διαφορετικά σημεία του χώρου και να χρησιμοποιήσετε ένα παράθυρο προβολής για να κοιτάξετε σε αυτόν τον χώρο.",
                     "updated": 1641827864210
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik alanını büyük bir çizim tahtası olarak düşünün. Alanın farklı kısımlarına işaretlenmiş birçok bilgiye sahip olabilirsiniz ve o alana bakmak için bir görünüm penceresi kullanabilirsiniz.",
+                    "updated": 1641756423162
                 }
             ]
         },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Существует только одна иерархия графического пространства, поэтому здесь настраиваются все диаграммы. Как это часто бывает во всей системе, различные концепции и элементы диаграмм, такие как масштабы, уровни данных и т. Д., Представлены узлами в иерархии. Система обеспечивает большую гибкость в том, как визуализировать информацию на диаграммах, добавляя, конфигурирование и размещение этих узлов.",
                     "updated": 1638276317967
+                },
+                {
+                    "language": "TR",
+                    "text": "Yalnızca bir grafik alanı hiyerarşisi vardır, bu nedenle tüm grafikler burada yapılandırılır. Sistem genelinde yaygın olduğu gibi, ölçekler, veri katmanları vb. gibi grafiklerin farklı kavramları ve öğeleri hiyerarşideki düğümlerle temsil edilir. Sistem, bu düğümleri ekleyerek, yapılandırarak ve düzenleyerek grafikler üzerindeki bilgilerin nasıl görselleştirileceği konusunda büyük esneklik sağlar.",
+                    "updated": 1641756511110
                 }
             ]
         }

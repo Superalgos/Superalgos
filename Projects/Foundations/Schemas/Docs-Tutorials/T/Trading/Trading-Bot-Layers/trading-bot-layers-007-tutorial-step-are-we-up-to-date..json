@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Теперь нам нужно немного подождать! Когда все процессы достигнут отметки 100%, мы сможем продолжить!",
                 "updated": 1640545470192
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi biraz beklememiz gerekiyor! Tüm süreçler %100 'e ulaştığında, devam edebiliriz!",
+                "updated": 1641754314714
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Как вы, вероятно, знаете, время, необходимое для добычи данных, зависит от многих вещей. Если у вас уже есть некоторые из этих данных, полученные в результате предыдущей деятельности, это может быть быстрее!",
                     "updated": 1640545491458
+                },
+                {
+                    "language": "TR",
+                    "text": "Muhtemelen bildiğiniz gibi, veri madenciliği için gereken süre birçok şeye bağlıdır. Önceki etkinliklerden bu verilerin bir kısmına zaten sahipseniz, daha hızlı olabilir!",
+                    "updated": 1641754375939
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Проконтролируйте процессы для всех показателей в источниках данных Sparta и Masters. Когда все они достигнут 100%, остановите операцию добычи данных и нажмите кнопку Next для продолжения.",
                     "updated": 1640545528222
+                },
+                {
+                    "language": "TR",
+                    "text": "Sparta ve Masters veri madenlerindeki tüm göstergeler için süreçleri izleyin. Hepsi %100'e ulaştığında, veri madenciliği işlemini durdurun ve devam etmek için İleri'ye tıklayın.",
+                    "updated": 1641754399144
                 }
             ]
         },
@@ -66,6 +81,11 @@
                     "text": "Bollinger-Kanäle werden wahrscheinlich als letztes angezeigt!",
                     "updated": 1623012171563,
                     "style": "Success"
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Bollinger Channels\" göstergesi muhtemelen en son tamamlanan gösterge olacak!",
+                    "updated": 1641754463513
                 }
             ]
         }

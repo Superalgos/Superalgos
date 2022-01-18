@@ -2,11 +2,11 @@ import "./Post.css"
 import React, {useEffect, useState} from 'react';
 import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
-import PostFooter from "../PostFooter/PostFooter";
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedPost} from '../../store/slices/post.slice'
 import {ArrowBackOutlined} from "@mui/icons-material";
+import PostFooter from "../PostFooter/PostFooter";
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
@@ -29,15 +29,15 @@ const Post = ({postData}) => {
         }
     }, [])
 
-    if (!post.emitterUserProfile) {
+    if (!post.originSocialPersona) {
         return <></>
     }
 
     const {
-        emitterUserProfile: {userProfileHandle: userName},
+        originSocialPersona: {socialPersonaHandle: userName},
         postText: postBody,
         eventId: postId,
-        emitterPost: {reactions: reactions}
+        // originPost: {reactions: reactions}
     } = post;
 
     const handlePostClick = (e) => {
@@ -47,9 +47,9 @@ const Post = ({postData}) => {
                     dispatch(setSelectedPost(postData))
                     navigate(`/post/${postId}`) //todo implement reply feed
                 }
-
          */
     }
+
     return (
         <div className="postWrapper">
             <Collapse in={false}> {/* todo Not working, check state */}
@@ -76,8 +76,9 @@ const Post = ({postData}) => {
                 <Stack className="postBody">
                     {postBody ? postBody.toString() : ''}
                 </Stack>
-                <PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>
-            </Card></div>
+                {/*<PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>*/}
+            </Card>
+        </div>
     );
 };
 

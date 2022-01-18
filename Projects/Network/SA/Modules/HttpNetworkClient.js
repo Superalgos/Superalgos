@@ -70,7 +70,7 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
         return promise
     }
 
-    async function sendTestMessage() {
+    async function sendTestMessage(networkServide) {
         /*
         This function us to check if a network node is online and will 
         receive an http request when needed.
@@ -81,10 +81,10 @@ exports.newNetworkModulesHttpNetworkClient = function newNetworkModulesHttpNetwo
             setTimeout(checkPromise, TIMEOUT_FOR_NETWORK_NODE_TO_RESPOND)
             const axios = SA.nodeModules.axios
             axios
-                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping')
+                .post('http://' + thisObject.host + ':' + thisObject.port + '/Ping/' + networkServide)
                 .then(res => {
                     if (res.data.indexOf("Pong") >= 0) {
-                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Http Client Detected Network Node is Online .................................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                         promiseStatus = 'Resolved'
                         resolve()
                     } else {

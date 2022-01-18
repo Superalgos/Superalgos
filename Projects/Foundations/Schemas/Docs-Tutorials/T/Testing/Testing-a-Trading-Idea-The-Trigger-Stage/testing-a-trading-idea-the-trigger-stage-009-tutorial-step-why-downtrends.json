@@ -15,6 +15,11 @@
                 "updated": 1639261270294
             },
             {
+                "language": "RU",
+                "text": "Если вы обратили внимание на первый учебник из серии о торговых системах, вы должны знать ответ на поставленный выше вопрос!",
+                "updated": 1640934224457
+            },
+            {
                 "language": "TR",
                 "text": "Ticaret sistemleri serisindeki ilk öğreticiye dikkat ettiyseniz, yukarıdaki sorunun cevabını biliyor olmalısınız!",
                 "updated": 1641064736718
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Im zweiten Tutorial der Serie haben wir zwei ähnliche Hypothesen aufgestellt: eine betrifft den Handel in Aufwärtstrends und die zweite in Abwärtstrends.",
                     "updated": 1639261381894
+                },
+                {
+                    "language": "RU",
+                    "text": "Во втором уроке серии мы выдвинули две похожие гипотезы: одна из них касается торговли во время восходящих трендов, а вторая - во время нисходящих.",
+                    "updated": 1640934241567
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639261393124
                 },
                 {
+                    "language": "RU",
+                    "text": "Это две разные идеи, и их следует рассматривать как разные стратегии, потому что они будут работать с похожей логикой, но не с одной и той же!",
+                    "updated": 1640934260409
+                },
+                {
                     "language": "TR",
                     "text": "Bunlar iki farklı fikirdir ve farklı stratejiler olarak ele alınmalıdır, çünkü benzer mantığı ele alacaklardır, ancak aynı değildir!",
                     "updated": 1641064822434
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Wir werden uns zunächst auf die Abwärtstrend-Strategie konzentrieren, weil ich sie für die vielversprechendste halte!",
                     "updated": 1639261415074
+                },
+                {
+                    "language": "RU",
+                    "text": "Сначала мы сосредоточимся на стратегии Downtrend, потому что я считаю ее наиболее перспективной!",
+                    "updated": 1640934273889
                 },
                 {
                     "language": "TR",

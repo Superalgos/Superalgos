@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Überprüfen Sie, ob die Charting Space Datenstrukturen für den entsprechenden Market erfolgreich erstellt wurden.",
                 "updated": 1636470181662
+            },
+            {
+                "language": "TR",
+                "text": "İlgili Borsa ( Market ) için Grafik Alanı ( Charting Space ) veri yapılarının başarıyla oluşturulduğunu doğrulayın.",
+                "updated": 1642163570821
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Suchen Sie nach den folgenden Datenstrukturen:",
                     "updated": 1636470213873
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki veri yapılarını bulun:",
+                    "updated": 1642163686885
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "DE",
                     "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Testing Trading Tasks erstellt wurde.",
                     "updated": 1636470376014
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Görevlerini Test Etme'de ( Testing Trading Tasks ) oluşturulan her Ticaret Oturumu için bir Zaman Makinesi ( Time Machine ) düğümü.",
+                    "updated": 1642163816154
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "DE",
                     "text": "Ein Time Machine Knoten für jede Handelssitzung, die in den Production Trading Tasks erstellt wurde.",
                     "updated": 1636470394173
+                },
+                {
+                    "language": "TR",
+                    "text": "Üretim Ticareti Görevlerinde ( Production Trading Tasks ) oluşturulan her ticaret oturumu için bir Zaman Makinesi ( Time Machine ) düğümü.",
+                    "updated": 1642163915545
                 }
             ]
         }

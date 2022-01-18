@@ -1,0 +1,32 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 3,
+    "type": "Governance Profile Definitions",
+    "definition": {
+        "text": "The Superalgos Governance profile is a key part of the peer to peer network.",
+        "updated": 1642463519899
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "It is especially important for signal sending and receiving. Users define under their Profiles a number of important things:",
+            "updated": 1642463531864
+        },
+        {
+            "style": "List",
+            "text": "Which apps or nodes they are going to run."
+        },
+        {
+            "style": "List",
+            "text": "What Social Trading Bots belong to this user (Social trading bots can be thought of as collections of signals). "
+        },
+        {
+            "style": "List",
+            "text": "The location of the open storage where signals will be stored."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

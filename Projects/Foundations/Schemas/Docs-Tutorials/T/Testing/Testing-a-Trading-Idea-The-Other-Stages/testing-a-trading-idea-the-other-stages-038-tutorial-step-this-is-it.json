@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dies ist der Knoten, zu dem Sie den Bezug herstellen müssen: Market Buy Order #1.",
                 "updated": 1639418046336
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, referansı oluşturmanız gereken düğümdür: Piyasa Satın Alma Emri #1 ( Market Buy Order ).",
+                "updated": 1641797215998
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Merken Sie sich die Tricks für die Reise!",
                     "updated": 1639418054977
+                },
+                {
+                    "language": "TR",
+                    "text": "Yolculuk için püf noktalarını ezberleyin!",
+                    "updated": 1641797228941
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Verwenden Sie die Karte des design space so oft wie nötig, um den Weg von Knoten zu Knoten zu finden.",
                     "updated": 1639418065682
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümden düğüme yolunuzu bulmak için tasarım alanı haritasını gerektiği kadar kullanın.",
+                    "updated": 1641797241902
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Pinnen Sie den Knoten, den Sie im design space verschieben wollen, an, so dass Sie ihn an jedem beliebigen Punkt loslassen können, um die design space map auf Richtungen zu überprüfen.",
                     "updated": 1639418074198
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım alanı haritasındaki yönü kontrol etmek için herhangi bir noktada serbest bırakabilmeniz için tasarım alanında taşınacak düğümü sabitleyin.",
+                    "updated": 1641797251031
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "DE",
                     "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
                     "updated": 1639418096221
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın kullanın. Düğmeleri basılı tutun ve düğüm uçsun!",
+                    "updated": 1641797264584
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Entfernen Sie den Stift, sobald der Bezug hergestellt ist, damit der Knoten an seinen Platz zurückkehrt.",
                     "updated": 1639418109161
+                },
+                {
+                    "language": "TR",
+                    "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra sabitlemeyi kapatın.",
+                    "updated": 1641797272808
                 }
             ]
         }

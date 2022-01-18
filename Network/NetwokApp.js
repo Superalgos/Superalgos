@@ -1,8 +1,8 @@
 exports.newNetworkApp = function newNetworkApp() {
 
     let thisObject = {
-        p2pNetwork: undefined,
-        p2pNetworkPeers: undefined,
+        p2pNetworkReachableNodes: undefined,
+        p2pNetworkNodesConnectedTo: undefined,
         p2pNetworkNode: undefined,
         webSocketsInterface: undefined,
         httpInterface: undefined,
@@ -43,8 +43,8 @@ exports.newNetworkApp = function newNetworkApp() {
             Let's discover which are the nodes at the p2p network and have an array of nodes
             to which we can connect to. This module will run the rules of who we can connect to.
             */
-            thisObject.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-            await thisObject.p2pNetwork.initialize(
+            thisObject.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
+            await thisObject.p2pNetworkReachableNodes.initialize(
                 'Network Peer',
                 thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.config.codeName,
                 thisObject.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type,
@@ -54,11 +54,11 @@ exports.newNetworkApp = function newNetworkApp() {
             Set up a pool of connections to different network nodes, so that later
             we can send a message to any of them.
             */
-            thisObject.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
-            await thisObject.p2pNetworkPeers.initialize(
+            thisObject.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
+            await thisObject.p2pNetworkNodesConnectedTo.initialize(
                 'Network Peer',
                 thisObject.p2pNetworkNode,
-                thisObject.p2pNetwork,
+                thisObject.p2pNetworkReachableNodes,
                 thisObject.p2pNetworkInterface,
                 global.env.P2P_NETWORK_NODE_MAX_OUTGOING_PEERS
             )

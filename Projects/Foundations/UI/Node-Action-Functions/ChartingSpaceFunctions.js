@@ -30,10 +30,13 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
         we find there inside the layers manager. We will end up having at the end
         all layers referencing the data products inside the referenced branch.
         */
+        let newUiObjects = []
         let mine = node.payload.referenceParent
         scanBotArray(mine.botProducts)
 
         function scanBotArray(botArray) {
+            if (botArray === undefined) { return }
+
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
                 let botLayers = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Bot Layers')
@@ -49,6 +52,10 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     'Layer Folder',
                     undefined
                 )
+
+                if (botLayers !== undefined) {
+                    newUiObjects.push(botLayers)
+                }
                 /*
                 There are some layers that should not exist, for example the ones related to Data Products
                 that do not have a plotter module. Since our previous action created all layers no matter
@@ -88,6 +95,8 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingTimeMachines(node, rootNodes) {
@@ -95,6 +104,8 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             node.payload.uiObject.setErrorMessage('This node needs to have a Reference Parent for this command tu run.')
             return
         }
+
+        let newUiObjects = []
 
         for (let i = 0; i < rootNodes.length; i++) {
             let rootNode = rootNodes[i]
@@ -126,6 +137,8 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             scanSessionArray(liveLearningSessionsArray, 'Market Trading Tasks')
 
             function scanSessionArray(sessionsArray, nodeType) {
+                if (sessionsArray === undefined) { return }
+
                 for (let i = 0; i < sessionsArray.length; i++) {
                     let session = sessionsArray[i]
                     let environment = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, node.payload.referenceParent.type, undefined, true, false, true, false)
@@ -134,11 +147,16 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     let market = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, nodeType, undefined, true, false, true, false)
                     if (market.payload.referenceParent === undefined) { continue }
                     if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, session, true) === true) {
-                        createTimeMachine(node, session, market.payload.referenceParent, lanNetworkNode, rootNodes)
+                        let timeMachine = createTimeMachine(node, session, market.payload.referenceParent, lanNetworkNode, rootNodes)
+                        if (timeMachine !== undefined) {
+                            newUiObjects.push(timeMachine)
+                        }
                     }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function createTimeMachine(dashboard, session, market, lanNetworkNode, rootNodes) {
@@ -361,6 +379,8 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             menu.internalClick('Add All Mine Layers')
             menu.internalClick('Add All Mine Layers')
         }
+
+        return timeMachine
     }
 
     function addMissingDashboards(node, rootNodes) {
@@ -371,6 +391,8 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                 scanNetwork(network)
             }
         }
+
+        let newUiObjects = []
 
         function scanNetwork(network) {
             if (network === undefined) { return }
@@ -390,30 +412,45 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                     let dashboard = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dashboard, testingTradingTasks)
                     dashboard.name = testingTradingTasks.type + ' ' + lanNetworkNode.name
+                    if (dashboard !== undefined) {
+                        newUiObjects.push(dashboard)
+                    }
                 }
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, productionTradingTasks, true) === true) {
                     let dashboard = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dashboard, productionTradingTasks)
                     dashboard.name = productionTradingTasks.type + ' ' + lanNetworkNode.name
+                    if (dashboard !== undefined) {
+                        newUiObjects.push(dashboard)
+                    }
                 }
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, testingPortfolioTasks, true) === true) {
                     let dashboard = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dashboard, testingPortfolioTasks)
                     dashboard.name = testingPortfolioTasks.type + ' ' + lanNetworkNode.name
+                    if (dashboard !== undefined) {
+                        newUiObjects.push(dashboard)
+                    }
                 }
 
                 if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, productionPortfolioTasks, true) === true) {
                     let dashboard = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Dashboard')
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(dashboard, productionPortfolioTasks)
                     dashboard.name = productionPortfolioTasks.type + ' ' + lanNetworkNode.name
+                    if (dashboard !== undefined) {
+                        newUiObjects.push(dashboard)
+                    }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addMissingProjectDashboards(node, rootNodes) {
+        let newUiObjects = []
         for (let k = 0; k < PROJECTS_SCHEMA.length; k++) {
             let projectDefinition = PROJECTS_SCHEMA[k]
             let project = projectDefinition.name
@@ -428,15 +465,21 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
                         if (UI.projects.visualScripting.utilities.nodeChildren.isMissingChildrenById(node, projectDefinition, true) === true) {
                             let projectTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Project Dashboards', undefined, project)
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(projectTasks, projectDefinition)
+                            if (projectTasks !== undefined) {
+                                newUiObjects.push(projectTasks)
+                            }
                         }
                     }
                 }
             }
         }
+
+        return newUiObjects
     }
 
     function addAllLayerPanels(node) {
         if (validateReferences(node) !== true) { return }
+        let newUiObjects = []
         let layerNode = node.payload.parentNode
 
         let plotterModule = layerNode.payload.referenceParent.payload.referenceParent.payload.referenceParent
@@ -444,11 +487,17 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             let plotterPanel = plotterModule.panels[i]
             let layerPanel = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Layer Panel')
             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(layerPanel, plotterPanel)
+            if (layerPanel !== undefined) {
+                newUiObjects.push(layerPanel)
+            }
         }
+
+        return newUiObjects
     }
 
     function addAllLayerPolygons(node) {
         if (validateReferences(node) !== true) { return }
+        let newUiObjects = []
         let layerNode = node.payload.parentNode
 
         let plotterModule = layerNode.payload.referenceParent.payload.referenceParent.payload.referenceParent
@@ -462,7 +511,12 @@ function newFoundationsFunctionLibraryChartingSpaceFunctions() {
             let polygon = plotterModule.shapes.polygons[i]
             let layerPolygon = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Layer Polygon')
             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(layerPolygon, polygon)
+            if (layerPolygon !== undefined) {
+                newUiObjects.push(layerPolygon)
+            }
         }
+
+        return newUiObjects
     }
 
     function validateReferences(node) {

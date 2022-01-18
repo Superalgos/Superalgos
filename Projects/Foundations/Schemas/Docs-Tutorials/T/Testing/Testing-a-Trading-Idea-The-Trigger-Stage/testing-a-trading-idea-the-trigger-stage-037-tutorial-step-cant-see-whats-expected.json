@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wenn Sie nicht sehen können, was ich in dem Video gezeigt habe, haben Sie wahrscheinlich eine oder mehrere meiner vorherigen Anweisungen übersprungen!",
                 "updated": 1641763445408
+                },
+                {
+                "language": "TR",
+                "text": "Videoda gösterdiklerimi göremiyorsanız, önceki talimatlardan birini veya birkaçını atlamış olabilirsiniz!",
+                "updated": 1641655510400
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Ich werde später noch auf einige Taktiken zur Fehlerbehebung eingehen, aber im Moment besteht die Lösung darin, im Tutorial zurückzugehen und sicherzustellen, dass Sie alles getan haben, was ich Ihnen gesagt habe!",
                     "updated": 1641763464944
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha sonra bazı sorun giderme taktiklerini ele alacağız, şimdilik çözüm, öğreticiye geri dönmek ve yapmanızı söylediğim her şeyi yaptığınızdan emin olmaktır.",
+                    "updated": 1641655570798
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Haben Sie die richtigen Ebenen aktiviert?",
                     "updated": 1641763475565
+                },
+                {
+                    "language": "TR",
+                    "text": "Doğru katmanları açtınız mı?",
+                    "updated": 1641655643205
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Haben Sie den Backtest ausgeführt?",
                     "updated": 1641763481595
+                },
+                {
+                    "language": "TR",
+                    "text": "Geri testi yaptınız mı?",
+                    "updated": 1641655649251
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "DE",
                     "text": "Haben Sie die Definitionen wie angewiesen eingerichtet?",
                     "updated": 1641763488940
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımları belirtildiği gibi ayarladınız mı?",
+                    "updated": 1641655635362
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "DE",
                     "text": "Haben Sie zwei Situationen im Trigger Off Event verwendet?",
                     "updated": 1641763496430
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetikleme Olayında ( Trigger Off Event ) iki durum kullandınız mı?",
+                    "updated": 1641655673934
                 }
             ]
         },
@@ -82,6 +112,11 @@
                     "language": "DE",
                     "text": "Gehen Sie im Lernprogramm Schritt für Schritt zurück und stellen Sie sicher, dass Sie keinen Schritt übersprungen haben!",
                     "updated": 1641763506682
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Eğitimde adım adım geriye gidin ve hiçbir adımı atlamadığınızdan emin olun!",
+                    "updated": 1641655692326
                 }
             ]
         }

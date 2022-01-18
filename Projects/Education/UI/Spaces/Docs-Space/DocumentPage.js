@@ -1740,7 +1740,7 @@ function newFoundationsDocsDocumentPage() {
                         sufix = ''
                         role = ''
                         key = key + '-link'
-                        innerHTML = UI.projects.education.utilities.docs.parseLink(paragraph.text)
+                        innerHTML = UI.projects.education.utilities.docs.parseLink(UI.projects.education.utilities.docs.getTextBasedOnLanguage(paragraph))
                         break
                     }
                     case 'Youtube': {

@@ -7,7 +7,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         host: undefined,
         port: undefined,
         callerRole: undefined,
-        p2pNetworkInterface: undefined,
+        p2pNetworkClient: undefined,
         p2pNetworkNode: undefined,
         p2pNetworkClientIdentity: undefined,
         p2pNetworkClientCodeName: undefined,
@@ -32,7 +32,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.port = undefined
         thisObject.callerRole = undefined
         thisObject.p2pNetworkNode = undefined
-        thisObject.p2pNetworkInterface = undefined
+        thisObject.p2pNetworkClient = undefined
         thisObject.p2pNetworkClientIdentity = undefined
         thisObject.onConnectionClosedCallBack = undefined
 
@@ -41,13 +41,13 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         onMessageFunctionsMap = undefined
     }
 
-    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode, p2pNetworkInterface, onConnectionClosedCallBack) {
+    async function initialize(callerRole, p2pNetworkClientIdentity, p2pNetworkNode, p2pNetworkClient, onConnectionClosedCallBack) {
 
         thisObject.callerRole = callerRole
         thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         thisObject.p2pNetworkClientCodeName = thisObject.p2pNetworkClientIdentity.node.config.codeName
         thisObject.p2pNetworkNode = p2pNetworkNode
-        thisObject.p2pNetworkInterface = p2pNetworkInterface
+        thisObject.p2pNetworkClient = p2pNetworkClient
         thisObject.onConnectionClosedCallBack = onConnectionClosedCallBack
 
         web3 = new SA.nodeModules.web3()
@@ -60,7 +60,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
         thisObject.socket = new SA.nodeModules.ws('ws://' + thisObject.host + ':' + thisObject.port)
         await setUpWebSocketClient()
 
-        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+        console.log('Websockets Client Connected to Network Node via Web Sockets .................. Connected to ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
         thisObject.isConnected = true
     }
 
@@ -157,8 +157,8 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                             We will check that the Network Node that responded has the same User Profile Handle
                             that we have on record, otherwise something is wrong and we should not proceed.
                             */
-                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle) {
-                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile Handle.')
+                            if (signedMessage.calledProfileHandle !== thisObject.p2pNetworkNode.userProfile.config.codeName) {
+                                console.log('[ERROR] Web Sockets Network Client -> stepOneResponse -> The Network Node called does not have the expected Profile codeName.')
                                 reject()
                                 return
                             }
@@ -227,7 +227,7 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
                 function onConnectionClosed() {
                     if (thisObject.isConnected === true) {
-                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userSocialProfile.userProfileHandle + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
+                        console.log('Websockets Client Disconnected from Network Node via Web Sockets ............. Disconnected from ' + thisObject.p2pNetworkNode.userProfile.config.codeName + ' -> ' + thisObject.p2pNetworkNode.node.name + ' -> ' + thisObject.host + ':' + thisObject.port)
                     }
                     if (thisObject.onConnectionClosedCallBack !== undefined) {
                         thisObject.onConnectionClosedCallBack(thisObject.id)
@@ -269,7 +269,6 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
             let socketMessage = {
                 messageId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 messageType: 'Request',
-                networkService: 'Social Graph',
                 payload: message
             }
             onMessageFunctionsMap.set(socketMessage.messageId, onMenssageFunction)
@@ -295,54 +294,54 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
 
     function onMenssage(socketMessage) {
 
-        let message = JSON.parse(socketMessage.data)
+        let messageHeader = JSON.parse(socketMessage.data)
         /*
         We get the function that is going to resolve or reject the promise given.
         */
-        let onMenssageFunction = onMessageFunctionsMap.get(message.messageId)
+        let onMenssageFunction = onMessageFunctionsMap.get(messageHeader.messageId)
 
         if (onMenssageFunction !== undefined) {
+            processAnswerToARequest(messageHeader)
+        } else {
+            processNotification(messageHeader)
+        }
+
+        function processAnswerToARequest(messageHeader) {
             /*
             The message received is a response to a message sent.
             */
-            onMessageFunctionsMap.delete(message.messageId)
-            onMenssageFunction(message)
-        } else {
+            onMessageFunctionsMap.delete(messageHeader.messageId)
+            onMenssageFunction(messageHeader)
+        }
+
+        function processNotification(messageHeader) {
             /*
             The message received is a not response to a message sent.
-            That means that is a notification received from the Network Node
+            That means that it is a notification received from the Network Node
             of an event or signal that happened at some other Client of the Network.
 
             This can only happen when this module is running at an APP like 
             the Desktop App, Server App, Platform App, or Task Server App.
             */
-            if (message.eventMessage !== undefined) {
-                let eventMessage
-                try {
-                    eventMessage = JSON.parse(message.eventMessage)
-                } catch (err) {
-                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
-                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
-                    thisObject.socket.close()
-                    return
+            switch (messageHeader.networkService) {
+                case 'Social Graph': {
+                    if (thisObject.p2pNetworkClient.socialGraphNetworkServiceClient !== undefined) {
+                        thisObject.p2pNetworkClient.socialGraphNetworkServiceClient.p2pNetworkInterface.messageReceived(
+                            messageHeader.payload,
+                            thisObject.p2pNetworkClient.eventReceivedCallbackFunction
+                            )
+                    } else {
+                        console.log('[WARN] Web Sockets Network Client -> Social Graph Network Service Client Not Running')
+                    }
+                    break
                 }
-                thisObject.p2pNetworkInterface.eventReceived(eventMessage)
-                return
+                case 'Trading Signals': {
+                    break
+                }
+                default: {
+                    console.log('[WARN] Web Sockets Network Client -> Network Service Not Supported -> messageHeader.networkService = ' + messageHeader.networkService)
+                }
             }
-
-            if (message.signal !== undefined) {
-                let signal
-                try {
-                    signal = JSON.parse(message.signal)
-                } catch (err) {
-                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> message = ' + message)
-                    console.log('[ERROR] Web Sockets Network Client -> onMenssage -> err.stack = ' + err.stack)
-                    thisObject.socket.close()
-                    return
-                }
-                thisObject.p2pNetworkInterface.signalReceived(signal)
-                return
-            }            
         }
     }
 }

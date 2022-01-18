@@ -4,14 +4,14 @@ import {IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {
     AccessibilityNewOutlined,
+    Autorenew,
     FavoriteBorder,
     MessageOutlined,
     Mood,
     OutletOutlined,
     SentimentVeryDissatisfied,
     SentimentVeryDissatisfiedOutlined,
-    ThumbUp,
-    Autorenew
+    ThumbUp
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {dialStyle} from "./reactionsStyle";
@@ -19,7 +19,7 @@ import {reactedPost} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import {useDispatch} from "react-redux";
 import {setModalPost} from "../../store/slices/post.slice";
-import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
+import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
@@ -72,9 +72,9 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const [replyModal, setReplyModal] = useState(false)
     const dispatch = useDispatch();
     const BadgeCounterValue = () => {
-        setLikeBadgeValue(reactions[0][1]) // need an callback
-        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
-        setBadgeValues(reactionsValue)
+        // setLikeBadgeValue(reactions[0][1]) // need an callback
+        // let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
+        // setBadgeValues(reactionsValue)
 
     }
 

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Box, Modal, Typography} from "@mui/material";
 import "./FooterReplyModal.css"
 import {useSelector} from "react-redux";
-import FooterReply from "../FooterReply/FooterReply";
+import FooterReply from "../footerReply/FooterReply";
 
 const FooterReplyModal = ({show, close}) => {
     const [modalBody, setModalBody] = useState() // review state. Needed?

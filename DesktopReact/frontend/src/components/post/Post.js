@@ -6,6 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedPost} from '../../store/slices/post.slice'
 import {ArrowBackOutlined} from "@mui/icons-material";
+import PostFooter from "../postFooter/PostFooter";
 
 
 const Post = ({postData}) => {
@@ -74,7 +75,7 @@ const Post = ({postData}) => {
                 <Stack className="postBody">
                     {postText ? postText.toString() : ''}
                 </Stack>
-                {/*<PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>*/}
+                <PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
             </Card>
         </div>
     );

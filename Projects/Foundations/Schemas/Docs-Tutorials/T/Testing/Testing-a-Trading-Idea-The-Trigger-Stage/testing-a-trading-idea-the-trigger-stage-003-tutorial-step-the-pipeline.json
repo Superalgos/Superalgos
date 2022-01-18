@@ -15,6 +15,11 @@
                 "updated": 1639254529126
             },
             {
+                "language": "RU",
+                "text": "Мы рассмотрим несколько тем! Давайте составим краткий список, чтобы использовать его в качестве руководства на этом пути!",
+                "updated": 1640933217678
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Birkaç konuyu ele alacağız! Yol boyunca rehber olarak kullanmak için hızlı bir liste yapalım!",
                 "updated": 1641062340210
@@ -33,6 +38,11 @@
                     "updated": 1639254545619
                 },
                 {
+                    "language": "RU",
+                    "text": "Этап срабатывания (Trigger Stage) с тремя событиями ( Trigger On Event, Trigger Off Event и Take Position Event).",
+                    "updated": 1640933269668
+                },
+                {
                     "language": "TR",
                     "text": "Üç olayı ile ( The Trigger Stage )Tetikleme Aşaması (Trigger On Event, Trigger Off Event ve Take Position Event).",
                     "updated": 1641062463720
@@ -43,6 +53,11 @@
             "style": "List",
             "text": "Basic definitions including what is a Situation, a Condition, and a Formula.",
             "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основные определения, в том числе, что такое Situation, Condition и Formula.",
+                    "updated": 1640933389023
+                },
                 {
                     "language": "TR",
                     "text": "Durum ( Situation ), Koşul ( Condition ) ve Formülün ( Formula ) ne olduğunu içeren temel tanımlar.",
@@ -58,6 +73,11 @@
                     "language": "DE",
                     "text": "Syntax, oder wie man Bedingungen und Formeln schreibt.",
                     "updated": 1639254566357
+                },
+                {
+                    "language": "RU",
+                    "text": "Синтаксис, или как писать условия и формулы.",
+                    "updated": 1640933399463
                 },
                 {
                     "language": "TR",
@@ -76,6 +96,11 @@
                     "updated": 1639254600203
                 },
                 {
+                    "language": "RU",
+                    "text": "Свойства индикатора и как их использовать.",
+                    "updated": 1640933408575
+                },
+                {
                     "language": "TR",
                     "text": "Gösterge özellikleri ve bunların nasıl kullanılacağı.",
                     "updated": 1641062602263
@@ -92,6 +117,11 @@
                     "updated": 1639254591072
                 },
                 {
+                    "language": "RU",
+                    "text": "Основы стадий открытия, управления и закрытия (Open Stage, Manage Stage и Close Stage).",
+                    "updated": 1640933522802
+                },
+                {
                     "language": "TR",
                     "text": "Açma ( Open ), Yönetme ve Aşamaları Kapatma ( Close ) temelleri.",
                     "updated": 1641062681418
@@ -106,6 +136,11 @@
                     "language": "DE",
                     "text": "Haben Sie schon über diese Themen gelesen? Keine Sorge... das werden Sie!",
                     "updated": 1639254609348
+                },
+                {
+                    "language": "RU",
+                    "text": "Читали ли вы об этих темах? Не волнуйтесь... обязательно прочитаете!",
+                    "updated": 1640933540491
                 },
                 {
                     "language": "TR",

@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "CCXT'de borsalar dışındaki kaynaklardan nasıl veri alacağınızı merak ediyor musunuz? Messari? Twitter? Bunu da düşündük!",
                 "updated": 1639836892838
+            },
+            {
+                "language": "RU",
+                "text": "Вам интересно, как получить данные из других источников, кроме бирж, в CCXT? Messari? Twitter? Мы поможем вам!",
+                "updated": 1640877284248
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "TR",
                     "text": "Superalgos, İnternet'teki herhangi bir API'den veri almanızı sağlar ve bunu yapmak için kod yazmanıza gerek yoktur! Bunun yerine, bir API Haritası ( API Map ) tasarlayabilir veya sistemle birlikte gönderilenleri kullanabilirsiniz!",
                     "updated": 1639836924296
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos позволяет вам получать данные из любого API в Интернете, и для этого не нужно писать код! Вместо этого вы можете разработать свой API Map или использовать те, которые поставляются вместе с системой!",
+                    "updated": 1640877320381
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "TR",
                     "text": "API Haritası ( API Map ), bir botun belirli bir API'ye nasıl erişebileceğini ve sunucudan gelen yanıtların nasıl yorumlanacağını belirleyen bir dizi tanımdır.",
                     "updated": 1639836950345
+                },
+                {
+                    "language": "RU",
+                    "text": "API Map - это набор определений, устанавливающих, как бот может получить доступ к определенному API и как интерпретировать ответы сервера.",
+                    "updated": 1640877362783
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "TR",
                     "text": "API ortamını keşfetmeye hazır olduğunuzda Veri Madenciliği konusunun bu bölümüne dalın!",
                     "updated": 1639836993378
+                },
+                {
+                    "language": "RU",
+                    "text": "Погрузитесь в этот раздел темы Data Mining, когда будете готовы к изучению возможностей API!",
+                    "updated": 1640877401322
                 }
             ]
         }

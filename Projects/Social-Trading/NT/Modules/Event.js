@@ -125,7 +125,7 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
             Is it related to Posting?
             */
             if (
-                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
+                thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST ||
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST ||
@@ -138,8 +138,8 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 New Social Persona Post
                 */
                 if (
+                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST ||
                     thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST ||
-                    thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_USER_POST ||
                     thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REPOST_SOCIAL_PERSONA_POST ||
                     thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_PERSONA_POST
                 ) {
@@ -315,20 +315,20 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_CARE
             ) {
 
-                let profileId
+                let socialEntityId
                 if (targetSocialTradingBot !== undefined) {
                     targetPost = targetSocialTradingBot.posts.get(thisObject.targetPostHash)
-                    profileId = targetSocialTradingBot.botProfileId
+                    socialEntityId = targetSocialTradingBot.id
                 } else {
                     targetPost = targetSocialPersona.posts.get(thisObject.targetPostHash)
-                    profileId = targetSocialPersona.userProfileId
+                    socialEntityId = targetSocialPersona.id
                 }
 
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.addReaction(thisObject.eventType - 100, profileId)
+                targetPost.addReaction(thisObject.eventType - 100, socialEntityId)
 
                 return true
             }
@@ -342,20 +342,20 @@ exports.newSocialTradingModulesEvent = function newSocialTradingModulesEvent() {
                 thisObject.eventType === SA.projects.socialTrading.globals.eventTypes.REMOVE_REACTION_CARE
             ) {
 
-                let profileId
+                let socialEntityId
                 if (targetSocialTradingBot !== undefined) {
                     targetPost = targetSocialTradingBot.posts.get(thisObject.targetPostHash)
-                    profileId = targetSocialTradingBot.botProfileId
+                    socialEntityId = targetSocialTradingBot.id
                 } else {
                     targetPost = targetSocialPersona.posts.get(thisObject.targetPostHash)
-                    profileId = targetSocialPersona.userProfileId
+                    socialEntityId = targetSocialPersona.id
                 }
 
                 if (targetPost === undefined) {
                     throw ('Target Post Not Found')
                 }
 
-                targetPost.removeReaction(thisObject.eventType - 100, profileId)
+                targetPost.removeReaction(thisObject.eventType - 100, socialEntityId)
 
                 return true
             }

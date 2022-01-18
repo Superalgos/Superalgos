@@ -1740,6 +1740,12 @@
                     "fileName": "Queries/Posts.js"
                 },
                 {
+                    "name": "Post",
+                    "propertyName": "queriesPost",
+                    "functionName": "newSocialTradingModulesQueriesPost",
+                    "fileName": "Queries/Post.js"
+                },
+                {
                     "name": "Followers",
                     "propertyName": "queriesFollowers",
                     "functionName": "newSocialTradingModulesQueriesFollowers",

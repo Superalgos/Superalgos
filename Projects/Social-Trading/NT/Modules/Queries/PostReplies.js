@@ -73,10 +73,10 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                fileKeys: fileKeys,
+                fileKeys: post.fileKeys,
                 repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions),
-                reaction: post.reactionsByProfile.get(thisObject.socialEntity.id)
+                reaction: post.reactionsBySocialEntity.get(thisObject.socialEntity.id)
             }
             response.push(postResponse)
         }

@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Но прежде чем мы продолжим, давайте убедимся, что мы начинаем со свежего рабочего пространства!",
                 "updated": 1640544060649
+            },
+            {
+                "language": "TR",
+                "text": "Ancak daha ileri gitmeden önce, yeni bir çalışma alanıyla başladığımızdan emin olalım!",
+                "updated": 1641717882769
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Рабочие пространства, отмеченные как Plugin Workspaces, поставляются вместе с программным обеспечением. Остальные являются вашими. Когда вы открываете рабочее пространство плагина, его копия создается для вас. Плагины всегда остаются неизменными.",
                     "updated": 1640544101842
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti Çalışma Alanları (Plugin Workspaces) olarak işaretlenen çalışma alanları (Workspaces), yazılımla birlikte gelir. Gerisi sizindir. Bir eklenti çalışma alanını açtığınızda, sizin için bir kopyası yapılır. Eklentiler (Plugins) her zaman değişmeden kalır.",
+                    "updated": 1641717980838
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "RU",
                     "text": "Этот учебник необходимо начинать со свежего рабочего пространства Plugin Weak-hands Buster v2. Поэтому, если вы не загрузили рабочее пространство плагина прямо перед началом, пожалуйста, выберите его на панели рабочего пространства слева и вернитесь ко мне после загрузки рабочего пространства - просто нажмите Resume в моем меню!",
                     "updated": 1640544149845
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğretici, yeni bir  Weak-hands Buster v2 çalışma alanıyla başlamayı gerektirir. Bu nedenle, eklenti çalışma alanını öğreteciyebaşlamadan hemen önce yüklemediyseniz, lütfen sol tarafta açılan çalışma alanı panelinden Weak-hands-Buster-v2-Demo çalışma alanını seçin ve çalışma alanı yüklendikten sonra bana geri dönün - menümdeki Devam Et'i tıklamanız yeterli!",
+                    "updated": 1641718190040
                 }
             ]
         }

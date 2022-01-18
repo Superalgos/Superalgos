@@ -43,6 +43,11 @@
                     "language": "RU",
                     "text": "С практической точки зрения торговая система - это иерархическая структура, организующая практические аспекты вашего инвестиционного плана. Иерархия содержит определения относительно любого количества торговых стратегий, работающих на одном рынке и имеющих одинаковое начальное распределение капитала.",
                     "updated": 1638338066276
+                },
+                {
+                    "language": "TR",
+                    "text": "Pratik anlamda, bir ticaret sistemi, yatırım planınızın uygulanabilir yönlerini düzenleyen hiyerarşik bir düzenlemedir. Hiyerarşi, tümü aynı piyasada faaliyet gösteren ve aynı başlangıç sermaye tahsisini paylaşan herhangi bir sayıda ticaret stratejisine ilişkin tanımları içerir.",
+                    "updated": 1642513001705
                 }
             ]
         },
@@ -59,6 +64,11 @@
                     "language": "RU",
                     "text": "Вы используете торговую систему для определения стратегий, следуя протоколу Superalgos, разбивая стратегии на четыре стадии (этапа, ступени, фазы): срабатывание, открытие, управление и закрытие.",
                     "updated": 1640191081570
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Protokolünü takip eden stratejileri tanımlamak, stratejileri dört aşamaya ayırmak için bir ticaret sistemi kullanırsınız. Bu aşamalar  Trigger, Open, Manage, and Close aşamalarıdır..",
+                    "updated": 1642513118816
                 }
             ]
         },
@@ -75,6 +85,11 @@
                     "language": "RU",
                     "text": "Концепция поэтапного описания стратегий является фундаментальной для методического аспекта торговой системы, поскольку она обеспечивает основу для запуска каждой стратегии с одной и той же структурой, что способствует разработке масштабируемых торговых систем, которые могут расширяться до любого количества стратегий.",
                     "updated": 1638338107057
+                },
+                {
+                    "language": "TR",
+                    "text": "Stratejileri aşamalar halinde tanımlama kavramı, her stratejiyi aynı çerçeve ile yürütmek için bir çerçeve sağladığından ve herhangi bir sayıda stratejiye dönüşebilecek ölçeklenebilir ticaret sistemlerinin geliştirilmesine katkıda bulunduğundan, ticaret sisteminin metodik yönü için esastır.",
+                    "updated": 1642513147547
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "RU",
                     "text": "Когда торговая система использует более одной стратегии, первая стратегия имеет приоритет над второй, вторая над третьей и так далее. Это означает, что стратегии оцениваются последовательно. Когда данная стратегия срабатывает, оставшиеся в очереди стратегии больше не оцениваются, пока стратегия не сработает. Другими словами, когда несколько стратегий развернуты в одной торговой системе, только одна стратегия может торговать в любой момент времени, а приоритет отдается порядку, установленному вокруг узла торговой системы.",
                     "updated": 1638338139127
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi birden fazla stratejiye sahip olduğunda, birinci strateji ikinciye, ikinci strateji üçüncüye göre önceliğe sahiptir ve bu böyle devam eder. Bu, stratejilerin bir sırayla değerlendirildiği anlamına gelir. Belirli bir strateji tetiklendiğinde, kuyrukta kalan stratejiler, strateji tetiklenene kadar artık değerlendirilmez. Başka bir deyişle, tek bir ticaret sistemi içinde birden fazla strateji konuşlandırıldığında, herhangi bir anda yalnızca bir strateji ticaret yapabilir ve ticaret sistemi düğümü etrafındaki sipariş tarafından öncelik verilir.",
+                    "updated": 1642513191527
                 }
             ]
         },
@@ -107,6 +127,11 @@
                     "language": "RU",
                     "text": "Как следствие вышесказанного, если вы хотите, чтобы стратегии работали на разных рынках, или вы хотите, чтобы стратегии могли открывать позиции одновременно, вы должны настроить эти стратегии в разных торговых системах.",
                     "updated": 1638338156830
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakilerin bir sonucu olarak, stratejilerin farklı pazarlarda işlemesini veya stratejilerin aynı anda pozisyon alabilmesini istiyorsanız, bu stratejileri farklı ticaret sistemlerinde kurmalısınız.",
+                    "updated": 1642513209866
                 }
             ]
         }

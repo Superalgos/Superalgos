@@ -12,7 +12,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
 
     function socialValidations(queryReceived, thisObject) {
         /*
-        Validate Social Profiles
+        Validate Social Personas
         */
         if (queryReceived.originSocialPersonaId !== undefined) {
             thisObject.socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(queryReceived.originSocialPersonaId)
@@ -29,7 +29,7 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
         }
 
         /*
-        Validate Bot Profile
+        Validate Social Trading Bot
         */
         if (queryReceived.targetSocialTradingBotId !== undefined) {
             thisObject.socialEntity = thisObject.socialEntity.bots.get(queryReceived.targetSocialTradingBotId)
@@ -41,13 +41,30 @@ exports.newSocialTradingUtilitiesQueriesValidations = function newSocialTradingU
 
     function postValidations(queryReceived, thisObject) {
         /*
-        Validate Post
+        If we have a Social Entity defined, then we will look
+        into the posts of that Social Entity, otherwise we will 
+        look into all posts of any Social Entity.
         */
-        thisObject.post = thisObject.socialEntity.posts.get(queryReceived.targetPostHash)
+        if (
+            queryReceived.targetSocialPersonaId !== undefined ||
+            queryReceived.targetSocialTradingBotId !== undefined
+        ) {
+            thisObject.post = thisObject.socialEntity.posts.get(queryReceived.originPostHash)
 
-        if (thisObject.post === undefined) {
-            throw ('Target Post Not Found.')
-        }
+            if (thisObject.post === undefined) {
+                thisObject.post = thisObject.socialEntity.posts.get(queryReceived.targetPostHash)
+            }
+
+            if (thisObject.post === undefined) {
+                throw ('Target Post Not Found At Target Social Entity.')
+            }
+        } else {
+            thisObject.post = SA.projects.socialTrading.globals.memory.maps.POSTS.get(queryReceived.originPostHash)
+
+            if (thisObject.post === undefined) {
+                throw ('Target Post Not Found Among All The Posts.')
+            }
+        }        
     }
 
     function arrayValidations(queryReceived, thisObject, array) {

@@ -5,6 +5,7 @@ exports.newSocialTradingGlobalsMemory = function () {
     let thisObject = {
         maps: {
             EVENTS: new Map(),                                  // This is the registry of all events received that prevents processing them more than once.            
+            POSTS: new Map(),
             USER_PROFILES_BY_SOCIAL_ENTITY_ID: new Map(),
             SOCIAL_PERSONAS_BY_ID: new Map(),                    
             SOCIAL_PERSONAS_BY_HANDLE: new Map(),

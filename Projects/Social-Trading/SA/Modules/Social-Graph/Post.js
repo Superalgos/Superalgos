@@ -27,7 +27,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         /* Maps */
         replies: undefined,
         reactions: undefined,
-        reactionsByProfile: undefined,
+        reactionsBySocialEntity: undefined,
         /* Reaction Functions */
         addReaction: addReaction,
         removeReactions: removeReaction,
@@ -42,7 +42,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.fileKeys = undefined
         thisObject.replies = undefined
         thisObject.reactions = undefined
-        thisObject.reactionsByProfile = undefined
+        thisObject.reactionsBySocialEntity = undefined
     }
 
     function initialize(
@@ -70,7 +70,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
         thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
 
-        thisObject.reactionsByProfile = new Map()
+        thisObject.reactionsBySocialEntity = new Map()
         /*
         Assimilating Parameters
         */
@@ -115,11 +115,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         }
     }
 
-    function addReaction(reactionType, profileId) {
+    function addReaction(reactionType, socialEntityId) {
         /*
         Remember who reacted
         */
-        thisObject.reactionsByProfile.set(profileId, reactionType)
+        thisObject.reactionsBySocialEntity.set(socialEntityId, reactionType)
         /*
         Increase Counter
         */
@@ -132,11 +132,11 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.reactions.set(reactionType, reactionCount + 1)
     }
 
-    function removeReaction(reactionType, profileId) {
+    function removeReaction(reactionType, socialEntityId) {
         /*
         Forget who reacted
         */
-        thisObject.reactionsByProfile.delete(profileId)
+        thisObject.reactionsBySocialEntity.delete(socialEntityId)
         /*
         Decrease Counter
         */

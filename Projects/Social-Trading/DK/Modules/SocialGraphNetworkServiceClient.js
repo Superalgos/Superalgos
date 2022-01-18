@@ -71,10 +71,14 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
                 switch (queryMessage.queryType) {
                     case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
-
+                        /*
+                        We go to the Social Graph Network Service to fetch the events.
+                        */
                         let events = await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
                         let eventsWithNoProblem = []
-
+                        /*
+                        For events that contains Posts, we need to go to the Open Storage to retrieve those posts.
+                        */
                         for (let i = 0; i < events.length; i++) {
                             let event = events[i]
                             if (
@@ -104,7 +108,30 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
                         break
                     }
+                    case SA.projects.socialTrading.globals.queryTypes.POST: {
+                        /*
+                        At this query, we go to the Social Graph, because we need the fileKeys to locate the Post content
+                        at the Open Storage.
+                        */
+                        let post = await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
+                        response = await loadPostFromStorage(post.fileKeys)
+
+                        if (response.result === "Ok") {
+                            post.postText = response.postText
+                        }
+
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: post
+                        }
+                        break
+                    }
                     default: {
+                        /*
+                        In general, all Queries go to the P2P Network to fetch information from the Social Graph. 
+                        Though, there are a few exceptions.
+                        */
                         response = {
                             result: 'Ok',
                             message: 'Web App Interface Query Processed.',

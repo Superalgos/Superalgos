@@ -9,7 +9,6 @@ import {ArrowBackOutlined} from "@mui/icons-material";
 
 
 const Post = ({postData}) => {
-    console.log(postData)
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();

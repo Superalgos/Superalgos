@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 15,
+    "type": "Tutorial Step - Candles Volumes in Action",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "indicator-bot-instance"
+        },
+        "text": "Vollkommen richtig! Die Anzeigen beginnen zu arbeiten, sobald der Sensor Bot seine Arbeit beendet hat!",
+        "updated": 1614161798480
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Beobachte den Prozess von Candles Volumes. Es verwandelt die einminütigen Kerzen, die der Sensor Bot von der Börse herunterlädt, in Kerzen für alle Zeiträume.",
+            "updated": 1614162278741
+        },
+        {
+            "style": "Callout",
+            "text": "Was passiert, wenn es fertig ist?",
+            "updated": 1614162003932
+        },
+        {
+            "style": "Text",
+            "text": "Andere Bots benötigen Candles Volumes um die Arbeit aufnehmen zu können. Stellen Sie sich vor, ein Bot muss für alle Zeitrahmen einen einfachen gleitenden Durchschnitt von 20 Perioden berechnen. Es benötigt das Data Product der von Candles Volumes erzeugten Daten, als Eingabe für die SMA-Berechnung. Wir nennen soetwas eine Data Dependency (Datenabhängigkeit).",
+            "updated": 1614162537230
+        }
+    ]
+}

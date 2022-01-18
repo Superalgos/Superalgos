@@ -1,0 +1,34 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 19,
+    "type": "Tutorial Step - Warp-Speed Zooming!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-wheel-down"
+        },
+        "text": "Es gibt noch ein weiteres Tool, welches dir möglicherweise helfen kann, um Raum und Zeit zu manipulieren! Die native Browser-Zoomfunktion!",
+        "updated": 1614174034030
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Manchmal möchtest du möglicherweise größere Bereiche des Design Space visualisieren, als dein Bildschirm zulässt.",
+            "updated": 1614173858383
+        },
+        {
+            "style": "Callout",
+            "text": "Drücke Strg und bewege das Mausrad unter Windows oder ⌘ und - oder + unter Mac.",
+            "updated": 1614173904474
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Success",
+            "text": "Chrome zeigt die Zoomstufe in der oberen rechten Ecke an. Beim Vergrößern oder Verkleinern wird der Design Space auf dem Bildschirm zentriert. Verwende die Design Space Map, um dorthin zurückzukehren, wo du warst.",
+            "updated": 1614173983875
+        }
+    ]
+}

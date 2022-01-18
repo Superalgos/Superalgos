@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 12,
+    "type": "Tutorial Step - Let's Mine Some Data!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "run"
+        },
+        "text": "Öffne das Menü des Data Tasks node und suche die Schaltfläche \" Run All Project Data Tasks \" in der oberen rechten Ecke...",
+        "updated": 1614160279790
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Klicke auf die Schaltfläche \" Run All Project Data Tasks \"",
+            "updated": 1614160345396
+        },
+        {
+            "style": "Text",
+            "text": "Bestätige die Anfrage, indem du ein zweites Mal auf die Schaltfläche klickst. In ungefähr 30 Sekunden sollte unter dem Data Mine node eine Statusmeldung angezeigt werden, die angibt, dass 1 von 1 Exchange Data Tasks node ausgeführt wird.",
+            "updated": 1614160684399
+        },
+        {
+            "style": "Note",
+            "text": "Ihre Konsolen-App sollte im nächsten Schritt etwas Ähnliches wie das Video anzeigen.",
+            "updated": 1614160549333
+        }
+    ]
+}

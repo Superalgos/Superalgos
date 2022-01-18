@@ -38,6 +38,11 @@
                     "language": "EL",
                     "text": "Χρησιμοποιώντας το Χώρο Σχεδιασμού",
                     "updated": 1639093213601
+                },
+                {
+                    "language": "DE",
+                    "text": "Zugriff auf den Designbereich",
+                    "updated": 1642355220560
                 }
             ]
         },
@@ -54,6 +59,11 @@
                     "language": "EL",
                     "text": "Χρησιμοποιώντας το ποντίκι",
                     "updated": 1639093244725
+                },
+                {
+                    "language": "DE",
+                    "text": "Unter Verwendung der Maus",
+                    "updated": 1642355241210
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "EL",
                     "text": "Κάντε κλικ και σύρετε για να τραβήξετε το ρυθμιστικό προς τα πάνω και προς τα κάτω, κάνοντας περισσότερο χώρο για το Charting Space (Χώρο Γραφήματος) στην κορυφή ή το Design Space (Χώρο Σχεδίασης) στο κάτω μέρος.",
                     "updated": 1639093672892
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken und ziehen Sie, um den Schieberegler nach oben oder unten zu ziehen und so mehr Platz für den Charting Space (= Diagrammbereich) oben oder den Design Space (=Designbereich) unten zu schaffen.",
+                    "updated": 1642355328219
                 }
             ]
         },
@@ -97,11 +112,16 @@
                     "language": "EL",
                     "text": "Χρησιμοποιώντας το πληκτρολόγιο",
                     "updated": 1639093694414
+                },
+                {
+                    "language": "DE",
+                    "text": "Unter Verwendung der Tastatur",
+                    "updated": 1642355356624
                 }
             ]
         },
         {
-            "style": "Text",
+            "style": "Note",
             "text": "Use the following key combinations for the same purpose:",
             "updated": 1610040210636,
             "translations": [
@@ -114,6 +134,11 @@
                     "language": "EL",
                     "text": "Χρησιμοποιήστε τους παρακάτω συνδυασμούς πλήκτρων για τον ίδιο σκοπό:",
                     "updated": 1639093739482
+                },
+                {
+                    "language": "DE",
+                    "text": "Verwenden Sie die folgenden Tastenkombinationen für den gleichen Zweck:",
+                    "updated": 1642355647260
                 }
             ]
         },
@@ -131,6 +156,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + Shift + ↑ για να κλείσετε τον χώρο χαρτογράφησης και να ανοίξετε τον χώρο σχεδιασμού.",
                     "updated": 1639093796757
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + Shift + ↑ um den Diagrammbereich zu schließen und den Entwurfsbereich zu öffnen.",
+                    "updated": 1642355507331
                 }
             ]
         },
@@ -148,6 +178,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + Shift + ↓ για να κλείσετε τον χώρο σχεδιασμού και να ανοίξετε τον χώρο χαρτογράφησης.",
                     "updated": 1639093839437
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + Shift + ↓ um den Entwurfsbereich zu schließen und den Darstellungsbereich zu öffnen.",
+                    "updated": 1642355686649
                 }
             ]
         },
@@ -165,6 +200,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + Shift + → για να χαμηλώσετε σταδιακά το ρυθμιστικό.",
                     "updated": 1639093867198
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + Shift + → um den Balken schrittweise abzusenken.",
+                    "updated": 1642355812514
                 }
             ]
         },
@@ -182,6 +222,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + Shift + ← για να ανυψώσετε σταδιακά το ρυθμιστικό.",
                     "updated": 1639093896769
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + Shift + ← um den Balken schrittweise anzuheben.",
+                    "updated": 1642355820875
                 }
             ]
         },
@@ -221,6 +266,11 @@
                     "language": "EL",
                     "text": "Κάντε αριστερό κλικ στο μαύρο φόντο και σύρετε για να μετακινηθείτε στον χώρο εργασίας.",
                     "updated": 1639093942212
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicke mit der linken Maustaste auf den schwarzen Hintergrund und halte die Maustaste gedrückt um dich in deinem Workspace zu bewegen.",
+                    "updated": 1642355952474
                 }
             ]
         },
@@ -237,6 +287,11 @@
                     "language": "EL",
                     "text": "Μπορείτε επίσης να χρησιμοποιήσετε τους παρακάτω συνδυασμούς πλήκτρων στο πληκτρολόγιό σας:",
                     "updated": 1639093962788
+                },
+                {
+                    "language": "DE",
+                    "text": "Du kannst auch die folgenden Tastenkombinationen auf deiner Tastatur verwenden: (ctrl=strg)",
+                    "updated": 1642356247019
                 }
             ]
         },
@@ -254,6 +309,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + ← για μετακίνηση προς τα αριστερά.",
                     "updated": 1639094055433
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + ← um nach links zu schwenken.",
+                    "updated": 1642356009699
                 }
             ]
         },
@@ -271,6 +331,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + → για μετακίνηση προς τα δεξιά.",
                     "updated": 1639094107814
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + → um nach rechts zu schwenken.",
+                    "updated": 1642356022119
                 }
             ]
         },
@@ -288,6 +353,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + ↑ για μετατόπιση προς τα πάνω.",
                     "updated": 1639094609582
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + ↑ nach oben zu schwenken.",
+                    "updated": 1642356034336
                 }
             ]
         },
@@ -305,6 +375,11 @@
                     "language": "EL",
                     "text": "Ctrl ή ⌘ + ↓ για μετατόπιση προς τα κάτω.",
                     "updated": 1639094646453
+                },
+                {
+                    "language": "DE",
+                    "text": "Ctrl or ⌘ + ↓ um nach unten zu schwenken.",
+                    "updated": 1642356048329
                 }
             ]
         },
@@ -331,6 +406,11 @@
                     "language": "TR",
                     "text": "Düğümleri Hareket Ettirme",
                     "updated": 1639559194080
+                },
+                {
+                    "language": "DE",
+                    "text": "Verschieben von Knoten",
+                    "updated": 1642356064496
                 }
             ]
         },
@@ -352,6 +432,11 @@
                     "language": "TR",
                     "text": "Bir düğümü hareket ettirmenin iki ana yolu vardır:",
                     "updated": 1639559222099
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt zwei Möglichkeiten, einen Knoten zu verschieben:",
+                    "updated": 1642356085129
                 }
             ]
         },
@@ -374,6 +459,11 @@
                     "language": "TR",
                     "text": "Hangi yöntemi kullanırsanız kullanın, düğümün Sabitlendiğinden emin olun. Aksi takdirde ilk konumuna geri dönecektir.",
                     "updated": 1639559259613
+                },
+                {
+                    "language": "DE",
+                    "text": "Unabhängig davon, welche Methode du verwendest, stelle sicher, dass der Knoten angeheftet ist. Andernfalls rastet er wieder an seiner ursprünglichen Position ein.",
+                    "updated": 1642356117385
                 }
             ]
         },
@@ -395,6 +485,11 @@
                     "language": "TR",
                     "text": "Ctrl tuşunu basılı tutarken bir düğüme tıklayın. Ardından, düğümü istediğiniz konuma sürüklemek için ← → ↑ ↓ ok tuşlarını kullanın.",
                     "updated": 1639559282110
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicke bei gedrückter Ctrl (Strg-Taste) auf einen Knoten. Ziehe dann den Knoten mit den Pfeiltasten ← → ↑ ↓ an die gewünschte Stelle.",
+                    "updated": 1642356175668
                 }
             ]
         },
@@ -417,6 +512,11 @@
                     "language": "TR",
                     "text": "İkinci yöntem, taşımak istediğiniz düğümü kopyalar ve ardından onu yeni konumuna tutturur. Bunu yapmak için öncelikle taşımak istediğiniz düğüm üzerinde \"Save Node to Move\" menü seçeneğini bulun ve tıklayın. Ardından, mevcut düğümü istediğiniz yere yakın farklı bir düğüme gidin ve \"Snap Saved Node to Position\" düğmesini tıklayın.",
                     "updated": 1639559518430
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei der zweiten Methode wird der zu verschiebende Knoten kopiert und dann an der neuen Position eingerastet. Suche dazu zunächst die Menüoption \"Save Node to Move\" auf dem Knoten, den du verschieben möchtest, und klicke darauf. Gehe dann zu einem anderen Knoten in der Nähe der Stelle, an die du den aktuellen Knoten verschieben möchtest, und klicken auf die Schaltfläche \"Saved Node to Position\".",
+                    "updated": 1642356466435
                 }
             ]
         },
@@ -444,6 +544,11 @@
                     "language": "TR",
                     "text": "Düğüm tutturmayıı gerçekleştirmek için klavye kısayolları da vardır. Daha fazla ayrıntı için Klavye kısayolları kılavuz (keyboard Shortcut Quick Guide) sayfasına bakın.",
                     "updated": 1639559996161
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt auch Tastenkombinationen, um das Einrasten von Knoten zu erreichen. Weitere Informationen findest du auf der Seite Keyboard Shortcut Quick Guide (=Tastaturkürzel Kurzanleitung).",
+                    "updated": 1642356600922
                 }
             ]
         },
@@ -466,6 +571,11 @@
                     "language": "TR",
                     "text": "Bu UI hileleri hayatınızı da kolaylaştırabilir:",
                     "updated": 1639560015801
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese UI-Tricks können auch dein Leben einfacher machen:",
+                    "updated": 1642356536600
                 }
             ]
         },
@@ -487,6 +597,11 @@
                     "language": "TR",
                     "text": "Bir hiyerarşiden diğerine yolunuzu bulmak için tasarım alanı haritasını kullanın.",
                     "updated": 1639560044722
+                },
+                {
+                    "language": "DE",
+                    "text": "Benutze die Design space map so oft wie nötig, um von einer Hierarchie zur anderen zu gelangen.",
+                    "updated": 1642356651071
                 }
             ]
         },
@@ -508,6 +623,11 @@
                     "language": "TR",
                     "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra pini kaldırın",
                     "updated": 1639560070536
+                },
+                {
+                    "language": "DE",
+                    "text": "Entferne den pin, sobald der Bezug hergestellt ist, damit der Knoten wieder an seinen Platz zurückkehrt.",
+                    "updated": 1642356686839
                 }
             ]
         },
@@ -533,6 +653,11 @@
                     "language": "TR",
                     "text": "Klavye Kısayolları",
                     "updated": 1639560087669
+                },
+                {
+                    "language": "DE",
+                    "text": "Tastaturkurzbefehle",
+                    "updated": 1642356696638
                 }
             ]
         },
@@ -550,6 +675,11 @@
                     "language": "EL",
                     "text": "Το Superalgos προσφέρει επίσης μια σειρά από συντομεύσεις πληκτρολογίου για να διευκολύνει την εργασία με την πλατφόρμα. Μπορείτε να βρείτε μια λίστα με όλες τις τρέχουσες συντομεύσεις στη σελίδα Keyboard Shortcut Quick Guide (Γρήγορος οδηγός συντόμευσης πληκτρολογίου).",
                     "updated": 1639096945615
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos bietet auch eine Reihe von Tastenkombinationen an, um die Arbeit mit der Plattform zu erleichtern. Eine Liste aller aktuellen Tastenkombinationen findest du auf der Keyboard Shortcut Quick Guide page.",
+                    "updated": 1642356722360
                 }
             ]
         },

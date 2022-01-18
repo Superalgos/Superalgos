@@ -1,0 +1,35 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 1,
+    "type": "Tutorial - Welcome to Superalgos!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Ich bin ein interaktives Tutorial, das erste einer Reihe, das dir den Einstieg erleichtern und alle Grundlagen beibringen soll!",
+        "updated": 1614095457639
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Ich werde dir den Einstieg erleichtern, die Werkzeuge zeigen, mit denen du dich bequem bewegen kannst, und dir helfen, all die coolen Dinge zu entdecken, die Superalgos für dich tun kann.",
+            "updated": 1614095373232
+        },
+        {
+            "style": "Callout",
+            "text": "Ich bin das ultimative Superalgos-Einstiegs-Tool! Es ist ein Fehler, auf andere Weise mit Superalgos zu beginnen, da keine andere Weg dich schneller auf den neuesten Stand bringt.",
+            "updated": 1614095419340
+        },
+        {
+            "style": "Callout",
+            "text": "Ich werde die meisten deiner Fragen beantworten!",
+            "updated": 1614095436263
+        },
+        {
+            "style": "Success",
+            "text": "Um fort zu fahren, bitte auf Next klicken!",
+            "updated": 1614093835071
+        }
+    ]
+}

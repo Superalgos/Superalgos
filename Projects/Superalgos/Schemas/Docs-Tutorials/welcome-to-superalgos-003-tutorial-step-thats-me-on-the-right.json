@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 3,
+    "type": "Tutorial Step - That's Me On the Right!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Tutorials sind im System definiert, sodass du selbst welche erstellen kannst, wenn du willst! Aber wir diskutieren diese gottähnliche Kraft später. Konzentrieren wir uns ersteinmal auf die Grundlagen!",
+        "updated": 1614095995613
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Superalgos ist von Natur aus ein visuelles Werkzeug. Das System zeigt Informationen in hierarchischen Strukturen, durch miteinander verbundener Knoten, die als Symbole dargestellt werden. Was du rechts siehst, ist eine dieser Hierarchien - insbesondere eine Tutorial-Hierarchie mit dem Namen \"Welcome to Superalgos!\"",
+            "updated": 1614096247441
+        },
+        {
+            "style": "Callout",
+            "text": "Bewege den Mauszeiger über das Tutorial-Node und sieh, was passiert! Wow! Cool, oder? Das sind viele Schaltflächen!",
+            "updated": 1614154226793
+        }
+    ]
+}

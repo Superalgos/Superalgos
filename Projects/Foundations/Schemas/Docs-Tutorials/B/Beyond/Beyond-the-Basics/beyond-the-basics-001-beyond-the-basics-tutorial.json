@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "В этом руководстве рассматриваются настройки, позволяющие приложению взаимодействовать с вашим форком на Github, команды для обновления приложения, переключение веток, а также способы внесения вклада в проект.",
                 "updated": 1640153991289
+            },
+            {
+                "language": "DE"
+                "text": "Dieses Tutorial behandelt die Einrichtung der App, damit diese mit deinem Github-Fork interagieren kann, sowie die Befehle zum Aktualisieren der App, das Wechseln von Zweigen und wie man zum Projekt beiträgt.",
+                "updated": 1642447161346,
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "О данном учебнике",
                     "updated": 1640154036258
+                },
+                {
+                    "language": "DE",
+                    "text": "Über dieses Tutorial",
+                    "updated": 1642447161346
                 }
             ]
         },

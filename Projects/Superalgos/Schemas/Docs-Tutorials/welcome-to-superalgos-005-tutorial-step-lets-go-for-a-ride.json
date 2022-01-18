@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 5,
+    "type": "Tutorial Step - Let's Go for a Ride!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network"
+        },
+        "text": "Bevor ich dir den Rest des Menüs zeige, werfen wir einen Blick auf eine andere Hierarchie: das Network.",
+        "updated": 1614097283956
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Die Network hierarchie ist der Kontrollraum des Systems. Hier steuers du die Data Tasks, die Testing Trading Tasks und die Production Trading Tasks.",
+            "updated": 1614097441197
+        },
+        {
+            "style": "Callout",
+            "text": "Erweitere die Hierarchie und wirf einen Blick hinein!",
+            "updated": 1614097603223
+        },
+        {
+            "style": "Text",
+            "text": "Siehst du die Knoten, die ich zuvor erwähnt habe? Cool! Wir sind hier, um deinen ersten Data Mining-Vorgang zu starten. Bevor wir beginnen, habe ich eine kurze Frage an dich: Greifst du remote auf den Client zu?",
+            "updated": 1614098400204
+        }
+    ]
+}

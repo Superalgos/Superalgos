@@ -20,6 +20,11 @@
                 "language": "TR",
                 "text": "Referans, bir düğümdeki bilgilerin diğer düğümlerle ilişkili kurma yoludur, düğümlerin birbirleri ile iletişim kurduğu bir mekanizmadır. Bir düğümün başka bir düğümle referans oluşturma yeteneği, birincinin ikincisinde yer alan bilgilere veya özelliklere erişmesini sağlar.",
                 "updated": 1639721694189
+            },
+            {
+                "language": "DE",
+                "text": "Um einen Bezug herzustellen, klicken Sie mit der rechten Maustaste auf den ersten Knoten und ziehen ihn in die Nähe des Zielknotens. Um eine Referenz zu entfernen, verwenden Sie die Schaltfläche Delink im Menü.",
+                "updated": 1642343552280
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "EL",
                     "text": "Κατεύθυνση",
                     "updated": 1638977276823
+                },
+                {
+                    "language": "DE",
+                    "text": "Richtung",
+                    "updated": 1642343072748
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "TR",
                     "text": "Referanslar, referansta yer alan düğümlerin her birine göre bir yön özelliğine sahiptir: referansı oluşturan düğüm giden bir referansı ayarlarken, referansı kabul eden bir gelen referansı ayarlar.",
                     "updated": 1639721717798
+                },
+                {
+                    "language": "DE",
+                    "text": "Referenzen haben eine Richtungseigenschaft in Bezug auf jeden der an der Referenz beteiligten Knoten: Der Knoten, der die Referenz herstellt, setzt eine ausgehende Referenz, während der Knoten, der die Referenz akzeptiert, eine eingehende Referenz setzt.",
+                    "updated": 1642343093012
                 }
             ]
         },
@@ -80,6 +95,11 @@
                     "language": "TR",
                     "text": "Örneğin, Geriye Dönük Test Oturumu ( Backtesting Session ), bir Ticaret Sistemi ( Trading System ) ile giden bir referans oluşturur. Bu, Geriye dönük test otuıtumunun stratejiler de dahil olmak üzere tüm ticaret sistemi hiyerarşisindeki bilgilere erişmesini sağlar. Ticaret sistemi düğümünde, aynı referans gelen referans olarak görülür.",
                     "updated": 1639721840641
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel stellt eine Backtesting-Sitzung eine ausgehende Referenz zu einem Handelssystem her. Dies ermöglicht der Sitzung den Zugriff auf die Informationen innerhalb der gesamten Handelssystemhierarchie, einschließlich der Strategien. Auf der Ebene des Handelssystems wird die gleiche Referenz als eingehende Referenz betrachtet.",
+                    "updated": 1642343111888
                 }
             ]
         },
@@ -101,6 +121,11 @@
                     "language": "TR",
                     "text": "Bir düğüm yalnızca bir giden referans üretebilir, ancak birkaç gelen referans alabilir.",
                     "updated": 1639721860207
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten darf nur eine ausgehende Referenz erzeugen, kann aber mehrere eingehende Referenzen aufnehmen.",
+                    "updated": 1642343125561
                 }
             ]
         },
@@ -122,6 +147,11 @@
                     "language": "TR",
                     "text": "Kapsam",
                     "updated": 1639721877331
+                },
+                {
+                    "language": "DE",
+                    "text": "Anwendungsbereich",
+                    "updated": 1642343149633
                 }
             ]
         },
@@ -143,6 +173,11 @@
                     "language": "TR",
                     "text": "Bir hiyerarşi içindeki herhangi bir yapının düğümleri arasında oluşturulan bir referansın, bahsedilen düğüm yapısına göre bir iç referanstır.Benzer şekilde, söz konusu yapının dışında, yani hiyerarşinin farklı bir bölümünde veya başka bir hiyerarşide bir düğümle kurulan bir referansa dış referans denir.",
                     "updated": 1639721964625
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Verweis, der zwischen Knoten einer bestimmten Struktur innerhalb einer Hierarchie hergestellt wird, wird als interner Verweis in Bezug auf die besagte Struktur von Knoten bezeichnet. Ebenso wird eine Referenz, die mit einem Knoten außerhalb der genannten Struktur, d. h. in einem anderen Teil der Hierarchie oder in einer anderen Hierarchie, hergestellt wird, als externe Referenz bezeichnet.",
+                    "updated": 1642343169232
                 }
             ]
         },
@@ -165,6 +200,11 @@
                     "language": "TR",
                     "text": "Dahili referans örnekleri Veri Madeni ( Data Mine ) ve Kripto Ekosistem ( Crypto Ecosystem ) hiyerarşilerinde bulunabilir. Örneğin, bir Plotter Modülü ( Plotter Module )  içinde böyle bir duruma kısaca bakalım.",
                     "updated": 1639722060706
+                },
+                {
+                    "language": "DE",
+                    "text": "Beispiele für interne Verweise finden sich in den Hierarchien Data Mine und Crypto Ecosystem. Schauen wir uns zum Beispiel kurz einen solchen Fall innerhalb eines Plotter-Moduls an.",
+                    "updated": 1642343214159
                 }
             ]
         },
@@ -187,6 +227,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki video, Shapes düğümünü ve ona bağlı birkaç alt düğümü gösteriyr: bir tarafta, birkaç Poligon ( Polygon ) düğümü; Öte yandan, Grafik Noktaları ( Chart Points ) düğümü.",
                     "updated": 1639722616225
+                },
+                {
+                    "language": "DE",
+                    "text": "Die folgende Abbildung zeigt den Knoten Formen und mehrere Unterknoten: auf der einen Seite mehrere Polygonknoten, auf der anderen Seite den Knoten Diagrammpunkte.",
+                    "updated": 1642343271312
                 }
             ]
         },
@@ -213,6 +258,11 @@
                     "language": "TR",
                     "text": "Polygon altındaki her Vertex'in, grafik noktaları düğümünün altındaki noktalara atıfta bulunduğuna dikkat edin.",
                     "updated": 1639722760063
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachte, dass die Scheitelpunkte unter jedem Polygon auf Punkte unter dem Diagrammpunkte-Knoten verweisen.",
+                    "updated": 1642343302353
                 }
             ]
         },
@@ -235,6 +285,11 @@
                     "language": "TR",
                     "text": "Burda, Şekiller düğümünün birkaç dahili referansa sahip olduğunu görüyoruz.",
                     "updated": 1639722858512
+                },
+                {
+                    "language": "DE",
+                    "text": "Das bedeutet, dass der Knoten Shapes mehrere interne Referenzen aufweist.",
+                    "updated": 1642343333437
                 }
             ]
         },
@@ -279,6 +334,11 @@
                     "language": "TR",
                     "text": "Grafiksel Gösterimi",
                     "updated": 1639723030727
+                },
+                {
+                    "language": "DE",
+                    "text": "Grafische Darstellung",
+                    "updated": 1642343364427
                 }
             ]
         },
@@ -301,6 +361,11 @@
                     "language": "TR",
                     "text": "Referanslar, soluk gri noktalı çizgilerle grafik olarak temsil edilir, ancak varsayılan olarak görünmezler. Fare işaretçisini referansı olan bir düğümün üzerine getirdiğinizde veya aşağıdaki tuş kombinasyonu ile tüm referansların görüntülenmesini etkinleştirdiğinizde referanslar görünür hale gelir:",
                     "updated": 1639723066967
+                },
+                {
+                    "language": "DE",
+                    "text": "Referenzen werden grafisch durch schwache graue gepunktete Linien dargestellt, sind aber standardmäßig nicht sichtbar. Referenzen werden sichtbar, wenn du mit dem Mauszeiger auf einen Knoten mit einer Referenz zeigst oder wenn du die Anzeige aller Referenzen mit der folgenden Tastenkombination aktivierst:",
+                    "updated": 1642343438373
                 }
             ]
         },
@@ -327,6 +392,11 @@
                     "language": "TR",
                     "text": "Referansların görünür olması için referansta yer alan her iki noa'nın da görünür olması gerekir.",
                     "updated": 1639723106478
+                },
+                {
+                    "language": "DE",
+                    "text": "Damit Referenzen sichtbar sind, müssen beide an der Referenz beteiligten Knoten sichtbar sein.",
+                    "updated": 1642343450221
                 }
             ]
         },
@@ -353,6 +423,11 @@
                     "language": "TR",
                     "text": "Referanslar Nasıl Kurulur ve Kaldırılır",
                     "updated": 1639723120906
+                },
+                {
+                    "language": "DE",
+                    "text": "Wie man Referenzen herstellt und entfernt",
+                    "updated": 1642343465683
                 }
             ]
         },

@@ -1,0 +1,29 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 4,
+    "type": "Tutorial Step - Expand That Node!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "expand-structure-of-nodes"
+        },
+        "text": "Jedes Node verfügt über ein Menü. Die Schaltfläche unten links erweitert und reduziert die Struktur des Nodes unterhalb des aktuellen Nodes.",
+        "updated": 1614154490041
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Klicke auf die Schaltfläche zum Erweitern!",
+            "updated": 1614154647350
+        },
+        {
+            "style": "Callout",
+            "text": "Das Tutorial-Node hat mehrere Unterpunkte, diese haben weitere Unterpunkte. Deshalb ist es eine Hierachie!"
+        },
+        {
+            "style": "Note",
+            "text": "Strukturierte, visuelle Darstellungen von Informationen, bilden den Kern, zur Verwaltung von komplexen, flexiblen und skalierbaren Handelsabläufe durch Superalgos.",
+            "updated": 1614097158799
+        }
+    ]
+}

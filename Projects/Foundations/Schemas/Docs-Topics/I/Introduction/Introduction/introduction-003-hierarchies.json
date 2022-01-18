@@ -20,6 +20,11 @@
                 "language": "EL",
                 "text": "Η ιεραρχία είναι μια δομή δεδομένων που αντιπροσωπεύει μια γενική έννοια ανώτατου επιπέδου, με αποτέλεσμα μια μακρά αλυσίδα κόμβων, συνήθως με πολλές διακλαδώσεις. Το σύστημα διαχειρίζεται διαφορετικούς τύπους ιεραρχιών, καθένας από αυτούς με μια συγκεκριμένη εστίαση.",
                 "updated": 1638970331511
+            },
+            {
+                "language": "DE",
+                "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes, übergeordnetes Konzept darstellt, das in einer langen Kette von Knotenpunkten resultiert, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, die jeweils einen bestimmten Schwerpunkt haben.",
+                "updated": 1642342175594
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "EL",
                     "text": "Στον χώρο σχεδίασης, η κεφαλή ή ο γονικός κόμβος κάθε ιεραρχίας αντιπροσωπεύεται από το αντίστοιχο εικονίδιο που περιβάλλεται από έναν πάντα παρόντα λευκό δακτύλιο, έτσι ώστε να είναι ευκολότερος ο εντοπισμός τους εντός του χώρου εργασίας.",
                     "updated": 1638970391081
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Entwurfsbereich wird der Kopf oder der übergeordnete Knoten jeder Hierarchie durch das entsprechende Symbol dargestellt, das von einem immer vorhandenen weißen Ring umgeben ist, so dass sie im Arbeitsbereich leichter zu finden sind.",
+                    "updated": 1642342214614
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "EL",
                     "text": "Οι ιεραρχίες που περιλαμβάνονται στον χώρο εργασίας ως πρόσθετα δεν αποθηκεύονται σε επίπεδο χώρου εργασίας. Ως εκ τούτου, οι αλλαγές που έγιναν σε αυτές τις ιεραρχίες δεν παραμένουν. Εάν θέλετε να τροποποιήσετε ένα πρόσθετο και να συνεχίσετε να εργάζεστε με την τροποποιημένη έκδοση στο μέλλον, πρέπει είτε να κλωνοποιήσετε είτε να δημιουργήσετε αντίγραφα ασφαλείας του πρόσθετου και να εργαστείτε στο αντίγραφο που προκύπτει.",
                     "updated": 1638970488797
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchien, die als Plugins in den Arbeitsbereich eingebunden sind, werden nicht auf Arbeitsbereichsebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
+                    "updated": 1642342248468
                 }
             ]
         },

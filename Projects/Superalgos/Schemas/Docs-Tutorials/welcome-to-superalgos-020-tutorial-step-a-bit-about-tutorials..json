@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 20,
+    "type": "Tutorial Step - A Bit About Tutorials...",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "tutorial"
+        },
+        "text": "Bevor wir wieder zur Sache kommen, möchte ich dir einige Dinge darüber erzählen, wie wir - Tutorials - arbeiten.",
+        "updated": 1614174555704
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Dies ist wahrscheinlich das Wichtigste: Du bist der Boss! Du kannst ein Lernprogramm jederzeit beenden und Schritte oder ganze Themen überspringen. Wenn du bereit bist, die Lektion wieder aufzunehmen, finden du uns in der unteren linken Ecke des Design Space . Wähle im Menü die Option Fortsetzen, um dort zu beginnen, wo du aufgehört hast, oder zu Beginn übersprungenen hast. Wähle Play, um von vorne zu beginnen!",
+            "updated": 1614174686369
+        },
+        {
+            "style": "Callout",
+            "text": "Lass es uns versuchen! Klicke unten auf die Schaltfläche Stopp. Wenn ich fort bin, öffne mein Menü und wähle Resume.",
+            "updated": 1614174737525
+        }
+    ]
+}

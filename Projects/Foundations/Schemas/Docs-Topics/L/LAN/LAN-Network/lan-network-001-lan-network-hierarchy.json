@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Иерархия LAN Network организует инфраструктуру для запуска ботов и хранения данных. Это иерархия, которую вы будете использовать чаще всего для управления системой.",
                 "updated": 1639561679466
+            },
+            {
+                "language": "DE",
+                "text": "Die LAN Network Hierarchy organisiert die Infrastruktur für den Betrieb von Bots und die Speicherung von Daten. Dies ist die Hierarchie, die du am häufigsten für den Betrieb des Systems verwenden wirst.",
+                "updated": 1642360315308
             }
         ]
     },

@@ -1,0 +1,25 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 6,
+    "type": "Tutorial Step - Remote Access!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network-node"
+        },
+        "text": "Mit Superalgos kann der Client auf einem Computer ausgeführt werden und über Chrome kann ein anderer Computer im Netzwerk auf diesen zugreifen.",
+        "updated": 1614097721702
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Viele Benutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputer wie dem Raspberry Pi oder auf einem dedizierten PC auszuführen, der für das live trading immer läuft. Der My Computer Network Node repräsentiert den Computer, auf dem der Client ausgeführt wird.",
+            "updated": 1614097927465
+        },
+        {
+            "style": "Warning",
+            "text": "Derzeit implementiert Superalgos keine Sicherheitsmaßnahmen. Du solltest das System nur im sicheren lokalen Netzwerk verwenden. Wenn du den Client in der Cloud ausführen möchtest, musst du eigene Sicherheitsmaßnahmen implementieren.",
+            "updated": 1614100383605
+        }
+    ]
+}

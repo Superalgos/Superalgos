@@ -1,0 +1,35 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 7,
+    "type": "Tutorial Step - Accessing Remotely?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "network-node"
+        },
+        "text": "Wenn du von dem Computer aus auf den Client zugreifst, auf dem Superalgos läuft, kannst du auf Next klicken und diesen Schritt jetzt überspringen!",
+        "updated": 1614100610400
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Wenn Sie von einem Remotecomputer aus auf den Client zugreifen, musst du das Network Node anpassen, bevor du fortfahren kannst.",
+            "updated": 1614100672918
+        },
+        {
+            "style": "List",
+            "text": "Klicke oben rechts auf Configure im Network Node Menü.",
+            "updated": 1614100738106
+        },
+        {
+            "style": "List",
+            "text": "Schreibe in den host parameter die IP-Adresse, des Gerätes, auf dem die Software ausgeführt wird.",
+            "updated": 1614111933101
+        },
+        {
+            "style": "List",
+            "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase entfernen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Network Node in einer Minute verschwinden!",
+            "updated": 1614102821350
+        }
+    ]
+}

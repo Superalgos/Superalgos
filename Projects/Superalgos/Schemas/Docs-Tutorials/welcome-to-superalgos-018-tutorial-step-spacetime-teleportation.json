@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 18,
+    "type": "Tutorial Step - Spacetime Teleportation!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "mouse-right-click"
+        },
+        "text": "Ok, du wirst nicht wirklich teleportiert, noch wirst du Raum und Zeit verbiegen, aber es fühlt sich fast so an! Es ist Zeit zu lernen, die Design Space Map zu verwenden.",
+        "updated": 1614172736645
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Ich habe vorhin erwähnt, dass der Design Space riesig ist, und ich habe es so gemeint! Von einer Ecke zur anderen zu gehen, würde Hunderte von Klicks und Zügen erfordern. Während du die Tastatur verwendest, kannst du halsbrecherische Geschwindigkeiten erreichen, aber es ist nicht so cool wie das Teleportieren! Und so funktioniert es:",
+            "updated": 1614173134123
+        },
+        {
+            "style": "Callout",
+            "text": "Klicke mit der rechten Maustaste, um die Karte zu öffnen, und klicke dann mit der linken Maustaste, um zu diesem bestimmten Punkt zu gelangen!",
+            "updated": 1614173025206
+        },
+        {
+            "style": "Text",
+            "text": "Siehst du mich in der unteren linken Ecke des Desing Space ? Jetzt weisst du, wo du mich finden kannst!",
+            "updated": 1614173094941
+        }
+    ]
+}

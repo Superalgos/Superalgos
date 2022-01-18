@@ -95,8 +95,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputern wie dem Raspberry Pi oder auf einem eigenen PC auszuführen, den sie beim Live-Handel immer eingeschaltet lassen können. Der My Computer Network Node stellt den Rechner dar, auf dem der Client ausgeführt wird.",
-                    "updated": 1634168869002,
+                    "text": "Viele Nutzer entscheiden sich dafür, den Client in der Cloud, auf Einplatinencomputern wie dem Raspberry Pi oder auf einem eigenen PC auszuführen, den sie beim Live-Handel immer eingeschaltet lassen können. Der My Computer LAN Network Node stellt den Rechner dar, auf dem der Client ausgeführt wird. ",
+                    "updated": 1642338138229,
                     "style": "Text"
                 },
                 {
@@ -143,8 +143,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos hat derzeit keine Form der Sicherheit implementiert. Sie sollten das System nur im Rahmen eines beschränkten LANs verwenden. Wenn Sie sich dafür entscheiden, den Client in der Cloud laufen zu lassen, müssen Sie Ihre eigene Sicherheit implementieren.",
-                    "updated": 1634160832892,
+                    "text": "Superalgos hat derzeit keine Form der Sicherheit implementiert. Das System sollte nur im Rahmen eines beschränkten LANs verwendet werden. Wenn Sie sich dafür entscheiden, den Client in der Cloud laufen zu lassen, musst du eigene Sicherheitsmechanismen implementieren.",
+                    "updated": 1642338213658,
                     "style": "Warning"
                 },
                 {

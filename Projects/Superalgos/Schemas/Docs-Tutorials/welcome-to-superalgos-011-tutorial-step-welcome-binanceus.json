@@ -1,0 +1,15 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 11,
+    "type": "Tutorial Step - Welcome Binanceus",
+    "definition": {
+        "text": "In diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
+        "updated": 1614159942058
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Superalgos/Tutorials/welcome-binanceus.gif"
+        }
+    ]
+}

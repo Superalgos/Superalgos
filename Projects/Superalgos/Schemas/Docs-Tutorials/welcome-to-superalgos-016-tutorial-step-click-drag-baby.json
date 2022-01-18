@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 16,
+    "type": "Tutorial Step - Click & Drag Baby!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "hand-drag"
+        },
+        "text": "Ich möchte dir etwas zeigen, während der Data Mining Task fortschreitet. Ich werde dir Laufen beibringen ... in zwei Sekunden!",
+        "updated": 1614168069724
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Einfach klicken und mit der Maus ziehen!",
+            "updated": 1614168086453
+        },
+        {
+            "style": "Text",
+            "text": "Einfach, richtig? Großartig! Der Designraum ist ein riesiger Ort, und ich möchte nicht, dass du vom herumziehen eine Sehnenenscheidentzündung bekommst.",
+            "updated": 1614168305284
+        },
+        {
+            "style": "Success",
+            "text": "Ich werde dir in den nächsten Schritten noch ein paar Tricks beibringen.",
+            "updated": 1614168322156
+        }
+    ]
+}

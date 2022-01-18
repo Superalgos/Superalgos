@@ -1,0 +1,30 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 17,
+    "type": "Tutorial Step - Time to Take Control!",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "key-ctrl"
+        },
+        "text": "Ja! Du kannst auch deine Tastatur verwenden! Du wirst es lieben, wenn du dich im Designbereich über große Entfernungen bewegst!",
+        "updated": 1614171948590
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Du kannst auch die Strg Taste und die Pfeiltasten verwenden: ← → ↑ ↓",
+            "updated": 1614172573686
+        },
+        {
+            "style": "Success",
+            "text": "Beachte, dass du über den Bildschirm fliegst, wenn du die Tasten gedrückt hälst!",
+            "updated": 1614171817641
+        },
+        {
+            "style": "Note",
+            "text": "Natürlich müssen Mac-Fanboys und Girls die Strg Taste durch die Cmd Taste ersetzen",
+            "updated": 1614172291328
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": 9,
+    "type": "Tutorial Step - Ready to Rock?",
+    "definition": {
+        "icon": {
+            "project": "Superalgos",
+            "name": "data-tasks"
+        },
+        "text": "Das Data Tasks Node steuert alle Data Mine Tasks, die in diesem Network Node definiert wurden.",
+        "updated": 1614155256840
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Beginne mit der ersten der folgenden Aktivitäten, die wir in den nächsten Minuten behandeln werden:",
+            "updated": 1614112768498
+        },
+        {
+            "style": "List",
+            "text": "1. Führe einen Data Mine Task aus, um Daten für den BTC/USDT-Markt von Binance abzurufen.",
+            "updated": 1614155117217
+        },
+        {
+            "style": "List",
+            "text": "2. Führe eine Backtesting Session mit einer vorhandenen Open-Source Strategy durch.",
+            "updated": 1614113142860
+        },
+        {
+            "style": "List",
+            "text": "3. Führe eine Live Trading Session mit minimalem Geldbetrag durch, um die kritischen Aspekte des Systems zu testen.",
+            "updated": 1614112932353
+        },
+        {
+            "style": "Callout",
+            "text": "Bist du cool damit? Sollen wir anfangen?",
+            "updated": 1614112946804
+        }
+    ]
+}

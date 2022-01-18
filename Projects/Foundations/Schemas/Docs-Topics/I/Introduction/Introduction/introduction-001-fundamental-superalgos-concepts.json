@@ -20,6 +20,11 @@
                 "language": "ES",
                 "text": "Superalgos simplifica y describe mediante jerarquías de nodos los conceptos fundamentales del Trading Inteligente. Los nodos pueden hacer referencia a otros nodos para acceder a información en otras jerarquías.",
                 "updated": 1641092262506
+            },
+            {
+                "language": "DE",
+                "text": "Superalgos bricht die Komplexität auf und beschreibt die grundlegenden Konzepte, die die Handelsintelligenz ausmachen, in Hierarchien von Knotenpunkten. Knoten können auf andere Knoten verweisen, um auf Informationen in anderen Hierarchien zuzugreifen.",
+                "updated": 1642342039203
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "ES",
                     "text": "El Trading algorítmico es una aplicación basada en datos. Es la capacidad superior de derivar inteligencia de los datos, sobre todo, lo que le da al Trading automatizado una ventaja sobre el Trading manual.",
                     "updated": 1641092284771
+                },
+                {
+                    "language": "DE",
+                    "text": "Algorithmischer Handel ist eine datengesteuerte Anwendung. Es ist vor allem die überlegene Fähigkeit, aus Daten Intelligenz abzuleiten, die dem automatisierten Handel einen Vorteil gegenüber dem manuellen Handel verschafft.",
+                    "updated": 1642338742727
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "ES",
                     "text": "Sin embargo, sería simplista suponer que el Trading Inteligente surge solo de los datos.",
                     "updated": 1641092296444
+                },
+                {
+                    "language": "DE",
+                    "text": "Es wäre jedoch zu einfach, anzunehmen, dass sich Handelsintelligenz allein aus Daten ergibt.",
+                    "updated": 1642338789968
                 }
             ]
         },
@@ -85,6 +100,11 @@
                     "language": "ES",
                     "text": "El Trading inteligente surge del aprovechamiento de las interacciones de múltiples conceptos complejos.",
                     "updated": 1641092305216
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading intelligence (Handeslintelligenz) entsteht durch die Nutzung des Zusammenspiels mehrerer komplexer Konzepte.",
+                    "updated": 1642338829054
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "ES",
                     "text": "Superalgos es una infraestructura de software que contribuye a aprovechar esos conceptos e interacciones al dividir la complejidad en pequeñas unidades de información llamadas nodos y organizarlas en estructuras de datos más grandes llamadas jerarquías.",
                     "updated": 1641092315867
+                },
+                {
+                    "language": "DE",
+                    "text": "Superalgos ist eine Software-Infrastruktur, die dazu beiträgt, diese Konzepte und Interaktionen nutzbar zu machen, indem sie die Komplexität in kleine Informationseinheiten, so genannte Knoten, zerlegt und diese in größeren Datenstrukturen, so genannten Hierarchien, anordnet.",
+                    "updated": 1642338857432
                 }
             ]
         },
@@ -127,6 +152,11 @@
                     "language": "ES",
                     "text": "Una jerarquía es una estructura de datos que representa un concepto general de alto nivel, que da como resultado una larga cadena de nodos, generalmente con muchas ramificaciones. El sistema gestiona diferentes tipos de jerarquías, cada una de ellas con un enfoque específico. Por ejemplo, ecosistema criptográfico, minas de datos o espacio de gráficos.",
                     "updated": 1641092327682
+                },
+                {
+                    "language": "DE",
+                    "text": "Eine Hierarchie ist eine Datenstruktur, die ein übergreifendes, übergeordnetes Konzept darstellt, das in einer langen Kette von Knotenpunkten resultiert, in der Regel mit vielen Verzweigungen. Das System verwaltet verschiedene Arten von Hierarchien, die jeweils einen bestimmten Schwerpunkt haben. Zum Beispiel Krypto-Ökosystem, Data Mines oder Charting Space.",
+                    "updated": 1642338886874
                 }
             ]
         },
@@ -148,6 +178,11 @@
                     "language": "ES",
                     "text": "Un nodo es una pequeña estructura de datos que contiene información que puede estar relacionada con información de mercado, Trading inteligente, el funcionamiento del sistema u otros conceptos. Están representados visualmente por iconos en el espacio de diseño.",
                     "updated": 1641092341548
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Knoten ist eine kleine Datenstruktur mit Informationen, die sich auf Marktinformationen, Handelsinformationen, den Betrieb des Systems oder andere Konzepte beziehen können. Sie werden visuell durch Symbole im Entwurfsbereich dargestellt.",
+                    "updated": 1642338903895
                 }
             ]
         },
@@ -169,6 +204,11 @@
                     "language": "ES",
                     "text": "El espacio de diseño es el entorno visual que alberga todas las definiciones de usuario y del sistema. En términos prácticos, es el espacio negro debajo del control deslizante que divide la pantalla horizontalmente separando el espacio de diseño en la parte inferior del espacio de gráficos en la parte superior. Como jerarquía, presenta nodos que permiten al usuario controlar ciertos aspectos de la apariencia, comodidad y el comportamiento del espacio.",
                     "updated": 1641093078859
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Entwurfsbereich ist die visuelle Umgebung, die alle System- und Benutzerdefinitionen enthält. In der Praxis handelt es sich um den schwarzen Bereich unterhalb des Schiebereglers, der den Bildschirm horizontal teilt und den Designbereich im unteren Bereich vom Diagrammbereich im oberen Bereich trennt. Als Hierarchie verfügt er über Knoten, die dem Benutzer die Kontrolle über bestimmte Aspekte des Aussehens und Verhaltens des Raums ermöglichen.",
+                    "updated": 1642338959942
                 }
             ]
         },
@@ -190,6 +230,11 @@
                     "language": "ES",
                     "text": "En otras palabras, los nodos organizados en estructuras de datos jerárquicas, describen los conceptos de alto nivel que componen al Trading inteligente, de una manera que ayuda a los usuarios a visualizarlos y comprenderlos mejor.",
                     "updated": 1641093222714
+                },
+                {
+                    "language": "DE",
+                    "text": "Mit anderen Worten: Knoten, die in hierarchischen Datenstrukturen angeordnet sind, beschreiben die Top-Level-Konzepte, aus denen sich die Handelsintelligenz zusammensetzt, auf eine Weise, die den Benutzern hilft, sie zu visualisieren und besser zu verstehen.",
+                    "updated": 1642338992252
                 }
             ]
         },
@@ -211,6 +256,11 @@
                     "language": "ES",
                     "text": "Estos conceptos de alto nivel representados como jerarquías interactúan con otros conceptos, es decir, con otras jerarquías. Las interacciones entre jerarquías se denominan referencias.",
                     "updated": 1641093258312
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese als Hierarchien beschriebenen Top-Level-Konzepte interagieren mit anderen Konzepten, d. h. mit anderen Hierarchien. Die Interaktionen zwischen Hierarchien werden als Referenzen bezeichnet.",
+                    "updated": 1642339012169
                 }
             ]
         },
@@ -232,6 +282,11 @@
                     "language": "ES",
                     "text": "Una referencia es un mecanismo por el cual la información de un nodo está relaciona con otros nodos o es accedida por ellos. La capacidad de un nodo para establecer una referencia con otro nodo permite que el primero acceda a la información o características implicadas en el segundo.",
                     "updated": 1641093275261
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Verweis ist ein Mechanismus, durch den Informationen in einem Knoten mit anderen Knoten in Beziehung gesetzt oder von anderen Knoten abgerufen werden können. Die Fähigkeit eines Knotens, einen Bezug zu einem anderen Knoten herzustellen, ermöglicht es dem ersten Knoten, auf die Informationen oder Merkmale des zweiten Knotens zuzugreifen.",
+                    "updated": 1642339026363
                 }
             ]
         },
@@ -253,6 +308,11 @@
                     "language": "ES",
                     "text": "Para organizar toda esta información, Superalgos gestiona el concepto de espacios de trabajo. Un espacio de trabajo es una entidad que almacena toda la información generada por el usuario y el sistema, excluyendo el estado y el contenido de los complementos. En términos técnicos, un espacio de trabajo es un archivo JSON.",
                     "updated": 1641093289711
+                },
+                {
+                    "language": "DE",
+                    "text": "Um all diese Informationen zu organisieren, verwaltet Superalgos das Konzept der Arbeitsbereiche. Ein Arbeitsbereich ist eine Entität, die alle System- und Benutzerinformationen speichert, mit Ausnahme des Status und der Inhalte von Plugins. Technisch gesehen ist ein Arbeitsbereich eine JSON-Datei.",
+                    "updated": 1642339041317
                 }
             ]
         },
@@ -275,6 +335,11 @@
                     "language": "ES",
                     "text": "La página de Bots trae a tierra estas definiciones conceptuales y ofrece una descripción general de cómo son estos conceptos de alto nivel y cómo interactúan entre sí.",
                     "updated": 1641093295426
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Seite Bots bringt diese begrifflichen Definitionen auf den Boden der Tatsachen zurück und bietet einen Überblick über die Bedeutung dieser Top-Level-Konzepte und ihre Wechselwirkung untereinander.",
+                    "updated": 1642339063943
                 }
             ]
         }

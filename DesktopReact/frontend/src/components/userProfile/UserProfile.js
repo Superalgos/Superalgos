@@ -24,11 +24,13 @@ const UserProfile = () => {
         } = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
             let mappedPosts = data.map((post, index) => {
+/*
                 if (post.eventType !== 10) {
-                    /* TODO add other post types*/
+                    /!* TODO add other post types*!/
                     return;
                 }
-                return <Post key={index} id={index}
+*/
+                return <Post key={post.originPostHash} id={post.originPostHash}
                              postData={post}/>
             });
             setPosts(mappedPosts);

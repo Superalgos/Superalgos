@@ -15,7 +15,7 @@ const getProfiles = async (req, res) => {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        return await webAppInterface.messageReceived(
+        return await webAppInterface.sendMessage(
             JSON.stringify(query)
         );
     } catch (e) {
@@ -38,7 +38,7 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
             requestType: 'Query',
             queryMessage: JSON.stringify(queryMessage)
         }
-        return webAppInterface.messageReceived(
+        return webAppInterface.sendMessage(
             JSON.stringify(query)
         )
             .then(rta => rta)
@@ -69,7 +69,7 @@ const followProfile = async (userProfileId, eventType, res) => {
             eventMessage: JSON.stringify(eventMessage)
         }
 
-        return await webAppInterface.messageReceived(
+        return await webAppInterface.sendMessage(
             JSON.stringify(event)
         );
     } catch (e) {
@@ -96,7 +96,7 @@ const editProfile = async (body, res) => {
             eventMessage: JSON.stringify(eventMessage)
         }
 
-        return await webAppInterface.messageReceived(
+        return await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
 
@@ -121,7 +121,7 @@ const getProfile = async (userProfileId, username, res) => {
             queryMessage: JSON.stringify(queryMessage)
         }
 
-        const result = await webAppInterface.messageReceived(
+        const result = await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
         return result

@@ -25,20 +25,10 @@ exports.newSocialTradingModulesClientInterface = function newSocialTradingModule
     }
 
     async function messageReceived(
-        message,
+        messageHeader,
         userProfile,
         connectedUserProfiles
     ) {
-        let messageHeader
-        try {
-            messageHeader = JSON.parse(message)
-        } catch (err) {
-            let response = {
-                result: 'Error',
-                message: 'Client Interface message Not Correct JSON Format.'
-            }
-            return response
-        }
 
         if (messageHeader.requestType === undefined) {
             let response = {

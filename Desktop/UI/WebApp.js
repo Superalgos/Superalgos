@@ -356,7 +356,6 @@ function newWebApp() {
             let event
 
             eventMessage = {
-                networkService: 'Social Graph',
                 eventType: eventType,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 targetSocialPersonaId: id,
@@ -394,7 +393,6 @@ function newWebApp() {
             let event
 
             eventMessage = {
-                networkService: 'Social Graph',
                 eventType: SA.projects.socialTrading.globals.eventTypes.NEW_SOCIAL_PERSONA_POST,
                 eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                 postText: postText,

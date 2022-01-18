@@ -20,19 +20,9 @@ exports.newSocialTradingModulesPeerInterface = function newSocialTradingModulesP
     }
 
     async function messageReceived(
-        message,
+        messageHeader,
         connectedUserProfiles
     ) {
-        let messageHeader
-        try {
-            messageHeader = JSON.parse(message)
-        } catch (err) {
-            let response = {
-                result: 'Error',
-                message: 'Peer Interface message Not Correct JSON Format.'
-            }
-            return response
-        }
 
         if (messageHeader.requestType === undefined) {
             let response = {

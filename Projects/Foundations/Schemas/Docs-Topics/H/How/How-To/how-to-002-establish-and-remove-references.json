@@ -21,6 +21,11 @@
                 "language": "TR",
                 "text": "Bir referans oluşturmak için ilk düğüme sağ tıklayın ve onu hedef düğümün yakınına sürükleyin. Bir referansı kaldırmak için menüdeki bağlantıyı kaldır düğmesini kullanın.",
                 "updated": 1639561962381
+            },
+            {
+                "language": "EL",
+                "text": "Για να δημιουργήσετε μια αναφορά, κάντε δεξί κλικ στον πρώτο κόμβο και σύρετέ τον κοντά στον κόμβο προορισμού. Για να αφαιρέσετε μια αναφορά, χρησιμοποιήστε το κουμπί αποσύνδεσης στο μενού.",
+                "updated": 1641831587275
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "TR",
                     "text": "Bir referans oluştururken, gri halkalar referansı hangi düğümlerle kurabileceğinizi gösterir. Referansı kabul edecek birden fazla düğüm olması durumunda, referansın geldiği düğüme daha yakın olan altın bir halka ile vurgulanır. Fare düğmesinin serbest bırakılması, vurgulanan düğümle referansı oluşturur.",
                     "updated": 1639562009397
+                },
+                {
+                    "language": "EL",
+                    "text": "Κατά τη δημιουργία μιας αναφοράς, οι γκρι δακτύλιοι δείχνουν με ποιους κόμβους μπορείτε να δημιουργήσετε την αναφορά. Σε περίπτωση που υπάρχουν πολλοί κόμβοι που θα δέχονταν την αναφορά, αυτός που βρίσκεται πιο κοντά στον κόμβο από τον οποίο προέρχεται η αναφορά επισημαίνεται με ένα χρυσό δακτύλιο. Η απελευθέρωση του κουμπιού του ποντικιού δημιουργεί την αναφορά με τον επισημασμένο κόμβο.",
+                    "updated": 1641831637932
                 }
             ]
         },
@@ -76,6 +86,11 @@
                     "language": "TR",
                     "text": "Referans, soluk gri noktalı bir çizgi ile görsel olarak temsil edilir.",
                     "updated": 1639562057575
+                },
+                {
+                    "language": "EL",
+                    "text": "Η αναφορά αντιπροσωπεύεται οπτικά με μια αμυδρή γκρίζα διακεκομμένη γραμμή.",
+                    "updated": 1641831664279
                 }
             ],
             "updated": 1637691076887
@@ -93,6 +108,11 @@
                     "language": "TR",
                     "text": "Bu gri çizgileri şu tuş kombinasyonunu kullanarak açıp kapatabilirsiniz: Ctrl + Shift + Alt + Key-R",
                     "updated": 1639562086642
+                },
+                {
+                    "language": "EL",
+                    "text": "Μπορείτε να ενεργοποιήσετε και να απενεργοποιήσετε αυτές τις γκρίζες γραμμές χρησιμοποιώντας: Ctrl + Shift + Alt + Key-R",
+                    "updated": 1641831690145
                 }
             ]
         },
@@ -116,6 +136,11 @@
                     "language": "TR",
                     "text": "Bir referansı kaldırmak veya iki düğümün bağlantısını kesmek için referansın kaynaklandığı düğümdeki bağlantıyı kaldır düğmesini kullanın.",
                     "updated": 1639562106807
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να αφαιρέσετε μια αναφορά ή να αποσυνδέσετε δύο κόμβους, χρησιμοποιήστε το κουμπί αποσύνδεσης στον κόμβο από τον οποίο προέρχεται η αναφορά.",
+                    "updated": 1641831718648
                 }
             ]
         },
@@ -137,6 +162,11 @@
                     "language": "TR",
                     "text": "Ya Düğümler Uzaktaysa veya Farklı Hiyerarşilerdeyse?",
                     "updated": 1639558897769
+                },
+                {
+                    "language": "EL",
+                    "text": "Τι γίνεται αν οι Kόμβοι είναι μακριά ή σε διαφορετικές Iεραρχίες;",
+                    "updated": 1641831759449
                 }
             ]
         },
@@ -164,6 +194,11 @@
                     "language": "TR",
                     "text": "Süreç tamamen aynı. Tek yapmanız gereken birkaç numarada ustalaşmak, böylece düğümlerden birini ikinci düğümün olduğu yere kadar taşıyabilirsiniz.",
                     "updated": 1639558919496
+                },
+                {
+                    "language": "EL",
+                    "text": "Η διαδικασία είναι ακριβώς η ίδια. Το μόνο που χρειάζεται να κάνετε είναι να καταλάβετε μερικά κόλπα, ώστε να μπορείτε να μετακινήσετε έναν από τους κόμβους μέχρι εκεί που βρίσκεται ο δεύτερος κόμβος.",
+                    "updated": 1641831786250
                 }
             ]
         },

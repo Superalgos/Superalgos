@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Sie uns noch einen Trick anwenden! Stellen Sie den Zeitrahmen auf 12 Stunden um und bewegen Sie den Zeiger über die Charts!",
                 "updated": 1639388803811
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hadi bir numara daha yapalım! Zaman çerçevesini 12 saat olarak değiştirin ve işaretçiyi çizelgelerin üzerine kaydırın!",
+                "updated": 1641662493166
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "OMG! Ich habe Superalgos kaputt gemacht! Nichts funktioniert mehr!",
                     "updated": 1639388812040
+                },
+                {
+                    "language": "TR",
+                    "text": "Aman ALLAH'ım! Superalgos bozuldu! Artık hiçbir şey çalışmıyor!",
+                    "updated": 1641662506389
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Trading sessions erstellen Simulationen für den Zeitrahmen, der im Parameter Time Frame eingestellt ist!",
                     "updated": 1639388878376
+                },
+                {
+                    "language": "TR",
+                    "text": "\"İşlem seansları ( Trading sessions ), Zaman Çerçevesi ( Time Frame ) parametresinde ayarlanan zaman çerçevesi için simülasyonlar oluşturur!",
+                    "updated": 1641662530167
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Ihren Chart auf einen anderen Zeitrahmen einstellen, werden Sie die Simulation nicht mehr sehen können! Es kann sogar sein, dass Sie eine andere Simulation finden, die Sie für diesen Zeitrahmen zu einem anderen Zeitpunkt ausgeführt haben! In der Tat speichert Superalgos die Simulationen für jeden Zeitrahmen separat, auch wenn sie aus derselben Handelssitzung stammen!",
                     "updated": 1639388892532
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiğinizi farklı bir zaman dilimine ayarlarsanız, simülasyonu artık göremezsiniz! Hatta o zaman dilimi için farklı bir zamanda çalıştırdığınız başka bir simülasyon bile bulabilirsiniz! Aslında Superalgos, aynı işlem seansından gelseler bile simülasyonları her zaman dilimi için ayrı ayrı kaydeder!",
+                    "updated": 1641662543849
                 }
             ]
         }

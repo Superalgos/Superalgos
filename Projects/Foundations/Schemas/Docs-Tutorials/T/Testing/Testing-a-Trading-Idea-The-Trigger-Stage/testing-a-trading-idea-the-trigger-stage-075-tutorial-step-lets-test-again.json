@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Nachdem Sie die Open, Close und Manage Stage gelöscht haben, können Sie einen neuen Backtest mit denselben Parametern wie zuvor durchführen.",
                 "updated": 1639391298071
+            },
+            {
+                "language": "TR",
+                "text": "Aç, Kapat ve Yönet Aşamasını sildikten sonra, eskisi gibi aynı parametrelerle yeni bir geriye dönük test yapabilirsiniz.",
+                "updated": 1641665261922
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": " Los geht's! Starten ( Run ) Sie die Aufgabe und die Sitzung!",
                     "updated": 1639391319380
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte başlıyoruz! Görevi ve oturumu başlatın (Run)!",
+                    "updated": 1641665271881
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Wenn Sie mehrere Backtests auf demselben Zeitrahmen ausführen, werden die früheren Daten ersetzt. Das heißt, eine Handelssitzung speichert einen Datensatz für jeden Zeitrahmen. Wenn Sie verschiedene Versionen der Tests aufbewahren und darauf zugreifen wollen, sollten Sie verschiedene Trading sessions und noch besser verschiedene Trading Systeme verwenden, damit Sie auch die passenden Definitionen aufbewahren können!",
                     "updated": 1639391329528
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Aynı zaman çerçevesinde birden çok geriye dönük test çalıştırdığınızda, önceki veriler değiştirilir. Yani, bir ticaret seansı, her zaman çerçevesi için bir veri seti depolar. Testlerin farklı sürümlerini saklamak ve bunlara erişebilmek istiyorsanız, farklı ticaret oturumları ve daha da iyisi, farklı ticaret sistemleri kullanmalısınız, böylece eşleşen tanımları da saklayabilirsiniz!",
+                    "updated": 1641665290409
                 }
             ]
         }

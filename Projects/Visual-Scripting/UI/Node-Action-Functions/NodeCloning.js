@@ -9,15 +9,15 @@ function newVisualScriptingFunctionLibraryNodeCloning() {
     }
     return thisObject
 
-    function getNodeClone(node) {
+    function getNodeClone(node, getNewId = true) {
         let idConversionMap = new Map()
 
-        let inmatureClone = cloneNode(node)
+        let inmatureClone = cloneNode(node, getNewId)
         let matureClone = redirectReferenceParents(inmatureClone)
 
         return matureClone
 
-        function cloneNode(node) {
+        function cloneNode(node, getNewId) {
             if (node === undefined) { return }
             let schemaDocument = getSchemaDocument(node)
             if (schemaDocument !== undefined) {
@@ -39,7 +39,7 @@ function newVisualScriptingFunctionLibraryNodeCloning() {
                             case 'node': {
                                 if (property.name !== previousPropertyName) {
                                     if (node[property.name] !== undefined) {
-                                        object[property.name] = cloneNode(node[property.name])
+                                        object[property.name] = cloneNode(node[property.name], getNewId)
                                     }
                                     previousPropertyName = property.name
                                 }
@@ -50,7 +50,7 @@ function newVisualScriptingFunctionLibraryNodeCloning() {
                                     let nodePropertyArray = node[property.name]
                                     object[property.name] = []
                                     for (let m = 0; m < nodePropertyArray.length; m++) {
-                                        let protocolNode = cloneNode(nodePropertyArray[m])
+                                        let protocolNode = cloneNode(nodePropertyArray[m], getNewId)
                                         if (protocolNode !== undefined) {
                                             object[property.name].push(protocolNode)
                                         }
@@ -62,9 +62,13 @@ function newVisualScriptingFunctionLibraryNodeCloning() {
                     }
                 }
 
-                object.id = newUniqueId()
+                if (getNewId === true) {
+                    object.id = newUniqueId()
+                } else {
+                    object.id = node.id
+                }
+                
                 idConversionMap.set(node.id, object.id)
-
                 object.savedPayload = getSavedPayload(node)
 
                 return object
@@ -157,6 +161,34 @@ function newVisualScriptingFunctionLibraryNodeCloning() {
                 isPlaying: node.payload.uiObject.isPlaying,
                 isRunning: node.payload.uiObject.isRunning,
                 shortcutKey: node.payload.uiObject.shortcutKey
+            }
+        }
+
+        if (node.payload.parentNode !== undefined) {
+            savedPayload.parentNode = {
+                type: node.payload.parentNode.type,
+                name: node.payload.parentNode.name,
+                id: node.payload.parentNode.id
+            }
+        }
+
+        if (node.payload.chainParent !== undefined) {
+            savedPayload.chainParent = {
+                type: node.payload.chainParent.type,
+                name: node.payload.chainParent.name,
+                id: node.payload.chainParent.id
+            }
+        }
+
+        if (node.payload.referenceChildren !== undefined) {
+            savedPayload.referenceChildren = []
+            let referenceChildrenArray = Array.from(node.payload.referenceChildren, ([id, node]) => (node))
+            for (let referenceChild of referenceChildrenArray) {
+                savedPayload.referenceChildren.push({
+                    type: referenceChild.type,
+                    name: referenceChild.name,
+                    id: referenceChild.id
+                })
             }
         }
 

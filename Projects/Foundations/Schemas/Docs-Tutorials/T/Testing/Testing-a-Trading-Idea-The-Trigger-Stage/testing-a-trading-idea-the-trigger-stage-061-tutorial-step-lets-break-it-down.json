@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen!",
                 "updated": 1639389564281
+            },
+            {
+                "language": "TR",
+                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimine getireceğiz!",
+                "updated": 1641663516896
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm!",
                     "updated": 1639389574772
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, zaman önce gelir: 1H diyagramında!",
+                    "updated": 1641663535365
                 }
             ]
         },
@@ -42,6 +52,11 @@
                     "language": "DE",
                     "text": "Der Schluss der Kerze ist kleiner als:",
                     "updated": 1639389583113
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumun kapanışı şundan daha azdır:",
+                    "updated": 1641663552553
                 }
             ]
         },

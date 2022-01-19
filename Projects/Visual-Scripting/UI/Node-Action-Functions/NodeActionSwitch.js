@@ -350,18 +350,6 @@ function newVisualScriptingNodeActionSwitch() {
             case 'Highlight Referencing Nodes':
                 {
                     UI.projects.visualScripting.nodeActionFunctions.referenceChildren.toggleHighlightReferenceChildren(action.node)
-                    /* if (action.node.payload.uiObject.referencingNodesAreHighlighted === false) {
-                        action.node.payload.uiObject.referencingNodesAreHighlighted = true
-                        for (let child of Array.from(action.node.payload.referenceChildren, ([id, node]) => (node))) {
-                            child.payload.floatingObject.unCollapseParent()
-                            child.payload.uiObject.keepHighlighted = true
-                        }
-                    } else {
-                        action.node.payload.uiObject.referencingNodesAreHighlighted = false
-                        for (let child of Array.from(action.node.payload.referenceChildren, ([id, node]) => (node))) {
-                            child.payload.uiObject.keepHighlighted = false
-                        }
-                    } */
                 }
                 break
             default: {

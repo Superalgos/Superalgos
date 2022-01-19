@@ -3,11 +3,7 @@ Typography{
 }
 
 .sidebar {
-    /*height: 100%;*/
     position: relative;
-    /*min-width: 13rem;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
 }
 
 .sidebarMini .MuiButton-startIcon { /*centers the icons when collapse*/
@@ -29,7 +25,6 @@ Typography{
 
 .sidebarContainer{
     align-items: flex-start !important;
-    /*width: 13rem;*/
 }
 
 .sidebarMiniContainer{
@@ -55,6 +50,5 @@ Typography{
     align-self: center;
     height: 3rem !important;
     width: 3rem !important;
-    /*padding: 0 0.5rem;*/
     margin: 0 0.2rem;
 }

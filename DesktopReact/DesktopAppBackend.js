@@ -29,8 +29,7 @@ It provides access to all modules built for this App.
 
         /* Load Environment Variables */
         let ENVIRONMENT = require('../Environment.js');
-        let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
-        global.env = ENVIRONMENT_MODULE
+        global.env = ENVIRONMENT.newEnvironment();
 
         if (debugSettings !== undefined && debugSettings.DESKTOP_APP_SIGNING_ACCOUNT !== undefined) {
             global.env.DESKTOP_APP_SIGNING_ACCOUNT = debugSettings.DESKTOP_APP_SIGNING_ACCOUNT
@@ -61,7 +60,6 @@ It provides access to all modules built for this App.
             octokit: require("@octokit/rest"),
             simpleGit: require('simple-git'),
             nodeFetch: require('node-fetch'),
-            graphql: require("@octokit/graphql"),
             axios: require('axios'),
             crypto: require('crypto')
         }

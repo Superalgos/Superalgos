@@ -12,7 +12,7 @@ const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const selectedPost = useSelector(state => state.post.selectedPost);
+    const selectedPost = useSelector(state => state.post.selectedPost); /* TODO not use this way, only get the data as params */
     const [post, setPost] = useState({});
     const [collapse, setCollapse] = useState(true);
     const ToggleCollapse = () => setCollapse(!collapse);
@@ -21,7 +21,7 @@ const Post = ({postData}) => {
         if (postData) {
             setPost(postData);
             if (selectedPost) {
-                dispatch(setSelectedPost({}));
+                // dispatch(setSelectedPost({}));
             }
         } else {
             if (selectedPost)
@@ -54,7 +54,7 @@ const Post = ({postData}) => {
                 {/* TODO remove stacks inside of stacks*/}
                 <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
                     <div className="postAvatarContainer">
-                        <Avatar src={pic}/>
+                        <Avatar src={pic} className="avatar"/>
                     </div>
                     <Typography className="postUserName">
                         {originSocialPersonaId}

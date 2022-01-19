@@ -1,7 +1,7 @@
 import {GET, httpRequest, POST} from './httpConfig'
 
-function createPost(postBody) {
-    return httpRequest('/posts', POST, postBody);
+function createPost(body) {
+    return httpRequest('/posts', POST, body);
 }
 
 function getPosts() {
@@ -12,17 +12,21 @@ function getFeed() {
     return httpRequest('/posts/feed', GET, undefined);
 }
 
-function reactedPost(postBody) {
-    return httpRequest('/posts/reactions', POST, postBody);
+function reactedPost(body) {
+    return httpRequest('/posts/reactions', POST, body);
 }
 
-function getReplies(postBody) {
-    return httpRequest('/posts/replies', POST, postBody);
+function getReplies(queryParams) {
+    return httpRequest('/posts/replies', GET, undefined, queryParams);
 }
-
+function createReply(body){
+    return httpRequest('/posts/replies', POST, body);
+}
 export {
     createPost,
     getPosts,
     reactedPost,
-    getFeed
+    getFeed,
+    createReply,
+    getReplies
 }

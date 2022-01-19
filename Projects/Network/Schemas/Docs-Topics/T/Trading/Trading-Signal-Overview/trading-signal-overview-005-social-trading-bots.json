@@ -1,0 +1,41 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 5,
+    "type": "Social Trading Bots",
+    "definition": {
+        "text": "Social Trading Bots are a new kind of bot used within the Trading Signals process. They are the main interface between the signal provider and recipent.",
+        "updated": 1642564801085
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": " A basic way to think about a Social Trading Bot is as a collection of signals, as well as all the information a recipient will need in order to subscribe and receive those signals.",
+            "updated": 1642564745896
+        },
+        {
+            "style": "Text",
+            "text": "Each Social Trading Bot defines the following information:"
+        },
+        {
+            "style": "List",
+            "text": "The bot’s Signing Account."
+        },
+        {
+            "style": "List",
+            "text": "Available Signals provided by this bot."
+        },
+        {
+            "style": "List",
+            "text": "The location of open storage where signal content is saved.",
+            "updated": 1642564839569
+        },
+        {
+            "style": "List",
+            "text": "Other Social Trading Bots Followed."
+        },
+        {
+            "style": "Text",
+            "text": "These Social Trading Bots are defined under the User Profile of the provider.  Since they live within the provider’s profile and can be referenced by recipients, the Social Trading Bot is the only interface between the provider and and the recipient.  This means that only signal data is shared, no other sensitive data or configuration details are vulnerable on the network or saved publicly."
+        }
+    ]
+}

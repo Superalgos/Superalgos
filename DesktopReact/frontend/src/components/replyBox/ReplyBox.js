@@ -5,7 +5,7 @@ import {createReply} from "../../api/post.httpService";
 import "./ReplyBox.css"
 
 
-const ReplyBox = ({postHash}) => {
+const ReplyBox = ({postHash, targetSocialPersonaId}) => {
     /*** Variables */
     const [reply, setReply] = useState('');
 
@@ -18,7 +18,7 @@ const ReplyBox = ({postHash}) => {
     const onButtonClick = async () => {
         console.log("replying")
         console.log(postHash)
-        let response = await createReply({postText: reply, postHash}).then(response => response.json());
+        let response = await createReply({postText: reply, postHash,targetSocialPersonaId}).then(response => response.json());
         /* TODO FINISH UP BOYO*/
         debugger
         console.log("replied")

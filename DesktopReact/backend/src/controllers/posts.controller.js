@@ -17,7 +17,6 @@ const createPost = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
 };
 
 const createReply = async (req, res) => {
@@ -31,12 +30,11 @@ const createReply = async (req, res) => {
 
 const getReplies = async (req, res) => {
     try {
-        const result = await postService.getReplies(req.query.postHash);
+        const result = await postService.getReplies(req.query);
         res.send(result);
     } catch (error) {
         console.log(error);
     }
-
 };
 
 
@@ -47,4 +45,3 @@ module.exports = {
     getReplies,
     createReply
 };
-

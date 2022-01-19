@@ -52,7 +52,7 @@ const getPosts = async (postHash, res) => {
 
 }
 
-const createPost =  async (body, res) => {
+const createPost = async (body, res) => {
     try {
         let eventMessage;
         let event;
@@ -80,13 +80,14 @@ const createPost =  async (body, res) => {
 };
 
 
-const getReplies = async(postHash,res) =>{
+const getReplies = async (body, res) => {
     try {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POST_REPLIES,
             originSocialPersonaId: undefined,
-            targetSocialPersonaId: postHash,
+            targetSocialPersonaId: body.targetSocialPersonaId,
+            targetPostHash: body.targetPostHash,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -107,17 +108,18 @@ const getReplies = async(postHash,res) =>{
     }
 };
 
-const createReply =  async (body, res) => {
-    
+const createReply = async (body, res) => {
+
     try {
         let eventMessage;
         let event;
 
         eventMessage = {
             eventType: SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST,
-            targetPostHash:body.postHash,
+            targetPostHash: body.postHash,
             eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            postText: body.postText
+            postText: body.postText,
+            targetSocialPersonaId: body.targetSocialPersonaId
         }
 
         event = {
@@ -134,7 +136,6 @@ const createReply =  async (body, res) => {
         return {status: 'Ko'};
     }
 };
-
 
 
 module.exports = {

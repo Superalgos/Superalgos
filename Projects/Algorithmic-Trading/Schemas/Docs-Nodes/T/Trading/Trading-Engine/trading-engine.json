@@ -29,29 +29,29 @@
         {
             "style": "Block",
             "text": "Content"
-        },
-        {
+               },
+               {
             "style": "Text",
             "text": "You will use this hierarchy for two main purposes:",
             "translations": [
-                {
+               {
                     "language": "RU",
                     "text": "Вы будете использовать эту иерархию для двух основных целей:",
                     "updated": 1638338966721
-                },
-                {
+               },
+               {
                     "language": "TR",
                     "text": "Bu hiyerarşiyi iki ana amaç için kullanacaksınız:",
                     "updated": 1642504350982
-                },
-                {
+               },
+               {
                     "language": "EL",
                     "text": "Θα χρησιμοποιήσετε αυτήν την ιεραρχία για δύο κύριους σκοπούς:",
                     "updated": 1641828406302
-                }
+               }
             ]
-        },
-        {
+      },
+      {
             "style": "List",
             "text": "To let your trading systems access the information processed by the trading bot. This allows strategies to keep track of and react to current and past events&mdash;including those involving the exchange, such as orders placed or filled&mdash;as the bot is running.",
             "translations": [
@@ -59,17 +59,17 @@
                     "language": "RU",
                     "text": "Чтобы позволить вашим торговым системам получить доступ к информации, обрабатываемой торговым ботом. Это позволяет стратегиям отслеживать и реагировать на текущие и прошлые события, в том числе связанные с обменом, такие как размещенные или исполненные заявки, во время работы бота.",
                     "updated": 1638339042173
-                },
-                {
+               },
+               {
                     "language": "TR",
                     "text": "Ticaret sistemlerinizin ticaret botu tarafından işlenen bilgilere erişmesine izin vermek. Bu, stratejilerin, bot çalışırken verilen veya doldurulan siparişler gibi değiş tokuşla ilgili olanlar da dahil olmak üzere mevcut ve geçmiş olayları takip etmesine ve bunlara tepki vermesine olanak tanır.",
                     "updated": 1642504373870
-                },
-                {
+               },
+               {
                     "language": "EL",
                     "text": "Για να επιτρέψετε στα συστήματα συναλλαγών σας να έχουν πρόσβαση στις πληροφορίες που επεξεργάζεται το ρομπότ συναλλαγών. Αυτό επιτρέπει στις στρατηγικές να παρακολουθούν και να αντιδρούν σε τρέχοντα και προηγούμενα γεγονότα — συμπεριλαμβανομένων εκείνων που αφορούν το ανταλλακτήριο, όπως εντολές που έχουν υποβληθεί ή εκπληρωθεί — καθώς δουλεύει το ρομπότ.",
                     "updated": 1641828420690
-                }
+               }
             ]
         },
         {
@@ -85,8 +85,8 @@
                     "language": "TR",
                     "text": "Tasarım alanı görsel ortamı ve çizelgeler üzerindeki paneller aracılığıyla alım satım botunun eylemlerini takip etmek. Çalışma zamanı bilgilerini analiz ederek, bir alım satım seansı boyunca ne olduğu, ne zaman ve neden olduğu hakkında ayrıntılı bir anlayış elde edebilirsiniz.",
                     "updated": 1642504426556
-                   },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Για να παρακολουθείτε τις ενέργειες του ρομπότ συναλλαγών μέσω του οπτικού περιβάλλοντος χώρου σχεδίασης και των πλαισίων πάνω από τα γραφήματα. Αναλύοντας πληροφορίες χρόνου εκτέλεσης, μπορείτε να αποκτήσετε μια λεπτομερή κατανόηση του τι συμβαίνει, πότε και γιατί, κατά τη διάρκεια μιας συνεδρίας συναλλαγών.",
                     "updated": 1641828441945
@@ -122,8 +122,8 @@
                     "language": "TR",
                     "text": "Bir Ticaret Motoru iki Ticaret Botu arasında paylaşılabilir mi?",
                     "updated": 1642504459878
-                   },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Μπορεί μια μηχανή συναλλαγών να μοιράζεται μεταξύ δύο Ρομπότ Συναλλαγών;",
                     "updated": 1641828462197

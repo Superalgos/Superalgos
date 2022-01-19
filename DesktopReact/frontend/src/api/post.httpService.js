@@ -16,6 +16,10 @@ function reactedPost(postBody) {
     return httpRequest('/posts/reactions', POST, postBody);
 }
 
+function getReplies(postBody) {
+    return httpRequest('/posts/replies', POST, postBody);
+}
+
 export {
     createPost,
     getPosts,

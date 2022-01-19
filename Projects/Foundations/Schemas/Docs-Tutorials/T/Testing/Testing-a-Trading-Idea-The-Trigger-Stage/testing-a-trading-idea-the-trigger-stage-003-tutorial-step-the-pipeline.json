@@ -7,21 +7,21 @@
             "name": "Data\\dataset-definition",
             "project": "Foundations"
         },
-        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way!",
+        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden mehrere Themen behandeln! Lassen Sie uns eine kurze Liste erstellen, die Ihnen als Leitfaden dient!",
+                "text": "Wir werden mehrere Themen behandeln! Lassen Sie uns eine kurze Liste erstellen, die Ihnen als Leitfaden dient",
                 "updated": 1639254529126
             },
             {
                 "language": "RU",
-                "text": "Мы рассмотрим несколько тем! Давайте составим краткий список, чтобы использовать его в качестве руководства на этом пути!",
+                "text": "Мы рассмотрим несколько тем! Давайте составим краткий список, чтобы использовать его в качестве руководства на этом пути",
                 "updated": 1640933217678
             },
             {
                 "language": "TR",
-                "text": "Özet: Birkaç konuyu ele alacağız! Yol boyunca rehber olarak kullanmak için hızlı bir liste yapalım!",
+                "text": "Özet: Birkaç konuyu ele alacağız! Yol boyunca rehber olarak kullanmak için hızlı bir liste yapalım",
                 "updated": 1641062340210
             }
         ]
@@ -130,21 +130,21 @@
         },
         {
             "style": "Success",
-            "text": "Have you read about these topics? No worries... you will!",
+            "text": "Have you read about these topics? No worries... you will",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Haben Sie schon über diese Themen gelesen? Keine Sorge... das werden Sie!",
+                    "text": "Haben Sie schon über diese Themen gelesen? Keine Sorge... das werden Sie",
                     "updated": 1639254609348
                 },
                 {
                     "language": "RU",
-                    "text": "Читали ли вы об этих темах? Не волнуйтесь... обязательно прочитаете!",
+                    "text": "Читали ли вы об этих темах? Не волнуйтесь... обязательно прочитаете",
                     "updated": 1640933540491
                 },
                 {
                     "language": "TR",
-                    "text": " İpucu: Bu konular hakkında bir şeyler okudunuz mu? Endişeye... Yapacaksınız!",
+                    "text": " İpucu: Bu konular hakkında bir şeyler okudunuz mu? Endişeye... Yapacaksınız",
                     "updated": 1641062721859
                 }
             ]

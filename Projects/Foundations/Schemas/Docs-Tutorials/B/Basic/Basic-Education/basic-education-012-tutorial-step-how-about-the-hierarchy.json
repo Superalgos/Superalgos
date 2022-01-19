@@ -3,7 +3,7 @@
     "pageNumber": 12,
     "type": "Tutorial Step - How About The Hierarchy?",
     "definition": {
-        "text": "The reason why the distance to the parent node is relative to the distance of the parent to its parent is so that you may affect long structures of nodes!",
+        "text": "The reason why the distance to the parent node is relative to the distance of the parent to its parent is so that you may affect long structures of nodes.",
         "updated": 1615477794893,
         "icon": {
             "name": "Set\\set-distance-to-parent-node-to-one-and-a-half",
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il motivo per cui la distanza di un nodo dal padre è relativa alla distanza del padre dal proprio padre ti permette di modificare lunghe strutture di nodi!",
+                "text": "Il motivo per cui la distanza di un nodo dal padre è relativa alla distanza del padre dal proprio padre ti permette di modificare lunghe strutture di nodi.",
                 "updated": 1619460922873,
                 "style": "Definition"
             },
@@ -24,17 +24,17 @@
             },
             {
                 "language": "DE",
-                "text": "Der Grund, warum der Abstand zum übergeordneten Knoten relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten ist, ist, dass Sie lange Strukturen von Knoten beeinflussen können!",
+                "text": "Der Grund, warum der Abstand zum übergeordneten Knoten relativ zum Abstand des übergeordneten Knotens zu seinem übergeordneten Knoten ist, ist, dass Sie lange Strukturen von Knoten beeinflussen können.",
                 "updated": 1634332747191
             },
             {
                 "language": "TR",
-                "text": "Ebeveyn düğüme olan uzaklığın ebeveynin ebeveynine olan mesafesine göre olmasının nedeni, uzun düğüm yapılarını etkileyebilmeniz içindir!",
+                "text": "Ebeveyn düğüme olan uzaklığın ebeveynin ebeveynine olan mesafesine göre olmasının nedeni, uzun düğüm yapılarını etkileyebilmeniz içindir.",
                 "updated": 1636750239895
             },
             {
                 "language": "RU",
-                "text": "Таким образом, расстояние до родительского узла относительно расстояния родительского узла до его родителя позволяет воздействовать на длинные структуры узлов!",
+                "text": "Таким образом, расстояние до родительского узла относительно расстояния родительского узла до его родителя позволяет воздействовать на длинные структуры узлов.",
                 "updated": 1640866787529
             }
         ]
@@ -42,12 +42,12 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Click once on the Distance to Parent button of the Network node!",
+            "text": "Click once on the Distance to Parent button of the Network node.",
             "updated": 1615477834548,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Clicca una volta sul pulsante Distance to Parent del nodo Network!",
+                    "text": "Clicca una volta sul pulsante Distance to Parent del nodo Network.",
                     "updated": 1619460938644,
                     "style": "Callout"
                 },
@@ -59,51 +59,51 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie einmal auf die Schaltfläche Abstand zum übergeordneten Knoten des Netzwerkknotens!",
+                    "text": "Klicken Sie einmal auf die Schaltfläche Abstand zum übergeordneten Knoten des Netzwerkknotens.",
                     "updated": 1634332754400
                 },
                 {
                     "language": "TR",
-                    "text": "Ağ düğümünün Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
+                    "text": "Ağ düğümünün Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın.",
                     "updated": 1636750278445
                 },
                 {
                     "language": "RU",
-                    "text": "Нажмите один раз на кнопку Distance to Parent  узла Network!",
+                    "text": "Нажмите один раз на кнопку Distance to Parent  узла Network.",
                     "updated": 1640866845765
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Wow! See? These tools allow you full control over how you visually organize hierarchies!",
+            "text": "Wow! See? These tools allow you full control over how you visually organize hierarchies.",
             "updated": 1615478179417,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Wow, hai visto? Questi strumenti ti permettono il pieno controllo su come organizzi visualmente le gerarchie!",
+                    "text": "Wow, hai visto? Questi strumenti ti permettono il pieno controllo su come organizzi visualmente le gerarchie.",
                     "updated": 1619461000739,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías!",
+                    "text": "¡Guau! ¿Ves? ¡Estas herramientas te permiten un control total sobre cómo organiza visualmente las jerarquías.",
                     "updated": 1625958134928,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Wahnsinn! Sehen Sie? Mit diesen Werkzeugen haben Sie die volle Kontrolle darüber, wie Sie Hierarchien visuell organisieren!",
+                    "text": "Wahnsinn! Sehen Sie? Mit diesen Werkzeugen haben Sie die volle Kontrolle darüber, wie Sie Hierarchien visuell organisieren.",
                     "updated": 1634332763485
                 },
                 {
                     "language": "TR",
-                    "text": "Vayyy! Gördün mü? Bu araçlar, hiyerarşiler üzerinde görsel olarak tam kontrol sahibi olmanızı sağlar!",
+                    "text": "Vayyy! Gördün mü? Bu araçlar, hiyerarşiler üzerinde görsel olarak tam kontrol sahibi olmanızı sağlar.",
                     "updated": 1636751755132
                 },
                 {
                     "language": "RU",
-                    "text": "Ух ты! Видите? Эти инструменты позволяют вам полностью контролировать то, как вы визуально организуете иерархии!",
+                    "text": "Ух ты! Видите? Эти инструменты позволяют вам полностью контролировать то, как вы визуально организуете иерархии.",
                     "updated": 1640866862862
                 }
             ]

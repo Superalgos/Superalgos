@@ -1,7 +1,7 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 16,
-    "type": "Tutorial Step - Freeze!",
+    "type": "Tutorial Step - Freeze.",
     "definition": {
         "text": "The freeze button makes sense under very specific circumstances: when physics are activated at the level of the Design Space.",
         "updated": 1615543120064,
@@ -42,63 +42,63 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The Design Space offers some customization features, one of which is activating the physics of the universe. When physics is on, the whole space becomes alive!",
+            "text": "The Design Space offers some customization features, one of which is activating the physics of the universe. When physics is on, the whole space becomes alive.",
             "updated": 1615544003132,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il Design Space offre diverse personalizzazioni, tra le quali l'attivazione dell'animazione dell'universo. Quando è attiva, l'intero spazio diventa vivo!",
+                    "text": "Il Design Space offre diverse personalizzazioni, tra le quali l'attivazione dell'animazione dell'universo. Quando è attiva, l'intero spazio diventa vivo.",
                     "updated": 1619461604832,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "El Design Space ofrece algunas funciones de personalización, una de las cuales es activar la física del universo. Cuando la física está activada, ¡todo el espacio cobra vida!",
+                    "text": "El Design Space ofrece algunas funciones de personalización, una de las cuales es activar la física del universo. Cuando la física está activada, ¡todo el espacio cobra vida.",
                     "updated": 1626040738666,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Der Design Space bietet einige Anpassungsmöglichkeiten, von denen eine die Aktivierung der Physik des Universums ist. Wenn die Physik aktiviert ist, wird der ganze Raum lebendig!",
+                    "text": "Der Design Space bietet einige Anpassungsmöglichkeiten, von denen eine die Aktivierung der Physik des Universums ist. Wenn die Physik aktiviert ist, wird der ganze Raum lebendig.",
                     "updated": 1634333140802
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım Alanı ( Design Space ), biri evrenin fiziğini etkinleştiren bazı özelleştirme özellikleri sunar. Fizik açıkken, tüm uzay canlanır!",
+                    "text": "Tasarım Alanı ( Design Space ), biri evrenin fiziğini etkinleştiren bazı özelleştirme özellikleri sunar. Fizik açıkken, tüm uzay canlanır.",
                     "updated": 1636752835468
                 },
                 {
                     "language": "RU",
-                    "text": "Пространство проектирования (Design Space) предлагает некоторые возможности настройки, одна из которых - включение физики вселенной. Когда физика включена, все пространство становится живым!",
+                    "text": "Пространство проектирования (Design Space) предлагает некоторые возможности настройки, одна из которых - включение физики вселенной. Когда физика включена, все пространство становится живым.",
                     "updated": 1640867354540
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "We won't go into that rabbit hole at this point as it's not in the basic education curriculum!",
+            "text": "We won't go into that rabbit hole at this point as it's not in the basic education curriculum.",
             "updated": 1615544598765,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non approfondiremo la materia ora: non è parte del curriculum di educazione base!",
+                    "text": "Non approfondiremo la materia ora: non è parte del curriculum di educazione base.",
                     "updated": 1619461641768,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "¡No entraremos en eso en ya que no está en el plan de estudios de educación básica!",
+                    "text": "¡No entraremos en eso en ya que no está en el plan de estudios de educación básica.",
                     "updated": 1626040817848,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Wir werden an dieser Stelle nicht auf dieses Thema eingehen, da es nicht im Lehrplan für die Grundausbildung enthalten ist!",
+                    "text": "Wir werden an dieser Stelle nicht auf dieses Thema eingehen, da es nicht im Lehrplan für die Grundausbildung enthalten ist.",
                     "updated": 1634333147196
                 },
                 {
                     "language": "TR",
-                    "text": "Temel eğitim müfredatında olmadığı için bu noktada o tavşan deliğine girmeyeceğiz!",
+                    "text": "Temel eğitim müfredatında olmadığı için bu noktada o tavşan deliğine girmeyeceğiz.",
                     "updated": 1636752855204
                 }
             ]

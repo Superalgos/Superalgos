@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 66,
-    "type": "Tutorial Step - Enough Digressing!",
+    "type": "Tutorial Step - Enough Digressing",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -46,7 +46,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As you can see to the right, a trading session has a reference to a Trading System. That is, the Trading Bot will apply the rules of the referenced trading system to make decisions. There's also a reference to a Trading Engine, a subject worth its own chapter, so I'll leave it for later!",
+            "text": "As you can see to the right, a trading session has a reference to a Trading System. That is, the Trading Bot will apply the rules of the referenced trading system to make decisions. There's also a reference to a Trading Engine, a subject worth its own chapter, so I'll leave it for later",
             "updated": 1610639102636,
             "translations": [
                 {
@@ -57,18 +57,18 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Como puedes ver a la derecha, un Trading Session tiene una referencia a un Trading System. Es decir, el Trading Bot aplicará las reglas del trading system al que se hace referencia para tomar decisiones. También hay una referencia a un Trading Engine, un tema que vale su propio capítulo, ¡así que lo dejaré para más adelante!",
+                    "text": "Como puedes ver a la derecha, un Trading Session tiene una referencia a un Trading System. Es decir, el Trading Bot aplicará las reglas del trading system al que se hace referencia para tomar decisiones. También hay una referencia a un Trading Engine, un tema que vale su propio capítulo, ¡así que lo dejaré para más adelante",
                     "updated": 1624495907455,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Wie Sie rechts sehen können, hat eine Handelssitzung einen Verweis auf ein Trading System. Das heißt, der Trading Bot wird die Regeln des referenzierten Handelssystems anwenden, um Entscheidungen zu treffen. Es gibt auch einen Verweis auf eine Trading Engine, ein Thema, das ein eigenes Kapitel wert ist, also lasse ich es für später!",
+                    "text": "Wie Sie rechts sehen können, hat eine Handelssitzung einen Verweis auf ein Trading System. Das heißt, der Trading Bot wird die Regeln des referenzierten Handelssystems anwenden, um Entscheidungen zu treffen. Es gibt auch einen Verweis auf eine Trading Engine, ein Thema, das ein eigenes Kapitel wert ist, also lasse ich es für später",
                     "updated": 1634221812093
                 },
                 {
                     "language": "TR",
-                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Tading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım!",
+                    "text": "Sağda görebileceğiniz gibi, bir ticaret oturumunun bir Ticaret Sistemine ( Tading System ) referansı vardır. Yani Ticaret Botu ( Trading Bot ), karar vermek için referans verilen ticaret sisteminin kurallarını uygulayacaktır. Trading Engine'e (Trading Engine) konusunu sonraya bırakacağım",
                     "updated": 1636118809271
                 },
                 {
@@ -78,45 +78,45 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Seperti yang kamu lihat di sebelah kanan, trading session memiliki referensi ke Trading System. Artinya, Trading Bot akan menerapkan aturan sistem trading yang direferensikan untuk mengambil keputusan. Ada juga referensi ke Trading Engine, subjek yang memiliki chapter tersendiri, jadi aku akan membiarkannya untuk nanti!",
+                    "text": "Seperti yang kamu lihat di sebelah kanan, trading session memiliki referensi ke Trading System. Artinya, Trading Bot akan menerapkan aturan sistem trading yang direferensikan untuk mengambil keputusan. Ada juga referensi ke Trading Engine, subjek yang memiliki chapter tersendiri, jadi aku akan membiarkannya untuk nanti",
                     "updated": 1639747323161
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "The trading session is affected by several parameters. Take a quick look at their configurations selecting Configure on the menu!",
+            "text": "The trading session is affected by several parameters. Take a quick look at their configurations selecting Configure on the menu",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "La Trading Session è controllata da vari parametri. Dai un'occhiata alle loro configurazioni selezionando Configure dal menù!",
+                    "text": "La Trading Session è controllata da vari parametri. Dai un'occhiata alle loro configurazioni selezionando Configure dal menù",
                     "updated": 1618060016221,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "La sesiónde trading se ve afectada por varios parámetros. ¡Echa un vistazo rápido a sus configuraciones seleccionando Configure en el menú!",
+                    "text": "La sesiónde trading se ve afectada por varios parámetros. ¡Echa un vistazo rápido a sus configuraciones seleccionando Configure en el menú",
                     "updated": 1624452190136,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Die Trading Session wird von mehreren Parametern beeinflusst. Werfen Sie einen kurzen Blick auf deren Konfigurationen, indem Sie im Menü Konfigurieren wählen!",
+                    "text": "Die Trading Session wird von mehreren Parametern beeinflusst. Werfen Sie einen kurzen Blick auf deren Konfigurationen, indem Sie im Menü Konfigurieren wählen",
                     "updated": 1634221844095
                 },
                 {
                     "language": "TR",
-                    "text": "İşlem seansı birkaç parametreden (Trading Parameters) oluşur. Menüden Yapılandır'ı seçerek konfigürasyonlarına hızlıca göz atın!",
+                    "text": "İşlem seansı birkaç parametreden (Trading Parameters) oluşur. Menüden Yapılandır'ı seçerek konfigürasyonlarına hızlıca göz atın",
                     "updated": 1636118950433
                 },
                 {
                     "language": "RU",
-                    "text": "На торговую сессию влияет несколько параметров. Быстро взгляните на их конфигурации, выбрав Configure в меню!",
+                    "text": "На торговую сессию влияет несколько параметров. Быстро взгляните на их конфигурации, выбрав Configure в меню",
                     "updated": 1636928483525
                 },
                 {
                     "language": "ID",
-                    "text": "trading session dipengaruhi oleh beberapa parameter. Lihat sekilas konfigurasi mereka dengan memilih Konfigurasi pada menu!",
+                    "text": "trading session dipengaruhi oleh beberapa parameter. Lihat sekilas konfigurasi mereka dengan memilih Konfigurasi pada menu",
                     "updated": 1639747356806
                 }
             ]

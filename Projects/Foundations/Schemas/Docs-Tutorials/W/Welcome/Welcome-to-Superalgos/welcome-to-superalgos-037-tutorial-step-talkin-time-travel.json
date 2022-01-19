@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 37,
     "type": "Tutorial Step - Talkin' Time Travel",
     "definition": {
@@ -88,52 +88,52 @@
         },
         {
             "style": "Callout",
-            "text": "Hover your mouse pointer over the time machines!",
+            "text": "Hover your mouse pointer over the time machines",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Sposta il puntatore del mouse sopra le Time Machine!",
+                    "text": "Sposta il puntatore del mouse sopra le Time Machine",
                     "updated": 1614847549742,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Arahkan mouse pointer kearah time machines!",
+                    "text": "Arahkan mouse pointer kearah time machines",
                     "updated": 1616935491446,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Pasa el mouse sobre un Time Machine!",
+                    "text": "¡Pasa el mouse sobre un Time Machine",
                     "updated": 1624406480076,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Fahren Sie mit dem Mauszeiger über die Time Machines!",
+                    "text": "Fahren Sie mit dem Mauszeiger über die Time Machines",
                     "updated": 1634206006623,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Fare imlecinizi zaman makinelerinin üzerine getirin!",
+                    "text": "Fare imlecinizi zaman makinelerinin üzerine getirin",
                     "updated": 1636035197351
                 },
                 {
                     "language": "RU",
-                    "text": "Наведите указатель мыши на машины времени!",
+                    "text": "Наведите указатель мыши на машины времени",
                     "updated": 1636201484840
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Notice the label emerging on the left-hand side showing which exchanges and markets the data is associated with. A single time machine may hold data from multiple markets and multiple exchanges!",
+            "text": "Notice the label emerging on the left-hand side showing which exchanges and markets the data is associated with. A single time machine may hold data from multiple markets and multiple exchanges",
             "updated": 1610622145377,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Le label che spuntano da sinistra mostrano a quale exchange e market si riferiscono i dati. Una singola Time Machine può contenere dati da diversi markets e exchanges!",
+                    "text": "Le label che spuntano da sinistra mostrano a quale exchange e market si riferiscono i dati. Una singola Time Machine può contenere dati da diversi markets e exchanges",
                     "updated": 1614847670664,
                     "style": "Text"
                 },
@@ -145,19 +145,19 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Observa la etiqueta emergente en el lado izquierdo que muestra a qué exchange y mercados están asociados los datos. ¡Un Time Machine puede contener datos de múltiples mercados y múltiples exchanges!",
+                    "text": "Observa la etiqueta emergente en el lado izquierdo que muestra a qué exchange y mercados están asociados los datos. ¡Un Time Machine puede contener datos de múltiples mercados y múltiples exchanges",
                     "updated": 1627304357216,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Beachten Sie die Beschriftung auf der linken Seite, aus der hervorgeht, mit welchen Börsen und Märkten die Daten verbunden sind. Eine einzige Time Machine kann Daten von mehreren Märkten und mehreren Börsen enthalten!",
+                    "text": "Beachten Sie die Beschriftung auf der linken Seite, aus der hervorgeht, mit welchen Börsen und Märkten die Daten verbunden sind. Eine einzige Time Machine kann Daten von mehreren Märkten und mehreren Börsen enthalten",
                     "updated": 1634206050433,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Sol tarafta beliren ve verilerin hangi borsalar ve pazarlarla ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla pazardan ve birden fazla borsadan veri tutabilir!",
+                    "text": "Sol tarafta beliren ve verilerin hangi borsalar ve pazarlarla ilişkili olduğunu gösteren etikete dikkat edin. Tek bir zaman makinesi birden fazla pazardan ve birden fazla borsadan veri tutabilir",
                     "updated": 1636035233840
                 },
                 {

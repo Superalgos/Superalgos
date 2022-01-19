@@ -1,7 +1,7 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 10,
-    "type": "Tutorial Step - 1, 2, 3, Counting!",
+    "type": "Tutorial Step - 1, 2, 3, Counting",
     "definition": {
         "icon": {
             "name": "Trading/trading-episode-counters",
@@ -26,17 +26,17 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the layer on and slide your mouse pointer over the chart, from the far left to the far right-hand side of your screen!",
+            "text": "Turn the layer on and slide your mouse pointer over the chart, from the far left to the far right-hand side of your screen",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schalte den Layer ein und fahre mit dem Mauszeiger über den Chart, von ganz links nach ganz rechts auf deinem Bildschirm!",
+                    "text": "Schalte den Layer ein und fahre mit dem Mauszeiger über den Chart, von ganz links nach ganz rechts auf deinem Bildschirm",
                     "updated": 1623012556935,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Включите слой и проведите указателем мыши по графику от крайней левой до крайней правой части экрана!",
+                    "text": "Включите слой и проведите указателем мыши по графику от крайней левой до крайней правой части экрана",
                     "updated": 1640545998049
                 }
             ]

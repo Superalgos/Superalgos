@@ -3,7 +3,7 @@
     "pageNumber": 15,
     "type": "Tutorial Step - Add a Time Machine",
     "definition": {
-        "text": "Look at you! You are making great progress. Now lets get that Time Machine added!",
+        "text": "Look at you! You are making great progress. Now lets get that Time Machine added",
         "updated": 1620554388969,
         "icon": {
             "name": "chart-points",
@@ -12,17 +12,17 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Mírate! Estás haciendo un gran progreso. Ahora vamos a conseguir eso Time Machine agregado!",
+                "text": "¡Mírate! Estás haciendo un gran progreso. Ahora vamos a conseguir eso Time Machine agregado",
                 "updated": 1628645834818
             },
             {
                 "language": "RU",
-                "text": "Посмотрите на себя! Вы добиваетесь больших успехов. Теперь давайте добавим эту Машину Времени (Time Machine)!",
+                "text": "Посмотрите на себя! Вы добиваетесь больших успехов. Теперь давайте добавим эту Машину Времени (Time Machine)",
                 "updated": 1637939590565
             },
             {
                 "language": "DE",
-                "text": "Sieh dich an! Du machst große Fortschritte. Jetzt müssen wir die Time Machine hinzufügen!",
+                "text": "Sieh dich an! Du machst große Fortschritte. Jetzt müssen wir die Time Machine hinzufügen",
                 "updated": 1639105447823
             }
         ]

@@ -7,21 +7,21 @@
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "Let's do a quick visual check on the simulation to understand if the strategy was triggered on and off as expected!",
+        "text": "Let's do a quick visual check on the simulation to understand if the strategy was triggered on and off as expected",
         "translations": [
             {
                 "language": "DE",
-                "text": "Lassen Sie uns eine schnelle visuelle Überprüfung der Simulation durchführen, um zu verstehen, ob die Strategie wie erwartet ein- und ausgeschaltet wurde!",
+                "text": "Lassen Sie uns eine schnelle visuelle Überprüfung der Simulation durchführen, um zu verstehen, ob die Strategie wie erwartet ein- und ausgeschaltet wurde",
                 "updated": 1639267047467
             },
             {
                 "language": "RU",
-                "text": "Давайте проведем быструю визуальную проверку симуляции, чтобы понять, срабатывала ли стратегия, как ожидалось!",
+                "text": "Давайте проведем быструю визуальную проверку симуляции, чтобы понять, срабатывала ли стратегия, как ожидалось",
                 "updated": 1640950819567
             },
             {
                 "language": "TR",
-                "text": "Stratejinin beklendiği gibi açık ve kapalı olup olmadığını anlamak için simülasyonun hızlı bir görsel incelemesini yapalım!",
+                "text": "Stratejinin beklendiği gibi açık ve kapalı olup olmadığını anlamak için simülasyonun hızlı bir görsel incelemesini yapalım",
                 "updated": 1641655718540
             }
         ]
@@ -29,21 +29,21 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Make sure the Bollinger SubChannels Object layer is on along with the layer's panel!",
+            "text": "Make sure the Bollinger SubChannels Object layer is on along with the layer's panel",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Vergewissern Sie sich, dass der Layer Bollinger SubChannels Object zusammen mit dem Panel des Layers aktiviert ist!",
+                    "text": "Vergewissern Sie sich, dass der Layer Bollinger SubChannels Object zusammen mit dem Panel des Layers aktiviert ist",
                     "updated": 1639267060984
                 },
                 {
                     "language": "RU",
-                    "text": "Убедитесь, что слой Bollinger SubChannels Object включен вместе с панелью слоя!",
+                    "text": "Убедитесь, что слой Bollinger SubChannels Object включен вместе с панелью слоя",
                     "updated": 1640950837528
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger SubChannels Object katmanının katmanlar paneliyle birlikte açık olduğundan emin olun!",
+                    "text": "Bollinger SubChannels Object katmanının katmanlar paneliyle birlikte açık olduğundan emin olun",
                     "updated": 1641655738469
                 }
             ]

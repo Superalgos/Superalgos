@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 17,
     "type": "Tutorial Step - How Are Things Going?",
     "definition": {
@@ -7,41 +7,41 @@
             "project": "Foundations",
             "name": "sensor-bot-instance"
         },
-        "text": "I just dragged you deep into the confines of the Data Mining operation. See the progress of the Sensor Bot Instance to your right!",
+        "text": "I just dragged you deep into the confines of the Data Mining operation. See the progress of the Sensor Bot Instance to your right",
         "translations": [
             {
                 "language": "IT",
-                "text": "Sei stato appena trascinato dentro i confini dell'operazione di Data Mining. Controlla i progressi della Sensor Bot Instance alla tua destra!",
+                "text": "Sei stato appena trascinato dentro i confini dell'operazione di Data Mining. Controlla i progressi della Sensor Bot Instance alla tua destra",
                 "updated": 1614720420362,
                 "style": "Definition"
             },
             {
                 "language": "ID",
-                "text": "Aku membawamu kepada kebingungan akan operasi Data Mining. Lihat progress dari Sensor Bot Instance disebelah kanan!",
+                "text": "Aku membawamu kepada kebingungan akan operasi Data Mining. Lihat progress dari Sensor Bot Instance disebelah kanan",
                 "updated": 1616697727995,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha!",
+                "text": "Acabo de arrastrarte a los confines de la operación de  Data Mining. ¡Observa el progreso de la Instancia del  Sensor Bot a tu derecha",
                 "updated": 1618434622270,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich habe Sie soeben in die Tiefen der Data-Mining-Operation gezogen. Sehen Sie sich den Fortschritt der Sensor Bot Instance zu Ihrer Rechten an!",
+                "text": "Ich habe Sie soeben in die Tiefen der Data-Mining-Operation gezogen. Sehen Sie sich den Fortschritt der Sensor Bot Instance zu Ihrer Rechten an",
                 "updated": 1634162835620,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Ik heb je net diep in de \"Data Mining\" operatie gesleept. Bekijk de voortgang van de Sensor Bot Instance aan je rechterkant!",
+                "text": "Ik heb je net diep in de \"Data Mining\" operatie gesleept. Bekijk de voortgang van de Sensor Bot Instance aan je rechterkant",
                 "updated": 1634456610972,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Я только что затащил вас вглубь операции по добыче данных. Посмотрите на прогресс экземпляра бота Sensor Bot справа от вас!",
+                "text": "Я только что затащил вас вглубь операции по добыче данных. Посмотрите на прогресс экземпляра бота Sensor Bot справа от вас",
                 "updated": 1641805379324,
                 "style": "Definition"
             },
@@ -55,47 +55,47 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The sensor bot is currently extracting data from the exchange. As soon as she completes the extraction for the defined datetime range something really cool will happen... automatically!",
+            "text": "The sensor bot is currently extracting data from the exchange. As soon as it completes the extraction for the defined datetime range something really cool will happen... automatically",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il sensor bot sta estraendo dati dal mercato. Appena avrà finito l'estrazione per l'intervallo di tempo selezionato, qualcosa di veramente forte accadrà...automaticamente!",
+                    "text": "Il sensor bot sta estraendo dati dal mercato. Appena avrà finito l'estrazione per l'intervallo di tempo selezionato, qualcosa di veramente forte accadrà...automaticamente",
                     "updated": 1614720508108,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
-                    "text": "sensor bot sedang mengekstrak data dari exchange. Setelah selesai mengekstrak maka range datetime yang telah ditentukan akan berubah secara otomatis!",
+                    "text": "sensor bot sedang mengekstrak data dari exchange. Setelah selesai mengekstrak maka range datetime yang telah ditentukan akan berubah secara otomatis",
                     "updated": 1616697880677,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "El sensor bot está extrayendo datos del exchage. En cuanto complete la extracción para el rango de fechas definido, sucederá algo realmente genial... ¡automáticamente!",
+                    "text": "El sensor bot está extrayendo datos del exchage. En cuanto complete la extracción para el rango de fechas definido, sucederá algo realmente genial... ¡automáticamente",
                     "updated": 1618434692416,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Der Sensor-Bot extrahiert gerade Daten aus der Börse. Sobald er die Extraktion für den definierten Zeitraum abgeschlossen hat, wird etwas wirklich Cooles passieren... automatisch!",
+                    "text": "Der Sensor-Bot extrahiert gerade Daten aus der Börse. Sobald er die Extraktion für den definierten Zeitraum abgeschlossen hat, wird etwas wirklich Cooles passieren... automatisch",
                     "updated": 1634162847422,
                     "style": "Text"
                 },
                 {
                     "language": "NL",
-                    "text": "De sensor bot haalt momenteel gegevens op van de exchange. Zodra ze klaar is met de extractie van de ingegeven datums, zal er iets heel cools gebeuren... automatisch!",
+                    "text": "De sensor bot haalt momenteel gegevens op van de exchange. Zodra ze klaar is met de extractie van de ingegeven datums, zal er iets heel cools gebeuren... automatisch",
                     "updated": 1634456716853,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Сенсорный бот в настоящий момент извлекает данные из биржи. Как только бот завершит извлечение необходимых данных для определенного диапазона дат и времени, пороизойдет что-то действительно классное... автоматически!",
+                    "text": "Сенсорный бот в настоящий момент извлекает данные из биржи. Как только бот завершит извлечение необходимых данных для определенного диапазона дат и времени, пороизойдет что-то действительно классное... автоматически",
                     "updated": 1641806027752,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Sensör botu şu anda borsadan veri alıyor. Tanımlanan tarih/saat aralığı için çekme işlemini tamamlar tamamlamaz gerçekten harika bir şey olacak... Otomatik olarak!",
+                    "text": "Sensör botu şu anda borsadan veri alıyor. Tanımlanan tarih/saat aralığı için çekme işlemini tamamlar tamamlamaz gerçekten harika bir şey olacak... Otomatik olarak",
                     "updated": 1635944904679
                 }
             ]
@@ -149,18 +149,18 @@
         },
         {
             "style": "Success",
-            "text": "It should take no longer than 5 to 10 minutes to extract the data from the exchange, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint!",
+            "text": "It should take no longer than 5 to 10 minutes to extract the data from the exchange, or a bit longer, depending on your hardware. Can't wait? Fine! Click Next for a quick hint",
             "updated": 1640264137412,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ci dovrebbero volere soltanto dai 3 ai 5 minuti per estrarre i dati da Binance, o un pò di più, in base al tuo hardware. Non vedi proprio l'ora? Va bene! Clicca su Next per un anticipo!",
+                    "text": "Ci dovrebbero volere soltanto dai 3 ai 5 minuti per estrarre i dati da Binance, o un pò di più, in base al tuo hardware. Non vedi proprio l'ora? Va bene! Clicca su Next per un anticipo",
                     "updated": 1618645818271,
                     "style": "Success"
                 },
                 {
                     "language": "ID",
-                    "text": "Aku tidak akan memberitahumu! Kamu harus mencarinya... Bersabarlah! Tidak akan lama cukup 3 - 5 menit untuk mengekstrak data Binance, bisa lebih lama, tergantung perangkatmu. Click Next untuk orang yang tidak sabaran!",
+                    "text": "Aku tidak akan memberitahumu! Kamu harus mencarinya... Bersabarlah! Tidak akan lama cukup 3 - 5 menit untuk mengekstrak data Binance, bisa lebih lama, tergantung perangkatmu. Click Next untuk orang yang tidak sabaran",
                     "updated": 1616697911652,
                     "style": "Success"
                 },
@@ -172,25 +172,25 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es sollte nicht länger als 3 bis 5 Minuten dauern, um die Daten von Binance zu extrahieren, oder ein bisschen länger, je nach Ihrer Hardware. Sie können nicht warten? Kein Problem! Klicken Sie auf Weiter für einen kurzen Hinweis!",
+                    "text": "Es sollte nicht länger als 3 bis 5 Minuten dauern, um die Daten von Binance zu extrahieren, oder ein bisschen länger, je nach Ihrer Hardware. Sie können nicht warten? Kein Problem! Klicken Sie auf Weiter für einen kurzen Hinweis",
                     "updated": 1634162864177,
                     "style": "Success"
                 },
                 {
                     "language": "NL",
-                    "text": "Het zou niet langer dan 3 tot 5 minuten moeten duren om de gegevens van Binance op te halen, het kan langer duren, afhankelijk van je hardware. Kan je niet wachten? Prima! Klik op Volgende voor een hint!",
+                    "text": "Het zou niet langer dan 3 tot 5 minuten moeten duren om de gegevens van Binance op te halen, het kan langer duren, afhankelijk van je hardware. Kan je niet wachten? Prima! Klik op Volgende voor een hint",
                     "updated": 1634456830102,
                     "style": "Success"
                 },
                 {
                     "language": "RU",
-                    "text": "Извлечение данных из биржи должно занять не более 5-10 минут или немного больше, в зависимости от вашего оборудования. Не можете ждать? Отлично! Нажмите кнопку Next для получения быстрой подсказки!",
+                    "text": "Извлечение данных из биржи должно занять не более 5-10 минут или немного больше, в зависимости от вашего оборудования. Не можете ждать? Отлично! Нажмите кнопку Next для получения быстрой подсказки",
                     "updated": 1641806007180,
                     "style": "Success"
                 },
                 {
                     "language": "TR",
-                    "text": "Binance'den verileri çıkarmak 3 ila 5 dakikadan uzun sürmemeli veya donanımınıza bağlı olarak birazcık daha uzun sürebilir. Bekleyemez misin? İyi! Hızlı bir ipucu için İleri'ye tıklayın!",
+                    "text": "Binance'den verileri çıkarmak 3 ila 5 dakikadan uzun sürmemeli veya donanımınıza bağlı olarak birazcık daha uzun sürebilir. Bekleyemez misin? İyi! Hızlı bir ipucu için İleri'ye tıklayın",
                     "updated": 1635943388237
                 }
             ]

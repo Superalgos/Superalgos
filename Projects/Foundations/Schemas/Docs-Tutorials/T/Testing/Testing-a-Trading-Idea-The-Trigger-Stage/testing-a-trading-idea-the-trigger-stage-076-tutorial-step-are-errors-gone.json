@@ -7,16 +7,16 @@
             "name": "Trading\\trading-strategy",
             "project": "Foundations"
         },
-        "text": "Ok! As expected, we can see that the strategy closes after the trigger stage closes! The video in the next step shows what I see!",
+        "text": "Ok! As expected, we can see that the strategy closes after the trigger stage closes! The video in the next step shows what I see",
         "translations": [
             {
                 "language": "DE",
-                "text": "Gut! Wie erwartet, können wir sehen, dass die Strategie nach dem Schließen der Trigger Stage geschlossen wird! Das Video im nächsten Schritt zeigt, was ich sehe!",
+                "text": "Gut! Wie erwartet, können wir sehen, dass die Strategie nach dem Schließen der Trigger Stage geschlossen wird! Das Video im nächsten Schritt zeigt, was ich sehe",
                 "updated": 1639391354520
             },
             {
                 "language": "TR",
-                "text": "\"Özet: Peki! Beklendiği gibi, tetik aşaması kapandıktan sonra stratejinin kapandığını görebiliriz! Bir sonraki adımdaki videoda ne gördüğümü gösteriyor!",
+                "text": "\"Özet: Peki! Beklendiği gibi, tetik aşaması kapandıktan sonra stratejinin kapandığını görebiliriz! Bir sonraki adımdaki videoda ne gördüğümü gösteriyor",
                 "updated": 1641665314323
             }
         ]
@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's unpack what happens after the trigger stage closes!",
+            "text": "Let's unpack what happens after the trigger stage closes",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lassen Sie uns auspacken, was passiert, nachdem die Trigger Stage geschlossen wurde!",
+                    "text": "Lassen Sie uns auspacken, was passiert, nachdem die Trigger Stage geschlossen wurde",
                     "updated": 1639391363968
                 },
                 {
                     "language": "TR",
-                    "text": "Tetikleme Aşaması kapandıktan sonra ne olduğunu açalım!",
+                    "text": "Tetikleme Aşaması kapandıktan sonra ne olduğunu açalım",
                     "updated": 1641665335649
                 }
             ]

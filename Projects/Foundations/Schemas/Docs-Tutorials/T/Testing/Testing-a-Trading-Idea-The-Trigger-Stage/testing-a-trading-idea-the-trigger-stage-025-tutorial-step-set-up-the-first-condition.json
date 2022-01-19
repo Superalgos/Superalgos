@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 25,
-    "type": "Tutorial Step - Set Up the First Condition!",
+    "type": "Tutorial Step - Set Up the First Condition",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "javascript-code"
         },
-        "text": "I brought you to the definition of the Trigger On Event so that you may set up the first condition!",
+        "text": "I brought you to the definition of the Trigger On Event so that you may set up the first condition",
         "translations": [
             {
                 "language": "DE",
-                "text": "Ich habe Sie zur Definition des Trigger On Event  gebracht, damit Sie die erste Bedingung einrichten können!",
+                "text": "Ich habe Sie zur Definition des Trigger On Event  gebracht, damit Sie die erste Bedingung einrichten können",
                 "updated": 1639265227898
             },
             {
                 "language": "RU",
-                "text": "Я привел вас к определению события Trigger On Event, чтобы вы могли установить первое условие!",
+                "text": "Я привел вас к определению события Trigger On Event, чтобы вы могли установить первое условие",
                 "updated": 1640940494226
             },
             {
@@ -29,21 +29,21 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Paste the condition on the Javascript Code node!",
+            "text": "Paste the condition on the Javascript Code node",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Fügen Sie die Bedingung in den Javascript Code Knoten ein!",
+                    "text": "Fügen Sie die Bedingung in den Javascript Code Knoten ein",
                     "updated": 1639265336381
                 },
                 {
                     "language": "RU",
-                    "text": "Вставьте условие в узел Javascript Code!",
+                    "text": "Вставьте условие в узел Javascript Code",
                     "updated": 1640940502201
                 },
                 {
                     "language": "TR",
-                    "text": "Koşulu Javascript Kodu ( Javascript Code ) düğümüne yapıştırın!",
+                    "text": "Koşulu Javascript Kodu ( Javascript Code ) düğümüne yapıştırın",
                     "updated": 1641654089581
                 }
             ]

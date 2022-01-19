@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 40,
-    "type": "Tutorial Step - Keep Looking!",
+    "type": "Tutorial Step - Keep Looking",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "This visual check helps you mentally connect the dots of what you see on a simulation with the definitions you produce!",
+        "text": "This visual check helps you mentally connect the dots of what you see on a simulation with the definitions you produce",
         "translations": [
             {
                 "language": "DE",
-                "text": "Diese visuelle Überprüfung hilft Ihnen, die Punkte, die Sie in der Simulation sehen, mit den von Ihnen erstellten Definitionen gedanklich zu verbinden!",
+                "text": "Diese visuelle Überprüfung hilft Ihnen, die Punkte, die Sie in der Simulation sehen, mit den von Ihnen erstellten Definitionen gedanklich zu verbinden",
                 "updated": 1639267200208
             },
             {
                 "language": "TR",
-                "text": "Bu görsel kontrol, simülasyonda gördüğünüz noktalar ile oluşturduğunuz tanımlar arasında zihinsel olarak bağlantı kurmanıza yardımcı olacaktır!",
+                "text": "Bu görsel kontrol, simülasyonda gördüğünüz noktalar ile oluşturduğunuz tanımlar arasında zihinsel olarak bağlantı kurmanıza yardımcı olacaktır",
                 "updated": 1641656548038
             }
         ]
@@ -40,16 +40,16 @@
         },
         {
             "style": "Success",
-            "text": "Take a moment to internalize the fact that events are triggered only once all the conditions in a given situation are met, and that conditions are evaluated over closed candles only!",
+            "text": "Take a moment to internalize the fact that events are triggered only once all the conditions in a given situation are met, and that conditions are evaluated over closed candles only",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich einen Moment Zeit, um die Tatsache zu verinnerlichen, dass Ereignisse nur ausgelöst werden, wenn alle Bedingungen in einer bestimmten Situation erfüllt sind, und dass Bedingungen nur über geschlossene Kerzen ausgewertet werden!",
+                    "text": "Nehmen Sie sich einen Moment Zeit, um die Tatsache zu verinnerlichen, dass Ereignisse nur ausgelöst werden, wenn alle Bedingungen in einer bestimmten Situation erfüllt sind, und dass Bedingungen nur über geschlossene Kerzen ausgewertet werden",
                     "updated": 1639267218657
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Olayların ancak belirli bir durumdaki tüm koşullar yerine getirildiğinde tetiklendiğini ve koşulların yalnızca kapalı mumlar aracılığıyla değerlendirildiğini içselleştirmek için biraz zaman ayırın!",
+                    "text": "Not: Olayların ancak belirli bir durumdaki tüm koşullar yerine getirildiğinde tetiklendiğini ve koşulların yalnızca kapalı mumlar aracılığıyla değerlendirildiğini içselleştirmek için biraz zaman ayırın",
                     "updated": 1641656570038
                 }
             ]

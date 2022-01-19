@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 62,
-    "type": "Tutorial Step - Let's Define It!",
+    "type": "Tutorial Step - Let's Define It",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "javascript-code"
         },
-        "text": "We are ready to set up the condition under the Take Position Event! Let's do it!",
+        "text": "We are ready to set up the condition under the Take Position Event! Let's do it",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir sind bereit, die Bedingung unter dem Take Position Event einzurichten! Los geht's!",
+                "text": "Wir sind bereit, die Bedingung unter dem Take Position Event einzurichten! Los geht's",
                 "updated": 1639389612098
             },
             {
                 "language": "TR",
-                "text": "Pozisyon Al Etkinliğ ( Take Position Event ) kapsamında durumu oluşturmaya hazırız! İşte başlıyoruz!",
+                "text": "Pozisyon Al Etkinliğ ( Take Position Event ) kapsamında durumu oluşturmaya hazırız! İşte başlıyoruz",
                 "updated": 1641663601544
             }
         ]
@@ -29,17 +29,17 @@
         },
         {
             "style": "Callout",
-            "text": "Copy and paste the statement!",
+            "text": "Copy and paste the statement",
             "updated": 1610471298083,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Kopieren Sie die Anweisung und fügen Sie sie ein!",
+                    "text": "Kopieren Sie die Anweisung und fügen Sie sie ein",
                     "updated": 1639389620248
                 },
                 {
                     "language": "TR",
-                    "text": "Açıklamayı kopyalayıp yapıştırın!",
+                    "text": "Açıklamayı kopyalayıp yapıştırın",
                     "updated": 1641663614250
                 }
             ]

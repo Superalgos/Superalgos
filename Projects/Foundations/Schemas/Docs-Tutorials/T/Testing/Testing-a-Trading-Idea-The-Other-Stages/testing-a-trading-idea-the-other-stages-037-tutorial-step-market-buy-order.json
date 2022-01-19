@@ -72,16 +72,16 @@
         },
         {
             "style": "Success",
-            "text": "Now you have to create the reference from the Market Buy Order node to the Market Order in the trading engine. I will show you which one in the next step!",
+            "text": "Now you have to create the reference from the Market Buy Order node to the Market Order in the trading engine. I will show you which one in the next step",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Jetzt müssen Sie den Verweis vom Knoten Market Buy Order auf die Market Order in der Trading Engine erstellen. Welche das ist, zeige ich Ihnen im nächsten Schritt!",
+                    "text": "Jetzt müssen Sie den Verweis vom Knoten Market Buy Order auf die Market Order in der Trading Engine erstellen. Welche das ist, zeige ich Ihnen im nächsten Schritt",
                     "updated": 1639418036873
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Şimdi, işlem motorunda Piyasa Satın Alma Emri ( Market Buy Order ) düğümünden Piyasa Emrine ( Market Order ) referans oluşturmanız gerekir. Bir sonraki adımda size hangisi olduğunu göstereceğim!",
+                    "text": "İpucu: Şimdi, işlem motorunda Piyasa Satın Alma Emri ( Market Buy Order ) düğümünden Piyasa Emrine ( Market Order ) referans oluşturmanız gerekir. Bir sonraki adımda size hangisi olduğunu göstereceğim",
                     "updated": 1641797064493
                 }
             ]

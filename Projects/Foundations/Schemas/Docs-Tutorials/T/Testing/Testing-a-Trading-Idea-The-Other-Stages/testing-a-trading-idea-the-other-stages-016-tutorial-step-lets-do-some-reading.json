@@ -1,7 +1,7 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
     "pageNumber": 16,
-    "type": "Tutorial Step - Let's Do Some Reading!",
+    "type": "Tutorial Step - Let's Do Some Reading",
     "definition": {
         "icon": {
             "name": "Open\\open-execution",
@@ -40,16 +40,16 @@
         },
         {
             "style": "Success",
-            "text": "We'll do some more reading before we bring all this down to Earth!",
+            "text": "We'll do some more reading before we bring all this down to Earth",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen!",
+                    "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen",
                     "updated": 1639398502617
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bunları yapmadan önce biraz daha okuma yapacağız!",
+                    "text": "İpucu: Bunları yapmadan önce biraz daha okuma yapacağız",
                     "updated": 1641746555946
                 }
             ]

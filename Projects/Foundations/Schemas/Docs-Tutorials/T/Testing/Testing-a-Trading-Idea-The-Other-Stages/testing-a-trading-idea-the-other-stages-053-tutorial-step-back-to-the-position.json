@@ -1,7 +1,7 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
     "pageNumber": 53,
-    "type": "Tutorial Step - Back to the Position!",
+    "type": "Tutorial Step - Back to the Position",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "That means that this first position is a fail!",
+            "text": "That means that this first position is a fail",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das bedeutet, dass diese erste Position ein Fehlschlag ist!",
+                    "text": "Das bedeutet, dass diese erste Position ein Fehlschlag ist",
                     "updated": 1639418728911
                 },
                 {
                     "language": "TR",
-                    "text": "Bu, ilk pozisyonun bir başarısızlık olduğu anlamına gelir!",
+                    "text": "Bu, ilk pozisyonun bir başarısızlık olduğu anlamına gelir",
                     "updated": 1641802895523
                 }
             ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Success",
-            "text": "Let's take a little tour along the period tested and make a quick assessment of the rest of the positions taken!",
+            "text": "Let's take a little tour along the period tested and make a quick assessment of the rest of the positions taken",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Machen wir einen kleinen Rundgang durch den getesteten Zeitraum und nehmen wir eine kurze Bewertung der übrigen eingegangenen Positionen vor!",
+                    "text": "Machen wir einen kleinen Rundgang durch den getesteten Zeitraum und nehmen wir eine kurze Bewertung der übrigen eingegangenen Positionen vor",
                     "updated": 1639418747752
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Test edilen döneme kısa bir tur atalım ve alınan diğer pozisyonların kısa bir değerlendirmesini yapalım!",
+                    "text": "İpucu: Test edilen döneme kısa bir tur atalım ve alınan diğer pozisyonların kısa bir değerlendirmesini yapalım",
                     "updated": 1641802913484
                 }
             ]

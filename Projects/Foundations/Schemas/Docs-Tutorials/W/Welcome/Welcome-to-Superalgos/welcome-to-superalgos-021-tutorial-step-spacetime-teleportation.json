@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 21,
-    "type": "Tutorial Step - Spacetime Teleportation!",
+    "type": "Tutorial Step - Spacetime Teleportation",
     "definition": {
         "icon": {
             "name": "Mouse\\mouse-right-click",
@@ -103,18 +103,18 @@
         },
         {
             "style": "Callout",
-            "text": "Right-click to open the map and left-click anywhere to go to that specific spot!",
+            "text": "Right-click to open the map and left-click anywhere to go to that specific spot",
             "updated": 1611076477382,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fai click con il tasto destro del mouse per aprire la mappa e clicca un punto qualsiasi con il tasto sinistro per raggiungerlo!",
+                    "text": "Fai click con il tasto destro del mouse per aprire la mappa e clicca un punto qualsiasi con il tasto sinistro per raggiungerlo",
                     "updated": 1614788954113,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Click-kanan untuk membuka map dan click-kiri dimana saja untuk teleport ke tempat yang dituju!",
+                    "text": "Click-kanan untuk membuka map dan click-kiri dimana saja untuk teleport ke tempat yang dituju",
                     "updated": 1616699289600,
                     "style": "Callout"
                 },
@@ -132,13 +132,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Rechter muisklik opent de kaart en met een linkermuisklik ga je naar die specifieke plek op de kaart!",
+                    "text": "Rechter muisklik opent de kaart en met een linkermuisklik ga je naar die specifieke plek op de kaart",
                     "updated": 1634927959267,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Щелкните правой кнопкой мыши, чтобы открыть карту, а затем щелкните левой кнопкой мыши в любой точке, чтобы перейти в это определенное место!",
+                    "text": "Щелкните правой кнопкой мыши, чтобы открыть карту, а затем щелкните левой кнопкой мыши в любой точке, чтобы перейти в это определенное место",
                     "updated": 1635609696214,
                     "style": "Callout"
                 },
@@ -151,47 +151,47 @@
         },
         {
             "style": "Text",
-            "text": "Look at me on the bottom-left corner of the design space? Now you know where to find me!",
+            "text": "Look at me on the bottom-left corner of the design space? Now you know where to find me",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Mi vedi nell'angolo in basso a sinistra del Design Space? Ora sai dove trovarmi!",
+                    "text": "Mi vedi nell'angolo in basso a sinistra del Design Space? Ora sai dove trovarmi",
                     "updated": 1614789481521,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
-                    "text": "Apakah kamu melihat aku dibawah kiri dari design space? Sekarang kamu menemukanku!",
+                    "text": "Apakah kamu melihat aku dibawah kiri dari design space? Sekarang kamu menemukanku",
                     "updated": 1616699370261,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¿Puedes verme en la esquina inferior izquierda del espacio de diseño? ¡Ahora sabes dónde encontrarme!",
+                    "text": "¿Puedes verme en la esquina inferior izquierda del espacio de diseño? ¡Ahora sabes dónde encontrarme",
                     "updated": 1624285894970,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Siehst du mich in der linken unteren Ecke des Designbereichs? Jetzt weißt du, wo du mich finden kannst!",
+                    "text": "Siehst du mich in der linken unteren Ecke des Designbereichs? Jetzt weißt du, wo du mich finden kannst",
                     "updated": 1634164340438,
                     "style": "Text"
                 },
                 {
                     "language": "NL",
-                    "text": "Zie je me in de linker onderhoek van de ontwerpruimte? Nu weet je me waar je kunt vinden!",
+                    "text": "Zie je me in de linker onderhoek van de ontwerpruimte? Nu weet je me waar je kunt vinden",
                     "updated": 1634928024309,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Видите меня в левом нижнем углу пространства проектирования? Тепер Вы знаете, где меня найти!",
+                    "text": "Видите меня в левом нижнем углу пространства проектирования? Тепер Вы знаете, где меня найти",
                     "updated": 1635609809487,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım alanının sol alt köşesindeki bana baktın mı? Artık beni nerede bulacağını biliyorsun!",
+                    "text": "Tasarım alanının sol alt köşesindeki bana baktın mı? Artık beni nerede bulacağını biliyorsun",
                     "updated": 1639213849460
                 }
             ]

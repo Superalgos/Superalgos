@@ -1,17 +1,17 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 39,
-    "type": "Tutorial Step - Look at the 26th!",
+    "type": "Tutorial Step - Look at the 26th",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "Let's shift the mouse pointer to the next candle, on February 26th!",
+        "text": "Let's shift the mouse pointer to the next candle, on February 26th",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bewegen wir den Mauszeiger auf die nächste Kerze, den 26. Februar!",
+                "text": "Bewegen wir den Mauszeiger auf die nächste Kerze, den 26. Februar",
                 "updated": 1639267100411
             },
             {
@@ -40,16 +40,16 @@
         },
         {
             "style": "Important",
-            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times!",
+            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie daran, dass jede Kerze erst ausgewertet wird, nachdem sie geschlossen wurde! Jede Eigenschaft eines jeden Produktes eines jeden Indikators bezieht sich auf geschlossene Kerzen! Dies ist eine wichtige Information, insbesondere wenn Sie mit mehreren Zeitrahmen arbeiten. Ich werde später noch darauf eingehen, aber denken Sie immer daran!",
+                    "text": "Denken Sie daran, dass jede Kerze erst ausgewertet wird, nachdem sie geschlossen wurde! Jede Eigenschaft eines jeden Produktes eines jeden Indikators bezieht sich auf geschlossene Kerzen! Dies ist eine wichtige Information, insbesondere wenn Sie mit mehreren Zeitrahmen arbeiten. Ich werde später noch darauf eingehen, aber denken Sie immer daran",
                     "updated": 1639267117530
                 },
                 {
                     "language": "TR",
-                    "text": "Önemli: Her mumun yalnızca kapatıldıktan sonra değerlendirildiğini unutmayın! Her göstergenin her ürününün her özelliği kapalı mumlarla ilgilidir! Bu, özellikle birden fazla zaman dilimiyle çalışırken önemli bir bilgidir. Buna daha sonra gireceğim, ama bunu her zaman aklında tut!",
+                    "text": "Önemli: Her mumun yalnızca kapatıldıktan sonra değerlendirildiğini unutmayın! Her göstergenin her ürününün her özelliği kapalı mumlarla ilgilidir! Bu, özellikle birden fazla zaman dilimiyle çalışırken önemli bir bilgidir. Buna daha sonra gireceğim, ama bunu her zaman aklında tut",
                     "updated": 1641656522956
                 }
             ]

@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "phase-0"
         },
-        "text": "There is enormous depth to the concept of managing positions and Superalgos offers robust and flexible tools for that matter!",
+        "text": "There is enormous depth to the concept of managing positions and Superalgos offers robust and flexible tools for that matter",
         "translations": [
             {
                 "language": "DE",
-                "text": "Das Konzept der Positionsverwaltung hat eine enorme Tiefe, und Superalgos bietet dafür robuste und flexible Werkzeuge!",
+                "text": "Das Konzept der Positionsverwaltung hat eine enorme Tiefe, und Superalgos bietet dafür robuste und flexible Werkzeuge",
                 "updated": 1639400014179
             },
             {
                 "language": "TR",
-                "text": "Pozisyon yönetim kavramının muazzam bir derinliği vardır ve Superalgos bunun için sağlam ve esnek araçlar sunar!",
+                "text": "Pozisyon yönetim kavramının muazzam bir derinliği vardır ve Superalgos bunun için sağlam ve esnek araçlar sunar",
                 "updated": 1641748646950
             }
         ]

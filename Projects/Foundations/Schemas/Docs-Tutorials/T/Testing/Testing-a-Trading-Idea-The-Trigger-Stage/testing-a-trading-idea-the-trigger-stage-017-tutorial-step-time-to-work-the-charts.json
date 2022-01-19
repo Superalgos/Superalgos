@@ -1,27 +1,27 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 17,
-    "type": "Tutorial Step - Time to Work the Charts!",
+    "type": "Tutorial Step - Time to Work the Charts",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "trigger-on-event"
         },
-        "text": "We are going to do some work on the charts, placing the focus on the Trigger On Event!",
+        "text": "We are going to do some work on the charts, placing the focus on the Trigger On Event",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden nun die Charts bearbeiten und dabei den Schwerpunkt auf das Trigger On Event legen!",
+                "text": "Wir werden nun die Charts bearbeiten und dabei den Schwerpunkt auf das Trigger On Event legen",
                 "updated": 1639262218264
             },
             {
                 "language": "RU",
-                "text": "Мы собираемся немного поработать с графиками, сосредоточив внимание на событии Trigger On Event!",
+                "text": "Мы собираемся немного поработать с графиками, сосредоточив внимание на событии Trigger On Event",
                 "updated": 1640935263371
             },
             {
                 "language": "TR",
-                "text": "Şimdi grafikleri düzenleyeceğiz ve Tetikleme Etkinliğine ( Trigger On Event ) odaklanacağız!",
+                "text": "Şimdi grafikleri düzenleyeceğiz ve Tetikleme Etkinliğine ( Trigger On Event ) odaklanacağız",
                 "updated": 1641653099361
             }
         ]
@@ -72,21 +72,21 @@
         },
         {
             "style": "Text",
-            "text": "We'll work on something around the Bollinger Bands, as you may imagine!",
+            "text": "We'll work on something around the Bollinger Bands, as you may imagine",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wie Sie sich vielleicht vorstellen können, werden wir uns mit den Bollinger Bands beschäftigen!",
+                    "text": "Wie Sie sich vielleicht vorstellen können, werden wir uns mit den Bollinger Bands beschäftigen",
                     "updated": 1639262255755
                 },
                 {
                     "language": "RU",
-                    "text": "Мы будем работать над чем-нибудь вокруг полос Боллинджера (Bollinger Bands), как вы можете себе представить!",
+                    "text": "Мы будем работать над чем-нибудь вокруг полос Боллинджера (Bollinger Bands), как вы можете себе представить",
                     "updated": 1640935355485
                 },
                 {
                     "language": "TR",
-                    "text": "Tahmin edebileceğiniz gibi, Bollinger Gruplarına bakacağız!",
+                    "text": "Tahmin edebileceğiniz gibi, Bollinger Gruplarına bakacağız",
                     "updated": 1641653133727
                 }
             ]

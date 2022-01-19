@@ -56,16 +56,16 @@
         },
         {
             "style": "Success",
-            "text": "Read these first few paragraphs about the open stage!",
+            "text": "Read these first few paragraphs about the open stage",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diese ersten Absätze über die Open Stage!",
+                    "text": "Lesen Sie diese ersten Absätze über die Open Stage",
                     "updated": 1639395032743
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Açık Aşama(open stage) ile ilgili bu ilk birkaç paragrafı okuyun!",
+                    "text": "İpucu: Açık Aşama(open stage) ile ilgili bu ilk birkaç paragrafı okuyun",
                     "updated": 1641667988190
                 }
             ]

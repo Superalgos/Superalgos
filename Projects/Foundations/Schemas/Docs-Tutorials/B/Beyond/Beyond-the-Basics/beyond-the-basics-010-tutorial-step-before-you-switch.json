@@ -3,7 +3,7 @@
     "pageNumber": 10,
     "type": "Tutorial Step - Before You Switch",
     "definition": {
-        "text": "There are a few things you should consider every time you switch branches! Let's go through a quick list before you proceed!",
+        "text": "There are a few things you should consider every time you switch branches! Let's go through a quick list before you proceed",
         "icon": {
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
@@ -12,13 +12,13 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ci sono un paio di cose da considerare ogni volta che cambi branch! Vediamone una lista prima di continuare!",
+                "text": "Ci sono un paio di cose da considerare ogni volta che cambi branch! Vediamone una lista prima di continuare",
                 "updated": 1619634039951,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Hay algunas cosas que debes considerar cada vez que cambies de rama! ¡Antes de cambiar de rama, haz un Backup!",
+                "text": "¡Hay algunas cosas que debes considerar cada vez que cambies de rama! ¡Antes de cambiar de rama, haz un Backup",
                 "updated": 1628204902504,
                 "style": "Definition"
             },
@@ -29,12 +29,12 @@
             },
             {
                 "language": "RU",
-                "text": "Есть несколько моментов, которые следует учитывать каждый раз, когда вы меняете ветку! Давайте пройдемся по краткому списку, прежде чем вы приступите к работе!",
+                "text": "Есть несколько моментов, которые следует учитывать каждый раз, когда вы меняете ветку! Давайте пройдемся по краткому списку, прежде чем вы приступите к работе",
                 "updated": 1640155691994
             },
             {
                 "language": "TR",
-                "text": "Her şube değiştirdiğinizde göz önünde bulundurmanız gereken birkaç şey var! Devam etmeden önce hızlıca göz atalım!",
+                "text": "Her şube değiştirdiğinizde göz önünde bulundurmanız gereken birkaç şey var! Devam etmeden önce hızlıca göz atalım",
                 "updated": 1640417403445
             }
         ]
@@ -110,18 +110,18 @@
         },
         {
             "style": "List",
-            "text": "The structure of mined data may have changed!",
+            "text": "The structure of mined data may have changed",
             "updated": 1636912993126,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Anche la struttura dei dati estratti potrebbe essere cambiata!",
+                    "text": "Anche la struttura dei dati estratti potrebbe essere cambiata",
                     "updated": 1619634182120,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "¡La estructura de los datos extraídos puede haber cambiado!",
+                    "text": "¡La estructura de los datos extraídos puede haber cambiado",
                     "updated": 1628204506303,
                     "style": "List"
                 },
@@ -132,24 +132,24 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Структура добытых данных могла измениться!",
+                    "text": "Структура добытых данных могла измениться",
                     "updated": 1640155763009
                 },
                 {
                     "language": "TR",
-                    "text": "İşlenmiş verilerin ( Data Mined ) yapısı değişmiş olabilir!",
+                    "text": "İşlenmiş verilerin ( Data Mined ) yapısı değişmiş olabilir",
                     "updated": 1640417605561
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "Always check the README file in the branch of the repository you wish to access for any comments on backward compatibility. Before switching branches, back up your work!",
+            "text": "Always check the README file in the branch of the repository you wish to access for any comments on backward compatibility. Before switching branches, back up your work",
             "updated": 1618158675366,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Leggi sempre il file README nel branch a cui vuoi accedere per leggere le note sulla retrocompatibilità. Prima di cambiare branches, fai un backup del tuo lavoro!",
+                    "text": "Leggi sempre il file README nel branch a cui vuoi accedere per leggere le note sulla retrocompatibilità. Prima di cambiare branches, fai un backup del tuo lavoro",
                     "updated": 1619634260507,
                     "style": "Important"
                 },
@@ -161,17 +161,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Prüfen Sie immer die README-Datei in dem Zweig des Repositorys, auf das Sie zugreifen möchten, auf Kommentare zur Abwärtskompatibilität. Bevor Sie den Zweig wechseln, sichern Sie Ihre Arbeit!",
+                    "text": "Prüfen Sie immer die README-Datei in dem Zweig des Repositorys, auf das Sie zugreifen möchten, auf Kommentare zur Abwärtskompatibilität. Bevor Sie den Zweig wechseln, sichern Sie Ihre Arbeit",
                     "updated": 1634821965825
                 },
                 {
                     "language": "RU",
-                    "text": "Всегда проверяйте файл README в ветке репозитория, к которому вы хотите получить доступ, на наличие комментариев по обратной совместимости. Перед переключением ветвей делайте резервные копии своей работы!",
+                    "text": "Всегда проверяйте файл README в ветке репозитория, к которому вы хотите получить доступ, на наличие комментариев по обратной совместимости. Перед переключением ветвей делайте резервные копии своей работы",
                     "updated": 1640155785704
                 },
                 {
                     "language": "TR",
-                    "text": "Geriye dönük uyumlulukla ilgili herhangi bir açıklama için her zaman geçiş yapmak istediğiniz deposunda bulunan README dosyasını kontrol edin. Şube değiştirmeden önce işinizi yedekleyin!",
+                    "text": "Geriye dönük uyumlulukla ilgili herhangi bir açıklama için her zaman geçiş yapmak istediğiniz deposunda bulunan README dosyasını kontrol edin. Şube değiştirmeden önce işinizi yedekleyin",
                     "updated": 1640417786420
                 }
             ]

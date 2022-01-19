@@ -41,17 +41,17 @@
         },
         {
             "style": "List",
-            "text": "You know when the error happened: keep that in mind, as the error is solely related to the candle where it happened!",
+            "text": "You know when the error happened: keep that in mind, as the error is solely related to the candle where it happened",
             "updated": 1612639274562,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie wissen, wann der Fehler aufgetreten ist: Merken Sie sich das, denn der Fehler bezieht sich ausschließlich auf die Kerze, an der er aufgetreten ist!",
+                    "text": "Sie wissen, wann der Fehler aufgetreten ist: Merken Sie sich das, denn der Fehler bezieht sich ausschließlich auf die Kerze, an der er aufgetreten ist",
                     "updated": 1639267839307
                 },
                 {
                     "language": "TR",
-                    "text": "Hatanın ne zaman oluştuğunu biliyorsan: Bunu not et, çünkü hata sadece oluştuğu mumla ilgilidir!",
+                    "text": "Hatanın ne zaman oluştuğunu biliyorsan: Bunu not et, çünkü hata sadece oluştuğu mumla ilgilidir",
                     "updated": 1641660848667
                 }
             ]
@@ -75,17 +75,17 @@
         },
         {
             "style": "List",
-            "text": "You know the error message: read it carefully and make the connection with the two previous clues!",
+            "text": "You know the error message: read it carefully and make the connection with the two previous clues",
             "updated": 1612639305533,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie kennen die Fehlermeldung: Lesen Sie sie aufmerksam und stellen Sie die Verbindung zu den beiden vorherigen Hinweisen her!",
+                    "text": "Sie kennen die Fehlermeldung: Lesen Sie sie aufmerksam und stellen Sie die Verbindung zu den beiden vorherigen Hinweisen her",
                     "updated": 1639267879588
                 },
                 {
                     "language": "TR",
-                    "text": "Hata mesajını biliyorsan: Dikkatlice okuyun ve önceki iki ipucuyla bağlantı kurun!",
+                    "text": "Hata mesajını biliyorsan: Dikkatlice okuyun ve önceki iki ipucuyla bağlantı kurun",
                     "updated": 1641660940687
                 }
             ]

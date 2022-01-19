@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 78,
-    "type": "Tutorial Step - Let's Take a Closer Look!",
+    "type": "Tutorial Step - Let's Take a Closer Look",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "We're going to take a few minutes to unpack everything we see on the chart so that you may fully understand how this works!",
+        "text": "We're going to take a few minutes to unpack everything we see on the chart so that you may fully understand how this works",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert!",
+                "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert",
                 "updated": 1639391418728
             },
             {
                 "language": "TR",
-                "text": "Nasıl çalıştığını anlayabilmeniz ve grafikte gördüğümüz her şeyi açmak için birkaç dakikanızı ayıracağız!",
+                "text": "Nasıl çalıştığını anlayabilmeniz ve grafikte gördüğümüz her şeyi açmak için birkaç dakikanızı ayıracağız",
                 "updated": 1641665982894
             }
         ]
@@ -60,28 +60,28 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen!",
+                    "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen",
                     "updated": 1639391468626
                 },
                 {
                     "language": "TR",
-                    "text": "Pozisyon Al Etkinliği ( Take Position Event ) bu mumların her biri için de geçerlidir!",
+                    "text": "Pozisyon Al Etkinliği ( Take Position Event ) bu mumların her biri için de geçerlidir",
                     "updated": 1641666021826
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "This also means that the strategy is triggering and taking the position on the same candle! Let's go and verify if all this is true!",
+            "text": "This also means that the strategy is triggering and taking the position on the same candle! Let's go and verify if all this is true",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft!",
+                    "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft",
                     "updated": 1639391474980
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Aynı zamanda stratejinin aynı mum üzerinde tetikleneceği ve pozisyonu alacağı anlamına gelir! Şimdi tüm bunların doğru olup olmadığını kontrol edelim!",
+                    "text": "İpucu: Aynı zamanda stratejinin aynı mum üzerinde tetikleneceği ve pozisyonu alacağı anlamına gelir! Şimdi tüm bunların doğru olup olmadığını kontrol edelim",
                     "updated": 1641666038197
                 }
             ]

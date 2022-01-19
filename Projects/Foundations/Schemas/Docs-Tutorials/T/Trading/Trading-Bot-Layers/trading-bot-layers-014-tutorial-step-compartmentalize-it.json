@@ -1,7 +1,7 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 14,
-    "type": "Tutorial Step - Compartmentalize It!",
+    "type": "Tutorial Step - Compartmentalize It",
     "definition": {
         "icon": {
             "name": "Layer/bot-layers",
@@ -42,18 +42,18 @@
         },
         {
             "style": "Callout",
-            "text": "When you need to use this feature to track values on the Trading Engine hierarchy, you may choose to turn on multiple layers at once... even all of them if you wish! Just keep in mind that the more layers you turn on, the more files the UI reads, thus the more load you put on your hardware!",
+            "text": "When you need to use this feature to track values on the Trading Engine hierarchy, you may choose to turn on multiple layers at once... even all of them if you wish! Just keep in mind that the more layers you turn on, the more files the UI reads, thus the more load you put on your hardware",
             "updated": 1623015208966,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn du diese Funktion nutzen musst, um Werte in der Trading Engine Hierarchie zu verfolgen, kannst du mehrere Layer auf einmal einschalten... sogar alle, wenn du willst! Denke nur daran, dass je mehr Layer du einschaltest, desto mehr Dateien liest das UI, also desto mehr forderst du deine Hardware!",
+                    "text": "Wenn du diese Funktion nutzen musst, um Werte in der Trading Engine Hierarchie zu verfolgen, kannst du mehrere Layer auf einmal einschalten... sogar alle, wenn du willst! Denke nur daran, dass je mehr Layer du einschaltest, desto mehr Dateien liest das UI, also desto mehr forderst du deine Hardware",
                     "updated": 1623013805354,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Когда вам нужно использовать эту функцию для отслеживания значений на иерархии Trading Engine, вы можете включить несколько слоев одновременно... даже все, если хотите! Только имейте в виду, что чем больше слоев вы включаете, тем больше файлов считывает пользовательский интерфейс (UI), а значит, тем больше нагрузка на ваше оборудование!",
+                    "text": "Когда вам нужно использовать эту функцию для отслеживания значений на иерархии Trading Engine, вы можете включить несколько слоев одновременно... даже все, если хотите! Только имейте в виду, что чем больше слоев вы включаете, тем больше файлов считывает пользовательский интерфейс (UI), а значит, тем больше нагрузка на ваше оборудование",
                     "updated": 1640546732387
                 }
             ]

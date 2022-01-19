@@ -7,16 +7,16 @@
             "name": "Market\\market-order",
             "project": "Foundations"
         },
-        "text": "There's one more thing we need to take care of before we move on to the definitions in the manage stage!",
+        "text": "There's one more thing we need to take care of before we move on to the definitions in the manage stage",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bevor wir zu den Definitionen in der Manage Stage übergehen, müssen wir uns noch um eine Sache kümmern!",
+                "text": "Bevor wir zu den Definitionen in der Manage Stage übergehen, müssen wir uns noch um eine Sache kümmern",
                 "updated": 1639399149008
             },
             {
                 "language": "TR",
-                "text": "Özet: Yönetim Aşamasındaki tanımlara geçmeden önce, ilgilenmemiz gereken bir şey daha var!",
+                "text": "Özet: Yönetim Aşamasındaki tanımlara geçmeden önce, ilgilenmemiz gereken bir şey daha var",
                 "updated": 1641747075526
             }
         ]

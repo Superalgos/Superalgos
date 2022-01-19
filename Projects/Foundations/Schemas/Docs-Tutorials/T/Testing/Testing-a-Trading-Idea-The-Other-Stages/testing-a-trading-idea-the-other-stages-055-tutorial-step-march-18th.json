@@ -40,16 +40,16 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the 24H time frame and take a look at the overall context!",
+            "text": "Go to the 24H time frame and take a look at the overall context",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie auf den 24-Stunden-Zeitrahmen und sehen Sie sich den Gesamtkontext an!",
+                    "text": "Gehen Sie auf den 24-Stunden-Zeitrahmen und sehen Sie sich den Gesamtkontext an",
                     "updated": 1639418822779
                 },
                 {
                     "language": "TR",
-                    "text": "24 saatlik zaman aralığına gidin ve genel bağlamı görün!",
+                    "text": "24 saatlik zaman aralığına gidin ve genel bağlamı görün",
                     "updated": 1641803127843
                 }
             ]
@@ -72,16 +72,16 @@
         },
         {
             "style": "Success",
-            "text": "Maybe we shouldn't be trading in such conditions?! It certainly seems risky!",
+            "text": "Maybe we shouldn't be trading in such conditions?! It certainly seems risky",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Vielleicht sollten wir unter solchen Bedingungen nicht handeln?! Es scheint auf jeden Fall riskant zu sein!",
+                    "text": "Vielleicht sollten wir unter solchen Bedingungen nicht handeln?! Es scheint auf jeden Fall riskant zu sein",
                     "updated": 1639418840592
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Belki de bu koşullar altında hareket etmemeliyiz?! Kesinlikle riskli görünüyor!",
+                    "text": "İpucu: Belki de bu koşullar altında hareket etmemeliyiz?! Kesinlikle riskli görünüyor",
                     "updated": 1641803145620
                 }
             ]

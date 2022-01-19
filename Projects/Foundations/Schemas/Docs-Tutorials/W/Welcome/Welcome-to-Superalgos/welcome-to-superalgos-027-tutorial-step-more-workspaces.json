@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 27,
     "type": "Tutorial Step - More Workspaces?",
     "definition": {
@@ -11,19 +11,19 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Oh sì! Alcuni di quelli sono plugin nativi del sistema, e altri sono i tuoi!",
+                "text": "Oh sì! Alcuni di quelli sono plugin nativi del sistema, e altri sono i tuoi",
                 "updated": 1614791394697,
                 "style": "Definition"
             },
             {
                 "language": "ID",
-                "text": "Yes! Beberapa dari plugin berkaitan dengan sistem dan beberapa adalah milikmu sendiri!",
+                "text": "Yes! Beberapa dari plugin berkaitan dengan sistem dan beberapa adalah milikmu sendiri",
                 "updated": 1616770406123,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista!",
+                "text": "¡La mayoría son Plugin Workspaces conectándose con el sistema! ¡También hay un User Workspace al final de la lista",
                 "updated": 1625872662394,
                 "style": "Definition"
             },
@@ -134,17 +134,17 @@
         },
         {
             "style": "Important",
-            "text": "Now open the Workspaces Tab on the left, scroll to the bottom, and find the only workspace with a purple background! That's your workspace! But no need to click on it!",
+            "text": "Now open the Workspaces Tab on the left, scroll to the bottom, and find the only workspace with a purple background! That's your workspace! But no need to click on it",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "I file plugin non devono essere modificati in altro modo!",
+                    "text": "I file plugin non devono essere modificati in altro modo",
                     "updated": 1614791561359,
                     "style": "Important"
                 },
                 {
                     "language": "ID",
-                    "text": "File plugin tidak boleh dimodifikasi tanpa menggunakan sistem!",
+                    "text": "File plugin tidak boleh dimodifikasi tanpa menggunakan sistem",
                     "updated": 1616770726775,
                     "style": "Important"
                 },
@@ -156,23 +156,23 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Öffnen Sie nun die Registerkarte Workspaces auf der linken Seite, scrollen Sie ganz nach unten und suchen Sie den einzigen Workspace mit einem lila Hintergrund! Das ist Ihr Arbeitsbereich! Sie brauchen ihn aber nicht anzuklicken!",
+                    "text": "Öffnen Sie nun die Registerkarte Workspaces auf der linken Seite, scrollen Sie ganz nach unten und suchen Sie den einzigen Workspace mit einem lila Hintergrund! Das ist Ihr Arbeitsbereich! Sie brauchen ihn aber nicht anzuklicken",
                     "updated": 1634167411161,
                     "style": "Important"
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip tek çalışma alanını bulun! Bu sizin çalışma alanınız! Ama üzerine tıklamanıza gerek yok!",
+                    "text": "Şimdi soldaki Çalışma Alanları Sekmesini açın, aşağı kaydırın ve mor arka plana sahip tek çalışma alanını bulun! Bu sizin çalışma alanınız! Ama üzerine tıklamanıza gerek yok",
                     "updated": 1636013495006
                 },
                 {
                     "language": "RU",
-                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее пространство! Но пока не нужно нажимать на него!",
+                    "text": "Теперь откройте вкладку Workspaces слева, прокрутите вниз и найдите рабочее пространство с фиолетовым фоном! Это Ваше рабочее пространство! Но пока не нужно нажимать на него",
                     "updated": 1641809497890
                 },
                 {
                     "language": "NL",
-                    "text": "Open nu het  Worspaces tabblad links en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken!",
+                    "text": "Open nu het  Worspaces tabblad links en scroll helemaal naar beneden. Daar staat het enige werkblad met een paarse achtergrond, dat is jouw eigen werkblad! Je hoeft er niet op te klikken",
                     "updated": 1636978846518
                 }
             ],

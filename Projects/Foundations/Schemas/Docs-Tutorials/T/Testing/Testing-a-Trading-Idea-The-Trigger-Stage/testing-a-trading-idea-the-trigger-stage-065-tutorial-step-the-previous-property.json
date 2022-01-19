@@ -24,17 +24,17 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "But such use is not mandatory! You may use the previous property as you wish. We need to compare the close of the candle with the moving average and the deviation of the same candle! That is why we apply it to all statements!",
+            "text": "But such use is not mandatory! You may use the previous property as you wish. We need to compare the close of the candle with the moving average and the deviation of the same candle! That is why we apply it to all statements",
             "updated": 1610471797965,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Diese Verwendung ist jedoch nicht zwingend erforderlich! Sie können die vorherige Eigenschaft nach Belieben verwenden. Wir müssen den Schluss der Kerze mit dem gleitenden Durchschnitt und der Abweichung derselben Kerze vergleichen! Deshalb wenden wir sie auf alle Aussagen an!",
+                    "text": "Diese Verwendung ist jedoch nicht zwingend erforderlich! Sie können die vorherige Eigenschaft nach Belieben verwenden. Wir müssen den Schluss der Kerze mit dem gleitenden Durchschnitt und der Abweichung derselben Kerze vergleichen! Deshalb wenden wir sie auf alle Aussagen an",
                     "updated": 1639390021071
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Ancak, bu kullanım kesinlikle gerekli değildir! Önceki özelliği istediğiniz gibi kullanabilirsiniz. Mumun kapanışını hareketli ortalama ve aynı mumun sapması ile karşılaştırmamız gerekiyor! Bu nedenle, bunu tüm ifadelere uyguluyoruz!",
+                    "text": "Not: Ancak, bu kullanım kesinlikle gerekli değildir! Önceki özelliği istediğiniz gibi kullanabilirsiniz. Mumun kapanışını hareketli ortalama ve aynı mumun sapması ile karşılaştırmamız gerekiyor! Bu nedenle, bunu tüm ifadelere uyguluyoruz",
                     "updated": 1641663814097
                 }
             ]

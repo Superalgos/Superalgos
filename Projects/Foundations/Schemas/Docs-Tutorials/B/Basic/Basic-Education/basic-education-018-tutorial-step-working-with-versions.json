@@ -3,7 +3,7 @@
     "pageNumber": 18,
     "type": "Tutorial Step - Working With Versions",
     "definition": {
-        "text": "Let's say you want to test a strategy with different sets of parameters, so you take a backup of the Trading Parameters node!",
+        "text": "Let's say you want to test a strategy with different sets of parameters, so you take a backup of the Trading Parameters node.",
         "updated": 1615571330616,
         "icon": {
             "name": "Mouse\\hand-drag",
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Mettiamo che tu voglia testare una strategia con diversi set di parametri: inizia facendo un backup del nodo Trading Parameters!",
+                "text": "Mettiamo che tu voglia testare una strategia con diversi set di parametri: inizia facendo un backup del nodo Trading Parameters.",
                 "updated": 1619466111095,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Supongamos que desea probar una estrategia con diferentes conjuntos de parámetros, por lo que realizas una copia de seguridad del nodo Trading Parameters!",
+                "text": "Supongamos que desea probar una estrategia con diferentes conjuntos de parámetros, por lo que realizas una copia de seguridad del nodo Trading Parameters.",
                 "updated": 1626351504520,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Angenommen, Sie wollen eine Strategie mit verschiedenen Parametersätzen testen, dann erstellen Sie ein Backup des Knotens Trading Parameters!",
+                "text": "Angenommen, Sie wollen eine Strategie mit verschiedenen Parametersätzen testen, dann erstellen Sie ein Backup des Knotens Trading Parameters.",
                 "updated": 1634333373800
             },
             {
                 "language": "TR",
-                "text": "Diyelim ki farklı parametre setleriyle bir stratejiyi test etmek istiyorsunuz, bu nedenle İşlem Parametreleri düğümünün yedeğini alabilirsiniz!",
+                "text": "Diyelim ki farklı parametre setleriyle bir stratejiyi test etmek istiyorsunuz, bu nedenle İşlem Parametreleri düğümünün yedeğini alabilirsiniz.",
                 "updated": 1636790169192
             },
             {
                 "language": "RU",
-                "text": "Допустим, вы хотите протестировать стратегию с разными наборами параметров, поэтому вы можете сделать резервную копию узла Trading Parameters!",
+                "text": "Допустим, вы хотите протестировать стратегию с разными наборами параметров, поэтому вы можете сделать резервную копию узла Trading Parameters.",
                 "updated": 1640867716088
             }
         ]
@@ -76,46 +76,46 @@
         },
         {
             "style": "Callout",
-            "text": "Now drag the backup file and drop it in the Design Space! That's how you restore a backup!",
+            "text": "Now drag the backup file and drop it in the Design Space! That's how you restore a backup.",
             "updated": 1615571393497,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ora trascina il file di backup e rilascialo nel Design Space. È così che si ripristina un backup!",
+                    "text": "Ora trascina il file di backup e rilascialo nel Design Space. È così che si ripristina un backup.",
                     "updated": 1619466286103,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Ahora arrastre el archivo de respaldo y suéltelo en el Design Space! ¡Así es como restaura una copia de seguridad!",
+                    "text": "Ahora arrastre el archivo de respaldo y suéltelo en el Design Space! ¡Así es como restaura una copia de seguridad.",
                     "updated": 1626352187525,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Ziehen Sie nun die Sicherungsdatei und legen Sie sie im Design Space ab! So stellen Sie ein Backup wieder her!",
+                    "text": "Ziehen Sie nun die Sicherungsdatei und legen Sie sie im Design Space ab! So stellen Sie ein Backup wieder her.",
                     "updated": 1634333401730
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdi yedekleme dosyasını sürükleyin ve Tasarım Alanına ( Design Space ) bırakın! Bir yedeği bu şekilde geri yüklersiniz!",
+                    "text": "Şimdi yedekleme dosyasını sürükleyin ve Tasarım Alanına ( Design Space ) bırakın! Bir yedeği bu şekilde geri yüklersiniz.",
                     "updated": 1636790223553
                 },
                 {
                     "language": "RU",
-                    "text": "Теперь перетащите файл резервной копии и бросьте его в пространство проектирования! Вот так можно восстановить резервную копию!",
+                    "text": "Теперь перетащите файл резервной копии и бросьте его в пространство проектирования! Вот так можно восстановить резервную копию.",
                     "updated": 1640867780647
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Easy right? In the next step, I'll show you how to get back to using the original version!",
+            "text": "Easy right? In the next step, I'll show you how to get back to using the original version.",
             "updated": 1615571399267,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Facile, no? Nel prossimo step, ti mostrerò come tornare a utilizzare la versione originale!",
+                    "text": "Facile, no? Nel prossimo step, ti mostrerò come tornare a utilizzare la versione originale.",
                     "updated": 1619466338500,
                     "style": "Text"
                 },
@@ -127,17 +127,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Einfach, oder? Im nächsten Schritt zeige ich Ihnen, wie Sie wieder die Originalversion verwenden können!",
+                    "text": "Einfach, oder? Im nächsten Schritt zeige ich Ihnen, wie Sie wieder die Originalversion verwenden können.",
                     "updated": 1634333412661
                 },
                 {
                     "language": "TR",
-                    "text": "Kolay değil mi? Bir sonraki adımda, orijinal sürümü kullanmaya nasıl geri döneceğinizi göstereceğim!",
+                    "text": "Kolay değil mi? Bir sonraki adımda, orijinal sürümü kullanmaya nasıl geri döneceğinizi göstereceğim.",
                     "updated": 1636790201614
                 },
                 {
                     "language": "RU",
-                    "text": "Легко, правда? В следующем шаге я покажу вам, как вернуться к использованию оригинальной версии!",
+                    "text": "Легко, правда? В следующем шаге я покажу вам, как вернуться к использованию оригинальной версии.",
                     "updated": 1640867801136
                 }
             ]

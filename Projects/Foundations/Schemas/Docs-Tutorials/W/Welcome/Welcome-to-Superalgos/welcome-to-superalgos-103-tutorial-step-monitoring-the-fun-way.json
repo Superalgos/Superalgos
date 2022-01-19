@@ -1,39 +1,39 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 103,
-    "type": "Tutorial Step - Monitoring the Fun Way!",
+    "type": "Tutorial Step - Monitoring the Fun Way",
     "definition": {
         "icon": {
             "name": "Bullet\\bullet-limit-buy-order",
             "project": "Foundations"
         },
-        "text": "You thought I would let you monitor the Live Trading Session watching the list of orders at the exchange? No way!",
+        "text": "You thought I would let you monitor the Live Trading Session watching the list of orders at the exchange? No way",
         "translations": [
             {
                 "language": "IT",
-                "text": "Pensavi che ti avrei lasciato monitorare la Live Trading Session controllando quella brutta lista di ordini sull'exchange? Neanche per sogno!",
+                "text": "Pensavi che ti avrei lasciato monitorare la Live Trading Session controllando quella brutta lista di ordini sull'exchange? Neanche per sogno",
                 "updated": 1618071826917,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¿Pensaste que te permitiría monitorear el Live Trading Session viendo la desagradable lista de órdenes en el exchange? ¡De ninguna manera!",
+                "text": "¿Pensaste que te permitiría monitorear el Live Trading Session viendo la desagradable lista de órdenes en el exchange? ¡De ninguna manera",
                 "updated": 1624485064261,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Sie dachten, ich würde Sie den Live Trading Session überwachen lassen, indem Sie die hässliche Liste der Aufträge an der Börse beobachten? Weit gefehlt!",
+                "text": "Sie dachten, ich würde Sie den Live Trading Session überwachen lassen, indem Sie die hässliche Liste der Aufträge an der Börse beobachten? Weit gefehlt",
                 "updated": 1634245518290
             },
             {
                 "language": "TR",
-                "text": "Borsadaki kirli emir listesini izleyerek Canlı İşlem Oturumunu ( Live Trading Session ) izlemene izin vereceğimi mi sandın? Mümkün değil!",
+                "text": "Borsadaki kirli emir listesini izleyerek Canlı İşlem Oturumunu ( Live Trading Session ) izlemene izin vereceğimi mi sandın? Mümkün değil",
                 "updated": 1636632883293
             },
             {
                 "language": "ID",
-                "text": "Kamu pikir aku akan membiarkan kamu memantau Live Trading Session dan menonton list order di exchange? Tidak mungkin!",
+                "text": "Kamu pikir aku akan membiarkan kamu memantau Live Trading Session dan menonton list order di exchange? Tidak mungkin",
                 "updated": 1640596146921
             }
         ],
@@ -42,34 +42,34 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos produces the same kind of simulations you fell in love with for live sessions too, in realtime!",
+            "text": "Superalgos produces the same kind of simulations you fell in love with for live sessions too, in realtime",
             "updated": 1616435345542,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Superalgos produce lo stesso tipo di simulazioni di cui ti sei innamorato anche per le live sessions, e lo fa in tempo reale!",
+                    "text": "Superalgos produce lo stesso tipo di simulazioni di cui ti sei innamorato anche per le live sessions, e lo fa in tempo reale",
                     "updated": 1618071876792,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos también produce el mismo tipo de simulaciones que te enamoraron para las sesiones en vivo, ¡en tiempo real!",
+                    "text": "Superalgos también produce el mismo tipo de simulaciones que te enamoraron para las sesiones en vivo, ¡en tiempo real",
                     "updated": 1624485018498,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos produziert die gleiche Art von Simulationen, in die Sie sich verliebt haben, auch für Live-Sessions, in Echtzeit!",
+                    "text": "Superalgos produziert die gleiche Art von Simulationen, in die Sie sich verliebt haben, auch für Live-Sessions, in Echtzeit",
                     "updated": 1634245526070
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos, gerçek zamanlı olarak canlı oturumlar için de aşık olduğunuz simülasyonları üretir!",
+                    "text": "Superalgos, gerçek zamanlı olarak canlı oturumlar için de aşık olduğunuz simülasyonları üretir",
                     "updated": 1636632876142
                 },
                 {
                     "language": "ID",
-                    "text": "Superalgos menghasilkan simulasi yang akan kamu cintai serta live sessions juga, secara realtime!",
+                    "text": "Superalgos menghasilkan simulasi yang akan kamu cintai serta live sessions juga, secara realtime",
                     "updated": 1640596334283
                 }
             ]

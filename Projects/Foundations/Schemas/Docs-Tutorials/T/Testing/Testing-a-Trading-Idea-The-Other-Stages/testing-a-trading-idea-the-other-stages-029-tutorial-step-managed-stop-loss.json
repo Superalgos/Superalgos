@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "stop-loss"
         },
-        "text": "Let's prepare the syntax to use for the Phase #1 formula of the Managed Stop Loss!",
+        "text": "Let's prepare the syntax to use for the Phase #1 formula of the Managed Stop Loss",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bereiten wir nun die Syntax für die Formel der Phase #1 des Managed Stop Loss vor!",
+                "text": "Bereiten wir nun die Syntax für die Formel der Phase #1 des Managed Stop Loss vor",
                 "updated": 1639400100389
             },
             {
                 "language": "TR",
-                "text": "Şimdi Yönetilen Zarar Durdur'un ( Managed Stop Loss ) 1. Aşama ( Phase ) formülü için kullanılacak söz dizimini hazırlayalım!",
+                "text": "Şimdi Yönetilen Zarar Durdur'un ( Managed Stop Loss ) 1. Aşama ( Phase ) formülü için kullanılacak söz dizimini hazırlayalım",
                 "updated": 1641748723193
             }
         ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Success",
-            "text": "Remember the logic to navigate the data structure! First, determine the context in which the information exists!",
+            "text": "Remember the logic to navigate the data structure! First, determine the context in which the information exists",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Erinnern Sie sich an die Logik zur Navigation in der Datenstruktur! Bestimmen Sie zunächst den Kontext, in dem die Information existiert!",
+                    "text": "Erinnern Sie sich an die Logik zur Navigation in der Datenstruktur! Bestimmen Sie zunächst den Kontext, in dem die Information existiert",
                     "updated": 1639400119718
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Veri yapısında gezinme mantığını hatırlayın! Önce bilginin var olduğu bağlamı belirleyin!",
+                    "text": "İpucu: Veri yapısında gezinme mantığını hatırlayın! Önce bilginin var olduğu bağlamı belirleyin",
                     "updated": 1641749181113
                 }
             ]

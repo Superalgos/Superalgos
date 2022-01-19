@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "take-position-event"
         },
-        "text": "Let's do a quick check on the take position event and then address the elephant in the room: we have errors!",
+        "text": "Let's do a quick check on the take position event and then address the elephant in the room: we have errors",
         "translations": [
             {
                 "language": "DE",
-                "text": "Überprüfen wir kurz das Take-Position-Ereignis und gehen wir dann auf das Problem ein, das im Raum steht: Wir haben Fehler!",
+                "text": "Überprüfen wir kurz das Take-Position-Ereignis und gehen wir dann auf das Problem ein, das im Raum steht: Wir haben Fehler",
                 "updated": 1639390692837
             },
             {
                 "language": "TR",
-                "text": "Pozisyon alma olayını (take position event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var!",
+                "text": "Pozisyon alma olayını (take position event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var",
                 "updated": 1641664867597
             }
         ]
@@ -40,16 +40,16 @@
         },
         {
             "style": "Callout",
-            "text": "Well, we can see the Trigger Stage closing on Feb 28th, at 9 hs... right after two consecutive hourly closes below the lower band! So far so good!",
+            "text": "Well, we can see the Trigger Stage closing on Feb 28th, at 9 hs... right after two consecutive hourly closes below the lower band! So far so good",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Nun, wir können sehen, dass die Trigger Stage am 28. Februar um 9 Uhr schließt... direkt nach zwei aufeinanderfolgenden stündlichen Schlusskursen unterhalb des unteren Bandes! So weit, so gut!",
+                    "text": "Nun, wir können sehen, dass die Trigger Stage am 28. Februar um 9 Uhr schließt... direkt nach zwei aufeinanderfolgenden stündlichen Schlusskursen unterhalb des unteren Bandes! So weit, so gut",
                     "updated": 1639390757768
                 },
                 {
                     "language": "TR",
-                    "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz ... alt bandın altında art arda iki saatlik kapanış fiyatından hemen sonra! Çok uzak çok iyi!",
+                    "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz ... alt bandın altında art arda iki saatlik kapanış fiyatından hemen sonra! Çok uzak çok iyi",
                     "updated": 1641664892452
                 }
             ]

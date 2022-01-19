@@ -7,16 +7,16 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Errors are always tied to a point in time, that is, to a specific candle! Like in this case, more than one error may happen at a time!",
+        "text": "Errors are always tied to a point in time, that is, to a specific candle! Like in this case, more than one error may happen at a time",
         "translations": [
             {
                 "language": "DE",
-                "text": "Fehler sind immer an einen Zeitpunkt, d.h. an eine bestimmte Kerze gebunden! Wie in diesem Fall kann mehr als ein Fehler gleichzeitig auftreten!",
+                "text": "Fehler sind immer an einen Zeitpunkt, d.h. an eine bestimmte Kerze gebunden! Wie in diesem Fall kann mehr als ein Fehler gleichzeitig auftreten",
                 "updated": 1639267360171
             },
             {
                 "language": "TR",
-                "text": "Özet: Hatalar her zaman zamanın bir noktasına, yani belirli bir muma bağlıdır! Bu durumda olduğu gibi aynı anda birden fazla hata oluşabilir!",
+                "text": "Özet: Hatalar her zaman zamanın bir noktasına, yani belirli bir muma bağlıdır! Bu durumda olduğu gibi aynı anda birden fazla hata oluşabilir",
                 "updated": 1641660472550
             }
         ]

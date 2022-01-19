@@ -1,9 +1,9 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 11,
-    "type": "Tutorial Step - Play With The Tape!",
+    "type": "Tutorial Step - Play With The Tape.",
     "definition": {
-        "text": "Try the different distance settings of the Lightning Strike Trading System Reference node! Go ahead! Click the tape button!",
+        "text": "Try the different distance settings of the Lightning Strike Trading System Reference node! Go ahead! Click the tape button.",
         "icon": {
             "name": "Trading\\trading-system-reference",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Prova differenti impostazioni per la distanza del nodo Trading System Reference! Cliccai il tasto con il metro!",
+                "text": "Prova differenti impostazioni per la distanza del nodo Trading System Reference! Cliccai il tasto con il metro.",
                 "updated": 1619460658554,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Prueba los diferentes ajustes de distancia del nodo Lightning Strike Trading System Reference. ¡Adelante! ¡Haz clic en el botón de cinta!",
+                "text": "Prueba los diferentes ajustes de distancia del nodo Lightning Strike Trading System Reference. ¡Adelante! ¡Haz clic en el botón de cinta.",
                 "updated": 1625957648227,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Probieren Sie die verschiedenen Entfernungseinstellungen des Lightning Strike Trading System Reference Knoten aus! Machen Sie weiter! Klicken Sie auf die Schaltfläche mit dem \"Maßband\"!",
+                "text": "Probieren Sie die verschiedenen Entfernungseinstellungen des Lightning Strike Trading System Reference Knoten aus! Machen Sie weiter! Klicken Sie auf die Schaltfläche mit dem \"Maßband\".",
                 "updated": 1634332512924
             },
             {
                 "language": "TR",
-                "text": "Lightning Strike Ticaret Sistemi Referans düğümünün ( Trading System Reference Node ) farklı mesafe ayarlarını deneyin! Devam edelim! Bant düğmesine tıklayın!",
+                "text": "Lightning Strike Ticaret Sistemi Referans düğümünün ( Trading System Reference Node ) farklı mesafe ayarlarını deneyin! Devam edelim! Bant düğmesine tıklayın.",
                 "updated": 1636749363536
             },
             {
                 "language": "RU",
-                "text": "Попробуйте различные настройки расстояния в узле Lightning Strike Trading System Reference! Вперед! Нажмите на кнопку в виде рулетки!",
+                "text": "Попробуйте различные настройки расстояния в узле Lightning Strike Trading System Reference! Вперед! Нажмите на кнопку в виде рулетки.",
                 "updated": 1640866617814
             }
         ]
@@ -76,45 +76,45 @@
         },
         {
             "style": "Callout",
-            "text": "Let's find out! Click the Distance to Parent button once on the Trading Parameters node!",
+            "text": "Let's find out! Click the Distance to Parent button once on the Trading Parameters node.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Scopriamolo! Clicca una volta il bottone Distance To Parent sul nodo Trading Parameters!",
+                    "text": "Scopriamolo! Clicca una volta il bottone Distance To Parent sul nodo Trading Parameters.",
                     "updated": 1619460737845,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Vamos a averiguar! Haz clic en el botón  Distance to Parent una vez en el nodo Trading Parameters!",
+                    "text": "¡Vamos a averiguar! Haz clic en el botón  Distance to Parent una vez en el nodo Trading Parameters.",
                     "updated": 1625957763076,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Finden wir es heraus! Klicken Sie einmal auf die Schaltfläche Abstand zum Übergeordneten Knoten auf den Knoten Trading Parameters !",
+                    "text": "Finden wir es heraus! Klicken Sie einmal auf die Schaltfläche Abstand zum Übergeordneten Knoten auf den Knoten Trading Parameters .",
                     "updated": 1634332609115
                 },
                 {
                     "language": "TR",
-                    "text": "Hadi bulalım! İşlem Parametreleri ( Trading Parameters ) düğümünde Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın!",
+                    "text": "Hadi bulalım! İşlem Parametreleri ( Trading Parameters ) düğümünde Ebeveyne Uzaklık ( Distance To Parent ) düğmesine bir kez tıklayın.",
                     "updated": 1636749475116
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте узнаем! Нажмите кнопку Distance to Parent один раз на узле Trading Parameters!",
+                    "text": "Давайте узнаем! Нажмите кнопку Distance to Parent один раз на узле Trading Parameters.",
                     "updated": 1640866666986
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Because you increased the distance separating the Trading Parameters node from the Backtesting Session node, the offspring of the Trading Parameters node also increased proportionally!",
+            "text": "Because you increased the distance separating the Trading Parameters node from the Backtesting Session node, the offspring of the Trading Parameters node also increased proportionally.",
             "updated": 1615476086180,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Siccome hai aumentato la distanza che separa il nodo Trading Parameters dal nodo Backtesting Session, la distanza dei figli del nodo Trading Parameters è aumentata allo stesso modo!",
+                    "text": "Siccome hai aumentato la distanza che separa il nodo Trading Parameters dal nodo Backtesting Session, la distanza dei figli del nodo Trading Parameters è aumentata allo stesso modo.",
                     "updated": 1619460842878,
                     "style": "Note"
                 },
@@ -126,17 +126,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Da Sie den Abstand zwischen dem Trading Parameters Knoten und dem Backtesting Session Knoten vergrößert haben, haben sich auch die Unterknoten des Trading Parameters Knotens proportional vergrößert!",
+                    "text": "Da Sie den Abstand zwischen dem Trading Parameters Knoten und dem Backtesting Session Knoten vergrößert haben, haben sich auch die Unterknoten des Trading Parameters Knotens proportional vergrößert.",
                     "updated": 1634332645315
                 },
                 {
                     "language": "TR",
-                    "text": "İşlem Parametreleri düğümünü Geri Test Oturumu (Backtesting Session Node ) düğümünden ayıran mesafeyi artırdığınız için, İşlem Parametreleri ( Trading Parameters ) düğümünün yavruları da orantılı olarak arttı!",
+                    "text": "İşlem Parametreleri düğümünü Geri Test Oturumu (Backtesting Session Node ) düğümünden ayıran mesafeyi artırdığınız için, İşlem Parametreleri ( Trading Parameters ) düğümünün yavruları da orantılı olarak arttı.",
                     "updated": 1636749564919
                 },
                 {
                     "language": "RU",
-                    "text": "Поскольку вы увеличили расстояние, отделяющее узел Trading Parameters от узла Backtesting Session, потомство узла Trading Parameters также пропорционально увеличилось!",
+                    "text": "Поскольку вы увеличили расстояние, отделяющее узел Trading Parameters от узла Backtesting Session, потомство узла Trading Parameters также пропорционально увеличилось.",
                     "updated": 1640866688182
                 }
             ]

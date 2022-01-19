@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 48,
-    "type": "Tutorial Step - Playing with the Rate Scale!",
+    "type": "Tutorial Step - Playing with the Rate Scale",
     "definition": {
         "icon": {
             "name": "Charting-Space\\rate-scale",
@@ -46,7 +46,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The rate scale works like the time scale, but —when using the keyboard— you must reverse the arrow keys! Use the left and right arrows ← → to toggle through the automatic modes and up and down arrows ↑ ↓ to affect the scale! Check the video coming next for clarity!",
+            "text": "The rate scale works like the time scale, but —when using the keyboard— you must reverse the arrow keys! Use the left and right arrows ← → to toggle through the automatic modes and up and down arrows ↑ ↓ to affect the scale! Check the video coming next for clarity",
             "translations": [
                 {
                     "language": "IT",
@@ -56,28 +56,28 @@
                 },
                 {
                     "language": "ES",
-                    "text": "El Rate Scale trabaja como el Time Scale, pero —al usar el teclado—¡debes invertir las teclas de flecha! Usa las flechas izquierda y derecha ← → para alternar entre los modos automáticos y las flechas hacia arriba y hacia abajo ↑ ↓ para afectar la escala. ¡Mira el video que viene a continuación para mayor claridad!",
+                    "text": "El Rate Scale trabaja como el Time Scale, pero —al usar el teclado—¡debes invertir las teclas de flecha! Usa las flechas izquierda y derecha ← → para alternar entre los modos automáticos y las flechas hacia arriba y hacia abajo ↑ ↓ para afectar la escala. ¡Mira el video que viene a continuación para mayor claridad",
                     "updated": 1624407641584,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Die Rate Scale funktioniert wie die Time Scale, aber -wenn du die Tastatur benutzt- musst du die Pfeiltasten umkehren! Mit den Pfeiltasten links und rechts ← → schaltest du zwischen den Automatikmodi um und mit den Pfeiltasten auf und ab ↑ ↓ kannst du die Skala beeinflussen! Schauen Sie sich das nächste Video an, um sich Klarheit zu verschaffen!",
+                    "text": "Die Rate Scale funktioniert wie die Time Scale, aber -wenn du die Tastatur benutzt- musst du die Pfeiltasten umkehren! Mit den Pfeiltasten links und rechts ← → schaltest du zwischen den Automatikmodi um und mit den Pfeiltasten auf und ab ↑ ↓ kannst du die Skala beeinflussen! Schauen Sie sich das nächste Video an, um sich Klarheit zu verschaffen",
                     "updated": 1634217218782
                 },
                 {
                     "language": "TR",
-                    "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarını tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin!",
+                    "text": "Fiyat ölçeği, zaman ölçeği gibi çalışır, ancak klavyeyi kullanırken ok tuşlarını tersini kullanmanız gerekir! Otomatik modlar arasında geçiş yapmak için sol ve sağ okları ← → ve ölçeği etkilemek için yukarı ve aşağı okları ↑ ↓ kullanın! Anlamak için bir sonraki videoyu kontrol edin",
                     "updated": 1636094888142
                 },
                 {
                     "language": "RU",
-                    "text": "Шкала ставок работает так же, как и шкала времени, но при использовании клавиатуры, вам необходимо поменять местами клавиши со стрелками. Используйте стрелки ← → для переключения между автоматическими режимами и стрелки ↑ ↓ - для изменения масштаба! Проверьте следующее видео для большей ясности!",
+                    "text": "Шкала ставок работает так же, как и шкала времени, но при использовании клавиатуры, вам необходимо поменять местами клавиши со стрелками. Используйте стрелки ← → для переключения между автоматическими режимами и стрелки ↑ ↓ - для изменения масштаба! Проверьте следующее видео для большей ясности",
                     "updated": 1636207110611
                 },
                 {
                     "language": "ID",
-                    "text": "Skala kecepatan berfungsi seperti skala waktu, tetapi —saat menggunakan keyboard—Kamu harus membalik tombol panah! Gunakan panah kiri dan kanan ← → untuk beralih melalui mode otomatis dan panah atas dan bawah ↑ ↓ untuk mengubah skalanya! Lihatlah video berikutnya agar lebih jelas!",
+                    "text": "Skala kecepatan berfungsi seperti skala waktu, tetapi —saat menggunakan keyboard—Kamu harus membalik tombol panah! Gunakan panah kiri dan kanan ← → untuk beralih melalui mode otomatis dan panah atas dan bawah ↑ ↓ untuk mengubah skalanya! Lihatlah video berikutnya agar lebih jelas",
                     "updated": 1639585260696
                 }
             ],

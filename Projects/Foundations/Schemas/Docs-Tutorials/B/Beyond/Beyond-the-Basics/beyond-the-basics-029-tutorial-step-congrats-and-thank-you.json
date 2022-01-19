@@ -1,9 +1,9 @@
 {
     "tutorial": "Beyond the Basics",
     "pageNumber": 29,
-    "type": "Tutorial Step - Congrats and Thank You!",
+    "type": "Tutorial Step - Congrats and Thank You",
     "definition": {
-        "text": "You are already helping the project! We are grateful for your first contribution and hope there's more to come!",
+        "text": "You are already helping the project! We are grateful for your first contribution and hope there's more to come",
         "updated": 1636914650684,
         "icon": {
             "name": "Docs\\docs-success-style",
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Fantastico! Stai già aiutando il progetto! Ti siamo grati per questo primo contributo e speriamo ce ne siano altri in futuro!",
+                "text": "Fantastico! Stai già aiutando il progetto! Ti siamo grati per questo primo contributo e speriamo ce ne siano altri in futuro",
                 "updated": 1619637816559,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Esto es asombroso! ¡Ya estás ayudando al proyecto! ¡Estamos agradecidos por tu primera contribución y esperamos que haya más por venir!",
+                "text": "¡Esto es asombroso! ¡Ya estás ayudando al proyecto! ¡Estamos agradecidos por tu primera contribución y esperamos que haya más por venir",
                 "updated": 1628198352736,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Das ist großartig! Du hilfst dem Projekt bereits! Wir sind dankbar für Ihren ersten Beitrag und hoffen, dass noch weitere folgen werden!",
+                "text": "Das ist großartig! Du hilfst dem Projekt bereits! Wir sind dankbar für Ihren ersten Beitrag und hoffen, dass noch weitere folgen werden",
                 "updated": 1635151669411
             },
             {
                 "language": "TR",
-                "text": "Superalgos'a ilgi duymak ve onu anlayıp kullanmaya çalışmakla projeye zaten yardım ediyorsunuz! İlk katkınız için minnettarız ve daha fazlasının geleceğini umuyoruz!",
+                "text": "Superalgos'a ilgi duymak ve onu anlayıp kullanmaya çalışmakla projeye zaten yardım ediyorsunuz! İlk katkınız için minnettarız ve daha fazlasının geleceğini umuyoruz",
                 "updated": 1640002412839
             },
             {
                 "language": "RU",
-                "text": "Вы уже помогаете проекту! Мы благодарны за ваш первый вклад и надеемся, что это еще не все!",
+                "text": "Вы уже помогаете проекту! Мы благодарны за ваш первый вклад и надеемся, что это еще не все",
                 "updated": 1640163557924
             }
         ]
@@ -42,24 +42,24 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If everything went well with your authentication, you should see the App Message - Contribution Done page!",
+            "text": "If everything went well with your authentication, you should see the App Message - Contribution Done page",
             "updated": 1617023256176,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "`Se tutto è andato bene nell'autenticazione, vedrai la pagin App Message - Contribution Done!",
+                    "text": "`Se tutto è andato bene nell'autenticazione, vedrai la pagin App Message - Contribution Done",
                     "updated": 1619637854204,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Si todo salió bien con tu autenticación, deberías ver el App Message - Contribution Done!",
+                    "text": "Si todo salió bien con tu autenticación, deberías ver el App Message - Contribution Done",
                     "updated": 1628198389832,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn alles mit Ihrer Authentifizierung gut gelaufen ist, sollten Sie die Seite App Message - Contribution Done sehen!",
+                    "text": "Wenn alles mit Ihrer Authentifizierung gut gelaufen ist, sollten Sie die Seite App Message - Contribution Done sehen",
                     "updated": 1635151689672
                 },
                 {
@@ -69,31 +69,31 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Если все прошло успешно при аутентификации, вы должны увидеть страницу App Message - Contribution Done!",
+                    "text": "Если все прошло успешно при аутентификации, вы должны увидеть страницу App Message - Contribution Done",
                     "updated": 1640163574867
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Project maintainers will review your Pull Request and act accordingly. If it is possible to merge it without conflicts, it should go live soon! Keep an eye on notifications from GitHub.com!",
+            "text": "Project maintainers will review your Pull Request and act accordingly. If it is possible to merge it without conflicts, it should go live soon! Keep an eye on notifications from GitHub.com",
             "updated": 1622029481268,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "I manutentori del progetto esamineranno la Pull Request. Se è possibile integrarla senza conflitti, dovrebbe essere presto in live! Tieni d'occhio le notifiche su GitHub.com!",
+                    "text": "I manutentori del progetto esamineranno la Pull Request. Se è possibile integrarla senza conflitti, dovrebbe essere presto in live! Tieni d'occhio le notifiche su GitHub.com",
                     "updated": 1619637945490,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Los encargados del proyecto revisarán tu Pull Request y actuar en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com!",
+                    "text": "Los encargados del proyecto revisarán tu Pull Request y actuar en consecuencia. Si es posible fusionarlo sin conflictos, ¡debería estar disponible pronto! ¡Atento a las notificaciones de GitHub.com",
                     "updated": 1628198467452,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Die Projektbetreuer werden Ihren Pull Request überprüfen und entsprechend handeln. Wenn es möglich ist, ihn ohne Konflikte zusammenzuführen, sollte er bald live gehen! Behalten Sie die Benachrichtigungen von GitHub.com im Auge!",
+                    "text": "Die Projektbetreuer werden Ihren Pull Request überprüfen und entsprechend handeln. Wenn es möglich ist, ihn ohne Konflikte zusammenzuführen, sollte er bald live gehen! Behalten Sie die Benachrichtigungen von GitHub.com im Auge",
                     "updated": 1635151697994
                 },
                 {
@@ -103,7 +103,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Специалисты по сопровождению проекта рассмотрят ваш Pull Request и предпримут соответствующие действия. Если его можно будет объединить без конфликтов, он будет принят в ближайшее время! Следите за уведомлениями на GitHub.com!",
+                    "text": "Специалисты по сопровождению проекта рассмотрят ваш Pull Request и предпримут соответствующие действия. Если его можно будет объединить без конфликтов, он будет принят в ближайшее время! Следите за уведомлениями на GitHub.com",
                     "updated": 1640163619040
                 }
             ]

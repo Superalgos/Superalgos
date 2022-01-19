@@ -1,13 +1,13 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 85,
-    "type": "Tutorial Step - The Coolest Trick!",
+    "type": "Tutorial Step - The Coolest Trick",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "exit-target-rate"
         },
-        "text": "Humans may access this information by using a cool trick that makes the charting space interact with the design space!",
+        "text": "Humans may access this information by using a cool trick that makes the charting space interact with the design space",
         "translations": [
             {
                 "language": "IT",
@@ -23,17 +23,17 @@
             },
             {
                 "language": "DE",
-                "text": "Die Menschen können auf diese Informationen zugreifen, indem sie einen coolen Trick anwenden, der den Charting Space mit dem Design Space interagieren lässt!",
+                "text": "Die Menschen können auf diese Informationen zugreifen, indem sie einen coolen Trick anwenden, der den Charting Space mit dem Design Space interagieren lässt",
                 "updated": 1634226392881
             },
             {
                 "language": "TR",
-                "text": "İnsanlar, grafik alanını tasarım alanıyla etkileşime sokan harika bir numara kullanarak bu bilgilere erişebilir!",
+                "text": "İnsanlar, grafik alanını tasarım alanıyla etkileşime sokan harika bir numara kullanarak bu bilgilere erişebilir",
                 "updated": 1636377604628
             },
             {
                 "language": "ID",
-                "text": "Humans dapat mengakses informasi ini dengan menggunakan trik keren yang membuat charting space berinteraksi dengan design space!",
+                "text": "Humans dapat mengakses informasi ini dengan menggunakan trik keren yang membuat charting space berinteraksi dengan design space",
                 "updated": 1640570748576
             }
         ]

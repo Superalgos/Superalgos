@@ -1,7 +1,7 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 29,
-    "type": "Tutorial Step - Trading System Errors!",
+    "type": "Tutorial Step - Trading System Errors",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -24,48 +24,48 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Well, if they don't, you will get an error! Turning on this layer when you're going back and forth crafting and testing a strategy is a must!",
+            "text": "Well, if they don't, you will get an error! Turning on this layer when you're going back and forth crafting and testing a strategy is a must",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn das nicht der Fall ist, erhalten Sie eine Fehlermeldung! Es ist ein Muss, diese Ebene einzuschalten, wenn Sie eine Strategie entwickeln und testen!",
+                    "text": "Wenn das nicht der Fall ist, erhalten Sie eine Fehlermeldung! Es ist ein Muss, diese Ebene einzuschalten, wenn Sie eine Strategie entwickeln und testen",
                     "updated": 1639145425324
                 },
                 {
                     "language": "RU",
-                    "text": "Если это не так, вы получите ошибку! Включение этого слоя при создании и тестировании стратегии просто необходимо!",
+                    "text": "Если это не так, вы получите ошибку! Включение этого слоя при создании и тестировании стратегии просто необходимо",
                     "updated": 1640631063987
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "There are no errors in this trading system, but I just planted a fake one so that you may see how they are reported! Look at the Formula on the left!",
+            "text": "There are no errors in this trading system, but I just planted a fake one so that you may see how they are reported! Look at the Formula on the left",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Es gibt keine Fehler in diesem Trading System, aber ich habe gerade einen gefälschten eingefügt, damit Sie sehen können, wie sie gemeldet werden! Sehen Sie sich die Formel auf der linken Seite an!",
+                    "text": "Es gibt keine Fehler in diesem Trading System, aber ich habe gerade einen gefälschten eingefügt, damit Sie sehen können, wie sie gemeldet werden! Sehen Sie sich die Formel auf der linken Seite an",
                     "updated": 1639145438062
                 },
                 {
                     "language": "RU",
-                    "text": "В этой торговой системе нет ошибок, но я просто подбросил фальшивую, чтобы вы могли увидеть, как они появляются! Посмотрите на формулу слева!",
+                    "text": "В этой торговой системе нет ошибок, но я просто подбросил фальшивую, чтобы вы могли увидеть, как они появляются! Посмотрите на формулу слева",
                     "updated": 1640631088375
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?<br/>Let's run a quick test! Collapse the Initial Targets node!",
+            "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?<br/>Let's run a quick test! Collapse the Initial Targets node",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?Let's run a quick test! Collapse the Initial Targets node!",
+                    "text": "Now, what if the section of the hierarchy was collapsed? Would you still be able to see error messages?Let's run a quick test! Collapse the Initial Targets node",
                     "updated": 1639145512639
                 },
                 {
                     "language": "RU",
-                    "text": "Теперь, что если секция иерархии была свернута? Сможете ли вы по-прежнему видеть сообщения об ошибках? Давайте проведем быстрый тест! Сверните узел Initial Targets!",
+                    "text": "Теперь, что если секция иерархии была свернута? Сможете ли вы по-прежнему видеть сообщения об ошибках? Давайте проведем быстрый тест! Сверните узел Initial Targets",
                     "updated": 1640631111246
                 }
             ]

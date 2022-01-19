@@ -3,7 +3,7 @@
     "pageNumber": 44,
     "type": "Tutorial Step - Error Details",
     "definition": {
-        "text": "So, what's in those bullets? Place the mouse at one of the error bullets in the top row and see what happens!",
+        "text": "So, what's in those bullets? Place the mouse at one of the error bullets in the top row and see what happens",
         "updated": 1622487609515,
         "icon": {
             "name": "Bullet\\bullet-error",
@@ -12,12 +12,12 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Was steht in diesen Aufzählungszeichen? Bewegen Sie die Maus auf einen der Fehlerpunkte in der obersten Zeile und sehen Sie, was passiert!",
+                "text": "Was steht in diesen Aufzählungszeichen? Bewegen Sie die Maus auf einen der Fehlerpunkte in der obersten Zeile und sehen Sie, was passiert",
                 "updated": 1639267409261
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu kurşun ne diyor? Üst sıradaki hata noktalarından birinin üzerine gelin ve neler olduğunu görün!",
+                "text": "Özet: Bu kurşun ne diyor? Üst sıradaki hata noktalarından birinin üzerine gelin ve neler olduğunu görün",
                 "updated": 1641660541095
             }
         ]
@@ -42,33 +42,33 @@
         },
         {
             "style": "Callout",
-            "text": "Take a good look at this page!",
+            "text": "Take a good look at this page",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schauen Sie sich diese Seite genau an!",
+                    "text": "Schauen Sie sich diese Seite genau an",
                     "updated": 1639267434887
                 },
                 {
                     "language": "TR",
-                    "text": "Bu sayfaya yakından bir göz atın!",
+                    "text": "Bu sayfaya yakından bir göz atın",
                     "updated": 1641660610456
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "There's plenty of information pointing to the causes of the error, but there's still some detective work to do!",
+            "text": "There's plenty of information pointing to the causes of the error, but there's still some detective work to do",
             "updated": 1612638866209,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Es gibt viele Informationen, die auf die Ursachen des Fehlers hinweisen, aber es gibt noch einiges an Detektivarbeit zu tun!",
+                    "text": "Es gibt viele Informationen, die auf die Ursachen des Fehlers hinweisen, aber es gibt noch einiges an Detektivarbeit zu tun",
                     "updated": 1639267440249
                 },
                 {
                     "language": "TR",
-                    "text": "Başarısızlığın temel nedenine işaret eden çok fazla bilgi var, ancak hala yapılacak oldukça fazla dedektiflik işi var!",
+                    "text": "Başarısızlığın temel nedenine işaret eden çok fazla bilgi var, ancak hala yapılacak oldukça fazla dedektiflik işi var",
                     "updated": 1641660628252
                 }
             ]

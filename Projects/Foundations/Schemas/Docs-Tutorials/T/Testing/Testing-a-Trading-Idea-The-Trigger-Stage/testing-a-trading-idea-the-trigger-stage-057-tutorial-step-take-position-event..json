@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "take-position-event"
         },
-        "text": "Let's move on and start working on the definition of the Take Position Event!",
+        "text": "Let's move on and start working on the definition of the Take Position Event",
         "translations": [
             {
                 "language": "DE",
-                "text": "Machen wir weiter und beginnen wir mit der Definition des Take Position Event!",
+                "text": "Machen wir weiter und beginnen wir mit der Definition des Take Position Event",
                 "updated": 1639389035613
             },
             {
                 "language": "TR",
-                "text": "Hadi devam edelim ve Pozisyon Al Etkinliğinin ( Take Position Event ) tanımı üzerinde çalışmaya başlayalım!",
+                "text": "Hadi devam edelim ve Pozisyon Al Etkinliğinin ( Take Position Event ) tanımı üzerinde çalışmaya başlayalım",
                 "updated": 1641662714185
             }
         ]
@@ -40,16 +40,16 @@
         },
         {
             "style": "Callout",
-            "text": "This is the page documenting the Candles Volumes indicator. Scroll down to the Products & Properties > Candles section and read!",
+            "text": "This is the page documenting the Candles Volumes indicator. Scroll down to the Products & Properties > Candles section and read",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies ist die Seite, die den Candles Volumes Indikator dokumentiert. Scrollen Sie nach unten zum Abschnitt Products & Properties > Candles und lesen Sie!",
+                    "text": "Dies ist die Seite, die den Candles Volumes Indikator dokumentiert. Scrollen Sie nach unten zum Abschnitt Products & Properties > Candles und lesen Sie",
                     "updated": 1639389221442
                 },
                 {
                     "language": "TR",
-                    "text": "Bu, Mum Hacimleri Göstergesini (Candles Volumes indicator) belgeleyen sayfadır. Ürünler ve Özellikler > Mumlar bölümüne ilerleyin ve okuyun!",
+                    "text": "Bu, Mum Hacimleri Göstergesini (Candles Volumes indicator) belgeleyen sayfadır. Ürünler ve Özellikler > Mumlar bölümüne ilerleyin ve okuyun",
                     "updated": 1641662738925
                 }
             ]

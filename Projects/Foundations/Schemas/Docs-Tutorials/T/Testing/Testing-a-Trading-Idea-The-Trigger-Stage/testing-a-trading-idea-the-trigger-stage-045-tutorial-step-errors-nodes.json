@@ -7,17 +7,17 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Touch the error bullet again and notice how the design space repositions at the node most related to the error, in this case, a Condition node. This is a crucial piece of information!",
+        "text": "Touch the error bullet again and notice how the design space repositions at the node most related to the error, in this case, a Condition node. This is a crucial piece of information",
         "updated": 1622487759414,
         "translations": [
             {
                 "language": "DE",
-                "text": "Tippen Sie erneut auf die Fehlerkugel und beachten Sie, wie sich der design space an dem Knoten neu positioniert, der am meisten mit dem Fehler zu tun hat, in diesem Fall ein Bedingungsknoten. Dies ist eine wichtige Information!",
+                "text": "Tippen Sie erneut auf die Fehlerkugel und beachten Sie, wie sich der design space an dem Knoten neu positioniert, der am meisten mit dem Fehler zu tun hat, in diesem Fall ein Bedingungsknoten. Dies ist eine wichtige Information",
                 "updated": 1639267705419
             },
             {
                 "language": "TR",
-                "text": "Özet: Hata topuna tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi!",
+                "text": "Özet: Hata topuna tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi",
                 "updated": 1641660658243
             }
         ]
@@ -25,17 +25,17 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Check the condition node!",
+            "text": "Check the condition node",
             "updated": 1612696339712,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Überprüfen Sie den Bedingungsknoten (Condition Node)!",
+                    "text": "Überprüfen Sie den Bedingungsknoten (Condition Node)",
                     "updated": 1639267723901
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Durum ( Condition Node ) Düğümünü kontrol edin!",
+                    "text": "Not: Durum ( Condition Node ) Düğümünü kontrol edin",
                     "updated": 1641660677597
                 }
             ]
@@ -90,33 +90,33 @@
         },
         {
             "style": "List",
-            "text": "and where it happened!",
+            "text": "and where it happened",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "und wo er aufgetreten ist!",
+                    "text": "und wo er aufgetreten ist",
                     "updated": 1639267752727
                 },
                 {
                     "language": "TR",
-                    "text": "ve nerede ortaya çıktı!",
+                    "text": "ve nerede ortaya çıktı",
                     "updated": 1641660735809
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "It seems like we have all the pieces of the puzzle! Let's take a few minutes to analyze the evidence!",
+            "text": "It seems like we have all the pieces of the puzzle! Let's take a few minutes to analyze the evidence",
             "updated": 1612639178963,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Es scheint, als hätten wir alle Teile des Puzzles! Nehmen wir uns nun ein paar Minuten Zeit, um die Beweise zu analysieren!",
+                    "text": "Es scheint, als hätten wir alle Teile des Puzzles! Nehmen wir uns nun ein paar Minuten Zeit, um die Beweise zu analysieren",
                     "updated": 1639267760509
                 },
                 {
                     "language": "TR",
-                    "text": "Bulmacanın tüm parçaları elimizde gibi görünüyor! Şimdi kanıtları analiz etmek için birkaç dakika ayıralım!",
+                    "text": "Bulmacanın tüm parçaları elimizde gibi görünüyor! Şimdi kanıtları analiz etmek için birkaç dakika ayıralım",
                     "updated": 1641660747606
                 }
             ]

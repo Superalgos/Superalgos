@@ -3,7 +3,7 @@
     "pageNumber": 3,
     "type": "Tutorial Step - You Are In Command",
     "definition": {
-        "text": "Let's talk about my friend, the search box in the Docs. She has a bit of a double life: she searches, but also commands!",
+        "text": "Let's talk about my friend, the search box in the Docs. It has a bit of a double life: It searches, but also commands",
         "updated": 1616756994691,
         "icon": {
             "name": "Strategy\\strategy-manage-stage",
@@ -18,23 +18,23 @@
             },
             {
                 "language": "ES",
-                "text": "Hablemos de mi amigo, el cuadro de búsqueda en Documentos. Tiene una doble vida: busca, ¡pero también manda!",
+                "text": "Hablemos de mi amigo, el cuadro de búsqueda en Documentos. Tiene una doble vida: busca, ¡pero también manda",
                 "updated": 1628112617535,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Reden wir über meine Freundin, das Suchfeld in den Docs. Sie führt ein Doppelleben: Sie sucht, aber sie befiehlt auch!",
+                "text": "Reden wir über meine Freundin, das Suchfeld in den Docs. Sie führt ein Doppelleben: Sie sucht, aber sie befiehlt auch",
                 "updated": 1634819878309
             },
             {
                 "language": "TR",
-                "text": "Dokümanlar'daki arama kutusu olan arkadaşım hakkında konuşalım. Biraz çifte hayatı var: hem araştırıyor hem de emrediyor!",
+                "text": "Dokümanlar'daki arama kutusu olan arkadaşım hakkında konuşalım. Biraz çifte hayatı var: hem araştırıyor hem de emrediyor",
                 "updated": 1639861462859
             },
             {
                 "language": "RU",
-                "text": "Давайте поговорим о моем друге, поисковой строке в документах (Docs). У нее немного двойная жизнь: она не только ищет, но и командует!",
+                "text": "Давайте поговорим о моем друге, поисковой строке в документах (Docs). У нее немного двойная жизнь: она не только ищет, но и командует",
                 "updated": 1640154340830
             }
         ]
@@ -171,68 +171,68 @@
         },
         {
             "style": "Callout",
-            "text": "Let's work on a practical example that involves the two! I'll teach you how to edit the docs, and how to contribute, using a couple of commands!",
+            "text": "Let's work on a practical example that involves the two! I'll teach you how to edit the docs, and how to contribute, using a couple of commands",
             "updated": 1610820646564,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Lavoreremo su un esempio pratico che riguarda entrambe le cose! Ti insegnerò come modificare i docs e contribuire, usando un paio di comandi!",
+                    "text": "Lavoreremo su un esempio pratico che riguarda entrambe le cose! Ti insegnerò come modificare i docs e contribuire, usando un paio di comandi",
                     "updated": 1619631824997,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Trabajemos en un ejemplo práctico! ¡Te enseñaré cómo editar los documentos y cómo contribuir con un par de comandos!",
+                    "text": "¡Trabajemos en un ejemplo práctico! ¡Te enseñaré cómo editar los documentos y cómo contribuir con un par de comandos",
                     "updated": 1628113897204,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Lassen Sie uns an einem praktischen Beispiel arbeiten, das diese beiden Punkte beinhaltet! Ich zeige Ihnen, wie Sie die Dokumente bearbeiten und wie Sie mit einigen Befehlen zum Projekt beitragen können!",
+                    "text": "Lassen Sie uns an einem praktischen Beispiel arbeiten, das diese beiden Punkte beinhaltet! Ich zeige Ihnen, wie Sie die Dokumente bearbeiten und wie Sie mit einigen Befehlen zum Projekt beitragen können",
                     "updated": 1634819926122
                 },
                 {
                     "language": "TR",
-                    "text": "İkisini içeren pratik bir örnek üzerinde çalışalım! Size dokümanları nasıl düzenleyeceğinizi ve birkaç komut kullanarak nasıl katkıda bulunacağınızı öğreteceğim!",
+                    "text": "İkisini içeren pratik bir örnek üzerinde çalışalım! Size dokümanları nasıl düzenleyeceğinizi ve birkaç komut kullanarak nasıl katkıda bulunacağınızı öğreteceğim",
                     "updated": 1639861545268
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте поработаем над практическим примером, в котором задействованы эти два аспекта! Я научу вас, как редактировать документы и как вносить вклад, используя пару команд!",
+                    "text": "Давайте поработаем над практическим примером, в котором задействованы эти два аспекта! Я научу вас, как редактировать документы и как вносить вклад, используя пару команд",
                     "updated": 1640154428249
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "I'll set up the next few steps with a little story... I hope you like the idea!",
+            "text": "I'll set up the next few steps with a little story... I hope you like the idea",
             "updated": 1610820358700,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Presenterò i prossimi step con una breve storia...spero ti piaccia l'idea!",
+                    "text": "Presenterò i prossimi step con una breve storia...spero ti piaccia l'idea",
                     "updated": 1619631849733,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea!",
+                    "text": "Prepararé los siguientes pasos con una pequeña historia ... ¡Espero que les guste la idea",
                     "updated": 1628113581278,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Ich werde die nächsten Schritte mit einer kleinen Geschichte einleiten... Ich hoffe, die Idee gefällt Ihnen!",
+                    "text": "Ich werde die nächsten Schritte mit einer kleinen Geschichte einleiten... Ich hoffe, die Idee gefällt Ihnen",
                     "updated": 1634819933239
                 },
                 {
                     "language": "TR",
-                    "text": "Sonraki birkaç adımı küçük bir hikayeyle hazırlayacağım... Umarım fikri beğenirsiniz!",
+                    "text": "Sonraki birkaç adımı küçük bir hikayeyle hazırlayacağım... Umarım fikri beğenirsiniz",
                     "updated": 1639861563729
                 },
                 {
                     "language": "RU",
-                    "text": "Я изложу следующие несколько шагов с помощью небольшой истории... Надеюсь, вам понравится идея!",
+                    "text": "Я изложу следующие несколько шагов с помощью небольшой истории... Надеюсь, вам понравится идея",
                     "updated": 1640154447255
                 }
             ]

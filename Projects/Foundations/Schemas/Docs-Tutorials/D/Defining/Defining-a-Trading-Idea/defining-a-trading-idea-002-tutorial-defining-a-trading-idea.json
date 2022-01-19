@@ -62,7 +62,7 @@
         },
         {
             "style": "Callout",
-            "text": "Testing a trading idea before committing to building a complete strategy is the logical approach because managing and exiting failed entries is not what you should be aiming for!",
+            "text": "Testing a trading idea before committing to building a complete strategy is the logical approach because managing and exiting failed entries is not what you should be aiming for",
             "updated": 1630376167390,
             "translations": [
                 {
@@ -72,17 +72,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Es ist logisch, eine Handelsidee zu testen, bevor Sie eine vollständige Strategie entwickeln, denn das Verwalten und Verlassen von fehlgeschlagenen Eingängen ist nicht das, was Sie anstreben sollten!",
+                    "text": "Es ist logisch, eine Handelsidee zu testen, bevor Sie eine vollständige Strategie entwickeln, denn das Verwalten und Verlassen von fehlgeschlagenen Eingängen ist nicht das, was Sie anstreben sollten",
                     "updated": 1639251321051
                 },
                 {
                     "language": "RU",
-                    "text": "Тестирование торговой идеи перед тем, как приступить к построению полной стратегии, является логичным подходом, потому что управление и выход из неудачных входов - это не то, к чему вы должны стремиться!",
+                    "text": "Тестирование торговой идеи перед тем, как приступить к построению полной стратегии, является логичным подходом, потому что управление и выход из неудачных входов - это не то, к чему вы должны стремиться",
                     "updated": 1640887524270
                 },
                 {
                     "language": "TR",
-                    "text": "Eksiksiz bir strateji oluşturmaya karar vermeden önce bir ticaret fikrini test etmek mantıklı bir yaklaşımdır çünkü hedeflediğiniz şey başarısız girişleri yönetmek ve bunlardan çıkmak değildir!",
+                    "text": "Eksiksiz bir strateji oluşturmaya karar vermeden önce bir ticaret fikrini test etmek mantıklı bir yaklaşımdır çünkü hedeflediğiniz şey başarısız girişleri yönetmek ve bunlardan çıkmak değildir",
                     "updated": 1640858741535
                 }
             ]

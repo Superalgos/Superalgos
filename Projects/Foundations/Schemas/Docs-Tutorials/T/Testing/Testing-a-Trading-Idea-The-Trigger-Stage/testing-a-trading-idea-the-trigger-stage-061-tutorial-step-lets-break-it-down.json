@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 61,
-    "type": "Tutorial Step - Let's Break It Down!",
+    "type": "Tutorial Step - Let's Break It Down",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "condition"
         },
-        "text": "We will go through the statement step and step and put it into proper syntax!",
+        "text": "We will go through the statement step and step and put it into proper syntax",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen!",
+                "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen",
                 "updated": 1639389564281
             },
             {
                 "language": "TR",
-                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimine getireceğiz!",
+                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimine getireceğiz",
                 "updated": 1641663516896
             }
         ]
@@ -29,12 +29,12 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm!",
+                    "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm",
                     "updated": 1639389574772
                 },
                 {
                     "language": "TR",
-                    "text": "Unutmayın, zaman önce gelir: 1H diyagramında!",
+                    "text": "Unutmayın, zaman önce gelir: 1H diyagramında",
                     "updated": 1641663535365
                 }
             ]

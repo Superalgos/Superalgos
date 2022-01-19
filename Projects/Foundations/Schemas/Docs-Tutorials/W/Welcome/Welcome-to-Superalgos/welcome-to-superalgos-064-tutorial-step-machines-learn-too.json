@@ -1,13 +1,13 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 64,
-    "type": "Tutorial Step - Machines Learn Too!",
+    "type": "Tutorial Step - Machines Learn Too",
     "definition": {
         "icon": {
             "name": "tensorflow",
             "project": "TensorFlow"
         },
-        "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app!",
+        "text": "The latest version of Superalgos features an experimental integration of TensorFlow to leverage ML from within the app",
         "updated": 1616691534660,
         "translations": [
             {
@@ -18,28 +18,28 @@
             },
             {
                 "language": "ES",
-                "text": "¡La última versión de Superalgos presenta una integración experimental de TensorFlow para aprovechar ML desde la aplicación!",
+                "text": "¡La última versión de Superalgos presenta una integración experimental de TensorFlow para aprovechar ML desde la aplicación",
                 "updated": 1624415664853,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Die neueste Version von Superalgos bietet eine experimentelle Integration von TensorFlow zur Nutzung von ML innerhalb der App!",
+                "text": "Die neueste Version von Superalgos bietet eine experimentelle Integration von TensorFlow zur Nutzung von ML innerhalb der App",
                 "updated": 1634220174054
             },
             {
                 "language": "TR",
-                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir!",
+                "text": "Superalgos'un en son sürümü, uygulama içinden Makine öğrenimi'nden yararlanmak için deneysel bir TensorFlow entegrasyonuna sahiptir",
                 "updated": 1639221072679
             },
             {
                 "language": "RU",
-                "text": "Последняя версия Superalgos включает эксперементальную интеграцию TensorFlow \nдля использования ML из приложения!",
+                "text": "Последняя версия Superalgos включает эксперементальную интеграцию TensorFlow \nдля использования ML из приложения",
                 "updated": 1636748037813
             },
             {
                 "language": "ID",
-                "text": "Versi terbaru Superalgos menampilkan integrasi eksperimental TensorFlow untuk memanfaatkan leverage ML dari dalam aplikasi!",
+                "text": "Versi terbaru Superalgos menampilkan integrasi eksperimental TensorFlow untuk memanfaatkan leverage ML dari dalam aplikasi",
                 "updated": 1639746338118
             }
         ]
@@ -86,7 +86,7 @@
         },
         {
             "style": "Note",
-            "text": "The integration leverages the rest of the Superalgos infrastructure, so that you may use your datasets to train ML algos and use the resulting models from within trading systems!",
+            "text": "The integration leverages the rest of the Superalgos infrastructure, so that you may use your datasets to train ML algos and use the resulting models from within trading systems",
             "updated": 1616692959991,
             "translations": [
                 {
@@ -97,18 +97,18 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Podemos usar sus conjuntos de datos para entrenar algoritmos de ML y usar los modelos resultantes desde dentro de los Trading System!",
+                    "text": "¡Podemos usar sus conjuntos de datos para entrenar algoritmos de ML y usar los modelos resultantes desde dentro de los Trading System",
                     "updated": 1625883974828,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Die Integration nutzt den Rest der Superalgos-Infrastruktur, so dass Sie Ihre Datensätze verwenden können, um ML-Algos zu trainieren und die resultierenden Modelle innerhalb von Handelssystemen zu verwenden!",
+                    "text": "Die Integration nutzt den Rest der Superalgos-Infrastruktur, so dass Sie Ihre Datensätze verwenden können, um ML-Algos zu trainieren und die resultierenden Modelle innerhalb von Handelssystemen zu verwenden",
                     "updated": 1634220194628
                 },
                 {
                     "language": "TR",
-                    "text": "Entegrasyon, Superalgos altyapısından yararlanır, böylece veri kümelerinizi Makine öğrenimi (ML) algoritmalarını eğitmek için kullanabilir ve elde edilen modelleri ticaret sistemlerinizde kullanabilirsiniz!",
+                    "text": "Entegrasyon, Superalgos altyapısından yararlanır, böylece veri kümelerinizi Makine öğrenimi (ML) algoritmalarını eğitmek için kullanabilir ve elde edilen modelleri ticaret sistemlerinizde kullanabilirsiniz",
                     "updated": 1636109892078
                 },
                 {
@@ -118,46 +118,46 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Integration leverages adalah sisa infrastruktur Superalgos, sehingga kamu dapat menggunakan kumpulan data untuk melatih ML algos dan menggunakan model yang dihasilkan dari dalam sistem trading!",
+                    "text": "Integration leverages adalah sisa infrastruktur Superalgos, sehingga kamu dapat menggunakan kumpulan data untuk melatih ML algos dan menggunakan model yang dihasilkan dari dalam sistem trading",
                     "updated": 1639747091448
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Later on, take a look at the ML CrossCategoricalEntropy Demo Plugin Workspace!",
+            "text": "Later on, take a look at the ML CrossCategoricalEntropy Demo Plugin Workspace",
             "updated": 1629825698628,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Dopo i primi tutorial, dai un'occhiata a Machine Learning Demo Plugin Workspace!",
+                    "text": "Dopo i primi tutorial, dai un'occhiata a Machine Learning Demo Plugin Workspace",
                     "updated": 1618058432041,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": " ¡Echa un vistazo a la Machine Learning Demo Plugin Workspace!",
+                    "text": " ¡Echa un vistazo a la Machine Learning Demo Plugin Workspace",
                     "updated": 1624416262760,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Werfen Sie später einen Blick auf den ML CrossCategoricalEntropy Demo Plugin Workspace!",
+                    "text": "Werfen Sie später einen Blick auf den ML CrossCategoricalEntropy Demo Plugin Workspace",
                     "updated": 1634220207869
                 },
                 {
                     "language": "TR",
-                    "text": "Daha sonra, ML CrossCategoricalEntropy Demo Plugin Workspace'e bir göz atın!",
+                    "text": "Daha sonra, ML CrossCategoricalEntropy Demo Plugin Workspace'e bir göz atın",
                     "updated": 1636109933292
                 },
                 {
                     "language": "RU",
-                    "text": "Позже взгляните на ML CrossCategoricalEntropy Demo Plugin Workspace!",
+                    "text": "Позже взгляните на ML CrossCategoricalEntropy Demo Plugin Workspace",
                     "updated": 1636749639894
                 },
                 {
                     "language": "ID",
-                    "text": "Nanti, lihat Ruang Kerja Plugin Demo CrossCategoricalEntropy ML!",
+                    "text": "Nanti, lihat Ruang Kerja Plugin Demo CrossCategoricalEntropy ML",
                     "updated": 1639746475344
                 }
             ]

@@ -1,27 +1,27 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 24,
-    "type": "Tutorial Step - We Have Our Conditions!",
+    "type": "Tutorial Step - We Have Our Conditions",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "condition"
         },
-        "text": "It seems like we have finally come up with a way to define a downtrend... let's set it up as two conditions!",
+        "text": "It seems like we have finally come up with a way to define a downtrend... let's set it up as two conditions",
         "translations": [
             {
                 "language": "DE",
-                "text": "Es sieht so aus, als hätten wir endlich eine Möglichkeit gefunden, einen Abwärtstrend zu definieren... lassen Sie uns zwei Bedingungen aufstellen!",
+                "text": "Es sieht so aus, als hätten wir endlich eine Möglichkeit gefunden, einen Abwärtstrend zu definieren... lassen Sie uns zwei Bedingungen aufstellen",
                 "updated": 1639264158030
             },
             {
                 "language": "RU",
-                "text": "Похоже, что мы наконец-то придумали, как определить нисходящий тренд... давайте определим его как два условия!",
+                "text": "Похоже, что мы наконец-то придумали, как определить нисходящий тренд... давайте определим его как два условия",
                 "updated": 1640940263525
             },
             {
                 "language": "TR",
-                "text": "Sonunda bir düşüş trendi tanımlamanın yolunu bulduk gibi görünüyor... İki koşul belirleyelim!",
+                "text": "Sonunda bir düşüş trendi tanımlamanın yolunu bulduk gibi görünüyor... İki koşul belirleyelim",
                 "updated": 1641654018928
             }
         ]

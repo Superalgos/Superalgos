@@ -1,7 +1,7 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 49,
-    "type": "Tutorial Step - Counting Candles!",
+    "type": "Tutorial Step - Counting Candles",
     "definition": {
         "icon": {
             "name": "Layer\\layer-candles",
@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "The Bollinger SubChannels does not exist for the first 19 candles! Hence, the object is undefined!",
+            "text": "The Bollinger SubChannels does not exist for the first 19 candles! Hence, the object is undefined",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Bollinger SubChannels existieren für die ersten 19 Kerzen nicht! Das Objekt ist also undefiniert!",
+                    "text": "Die Bollinger SubChannels existieren für die ersten 19 Kerzen nicht! Das Objekt ist also undefiniert",
                     "updated": 1639268020854
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger SubChannels ilk 19 mum için mevcut değil! Yani nesne tanımsız!",
+                    "text": "Bollinger SubChannels ilk 19 mum için mevcut değil! Yani nesne tanımsız",
                     "updated": 1641661720754
                 }
             ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Success",
-            "text": "If we want to test a certain time range, we must make sure that all indicators we use in our trading system are calculated for the full range!",
+            "text": "If we want to test a certain time range, we must make sure that all indicators we use in our trading system are calculated for the full range",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn wir einen bestimmten Zeitbereich testen wollen, müssen wir sicherstellen, dass alle Indikatoren, die wir in unserem Trading System verwenden, für den gesamten Bereich berechnet werden!",
+                    "text": "Wenn wir einen bestimmten Zeitbereich testen wollen, müssen wir sicherstellen, dass alle Indikatoren, die wir in unserem Trading System verwenden, für den gesamten Bereich berechnet werden",
                     "updated": 1639268041196
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Belirli bir zaman aralığını test etmek istiyorsak, ticaret sistemimizde kullandığımız tüm göstergelerin tüm aralık için hesaplandığından emin olmalıyız!",
+                    "text": "İpucu: Belirli bir zaman aralığını test etmek istiyorsak, ticaret sistemimizde kullandığımız tüm göstergelerin tüm aralık için hesaplandığından emin olmalıyız",
                     "updated": 1641661755211
                 }
             ]

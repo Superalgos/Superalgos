@@ -109,34 +109,34 @@
         },
         {
             "style": "Success",
-            "text": "There is no built-in data-management in the app. Use your file system instead!",
+            "text": "There is no built-in data-management in the app. Use your file system instead.",
             "updated": 1616175397455,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non esiste una utilità di data management nell'app. Usa il file system della tua macchina!",
+                    "text": "Non esiste una utilità di data management nell'app. Usa il file system della tua macchina.",
                     "updated": 1619591845921,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos!",
+                    "text": "No hay gestión de datos incorporada en la aplicación. ¡Utilice tu sistema de archivos.",
                     "updated": 1628019703596,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Es gibt keine integrierte Datenverwaltung in der App. Verwenden Sie stattdessen Ihr Dateisystem!",
+                    "text": "Es gibt keine integrierte Datenverwaltung in der App. Verwenden Sie stattdessen Ihr Dateisystem.",
                     "updated": 1634589996758
                 },
                 {
                     "language": "TR",
-                    "text": "Uygulamada yerleşik veri yönetimi yoktur. Bunun yerine dosya sisteminizi kullanın!",
+                    "text": "Uygulamada yerleşik veri yönetimi yoktur. Bunun yerine dosya sisteminizi kullanın.",
                     "updated": 1639825229337
                 },
                 {
                     "language": "RU",
-                    "text": "В приложении нет встроенного управления данными. Вместо этого используйте файловую систему!",
+                    "text": "В приложении нет встроенного управления данными. Вместо этого используйте файловую систему.",
                     "updated": 1640875757997
                 }
             ]

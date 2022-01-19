@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 59,
     "type": "Tutorial Step - Back in Time",
     "definition": {
@@ -47,34 +47,34 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Spend a few minutes exploring these definitions! Take a peek at different node's menus!",
+            "text": "Spend a few minutes exploring these definitions! Take a peek at different node's menus",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Usa qualche minuto per esplorare queste definizioni e dare un'occhiata al menù dei differenti nodi!",
+                    "text": "Usa qualche minuto per esplorare queste definizioni e dare un'occhiata al menù dei differenti nodi",
                     "updated": 1615964274059,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Dedica unos minutos a explorar estas definiciones! ¡Ve a los menús de los nodos!",
+                    "text": "¡Dedica unos minutos a explorar estas definiciones! ¡Ve a los menús de los nodos",
                     "updated": 1624412138619,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um diese Definitionen zu erkunden! Werfen Sie einen Blick auf die Menüs der verschiedenen Knoten!",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um diese Definitionen zu erkunden! Werfen Sie einen Blick auf die Menüs der verschiedenen Knoten",
                     "updated": 1634218308224,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Bu tanımları keşfetmek için birkaç dakikanızı ayırın! Farklı düğümlerin menülerine bir göz atın!",
+                    "text": "Bu tanımları keşfetmek için birkaç dakikanızı ayırın! Farklı düğümlerin menülerine bir göz atın",
                     "updated": 1636103083297
                 },
                 {
                     "language": "RU",
-                    "text": "Потратьте несколько минут на изучение этих определений. Взгляните на меню различных узлов!",
+                    "text": "Потратьте несколько минут на изучение этих определений. Взгляните на меню различных узлов",
                     "updated": 1636568053572
                 },
                 {
@@ -86,7 +86,7 @@
         },
         {
             "style": "Text",
-            "text": "I hope the structure of nodes is intuitive enough to grasp how powerful the concept of the Design Space is. You set up a time machine by adding Timeline Chart nodes and the desired scales. Then set up layer managers and layers referencing the corresponding Data Mine Products so that the desired data becomes available on a particular layer manager on the charts. It's like the Legoland® of trading charts! You'll learn to cutomize charts later on!",
+            "text": "I hope the structure of nodes is intuitive enough to grasp how powerful the concept of the Design Space is. You set up a time machine by adding Timeline Chart nodes and the desired scales. Then set up layer managers and layers referencing the corresponding Data Mine Products so that the desired data becomes available on a particular layer manager on the charts. It's like the Legoland® of trading charts! You'll learn to cutomize charts later on",
             "updated": 1622200261142,
             "translations": [
                 {
@@ -97,28 +97,28 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante!",
+                    "text": "Espero que la estructura de los nodos sea lo suficientemente intuitiva como para comprender cuán poderoso es el concepto de Design Space. Configuras un Time Machine agregando nodos de Timeline Chart y las escalas deseadas. A continuación, configuras un Layer Manager y capas que hagan referencia a los Data Mine Products para que los datos deseados estén disponibles en un Layer Manager determinado en los gráficos. ¡Aprenderás a personalizar gráficos más adelante",
                     "updated": 1624412890132,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Ich hoffe, die Struktur der Knoten ist intuitiv genug, um zu verstehen, wie leistungsfähig das Konzept des Design Space ist. Sie richten eine Time Machine ein, indem Sie  Timeline Chart Knoten und die gewünschten Skalen hinzufügen. Dann richten Sie Layer Manager und Layer ein, die auf die entsprechenden Data Mine Products verweisen, so dass die gewünschten Daten auf einem bestimmten Layer Manager in den Charts verfügbar werden. Es ist wie das Legoland® der Handelsdiagramme! Später werden Sie lernen, wie man Charts schneidet!",
+                    "text": "Ich hoffe, die Struktur der Knoten ist intuitiv genug, um zu verstehen, wie leistungsfähig das Konzept des Design Space ist. Sie richten eine Time Machine ein, indem Sie  Timeline Chart Knoten und die gewünschten Skalen hinzufügen. Dann richten Sie Layer Manager und Layer ein, die auf die entsprechenden Data Mine Products verweisen, so dass die gewünschten Daten auf einem bestimmten Layer Manager in den Charts verfügbar werden. Es ist wie das Legoland® der Handelsdiagramme! Später werden Sie lernen, wie man Charts schneidet",
                     "updated": 1634221688170
                 },
                 {
                     "language": "TR",
-                    "text": "Umarım düğümlerin yapısı, Tasarım Alanı ( Design Space ) kavramının ne kadar güçlü olduğunu kavramaya yetecek kadar sezgiseldir. Zaman Çizelgesi Grafiği ( Timeline Chart ) düğümlerini ve istenen ölçekleri ekleyerek bir zaman makinesi kurarsınız. Ardından, istenen verilerin grafiklerdeki belirli bir katman yöneticisinde kullanılabilir hale gelmesi için ilgili Veri Madeni Ürünleri'ne ( Data Mine Products ) başvuran katman yöneticilerini ve katmanları ayarlarsınız. Ticaret listelerinin Legoland®'ı gibi! Daha sonra çizelgeleri özelleştirmeyi öğreneceksiniz!",
+                    "text": "Umarım düğümlerin yapısı, Tasarım Alanı ( Design Space ) kavramının ne kadar güçlü olduğunu kavramaya yetecek kadar sezgiseldir. Zaman Çizelgesi Grafiği ( Timeline Chart ) düğümlerini ve istenen ölçekleri ekleyerek bir zaman makinesi kurarsınız. Ardından, istenen verilerin grafiklerdeki belirli bir katman yöneticisinde kullanılabilir hale gelmesi için ilgili Veri Madeni Ürünleri'ne ( Data Mine Products ) başvuran katman yöneticilerini ve katmanları ayarlarsınız. Ticaret listelerinin Legoland®'ı gibi! Daha sonra çizelgeleri özelleştirmeyi öğreneceksiniz",
                     "updated": 1636103227563
                 },
                 {
                     "language": "RU",
-                    "text": "Я надеюсь, что структура узлов достаточно интуитивно понятна, насколько является мощной концепция Design Space. Вы настраиваете машину времени, добавляя узлы Timeline Chart и нужные масштабы. Затем настройте менеджеры слоев и слои, ссылающиееся на соответствующие Data Mine Products, чтобы нужные данные стали доступны в определенном менеджере слоев на диаграмме. Это похоже на торговый график Legoland®! Вы научитесь настраивать диаграммы позже!",
+                    "text": "Я надеюсь, что структура узлов достаточно интуитивно понятна, насколько является мощной концепция Design Space. Вы настраиваете машину времени, добавляя узлы Timeline Chart и нужные масштабы. Затем настройте менеджеры слоев и слои, ссылающиееся на соответствующие Data Mine Products, чтобы нужные данные стали доступны в определенном менеджере слоев на диаграмме. Это похоже на торговый график Legoland®! Вы научитесь настраивать диаграммы позже",
                     "updated": 1636568388288
                 },
                 {
                     "language": "ID",
-                    "text": "Saya harap struktur node cukup intuitif untuk memahami betapa kuatnya konsep Design Space. Kamu bisa mengatur time machine dengan menambahkan node Timeline Chart dan skala yang diinginkan. Kemudian atur layer managers dan layers yang mereferensikan Data Mine Products yang sesuai sehingga data yang diinginkan tersedia pada layer managers tertentu pada charts. Ini seperti trading charts di Legoland®! Kamu akan belajar mengkostumisasi chart nantinya!",
+                    "text": "Saya harap struktur node cukup intuitif untuk memahami betapa kuatnya konsep Design Space. Kamu bisa mengatur time machine dengan menambahkan node Timeline Chart dan skala yang diinginkan. Kemudian atur layer managers dan layers yang mereferensikan Data Mine Products yang sesuai sehingga data yang diinginkan tersedia pada layer managers tertentu pada charts. Ini seperti trading charts di Legoland®! Kamu akan belajar mengkostumisasi chart nantinya",
                     "updated": 1639708702613
                 }
             ]

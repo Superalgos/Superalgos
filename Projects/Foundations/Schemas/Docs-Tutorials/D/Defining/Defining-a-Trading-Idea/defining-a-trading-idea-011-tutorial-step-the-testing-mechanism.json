@@ -7,21 +7,21 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "The final concern is defining how the idea is to be tested. This too is dependent on the type of strategy!",
+        "text": "The final concern is defining how the idea is to be tested. This too is dependent on the type of strategy",
         "translations": [
             {
                 "language": "DE",
-                "text": "Schließlich muss festgelegt werden, wie die Idee getestet werden soll. Auch dies ist abhängig von der Art der Strategie!",
+                "text": "Schließlich muss festgelegt werden, wie die Idee getestet werden soll. Auch dies ist abhängig von der Art der Strategie",
                 "updated": 1639251942284
             },
             {
                 "language": "RU",
-                "text": "Последняя задача - определить, как будет проверяться идея. Это тоже зависит от типа стратегии!",
+                "text": "Последняя задача - определить, как будет проверяться идея. Это тоже зависит от типа стратегии",
                 "updated": 1640889973266
             },
             {
                 "language": "TR",
-                "text": "Son olarak, fikrin nasıl test edileceğini tanımlamaktır. Bu da stratejinin türüne bağlıdır!",
+                "text": "Son olarak, fikrin nasıl test edileceğini tanımlamaktır. Bu da stratejinin türüne bağlıdır",
                 "updated": 1640868334918
             }
         ]

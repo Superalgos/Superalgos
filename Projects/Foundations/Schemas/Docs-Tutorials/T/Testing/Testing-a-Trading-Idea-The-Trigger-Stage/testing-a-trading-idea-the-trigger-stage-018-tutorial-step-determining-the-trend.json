@@ -7,21 +7,21 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective!",
+        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective",
         "translations": [
             {
                 "language": "DE",
-                "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv!",
+                "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv",
                 "updated": 1639262329481
             },
             {
                 "language": "RU",
-                "text": "Существует, наверное, столько же способов определения тренда, сколько трейдеров населяет планету Земля! Это вопрос стиля и в основном субъективный!",
+                "text": "Существует, наверное, столько же способов определения тренда, сколько трейдеров населяет планету Земля! Это вопрос стиля и в основном субъективный",
                 "updated": 1640935379900
             },
             {
                 "language": "TR",
-                "text": "Özet: Muhtemelen dünyada yaşayan tüccarlar gibi bir eğilim belirlemenin birçok yolu vardır! Bu bir tarz meselesi ve çoğunlukla öznel!",
+                "text": "Özet: Muhtemelen dünyada yaşayan tüccarlar gibi bir eğilim belirlemenin birçok yolu vardır! Bu bir tarz meselesi ve çoğunlukla öznel",
                 "updated": 1641653161688
             }
         ]
@@ -50,22 +50,22 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Bollinger Data Layer Manager and turn on the \"Bollinger Channels Objects\" Layer!",
+            "text": "Go to the Bollinger Data Layer Manager and turn on the \"Bollinger Channels Objects\" Layer",
             "updated": 1622480213561,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\"!",
+                    "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\"",
                     "updated": 1639262459995
                 },
                 {
                     "language": "RU",
-                    "text": "Перейдите в менеджер слоев (Layer Manager) Bollinger Data и включите слой \" Bollinger Channels Objects\"!",
+                    "text": "Перейдите в менеджер слоев (Layer Manager) Bollinger Data и включите слой \" Bollinger Channels Objects\"",
                     "updated": 1640935510144
                 },
                 {
                     "language": "TR",
-                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( Layer ) Katmanını açın!",
+                    "text": "Bollinger Veri Katmanı Yöneticisine ( Bollinger Data Layer Manager ) gidin ve \"Bollinger Kanal Nesneleri\" ( Layer ) Katmanını açın",
                     "updated": 1641653199650
                 }
             ]

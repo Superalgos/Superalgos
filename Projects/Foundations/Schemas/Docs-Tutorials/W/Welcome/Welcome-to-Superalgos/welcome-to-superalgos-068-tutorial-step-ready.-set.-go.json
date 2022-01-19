@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 68,
-    "type": "Tutorial Step - Ready. Set. Go!",
+    "type": "Tutorial Step - Ready. Set. Go",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -79,39 +79,39 @@
         },
         {
             "style": "Callout",
-            "text": "Select Run on the Lightning Strike Task menu!</br></br>Now select Run on the Backtesting Session menu!",
+            "text": "Select Run on the Lightning Strike Task menu!</br></br>Now select Run on the Backtesting Session menu",
             "updated": 1629823345596,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Seleziona Run dal menu Task, e poi seleziona Run dal menu della Backtesting Session!",
+                    "text": "Seleziona Run dal menu Task, e poi seleziona Run dal menu della Backtesting Session",
                     "updated": 1618060790679,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Seleccione Run en el Task menu! Ahora seleccione Run en el Backtesting Session menu!",
+                    "text": "Seleccione Run en el Task menu! Ahora seleccione Run en el Backtesting Session menu",
                     "updated": 1624454082709,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Wählen Sie im Menü Lightning Strike Task die Option Run! <br/>Wählen Sie nun Run im Menü Backtesting Session!",
+                    "text": "Wählen Sie im Menü Lightning Strike Task die Option Run! <br/>Wählen Sie nun Run im Menü Backtesting Session",
                     "updated": 1634222444040
                 },
                 {
                     "language": "TR",
-                    "text": "Önce Lightning Strike Task menüsünde Run'ı seçin! Sonra Backtesting Session menüsünde Run'ı seçin!",
+                    "text": "Önce Lightning Strike Task menüsünde Run'ı seçin! Sonra Backtesting Session menüsünde Run'ı seçin",
                     "updated": 1636122946019
                 },
                 {
                     "language": "RU",
-                    "text": "Выберите Run в меню Task: Lightning Strike! Сейчас выберите Run в меню Backtesting Session!",
+                    "text": "Выберите Run в меню Task: Lightning Strike! Сейчас выберите Run в меню Backtesting Session",
                     "updated": 1636930675030
                 },
                 {
                     "language": "ID",
-                    "text": "Pilih Run pada menu Lightning Strike Task! Sekarang pilih Run pada menu Backtesting Session!",
+                    "text": "Pilih Run pada menu Lightning Strike Task! Sekarang pilih Run pada menu Backtesting Session",
                     "updated": 1639748161485
                 }
             ]

@@ -30,22 +30,22 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Fire up one of my friends to keep going!",
+            "text": "Fire up one of my friends to keep going",
             "updated": 1617656189804,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Enciende a uno de mis amigos para que continúe!",
+                    "text": "¡Enciende a uno de mis amigos para que continúe",
                     "updated": 1628733009291
                 },
                 {
                     "language": "RU",
-                    "text": "Зажгите одного из моих друзей, чтобы продолжать!",
+                    "text": "Зажгите одного из моих друзей, чтобы продолжать",
                     "updated": 1639085023418
                 },
                 {
                     "language": "DE",
-                    "text": "Feuern Sie einen meiner Freunde an, damit er weitermacht!",
+                    "text": "Feuern Sie einen meiner Freunde an, damit er weitermacht",
                     "updated": 1639501191878
                 }
             ]

@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 42,
     "type": "Tutorial Step - The Elegant Way...",
     "definition": {
@@ -7,7 +7,7 @@
             "name": "Mouse\\mouse-pointer",
             "project": "Foundations"
         },
-        "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries... try this trick!",
+        "text": "I know! Zooming into a random spot is unlikely to position the chart squared with your screen, right? No worries... try this trick",
         "translations": [
             {
                 "language": "IT",
@@ -17,30 +17,30 @@
             },
             {
                 "language": "ID",
-                "text": "Aku tahu!, Memperbesar ke tempat acak tidak seperti langsung menuju ke kotak chart discreenmu, benar? Jangan khawatir... Coba trik ini!",
+                "text": "Aku tahu!, Memperbesar ke tempat acak tidak seperti langsung menuju ke kotak chart discreenmu, benar? Jangan khawatir... Coba trik ini",
                 "updated": 1616948885540,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico al cuadrado con su pantalla, ¿verdad? No te preocupes ... ¡prueba este truco!",
+                "text": "¡Lo sé! Es poco probable que hacer zoom en un lugar aleatorio coloque el gráfico al cuadrado con su pantalla, ¿verdad? No te preocupes ... ¡prueba este truco",
                 "updated": 1624384343958,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich weiß! Wenn Sie auf eine beliebige Stelle zoomen, ist es unwahrscheinlich, dass Sie die Karte im rechten Winkel zu Ihrem Bildschirm positionieren, oder? Keine Sorge... versuchen Sie diesen Trick!",
+                "text": "Ich weiß! Wenn Sie auf eine beliebige Stelle zoomen, ist es unwahrscheinlich, dass Sie die Karte im rechten Winkel zu Ihrem Bildschirm positionieren, oder? Keine Sorge... versuchen Sie diesen Trick",
                 "updated": 1634207830054,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Biliyorum! Rastgele bir noktaya zum yapmak, grafiği ekranınızla kare şeklinde konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene!",
+                "text": "Biliyorum! Rastgele bir noktaya zum yapmak, grafiği ekranınızla kare şeklinde konumlandırmak pek mümkün değil, değil mi? Endişelenme... bu numarayı dene",
                 "updated": 1636036151336
             },
             {
                 "language": "RU",
-                "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк!",
+                "text": "Я знаю! Увеличение масштаба в случайном месте вряд ли приведет Вас к тому, что диаграмма окажется в квадрате с Вашим экраном, верно? Не беспокойтесь... Попробуйте это трюк",
                 "updated": 1636204552263
             }
         ],
@@ -84,34 +84,34 @@
         },
         {
             "style": "List",
-            "text": "Zoom out: use the mouse wheel to go to the furthest zoom out position; only from this position will the next command work!",
+            "text": "Zoom out: use the mouse wheel to go to the furthest zoom out position; only from this position will the next command work",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Zoom out: gunakan mouse wheel untuk memposisikan zoom out terkecil; hanya dari posisi ini perintah berikutnya akan bekerja!",
+                    "text": "Zoom out: gunakan mouse wheel untuk memposisikan zoom out terkecil; hanya dari posisi ini perintah berikutnya akan bekerja",
                     "updated": 1616949119939,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando!",
+                    "text": "Zoom out: usa la rueda del mouse para ir a la posición de alejamiento más lejana; ¡Solo asi funcionará el siguiente comando",
                     "updated": 1624403987866,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Verkleinern: Benutzen Sie das Mausrad, um zur äußersten Verkleinerungsposition zu gelangen; nur von dieser Position aus funktioniert der nächste Befehl!",
+                    "text": "Verkleinern: Benutzen Sie das Mausrad, um zur äußersten Verkleinerungsposition zu gelangen; nur von dieser Position aus funktioniert der nächste Befehl",
                     "updated": 1634207868032,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Uzaklaştır: en uzak uzaklaştırma konumuna gitmek için fare tekerleğini kullanın; sadece bu konumdan sonraki komut çalışacaktır!",
+                    "text": "Uzaklaştır: en uzak uzaklaştırma konumuna gitmek için fare tekerleğini kullanın; sadece bu konumdan sonraki komut çalışacaktır",
                     "updated": 1636036274866
                 },
                 {
                     "language": "RU",
-                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда!",
+                    "text": "Уменьшение масштаба: используйте колесико мыши, чтобы перейти в крайнее положение уменьшения масштаба, т.к. только из этого положения будет работать следующая команда",
                     "updated": 1636204795612
                 }
             ]

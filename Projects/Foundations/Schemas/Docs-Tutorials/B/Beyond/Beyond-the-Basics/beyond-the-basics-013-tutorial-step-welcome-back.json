@@ -1,9 +1,9 @@
 {
     "tutorial": "Beyond the Basics",
     "pageNumber": 13,
-    "type": "Tutorial Step - Welcome Back!",
+    "type": "Tutorial Step - Welcome Back",
     "definition": {
-        "text": "If you followed my instructions to the letter, you should now be running the software in the Develop branch! Awesome!",
+        "text": "If you followed my instructions to the letter, you should now be running the software in the Develop branch! Awesome",
         "icon": {
             "name": "hits",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Se hai seguito le mie istruzioni, ora il tuo software sta girando sulla branch plugins-docs! Fantastico!",
+                "text": "Se hai seguito le mie istruzioni, ora il tuo software sta girando sulla branch plugins-docs! Fantastico",
                 "updated": 1619634969342,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Si has seguido mis instrucciones al pie de la letra, ¡ahora deberías estar ejecutando el software en la rama plugins-docs! ¡Increíble!",
+                "text": "Si has seguido mis instrucciones al pie de la letra, ¡ahora deberías estar ejecutando el software en la rama plugins-docs! ¡Increíble",
                 "updated": 1628185547039,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie meine Anweisungen genau befolgt haben, sollten Sie jetzt die Software im branch(Zweig) develop ausführen! Großartig!",
+                "text": "Wenn Sie meine Anweisungen genau befolgt haben, sollten Sie jetzt die Software im branch(Zweig) develop ausführen! Großartig",
                 "updated": 1638831614967
             },
             {
                 "language": "RU",
-                "text": "Если вы следовали моим инструкциям до конца, то теперь вы должны запустить программу в ветке Develop! Потрясающе!",
+                "text": "Если вы следовали моим инструкциям до конца, то теперь вы должны запустить программу в ветке Develop! Потрясающе",
                 "updated": 1640158775235
             },
             {
                 "language": "TR",
-                "text": "Talimatlarıma harfi harfine uyduysanız, yazılımı Geliştirme ( Develop ) şubesinde çalıştırıyor olmalısınız! Mükemmel!",
+                "text": "Talimatlarıma harfi harfine uyduysanız, yazılımı Geliştirme ( Develop ) şubesinde çalıştırıyor olmalısınız! Mükemmel",
                 "updated": 1640554184937
             }
         ]
@@ -42,7 +42,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The software you are currently running is the version of Superalgos that was at the Develop branch the second you switched branches! This is good, as you now know you have the latest version of the software!",
+            "text": "The software you are currently running is the version of Superalgos that was at the Develop branch the second you switched branches! This is good, as you now know you have the latest version of the software",
             "updated": 1636913978584,
             "translations": [
                 {
@@ -64,46 +64,46 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Программное обеспечение, которое вы сейчас используете, - это версия Superalgos, которая была в ветке Develop в тот момент, когда вы переключили ветку! Это хорошо, так как теперь вы знаете, что у вас самая последняя версия программного обеспечения!",
+                    "text": "Программное обеспечение, которое вы сейчас используете, - это версия Superalgos, которая была в ветке Develop в тот момент, когда вы переключили ветку! Это хорошо, так как теперь вы знаете, что у вас самая последняя версия программного обеспечения",
                     "updated": 1640158884107
                 },
                 {
                     "language": "TR",
-                    "text": "Şu anda çalıştırmakta olduğunuz yazılım, şube değiştirdiğiniz anda Develop şubesinde bulunan Superalgos'un sürümüdür! Bu iyi, çünkü artık yazılımın en son sürümüne sahip olduğunuzu biliyorsunuz!",
+                    "text": "Şu anda çalıştırmakta olduğunuz yazılım, şube değiştirdiğiniz anda Develop şubesinde bulunan Superalgos'un sürümüdür! Bu iyi, çünkü artık yazılımın en son sürümüne sahip olduğunuzu biliyorsunuz",
                     "updated": 1640554149760
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "This is particularly important because you are about to contribute to the project. You should always work on the latest version so that the changes you make include the latest changes produced by other contributors!",
+            "text": "This is particularly important because you are about to contribute to the project. You should always work on the latest version so that the changes you make include the latest changes produced by other contributors",
             "updated": 1636914060165,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Devi fare l'update così da eseguire l'ultima versione! È importante soprattutto se vuoi contribuire al progetto. Lavora sempre sull'ultima versione, così che i cambiamenti che fai includano le ultime modifiche degli altri utenti!",
+                    "text": "Devi fare l'update così da eseguire l'ultima versione! È importante soprattutto se vuoi contribuire al progetto. Lavora sempre sull'ultima versione, così che i cambiamenti che fai includano le ultime modifiche degli altri utenti",
                     "updated": 1619635122521,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Necesitas actualizar para poder ejecutar la última versión! Esto es particularmente importante cuando tienes la intención de contribuir al proyecto. ¡Siempre debes trabajar en la última versión para que los cambios que realices incluyan los últimos cambios producidos por otros colaboradores!",
+                    "text": "¡Necesitas actualizar para poder ejecutar la última versión! Esto es particularmente importante cuando tienes la intención de contribuir al proyecto. ¡Siempre debes trabajar en la última versión para que los cambios que realices incluyan los últimos cambios producidos por otros colaboradores",
                     "updated": 1628186597672,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Sie müssen aktualisieren, damit Sie die neueste Version verwenden! Dies ist besonders wichtig, wenn Sie beabsichtigen, zu dem Projekt beizutragen. Sie sollten immer an der neuesten Version arbeiten, damit die Änderungen, die Sie vornehmen, die neuesten Änderungen anderer Mitwirkender enthalten!",
+                    "text": "Sie müssen aktualisieren, damit Sie die neueste Version verwenden! Dies ist besonders wichtig, wenn Sie beabsichtigen, zu dem Projekt beizutragen. Sie sollten immer an der neuesten Version arbeiten, damit die Änderungen, die Sie vornehmen, die neuesten Änderungen anderer Mitwirkender enthalten",
                     "updated": 1638831732431
                 },
                 {
                     "language": "RU",
-                    "text": "Это особенно важно, поскольку вы собираетесь внести свой вклад в проект. Вы всегда должны работать над последней версией, чтобы изменения, которые вы вносите, включали последние изменения, сделанные другими участниками!",
+                    "text": "Это особенно важно, поскольку вы собираетесь внести свой вклад в проект. Вы всегда должны работать над последней версией, чтобы изменения, которые вы вносите, включали последние изменения, сделанные другими участниками",
                     "updated": 1640158906139
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özellikle önemlidir çünkü projeye katkıda bulunmak üzeresiniz. Yaptığınız değişikliklerin diğer katkıda bulunanlar tarafından üretilen en son değişiklikleri içermesi için her zaman en son sürüm üzerinde çalışmalısınız!",
+                    "text": "Bu özellikle önemlidir çünkü projeye katkıda bulunmak üzeresiniz. Yaptığınız değişikliklerin diğer katkıda bulunanlar tarafından üretilen en son değişiklikleri içermesi için her zaman en son sürüm üzerinde çalışmalısınız",
                     "updated": 1640554077493
                 }
             ]

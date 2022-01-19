@@ -7,32 +7,81 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Encapsulates different data providers able to read datasets organized in different ways."
+        "text": "Encapsulates different data providers able to read datasets organized in different ways.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Охватывает различные поставщики данных, способные читать наборы данных, организованные различными способами.",
+                "updated": 1640931972681
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The system defines these types of data providers:"
+            "text": "The system defines these types of data providers:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Система определяет эти типы поставщиков данных:",
+                    "updated": 1640931983253
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Market Files: For time-frames of 1 hour and above, it is convenient to have a single file with all the data of the whole market."
+            "text": "Market Files: For time-frames of 1 hour and above, it is convenient to have a single file with all the data of the whole market.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Market Files: Для тайм-фреймов от 1 часа и выше удобно иметь один файл со всеми данными всего рынка.",
+                    "updated": 1640932002246
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Daily Files: For time-frames below 1 hour, up to 1 minute, it is convenient to split market data into one file per day."
+            "text": "Daily Files: For time-frames below 1 hour, up to 1 minute, it is convenient to split market data into one file per day.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Daily Files: Для тайм-фреймов менее 1 часа, вплоть до 1 минуты, удобно разбивать рыночные данные на один файл в день.",
+                    "updated": 1640932020478
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Single File: Sometimes a process may generate a single file irrespective of the time-frame."
+            "text": "Single File: Sometimes a process may generate a single file irrespective of the time-frame.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Single File: Sиногда процесс может генерировать один файл независимо от таймфрейма.",
+                    "updated": 1640932041402
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Files Sequence: Some processes may produce a sequence of files."
+            "text": "Files Sequence: Some processes may produce a sequence of files.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Files Sequence: Некоторые процессы могут создавать последовательность файлов.",
+                    "updated": 1640932053595
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "Daily Files are managed by a File Cursor which dynamically loads the files of one day and its neighboring days."
+            "text": "Daily Files are managed by a File Cursor which dynamically loads the files of one day and its neighboring days.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Daily Files управляются File Cursor, который динамически загружает файлы одного дня и соседних с ним дней.",
+                    "updated": 1640932087275
+                }
+            ]
         }
     ]
 }

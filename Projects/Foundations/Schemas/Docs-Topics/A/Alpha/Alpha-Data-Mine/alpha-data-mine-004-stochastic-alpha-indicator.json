@@ -4,17 +4,38 @@
     "type": "Stochastic - Alpha Indicator",
     "definition": {
         "text": "The indicator features the typical stochastic setting of 14, 3, 3.",
-        "updated": 1611654181677
+        "updated": 1611654181677,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Indikator weist die typische stochastische Einstellung von 14, 3, 3 auf.",
+                "updated": 1641918327898
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Stochastic On the Charts",
-            "updated": 1611654194522
+            "updated": 1611654194522,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastik in den Diagrammen",
+                    "updated": 1641918371760
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “A stochastic oscillator is a momentum indicator comparing a particular closing price of a security to a range of its prices over a certain period of time. It is used to generate overbought and oversold trading signals, utilizing a 0-100 bounded range of values.”"
+            "text": "According to Investopedia, “A stochastic oscillator is a momentum indicator comparing a particular closing price of a security to a range of its prices over a certain period of time. It is used to generate overbought and oversold trading signals, utilizing a 0-100 bounded range of values.”",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia \"ist ein stochastischer Oszillator ein Momentum-Indikator, der einen bestimmten Schlusskurs eines Wertpapiers mit einer Spanne seiner Kurse über einen bestimmten Zeitraum vergleicht. Er wird verwendet, um überkaufte und überverkaufte Handelssignale zu generieren, indem er einen begrenzten Wertebereich von 0-100 verwendet.\"",
+                    "updated": 1641918443795
+                }
+            ]
         },
         {
             "style": "Png",
@@ -23,24 +44,59 @@
         },
         {
             "style": "Text",
-            "text": "The chart for this indicator shows a fast line and slow line oscillating in a range between 0 and 100. The fast line displays the current close price in relation to the high/low range of the previous period. The slow line is a simple moving average of the fast line. Major signals provided by the stochastic indicator are overbought and oversold conditions. The default area for oversold is below 20 and for overbought above 80. Divergences between price action and stochastic records can also be helpful to identify upcoming trend reversals."
+            "text": "The chart for this indicator shows a fast line and slow line oscillating in a range between 0 and 100. The fast line displays the current close price in relation to the high/low range of the previous period. The slow line is a simple moving average of the fast line. Major signals provided by the stochastic indicator are overbought and oversold conditions. The default area for oversold is below 20 and for overbought above 80. Divergences between price action and stochastic records can also be helpful to identify upcoming trend reversals.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Das Diagramm für diesen Indikator zeigt eine schnelle Linie und eine langsame Linie, die in einem Bereich zwischen 0 und 100 oszillieren. Die schnelle Linie zeigt den aktuellen Schlusskurs im Verhältnis zum Höchst-/Tiefstkurs des vorangegangenen Zeitraums an. Die langsame Linie ist ein einfacher gleitender Durchschnitt der schnellen Linie. Die wichtigsten Signale, die der Stochastik-Indikator liefert, sind überkaufte und überverkaufte Bedingungen. Der Standardbereich für überkaufte Bedingungen liegt unter 20 und für überkaufte Bedingungen über 80. Abweichungen zwischen der Kursentwicklung und den Stochastik-Aufzeichnungen können ebenfalls hilfreich sein, um bevorstehende Trendumkehrungen zu erkennen.",
+                    "updated": 1641918605479
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Stochastic Products & Properties"
+            "text": "Stochastic Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastische Produkte und Eigenschaften",
+                    "updated": 1641918638514
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Stochastic provides one product with a popular default setting."
+            "text": "Stochastic provides one product with a popular default setting.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Stochastic bietet ein Produkt mit einer beliebten Standardeinstellung an.",
+                    "updated": 1641918705035
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Setting | Product Variable | Properties |\n| Stochastic (14, 3, 3) | stoch1433 | fastLine, slowLine |",
-            "updated": 1611654306810
+            "updated": 1611654306810,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produkteinstellung | Produktvariable | Eigenschaften |\n| Stochastic (14, 3, 3) | stoch1433 | fastLine, slowLine |",
+                    "updated": 1641918730179
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1641918805957
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -49,7 +105,14 @@
         },
         {
             "style": "Text",
-            "text": "Checking for overbought condition and the fast line lower than the slow line, indicating trend reversal."
+            "text": "Checking for overbought condition and the fast line lower than the slow line, indicating trend reversal.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prüfung auf einen überkauften Zustand und darauf, ob die schnelle Linie niedriger als die langsame Linie ist, was auf eine Trendumkehr hindeutet.",
+                    "updated": 1641918815775
+                }
+            ]
         }
     ]
 }

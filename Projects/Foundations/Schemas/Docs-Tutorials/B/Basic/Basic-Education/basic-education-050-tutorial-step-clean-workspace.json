@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Test edilmiş borsalar ve eklentilerden bahsetmişken, yeni şeyler tasarlarken temiz bir sayfa olarak kullanabileceğiniz bir eklenti çalışma alanı var!",
                 "updated": 1639823713705
+            },
+            {
+                "language": "RU",
+                "text": "Говоря о проверенных биржах и плагинах, есть одно рабочее пространство плагина, которое вы можете использовать как чистый лист при разработке нового материала!",
+                "updated": 1640875531924
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu Blank Template Plugin Workspace!",
                     "updated": 1639823744077
+                },
+                {
+                    "language": "RU",
+                    "text": "Это Blank Template Plugin Workspace!",
+                    "updated": 1640875623186
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Mevcut tüm eğitimleri alarak ilk eğitiminizi tamamladığınızda, kendi Ticaret Sisteminizi oluşturmaya başlamaya hazır olacaksınız. Bu çalışma alanı, bu amaçla kullanabileceğiniz eklenti çalışma alanıdır!",
                     "updated": 1639823794327
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы закончите свое начальное обучение, пройдя все существующие учебники, вы будете готовы приступить к созданию своей собственной торговой системы. Это рабочее пространство плагина, которое вы можете использовать для этой цели!",
+                    "updated": 1640875647118
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Bu çalışma alanı kutudan çıktığı gibi temiz bir Ticaret Sistemi , Yeni Pazar Kur Eğitimi ( Install New Market Tutorial )  ve kullanabileceğiniz test edilmiş borsalar dizisi içerir.",
                     "updated": 1639823948749
+                },
+                {
+                    "language": "RU",
+                    "text": "Она включает в себя чистую торговую систему прямо из коробки, учебник по установке нового рынка и список проверенных бирж, которые вы можете использовать.",
+                    "updated": 1640875683576
                 }
             ]
         }

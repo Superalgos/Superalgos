@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Aber keine Sorge! Sie werden sich an dieses Maß an Feedback vom LF Trading Bot gewöhnen und es sicherlich zu schätzen lernen!",
                 "updated": 1639418531967
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Ama merak etmeyin! LF Trading Bot'tan gelen bu geri bildirim düzeyine alışacaksınız ve kesinlikle takdir edeceksiniz!",
+                "updated": 1641802404520
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "DE",
                     "text": "Mit diesem Maß an Feedback müssen Sie nie wieder in obskuren Logdateien stöbern oder mit dem Kopf gegen die Wand schlagen, um herauszufinden, was der Bot tut oder warum Dinge nicht so ablaufen, wie Sie es erwarten würden.",
                     "updated": 1639418543437
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu düzeyde geri bildirimle, botun ne yaptığını veya işlerin neden beklediğiniz gibi gitmediğini öğrenmek için hiçbir zaman belirsiz günlük dosyalarını karıştırmanız veya kafanızı duvara vurmanız gerekmeyecek.",
+                    "updated": 1641802415386
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "DE",
                     "text": "Intuitionen darüber, was der Trading Bot tun oder nicht tun sollte, sind oft zu einfach. Es bedurfte einer gründlichen Analyse und mehrerer Iterationen, um den Bot dazu zu bringen, Aufträge in den unzähligen Situationen, die beim Handel auftreten können, konsistent abzuwickeln.",
                     "updated": 1639418553222
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Ticaret botunun ( Trading Bot ) ne yapması veya yapmaması gerektiğine dair sezgi genellikle çok basittir. Botun alım satım sırasında ortaya çıkabilecek sayısız durumda emirleri tutarlı bir şekilde yerine getirmesini sağlamak için kapsamlı analiz ve çoklu yinelemeler gerekti.",
+                    "updated": 1641802439087
                 }
             ]
         }

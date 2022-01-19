@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Bewegen wir den Mauszeiger auf die nächste Kerze, den 26. Februar!",
                 "updated": 1639267100411
+            },
+            {
+                "language": "TR",
+                "text": "Fare işaretçisini bir sonraki mum olan 26 Şubat'ın üzerine getirelim.",
+                "updated": 1641656463917
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Am 26. Februar ist die Richtung abwärts und die Neigung ist leicht. Beide Bedingungen sind erfüllt, so dass die Strategie ausgelöst wird, sobald die Kerze geschlossen wird.",
                     "updated": 1639267109162
+                },
+                {
+                    "language": "TR",
+                    "text": "Şubat 26'da, yön aşağı doğru ve eğim hafif(Gentle). Her iki koşul da yerine getirildiği için mum kapatıldığında strateji tetiklenir.",
+                    "updated": 1641656506731
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Denken Sie daran, dass jede Kerze erst ausgewertet wird, nachdem sie geschlossen wurde! Jede Eigenschaft eines jeden Produktes eines jeden Indikators bezieht sich auf geschlossene Kerzen! Dies ist eine wichtige Information, insbesondere wenn Sie mit mehreren Zeitrahmen arbeiten. Ich werde später noch darauf eingehen, aber denken Sie immer daran!",
                     "updated": 1639267117530
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Her mumun yalnızca kapatıldıktan sonra değerlendirildiğini unutmayın! Her göstergenin her ürününün her özelliği kapalı mumlarla ilgilidir! Bu, özellikle birden fazla zaman dilimiyle çalışırken önemli bir bilgidir. Buna daha sonra gireceğim, ama bunu her zaman aklında tut!",
+                    "updated": 1641656522956
                 }
             ]
         }

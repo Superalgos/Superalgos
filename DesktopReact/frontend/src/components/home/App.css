@@ -1,5 +1,12 @@
 .app {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
     height: 100%;
+}
+
+.appContainer{
+    /*justify-content: space-around;*/
 }
 
 .middleSection{

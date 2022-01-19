@@ -15,6 +15,11 @@
                 "updated": 1639252612250
             },
             {
+                "language": "RU",
+                "text": "Weak-hands Buster основан на идее, что пробой ВВ может предсказывать углубление нисходящего тренда и некоторые развороты.",
+                "updated": 1640890614740
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Weak-hands Buster, BB'nin bir çöküşünün bir düşüş trendinin derinleşebileceğini ve bazı geri dönüşleri tahmin edebileceği fikrine dayanır.",
                 "updated": 1640947625302
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Ich habe Sie gerade auf den 10. April 2020 gebracht, um einen Fall von Durchbruch der Bänder zu überprüfen. Sehen Sie, was bei den folgenden Kerzen passiert:",
                     "updated": 1639252623606
+                },
+                {
+                    "language": "RU",
+                    "text": "Я только что перенес вас на 10 апреля 2020 года, чтобы проверить случай пробоя диапазонов. Посмотрите, что произойдет на следующих свечах:",
+                    "updated": 1640890629104
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639252770468
                 },
                 {
+                    "language": "RU",
+                    "text": "04 ч: Свеча закрывается ниже нижней полосы на уровне 7,176 USDT.",
+                    "updated": 1640890817451
+                },
+                {
                     "language": "TR",
                     "text": "04 hs: alt bandın altında bir mum 7.176 USDT'de kapanır.",
                     "updated": 1640947665565
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "05 hs: Eine zweite Kerze schließt unterhalb des Bandes bei 7,140 USDT.",
                     "updated": 1639252763565
+                },
+                {
+                    "language": "RU",
+                    "text": "05 ч: Вторая свеча закрывается ниже диапазона на отметке 7.140 USDT.",
+                    "updated": 1640890811841
                 },
                 {
                     "language": "TR",
@@ -80,6 +100,11 @@
                     "updated": 1639252780679
                 },
                 {
+                    "language": "RU",
+                    "text": "06 ч: Следует более серьезное падение, подчеркивающее ценовое движение, наблюдавшееся ранее.",
+                    "updated": 1640890807711
+                },
+                {
                     "language": "TR",
                     "text": "06 hs: Daha önce görülen fiyat hareketini vurgulayan daha ciddi bir düşüş.",
                     "updated": 1640947716039
@@ -94,6 +119,11 @@
                     "language": "DE",
                     "text": "16 hs: Zehn Stunden nach dem ersten Durchbruch liegt der niedrigste Stundenschlusskurs des Tages bei 6,766 USDT, mehr als 6 % darunter.",
                     "updated": 1639252791455
+                },
+                {
+                    "language": "RU",
+                    "text": "16 ч: Через десять часов после первого пробоя самое низкое часовое закрытие дня составляет 6,766 USDT, что более чем на 6% ниже.",
+                    "updated": 1640890803039
                 },
                 {
                     "language": "TR",

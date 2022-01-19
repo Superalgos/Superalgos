@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Wann immer Sie an einem Trading System arbeiten und Definitionen testen, sollten Sie auf Fehlersuche gehen!",
                 "updated": 1639267237424
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir ticaret sisteminde tanımları test ederken ve üzerinde çalışırken, sorun giderme modunda olmalısınız!",
+                "updated": 1641656598377
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Es gibt so viele Dinge, die bei der Ausführung einer Handelssitzung eine Rolle spielen, dass Fehler aus den unterschiedlichsten Gründen auftreten können. Der Trading Bot wertet die Definitionen im Trading System aus und wendet sie an, indem er die Datensätze auswertet, auf die in den Definitionen verwiesen wird.",
                     "updated": 1639267245526
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir alım satım seansını yürütmek için o kadar çok şey var ki, çeşitli nedenlerle hatalar ortaya çıkabilir. Ticaret botu, ticaret sistemindeki tanımları değerlendirir ve tanımlarda atıfta bulunulan veri setlerini değerlendirerek bunları uygular.",
+                    "updated": 1641656618104
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Fehler in den Daten oder in den Definitionen sind keine Seltenheit.",
                     "updated": 1639267252309
+                },
+                {
+                    "language": "TR",
+                    "text": "Verilerdeki veya tanımlardaki hatalar yaygındır.",
+                    "updated": 1641656627709
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Es ist unwahrscheinlich, dass ein Datensatz mit Fehlern berechnet wird. Wenn Sie jedoch den Datensatz nicht durch Ausführen der entsprechenden Datenaufgabe berechnet haben, werden Sie Fehler erhalten!",
                     "updated": 1639267258612
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir veri kümesinin hatalarla hesaplanması olası değildir. Ancak, uygun veri görevini gerçekleştirerek veri kümesini hesaplamadıysanız, hatalar alırsınız!",
+                    "updated": 1641656641257
                 }
             ]
         }

@@ -244,6 +244,7 @@ function newFoundationsDocsFooter() {
         HTML = HTML + '<li><a href="https://t.me/superalgos_es" target="_blank">Spanish</a></li>'
         HTML = HTML + '<li><a href="https://t.me/superalgos_ru" target="_blank">Russian</a></li>'
         HTML = HTML + '<li><a href="https://t.me/tr_superalgos" target="_blank">Turkish</a></li>'
+        HTML = HTML + '<li><a href="https://t.me/superalgos_de" target="_blank">German</a></li>'
         HTML = HTML + '</ul>'
         HTML = HTML + '<h4>Other Resources</h4>'
         HTML = HTML + '<ul>'

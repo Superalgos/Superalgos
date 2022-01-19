@@ -20,6 +20,11 @@
                 "updated": 1639251677275
             },
             {
+                "language": "RU",
+                "text": "Для начала следует определить, на какой тип стратегии направлена гипотеза.",
+                "updated": 1640888862690
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Tanımlamamız gereken ilk ölçü, varsayımlarınızın nasıl bir stratejiyi amaçladığıdır.",
                 "updated": 1640865650405
@@ -40,6 +45,11 @@
                     "language": "DE",
                     "text": "Eine einfache Faustregel ist die Feststellung, ob es sich um eine Scalping-, Daytrading-, Swingtrading- oder Positionshandelsstrategie handelt.",
                     "updated": 1639251689695
+                },
+                {
+                    "language": "RU",
+                    "text": "Простое правило - определить, является ли эта стратегия скальпингом, дневной торговлей, свинг-трейдингом или позиционной торговлей.",
+                    "updated": 1640888880408
                 },
                 {
                     "language": "TR",
@@ -63,6 +73,11 @@
                     "updated": 1639251697939
                 },
                 {
+                    "language": "RU",
+                    "text": "Это определение дает представление об ожидаемом периоде удержания, то есть о среднем диапазоне времени, в течение которого каждая позиция будет оставаться открытой.",
+                    "updated": 1640888906826
+                },
+                {
                     "language": "TR",
                     "text": "Bu tanım, beklenen elde tutma süresi, yani her pozisyonun açık olması için beklenen ortalama zaman aralığı hakkında bir fikir sağlar.",
                     "updated": 1640866290158
@@ -82,6 +97,11 @@
                     "language": "DE",
                     "text": "Der Wert einer solchen Definition besteht darin, dass sie einen Leitfaden dafür liefert, welche Zeitrahmen zu analysieren sind, um das Vorhandensein von Trends festzustellen.",
                     "updated": 1639251706996
+                },
+                {
+                    "language": "RU",
+                    "text": "Ценность такого определения заключается в том, что оно дает ориентир в отношении того, какие таймфреймы следует анализировать, чтобы определить наличие тенденций.",
+                    "updated": 1640888944173
                 },
                 {
                     "language": "TR",

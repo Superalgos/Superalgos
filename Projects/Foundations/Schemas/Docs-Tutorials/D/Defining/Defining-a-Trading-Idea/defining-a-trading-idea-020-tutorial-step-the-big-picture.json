@@ -15,6 +15,11 @@
                 "updated": 1639252940834
             },
             {
+                "language": "RU",
+                "text": "Четырехчасовой график показал явное изменение тренда после пробоя, но... что насчет долгосрочной перспективы? Давайте проверим дневной график!",
+                "updated": 1640891087092
+            },
+            {
                 "language": "TR",
                 "text": "Özet: 4 saatlik grafik, düşüşten sonra trendde net bir değişim gösterdi, ancak... peki ya uzun vadeli? Günlük grafiği kontrol edelim!",
                 "updated": 1640947962763
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Kerze vom 10. April und nehmen Sie sich eine Minute Zeit, um darüber nachzudenken, was sie im großen Bild bedeutet - was wir gerade in den unteren Zeitrahmen analysiert haben. Ich sehe das so:",
                     "updated": 1639252957612
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите свечу от 10 апреля и потратьте минуту на то, чтобы подумать, что она означает в общей картине - то, что мы только что проанализировали на более низких таймфреймах. Вот что я вижу:",
+                    "updated": 1640891117581
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639252969821
                 },
                 {
+                    "language": "RU",
+                    "text": "Прогулка: Период колебаний, который мы наблюдали с 7 по 10 апреля, на самом деле был небольшой прогулкой по дневной верхней полосе. По правилам BB это означает, что цена находится относительно высоко на данном временном интервале.",
+                    "updated": 1640891156757
+                },
+                {
                     "language": "TR",
                     "text": "İlerleyiş: 7'den 10 Nisan'a kadar gördüğümüz değişen dönem, aslında günlük üst bantta biraz ilerleme oldu. BB kurallarına göre bu, bu zaman diliminde fiyatın nispeten yüksek olduğu anlamına gelir.",
                     "updated": 1640948168912
@@ -64,6 +79,11 @@
                     "updated": 1639252984757
                 },
                 {
+                    "language": "RU",
+                    "text": "Откат: Пробой в нижних временных рамках ознаменовал откат от дневной верхней полосы.",
+                    "updated": 1640891171298
+                },
+                {
                     "language": "TR",
                     "text": "Geri Çekilme: alt zaman dilimlerindeki kırılma, günlük üst banttan geri çekilmeyi işaret etti.",
                     "updated": 1640948190508
@@ -78,6 +98,11 @@
                     "language": "DE",
                     "text": "Fortsetzung: Die Kursbewegung im größeren Zeitrahmen endete als normaler Rückzug und Fortsetzung, wobei der gleitende Durchschnitt kaum überschritten wurde.",
                     "updated": 1639253028336
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжение: Ценовое движение на более крупном таймфрейме закончилось обычным откатом и продолжением, едва пересекая скользящую среднюю.",
+                    "updated": 1640891206145
                 },
                 {
                     "language": "TR",

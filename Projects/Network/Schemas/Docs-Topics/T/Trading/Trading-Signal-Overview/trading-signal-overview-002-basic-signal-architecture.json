@@ -1,0 +1,44 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 2,
+    "type": "Basic Signal Architecture",
+    "definition": {
+        "text": "Signals sent across the Superalgos peer to peer network are designed to be extensible and resource wise.",
+        "updated": 1642463394466
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Now that we know a little bit about what signals can do, let’s discuss some of the basic architecture of where trading signals live.  Because signals can hold a large amount of data, the entirety of a signal is not sent via the Superalgos peer to peer network.  Instead, signal providers send a header message via the peer to peer network that contains the address to the contents of the signal.  Breaking this architecture down looks like this:",
+            "updated": 1642463154072
+        },
+        {
+            "style": "List",
+            "text": "Provider sends a signal."
+        },
+        {
+            "style": "List",
+            "text": "Signal is split up into header and contents."
+        },
+        {
+            "style": "List",
+            "text": "Contents are uploaded to an open access storage (currently this is a public github repository)."
+        },
+        {
+            "style": "List",
+            "text": "Header is sent via the peer to peer network to all subscribed signal recipients."
+        },
+        {
+            "style": "List",
+            "text": "Signal recipients interpret the address of the signal and then download the signal contents."
+        },
+        {
+            "style": "Text",
+            "text": "This signal architecture greatly reduces the load on the Superalgos network allowing the transmission of large amounts of data to many recipients while using minimal network resources.  "
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

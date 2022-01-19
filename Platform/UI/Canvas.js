@@ -717,6 +717,12 @@ function newCanvas() {
                 nodeOnFocus.payload.uiObject.setValue('Shortcut Key: Ctrl + Alt + ' + nodeOnFocus.payload.uiObject.shortcutKey)
             }
         }
+        if (event.ctrlKey === true && event.shiftKey === false && event.metaKey === false && event.key === 'z') {
+            newWorkspacesSystemActionSwitch().executeAction({name: 'undo'})
+        }
+        if (event.ctrlKey === true && event.shiftKey === false && event.metaKey === false && event.key === 'y') {
+            newWorkspacesSystemActionSwitch().executeAction({name: 'redo'})
+        }
     }
 
     function onDragEnter(event) {

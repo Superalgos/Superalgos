@@ -131,8 +131,8 @@
                     "language": "TR",
                     "text": "Bir ticaret sistemi birden fazla stratejiye sahip olduğunda, birinci strateji ikinciye, ikinci strateji üçüncüye göre önceliğe sahiptir ve bu böyle devam eder. Bu, stratejilerin bir sırayla değerlendirildiği anlamına gelir. Belirli bir strateji tetiklendiğinde, kuyrukta kalan stratejiler, strateji tetiklenene kadar artık değerlendirilmez. Başka bir deyişle, tek bir ticaret sistemi içinde birden fazla strateji konuşlandırıldığında, herhangi bir anda yalnızca bir strateji ticaret yapabilir ve ticaret sistemi düğümü etrafındaki sipariş tarafından öncelik verilir.",
                     "updated": 1642513191527
-                     },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Όταν ένα σύστημα συναλλαγών διαθέτει περισσότερες από μία στρατηγικές, η πρώτη στρατηγική έχει προτεραιότητα έναντι της δεύτερης, η δεύτερη έναντι της τρίτης και ούτω καθεξής. Αυτό σημαίνει ότι οι στρατηγικές αξιολογούνται με μια σειρά. Όταν μια δεδομένη στρατηγική ενεργοποιείται, οι υπόλοιπες στρατηγικές στην ουρά δεν αξιολογούνται πλέον μέχρι να ενεργοποιηθεί η στρατηγική. Με άλλα λόγια, όταν αναπτύσσονται πολλαπλές στρατηγικές σε ένα μόνο σύστημα συναλλαγών, μόνο μία στρατηγική μπορεί να διαπραγματεύεται κάθε δεδομένη στιγμή και η προτεραιότητα δίνεται από τη σειρά γύρω από τον κόμβο του συστήματος συναλλαγών.",
                     "updated": 1641828042117

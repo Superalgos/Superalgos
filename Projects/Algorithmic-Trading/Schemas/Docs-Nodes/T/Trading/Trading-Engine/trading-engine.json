@@ -64,8 +64,8 @@
                     "language": "TR",
                     "text": "Ticaret sistemlerinizin ticaret botu tarafından işlenen bilgilere erişmesine izin vermek. Bu, stratejilerin, bot çalışırken verilen veya doldurulan siparişler gibi değiş tokuşla ilgili olanlar da dahil olmak üzere mevcut ve geçmiş olayları takip etmesine ve bunlara tepki vermesine olanak tanır.",
                     "updated": 1642504373870
-                   },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Για να επιτρέψετε στα συστήματα συναλλαγών σας να έχουν πρόσβαση στις πληροφορίες που επεξεργάζεται το ρομπότ συναλλαγών. Αυτό επιτρέπει στις στρατηγικές να παρακολουθούν και να αντιδρούν σε τρέχοντα και προηγούμενα γεγονότα — συμπεριλαμβανομένων εκείνων που αφορούν το ανταλλακτήριο, όπως εντολές που έχουν υποβληθεί ή εκπληρωθεί — καθώς δουλεύει το ρομπότ.",
                     "updated": 1641828420690
@@ -245,8 +245,8 @@
                     "language": "TR",
                     "text": "Değiştirmek istediğiniz bir şey varsa, Ticaret Motoruna (Trading Engine) ticaret sisteminizden (Trading System) erişirsiniz. Kullanıcı Tanımlı Kod (User Defined Code) düğümünün tüm amacı budur.",
                     "updated": 1642505339750
-                   },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Έχετε πρόσβαση στη Μηχανή Συναλλαγών μέσα από το σύστημα συναλλαγών σας, εάν υπάρχει κάτι εκεί που θέλετε να αλλάξετε. Αυτός είναι ολόκληρος ο σκοπός του κόμβου User Defined Code (Κώδικας που Ορίζεται από το Χρήστη).",
                     "updated": 164182863984

@@ -20,6 +20,15 @@ const createPost = async (req, res) => {
 
 };
 
+const createReply = async (req, res) => {
+    try {
+        const result = await postService.createReply(req.body);
+        res.send(result);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const getReplies = async (req, res) => {
     try {
         const result = await postService.getReplies(req.query.postHash);
@@ -35,6 +44,7 @@ module.exports = {
     getPosts,
     createPost,
     getFeed,
-    getReplies
+    getReplies,
+    createReply
 };
 

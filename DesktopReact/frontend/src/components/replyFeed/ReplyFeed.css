@@ -11,7 +11,8 @@
     height: 1.5rem;
     width: 5rem;
 }
-.response {
-    padding: 1rem 0 ;
+
+.reply {
+    padding: 1rem;
     align-items: center;
 }

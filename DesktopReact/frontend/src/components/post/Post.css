@@ -8,7 +8,10 @@
     box-sizing: border-box;
     border-bottom: 1px solid #eee;
 }
-
+.avatar {
+    height: 3rem !important;
+    width: 3rem !important;
+}
 .postWrapper{
     width: inherit;
     min-width: 20rem;

@@ -438,6 +438,7 @@ function newCircularMenuItem() {
                     {
                         node: thisObject.payload.node,
                         name: thisObject.action,
+                        label: thisObject.label,
                         project: thisObject.actionProject,
                         relatedNodeType: thisObject.relatedUiObject,
                         relatedNodeProject: relatedNodeProject,

@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "İlk senaryoyu inceleyelim: Bu tipik bir durumdur, daha önce denenmiş bir kurulumla başlayarak denemek ya da bu kurulumda değişiklik yapmak istediğinizde ortaya çıkar!",
                 "updated": 1639817762221
+            },
+            {
+                "language": "RU",
+                "text": "Давайте рассмотрим первый сценарий: типичный случай - когда вы хотите внести изменения в стратегию, поставляемую вместе с системой, чтобы начать с проверенной конфигурации!",
+                "updated": 1640874819658
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Diyelim ki bir strateji ile başlamaya hazırsınız. Mevcut olanla başlamak ve işlerin nasıl yürüdüğünü anlamak için değişiklikler yapmak istiyorsunuz. Değişiklik yaparak katkıda bulunmak niyetinde değilsiniz. Sadece onu denemek ve beğeninize göre ayarlamak istiyorsunuz! Aşağıdakileri yapın:",
                     "updated": 1639817833420
+                },
+                {
+                    "language": "RU",
+                    "text": "Допустим, вы готовы начать экспериментировать со стратегией. Вы хотите начать с существующей стратегии и внести в нее изменения, чтобы понять, как все работает. Вы не собираетесь вносить изменения. Вы просто хотите поиграть с ней и настроить ее по своему вкусу! Тогда сделайте следующее:",
+                    "updated": 1640874894478
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz!",
                     "updated": 1639818432673
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите узел Plugin File, соответствующий торговой системе, и восстановите оригинальный файл плагина (в папке \\Plugins\\Trading-Systems), как будто это была резервная копия: перетащите файл и перебросьте его в Design Space! Теперь стратегия живет в рабочем пространстве, и вы можете изменять и сохранять ее!",
+                    "updated": 1640874934047
                 }
             ]
         }

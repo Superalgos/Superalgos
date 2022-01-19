@@ -13,7 +13,13 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
 
         async function saveAtGithub(resolve, reject) {
 
-            const token = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName).apiToken
+            const secret = SA.secrets.apisSecrets.map.get(storageContainer.config.codeName)
+            if (secret === undefined) {
+                console.log('[WARN] You need at the Apis Secrets File a record for the codeName = ' + storageContainer.config.codeName)
+                reject()
+                return
+            }
+            const token = secret.apiToken
             const { Octokit } = SA.nodeModules.octokit
             const octokit = new Octokit({
                 auth: token,

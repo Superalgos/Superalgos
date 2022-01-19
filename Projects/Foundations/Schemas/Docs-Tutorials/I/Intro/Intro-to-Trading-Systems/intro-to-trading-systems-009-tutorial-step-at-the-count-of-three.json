@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "BB Top Bounce ilginç bir yaklaşıma sahiptir: ticaret fikrini üç basit koşulla tanımlar.",
                 "updated": 1640780125207
+            },
+            {
+                "language": "RU",
+                "text": "BB Top Bounce отличается интересным подходом: он определяет торговую идею с помощью трех простых условий.",
+                "updated": 1640885602935
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "İlk stratejinin Tetikleyici Olayına ( Trigger On Event ) bakıyorsunuz. Tanımlanan ilk üç koşula dikkat edin...",
                     "updated": 1640780179138
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы смотрите на событие Trigger On Event первой стратегии. Обратите внимание на первые три определенных условия...",
+                    "updated": 1640885655595
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Şimdi git ve diğer stratejilerden herhangi birinin tetikleyicisine bak... Ne görüyorsun?",
                     "updated": 1640780228060
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь посмотрите на событие срабатывания любой из других стратегий... Что вы видите?",
+                    "updated": 1640885671294
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Tam olarak! Tüm stratejiler, tetikleyici etkinliğinde aynı ilk üç koşulu içerir. Bu, tüm stratejilerin aynı ticaret fikrine dayandığını göstermektedir.Şimdi... Ne farkları var?",
                     "updated": 1640780354403
+                },
+                {
+                    "language": "RU",
+                    "text": "Именно так! Все стратегии имеют одни и те же первые три условия в событии срабатывания (Trigger On Event). Это показывает, что все стратегии основаны на одной и той же торговой идее. Теперь... чем же они отличаются?",
+                    "updated": 1640885728698
                 }
             ]
         }

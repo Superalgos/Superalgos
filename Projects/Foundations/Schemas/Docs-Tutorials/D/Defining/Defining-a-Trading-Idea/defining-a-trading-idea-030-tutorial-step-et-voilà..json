@@ -15,6 +15,11 @@
                 "updated": 1639253768165
             },
             {
+                "language": "RU",
+                "text": "Вот и все! Наконец-то у нас есть правильная гипотеза, которую мы можем проверить, чтобы решить, стоит ли реализовывать эту идею или нет!",
+                "updated": 1640892410217
+            },
+            {
                 "language": "TR",
                 "text": "Özet: İşte bu! Sonunda, fikrin peşinden gitmeye değer olup olmadığına karar vermek için test edebileceğimiz uygun bir varsayımımız var!",
                 "updated": 1640952844610
@@ -32,6 +37,11 @@
                     "updated": 1639253774285
                 },
                 {
+                    "language": "RU",
+                    "text": "Дальше мы разберемся с этим в следующем уроке!",
+                    "updated": 1640892421110
+                },
+                {
                     "language": "TR",
                     "text": "Bir sonraki eğitimde devam edecekğiz!",
                     "updated": 1640953399711
@@ -46,6 +56,11 @@
                     "language": "DE",
                     "text": "Im nächsten Tutorial dieser Reihe werden wir uns damit beschäftigen, wie Superalgos Sie durch den Prozess der Erstellung einer Handelsidee führt, die anhand historischer Daten getestet werden soll. Wir werden etwas über die Syntax lernen, um Bedingungen und Formeln zu schreiben, über die Verwendung von Indikatoren innerhalb von Strategien und alles andere, was wir auf dem Weg dahin brauchen könnten!",
                     "updated": 1639253781970
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующей серии уроков мы рассмотрим, как Superalgos проводит вас через процесс настройки торговой идеи для тестирования на исторических данных. Мы узнаем о синтаксисе для написания условий и формул, о том, как использовать индикаторы внутри стратегий, и обо всем остальном, что нам может понадобиться на этом пути!",
+                    "updated": 1640892461676
                 },
                 {
                     "language": "TR",

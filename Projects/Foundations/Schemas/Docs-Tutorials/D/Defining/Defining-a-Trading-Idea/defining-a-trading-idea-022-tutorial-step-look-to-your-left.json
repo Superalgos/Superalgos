@@ -15,6 +15,11 @@
                 "updated": 1639253115528
             },
             {
+                "language": "RU",
+                "text": "Вам ничего не напоминает ценовое движение слева от вас? Узнаете ли вы этот крупный обвал рынка?",
+                "updated": 1640891287814
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Solunuzdaki fiyat hareketi bir şey çağrıştırıyor mu? Bu büyük piyasa çöküşlerini hatırlıyor musun?",
                 "updated": 1640948706186
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Sie schauen auf den 12-13 März 2020 ~50% pandemischen Marktcrash! Nehmen Sie sich ein paar Minuten Zeit und analysieren Sie den Tages-Chart!",
                     "updated": 1639253128723
+                },
+                {
+                    "language": "RU",
+                    "text": "Перед вами 12-13 марта 2020 года ~50% пандемический крах рынка! Потратьте несколько минут на анализ дневного графика!",
+                    "updated": 1640891306931
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639253150059
                 },
                 {
+                    "language": "RU",
+                    "text": "Короче говоря, мы видим, что рынок находился в нисходящем тренде с 25 февраля - если принять разворот к югу от скользящей средней и пробой полос за признак начала тренда.",
+                    "updated": 1640891357796
+                },
+                {
                     "language": "TR",
                     "text": "Kısacası, hareketli ortalamanın güneyine yöneldiğini ve bantların kırılmasını trendin başlangıcının bir göstergesi olarak alırsak, piyasanın 25 Şubat'tan beri düşüş trendinde olduğunu görebiliriz.",
                     "updated": 1640948743841
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Werfen Sie auch einen Blick auf die unteren Zeitrahmen!",
                     "updated": 1639253156624
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите также на более низкие таймфреймы!",
+                    "updated": 1640891389511
                 },
                 {
                     "language": "TR",

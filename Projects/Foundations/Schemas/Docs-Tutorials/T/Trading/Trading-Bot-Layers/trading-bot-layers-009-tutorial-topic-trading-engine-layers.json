@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Вы знакомы с концепцией Trading Engine, верно? Я научу вас, какие слои влияют на те или иные разделы иерархии, чтобы вы могли получить доступ к информации!",
                 "updated": 1640545674022
+            },
+            {
+                "language": "TR",
+                "text": "Trading Engine kavramına aşinasınız, değil mi? Hangi katmanların hiyerarşinin hangi bölümlerini etkilediğini size öğreteceğim, böylece bilgilere erişebileceksiniz!",
+                "updated": 1641755390092
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Я предполагаю, что вы прошли учебник Welcome... Помните, как вы делили экран пополам? Вы скользили указателем мыши по свечам на графике, и для каждой свечи вы могли видеть значение определенных узлов в иерархии торгового движка (Trading Engine), верно?",
                     "updated": 1640545754679
+                },
+                {
+                    "language": "TR",
+                    "text": "Hoş Geldiniz eğitimini (Welcome Tutorial) tamamladığınızı varsayıyorum... Ekranı ikiye böldüğünüz zamanı hatırlıyor musunuz? Fare imlecini grafikteki mumların üzerine kaydırdınız ve her bir mum için ticaret motoru hiyerarşisindeki belirli düğümlerin değerini görebiliyordunuz, değil mi?",
+                    "updated": 1641755469399
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Так вот в чем дело! Когда вы включаете определенный слой, вы включаете визуализацию значений для определенного участка иерархии.",
                     "updated": 1640545822698
+                },
+                {
+                    "language": "TR",
+                    "text": "Her şey bundan ibaret! Belirli bir katmanı açtığınızda, hiyerarşinin belirli bir bölümü için değerlerin görselleştirilmesini açarsınız.",
+                    "updated": 1641755510121
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Давайте посмотрим поближе!",
                     "updated": 1640545835549
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi daha yakından bakalım!",
+                    "updated": 1641755527766
                 }
             ]
         }

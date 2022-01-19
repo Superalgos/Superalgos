@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Nachdem wir nun festgelegt haben, wann die Strategie ausgelöst werden soll, müssen wir uns überlegen, wann die Idee außer Kraft gesetzt werden soll.",
                 "updated": 1639265679941
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда мы определили, когда стратегия должна срабатывать, давайте рассмотрим, когда идея должна быть признана недействительной.",
+                "updated": 1640944684201
+            },
+            {
+                "language": "TR",
+                "text": "Artık stratejiyi ne zaman tetikleyeceğimizi belirlediğimize göre, fikri ne zaman geçersiz kılacağımızı düşünmemiz gerekiyor.",
+                "updated": 1641654565486
             }
         ]
     },
@@ -26,6 +36,16 @@
                     "language": "DE",
                     "text": "Wir wollen nicht mit dieser Strategie handeln, wenn es keinen Abwärtstrend gibt. Also kehren wir die Logik des Trigger-Ereignisses um! Die Bedingungen 1 und 2 finden Sie unten:",
                     "updated": 1639265690802
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы не хотим торговать по этой стратегии, когда нет нисходящего тренда. Поэтому мы изменим логику срабатывания события! Найдите условия 1 и 2 ниже:",
+                    "updated": 1640944703644
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağı yönlü bir eğilim yoksa bu strateji ile ticaret yapmak istemiyoruz. O zaman tetikleme olayının mantığını tersine çevirelim! Aşağıdaki 1. ve 2. koşulları bulun:",
+                    "updated": 1641654580972
                 }
             ]
         },
@@ -47,6 +67,16 @@
                     "language": "DE",
                     "text": "Wir sollten die Strategie auslösen, wenn eine dieser Bedingungen als true gilt. Aber wie?",
                     "updated": 1639265729133
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы должны задействовать стратегию, когда одно из этих условий подтверждается. Каким образом?",
+                    "updated": 1640944736901
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu koşullardan herhangi biri doğru (true) kabul edilirse stratejiyi tetiklemeliyiz. Ama nasıl?",
+                    "updated": 1641654593998
                 }
             ]
         }

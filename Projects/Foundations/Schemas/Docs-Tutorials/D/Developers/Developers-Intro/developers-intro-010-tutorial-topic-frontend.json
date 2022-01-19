@@ -7,28 +7,70 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Frontend is essentially a Javascript web-app running on the browser."
+        "text": "The Frontend is essentially a Javascript web-app running on the browser.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Фронтенд - это, по сути, веб-приложение на Javascript, работающее в браузере.",
+                "updated": 1640930357289
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "As of today it contains:"
+            "text": "As of today it contains:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На сегодняшний день он содержит:",
+                    "updated": 1640930371605
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Canvas App: Most of the functionality is here. The name reflects the fact that most of the UI is rendered in an HTML 5 canvas object."
+            "text": "Canvas App: Most of the functionality is here. The name reflects the fact that most of the UI is rendered in an HTML 5 canvas object.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Canvas App: Большая часть функциональности находится здесь. Название отражает тот факт, что большая часть пользовательского интерфейса отображается в объекте canvas HTML 5.",
+                    "updated": 1640931047397
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Files Component Includes the mechanisms to read data files in a way that is suitable for navigating through large datasets while plotting the information in real-time."
+            "text": "Files Component Includes the mechanisms to read data files in a way that is suitable for navigating through large datasets while plotting the information in real-time.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Files Components: Включает в себя механизмы для чтения файлов данных таким образом, который подходит для навигации по большим наборам данных при построении графиков в режиме реального времени.",
+                    "updated": 1640931032879
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The UI was built entirely in-house. We did not reuse any framework to display the design space or the charts."
+            "text": "The UI was built entirely in-house. We did not reuse any framework to display the design space or the charts.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс был полностью разработан собственными силами. Мы не использовали никаких фреймворков для отображения пространства проектирования или графиков.",
+                    "updated": 1640930587254
+                }
+            ]
         },
         {
             "style": "Important",
-            "text": "The UI is tested in Chrome only."
+            "text": "The UI is tested in Chrome only.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс протестирован только в Chrome.",
+                    "updated": 1640930597068
+                }
+            ]
         }
     ]
 }

@@ -14,6 +14,11 @@
                 "language": "DE",
                 "text": "Die Eigenschaft \"direction\" von undefined kann nicht gelesen werden. Was hat es damit auf sich?",
                 "updated": 1639267819848
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tanımsız \"direction\" özelliği okunamıyor. Bütün bunlar neyle ilgili?",
+                "updated": 1641660813443
             }
         ]
     },
@@ -26,6 +31,11 @@
                     "language": "DE",
                     "text": "Dies ist das richtige Verfahren, um eine Fehlermeldung auszupacken und zu verstehen, worum es geht:",
                     "updated": 1639267831451
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, bir hata mesajını açmak ve ne hakkında olduğunu anlamak için doğru prosedürdür:",
+                    "updated": 1641660828758
                 }
             ]
         },
@@ -38,6 +48,11 @@
                     "language": "DE",
                     "text": "Sie wissen, wann der Fehler aufgetreten ist: Merken Sie sich das, denn der Fehler bezieht sich ausschließlich auf die Kerze, an der er aufgetreten ist!",
                     "updated": 1639267839307
+                },
+                {
+                    "language": "TR",
+                    "text": "Hatanın ne zaman oluştuğunu biliyorsan: Bunu not et, çünkü hata sadece oluştuğu mumla ilgilidir!",
+                    "updated": 1641660848667
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "DE",
                     "text": "Sie wissen, welcher Knoten den Fehler verursacht hat: Es ist wahrscheinlich die Definition in dem Knoten, der den Fehler verursacht hat, entweder im Code des zugehörigen Javascript Code Knotens, der Formel ( Formula ) oder der Konfiguration.",
                     "updated": 1639267871676
+                },
+                {
+                    "language": "TR",
+                    "text": "Hangi düğümün hataya neden olduğunu biliyorsan: Hataya neden olan, muhtemelen düğümdeki tanımdır, ya ilişkili Javascript kod ( Javascript Code ) düğümünün kodunda, yada formül ( Formula ) yapılandırmasında.",
+                    "updated": 1641660904827
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "DE",
                     "text": "Sie kennen die Fehlermeldung: Lesen Sie sie aufmerksam und stellen Sie die Verbindung zu den beiden vorherigen Hinweisen her!",
                     "updated": 1639267879588
+                },
+                {
+                    "language": "TR",
+                    "text": "Hata mesajını biliyorsan: Dikkatlice okuyun ve önceki iki ipucuyla bağlantı kurun!",
+                    "updated": 1641660940687
                 }
             ]
         }

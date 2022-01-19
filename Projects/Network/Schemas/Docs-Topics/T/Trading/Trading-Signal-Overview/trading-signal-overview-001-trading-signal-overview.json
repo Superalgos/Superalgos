@@ -1,0 +1,32 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 1,
+    "type": "Trading Signal Overview",
+    "definition": {
+        "text": "Trading signals are the lifeblood of the Superalgos trading network. They allow the sharing of trading intelligence across the community in an extremely powerful and flexible fashion. ",
+        "updated": 1642463037757
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "To begin conceptualizing trading signals you can imagine sending and receiving packages from your friends or family. When you open packages like this you are excited to see what they have sent you. Sending and receiving trading signals is very similar!",
+            "updated": 1642463029210
+        },
+        {
+            "style": "Text",
+            "text": "Packages can hold a whole assortment of goodies like treats, gifts, etc.  Trading signals are just as flexible as placing things in a cardboard box.  A signal provider can choose to share any kind of information coming out of a trading strategy, trading engine, or indicator calculations, just to name a few!  This flexibility means that, unlike conventional signal providing services, the trading signals themselves can grow and adjust with the needs of both signal providers and signal recipients.  We’ll get more into just how flexible signals really are in a bit.  But before that, let’s talk a bit more about how signals can be used."
+        },
+        {
+            "style": "Text",
+            "text": "As mentioned before, trading signals are in essence packages of trading intelligence.  Things like take position rates, stop loss parameters, or any other information can be sent by signal providers in order to be helpful to other traders.  Because signals can have such a wide array of information in them, Superalgos does not force the recipient of a signal to use it in any particular way. Receiving a signal is like taking a package off of your front porch and looking through it to find what is useful for you.  You can think of signals as simply resources available to be consumed by your trading systems and bots.  "
+        },
+        {
+            "style": "Text",
+            "text": "For example, let’s say a provider sends a signal that contains the following information: when a position is opened or closed, what rate the position was opened or closed at, and the stop loss for the position.  Within your trading system, you can do any number of things with this signal information.  You could take this signal and hook it directly up to a trading bot to open and close exactly at the same time and rate as the signal provider.  Or you could check the signal for when a position is opened and then make a decision to actually open a position based on other indicators or trading logic held within your own trading strategy. Or you could open a position based on the signal but calculate your own rate.  Signal information does not force your bots to do anything, it is completely up to you how the signal is interpreted!"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "In der Tat ist es logisch, dass der Trading-Bot nur die Definitionen auswertet, deren Auswertung zu einem bestimmten Zeitpunkt sinnvoll ist!",
                 "updated": 1639388751881
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Aslında, ticaret botunun yalnızca belirli bir zamanda bunları değerlendirmek için anlamlı olan tanımları değerlendirmesi mantıklıdır!",
+                "updated": 1641662165888
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Allerdings ist dies manchmal eine Quelle der Verwirrung! Lassen Sie uns ein hypothetisches Szenario aufstellen!",
                     "updated": 1639388758590
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, bu bazen kafa karışıklığına yol açar! Hadi varsayımsal bir senaryo yapalım!",
+                    "updated": 1641662178600
                 }
             ]
         },
@@ -37,6 +47,11 @@
                     "language": "DE",
                     "text": "Schalten Sie die Ebenen \"Strategies\" und \"Trigger Stages\" im Ebenenmanager der Simulationsobjekte aus!",
                     "updated": 1639388774569
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyon nesnelerinin seviye yöneticisinde (Simulation Objects layer manager) \"Stratejiler\"( Strategies ) ve \"Aşamaları Tetikleme\"( Trigger Stages ) seviyelerini kapatın!",
+                    "updated": 1641662227516
                 }
             ]
         },
@@ -48,6 +63,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie nun den Mauszeiger über die Kerzen um den 1. März! Stellen Sie sich vor, dass Sie versuchen, Ihre Bedingungen zu überprüfen, aber aus irgendeinem Grund werden Werte und Hervorhebungen für einige Kerzen angezeigt, aber nicht für andere! Irgendetwas stimmt nicht mit Superalgos! Nicht wirklich, oder?",
                     "updated": 1639388783218
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi farenizi 1 Mart civarında mumlar üzerinde gezdirin! Koşullarınızı kontrol etmeye çalıştığınızı düşünün, ancak bazı nedenlere göre değerler ve önemli noktalar bazı mumlar için görüntülense de diğerleri için görüntülenmiyor! Superalgos ile ilgili bir sorun var! Değilmi?",
+                    "updated": 1641662251312
                 }
             ]
         }

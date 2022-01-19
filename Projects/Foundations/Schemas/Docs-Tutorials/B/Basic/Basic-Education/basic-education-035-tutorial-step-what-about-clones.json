@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Klonlar ( Clones ),veri yapılarını çoğaltmak üzere tasarlandığından, kopyaların orijinaline benzemesi açısından yedeklemelerden farklıdır.",
                 "updated": 1639734081761
+            },
+            {
+                "language": "RU",
+                "text": "Клоны (Clones) отличаются от резервных копий тем, что эта функция предназначена для дублирования структур данных таким образом, чтобы копии были похожи на оригинал.",
+                "updated": 1640871161447
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu sayfayı dikkatlice okuyun....",
                     "updated": 1639734094007
+                },
+                {
+                    "language": "RU",
+                    "text": "Внимательно прочитайте эту страницу!",
+                    "updated": 1640871176011
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Özetle;",
                     "updated": 1639734110521
+                },
+                {
+                    "language": "RU",
+                    "text": "Подведем итоги:",
+                    "updated": 1640871203037
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Klonlar, restorasyon sırasında orijinalin mevcut olup olmadığına bakılmaksızın aynı şekilde davranır.",
                     "updated": 1639734307024
+                },
+                {
+                    "language": "RU",
+                    "text": "Клоны ведут себя одинаково независимо от того, присутствует ли оригинал при восстановлении или нет.",
+                    "updated": 1640871216699
                 }
             ]
         },
@@ -147,6 +167,11 @@
                     "language": "TR",
                     "text": "Gelen referanslar her zaman göz ardı edilir, iptal edilir.",
                     "updated": 1639734350993
+                },
+                {
+                    "language": "RU",
+                    "text": "Входящие ссылки всегда отбрасываются.",
+                    "updated": 1640871225609
                 }
             ]
         },
@@ -176,6 +201,11 @@
                     "language": "TR",
                     "text": "Klonlar ( Clones ) özelliğini kendi başınıza test etmek için zaman ayırın! Lafı fazla uzatmadan diğer konulara geçelim!",
                     "updated": 1639734380620
+                },
+                {
+                    "language": "RU",
+                    "text": "Не стесняйтесь потратить время на самостоятельное тестирование функции Clones! Мы переходим к другим темам без лишних слов!",
+                    "updated": 1640871251574
                 }
             ]
         }

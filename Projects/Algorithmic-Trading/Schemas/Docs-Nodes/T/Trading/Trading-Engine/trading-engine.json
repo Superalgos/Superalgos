@@ -152,8 +152,8 @@
 
                 }
             ]
-        },
-        {
+                },
+                {
             "style": "Text",
             "text": "Every time a Task is ran, a snapshot of that data structure, together with a snapshot of the Network and the Bots definitions at their Data Mine is sent from the UI to the Task Server, and from there is consumed by the running Bot. That means that a second Bot can receive the same Trading Engine snapshot and it will never know if other bots were fed with the same information or not.",
             "updated": 1621987965915,
@@ -176,8 +176,8 @@
 
                 }
             ]
-        },
-        {
+                },
+                {
             "style": "Subtitle",
             "text": "Do I need to change something at the Trading Engine?",
             "translations": [
@@ -192,8 +192,8 @@
                     "updated": 1642505117563
                 }
             ]
-        },
-        {
+                },
+                {
             "style": "Text",
             "text": "You don't need to physically change anything inside trading engine via the UI.  The trading engine is a visual representation of the data structure that the trading system uses to store its values, so to speak.",
             "translations": [
@@ -213,8 +213,8 @@
                     "updated": 1641828598544
                 }
             ]
-        },
-        {
+                  },
+                  {
             "style": "Subtitle",
             "text": "Can I change the values inside the Trading Engine?",
             "translations": [
@@ -229,8 +229,8 @@
                     "updated": 1642505156525
                 }
             ]
-        },
-        {
+                },
+                {
             "style": "Text",
             "text": "You access the Trading Engine from within your trading system if there is something in there you would like to change. This is the whole purpose of the User Defined Code node.",
             "updated": 1621988418300,

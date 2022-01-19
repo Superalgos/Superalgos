@@ -168,8 +168,8 @@
                     "language": "TR",
                     "text": "Bir Görev her çalıştırıldığında, Veri Madeni'ndeki (Data Mine) Ağ ve Bot tanımlarının bir anlık görüntüsü ile birlikte bu veri yapısının bir anlık görüntüsü UI'den Görev Sunucusuna (Task Manager) gönderilir ve oradan çalışan Bot tarafından tüketilir. Bu, ikinci bir Botun aynı Ticaret Motoru anlık görüntüsünü alabileceği ve diğer botların aynı bilgilerle beslenip beslenmediğini asla bilemeyeceği anlamına gelir.",
                     "updated": 1642505103739
-                   },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Κάθε φορά που εκτελείται μια Task (Εργασία), ένα στιγμιότυπο αυτής της δομής δεδομένων, μαζί με ένα στιγμιότυπο των ορισμών του Δικτύου και των Ρομπότ στο Data Mine (Εξορυκτήριο Δεδομένων) τους αποστέλλεται από τη UI (διεπαφή χρήστη) στον Task Server (Διακομιστή Εργασιών) και από εκεί χρησιμοποιείται από το Ρομπότ που εκτελείται. Αυτό σημαίνει ότι ένα δεύτερο Ρομπότ μπορεί να λάβει το ίδιο στιγμιότυπο της Μηχανής Συναλλαγών και δεν θα μάθει ποτέ εάν άλλα ρομπότ τροφοδοτήθηκαν με τις ίδιες πληροφορίες ή όχι.",
                     "updated": 1641828540851

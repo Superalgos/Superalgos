@@ -452,6 +452,11 @@
                     "name": "Node Path",
                     "propertyName": "nodePath",
                     "functionName": "newVisualScriptingFunctionLibraryNodePath"
+                },
+                {
+                    "name": "Highlight Reference Children",
+                    "propertyName": "referenceChildren",
+                    "functionName": "newVisualScriptingNodeActionFunctionReferenceChildren"
                 }
             ],
             "systemActionFunctions": [],

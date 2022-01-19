@@ -1,0 +1,52 @@
+{
+    "review": "Superalgos Project Review",
+    "pageNumber": 48,
+    "type": "Superalgos Review - Opensource trading toolkit",
+    "definition": {
+        "text": "Superalgos is a very elaborate trading toolkit",
+        "updated": 1642539328381
+    },
+    "paragraphs": [
+        {
+            "style": "Warning",
+            "text": "There are a lot of concepts to learn before you can start to use SuperAlgos. The toolkit is very flexible, but this flexibility comes at a price: a steep learning curve.",
+            "updated": 1642539881561
+        },
+        {
+            "style": "Text",
+            "text": "There is still quite a bit of work to do on the platform and users are expected to contribute to the project to make sure it moves forward.",
+            "updated": 1642608459043
+        },
+        {
+            "style": "Text",
+            "text": "I am still learning the platform (not completely done with the tutorials yet), but there are already a few improvements I have identified in the UI that would help improve the user experience:",
+            "updated": 1642608618903
+        },
+        {
+            "style": "List",
+            "text": "Back button for the docs tab"
+        },
+        {
+            "style": "List",
+            "text": "Browser hardware acceleration support for linux users",
+            "updated": 1642608666766
+        },
+        {
+            "style": "List",
+            "text": "md support for docs editor"
+        },
+        {
+            "style": "List",
+            "text": "Better/easier/faster way to navigate through the design view",
+            "updated": 1642608816513
+        },
+        {
+            "style": "Text",
+            "text": "It is also my understanding that SA is a low frequency trading platform and that the granularity is about 75 seconds. Not sure how this will turn out to be a limitation in the future. Might be nice to have the ability to access (almost) real time information for certain strategies"
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

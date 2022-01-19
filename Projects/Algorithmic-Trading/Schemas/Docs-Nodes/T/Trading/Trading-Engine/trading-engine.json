@@ -145,8 +145,8 @@
                     "language": "TR",
                     "text": "Aynı ticaret motoru, bir veri yapısının yalnızca düğüm tabanlı bir temsili olduğundan, birden fazla ticaret oturumunda kullanılabilir.",
                     "updated": 1642504933300
-                   },
-                   {
+                },
+                {
                     "language": "EL",
                     "text": "Η ίδια μηχανή συναλλαγών μπορεί να χρησιμοποιηθεί από πολλαπλές συνεδρίες συναλλαγών, επειδή είναι απλώς μια αναπαράσταση μιας δομής δεδομένων που βασίζεται σε κόμβους.",
                     "updated": 1641828487715

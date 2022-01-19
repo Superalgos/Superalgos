@@ -61,7 +61,14 @@
         {
             "style": "Title",
             "text": "Foundations Project",
-            "updated": 1609945005370
+            "updated": 1609945005370,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Foundations Project (Θεμέλια Έργου)",
+                    "updated": 1641829322472
+                }
+            ]
         },
         {
             "style": "Include",
@@ -76,7 +83,14 @@
         {
             "style": "Title",
             "text": "Design Space",
-            "updated": 1609945819410
+            "updated": 1609945819410,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Design Space (Σχεδιαστικός Χώρος)",
+                    "updated": 1641829340807
+                }
+            ]
         },
         {
             "style": "Include",
@@ -90,7 +104,14 @@
         },
         {
             "style": "Title",
-            "text": "Crypto Ecosystem"
+            "text": "Crypto Ecosystem",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Crypto Ecosystem (Οικοσύστημα Κρύπτο)",
+                    "updated": 1641829398687
+                }
+            ]
         },
         {
             "style": "Include",
@@ -105,7 +126,14 @@
         {
             "style": "Title",
             "text": "LAN Network",
-            "updated": 1609945037649
+            "updated": 1609945037649,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "LAN Network (Τοπικό Δίκτυο)",
+                    "updated": 1641829428671
+                }
+            ]
         },
         {
             "style": "Include",
@@ -120,7 +148,14 @@
         {
             "style": "Title",
             "text": "Charting Space",
-            "updated": 1609945048562
+            "updated": 1609945048562,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Charting Space (Χώρος Χαρτογράφησης)",
+                    "updated": 1641829459703
+                }
+            ]
         },
         {
             "style": "Include",
@@ -135,7 +170,14 @@
         {
             "style": "Title",
             "text": "Trading System",
-            "updated": 1609945101604
+            "updated": 1609945101604,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading System (Σύστημα Συναλλαγών)",
+                    "updated": 1641829478309
+                }
+            ]
         },
         {
             "style": "Include",
@@ -149,7 +191,14 @@
         },
         {
             "style": "Title",
-            "text": "Trading Mine"
+            "text": "Trading Mine",
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading Mine (Εξορυκτήριο Συναλλαγών)",
+                    "updated": 1641829495848
+                }
+            ]
         },
         {
             "style": "Include",
@@ -164,7 +213,14 @@
         {
             "style": "Title",
             "text": "Trading Engine",
-            "updated": 1609945113032
+            "updated": 1609945113032,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Trading Engine (Μηχανή Συναλλαγών)",
+                    "updated": 1641829513089
+                }
+            ]
         },
         {
             "style": "Include",
@@ -179,7 +235,14 @@
         {
             "style": "Title",
             "text": "Data Mine",
-            "updated": 1609945134789
+            "updated": 1609945134789,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Data Mine (Εξόρυξη Δεδομένων)",
+                    "updated": 1641829567621
+                }
+            ]
         },
         {
             "style": "Include",
@@ -194,7 +257,14 @@
         {
             "style": "Title",
             "text": "Plugins",
-            "updated": 1609945527199
+            "updated": 1609945527199,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Plugins (Πρόσθετα)",
+                    "updated": 1641829590336
+                }
+            ]
         },
         {
             "style": "Include",
@@ -209,7 +279,14 @@
         {
             "style": "Title",
             "text": "Tutorial",
-            "updated": 1609946064589
+            "updated": 1609946064589,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Tutorial (Οδηγός Εκμάθησης)",
+                    "updated": 1641829607889
+                }
+            ]
         },
         {
             "style": "Include",
@@ -224,7 +301,14 @@
         {
             "style": "Title",
             "text": "Super Scripts",
-            "updated": 1609945544452
+            "updated": 1609945544452,
+            "translations": [
+                {
+                    "language": "EL",
+                    "text": "Super Scripts (Σούπερ Σενάρια)",
+                    "updated": 1641829613351
+                }
+            ]
         },
         {
             "style": "Include",

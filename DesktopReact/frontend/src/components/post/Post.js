@@ -6,7 +6,7 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedPost} from '../../store/slices/post.slice'
 import {ArrowBackOutlined} from "@mui/icons-material";
-import PostFooter from "../PostFooter/PostFooter";
+
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
@@ -14,7 +14,7 @@ const Post = ({postData}) => {
     const dispatch = useDispatch();
     const selectedPost = useSelector(state => state.post.selectedPost);
     const [post, setPost] = useState({});
-    const [collapse, setCollapse] = useState();
+    const [collapse, setCollapse] = useState(true);
     const ToggleCollapse = () => setCollapse(!collapse);
 
     useEffect(() => {
@@ -29,25 +29,23 @@ const Post = ({postData}) => {
         }
     }, [])
 
-    if (!post.originSocialPersona) {
+    if (!post.originSocialPersonaId) {
         return <></>
     }
 
     const {
-        originSocialPersona: {socialPersonaHandle: userName},
-        postText: postBody,
-        eventId: postId,
-        // originPost: {reactions: reactions}
+        originSocialPersonaId,
+        postText,
+        reactions,
+        originPostHash
     } = post;
 
     const handlePostClick = (e) => {
-        /*
-                if (postIdParameter !== postId) {
-                    e.preventDefault()
-                    dispatch(setSelectedPost(postData))
-                    navigate(`/post/${postId}`) //todo implement reply feed
-                }
-         */
+        if (postIdParameter !== originPostHash) {
+            e.preventDefault()
+            dispatch(setSelectedPost(postData))
+            navigate(`/post/${originPostHash}`) //todo implement reply feed
+        }
     }
 
     return (
@@ -70,13 +68,13 @@ const Post = ({postData}) => {
                         <Avatar src={pic}/>
                     </Stack>
                     <Stack className="postUserName">
-                        {userName}
+                        {originSocialPersonaId}
                     </Stack>
                 </Stack>
                 <Stack className="postBody">
-                    {postBody ? postBody.toString() : ''}
+                    {postText ? postText.toString() : ''}
                 </Stack>
-                {/*<PostFooter postId={postId} reactions={reactions} actualReaction={reactions}/>*/}
+                {/*<PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>*/}
             </Card>
         </div>
     );

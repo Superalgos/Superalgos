@@ -6,6 +6,7 @@
     max-height: 100%; /* todo need to be 8rem, but is collapsing without scroll. need fix*/
     padding: 0.5rem;
     box-sizing: border-box;
+    border-bottom: 1px solid #eee;
 }
 
 .postWrapper{

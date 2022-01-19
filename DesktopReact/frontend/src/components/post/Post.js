@@ -1,11 +1,10 @@
 import "./Post.css"
 import React, {useEffect, useState} from 'react';
-import {Avatar, Card, Collapse, Stack, Typography} from "@mui/material";
+import {Avatar, Stack} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSelectedPost} from '../../store/slices/post.slice'
-import {ArrowBackOutlined} from "@mui/icons-material";
 import PostFooter from "../postFooter/PostFooter";
 
 
@@ -51,21 +50,21 @@ const Post = ({postData}) => {
 
     return (
         <div className="postWrapper">
-            <Card className="post">
+            <div className="post">
                 {/* TODO remove stacks inside of stacks*/}
                 <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
-                    <Stack className="postAvatarContainer">
+                    <div className="postAvatarContainer">
                         <Avatar src={pic}/>
-                    </Stack>
-                    <Stack className="postUserName">
+                    </div>
+                    <div className="postUserName">
                         {originSocialPersonaId}
-                    </Stack>
+                    </div>
                 </Stack>
-                <Stack className="postBody">
+                <div className="postBody">
                     {postText ? postText.toString() : ''}
-                </Stack>
+                </div>
                 <PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
-            </Card>
+            </div>
         </div>
     );
 };

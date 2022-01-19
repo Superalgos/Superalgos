@@ -10,14 +10,12 @@ Typography{
     /*margin-right: auto;*/
 }
 
-.sidebarMini .css-1d6wzja-MuiButton-startIcon { /*centers the icons when collapse*/
-    /* TODO REMOVE  css-1d6wzja-MuiButton-startIcon and apply correct card*/
+.sidebarMini .MuiButton-startIcon { /*centers the icons when collapse*/
     margin-right: 0;
     margin-left: 0;
 }
 
-.css-12i7wg6-MuiPaper-root-MuiDrawer-paper { /*remove the line on the right in the containers*/
-    /* TODO REMOVE  css-12i7wg6-MuiPaper-root-MuiDrawer-paper and apply correct card*/
+.MuiDrawer-paper { /*remove the line on the right in the containers*/
     border-right: 0 !important;
 }
 
@@ -57,5 +55,6 @@ Typography{
     align-self: center;
     height: 3rem !important;
     width: 3rem !important;
-    padding: 0 0.5rem;
+    /*padding: 0 0.5rem;*/
+    margin: 0 0.2rem;
 }

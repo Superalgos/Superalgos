@@ -70,6 +70,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 // console.log((new Date()).toISOString(), '- Web App Interface', '- Query Message Received', JSON.stringify(queryMessage))
 
                 switch (queryMessage.queryType) {
+
                     case SA.projects.socialTrading.globals.queryTypes.EVENTS: {
                         /*
                         We go to the Social Graph Network Service to fetch the events.
@@ -104,6 +105,60 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                             result: 'Ok',
                             message: 'Web App Interface Query Processed.',
                             data: eventsWithNoProblem
+                        }
+
+                        break
+                    }
+                    case SA.projects.socialTrading.globals.queryTypes.POST_REPLIES: {
+                        /*
+                        We go to the Social Graph Network Service to fetch the posts.
+                        */
+                        let posts = await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
+                        let postsWithNoProblem = []
+                        /*
+                        We need to go to the Open Storage to retrieve those posts.
+                        */
+                        for (let i = 0; i < posts.length; i++) {
+                            let post = posts[i]
+
+                            let response = await loadPostFromStorage(post.fileKeys)
+
+                            if (response.result === "Ok") {
+                                post.postText = response.postText
+                                postsWithNoProblem.push(post)
+                            }
+                        }
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: postsWithNoProblem
+                        }
+
+                        break
+                    }
+                    case SA.projects.socialTrading.globals.queryTypes.POSTS: {
+                        /*
+                        We go to the Social Graph Network Service to fetch the posts.
+                        */
+                        let posts = await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
+                        let postsWithNoProblem = []
+                        /*
+                        We need to go to the Open Storage to retrieve those posts.
+                        */
+                        for (let i = 0; i < posts.length; i++) {
+                            let post = posts[i]
+
+                            let response = await loadPostFromStorage(post.fileKeys)
+
+                            if (response.result === "Ok") {
+                                post.postText = response.postText
+                                postsWithNoProblem.push(post)
+                            }
+                        }
+                        response = {
+                            result: 'Ok',
+                            message: 'Web App Interface Query Processed.',
+                            data: postsWithNoProblem
                         }
 
                         break
@@ -267,6 +322,26 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
 
                 switch (profileMessage.profileType) {
+                    case SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE: {
+                        return await createUserProfile(
+                            profileMessage
+                        )
+                    }
+                    case SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY: {
+                        return await createSocialEntity(
+                            profileMessage
+                        )
+                    }
+                    case SA.projects.socialTrading.globals.profileTypes.DELETE_SOCIAL_ENTITY: {
+                        return await deleteSocialEntity(
+                            profileMessage
+                        )
+                    }
+                    case SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES: {
+                        return await listSocialEntities(
+                            profileMessage
+                        )
+                    }
                     case SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY: {
                         return await saveSocialEntityAtStorage(
                             profileMessage
@@ -347,8 +422,12 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
             for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
                 let storageContainerReference = availableStorage.storageContainerReferences[i]
-                if (storageContainerReference.referenceParent === undefined) { continue }
-                if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
+                if (storageContainerReference.referenceParent === undefined) {
+                    continue
+                }
+                if (storageContainerReference.referenceParent.parentNode === undefined) {
+                    continue
+                }
 
                 let storageContainer = storageContainerReference.referenceParent
 
@@ -446,7 +525,9 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
             for (let i = 0; i < fileKeys.length; i++) {
 
-                if (file !== undefined) { continue }
+                if (file !== undefined) {
+                    continue
+                }
 
                 let fileKey = fileKeys[i]
                 /*
@@ -494,6 +575,22 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
             }
         }
+    }
+
+    async function createUserProfile() {
+
+    }
+
+    async function createSocialEntity() {
+
+    }
+
+    async function deleteSocialEntity() {
+
+    }
+
+    async function listSocialEntities() {
+
     }
 
     async function saveSocialEntityAtStorage(
@@ -570,8 +667,12 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
             for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
                 let storageContainerReference = availableStorage.storageContainerReferences[i]
-                if (storageContainerReference.referenceParent === undefined) { continue }
-                if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
+                if (storageContainerReference.referenceParent === undefined) {
+                    continue
+                }
+                if (storageContainerReference.referenceParent.parentNode === undefined) {
+                    continue
+                }
 
                 let storageContainer = storageContainerReference.referenceParent
 
@@ -681,12 +782,18 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
 
             for (let i = 0; i < availableStorage.storageContainerReferences.length; i++) {
                 let storageContainerReference = availableStorage.storageContainerReferences[i]
-                if (storageContainerReference.referenceParent === undefined) { continue }
-                if (storageContainerReference.referenceParent.parentNode === undefined) { continue }
+                if (storageContainerReference.referenceParent === undefined) {
+                    continue
+                }
+                if (storageContainerReference.referenceParent.parentNode === undefined) {
+                    continue
+                }
 
                 let storageContainer = storageContainerReference.referenceParent
 
-                if (file !== undefined) { continue }
+                if (file !== undefined) {
+                    continue
+                }
                 /*
                 We are going to load this file from the Storage Containers defined.
                 We are going to try to read it first from the first Storage container

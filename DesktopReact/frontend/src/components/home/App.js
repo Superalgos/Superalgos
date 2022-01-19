@@ -6,7 +6,7 @@ import {getProfile} from "../../api/profile.httpService";
 import {useEffect} from "react";
 import {STATUS_OK} from "../../api/httpConfig";
 import {setActualProfile} from "../../store/slices/Profile.slice";
-import UsersSidebar from "../UsersSidebar/UsersSidebar";
+import UsersSidebar from "../userSideBar/UsersSidebar";
 
 function App() {
     const dispatch = useDispatch();

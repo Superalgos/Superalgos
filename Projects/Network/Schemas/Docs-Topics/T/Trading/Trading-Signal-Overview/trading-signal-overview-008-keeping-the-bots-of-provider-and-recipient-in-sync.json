@@ -1,0 +1,16 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 8,
+    "type": "Keeping the Bots of Provider and Recipient in Sync",
+    "definition": {
+        "text": "Keeping the bots of provider and recipient on the same candle is vital for trading signals to actually be useful.",
+        "updated": 1642565498959
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "One unique and important use of the Signal nodes happens right at the top layer of the Trading System hierarchy.  The top layer Trading System node can accept either an Outgoing or Incoming Signal node.  These nodes have a vital role in synchronizing the trading bots of the provider and the recipient.  They communicate the candle on which the current signal belongs.  This allows the recipient’s bots to identify the exact same candle and stay in sync with the provider’s bots.  This is achieved by connecting a reference from the Signal Reference node to the Trading System Signal node held under the Social Trading Bot of the provider.",
+            "updated": 1642565435192
+        }
+    ]
+}

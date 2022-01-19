@@ -6,7 +6,7 @@ import {STATUS_OK} from "../../api/httpConfig";
 import {getPaginationProfiles} from "../../api/profile.httpService";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
-import UserCard from "../UserCard/UserCard";
+import UserCard from "../userCard/UserCard";
 
 
 /* TODO remove unused code */

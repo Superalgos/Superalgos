@@ -3,7 +3,6 @@
     min-width: 20rem;
     max-width: 40rem;
     height: 95vh;
-    /*padding: 0.5rem;*/
     overflow: auto;
     -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
     scrollbar-width: none;  /* Hide scrollbar for Firefox */

@@ -1,8 +1,6 @@
 .postPlaceholder {
     min-width: 20rem;
     max-width: 40rem;
-    /*box-sizing: border-box;*/
-    /*border: 1px solid;*/
 }
 
 .postPlaceholderContainer {

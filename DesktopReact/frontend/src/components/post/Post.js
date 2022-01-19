@@ -1,6 +1,6 @@
 import "./Post.css"
 import React, {useEffect, useState} from 'react';
-import {Avatar, Stack} from "@mui/material";
+import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
@@ -56,9 +56,9 @@ const Post = ({postData}) => {
                     <div className="postAvatarContainer">
                         <Avatar src={pic}/>
                     </div>
-                    <div className="postUserName">
+                    <Typography className="postUserName">
                         {originSocialPersonaId}
-                    </div>
+                    </Typography>
                 </Stack>
                 <div className="postBody">
                     {postText ? postText.toString() : ''}

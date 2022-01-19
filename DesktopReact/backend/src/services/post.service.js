@@ -107,10 +107,40 @@ const getReplies = async(postHash,res) =>{
     }
 };
 
+const createReply =  async (body, res) => {
+    
+    try {
+        let eventMessage;
+        let event;
+
+        eventMessage = {
+            eventType: SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_PERSONA_POST,
+            targetPostHash:body.postHash,
+            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+            postText: body.postText
+        }
+
+        event = {
+            networkService: 'Social Graph',
+            requestType: 'Event',
+            eventMessage: JSON.stringify(eventMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(event)
+        );
+    } catch (e) {
+        console.log(e);
+        return {status: 'Ko'};
+    }
+};
+
+
 
 module.exports = {
     getPosts,
     createPost,
     getFeed,
-    getReplies
+    getReplies,
+    createReply
 };

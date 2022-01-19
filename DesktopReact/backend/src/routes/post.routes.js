@@ -19,4 +19,8 @@ router
     .route('/replies')
     .get(postController.getReplies);
 
+    router
+    .route('/replies')
+    .post(postController.createReply);
+
 module.exports = router;

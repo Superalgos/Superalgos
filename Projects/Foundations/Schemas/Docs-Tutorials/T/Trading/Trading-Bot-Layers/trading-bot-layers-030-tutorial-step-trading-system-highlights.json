@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Trading System Highlights!",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "bullet-info"
+            "name": "Bullet/bullet-info",
+            "project": "Foundations"
         },
         "text": "Whenever something relevant happens with any given node in the trading system hierarchy, the node is highlighted!",
         "translations": [
@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Когда с каким-либо узлом в иерархии торговой системы происходит что-то важное, этот узел выделяется!",
                 "updated": 1640631131534
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret sistemi hiyerarşisindeki herhangi bir düğümle ilgili bir şey olduğunda, düğüm vurgulanır!",
+                "updated": 1642515310225
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Включите слой Trading System Highlights, проведите мышью по графику слева от позиции и проверьте эти условия и ситуации! Теперь наведите указатель мыши на свечу, на которой сработала стратегия... (08 марта 2020 года в 01 час)...",
                     "updated": 1640631185737
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading System Highlights katmanını açın, farenizi pozisyonun solundaki grafiğin üzerine getirin ve bu koşulları ve durumları kontrol edin! Şimdi fare imlecini stratejinin tetiklendiği mumun üzerine getirin... (08 Mart 2020, 01 saatlik zaman dilimi)...",
+                    "updated": 1642515357459
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Условия выделяются, когда они подтверждаются; ситуации, когда все условия подтверждаются; этапы и фазы, когда они становятся активными, и так далее!",
                     "updated": 1640631220106
+                },
+                {
+                    "language": "TR",
+                    "text": "Koşullar, doğru olduklarında vurgulanır; tüm koşulların doğru olduğu durumlar; aşamalar ve aşamaların aktif olduğu durumlar vb.!",
+                    "updated": 1642515928431
                 }
             ]
         }

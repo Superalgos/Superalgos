@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Может, кто-нибудь обратит внимание на слона в комнате? Почему эти счетчики указали на одну или две стратегии и одну позицию?",
                 "updated": 1640546772939
+            },
+            {
+                "language": "TR",
+                "text": "Birisi lütfen odadaki fili kabul edebilir mi? Bu sayaçlar neden bir veya iki stratejiye ve bir pozisyona işaret etti?",
+                "updated": 1642169412248
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Перейдите в менеджер слоев Simulation Objects и включите слой \"Strategies\".",
                     "updated": 1640546787159
+                },
+                {
+                    "language": "TR",
+                    "text": "Simulation Objects katman yöneticisine gidin ve \"Strategies\" katmanını açın.",
+                    "updated": 1642169432335
                 }
             ]
         },
@@ -56,6 +66,11 @@
                     "language": "RU",
                     "text": "Что это? Это стратегия! Мы находимся в симуляции! Слой \"Strategies\" отмечает промежуток времени, в течение которого стратегия активна.",
                     "updated": 1640546813750
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu da ne? Bu bir strateji! Bir simülasyonun içindeyiz! \"Stratejiler\" katmanı, bir stratejinin etkin olduğu zaman aralığını işaretler.",
+                    "updated": 1642169461790
                 }
             ]
         },
@@ -73,6 +88,11 @@
                     "language": "RU",
                     "text": "Обратите внимание на панель плоттера (Plotter Panel), которая сместилась в угол при включении слоя. Теперь наведите мышь на промежуток времени между маркерами стратегии и посмотрите, что произойдет...",
                     "updated": 1640546892721
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanı açtığınızda köşeye sürüklenen Plotter Paneline dikkat edin. Şimdi, farenizi stratejinin etkin olduğu zaman aralığına getirin ve ne olduğunu görün...",
+                    "updated": 1642169603941
                 }
             ]
         }

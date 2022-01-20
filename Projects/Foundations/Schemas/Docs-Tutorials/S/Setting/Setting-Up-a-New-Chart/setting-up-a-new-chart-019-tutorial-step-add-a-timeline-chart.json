@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Nun, da wir etwas haben, um unsere Diagramme zu halten, lassen Sie uns fortfahren und eines hinzufügen!",
                 "updated": 1639113757053
+            },
+            {
+                "language": "TR",
+                "text": "Artık grafikleri saklayacak bir yerimiz olduğuna göre, hadi onları ekleyelim!",
+                "updated": 1642586955657
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über Ihre Time Machine und klicken Sie auf <I>Add Timeline Chart.</I>",
                     "updated": 1639113871259
+                },
+                {
+                    "language": "TR",
+                    "text": "Fareyle zaman makinesinin ( Time Machine ) üzerine gelin ve Zaman Çizelgesi Grafiği ( Timeline Chart ) Ekle'ye tıklayın.",
+                    "updated": 1642587031271
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Es ist wichtig, einem Timeline Chart einen hilfreichen Namen zu geben. Es empfiehlt sich, bei der Benennung auf die Data Mine oder das Data Product zu verweisen, mit dem es verbunden werden soll. Im Moment werden wir diesem Zeitachsendiagramm die Daten des Candles Data Mine hinzufügen. Ein hilfreicher Name wäre:",
                     "updated": 1639114333775
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir zaman çizelgesi grafiğine ( Timeline Chart ) yararlı bir ad vermek önemlidir. Adlandırırken bağlamak istediğiniz veri madeni ( Data Mine ) veya veri ürününe ( Data Product ) atıfta bulunmak iyi bir fikirdir. Şimdilik, Mum Veri Madeni'nden ( Candles Data Mine ) gelen verileri bu zaman çizelgesi grafiğine ekleyeceğiz. Yararlı bir ad şöyle olacaktır:",
+                    "updated": 1642587244254
                 }
             ]
         },
@@ -96,6 +111,11 @@
                     "language": "DE",
                     "text": "Achten Sie darauf, dass Ihr Titel kurz ist! Sie werden gleich sehen, warum.",
                     "updated": 1639114388299
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlığınızın kısa olduğundan emin olun! Nedenini yakında göreceksiniz.",
+                    "updated": 1642587456135
                 }
             ]
         },

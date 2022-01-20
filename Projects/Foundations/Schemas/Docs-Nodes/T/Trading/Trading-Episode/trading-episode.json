@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Episode - это объект, который обрабатывает информацию, соответствующую всему запуску торгового бота - от начала до конца - между указанным начальным временем и конечным временем, в параметре временного диапазона (Time Range) торговой сессии.",
                 "updated": 1640342495399
+            },
+            {
+                "language": "TR",
+                "text": "Episode, işlem oturumunun (Trading Session) zaman aralığı  (Time Range) parametresinde belirtilen başlangıç ve bitiş tarihleri arasındaki -baştan sona kadar - tüm bilgileri işleyen nesnedir.",
+                "updated": 1641994321755
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Другими словами, эпизод - это контекст между датами, составляющими всю торговую сессию, в соответствии с конфигурацией сессии. Таким образом, эпизод отслеживает и накапливает результаты всех позиций, введенных на протяжении всей торговой сессии.",
                     "updated": 1640342547504
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, Episode, oturumun yapılandırmasına göre tüm işlem seansını oluşturan tarihler arasında belirlenen durumdur. Bu nedenle, Episode, bir ticaret seansının tamamı boyunca girilen tüm pozisyonların sonuçlarını takip eder ve biriktirir.",
+                    "updated": 1641994457823
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "В этом разделе иерархии у вас есть доступ к:",
                     "updated": 1640342566394
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşinin bu bölümünde şunlara erişebilirsiniz:",
+                    "updated": 1641994469836
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "текущим балансам и общим показателям эффективности, выраженных как в базовых, так и в котируемых активах;",
                     "updated": 1640342722780
+                },
+                {
+                    "language": "TR",
+                    "text": "hem temel hem de kote varlıklarda belirtilen cari bakiyeler ve genel performans metrikleri;",
+                    "updated": 1641994485902
                 }
             ]
         },
@@ -56,6 +76,11 @@
                     "language": "RU",
                     "text": "счетчикам, таких как количество занятых позиций, размещенных ордеров, попаданий, неудач и так далее;",
                     "updated": 1640342740815
+                },
+                {
+                    "language": "TR",
+                    "text": "alınan pozisyon sayısı, verilen emirler, isabetler, başarısızlıklar vb. gibi sayaçlar;",
+                    "updated": 1641994502826
                 }
             ]
         },
@@ -67,6 +92,11 @@
                     "language": "RU",
                     "text": "статистике, такой как показатели производительности, объединяющие оба актива, количество дней в эпизоде или статистика, задаваемая пользователем;",
                     "updated": 1640342674348
+                },
+                {
+                    "language": "TR",
+                    "text": "her iki varlığı da birleştiren performans metrikleri, bölümdeki gün sayısı veya kullanıcı tanımlı istatistikler gibi istatistikler;",
+                    "updated": 1641994518325
                 }
             ]
         },
@@ -78,6 +108,11 @@
                     "language": "RU",
                     "text": "расстоянии до определенных событий, например, количество свечей до последнего события взятия позиции или последнего события создания ордера;",
                     "updated": 1640342792439
+                },
+                {
+                    "language": "TR",
+                    "text": "belirlenen olaylarda, son pozisyon alma olayına veya son emir oluşturma olayına kadar olan mesafe (mum sayısı);",
+                    "updated": 1641994684116
                 }
             ]
         },
@@ -89,6 +124,11 @@
                     "language": "RU",
                     "text": "ставкам, описывающим каждую свечу в эпизоде, таким как ставки открытия, закрытия, min и max;",
                     "updated": 1640342822991
+                },
+                {
+                    "language": "TR",
+                    "text": "açılış, kapanış, minimum ve maksimum oranlar gibi bölümdeki her bir mumu tanımlayan oranlar;",
+                    "updated": 1641994732523
                 }
             ]
         }

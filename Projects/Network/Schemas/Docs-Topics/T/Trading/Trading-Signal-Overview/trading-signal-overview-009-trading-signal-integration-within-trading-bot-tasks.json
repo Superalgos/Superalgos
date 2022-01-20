@@ -1,0 +1,24 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 9,
+    "type": "Trading Signal Integration within Trading Bot Tasks",
+    "definition": {
+        "text": "Write a summary for this topic page."
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "A traditional trading bot executes trades based on the logic held within a Trading System.  Trading signals add on to these functions of a Trading Bot Task to transmit and receive signal data. ",
+            "updated": 1642565795441
+        },
+        {
+            "style": "Text",
+            "text": "You can think of these trading bot tasks as the muscle to put into action all the logic held within the trading system (and in the current case to send and receive signals.)",
+            "updated": 1642565889715
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

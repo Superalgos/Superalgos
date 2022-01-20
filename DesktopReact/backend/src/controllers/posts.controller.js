@@ -1,7 +1,12 @@
 const {postService} = require('../services');
 
 const getPosts = async (req, res) => {
-    const result = await postService.getPosts(req.query.postHash);
+    const result = await postService.getPosts();
+    res.send(result);
+
+};
+const getPost = async (req, res) => {
+    const result = await postService.getPost(req.query);
     res.send(result);
 };
 
@@ -43,5 +48,6 @@ module.exports = {
     createPost,
     getFeed,
     getReplies,
-    createReply
+    createReply,
+    getPost
 };

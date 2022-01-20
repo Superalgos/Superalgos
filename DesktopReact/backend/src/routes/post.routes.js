@@ -8,6 +8,10 @@ router
     .get(postController.getPosts);
 
 router
+    .route('/post')
+    .get(postController.getPost);
+
+router
     .route('/feed')
     .get(postController.getFeed);
 

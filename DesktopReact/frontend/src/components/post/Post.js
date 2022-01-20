@@ -9,6 +9,7 @@ import PostFooter from "../postFooter/PostFooter";
 
 
 const Post = ({postData}) => {
+    console.log(postData)
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const Post = ({postData}) => {
         if (postIdParameter !== originPostHash) {
             e.preventDefault()
             dispatch(setSelectedPost(postData))
-            navigate(`/post/${originPostHash}`) //todo implement reply feed
+            navigate(`/post?post=${originPostHash}&user=${originSocialPersonaId}`) //todo implement reply feed
         }
     }
 
@@ -57,7 +58,7 @@ const Post = ({postData}) => {
                         <Avatar src={pic} className="avatar"/>
                     </div>
                     <Typography className="postUserName">
-                        {originSocialPersonaId}
+                        {originSocialPersonaId} {/* TODO use name */}
                     </Typography>
                 </Stack>
                 <div className="postBody">

@@ -1877,6 +1877,14 @@
                     "fileName": "SocialGraphNetworkServiceClient.js"
                 }
             ],
+            "functionLibraries": [
+                {
+                    "name": "Posts",
+                    "propertyName": "posts",
+                    "functionName": "newSocialTradingFunctionLibrariesPosts",
+                    "fileName": "Posts.js"
+                }
+            ],            
             "globals": [
                 {
                     "name": "Memory",

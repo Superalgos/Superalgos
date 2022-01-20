@@ -201,19 +201,24 @@ function newContainer() {
     }
 
     function onDragStarted(event) {
-        historyObject.action.node = thisObject.uiObject.payload.node
-        historyObject.previousPosition = {
-            x: thisObject.uiObject.payload.position.x,
-            y: thisObject.uiObject.payload.position.y
+        if (thisObject.uiObject.payload.node.payload.floatingObject.isPinned === true) {
+            historyObject.action.node = thisObject.uiObject.payload.node
+            historyObject.previousPosition = {
+                x: thisObject.uiObject.payload.position.x,
+                y: thisObject.uiObject.payload.position.y
+            }
         }
 
         thisObject.eventHandler.raiseEvent('onDragStarted', event)
     }
 
     function onDragFinished(event) {
-        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+        if (thisObject.uiObject.payload.node.payload.floatingObject.isPinned === true) {
+            UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+            UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+            UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+        }
+        
         thisObject.eventHandler.raiseEvent('onDragFinished', event)
     }
 

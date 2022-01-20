@@ -42,7 +42,26 @@ exports.newSocialTradingModulesQueriesPost = function newSocialTradingModulesQue
                 reactions: Array.from(post.reactions),
                 reaction: post.reactionsBySocialEntity.get(thisObject.socialEntity.id)
             }
+            let originSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(postResponse.originSocialPersonaId)
 
+            let originSocialTradingBot = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(postResponse.originSocialTradingBotId)
+
+            if (originSocialPersona !== undefined) {
+                let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
+                query.initialize({targetSocialPersonaId: originSocialPersona.id})
+                postResponse.originSocialPersona = query.run()
+                query.finalize()
+            }
+
+            if (originSocialTradingBot !== undefined) {
+                let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
+                query.initialize({
+                    targetSocialPersonaId: originSocialPersona.id,
+                    targetSocialTradingBotId: originSocialTradingBot.id
+                })
+                postResponse.originSocialTradingBot = query.run()
+                query.finalize()
+            }
             return postResponse
         }
     }

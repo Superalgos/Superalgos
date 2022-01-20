@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Strategies подсчитывает количество случаев срабатывания стратегий в контексте родительского узла.",
                 "updated": 1640346313096
+            },
+            {
+                "language": "TR",
+                "text": "Stratejiler, üst düğüm bağlamında stratejilerin tetiklenme sayısını sayar.",
+                "updated": 1641993912179
             }
         ]
     },

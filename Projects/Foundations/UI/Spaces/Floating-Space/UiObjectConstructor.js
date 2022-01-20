@@ -453,8 +453,22 @@ function newUiObjectConstructor() {
                 }
             )
         }
-
         menuItemsInitialValues.push(
+            {
+                action: 'Highlight Referencing Nodes',
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                label: undefined,
+                visible: true,
+                iconPathOn: 'highlight-referencing-nodes-on',
+                iconPathOff: 'highlight-referencing-nodes-off',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 3
+            }
+        )
+    menuItemsInitialValues.push(
             {
                 action: 'Open Documentation',
                 actionFunction: floatingObject.payload.executeAction,

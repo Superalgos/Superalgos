@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Episode Base Asset отслеживает эволюцию переменных и показателей, обозначенных в базовом активе Asset, на протяжении всего эпизода.",
                 "updated": 1638774870216
+            },
+            {
+                "language": "TR",
+                "text": "Episode Base Asset düğümü, bölüm boyunca temel varlıkta belirtilen değişkenlerin ve metriklerin gelişimini takip eder.",
+                "updated": 1642364774265
             }
         ]
     },

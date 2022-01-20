@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Folgen Sie der Data Mines Data Hierarchie und finden Sie die Data Mine Products.",
                 "updated": 1639274215204
+            },
+            {
+                "language": "TR",
+                "text": "Veri Madeni Veri ( Data Mines Data ) Hiyerarşisini takip edin ve Veri Madeni Ürünlerini ( Data Mine Products ) bulun.",
+                "updated": 1642592211097
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Folgen Sie weiter der Hierarchie. Versuchen Sie, die Data Mine Products Knoten selbst zu finden.",
                     "updated": 1639274281211
+                },
+                {
+                    "language": "TR",
+                    "text": "Hiyerarşiyi takip edin. Veri Madeni Ürünleri ( Data Mine Products ) düğümlerini kendi başınıza bulabilecek misiniz bir bakın.",
+                    "updated": 1642592287950
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Gehen Sie in der Hierarchie weiter nach unten, bis Sie sie sehen! Sie sollten drei Data-Mine-Produkt-Knoten sehen. Einen für jede Data Mine, die in diesem Workspace installiert ist.",
                     "updated": 1639274436878
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Buldunuz mu? Hiyerarşide onları görene kadar devam edin! Üç veri madeni ( Data Mine ) ürün düğümü görmelisiniz. Bu çalışma alanında ( Workspace ) kurulu her Veri Madeni için bir tane",
+                    "updated": 1642592501756
                 }
             ]
         },
@@ -95,6 +110,11 @@
                     "language": "DE",
                     "text": "Diese Datenstrukturen wurden bei der Marktinstallation automatisch installiert.",
                     "updated": 1639274498752
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu veri yapıları, pazar kurulum işlemi sırasında otomatik olarak kurulmuştur.",
+                    "updated": 1642592622961
                 }
             ]
         }

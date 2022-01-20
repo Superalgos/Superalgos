@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Обидно смотреть на пустой график. Я здесь, чтобы убедиться, что вы не застрянете в настройке графиков вашей мечты.",
                 "updated": 1637914550680
+            },
+            {
+                "language": "TR",
+                "text": "Boş bir tabloya bakmak sinir bozucu. Hayallerinizin çizelgelerini oluşturamayacakmış gibi hissetmemenizi sağlamak için buradayım.",
+                "updated": 1642518379602
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Если вы только начинаете работать в Superalgos, вся эта свобода может показаться вам немного подавляющей. Superalgos позволяет вам делать практически все, что вы можете придумать, но есть несколько ключевых частей головоломки, которые должны быть на месте.",
                     "updated": 1637914687650
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos'a yeni başlıyorsanız, tüm bu özgürlük biraz bunaltıcı olabilir. Superalgos, hayal edebileceğiniz hemen hemen her şeyi yapmanıza izin verir, ancak yerine getirilmesi gereken yapbozun bazı önemli parçaları vardır.",
+                    "updated": 1642518391474
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Вот тут-то я и прихожу на помощь! Я и мои друзья расскажем вам, как настроить диаграммы от начала до конца! К тому времени, когда мы закончим, у вас будут инструменты для создания диаграмм, ограниченные только вашим воображением.",
                     "updated": 1637914717905
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: İşte burada devreye giriyorum! Ben ve arkadaşlarım size grafikleri baştan sona nasıl özelleştireceğinizi anlatacağız! İşimiz bittiğinde, yalnızca hayal gücünüzle sınırlı olan diyagram oluşturma araçlarına sahip olacaksınız.",
+                    "updated": 1642518406292
                 }
             ]
         }

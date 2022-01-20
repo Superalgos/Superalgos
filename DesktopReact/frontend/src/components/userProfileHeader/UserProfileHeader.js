@@ -42,6 +42,7 @@ const UserProfileHeader = () => {
                         onClick={handleClickCallback}>
                     Edit profile
                 </Button>
+                {/* {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null} */}
                 {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null}
             </div>
             <div>

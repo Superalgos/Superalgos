@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Sie haben es erfasst. Das Erstellen von Referenzen ist ein Kinderspiel. Lassen Sie uns die Verbindung herstellen!",
                 "updated": 1639275952869
+            },
+            {
+                "language": "TR",
+                "text": "Anladınız mı?. Referans oluşturmak çocuk oyuncağıdır. Haydi bağlantıyı kuralım!",
+                "updated": 1642594049172
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Von den drei verfügbaren Data Mine Products Knoten werden wir unser Diagramm mit dem Candles Data Mine verknüpfen.",
                     "updated": 1639276049917
+                },
+                {
+                    "language": "TR",
+                    "text": "Mevcut üç Veri Madeni Ürünleri ( Data Mine Products ) düğümünden grafiğimizi Mum Veri Madeni'ne ( Candles Data Mine ) bağlayacağız.",
+                    "updated": 1642594144221
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Suchen Sie den Layer Manager unter dem Timeline Chart, das Sie zuvor hinzugefügt haben. Stellen Sie dann einen Verweis von diesem auf den Knoten Candles Data Mine Products her.",
                     "updated": 1639276151360
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce eklediğiniz zaman çizelgesi grafiğinin ( Timeline Chart ) altındaki Katman Yöneticisini ( Layer Manager ) bulun. Ardından bunu Mum Veri Madeni Ürünleri ( Candles Data Mine Products ) düğümüne yönlendirin.",
+                    "updated": 1642594308919
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "DE",
                     "text": "Wenn alles richtig angeschlossen ist, sollte der Name der Datenmine über dem Ebenenmanager erscheinen.",
                     "updated": 1639276219407
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Her şey doğru bağlanmışsa, veri madeni adı katman yöneticisinin üzerinde görünmelidir.",
+                    "updated": 1642594340541
                 }
             ]
         }

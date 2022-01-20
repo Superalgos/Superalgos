@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Du hast diese Portale in eine andere Dimension schon einmal gesehen! Jetzt wollen wir uns die magische Time Machine genauer ansehen.",
                 "updated": 1639102802329
+            },
+            {
+                "language": "TR",
+                "text": "Bu portalları zaten başka bir boyutta gördünüz! Şimdi büyülü Zaman Makinesi'ne ( Time Machine ) daha yakından bakalım.",
+                "updated": 1642583621863
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Sie haben vielleicht bemerkt, dass jedes Dashboard mit einer Time Machine verbunden ist. Zeitmaschinen haben Sie bereits in früheren Tutorials kennengelernt. Aber heute werden wir viel intensiver mit ihnen arbeiten.",
                     "updated": 1639102892584
+                },
+                {
+                    "language": "TR",
+                    "text": "Her gösterge panosunun kendisine bağlı bir Zaman Makinesi ( Time Machine ) olduğunu fark etmiş olabilirsiniz. Daha önceki derslerde zaman makineleriyle zaten karşılaşmıştınız. Ama bugün onlarla çok daha yakın çalışacağız.",
+                    "updated": 1642583712773
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich eine Minute Zeit und lesen Sie die Dokumentationsseite, um eine bessere Vorstellung davon zu bekommen, was sie tun.",
                     "updated": 1639102947175
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir dakikanızı ayırın ve ne yaptıkları hakkında daha iyi bir fikir edinmek için dokümantasyon sayfalarını okuyun.",
+                    "updated": 1642583777874
                 }
             ]
         }

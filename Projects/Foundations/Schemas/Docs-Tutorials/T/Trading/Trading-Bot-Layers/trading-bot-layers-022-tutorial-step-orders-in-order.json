@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Вы знакомы с визуализацией лимитных ордеров из учебника Welcome to Superalgos Tutorial. Пришло время для рыночных ордеров!",
                 "updated": 1640629739499
+            },
+            {
+                "language": "TR",
+                "text": "Hoş Geldiniz öğreticisinden limit emirlerinin görselleştirilmesine aşinasınız. Şimdi Piyasa emirlerinin (Market Orders) parlatma zamanı!",
+                "updated": 1642404979916
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Weak-hands Buster V.2 - рождённый в более ранних версиях системы - использует одиночные рыночные ордера для входа и выхода из позиций. Давайте посмотрим, как они выглядят на графиках...",
                     "updated": 1640629814352
+                },
+                {
+                    "language": "TR",
+                    "text": "Weak-hands Buster V.2 (sistemin önceki sürümlerinde doğmuş bir stratejidir) pozisyonlara girip çıkmak için tek pazar emirlerini kullanır. Bakalım bunlar grafiklere nasıl yansıyor...",
+                    "updated": 1642405041097
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Найдите слои \"Market Buy Orders\" и \"Market Sell Orders\" и включите их!",
                     "updated": 1640629825625
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Piyasa Alış Emirleri (Market Buy Order)\" ve \"Piyasa Satış Emirleri (Market Sell Orders)\" katmanlarını bulun ve açın!",
+                    "updated": 1642405085151
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "RU",
                     "text": "Как и в случае с лимитными ордерами, красная стрелка означает ордер на продажу, а зеленая стрелка - ордер на покупку.",
                     "updated": 1640629988766
+                },
+                {
+                    "language": "TR",
+                    "text": "Limit emirlerinde olduğu gibi, kırmızı satış emri, yeşil ise satın alma emri anlamına gelir.",
+                    "updated": 1642405112343
                 }
             ]
         }

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Periods подсчитывает количество свечей, которые были оценены, в контексте родительского узла.",
                 "updated": 1640346235592
+            },
+            {
+                "language": "TR",
+                "text": "Periods, ana düğüm bağlamında değerlendirilen mumların sayısını sayar.",
+                "updated": 1641993827893
             }
         ]
     },

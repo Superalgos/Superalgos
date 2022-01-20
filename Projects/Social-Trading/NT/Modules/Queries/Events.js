@@ -37,7 +37,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested && i >= 0; i--) {
                     let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)

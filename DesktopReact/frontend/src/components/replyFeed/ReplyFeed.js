@@ -23,7 +23,7 @@ const ReplyFeed = ({}) => {
             <ArrowBackOutlined onClick={goBack}/> {/* todo need onClick to go back to home */}
         </div>
         <Post postData={selectedPost}/>
-        <ReplyBox className="reply" postHash={selectedPost.originPostHash}/>
+        <ReplyBox className="reply" postHash={selectedPost.originPostHash} targetSocialPersonaId={selectedPost.originSocialPersonaId}/>
         <div>if only there were some</div>
         <div>or this worked</div>
         <div>either way, hi</div>

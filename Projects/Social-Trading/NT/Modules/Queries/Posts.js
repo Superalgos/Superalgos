@@ -49,7 +49,7 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested && i >= 0; i--) {
                     let arrayItem = thisObject.array[i]
                     if (arrayItem === undefined) {
                         break

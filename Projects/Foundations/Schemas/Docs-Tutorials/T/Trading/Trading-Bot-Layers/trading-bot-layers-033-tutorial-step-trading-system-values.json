@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Слои \" Trading System Values\" работают как слои в менеджере слоев Trading Engine, показывая значения узлов...",
                 "updated": 1640631532037
+            },
+            {
+                "language": "TR",
+                "text": "\"Trading System Values\" katmanları, Trading Engine katman yöneticisindeki düğümlerin değerlerini gösteren katmanlar gibi çalışır...",
+                "updated": 1642516638899
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Включите слой \" Trading System Values\", проведите мышью по графику и проверьте формулы стопов!",
                     "updated": 1640631558036
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Ticaret Sistemi Değerleri\" katmanını açın, farenizi grafiğin üzerine getirin ve stop formüllerini kontrol edin!",
+                    "updated": 1642516652947
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "Общей темой этих слоев является то, что они предоставляют информацию \"на лету\" о каждом узле, для каждой свечи!",
                     "updated": 1640631573352
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu katmanlar arasındaki ortak tema, her bir mum için her düğüm hakkında anında bilgi sağlamalarıdır!",
+                    "updated": 1642516697201
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "RU",
                     "text": "Справедливо ли утверждать, что наш торговый бот подотчетен на 100%?",
                     "updated": 1640631589733
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Bot'un %100 sorumlu olduğunu söylemek doğru mudur?",
+                    "updated": 1642516768883
                 }
             ]
         }

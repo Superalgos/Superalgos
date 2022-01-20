@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Bringen wir Ihre Time Machine nun in die Lage, sich mit einigen Data Products zu verbinden!",
                 "updated": 1639275243947
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi zaman makinenizi (Time Machine) bazı veri ürünlerine bağlanabileceğiniz bir duruma getirelim!",
+                "updated": 1642593312928
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Als Erstes müssen wir unsere Time Machine in die Hierarchie der Data Storage ziehen.",
                     "updated": 1639275346772
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapmamız gereken ilk şey Zaman Makine'nizi (Time Machine) Veri Depolama ( Data Storage ) hiyerarşisine sürüklemektir.",
+                    "updated": 1642593437581
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Suchen Sie die Time Machine, die Sie zuvor erstellt haben, heften Sie sie an, klappen Sie sie zusammen und ziehen Sie sie zu den Data Mine Products Knoten, die Sie im vorherigen Schritt gefunden haben.",
                     "updated": 1639275434213
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce oluşturduğunuz Zaman Makine'nizin (Time Machine)  yolunu bulun, sabitleyin, daraltın ve önceki adımda bulduğunuz Veri Madeni Ürünleri ( Data Mine Products ) düğümlerine sürükleyin.",
+                    "updated": 1642593547643
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Vergessen Sie nicht <kbd>Strg</kbd> + ← → ↑ ↓. Das ist ein bisschen anstrengend!",
                     "updated": 1639275768268
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ctrl + ← → ↑ ↓ tuşlarını unutmayın. Yürüyüş gibi!",
+                    "updated": 1642593605510
                 }
             ]
         }

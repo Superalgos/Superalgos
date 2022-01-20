@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Werfen wir einen Blick auf Ihre neues Arbeitschart. Ich hoffe, Sie sind genauso begeistert wie ich!",
                 "updated": 1639453565952
+            },
+            {
+                "language": "TR",
+                "text": "Yeni çalışma programınıza bir göz atalım. Umarım benim kadar heyecanlısınızdır!",
+                "updated": 1642595054551
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Stellen Sie zunächst sicher, dass alle Data Tasks ausgeführt werden und warten Sie, bis Sie 100 % erreicht haben.",
                     "updated": 1639453689783
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Öncelikle tüm Veri Görevlerini ( Data Tasks ) çalıştırdığınızdan emin olun ve %100'e ulaşmalarını bekleyin.",
+                    "updated": 1642595570240
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Starten Sie den Charting Space und werfen Sie einen Blick auf Ihr Chart. Machen Sie sich einen Spaß daraus und schalten Sie ein paar Ebenen ein und aus.",
                     "updated": 1639453766087
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı'nı ( Charting Space ) çalıştırın ve grafi'ğinize ( Chart )  bir göz atın. Eğlenin ve birkaç katmanı açıp kapatın.",
+                    "updated": 1642595746278
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Wenn Sie sehen, dass Ebenen angezeigt werden, wenn Sie sie einschalten, ist das sehr gut! Wenn nichts angezeigt wird, gehen Sie die vorherigen Schritte noch einmal durch und stellen Sie sicher, dass Sie nichts übersehen haben.",
                     "updated": 1639453822359
+                },
+                {
+                    "language": "TR",
+                    "text": "Açtığınızda ortaya çıkan katmanları görebiliyorsanız, harika iş çıkardınız! Hiçbir şey görünmüyorsa önceki adımlara geri dönün ve hiçbir şeyi kaçırmadığınızdan emin olun.",
+                    "updated": 1642595804890
                 }
             ]
         }

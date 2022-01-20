@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Теперь, почему бы узлам, расположенным дальше слева, тоже не показывать свои значения? Скажем, тип выхода (Exit Type), статус (Status), конечная ставка (End Rate), начальная ставка (Begin Rate) и так далее?",
                 "updated": 1640546181925
+            },
+            {
+                "language": "TR",
+                "text": "Şimdi, neden daha soldaki düğümler de değerlerini göstermiyor? Çıkış Türü (Exit Type), Durum (Status), Bitiş Oranı (End Rate), Başlangıç Oranı (Begin Rate) vb.\n",
+                "updated": 1641911229332
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "RU",
                     "text": "Прокрутите менеджер слоев торгового движка, пока не найдете слой \"Current Episode\". Включите его!",
                     "updated": 1640546264989
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Current Episode\" katmanını bulana kadar Ticaret Motoru (Trading Engine) katman yöneticisini kaydırın.",
+                    "updated": 1641911386069
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Теперь снова проведите указателем мыши... и вуаля!",
                     "updated": 1640546290110
+                },
+                {
+                    "language": "TR",
+                    "text": "Şimdi fare işaretçinizi tekrar grafiğin üzerine, mumlara doğru kaydırın.. et voilà!",
+                    "updated": 1641911418855
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "RU",
                     "text": "Включая и выключая слои, вы включаете и выключаете способность системы сообщать значения на разных участках иерархии Trading Engine!",
                     "updated": 1640546309831
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanları açıp kapatarak, sistemin Trading Engine hiyerarşisinin farklı bölümlerindeki değerleri raporlama yeteneğini açar ve kapatırsınız!",
+                    "updated": 1641911445260
                 }
             ]
         }

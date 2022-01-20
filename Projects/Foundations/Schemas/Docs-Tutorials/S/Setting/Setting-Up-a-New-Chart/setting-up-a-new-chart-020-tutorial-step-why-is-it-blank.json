@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Juhu, Sie haben es geschafft! Sie haben Ihr erstes eigenes Diagramm erstellt. Schauen wir uns an, was wir bis jetzt haben. Zoomen Sie ganz in Ihr Diagramm hinein und sehen Sie sich um.",
                 "updated": 1639151762100
+            },
+            {
+                "language": "TR",
+                "text": "Vay canına, başardın! İlk özel grafiğinizi eklediniz. Bakalım şu an elimizde neler var. Grafiğinizi yakınlaştırın ve etrafınıza bakın.",
+                "updated": 1642587530657
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Ihr Diagramm ist zwar da, aber es ist trotzdem ziemlich langweilig.",
                     "updated": 1639151808547
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafiğin tamam, ama yine de oldukça sıkıcı.",
+                    "updated": 1642587571696
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Suchen Sie den Layer Manager für das von Ihnen hinzugefügte Timeline Chart. Verwenden Sie Ihre Maus, um ein paar Mal zu blättern.",
                     "updated": 1639151885292
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenen zaman çizelgesi grafiği ( Timeline Chart ) için Katman Yöneticisini ( Layer Manager ) bulun. Farenizi kullanarak birden çok kez kaydırma yapın.",
+                    "updated": 1642587680942
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Auch wenn Sie noch so viel blättern, es passiert nichts, oder? Keine Sorge, es ist nichts kaputt! Wir haben es nur noch nicht mit Ihren Daten verknüpft. Das wollen wir ändern!",
                     "updated": 1639151933412
+                },
+                {
+                    "language": "TR",
+                    "text": "Ne kadar uğraşırsan uğraş, hiçbir şey olmuyor değil mi? Endişelenme, hiçbir şey bozulmaz! Sadece verilerinize bağlamadık. Hadi değiştirelim!",
+                    "updated": 1642587727333
                 }
             ]
         },
@@ -113,6 +133,11 @@
                     "language": "DE",
                     "text": "Ein Layer Manager erbt den Namen von seinem Timeline Chart. Deshalb ist ein kurzer Name am besten!",
                     "updated": 1639152044645
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman yöneticisi ( Layer Manager ), adı kendi zaman çizelgesinden ( Timeline Chart ) devralır. Kısa isim bu yüzden en iyisiydi!",
+                    "updated": 1642587830243
                 }
             ]
         },

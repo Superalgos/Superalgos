@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Слои в менеджере слоев Simulation Objects содержат визуальные представления данных, из которых состоят симуляции.",
                 "updated": 1640546939644
+            },
+            {
+                "language": "TR",
+                "text": "Simülasyon Nesneleri katman yöneticisindeki katmanlar, simülasyonları oluşturan verilerin görsel temsillerini içerir.",
+                "updated": 1642169694588
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Другими словами, каждый из этих слоев отображает графические изображения на графиках, которые помогают нам визуализировать - а значит, лучше понять - то, что происходит во время торговой сессии.",
                     "updated": 1640546987970
+                },
+                {
+                    "language": "TR",
+                    "text": "Başka bir deyişle, bu katmanların her biri, bir ticaret seansı sırasında neler olduğunu görselleştirmemize - dolayısıyla daha iyi anlamamıza - yardımcı olan grafikler üzerinde işaretler oluşturur.",
+                    "updated": 1642169734920
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Каждый слой может иметь панели плоттера, которые обычно отображают сложные данные, связанные с концепцией, представленной конкретным слоем.",
                     "updated": 1640547067597
+                },
+                {
+                    "language": "TR",
+                    "text": "Her katman, genellikle belirli bir katman tarafından temsil edilen konseptle ilişkili sabit verileri görüntüleyen çizici panellere sahip olabilir.",
+                    "updated": 1642169749931
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что данные на панели становятся видимыми только тогда, когда указатель мыши находится в пределах свечи, охваченной объектом.",
                     "updated": 1640628266138
+                },
+                {
+                    "language": "TR",
+                    "text": "Paneldeki verilerin yalnızca farenin imleci açılan plotter'a ait mumların içindeyken nasıl görünür hale geldiğine dikkat edin.",
+                    "updated": 1642169809850
                 }
             ]
         }

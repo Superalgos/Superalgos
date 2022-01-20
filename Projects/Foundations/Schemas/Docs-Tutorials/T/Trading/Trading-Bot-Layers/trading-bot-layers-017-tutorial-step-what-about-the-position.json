@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Как вы очень четко отметили, счетчики эпизодов показали стратегию, но также и позицию... как насчет этого?",
                 "updated": 1640547167033
+            },
+            {
+                "language": "TR",
+                "text": "Söylediğiniz gibi, bölüm sayaçları bir strateji, ama aynı zamanda bir konum da gösteriyordu... Buna ne dersin?",
+                "updated": 1642363367303
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Прокрутите вниз менеджер слоев объектов Simulation Objects и включите слой \"Position Base Asset\"!",
                     "updated": 1640628234334
+                },
+                {
+                    "language": "TR",
+                    "text": "Simulation Objects katman yöneticisini aşağı kaydırın ve \"Position Base Asset\" katmanını açın!",
+                    "updated": 1642169994989
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Отлично! Зеленый треугольник означает, что позиция была удачной! В противном случае он был бы красным!",
                     "updated": 1640547198546
+                },
+                {
+                    "language": "TR",
+                    "text": "Güzel! Yeşil üçgen, pozisyonun isabetli olduğu anlamına gelir! Aksi takdirde kırmızı olurdu!",
+                    "updated": 1642170008399
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "RU",
                     "text": "Горизонтальная сторона треугольника обозначает целевую ставку входа. Вертикальная сторона обозначает дату, когда позиция была закрыта. Вершина, отстоящая от горизонтальной стороны, является целевой ставкой на выход.",
                     "updated": 1640547223693
+                },
+                {
+                    "language": "TR",
+                    "text": "Üçgenin yatay tarafı Giriş Hedef Oranını (Entry Target Rate) gösterir. Dikey taraf, pozisyonun kapatıldığı tarihi gösterir. Yatay taraftan uzaktaki tepe noktası Çıkış Hedef Oranıdır (Exit Target Rate).",
+                    "updated": 1642170095934
                 }
             ]
         }

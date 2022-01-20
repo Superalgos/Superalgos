@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Mit dem Timeline Chart haben Sie die volle Kontrolle über die in Ihrem Diagramm verfügbaren Ebenen.",
                 "updated": 1639152667476
+            },
+            {
+                "language": "TR",
+                "text": "Zaman çizelgesi grafiği (Timeline Chart), grafiğinizde bulunan katmanlar üzerinde tam kontrol sağlar.",
+                "updated": 1642588869543
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Wie ich bereits erwähnt habe, ist eine der wichtigsten Funktionen des Charting Space die Möglichkeit, viele verschiedene Datentypen an einem Ort zu kombinieren. Der Timeline Chart gibt Ihnen diese Kontrolle! In jedem Zeitachsendiagramm können Sie die Daten, die Sie sehen möchten, unter einem Layer Manager sammeln. Wie Sie sich vielleicht erinnern, können Sie mit dem Ebenenmanager verschiedene Ebenen in einer Time Machine ein- und ausschalten.",
                     "updated": 1639152836399
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce bahsettiğim gibi, Grafik Alanı'ın ( Charting Space ) temel özelliklerinden biri, birçok farklı veri türünü tek bir yerde birleştirme yeteneğidir. Zamanlama çizelgesi size bu kontrolü verir! Her zaman çizelgesi ( Timeline Chart ), görmek istediğiniz verileri katman yöneticisi ( Layer Manager ) altında toplamanıza olanak tanır. Hatırlayacağınız gibi, katman yöneticisi Zaman makinesi ( Time Machine ) içinde farklı katmanları açıp kapatmanıza izin verir.",
+                    "updated": 1642589377458
                 }
             ]
         },
@@ -64,6 +74,11 @@
                     "language": "DE",
                     "text": "Wenn wir Data Products mit den Layers eines Ebenenmanager verbinden, erhalten wir Zugriff auf diese Daten in unserem Diagramm!",
                     "updated": 1639152973211
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Veri Ürünlerini bir katman yöneticisi tarafından tutulan Katmanlara bağladığımızda, grafiğimizde bu verilere erişim elde ederiz!",
+                    "updated": 1642589454871
                 }
             ]
         },

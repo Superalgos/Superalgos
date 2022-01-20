@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Первый узел, о котором мы сегодня узнаем, - это Dashboard. Dashboard - Приборная панель помогает нам оставаться организованными.",
                 "updated": 1637920880908
+            },
+            {
+                "language": "TR",
+                "text": "Bugün öğreneceğimiz ilk düğüm Gösterge Paneli ( Dashboard ). Bir Gösterge Paneli, düzenli kalmamıza yardımcı olur.",
+                "updated": 1642518837367
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Чтобы начать, я хочу, чтобы вы немного освоились с тем, как настроено пространство графиков (Charting Space).",
                     "updated": 1637920928928
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni başlayanlar için, grafik alanının ( Charting Space ) nasıl oluşturulduğuna biraz aşina olmanızı istiyorum.",
+                    "updated": 1642518850930
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Уделите несколько минут и оглянитесь вокруг этой иерархии. Что вы заметили?",
                     "updated": 1637920975675
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç dakikanızı ayırın ve bu hiyerarşiye bakın. Neyi fark ettin?",
+                    "updated": 1642518865351
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "RU",
                     "text": "Правильно! Одна приборная панель (Dashboard) настроена для бэктестинга, другая - для реальной торговли Live (Trading), а третья - для учебных задач (Learning Tasks). Приборные панели - это удобный способ группировки графиков по типу или любым другим критериям, если на то пошло.",
                     "updated": 1637921124261
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu doğru! Geriye dönük test için, biri canlı ticaret için ve üçüncüsü öğrenme görevleri için bir gösterge panosu vardır. Gösterge Panelleri, grafikleri türe veya diğer ölçütlere göre gruplandırmanın uygun bir yoludur.",
+                    "updated": 1642518877161
                 }
             ]
         },

@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Ich weiß, dass ich bereit bin, einige Diagramme anzupassen. Sind Sie es auch? Lassen Sie uns durchgehen, wie wir die grundlegenden Knoten hinzufügen, die wir für die Erstellung unseres Diagramms benötigen.",
                 "updated": 1639104087816
+            },
+            {
+                "language": "TR",
+                "text": "Ben bazı grafiklerde ince ayar yapmaya hazırım. Peki sen? Diyagramımızı başlatmak için ihtiyacımız olan temel düğümleri nasıl ekleyeceğimizi görelim.",
+                "updated": 1642584815907
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Als Erstes müssen wir ein neues Dashboard hinzufügen.",
                     "updated": 1639104125679
+                },
+                {
+                    "language": "TR",
+                    "text": "Yapmamız gereken ilk şey, yeni bir kontrol paneli eklemek.",
+                    "updated": 1642584834442
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über den Knoten Project Dashboards  und klicken Sie auf <I>Add Dashboard.</I>",
                     "updated": 1639104267774
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje Panoları ( Project Dashboards ) düğümüne gidin ve Pano Ekle düğmesini tıklayın.",
+                    "updated": 1642584923973
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Geben Sie Ihrem neuen Dashboard einen Namen, den Sie wiedererkennen werden. Es empfiehlt sich, bei der Namensgebung auf die Art der Umgebung (Live-Handel, Backtesting usw.) zu verweisen und die Charts, die Sie hinzufügen möchten, zu kennzeichnen. Für uns wäre das zum Beispiel:",
                     "updated": 1639104397267
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanınabilmesi için yeni panoya (Dashboard) bir ad verdiğinizden emin olun. Ortamın türüne (canlı ticaret, geriye dönük test vb.) ve eklemeyi planladığınız çizelgelerle ilgili ayırt edici bir şeye atıfta bulunmak iyi bir adlandırma uygulamasıdır. Bizim için şöyle olurdu:",
+                    "updated": 1642584975310
                 }
             ]
         },

@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Positions подсчитывают количество открытих позиций в контексте родительского узла.",
                 "updated": 1640346005956
+            },
+            {
+                "language": "TR",
+                "text": "Pozisyonlar, üst düğüm bağlamında pozisyonların kaç defa açıldığını sayar.",
+                "updated": 1641993997292
             }
         ]
     },

@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Я установил несколько основных строительных блоков в этом рабочем пространстве (Workspace) чтобы мы могли быстро перейти к созданию пользовательских графиков.",
                 "updated": 1637914880463
+            },
+            {
+                "language": "TR",
+                "text": "Özel grafikler oluşturmaya hızla geçebilmemiz için bu Çalışma Alanında ( Workspace ) birkaç temel yapı taşı oluşturdum.",
+                "updated": 1642518430724
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Строительные блоки, которые я установил, следующие:",
                     "updated": 1637914914956
+                },
+                {
+                    "language": "TR",
+                    "text": "Kurduğum yapı taşları:",
+                    "updated": 1642518449859
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "RU",
                     "text": "Data Mine (Шахта данных)",
                     "updated": 1637914966428
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni ( Data Mine )",
+                    "updated": 1642518464257
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "RU",
                     "text": "Trading System (Торговая система)",
                     "updated": 1637914984112
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemi ( Trading System )",
+                    "updated": 1642518474097
                 }
             ]
         },
@@ -80,6 +100,11 @@
                     "language": "RU",
                     "text": "Market (Рынок)",
                     "updated": 1637914999664
+                },
+                {
+                    "language": "TR",
+                    "text": "Pazar ( Market )",
+                    "updated": 1642518503568
                 }
             ]
         },

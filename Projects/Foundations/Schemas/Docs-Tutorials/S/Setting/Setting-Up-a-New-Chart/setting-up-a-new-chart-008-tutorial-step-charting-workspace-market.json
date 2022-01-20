@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Чтобы завершить эту базовую настройку, я установил для вас рынок BTC/USDT.",
                 "updated": 1637916046153
+            },
+            {
+                "language": "TR",
+                "text": "Bu temel kurulumu tamamlamak için size BTC/USDT piyasasını kurdum.",
+                "updated": 1642518684441
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "В руководстве по установке нового рынка (Install a New Market Tutorial) вы узнали, что установка рынка настраивает все необходимое для базового рабочего пространства Superalgos. Это включает в себя автоматическую настройку сеанса бэктестинга (Backtesting Session),торговой сессии в реальном времени (Live Trading Session), и графиков для каждой торговой системы (Trading System)  присутствующей в рабочем пространстве.",
                     "updated": 1637916802936
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Pazar Kur Eğitiminde ( Install a New Market Tutorial ), bir market kurmanın temel bir Superalgos çalışma alanı için ihtiyacınız olan her şeyi oluşturduğunu öğrendiniz. Bu, otomatik olarak bir geriye dönük test oturumu ( Backtesting Session ), canlı ticaret oturumu ( Live Trading Session ) ve çalışma alanında bulunan her ticaret sistemi (Trading System ) için çizelgeler kurmayı içerir.",
+                    "updated": 1642518723944
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "RU",
                     "text": "Вы можете использовать эту базовую установку в ее нынешнем виде. На самом деле, если вы ищете базовый способ настройки, установка плагина Data Mine, Trading System, и, наконец, установка Market позволит вам быстро начать работу. Но это не главное в этом учебнике (Tutorial)! Давайте рассмотрим некоторые пользовательские графики!",
                     "updated": 1637917553893
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu temel kurulumu olduğu gibi kullanabilirsiniz. İşleri kurmanın kolay bir yolunu arıyorsanız, bir eklenti veri madeni ( Data Mine ), bir ticaret sistemi ( Trading System ) ve son olarak bir borsa ( Market ) kurmanız yeterlidir ve kısa sürede hazır ve çalışır hale geleceksiniz. Ama bu eğitimin amacı bu değil! Bazı özel çizelgelere göz atalım!",
+                    "updated": 1642518746353
                 }
             ]
         }

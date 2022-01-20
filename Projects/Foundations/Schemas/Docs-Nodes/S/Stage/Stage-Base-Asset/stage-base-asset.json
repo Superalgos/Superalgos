@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Stage Base Asset отслеживает эволюцию переменных, связанных с базовым активом, на протяжении всего этапа.",
                 "updated": 1640345663874
+            },
+            {
+                "language": "TR",
+                "text": "Stage Base Asset düğümü, o safha boyunca temel varlıkla ilgili değişkenlerin gelişimini takip eder.",
+                "updated": 1642402284180
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
                     "updated": 1640189702489
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelerin Trading Engine bölümündeki temel varlık ve kote varlık sayfasında temel varlık ve kote varlık hesaplarının nasıl tutulduğu hakkında daha fazla bilgi edinin.",
+                    "updated": 1642403569769
                 }
             ]
         }

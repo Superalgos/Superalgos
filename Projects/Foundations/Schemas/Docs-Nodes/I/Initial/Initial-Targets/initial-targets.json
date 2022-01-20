@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Initial Targets содержит самые основные определения занимаемой позиции: Target Rate и Target Size.",
                 "updated": 1638970316023
+            },
+            {
+                "language": "TR",
+                "text": "İlk hedefler düğümü, alınacak konumla ilgili en temel tanımları içerir: hedef oran ve hedef boyut.",
+                "updated": 1642515264657
             }
         ]
     },
@@ -20,6 +25,11 @@
                     "language": "RU",
                     "text": "Требуются оба определения.",
                     "updated": 1638970334536
+                },
+                {
+                    "language": "TR",
+                    "text": "Her iki tanım da gereklidir.",
+                    "updated": 1642515274955
                 }
             ]
         }

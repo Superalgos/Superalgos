@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Уверен, вы согласитесь, что треугольник - это быстрая визуальная подсказка, позволяющая понять, как шла торговля!",
                 "updated": 1640547240970
+            },
+            {
+                "language": "TR",
+                "text": "Üçgenin, ticaretin nasıl gittiğini bir bakışta kavramak için hızlı bir görsel ipucu olduğuna eminim!",
+                "updated": 1642171307302
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Это одна из основных идей, лежащих в основе этих функций визуализации: быстрая и эффективная коммуникация.",
                     "updated": 1640547254889
+                },
+                {
+                    "language": "TR",
+                    "text": "Görselleştirme özelliklerinin arkasındaki temel fikirlerden biri budur: hızlı ve etkili iletişim.",
+                    "updated": 1642171329880
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "RU",
                     "text": "Вторая основная идея заключается в том, что, имея возможность видеть, что происходило во время сессии, легче заметить слабые места в своих стратегиях и понять, как их можно улучшить!",
                     "updated": 1640547270886
+                },
+                {
+                    "language": "TR",
+                    "text": "İkinci temel fikir, oturumda neler olduğunu görerek, stratejilerinizdeki zayıflıkları ve bunları nasıl geliştirebileceğinizi daha kolay tespit etmenizdir!",
+                    "updated": 1642171343312
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "RU",
                     "text": "Попутно заметим, что данные, отображаемые на панелях, - это те же данные, которые доступны в иерархии Trading Engine.",
                     "updated": 1640547285254
+                },
+                {
+                    "language": "TR",
+                    "text": "Ek olarak, panellerde görüntülenen verilerin Ticaret Motoru (Trading Engine) hiyerarşisinde bulunan verilerle aynı olduğuna dikkat edin.",
+                    "updated": 1642171370248
                 }
             ]
         }

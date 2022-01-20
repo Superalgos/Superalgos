@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Entry Target Rate - это целевая ставка, установленная при определении начальных целей на открытой стадии стратегии.",
                 "updated": 1638773334431
+            },
+            {
+                "language": "TR",
+                "text": "Giriş hedef oranı, stratejinin açıldığı  aşamadaki ilk hedef tanımında belirlenen hedef orandır.",
+                "updated": 1642170176154
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Обновите эти концепции, прочитав о начальных определениях целей в торговой системе.",
                     "updated": 1638773386524
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki ilk hedef tanımlarını okuyarak bu kavramları yenileyin.",
+                    "updated": 1642170200120
                 }
             ]
         },
@@ -40,6 +50,11 @@
                     "language": "RU",
                     "text": "Конфигурация Entry Target Rate",
                     "updated": 1638773419157
+                },
+                {
+                    "language": "TR",
+                    "text": "Giriş Hedef Oranı Yapılandırması",
+                    "updated": 1642170211921
                 }
             ]
         },
@@ -52,6 +67,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638773426918
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1642170222470
                 }
             ]
         },
@@ -64,6 +84,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638773435582
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1642170235857
                 }
             ]
         }

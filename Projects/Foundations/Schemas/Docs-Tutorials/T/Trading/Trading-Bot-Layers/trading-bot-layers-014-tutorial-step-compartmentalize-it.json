@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Причина, по которой доступ к значениям в иерархии разделен на слои, заключается в том, что слои соответствуют продуктам данных, выводимым ботом.",
                 "updated": 1640546584969
+            },
+            {
+                "language": "TR",
+                "text": "Hiyerarşideki değerlere erişimin katmanlar halinde bölümlere ayrılmasının nedeni, katmanların bot tarafından çıkarılan veri ürünlerine karşılık gelmesidir.",
+                "updated": 1641993616380
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Разделение определений и информации в целом - это самостоятельная тема всей системы, поскольку это один из механизмов, с помощью которого успешно управляется сложная информация.",
                     "updated": 1640546666472
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanımların ve genel olarak bilginin bölümlere ayrılması, karmaşıklığın başarıyla yönetildiği mekanizmalardan biri olduğu için sistem genelinde tema bu şekildedir.",
+                    "updated": 1641993666059
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Когда вам нужно использовать эту функцию для отслеживания значений на иерархии Trading Engine, вы можете включить несколько слоев одновременно... даже все, если хотите! Только имейте в виду, что чем больше слоев вы включаете, тем больше файлов считывает пользовательский интерфейс (UI), а значит, тем больше нагрузка на ваше оборудование!",
                     "updated": 1640546732387
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Engine hiyerarşisindeki değerleri takip etmek için bu özelliği kullanmanız gerektiğinde, aynı anda birden fazla katmanı açmayı seçebilirsiniz... dilerseniz hepsini açabilisiniz! Ne kadar çok katmanı açarsanız, kullanıcı arayüzünün o kadar çok dosya okuduğunu ve dolayısıyla donanımınıza o kadar fazla yük bindirdiğinizi unutmayın!",
+                    "updated": 1641993714855
                 }
             ]
         }

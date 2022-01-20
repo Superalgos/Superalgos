@@ -4,8 +4,8 @@
     "type": "Tutorial Step - Daily Files vs. Market Files",
     "definition": {
         "icon": {
-            "project": "Foundations",
-            "name": "dataset-definition"
+            "name": "Data/dataset-definition",
+            "project": "Foundations"
         },
         "text": "Superalgos processes time frames below one hour in \"Daily Files\", meaning that the data corresponding to one day is stored in one file.",
         "updated": 1622544106578,
@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Superalgos обрабатывает таймфреймы менее одного часа в \"Daily Files\", что означает, что данные, соответствующие одному дню, хранятся в одном файле.",
                 "updated": 1640630423274
+            },
+            {
+                "language": "TR",
+                "text": "Superalgos, bir saatin altındaki zaman dilimlerini \"Daily Files\"da işler, yani bir güne karşılık gelen veriler tek bir dosyada saklanır.",
+                "updated": 1642513345679
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "В отличие от этого, данные для таймфреймов от одного часа и выше хранятся в \"Market Files\", что означает, что данные, соответствующие всему рынку, хранятся в одном файле.",
                     "updated": 1640630451137
+                },
+                {
+                    "language": "TR",
+                    "text": "Buna karşılık, bir saat ve üzeri zaman dilimleri için veriler \"Market Files\"da saklanır, yani tüm piyasaya tekabül eden veriler tek bir dosyada saklanır.",
+                    "updated": 1642513365983
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "В результате, при работе с таймфреймами менее одного часа, события, охватывающие несколько дней, генерируют несколько таких объектов: по одному на день!",
                     "updated": 1640630525432
+                },
+                {
+                    "language": "TR",
+                    "text": "Sonuç olarak, bir saatin altındaki zaman dilimlerinde çalışırken, birden fazla güne yayılan olaylar birden çok nesne oluşturur: her gün için bir tane!",
+                    "updated": 1642513407398
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "RU",
                     "text": "Это означает, что при работе с небольшими таймфреймами вы можете столкнуться с несколькими объектами для каждого понятия или события, каждый из которых показывает данные, соответствующие закрытию дня!",
                     "updated": 1640630608144
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, düşük zaman dilimlerinde çalışırken, konsept veya olay başına her biri günün kapanışına karşılık gelen verileri gösteren birden fazla nesneyle karşılaşabileceğiniz anlamına gelir!",
+                    "updated": 1642513430238
                 }
             ]
         }

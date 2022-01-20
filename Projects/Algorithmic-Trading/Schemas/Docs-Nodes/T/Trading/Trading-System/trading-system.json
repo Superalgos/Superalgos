@@ -50,9 +50,14 @@
                     "updated": 1638338066276
                 },
                 {
+                    "language": "TR",
+                    "text": "Pratik anlamda, bir ticaret sistemi, yatırım planınızın uygulanabilir yönlerini düzenleyen hiyerarşik bir düzenlemedir. Hiyerarşi, tümü aynı piyasada faaliyet gösteren ve aynı başlangıç sermaye tahsisini paylaşan herhangi bir sayıda ticaret stratejisine ilişkin tanımları içerir.",
+                    "updated": 1642513001705
+                 },
+                 {
                     "language": "EL",
                     "text": "Πρακτικά, ένα σύστημα συναλλαγών είναι μια ιεραρχική ρύθμιση που οργανώνει τις δραστικές πτυχές του επενδυτικού σας σχεδίου. Η ιεραρχία περιέχει ορισμούς σχετικά με οποιονδήποτε αριθμό στρατηγικής συναλλαγών, όλες λειτουργούν στην ίδια αγορά και μοιράζονται την ίδια αρχική κατανομή κεφαλαίου.",
-                    "updated": 1641827961649
+                    "updated": 164182796164
                 }
             ]
         },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Вы используете торговую систему для определения стратегий, следуя протоколу Superalgos, разбивая стратегии на четыре стадии (этапа, ступени, фазы): срабатывание, открытие, управление и закрытие.",
                     "updated": 1640191081570
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Protokolünü takip eden stratejileri tanımlamak, stratejileri dört aşamaya ayırmak için bir ticaret sistemi kullanırsınız. Bu aşamalar  Trigger, Open, Manage, and Close aşamalarıdır..",
+                    "updated": 1642513118816
                 },
                 {
                     "language": "EL",
@@ -92,6 +102,11 @@
                     "updated": 1638338107057
                 },
                 {
+                    "language": "TR",
+                    "text": "Stratejileri aşamalar halinde tanımlama kavramı, her stratejiyi aynı çerçeve ile yürütmek için bir çerçeve sağladığından ve herhangi bir sayıda stratejiye dönüşebilecek ölçeklenebilir ticaret sistemlerinin geliştirilmesine katkıda bulunduğundan, ticaret sisteminin metodik yönü için esastır.",
+                    "updated": 1642513147547
+                   },
+                   {
                     "language": "EL",
                     "text": "Η ιδέα της περιγραφής των στρατηγικών σταδιακά είναι θεμελιώδης για τη μεθοδική πτυχή του συστήματος συναλλαγών, καθώς παρέχει ένα πλαίσιο για την εκτέλεση κάθε στρατηγικής με το ίδιο πλαίσιο, το οποίο συμβάλλει στην ανάπτυξη κλιμακούμενων συστημάτων συναλλαγών που μπορούν να αναπτυχθούν σε οποιονδήποτε αριθμό στρατηγικών.",
                     "updated": 1641828013314
@@ -113,6 +128,11 @@
                     "updated": 1638338139127
                 },
                 {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi birden fazla stratejiye sahip olduğunda, birinci strateji ikinciye, ikinci strateji üçüncüye göre önceliğe sahiptir ve bu böyle devam eder. Bu, stratejilerin bir sırayla değerlendirildiği anlamına gelir. Belirli bir strateji tetiklendiğinde, kuyrukta kalan stratejiler, strateji tetiklenene kadar artık değerlendirilmez. Başka bir deyişle, tek bir ticaret sistemi içinde birden fazla strateji konuşlandırıldığında, herhangi bir anda yalnızca bir strateji ticaret yapabilir ve ticaret sistemi düğümü etrafındaki sipariş tarafından öncelik verilir.",
+                    "updated": 1642513191527
+                },
+                {
                     "language": "EL",
                     "text": "Όταν ένα σύστημα συναλλαγών διαθέτει περισσότερες από μία στρατηγικές, η πρώτη στρατηγική έχει προτεραιότητα έναντι της δεύτερης, η δεύτερη έναντι της τρίτης και ούτω καθεξής. Αυτό σημαίνει ότι οι στρατηγικές αξιολογούνται με μια σειρά. Όταν μια δεδομένη στρατηγική ενεργοποιείται, οι υπόλοιπες στρατηγικές στην ουρά δεν αξιολογούνται πλέον μέχρι να ενεργοποιηθεί η στρατηγική. Με άλλα λόγια, όταν αναπτύσσονται πολλαπλές στρατηγικές σε ένα μόνο σύστημα συναλλαγών, μόνο μία στρατηγική μπορεί να διαπραγματεύεται κάθε δεδομένη στιγμή και η προτεραιότητα δίνεται από τη σειρά γύρω από τον κόμβο του συστήματος συναλλαγών.",
                     "updated": 1641828042117
@@ -132,6 +152,11 @@
                     "language": "RU",
                     "text": "Как следствие вышесказанного, если вы хотите, чтобы стратегии работали на разных рынках, или вы хотите, чтобы стратегии могли открывать позиции одновременно, вы должны настроить эти стратегии в разных торговых системах.",
                     "updated": 1638338156830
+                },
+                {
+                    "language": "TR",
+                    "text": "Yukarıdakilerin bir sonucu olarak, stratejilerin farklı pazarlarda işlemesini veya stratejilerin aynı anda pozisyon alabilmesini istiyorsanız, bu stratejileri farklı ticaret sistemlerinde kurmalısınız.",
+                    "updated": 1642513209866
                 },
                 {
                     "language": "EL",

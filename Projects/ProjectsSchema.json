@@ -1883,6 +1883,24 @@
                     "propertyName": "postsStorage",
                     "functionName": "newSocialTradingFunctionLibrariesPostsStorage",
                     "fileName": "PostsStorage.js"
+                },
+                {
+                    "name": "Social Entities Storage",
+                    "propertyName": "socialEntitiesStorage",
+                    "functionName": "newSocialTradingFunctionLibrariesSocialEntitiesStorage",
+                    "fileName": "SocialEntitiesStorage.js"
+                },
+                {
+                    "name": "Social Entities Profile",
+                    "propertyName": "socialEntitiesProfile",
+                    "functionName": "newSocialTradingFunctionLibrariesSocialEntitiesProfile",
+                    "fileName": "SocialEntitiesProfile.js"
+                },
+                {
+                    "name": "User Profile",
+                    "propertyName": "userProfile",
+                    "functionName": "newSocialTradingFunctionLibrariesUserProfile",
+                    "fileName": "UserProfile.js"
                 }
             ],            
             "globals": [

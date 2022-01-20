@@ -469,8 +469,31 @@ exports.newGithubServer = function newGithubServer() {
                                 */
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                 fileContent = await PL.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
-                                userProfile = JSON.parse(fileContent)
+                                try {
+                                    userProfile = JSON.parse(fileContent)
+                                } catch(err) {
+                                    console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified it is not in a valid JSON format. -> err = ' + err.message)
+                                    
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.issues.createComment({
+                                        owner: owner,
+                                        repo: repo,
+                                        issue_number: pullRequest.number,
+                                        body: 'This Pull Request could not be automatically merged and was closed by the Superalgos Governance System because the User Profile is not in a valid JSON format.\n\n err = "' + err.message + '"'
+                                    });
 
+                                    await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                    await octokit.rest.pulls.update({
+                                        owner: owner,
+                                        repo: repo,
+                                        pull_number: pullRequest.number,
+                                        state: 'closed'
+                                    });
+                                    return false
+
+                                    return false
+                                }
+                                
                                 if (userProfile.type !== 'User Profile') {
                                     console.log('[INFO] Github Server -> mergeGithubPullRequests -> Validation #3 Failed -> Pull Request "' + pullRequest.title + '" not merged because the file modified is not a User Profile. -> Type = ' + userProfile.type)
                                     return false

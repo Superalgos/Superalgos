@@ -1869,6 +1869,12 @@
                     "propertyName": "p2pNetworkInterface",
                     "functionName": "newSocialTradingModulesP2PNetworkInterface",
                     "fileName": "P2PNetworkInterface.js"
+                },
+                {
+                    "name": "Social Graph Network Service Client",
+                    "propertyName": "socialGraphNetworkServiceClient",
+                    "functionName": "newSocialTradingModulesSocialGraphNetworkServiceClient",
+                    "fileName": "SocialGraphNetworkServiceClient.js"
                 }
             ],
             "globals": [
@@ -1932,14 +1938,7 @@
         },
         "DK": {
             "globals": [],
-            "modules": [
-                {
-                    "name": "Social Graph Network Service Client",
-                    "propertyName": "socialGraphNetworkServiceClient",
-                    "functionName": "newSocialTradingModulesSocialGraphNetworkServiceClient",
-                    "fileName": "SocialGraphNetworkServiceClient.js"
-                }
-            ],
+            "modules": [],
             "utilities": []
         },
         "UI": {

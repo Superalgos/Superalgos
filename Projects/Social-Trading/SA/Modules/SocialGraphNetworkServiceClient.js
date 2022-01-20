@@ -90,7 +90,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.REPLY_TO_SOCIAL_TRADING_BOT_POST ||
                                 event.eventType === SA.projects.socialTrading.globals.eventTypes.QUOTE_REPOST_SOCIAL_TRADING_BOT_POST
                             ) {
-                                let response = await SA.projects.socialTrading.functionLibraries.posts.loadPostFromStorage(event.fileKeys)
+                                let response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(event.fileKeys)
 
                                 if (response.result === "Ok") {
                                     event.postText = response.postText
@@ -121,7 +121,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         for (let i = 0; i < posts.length; i++) {
                             let post = posts[i]
 
-                            let response = await SA.projects.socialTrading.functionLibraries.posts.loadPostFromStorage(post.fileKeys)
+                            let response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(post.fileKeys)
 
                             if (response.result === "Ok") {
                                 post.postText = response.postText
@@ -148,7 +148,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         for (let i = 0; i < posts.length; i++) {
                             let post = posts[i]
 
-                            let response = await SA.projects.socialTrading.functionLibraries.posts.loadPostFromStorage(post.fileKeys)
+                            let response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(post.fileKeys)
 
                             if (response.result === "Ok") {
                                 post.postText = response.postText
@@ -169,7 +169,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                         at the Open Storage.
                         */
                         let post = await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
-                        response = await SA.projects.socialTrading.functionLibraries.posts.loadPostFromStorage(post.fileKeys)
+                        response = await SA.projects.socialTrading.functionLibraries.postsStorage.loadPostFromStorage(post.fileKeys)
 
                         if (response.result === "Ok") {
                             post.postText = response.postText
@@ -261,7 +261,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     We need to save the post at the User's storage conatiner and remove adapt the message 
                     before sending it to the Network Node.
                     */
-                    let response = await SA.projects.socialTrading.functionLibraries.posts.savePostAtStorage(
+                    let response = await SA.projects.socialTrading.functionLibraries.postsStorage.savePostAtStorage(
                         eventMessage,
                         socialEntity
                     )

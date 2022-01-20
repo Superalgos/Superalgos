@@ -1,4 +1,4 @@
-exports.newSocialTradingFunctionLibrariesPosts = function () {
+exports.newSocialTradingFunctionLibrariesPostsStorage = function () {
      
     let thisObject = {
         savePostAtStorage: savePostAtStorage,

@@ -1879,10 +1879,10 @@
             ],
             "functionLibraries": [
                 {
-                    "name": "Posts",
-                    "propertyName": "posts",
-                    "functionName": "newSocialTradingFunctionLibrariesPosts",
-                    "fileName": "Posts.js"
+                    "name": "Posts Storage",
+                    "propertyName": "postsStorage",
+                    "functionName": "newSocialTradingFunctionLibrariesPostsStorage",
+                    "fileName": "PostsStorage.js"
                 }
             ],            
             "globals": [

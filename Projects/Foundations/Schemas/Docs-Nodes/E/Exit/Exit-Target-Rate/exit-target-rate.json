@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Обновите эту концепцию, прочитав об исходных целевых определениях в торговой системе.",
                     "updated": 1638786250537
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret sistemindeki ilk hedef tanımlarını okuyarak bu kavramları yenileyin.",
+                    "updated": 1642170274040
                 }
             ]
         },
@@ -50,6 +55,11 @@
                     "language": "RU",
                     "text": "Конфигурация Exit Target Rate",
                     "updated": 1638786263499
+                },
+                {
+                    "language": "TR",
+                    "text": "Exit Target Rate Yapılandırması",
+                    "updated": 1642170284186
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1638786269899
+                },
+                {
+                    "language": "TR",
+                    "text": "Özellikler",
+                    "updated": 1642170293048
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1638786279796
+                },
+                {
+                    "language": "TR",
+                    "text": "initialValue, düğümün başlangıç durumunun keyfi bir değere sıfırlanmasına izin verir.",
+                    "updated": 1642170316221
                 }
             ]
         }

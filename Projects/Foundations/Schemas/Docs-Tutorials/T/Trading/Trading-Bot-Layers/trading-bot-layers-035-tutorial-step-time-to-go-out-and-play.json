@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Вот и все, друзья! Мы рассказали обо всем! Теперь пора выходить и поиграть! Развлекайтесь!",
                 "updated": 1640631960463
+            },
+            {
+                "language": "TR",
+                "text": "Hepsi bu kadar millet! Hepsini öğrendik! Şimdi dışarı çıkıp oynama zamanı! İyi eğlenceler!",
+                "updated": 1642518597160
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Потратьте некоторое время на изучение этих слоев, уделяя особое внимание тем, которые, по вашему мнению, будут наиболее полезны.",
                     "updated": 1640631979135
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu katmanları keşfetmek için biraz zaman ayırın, en çok işinize yarayacağını düşündüklerinize özellikle dikkat edin.",
+                    "updated": 1642518610254
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Слои торгового бота - это фундаментальный инструмент при разработке, тестировании и отладке стратегий! Вы узнаете больше о них и сможете применить их на практике в учебниках, обучающих созданию торговых систем, доступных в рабочем пространстве Trading System Design Tutorials Plugin Workspace.",
                     "updated": 1640632103029
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım Satım Bot Katmanları (Trading Bot Layers), stratejiler tasarlarken, test ederken ve hata ayıklarken temel bir araçtır! \" Trading System Design Tutorials Plugin Workspace \" eklentisinde bulunan Ticaret Sistemlerinin nasıl kurulacağını öğreten eğitimlerde bunlar hakkında daha fazla bilgi edinecek ve bunları iyi bir şekilde kullanacaksınız.",
+                    "updated": 1642518835072
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "RU",
                     "text": "Загляните в документацию для получения дополнительной информации!",
                     "updated": 1640632113660
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha fazla bilgi için belgelere göz atın!",
+                    "updated": 1642518825941
                 }
             ]
         }

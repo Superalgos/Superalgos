@@ -7,8 +7,23 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
     return thisObject
 
     function installSigningAccounts(
-        userProfile
+        userProfile,
+        signingAccountParentNode
     ) {
+        /*
+        We will scan all the Signing Account of a Profile, and generate a wallet and signature for the one 
+        received at signingAccountParentNode. Then we will add a record to the Secrets File (if it exists) that 
+        includes the private key of the new Signing Account node.
+        */
+
+        /*
+        Try to load the Secrets file. 
+        */
+
+        /*
+        Take care of the naming of the target nodes. 
+        */
+
         let secretsFile = {
             secrets: []
         }

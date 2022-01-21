@@ -8,11 +8,11 @@ import Post from "../post/Post";
 
 const ReplyFeed = () => {
     const [post, setPost] = useState({});
+    const [mappedReplies, setMappedReplies] = useState([]);
     const navigate = useNavigate();
     const goBack = () => navigate(-1);
     const {search} = useLocation();
     const urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
-    const mappedReplies = [];
     const queryParams = {
         targetPostHash: urlSearchParams.get("post"),
         targetSocialPersonaId: urlSearchParams.get("user")
@@ -26,6 +26,7 @@ const ReplyFeed = () => {
     }
 
     const loadReplies = async () => {
+        let replies=[];
         const {result, data} = await getReplies(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
             data.map((post, index) => {

@@ -27,7 +27,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginProjects(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -43,7 +43,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginTypes(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -59,7 +59,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginDataMines(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -85,7 +85,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginTradingMines(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -101,7 +101,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginTradingSystems(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -117,7 +117,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginTradingEngines(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -133,7 +133,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginPortfolioMines(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -149,7 +149,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginPortfolioSystems(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -165,7 +165,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginPortfolioEngines(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -181,7 +181,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginLearningMines(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -197,7 +197,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginLearningSystems(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -213,7 +213,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginLearningEngines(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -229,7 +229,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginTutorials(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -245,7 +245,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginApiMaps(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -261,7 +261,7 @@ function newCommunityPluginsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.addMissingPluginP2PNetworks(action.node, action.rootNodes)
                 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,

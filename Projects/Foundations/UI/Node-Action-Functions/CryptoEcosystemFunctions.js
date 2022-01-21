@@ -225,7 +225,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         node,
         rootNodes
     ) {
-        let newUiObjects = []
         let market = node
         let cryptoExchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {
@@ -285,9 +284,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
                         if (dataTasks === undefined) {
                             dataTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
-                            if (dataTasks !== undefined) {
-                                newUiObjects.push(dataTasks)
-                            }
                         }
                         /*
                         We will make ourselves sure that the Project Data Tasks nodes are there.
@@ -321,9 +317,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let learningTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
                         if (learningTasks === undefined) {
                             learningTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
-                            if (learningTasks !== undefined) {
-                                newUiObjects.push(learningTasks)
-                            }
                         }
                         /*
                         We will make ourselves sure that the Project Learning Tasks nodes are there.
@@ -378,9 +371,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let tradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
                                 tradingTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
-                                if (tradingTasks !== undefined) {
-                                    newUiObjects.push(tradingTasks)
-                                }
                             }
                             /*
                              We will make ourselves sure that the Project Trading Tasks nodes are there.
@@ -438,9 +428,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let portfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (portfolioTasks === undefined) {
                                 portfolioTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
-                                if (portfolioTasks !== undefined) {
-                                    newUiObjects.push(portfolioTasks)
-                                }
                             }
                             /*
                              We will make ourselves sure that the Project Portfolio Tasks nodes are there.
@@ -488,16 +475,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let dataMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
                         if (dataMinesData === undefined) {
                             dataMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
-                            if (dataMinesData !== undefined) {
-                                newUiObjects.push(dataMinesData)
-                            }
                         }
                         dataMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -533,16 +514,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let learningMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
                         if (learningMinesData === undefined) {
                             learningMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
-                            if (learningMinesData !== undefined) {
-                                newUiObjects.push(learningMinesData)
-                            }
                         }
                         learningMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -594,16 +569,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let tradingMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
                         if (tradingMinesData === undefined) {
                             tradingMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
-                            if (tradingMinesData !== undefined) {
-                                newUiObjects.push(tradingMinesData)
-                            }
                         }
                         tradingMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -655,16 +624,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let portfolioMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Portfolio Mines Data', node, true)
                         if (portfolioMinesData === undefined) {
                             portfolioMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Portfolio Mines Data')
-                            if (portfolioMinesData !== undefined) {
-                                newUiObjects.push(portfolioMinesData)
-                            }
                         }
                         portfolioMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -736,7 +699,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let arrayItem = dashboardsArray[i]
                         let dashboard = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
                         dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.lanNetworkNode.name
-                        newUiObjects.push(dashboard)
                         /*
                         We delete all the existing Time Machines related to the market we are currently installing. 
                         For that, we make a new array with the existing Time Machines so that the deleting
@@ -781,16 +743,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
                             let session = arrayItem.sessionsArray[j]
                             let timeMachine = UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.lanNetworkNode, rootNodes)
-                            if (timeMachine !== undefined) {
-                                newUiObjects.push(timeMachine)
-                            }
                         }
                     }
                 }
             }
         }
-
-        return newUiObjects
     }
 
     function uninstallMarket(node, rootNodes) {

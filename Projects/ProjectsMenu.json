@@ -80,12 +80,6 @@
         "propertyName": "workspaces",
         "systemMenu": [
             {
-                "label": "Save Workspace",
-                "action": {
-                    "name": "saveWorkspace"
-                }
-            },
-            {
                 "label": "Undo/Redo",
                 "submenuConstructorFunction": {
                     "name": "undoRedoSubmenu"
@@ -103,6 +97,18 @@
                 "submenuConstructorFunction": {
                     "name": "workspacesSubmenu",
                     "params": ["plugin"]
+                }
+            },
+            {
+                "label": "Collapse All Root Nodes",
+                "action": {
+                    "name": "collapseAllRootNodes"
+                }
+            },
+            {
+                "label": "Save Workspace",
+                "action": {
+                    "name": "saveWorkspace"
                 }
             }
         ]

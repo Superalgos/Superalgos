@@ -33,6 +33,11 @@
                     "language": "RU",
                     "text": "Учебники",
                     "updated": 1640236849732
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler",
+                    "updated": 1642711076022
                 }
             ]
         },
@@ -83,6 +88,11 @@
                     "language": "RU",
                     "text": "Важно, чтобы это рабочее пространство было чистым, легким и простым, чтобы первый опыт не был громоздким и не ограничивал пользователей с маломощным оборудованием.",
                     "updated": 1640236792739
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu çalışma alanını temiz, hafif ve basit tutmak, ilk deneyimin hantal olmamasını veya kullanıcıları küçük donanımlarla sınırlamamasını sağlamak için önemlidir.",
+                    "updated": 1642711107721
                 }
             ]
         },
@@ -95,6 +105,11 @@
                     "language": "RU",
                     "text": "Разработчик",
                     "updated": 1640236884937
+                },
+                {
+                    "language": "TR",
+                    "text": "Proje Yürütücüsü",
+                    "updated": 1642711127270
                 }
             ]
         },

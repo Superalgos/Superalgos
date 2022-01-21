@@ -5,10 +5,7 @@ import ReplyBox from "../replyBox/ReplyBox";
 import {Stack} from "@mui/material";
 
 const ReplyFeedView = ({goBack, selectedPost, replies}) => {
-    const replyBox = () => {
-        return (<ReplyBox className="reply" postHash={selectedPost.originPostHash}
-                          targetSocialPersonaId={selectedPost.originSocialPersonaId}/>)
-    }
+    const {originSocialPersonaId, originPostHash} = selectedPost;
 
     return (
         <Stack className="middleSection">
@@ -16,11 +13,11 @@ const ReplyFeedView = ({goBack, selectedPost, replies}) => {
                 <ArrowBackOutlined onClick={goBack}/> {/* todo need onClick to go back to home */}
             </div>
             <Post postData={selectedPost}/>
-            {replyBox()}
-            {replies}
+            <ReplyBox 
+                className="reply" postHash={originPostHash} targetSocialPersonaId={originSocialPersonaId}/>
+            { replies }
         </Stack>
     );
 };
-
 
 export default ReplyFeedView;

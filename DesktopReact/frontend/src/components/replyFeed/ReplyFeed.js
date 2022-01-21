@@ -6,22 +6,19 @@ import {getPost, getReplies} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 
-const ReplyFeed = ({}) => {
-    const {search} = useLocation();
-    let urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
+const ReplyFeed = () => {
     const [post, setPost] = useState({});
-    const mappedReplies = [];
     const navigate = useNavigate();
-    const goBack = () => {
-        navigate(-1);
+    const goBack = () => navigate(-1);
+    const {search} = useLocation();
+    const urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
+    const mappedReplies = [];
+    const queryParams = {
+        targetPostHash: urlSearchParams.get("post"),
+        targetSocialPersonaId: urlSearchParams.get("user")
     }
-    const {postId, socialPersonaId} = useParams();
 
     const loadPost = async () => {
-        let queryParams = {
-            targetPostHash: urlSearchParams.get("post"),
-            targetSocialPersonaId: urlSearchParams.get("user")
-        }
         const {result, data} = await getPost(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
             setPost(data)
@@ -29,15 +26,8 @@ const ReplyFeed = ({}) => {
     }
 
     const loadReplies = async () => {
-
-        let queryParams = {
-            targetPostHash: urlSearchParams.get("post"),
-            targetSocialPersonaId: urlSearchParams.get("user")
-        }
-        console.log(queryParams)
         const {result, data} = await getReplies(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
-            console.log(data)
             data.map((post, index) => {
                 if (post.eventType === 10) {
                     mappedReplies.push(<Post key={Math.random()} id={index} postData={post}/>)
@@ -51,7 +41,6 @@ const ReplyFeed = ({}) => {
         loadReplies();
     }, []);
 
-    if(post.originSocialPersonaId)
     return (
         <ReplyFeedView
             selectedPost={post}
@@ -59,7 +48,7 @@ const ReplyFeed = ({}) => {
             replies={mappedReplies}
         />
     );
-    return<></>
+ 
 };
 
 export default ReplyFeed;

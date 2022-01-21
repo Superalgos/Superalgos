@@ -422,6 +422,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             function getNextNodeFromPath(node, pathName, pathType) {
                                 let schemaDocument = getSchemaDocument(node)
                                 if (schemaDocument === undefined) { return }
+                                if (schemaDocument.childrenNodesProperties === undefined) { return }
                                 let nextNode = undefined
                                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
 

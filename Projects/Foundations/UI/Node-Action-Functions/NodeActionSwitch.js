@@ -227,7 +227,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectDataTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -243,7 +243,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeDataTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -259,7 +259,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketDataTasks(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -275,7 +275,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingDataMineTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -291,7 +291,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectTradingTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -307,7 +307,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeTradingTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -323,7 +323,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketTradingTasks(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -339,7 +339,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingTradingMineTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -355,7 +355,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectPortfolioTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -371,7 +371,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangePortfolioTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -387,7 +387,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketPortfolioTasks(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -403,7 +403,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingPortfolioMineTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -419,7 +419,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingProjectLearningTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -435,7 +435,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingExchangeLearningTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -451,7 +451,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingMarketLearningTasks(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -467,7 +467,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addMissingLearningMineTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -483,7 +483,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.taskFunctions.addAllTasks(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -499,7 +499,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingExchanges(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -515,7 +515,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingAssets(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -531,7 +531,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.addMissingMarkets(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -545,32 +545,56 @@ function newFoundationsNodeActionSwitch() {
                 break
             case 'Install Market':
                 {
-                    //undoing this action does not work properly
-                    //let newUiObjects = await UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.installMarket(action.node, action.rootNodes)
+                    /* inefficient brute-force method */
+                    let nodeClones = []
+                    for (let rootNode of action.rootNodes) {
+                        if (rootNode.type === 'LAN Network' || rootNode.type === 'Charting Space') {
+                            let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(rootNode, false)
+                            nodeClones.push(nodeClone)
+                        }
+                    }
+                    let historyObject = {
+                        action: action,
+                        nodeClones: nodeClones
+                    }
+
                     UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.installMarket(action.node, action.rootNodes)
 
-                    /* if (newUiObjects !== undefined && newUiObjects.length > 0) {
-                        let historyObject = {
-                            action: action,
-                            newUiObjects: newUiObjects,
-                            nodeClones: []
-                        }
+                    if (action.isInternal === false) {
                         UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
                         UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
                         UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
-                    } */
+                    }
                 }
                 break
             case 'Uninstall Market':
                 {
+                    let nodeClones = []
+                    for (let rootNode of action.rootNodes) {
+                        if (rootNode.type === 'LAN Network' || rootNode.type === 'Charting Space') {
+                            let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(rootNode, false)
+                            nodeClones.push(nodeClone)
+                        }
+                    }
+                    let historyObject = {
+                        action: action,
+                        nodeClones: nodeClones
+                    }
+
                     UI.projects.foundations.nodeActionFunctions.cryptoEcosystemFunctions.uninstallMarket(action.node, action.rootNodes)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add All Data Products':
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllDataProducts(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -586,7 +610,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllDataMineProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -602,7 +626,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllLearningMineProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -618,7 +642,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllTradingMineProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -634,7 +658,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingTradingSessionReferences(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -650,7 +674,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addAllPortfolioMineProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -666,7 +690,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingPortfolioSessionReferences(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -682,7 +706,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingLearningSessionReferences(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -698,7 +722,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketDataProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -714,7 +738,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketTradingProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -730,7 +754,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketPortfolioProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -746,7 +770,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingMarketLearningProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -762,7 +786,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeLearningProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -778,7 +802,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeTradingProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -794,7 +818,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangePortfolioProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -810,7 +834,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingExchangeDataProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -826,7 +850,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectLearningProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -842,7 +866,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectTradingProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -858,7 +882,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectPortfolioProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -874,7 +898,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.dataStorageFunctions.addMissingProjectDataProducts(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -890,7 +914,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllLayerPanels(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -906,7 +930,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllLayerPolygons(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -922,7 +946,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addAllMineLayers(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -938,7 +962,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingTimeMachines(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -954,7 +978,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingDashboards(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -970,7 +994,7 @@ function newFoundationsNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.addMissingProjectDashboards(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -998,12 +1022,14 @@ function newFoundationsNodeActionSwitch() {
                         action: action,
                         previousJsCode: action.node.javascriptCode.code
                     }
-
+                    
                     action.node.javascriptCode.code = action.node.code
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Fetch Code to Javascript Code':
@@ -1012,12 +1038,14 @@ function newFoundationsNodeActionSwitch() {
                         action: action,
                         previousCode: action.node.code
                     }
-
+                    
                     action.node.code = action.node.javascriptCode.code
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Open Documentation':
@@ -1040,13 +1068,15 @@ function newFoundationsNodeActionSwitch() {
                         action: action,
                         previousNodeType: action.node.type
                     }
-
+                    
                     action.node.type = "Forward Testing Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Live Trading':
@@ -1059,9 +1089,11 @@ function newFoundationsNodeActionSwitch() {
                     action.node.type = "Live Trading Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Paper Trading':
@@ -1074,9 +1106,11 @@ function newFoundationsNodeActionSwitch() {
                     action.node.type = "Paper Trading Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Backtesting Portfolio':
@@ -1089,9 +1123,11 @@ function newFoundationsNodeActionSwitch() {
                     action.node.type = "Backtesting Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Live Portfolio':
@@ -1104,9 +1140,11 @@ function newFoundationsNodeActionSwitch() {
                     action.node.type = "Live Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Paper Portfolio':
@@ -1119,9 +1157,11 @@ function newFoundationsNodeActionSwitch() {
                     action.node.type = "Paper Portfolio Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Switch To Backtesting':
@@ -1130,13 +1170,15 @@ function newFoundationsNodeActionSwitch() {
                         action: action,
                         previousNodeType: action.node.type
                     }
-
+                    
                     action.node.type = "Backtesting Session"
                     UI.projects.foundations.spaces.floatingSpace.uiObjectConstructor.createUiObject(true, action.node.payload)
-
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Save node to be moved':
@@ -1154,17 +1196,43 @@ function newFoundationsNodeActionSwitch() {
                             y: UI.projects.foundations.spaces.floatingSpace.floatingObjetSaved.payload.position.y
                         }
                     }
-
+                    
                     UI.projects.foundations.spaces.floatingSpace.moveFloatingObject(action.node.payload.position)
-
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Install Product':
                 {
+                    /* way too inefficient, do not undo/redo */
+                    /* let nodeClones = []
+                    for (let rootNode of action.rootNodes) {
+                        if (
+                            rootNode.type === 'LAN Network' ||
+                            rootNode.type === 'Charting Space' ||
+                            rootNode.type === 'Portfolio Mine' ||
+                            rootNode.type === 'Trading Mine'
+                            ) {
+                                let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(rootNode, false)
+                                nodeClones.push(nodeClone)
+                            }
+                        }
+                    let historyObject = {
+                        action: action,
+                        nodeClones: nodeClones
+                    } */
+                        
                     UI.projects.foundations.nodeActionFunctions.productFunctions.installProduct(action.node, action.rootNodes)
+
+                    /* if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    } */
                 }
                 break
 

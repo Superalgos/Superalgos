@@ -13,7 +13,7 @@ const ReplyFeedView = ({goBack, selectedPost, replies}) => {
                 <ArrowBackOutlined onClick={goBack}/> {/* todo need onClick to go back to home */}
             </div>
             <Post postData={selectedPost}/>
-            <ReplyBox 
+            <ReplyBox
                 className="reply" postHash={originPostHash} targetSocialPersonaId={originSocialPersonaId}/>
             { replies }
         </Stack>

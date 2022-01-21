@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './ReplyFeed.css'
-import {useLocation, useNavigate, useParams} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import ReplyFeedView from "./ReplyFeedView";
 import {getPost, getReplies} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
@@ -10,12 +10,13 @@ const ReplyFeed = ({}) => {
     const {search} = useLocation();
     let urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
     const [post, setPost] = useState({});
-    const mappedReplies = [];
+    const [mappedReplies, setMappedReplies] = useState([]);
     const navigate = useNavigate();
+
+
     const goBack = () => {
         navigate(-1);
     }
-    const {postId, socialPersonaId} = useParams();
 
     const loadPost = async () => {
         let queryParams = {
@@ -27,22 +28,23 @@ const ReplyFeed = ({}) => {
             setPost(data)
         }
     }
-    const loadReplies = async () => {
 
+    const loadReplies = async () => {
+        let replies = [];
         let queryParams = {
             targetPostHash: urlSearchParams.get("post"),
             targetSocialPersonaId: urlSearchParams.get("user")
         }
-        console.log(queryParams)
+        console.log({queryParams})
         const {result, data} = await getReplies(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
-            console.log(data)
+            console.log({data});
             data.map((post, index) => {
-                if (post.eventType === 10) {
-                    mappedReplies.push(<Post key={Math.random()} id={index} postData={post}/>)
-                }
+                replies.push(<Post key={post.originPostHash} id={post.originPostHash} postData={post}/>);
             })
         }
+        console.log({replies})
+        setMappedReplies(replies);
     }
 
     useEffect(() => {

@@ -9,7 +9,7 @@ import PostFooter from "../postFooter/PostFooter";
 
 
 const Post = ({postData}) => {
-    console.log(postData)
+    console.log("loaded a post")
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();

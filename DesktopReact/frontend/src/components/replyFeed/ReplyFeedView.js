@@ -5,6 +5,7 @@ import ReplyBox from "../replyBox/ReplyBox";
 import {Stack} from "@mui/material";
 
 const ReplyFeedView = ({goBack, selectedPost, replies}) => {
+    console.log({selectedPost, replies})
     const replyBox = () => {
         return (<ReplyBox className="reply" postHash={selectedPost.originPostHash}
                           targetSocialPersonaId={selectedPost.originSocialPersonaId}/>)

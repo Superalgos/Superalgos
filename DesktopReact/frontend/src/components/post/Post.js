@@ -40,7 +40,7 @@ const Post = ({postData}) => {
                 <div className="postBody">
                     {postText ? postText.toString() : ''}
                 </div>
-                <PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
+                <PostFooter postData={postData} postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
             </div>
         </div>
     );

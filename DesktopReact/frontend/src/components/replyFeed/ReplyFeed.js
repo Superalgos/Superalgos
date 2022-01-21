@@ -10,13 +10,14 @@ const ReplyFeed = () => {
     const [post, setPost] = useState({});
     const [mappedReplies, setMappedReplies] = useState([]);
     const navigate = useNavigate();
-    const goBack = () => navigate(-1);
     const {search} = useLocation();
     const urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
     const queryParams = {
         targetPostHash: urlSearchParams.get("post"),
         targetSocialPersonaId: urlSearchParams.get("user")
     }
+
+    const goBack = () => navigate(-1); /* TODO improve this cause it breaks on multiple navigation*/
 
     const loadPost = async () => {
         const {result, data} = await getPost(queryParams).then(response => response.json());

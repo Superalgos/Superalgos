@@ -105,12 +105,12 @@ const editProfile = async (body, res) => {
     }
 };
 
-const getProfile = async (req, res) => {
+const getProfile = async (socialPersonaId, res) => {
 
     try {
         let profileMessage = {
             queryType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId:req.socialPersonaId
+            originSocialPersonaId:socialPersonaId
             }
 
         let query = {
@@ -129,12 +129,12 @@ const getProfile = async (req, res) => {
     }
 };
 
-const loadProfile =  async (userProfileId, username, res) => {
+const loadProfile =  async (socialPersonaId, res) => {
 
     try {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId: undefined
+            originSocialPersonaId: socialPersonaId
         }
 
         let query = {

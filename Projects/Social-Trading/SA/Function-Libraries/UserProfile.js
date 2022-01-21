@@ -201,10 +201,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     Sign the User Profile with the Wallet Private Key.
                     */
                     let signature = web3.eth.accounts.sign(profileMessage.storageProviderUsername, privateKey)
-                    let userProfileConfig = {
+                    let config = {
+                        codeName: profileMessage.storageProviderUsername, 
                         signature: signature
                     }
-                    userProfile.config = JSON.stringify(userProfileConfig)
+                    userProfile.config = JSON.stringify(config)
                     response.message = "New User Profile Created."
                     response.address = address
                     response.privateKey = privateKey

@@ -1593,6 +1593,16 @@
                 }
             ]
         },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signing Accounts",
+                    "propertyName": "signingAccounts",
+                    "functionName": "newGovernanceUtilitiesSigningAccounts",
+                    "fileName": "Signing Accounts.js"
+                }
+            ]
+        },
         "TS": {},
         "PL": {},
         "plugins": [

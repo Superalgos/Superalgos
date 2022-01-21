@@ -308,18 +308,6 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                     }
                     return JSON.stringify(response)
                 }
-                /*
-                The Origin in each message, is the Social Entity (Social Person or Social Trading Bot)
-                that is producing the event. In other words, a User of a Social Trading App might have
-                multiple Social Personas or Social Trading Bots. The one that is currently using while
-                the event is executed is the one that should be specified at the message. If at this 
-                point we have a message without a defined Social Persona, we will use the default one
-                to retrieve it's id from the secrets file. 
-                */
-                if (profileMessage.originSocialPersonaId === undefined) {
-                    profileMessage.originSocialPersonaId = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA).nodeId
-                    console.log('DEPRECATION WARNING: You need to send the queryMessage.originSocialPersonaId at your EVENT Message because adding a default one will be deprecated at the next release.')
-                }
 
                 switch (profileMessage.profileType) {
                     case SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE: {

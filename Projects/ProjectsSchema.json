@@ -910,12 +910,7 @@
         },
         "PL": {
             "utilities": [
-                {
-                    "name": "Web Access",
-                    "propertyName": "webAccess",
-                    "functionName": "newFoundationsUtilitiesWebAccess",
-                    "fileName": "WebAccess.js"
-                }
+
             ]
         },
         "SA": {
@@ -934,6 +929,12 @@
                 }
             ],
             "utilities": [
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
+                },
                 {
                     "name": "Miscellaneous Functions",
                     "propertyName": "miscellaneousFunctions",

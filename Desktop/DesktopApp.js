@@ -25,6 +25,23 @@ exports.newDesktopApp = function newDesktopApp() {
         await setupNetwork()
         await finalSetupInterfaces()
 
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
+            storageProviderName: 'Github',
+            storageProviderUsername: 'Luis-Fernando-Molina',
+            storageProviderToken: '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',
+            userAppType: 'Social Trading Desktop App'
+        }
+
+        let testMessage = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
+        console.log(response)
+
         async function initialSetupInterfaces() {
             /*
             This is what we are going to use to send messages to the P2P Network.

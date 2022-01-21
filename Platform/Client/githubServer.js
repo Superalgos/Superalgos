@@ -468,7 +468,7 @@ exports.newGithubServer = function newGithubServer() {
                                 Validation #3: The file changed at the PR is a User Profile.
                                 */
                                 await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
-                                fileContent = await PL.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
+                                fileContent = await SA.projects.foundations.utilities.webAccess.fetchAPIDataFile(fileContentUrl)
                                 try {
                                     userProfile = JSON.parse(fileContent)
                                 } catch(err) {

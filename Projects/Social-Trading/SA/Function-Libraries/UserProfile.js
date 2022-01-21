@@ -79,13 +79,15 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             }
 
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
-            const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Project-Plugins'
+            const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
             const { Octokit } = SA.nodeModules.octokit
             const octokit = new Octokit({
                 auth: profileMessage.storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })
             let userProfile
+            let targetNode
+            let targetNodeTypeCount
             let response = {
                 result: 'Ok'
             }
@@ -202,7 +204,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     */
                     let signature = web3.eth.accounts.sign(profileMessage.storageProviderUsername, privateKey)
                     let config = {
-                        codeName: profileMessage.storageProviderUsername, 
+                        codeName: profileMessage.storageProviderUsername,
                         signature: signature
                     }
                     userProfile.config = JSON.stringify(config)
@@ -213,51 +215,59 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             }
 
             async function addUserApps() {
-                userProfile.userApps = {
-                    type: 'User Apps',
-                    name: 'New User Apps',
-                    project: 'User-Apps',
-                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    config: '{}'
+                if (userProfile.userApps === undefined) {
+                    userProfile.userApps = {
+                        type: 'User Apps',
+                        name: 'New User Apps',
+                        project: 'User-Apps',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: '{}'
+                    }
                 }
 
                 switch (profileMessage.userAppType) {
                     case "Social Trading Desktop App": {
-                        userProfile.userApps.desktopApps = {
-                            type: 'Desktop Apps',
-                            name: 'New Desktop Apps',
+                        if (userProfile.userApps.desktopApps === undefined) {
+                            userProfile.userApps.desktopApps = {
+                                type: 'Desktop Apps',
+                                name: 'New Desktop Apps',
+                                project: 'User-Apps',
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                config: '{}',
+                                socialTradingDesktopApps: []
+                            }
+                        }
+                        targetNode = {
+                            type: 'Social Trading Desktop App',
+                            name: 'New Social Trading Desktop App',
                             project: 'User-Apps',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{}',
-                            socialTradingDesktopApps: [
-                                {
-                                    type: 'Social Trading Desktop App',
-                                    name: 'New Social Trading Desktop App',
-                                    project: 'User-Apps',
-                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                    config: '{}',
-                                }
-                            ]
                         }
+                        userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
+                        targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.lenght
                         break
                     }
                     case "Social Trading Mobile App": {
-                        userProfile.userApps.desktopApps = {
-                            type: 'Mobile Apps',
-                            name: 'New Mobile Apps',
+                        if (userProfile.userApps.mobilepApps === undefined) {
+                            userProfile.userApps.mobilepApps = {
+                                type: 'Mobile Apps',
+                                name: 'New Mobile Apps',
+                                project: 'User-Apps',
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                config: '{}',
+                                socialTradingDesktopApps: []
+                            }
+                        }
+                        targetNode = {
+                            type: 'Social Trading Mobile App',
+                            name: 'New Social Trading Mobile App',
                             project: 'User-Apps',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{}',
-                            socialTradingDesktopApps: [
-                                {
-                                    type: 'Social Trading Mobile App',
-                                    name: 'New Social Trading Mobile App',
-                                    project: 'User-Apps',
-                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                    config: '{}',
-                                }
-                            ]
                         }
+                        userProfile.userApps.mobilepApps.socialTradingDesktopApps.push(targetNode)
+                        targetNodeTypeCount = userProfile.userApps.mobilepApps.socialTradingDesktopApps.lenght
                         break
                     }
                 }
@@ -300,47 +310,49 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     /*
                     Add the User Storage nodes to the User Profile
                     */
-                    userProfile.userStorage = {
-                        type: 'User Storage',
-                        name: 'New User Storage',
-                        project: 'Open-Storage',
-                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                        config: '{}',
-                        githubStorage: {
+                    if (userProfile.userStorage === undefined) {
+                        userProfile.userStorage = {
+                            type: 'User Storage',
+                            name: 'New User Storage',
+                            project: 'Open-Storage',
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            config: '{}'
+                        }
+                    }
+
+                    if (userProfile.userStorage.githubStorage === undefined) {
+                        userProfile.userStorage.githubStorage = {
                             type: 'Github Storage',
                             name: 'New Github Storage',
                             project: 'Open-Storage',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
                             config: '{}',
-                            githubStorageContainers: [
-                                {
-                                    type: 'Github Storage Container',
-                                    name: 'New Github Storage Container',
-                                    project: 'Open-Storage',
-                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                    config: JSON.stringify(
-                                        {
-                                            codeName: SOCIAL_TRADING_REPO_NAME,
-                                            githubUserName: profileMessage.storageProviderUsername,
-                                            repositoryName: SOCIAL_TRADING_REPO_NAME
-                                        }
-                                    )
-                                }
-                            ]
+                            githubStorageContainers: []
                         }
                     }
+                    let storageContainer = {
+                        type: 'Github Storage Container',
+                        name: 'New Github Storage Container',
+                        project: 'Open-Storage',
+                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                        config: JSON.stringify(
+                            {
+                                codeName: SOCIAL_TRADING_REPO_NAME,
+                                githubUserName: profileMessage.storageProviderUsername,
+                                repositoryName: SOCIAL_TRADING_REPO_NAME
+                            }
+                        )
+                    }
+                    userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
                 }
             }
 
             async function addSigningAccounts() {
-                /*
-                Creating the Signing Accounts nodes.
-                */
-
-
-                /*
-                Saving the Signing Accounts at the Secrets File.
-                */
+                SA.projects.governance.utilities.signingAccounts.installSigningAccount(
+                    userProfile,
+                    targetNode,
+                    targetNodeTypeCount
+                )
             }
 
             async function saveUserProfileToAppStorage() {

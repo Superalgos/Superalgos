@@ -105,20 +105,18 @@ const editProfile = async (body, res) => {
     }
 };
 
-const getProfile = async (userProfileId, username, res) => {
+const getProfile = async (req, res) => {
 
     try {
-        let queryMessage = {
+        let profileMessage = {
             queryType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId: undefined,
-            userProfileId: userProfileId,
-            username: username
-        }
+            originSocialPersonaId:req.socialPersonaId
+            }
 
         let query = {
             networkService: 'Social Graph',
-            requestType: 'Query',
-            queryMessage: JSON.stringify(queryMessage)
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
         }
 
         const result = await webAppInterface.sendMessage(
@@ -131,12 +129,64 @@ const getProfile = async (userProfileId, username, res) => {
     }
 };
 
+const loadProfile =  async (userProfileId, username, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
+            originSocialPersonaId: undefined
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        const result = await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+        return result
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const saveProfile =  async (body, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY,
+            profileData: JSON.stringify(body),
+            originSocialPersonaId: undefined
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        const result = await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+        return result
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 
 module.exports = {
     getProfiles,
     followProfile,
     paginateProfiles,
     editProfile,
-    getProfile
+    getProfile,
+    loadProfile,
+    saveProfile
 };
 

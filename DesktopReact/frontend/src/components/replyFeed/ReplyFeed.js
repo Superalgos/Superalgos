@@ -27,6 +27,7 @@ const ReplyFeed = ({}) => {
             setPost(data)
         }
     }
+
     const loadReplies = async () => {
 
         let queryParams = {
@@ -50,7 +51,7 @@ const ReplyFeed = ({}) => {
         loadReplies();
     }, []);
 
-
+    if(post.originSocialPersonaId)
     return (
         <ReplyFeedView
             selectedPost={post}
@@ -58,6 +59,7 @@ const ReplyFeed = ({}) => {
             replies={mappedReplies}
         />
     );
+    return<></>
 };
 
 export default ReplyFeed;

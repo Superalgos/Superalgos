@@ -39,7 +39,8 @@ const Post = ({postData}) => {
         postText,
         reactions,
         originPostHash
-    } = post;
+    } = postData;
+
 
     const handlePostClick = (e) => {
         if (postIdParameter !== originPostHash) {

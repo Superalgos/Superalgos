@@ -42,6 +42,14 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         addSigningAccounts(socialTradingBots, 'Social Trading Bot')
         addSigningAccounts(socialPersonas, 'Social Persona')
         addSigningAccounts(p2pNetworkNodes, 'P2P Network Node')
+        /*
+        Save Signing Accounts Secrets File
+        */
+        let filePath = global.env.PATH_TO_SECRETS + '/'
+        let fileName = "SigningAccountsSecrets.json"
+
+        SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, secretsFile)
 
         function addSigningAccounts(nodeArray, targetNodeType) {
             if (nodeArray === undefined) return;
@@ -62,7 +70,7 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             const Web3 = SA.nodeModules.web3
             let web3 = new Web3()
             let account = web3.eth.accounts.create()
-            let address = account.address
+            let blockchainAccount = account.address
             let privateKey = account.privateKey
             /*
             Sign the Signing Account with the Wallet Private Key.
@@ -84,9 +92,7 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             /*
             Code Name for the Target Node
             */
-            let targetNodeConfig = JSON.parse(targetNode.config)
-            targetNodeConfig.codeName = codeName
-            targetNode.config = JSON.stringify(targetNodeConfig)
+            SA.projects.visualScripting.utilities.nodeConfiguration.saveConfigProperty(targetNode, 'codeName', codeName)
             /*
             Create the Signing Account Node
             */
@@ -98,18 +104,12 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
                 config: JSON.stringify(config)
             }
             targetNode.signingAccount = signingAccount
-
-
             /*
             For Social Entities, we will automatically create a default handle
             */
             if (targetNode.type === "Social Persona" || targetNode.type === "Social Trading Bot") {
-                UI.projects.visualScripting.utilities.nodeConfig.saveConfigProperty(targetNode.payload, 'handle', handle)
+                SA.projects.visualScripting.utilities.nodeConfiguration.saveConfigProperty(targetNode, 'handle', handle)
             }
-            /*
-            Save User Profile Plugin
-            */
-            UI.projects.communityPlugins.nodeActionFunctions.pluginsFunctions.savePluginHierarchy(userProfile)
             /*
             Deal with secrets
             */
@@ -128,30 +128,6 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             }
 
             secrets.push(secret)
-            /*
-            Save Signing Accounts Secrets File
-            */
-            httpRequest(JSON.stringify(secretsFile, undefined, 4), 'Secrets/Save-Singing-Accounts-Secrets-File', onResponse)
-            function onResponse(err, data) {
-                /* Lets check the result of the call through the http interface */
-                data = JSON.parse(data)
-                if (err.result != GLOBAL.DEFAULT_OK_RESPONSE.result || data.result != GLOBAL.DEFAULT_OK_RESPONSE.result) {
-                    node.payload.uiObject.setErrorMessage(
-                        "Signing Accounts Secrets File could not be created.",
-                        UI.projects.governance.globals.designer.SET_ERROR_COUNTER_FACTOR
-                    )
-                } else {
-                    userProfile.payload.uiObject.menu.internalClick('Save Plugin')
-                    userProfile.payload.uiObject.menu.internalClick('Save Plugin')
-                    /*
-                    Show nice message.
-                    */
-                    node.payload.uiObject.setInfoMessage(
-                        "Signing Accounts Secrets File have been sucessfully created.",
-                        UI.projects.governance.globals.designer.SET_INFO_COUNTER_FACTOR
-                    )
-                }
-            }
         }
     }
 }

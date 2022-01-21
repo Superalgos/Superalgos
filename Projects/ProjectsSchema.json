@@ -501,6 +501,12 @@
                     "propertyName": "nodeFunctions",
                     "functionName": "newVisualScriptingUtilitiesNodeFunctions",
                     "fileName": "NodeFunctions.js"
+                },
+                {
+                    "name": "Node Configuration",
+                    "propertyName": "nodeConfiguration",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfiguration",
+                    "fileName": "NodeConfiguration.js"
                 }
             ]
         }

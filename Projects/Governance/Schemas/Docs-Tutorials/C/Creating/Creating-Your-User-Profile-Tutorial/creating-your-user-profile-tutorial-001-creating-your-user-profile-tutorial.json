@@ -15,6 +15,11 @@
                 "language": "DE",
                 "text": "Dieses Tutorial führt Sie durch die Schritte, um ein Benutzerprofil (User Profile) zu erstellen und die Reise zur Teilnahme an Superalgos Governance zu beginnen.",
                 "updated": 1640071769843
+            },
+            {
+                "language": "TR",
+                "text": "Bu Eğitim (Tutorial), bir Kullanıcı Profili oluşturma ve Superalgos Yönetişimi'ne katılma yolculuğuna başlamanızda size yol gösterir.",
+                "updated": 1642708895825
             }
         ]
     },
@@ -27,17 +32,36 @@
                     "language": "RU",
                     "text": "Об этом руководстве",
                     "updated": 1639043171547
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğretici hakıında;",
+                    "updated": 1642708938222
                 }
             ]
         },
         {
             "style": "List",
             "text": "Workspace: Token Distribution Superalgos.",
-            "updated": 1629146723735
+            "updated": 1629146723735,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı (Workspace): Token Distribution Superalgos.",
+                    "updated": 1642708992975
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Maintainer: @harrellbm (Telegram, and Discord)."
+            "text": "Maintainer: @harrellbm (Telegram, and Discord).",
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Projeyi Yürüten: @harrellbm (Telegram, and Discord).",
+                    "updated": 1642709005715
+                }
+            ]
         },
         {
             "style": "Text",

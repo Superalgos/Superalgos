@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Governance Project - это раздел платформы Superalgos, который обеспечивает распределенное управление проектом Superalgos.",
                 "updated": 1638982328967
+            },
+            {
+                "language": "TR",
+                "text": "Yönetişim Projesi (Governance Project), Superalgos Projesinin (Superalgos Project) dağıtılmış yönetimini sağlayan bölümüdür.",
+                "updated": 1642709172830
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "language": "ES",
                     "text": "Utilice esta jerarquía para generar jerarquías de definición de proyectos como las jerarquías Pools, Positions, Features y Assets.",
                     "updated": 1640961010715
+                },
+                {
+                    "language": "TR",
+                    "text": "Havuzlar (Pools), Konumlar (Positions), Özellikler (Features) ve Varlıklar (Assets) Hiyerarşileri gibi proje tanımı hiyerarşilerini oluşturmak için bu hiyerarşiyi kullanın.",
+                    "updated": 1642709219732
                 }
             ]
         },
@@ -62,6 +72,11 @@
                     "language": "ES",
                     "text": "Aquí también es donde encuentras la opción de generar un nodo de Profile Constructor.",
                     "updated": 1640961047520
+                },
+                {
+                    "language": "TR",
+                    "text": "Profil Oluşturucu (Profile Constructor) düğümünü oluşturma seçeneğini de burada bulabilirsiniz.",
+                    "updated": 1642709250555
                 }
             ]
         }

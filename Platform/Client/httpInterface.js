@@ -1481,7 +1481,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             })
 
                                             const repo = 'Superalgos'
-                                            const owner = 'Superalgos'
+                                            const owner = 'Governance-Plugins'
                                             const head = username + ':' + contributionsBranch
                                             //const base = currentBranch
                                             let base = undefined
@@ -1491,7 +1491,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 base = currentBranch
                                             }
                                             const title = 'Governance: ' + mess
-                                            const path = 'Projects/Governance/Plugins/User-Profiles/' + username + '.json';
+                                            const path = 'Plugins/Governance/User-Profiles/' + username + '.json';
 
                                             const sha = await getSHA(path);
 
@@ -2047,7 +2047,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             let project = requestPath[2]
                             let folder = requestPath[3]
                             let fileName = requestPath[4]
-                            let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/' + folder
+                            let filePath = global.env.PATH_TO_PLUGINS + '/' + project + '/' + folder
                             let fileContent = JSON.stringify(plugin, undefined, 4)
                             const fs = SA.nodeModules.fs
                             fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
@@ -2097,7 +2097,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         readPluginWorkspaces()
 
                         function readPluginWorkspaces() {
-                            let dirPath = global.env.PATH_TO_PROJECTS + '/' + project + '/Plugins/Workspaces'
+                            let dirPath = global.env.PATH_TO_PLUGINS + '/' + project + '/Workspaces'
                             try {
                                 let fs = SA.nodeModules.fs
                                 fs.readdir(dirPath, onDirRead)

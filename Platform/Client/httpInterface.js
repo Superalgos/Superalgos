@@ -2047,7 +2047,8 @@ exports.newHttpInterface = function newHttpInterface() {
                             let project = requestPath[2]
                             let folder = requestPath[3]
                             let fileName = requestPath[4]
-                            let filePath = global.env.PATH_TO_PLUGINS + '/' + project + '/' + folder
+                            let pluginName = global.env.PROJECT_PLUGIN_MAP[project] || project
+                            let filePath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/' + folder
                             let fileContent = JSON.stringify(plugin, undefined, 4)
                             const fs = SA.nodeModules.fs
                             fs.writeFileSync(filePath + '/' + fileName + '.json', fileContent)
@@ -2097,7 +2098,8 @@ exports.newHttpInterface = function newHttpInterface() {
                         readPluginWorkspaces()
 
                         function readPluginWorkspaces() {
-                            let dirPath = global.env.PATH_TO_PLUGINS + '/' + project + '/Workspaces'
+                            let pluginName = global.env.PROJECT_PLUGIN_MAP[project] || project
+                            let dirPath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/Workspaces'
                             try {
                                 let fs = SA.nodeModules.fs
                                 fs.readdir(dirPath, onDirRead)

@@ -10,7 +10,8 @@ exports.newPluginsUtilitiesPlugins = function () {
     async function getPluginFileNames(project, folder) {
         let promise = new Promise((resolve, reject) => {
 
-            let path = global.env.PATH_TO_PLUGINS + '/' + project + '/' + folder
+            let pluginName = global.env.PROJECT_PLUGIN_MAP[project] || project
+            let path = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/' + folder
 
             SA.nodeModules.fs.readdir(path, (err, files) => {
                 if (err) {
@@ -30,8 +31,8 @@ exports.newPluginsUtilitiesPlugins = function () {
 
     async function getPluginFileContent(project, folder, fileName) {
         let promise = new Promise((resolve, reject) => {
-
-            let path = global.env.PATH_TO_PLUGINS + '/' + project + '/' + folder + '/' + fileName
+            let pluginName = global.env.PROJECT_PLUGIN_MAP[project] || project
+            let path = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/' + folder + '/' + fileName
 
             SA.nodeModules.fs.readFile(path, onFileRead)
 

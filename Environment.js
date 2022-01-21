@@ -5,6 +5,9 @@ if (process.env.PACKAGED_PATH) {
 } else {
     basePath = __dirname
 }
+
+const projectPluginMap = require(path.join(basePath, './Plugins/project-plugin-map.json'))
+
 exports.newEnvironment = function () {
 
     let thisObject = {
@@ -22,6 +25,7 @@ exports.newEnvironment = function () {
         PATH_TO_DATA_STORAGE: path.join(basePath, './Platform/My-Data-Storage'),
         PATH_TO_PROJECTS: path.join(basePath, './Projects'),
         PATH_TO_PLUGINS: path.join(basePath, './Plugins'),
+        PROJECT_PLUGIN_MAP: projectPluginMap,
         PATH_TO_LOG_FILES: path.join(basePath, './Platform/My-Log-Files'),
         PATH_TO_PROJECTS_REQUIRED: path.join(basePath, './Projects'),
         PATH_TO_PROJECT_SCHEMA: path.join(basePath, './Projects/ProjectsSchema.json'),

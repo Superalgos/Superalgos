@@ -27,7 +27,7 @@ function newGovernanceNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.governance.nodeActionFunctions.votes.installMissingVotes(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -43,7 +43,7 @@ function newGovernanceNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.governance.nodeActionFunctions.claims.installMissingClaims(action.node, action.rootNodes)
                     
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,

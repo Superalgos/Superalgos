@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Обратите внимание, что не все узлы вычисляются постоянно! Только те, которые находятся в активной стадии!",
                 "updated": 1640631384638
+            },
+            {
+                "language": "TR",
+                "text": "Tüm düğümlerin her zaman değerlendirilmediğine dikkat edin! Sadece aktif aşamada olanlar değerlendirilir!",
+                "updated": 1642517648584
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Это краткий обзор этапов стратегии! Если вы еще не читали документацию по торговым системам и стратегиям, то найдите время и сделайте это!",
                     "updated": 1640631404560
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, strateji aşamaları hakkında hızlı bir bilgi tazeleme! Ticaret sistemleri ve stratejileriyle ilgili belgeleri okumadıysanız, zaman ayırın ve ilgili belgeleri okuyun!",
+                    "updated": 1642517704659
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что эти условия не выделены для свечей внутри позиции.",
                     "updated": 1640631424384
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu koşulların pozisyon içindeki mumlar için nasıl vurgulanmadığına dikkat edin.",
+                    "updated": 1642517746196
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Это происходит потому, что вы смотрите на определения этапа Trigger Stage. Эти определения вычисляются до тех пор, пока не сработает стратегия. После срабатывания начинается этап Open Stage, и так далее!",
                     "updated": 1640631499087
+                },
+                {
+                    "language": "TR",
+                    "text": "Bunun nedeni, Trigger Stage tanımlarına bakıyor olmanızdır. Bu tanımlar, bir Strateji tetiklenene kadar değerlendirilir. Bir kez tetiklendiğinde,Open Stage devreye girer ve bu böyle devam eder!",
+                    "updated": 1642518289084
                 }
             ]
         }

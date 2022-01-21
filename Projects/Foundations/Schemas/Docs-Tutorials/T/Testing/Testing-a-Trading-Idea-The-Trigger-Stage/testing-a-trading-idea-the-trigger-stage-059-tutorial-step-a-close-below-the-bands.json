@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet:Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
                 "updated": 1641662918760
+            },
+            {
+                "language": "RU",
+                "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса!",
+                "updated": 1642660544027
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bollinger Bantlarının açıklaması, üst ve alt bantların sırasıyla hareketli ortalamanın (MA) üstünde ve altında iki standart sapma olduğunu açıklar. MA'yı moveAverage kapasitesinde sunulduğu için biliyoruz. Standart sapma, standardDeviation özelliğinde sunulur.",
                     "updated": 1641662933434
+                },
+                {
+                    "language": "RU",
+                    "text": "Описание полос Боллинджера объясняет, что верхняя и нижняя полосы расположены на два стандартных отклонения выше и ниже скользящей средней (MA) соответственно. Мы знаем MA, которая предлагается в свойстве movingAverage. Стандартное отклонение предлагается в свойстве standardDeviation.",
+                    "updated": 1642660569247
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "alt bant, MA'nın altında iki standart sapmadır. Daha sonra alt bant, MA eksi standart sapma çarpı iki'ye eşittir.",
                     "updated": 1641662944330
+                },
+                {
+                    "language": "RU",
+                    "text": "Нижняя полоса располагается на два стандартных отклонения ниже МА. Тогда нижняя полоса равна МА минус стандартное отклонение, умноженное на два.",
+                    "updated": 1642660586039
                 }
             ]
         }

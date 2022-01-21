@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: İfadenin her iki tarafındaki her bir özelliği değiştirmek için önceki özelliği kullanacağımızı belirtmiştim...",
                 "updated": 1641663804030
+            },
+            {
+                "language": "RU",
+                "text": "Я упомянул, что мы будем использовать свойства previous (предыдущий) для изменения каждого свойства с обеих сторон выражения...",
+                "updated": 1642661496564
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Not: Ancak, bu kullanım kesinlikle gerekli değildir! Önceki özelliği istediğiniz gibi kullanabilirsiniz. Mumun kapanışını hareketli ortalama ve aynı mumun sapması ile karşılaştırmamız gerekiyor! Bu nedenle, bunu tüm ifadelere uyguluyoruz!",
                     "updated": 1641663814097
+                },
+                {
+                    "language": "RU",
+                    "text": "Но такое использование не является обязательным! Вы можете использовать свойство previous по своему усмотрению. Нам нужно сравнить закрытие свечи со скользящей средней и отклонение этой же свечи! Поэтому мы применяем его ко всем условным выражениям!",
+                    "updated": 1642661848699
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Ama örneğin mevcut mumun kapanışını önceki mumun kapanışıyla karşılaştırabilirsiniz:",
                     "updated": 1641663824425
+                },
+                {
+                    "language": "RU",
+                    "text": "Но вы можете, например, захотеть сравнить закрытие текущей свечи с закрытием предыдущей свечи:",
+                    "updated": 1642661864141
                 }
             ]
         },

@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Alım satım fikrini geliştirdiğimizde, 1H grafiğindeki tek bir kırılmanın kötü girişlere yol açacağını fark ettik...",
                 "updated": 1641663652079
+            },
+            {
+                "language": "RU",
+                "text": "Когда мы придумали эту торговую идею, мы заметили, что один пробой на графике 1H приводит к плохим входам...",
+                "updated": 1642661119724
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "İlk atılımın sinyalimiz olacağına ve art arda ikinci bir atılımın da onayımız olacağına karar verdik.",
                     "updated": 1641663664179
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы решили, что первый пробой будет нашим сигналом, а второй последовательный пробой - подтверждением.",
+                    "updated": 1642661135251
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Bu durumu tanımlamamıza yardımcı olacak kavramları tazeleyelim! \"Sözdizimine Genel Bakış\" ( Syntax Overview ) sayfasına geri döndük. Lütfen \"Önceki Mülkiyet\"(Previous Property) bölümünü okuyunuz!",
                     "updated": 1641663693370
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте освежим в памяти понятия, которые помогут нам описать эту ситуацию! Мы вернемся на страницу \"Syntax Overview\". Пожалуйста, прочитайте раздел о свойстве Previous!",
+                    "updated": 1642661231200
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Pozisyon Al olayının tanımını tamamlamak için ikinci bir koşul yazabilir misiniz?",
                     "updated": 1641663704474
+                },
+                {
+                    "language": "RU",
+                    "text": "Можете ли вы написать второе условие, чтобы завершить определение события занятия позиции?",
+                    "updated": 1642661273237
                 }
             ]
         }

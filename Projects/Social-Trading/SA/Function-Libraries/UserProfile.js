@@ -94,14 +94,20 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
 
             //await checkCreateFork()
             await checkCreateUserProfile()
-            await addOpenStorage()
-            await addUserApps()
+            if (response.result === 'Error') { return }
+            //await addOpenStorage()
+            if (response.result === 'Error') { return }
+            addUserApps()
+            if (response.result === 'Error') { return }
             await addSigningAccounts()
-            await saveUserProfileToAppStorage()
+            if (response.result === 'Error') { return }
+            saveUserProfile()
+
+            resolve(response)
 
             async function checkCreateFork() {
                 /*
-                Step #1 : We will check if the storageProviderName has a fork of Superalgos already created. If not, we will create the fork.
+                We will check if the storageProviderName has a fork of Superalgos already created. If not, we will create the fork.
                 */
                 await octokit.rest.repos.get({
                     owner: profileMessage.storageProviderUsername,
@@ -136,7 +142,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             .catch(errorCreatingFork)
 
                     } else {
-                        let response = {
+                        response = {
                             result: 'Error',
                             message: 'Error accessing Github.',
                             stack: err.stack
@@ -150,7 +156,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
 
                 async function errorCreatingFork(err) {
-                    let response = {
+                    response = {
                         result: 'Error',
                         message: 'Error creating Fork at Github.',
                         stack: err.stack
@@ -161,7 +167,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
 
             async function checkCreateUserProfile() {
                 /*
-                Step #2 : We will check for the User Profile and read that file if exists. 
+                We will check for the User Profile and read that file if exists. 
                 */
                 let userProfileUrl =
                     'https://raw.githubusercontent.com/' +
@@ -214,7 +220,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            async function addUserApps() {
+            function addUserApps() {
                 if (userProfile.userApps === undefined) {
                     userProfile.userApps = {
                         type: 'User Apps',
@@ -245,7 +251,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             config: '{}',
                         }
                         userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
-                        targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.lenght
+                        targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length
                         break
                     }
                     case "Social Trading Mobile App": {
@@ -290,14 +296,14 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     addNodes()
                 }
 
-                function repositoryCreated(err) {
-                    if (err.status === 230) {
+                function repositoryNotCreated(err) {
+                    if (err.status === 422) {
                         /*
                         Repo already existed, so no need to create it. 
                         */
                         addNodes()
                     } else {
-                        let response = {
+                        response = {
                             result: 'Error',
                             message: 'Error creating Repo at Github.',
                             stack: err.stack
@@ -351,14 +357,33 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 SA.projects.governance.utilities.signingAccounts.installSigningAccount(
                     userProfile,
                     targetNode,
-                    targetNodeTypeCount
+                    targetNodeTypeCount,
+                    response
                 )
+                if (response.result === 'Error') { resolve(response) }
             }
 
-            async function saveUserProfileToAppStorage() {
+            function responseXX() {
+                /*
+                Create a Pull Request with the changed profile, so that it can eventually be merged into
+                the Governance Plugins repo.
+                */
+
+
+
                 /*
                 We will save a file to a special git ignored folder.
                 */
+                let filePath = global.env.PATH_TO_MY_SOCIAL_TRADING_DATA + '/'
+                let fileName = "AppData.json"
+                let fileContent = {
+                    userProfile: {
+                        id: userProfile.id,
+                        name: userProfile.name
+                    }
+                }
+                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
+                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(fileContent, undefined, 4))
             }
         }
     }

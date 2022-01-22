@@ -1605,7 +1605,7 @@
                     "name": "Signing Accounts",
                     "propertyName": "signingAccounts",
                     "functionName": "newGovernanceUtilitiesSigningAccounts",
-                    "fileName": "Signing Accounts.js"
+                    "fileName": "SigningAccounts.js"
                 }
             ]
         },

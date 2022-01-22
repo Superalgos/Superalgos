@@ -9,14 +9,21 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
     function installSigningAccount(
         userProfile,
         targetNode,
-        targetNodeTypeCount
+        targetNodeTypeCount,
+        response
     ) {
         /*
         Try to load the Secrets file. 
         */
         let filePath = global.env.PATH_TO_SECRETS + '/'
         let fileName = "SigningAccountsSecrets.json"
-        let fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName, secretsFile)
+        let fileContent 
+        try {
+            fileContent = SA.nodeModules.fs.readFileSync(filePath + '/' + fileName)
+        }catch(err) {
+            /* If the file does not exist, then we'll get here.*/
+        }
+        
         let secretsFile
         if (fileContent === undefined) {
             secretsFile = {
@@ -36,7 +43,7 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         let userProfileHandle = SA.projects.visualScripting.utilities.nodeConfiguration.loadConfigProperty(userProfile, 'codeName')
 
         if (userProfileHandle === undefined || userProfileHandle === "") {
-            let response = {
+            response = {
                 result: 'Error',
                 message: 'User Profile codeName config property missing.'
             }
@@ -94,7 +101,7 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         let secret = {
             nodeId: targetNode.id,
             nodeName: targetNode.name,
-            nodeType: targetNodeType,
+            nodeType: targetNode.type,
             nodeCodeName: codeName,
             signingAccountNodeId: signingAccount.id,
             blockchainAccount: blockchainAccount,
@@ -108,6 +115,6 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         Save Signing Accounts Secrets File
         */
         SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
-        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, secretsFile)
+        SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(secretsFile, undefined, 4))
     }
 }

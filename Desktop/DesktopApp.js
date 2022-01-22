@@ -29,7 +29,7 @@ exports.newDesktopApp = function newDesktopApp() {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
             storageProviderName: 'Github',
             storageProviderUsername: 'Luis-Fernando-Molina',
-            storageProviderToken: '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',
+            storageProviderToken: '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',
             userAppType: 'Social Trading Desktop App'
         }
 

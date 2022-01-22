@@ -32,15 +32,14 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             const completePath = filePath + '/' + fileName + '.json'
             const buff = new Buffer.from(fileContent, 'utf-8');
             const content = buff.toString('base64');
-            let fileExists= false;
+
             try {
-                const { data: { sha }} = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}', {
+                const { data: { sha } } = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}', {
                     owner: owner,
                     repo: repo,
                     file_path: completePath
-                  });
-                  if(sha){
-                    fileExists=true;
+                });
+                if (sha) {
                     await octokit.repos.createOrUpdateFileContents({
                         owner: owner,
                         repo: repo,
@@ -48,28 +47,25 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                         message: message,
                         content: content,
                         branch: branch,
-                        sha:sha
+                        sha: sha
                     })
                         .then(githubSaysOK)
                         .catch(githubError)
-                  }
+                } else {
+                    await octokit.repos.createOrUpdateFileContents({
+                        owner: owner,
+                        repo: repo,
+                        path: completePath,
+                        message: message,
+                        content: content,
+                        branch: branch,
+                    })
+                        .then(githubSaysOK)
+                        .catch(githubError)
+                }
 
             } catch (error) {
                 console.log("New file");
-            }
-
-              
-            if(!fileExists){
-                await octokit.repos.createOrUpdateFileContents({
-                    owner: owner,
-                    repo: repo,
-                    path: completePath,
-                    message: message,
-                    content: content,
-                    branch: branch,
-                })
-                    .then(githubSaysOK)
-                    .catch(githubError)
             }
 
             function githubSaysOK() {

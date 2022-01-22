@@ -74,7 +74,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
             This is the Social Graph Network Service Client that will allow us to 
             send Queries or Events to it. 
             */
-            thisObject.socialGraphNetworkServiceClient = DK.projects.socialTrading.modules.socialGraphNetworkServiceClient.newSocialTradingModulesSocialGraphNetworkServiceClient()
+            thisObject.socialGraphNetworkServiceClient = SA.projects.socialTrading.modules.socialGraphNetworkServiceClient.newSocialTradingModulesSocialGraphNetworkServiceClient()
             await thisObject.socialGraphNetworkServiceClient.initialize(
                 userAppSigningAccountCodeName,
                 thisObject.p2pNetworkNodesConnectedTo

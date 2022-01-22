@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Resistances dan Supports Multi-Time-Frame-Daily di kiri adalah yang terakhir dari proses yang harus diselesaikan, jadi awasi itu!",
                 "updated": 1640576393304
+            },
+            {
+                "language": "RU",
+                "text": "Resistance and Support -> Multi-Time-Frame-Daily слева - последний из завершающих процессов, так что следите за ним!",
+                "updated": 1642771668941
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "ID",
                     "text": "Jika proses ini 100%, maka kita siap melanjutkan.",
                     "updated": 1640576423336
+                },
+                {
+                    "language": "RU",
+                    "text": "Если этот процесс достигнет 100%, значит, мы готовы к работе.",
+                    "updated": 1642771258144
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "ID",
                     "text": "Adapun, tidak ada masalah yang terjadi jika kamu mencoba untuk menjalankan Live Trading Session ketika indikator yang diperlukan tidak up to date. Akan ada kesalahan, dan kamu akan diberitahu alasannya. Jadi, bukan masalah besar!",
                     "updated": 1640576516923
+                },
+                {
+                    "language": "RU",
+                    "text": "В любом случае, ничего катастрофического не произойдет, если вы попытаетесь запустить торговую сессию в реальном времени, когда необходимые индикаторы не обновлены. Возникнет ошибка, и вы будете уведомлены о причине. Так что ничего страшного!",
+                    "updated": 1642771277717
                 }
             ]
         },
@@ -137,6 +152,11 @@
                     "language": "ID",
                     "text": "Pada langkah berikutnya aku akan meminta kamu untuk memulai Task dan Live Trading Session. Jika kamu memilih untuk tidak melakukannya, teruskan tutorial seolah-olah kamu punya...",
                     "updated": 1640576592357
+                },
+                {
+                    "language": "RU",
+                    "text": "На следующем этапе я попрошу вас запустить задачу (Task) и реальную торговую сессию (Live Trading Session). Если вы этого не сделаете, продолжайте изучать учебник, как если бы вы...",
+                    "updated": 1642771363355
                 }
             ]
         }

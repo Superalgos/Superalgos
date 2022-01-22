@@ -66,9 +66,9 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
                 }
                 peer.webSocketsClient = SA.projects.network.modules.webSocketsNetworkClient.newNetworkModulesWebSocketsNetworkClient()
                 await peer.webSocketsClient.initialize(
-                    callerRole, 
-                    p2pNetworkClientIdentity, 
-                    peer.p2pNetworkNode, 
+                    callerRole,
+                    p2pNetworkClientIdentity,
+                    peer.p2pNetworkNode,
                     p2pNetworkClient,
                     onConnectionClosed
                 )
@@ -116,6 +116,7 @@ exports.newNetworkModulesP2PNetworkNodesConnectedTo = function newNetworkModules
         */
         let peerIndex = Math.max(Math.round(Math.random() * thisObject.peers.length) - 1, 0)
         let peer = thisObject.peers[peerIndex]
+        // console.log(peer)
         return await peer.webSocketsClient.sendMessage(message)
     }
 }

@@ -20,11 +20,6 @@
     margin: 0.5rem 0 !important;
 }
 
-.editProfileHeader {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-}
 
 .userProfileAvatarButton{
     margin-bottom: 0.4rem !important;
@@ -33,12 +28,7 @@
     width: 8.3rem;
 }
 
-.editProfileCloseBtn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 7%
-}
+
 
 .editProfileHeaderTitleAndBtn{
     display: flex;

@@ -11,20 +11,12 @@ import SidebarUserProfile from "../sidebarUserProfile/SidebarUserProfile";
 import React, {useState} from "react";
 
 const Sidebar = props => {
-    /*const menuOptions = [{name: "Home", icon: HomeIcon},
-        {name: "Profile", icon: PersonIcon},
-        {name: "Post", icon: PostAddIcon}
-        /!*, "Explore", "Notifications", "Messages", "Bookmarks", "Lists", "More"*!/]*/
 
     const [mobileOpen, setMobileOpen] = useState(false);
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
     const drawerWidth = 240;
-
-    /*const menuItems = menuOptions.map(option => {
-        return <SidebarItem key={option.name} Icon={option.icon} value={option.name}/>
-    })*/
 
     /* TODO CLAUDIO, use a single tag and change styles based on size*/
     return (
@@ -33,7 +25,7 @@ const Sidebar = props => {
                 variant="permanent"
                 PaperProps={{style: {position: "relative"}}}
                 sx={{
-                    height: "100%",
+                    height: "100%", minHeight: "340px",
                     display: {xs: 'none', sm: 'none', md: 'none', lg: 'block'},
                     '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
                 }} open>
@@ -55,7 +47,7 @@ const Sidebar = props => {
                 variant="permanent"
                 PaperProps={{style: {position: "relative"}}}
                 sx={{
-                    height: "100%",
+                    height: "100%", minHeight: "340px",
                     display: {xs: 'block', sm: 'block', md: 'block', lg: 'none'},
                     '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth - 185},
                 }} open>
@@ -70,7 +62,7 @@ const Sidebar = props => {
                     </Stack>
                 </div>
                 {/* todo broken with new merge, review */}
-                <SidebarUserProfile/>
+                <SidebarUserProfile />
             </Drawer>
         </div>
     );

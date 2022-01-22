@@ -80,6 +80,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
 
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
+            const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
             const { Octokit } = SA.nodeModules.octokit
             const octokit = new Octokit({
                 auth: profileMessage.storageProviderToken,
@@ -95,11 +96,11 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             //await checkCreateFork()
             await checkCreateUserProfile()
             if (response.result === 'Error') { return }
-            //await addOpenStorage()
-            if (response.result === 'Error') { return }
             addUserApps()
             if (response.result === 'Error') { return }
             await addSigningAccounts()
+            if (response.result === 'Error') { return }
+            await pushProfileAndPullRequest()
             if (response.result === 'Error') { return }
             saveUserProfile()
 
@@ -174,7 +175,9 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     SUPERALGOS_ORGANIZATION_NAME +
                     '/' +
                     GOVERNANCE_PLUGINS_REPO_NAME +
-                    '/develop/User-Profiles/' +
+                    '/' +
+                    GOVERNANCE_PLUGINS_REPO_BRANCH +
+                    '/User-Profiles/' +
                     profileMessage.storageProviderUsername +
                     '.json'
 
@@ -279,80 +282,6 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            async function addOpenStorage() {
-
-                const SOCIAL_TRADING_REPO_NAME = "My-Social-Trading-Data"
-                /*
-                Create this repository at Github 
-                */
-                await octokit.rest.repos.createForAuthenticatedUser({
-                    name: SOCIAL_TRADING_REPO_NAME,
-                    private: false
-                })
-                    .then(repositoryCreated)
-                    .catch(repositoryNotCreated)
-
-                function repositoryCreated() {
-                    addNodes()
-                }
-
-                function repositoryNotCreated(err) {
-                    if (err.status === 422) {
-                        /*
-                        Repo already existed, so no need to create it. 
-                        */
-                        addNodes()
-                    } else {
-                        response = {
-                            result: 'Error',
-                            message: 'Error creating Repo at Github.',
-                            stack: err.stack
-                        }
-                        resolve(response)
-                    }
-                }
-
-                function addNodes() {
-                    /*
-                    Add the User Storage nodes to the User Profile
-                    */
-                    if (userProfile.userStorage === undefined) {
-                        userProfile.userStorage = {
-                            type: 'User Storage',
-                            name: 'New User Storage',
-                            project: 'Open-Storage',
-                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}'
-                        }
-                    }
-
-                    if (userProfile.userStorage.githubStorage === undefined) {
-                        userProfile.userStorage.githubStorage = {
-                            type: 'Github Storage',
-                            name: 'New Github Storage',
-                            project: 'Open-Storage',
-                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}',
-                            githubStorageContainers: []
-                        }
-                    }
-                    let storageContainer = {
-                        type: 'Github Storage Container',
-                        name: 'New Github Storage Container',
-                        project: 'Open-Storage',
-                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                        config: JSON.stringify(
-                            {
-                                codeName: SOCIAL_TRADING_REPO_NAME,
-                                githubUserName: profileMessage.storageProviderUsername,
-                                repositoryName: SOCIAL_TRADING_REPO_NAME
-                            }
-                        )
-                    }
-                    userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
-                }
-            }
-
             async function addSigningAccounts() {
                 SA.projects.governance.utilities.signingAccounts.installSigningAccount(
                     userProfile,
@@ -363,14 +292,29 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 if (response.result === 'Error') { resolve(response) }
             }
 
-            function responseXX() {
-                /*
-                Create a Pull Request with the changed profile, so that it can eventually be merged into
-                the Governance Plugins repo.
-                */
+            async function pushProfileAndPullRequest(){
+                
+                await pushPluginFileAndPullRequest(
+                    JSON.stringify(userProfile, undefined, 4),
+                    profileMessage.storageProviderToken,
+                    GOVERNANCE_PLUGINS_REPO_NAME,
+                    profileMessage.storageProviderUsername,
+                    'User-Profiles',
+                    profileMessage.storageProviderUsername
+                )
+                .then()
+                .catch(profileNotPushed)
 
+                function profileNotPushed(err) {
+                    response = {
+                        result: 'Error',
+                        message: 'Error pushing the User Profile to Github.',
+                        stack: err.stack
+                    }
+                }
+            }
 
-
+            function saveUserProfile() {
                 /*
                 We will save a file to a special git ignored folder.
                 */

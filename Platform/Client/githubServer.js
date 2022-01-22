@@ -163,13 +163,14 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
-    async function createGithubFork(token) {
+    async function createGithubFork(token, repo='Superalgos') {
         try {
             token = unescape(token)
 
             await doGithub()
+            await doGithub('Governance-Plugins')
 
-            async function doGithub() {
+            async function doGithub(repo='Superalgos') {
                 try {
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
@@ -179,7 +180,7 @@ exports.newGithubServer = function newGithubServer() {
 
                     await octokit.repos.createFork({
                         owner: 'Superalgos',
-                        repo: 'Superalgos'
+                        repo: repo
                     })
                 } catch (err) {
                     if (err === undefined) { return }
@@ -208,7 +209,6 @@ exports.newGithubServer = function newGithubServer() {
             commitMessage = unescape(commitMessage)
             username = unescape(username)
             token = unescape(token)
-            const repository = 'Superalgos'
 
             /* Unsaving # */
             for (let i = 0; i < 10; i++) {
@@ -241,9 +241,8 @@ exports.newGithubServer = function newGithubServer() {
                 }
             }
 
-            async function doGithub() {
+            async function doGithub(repo='Superalgos') {
                 try {
-                    const repo = repository
                     const owner = 'Superalgos'
                     const { Octokit } = SA.nodeModules.octokit
                     const octokit = new Octokit({
@@ -297,7 +296,7 @@ exports.newGithubServer = function newGithubServer() {
                                 } else {
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->Method call produced an error.')
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->err.stack = ' + err.stack)
-                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repository)
+                                    console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->repository = ' + repo)
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->username = ' + username)
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token starts with = ' + token.substring(0, 10) + '...')
                                     console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> getPrList ->token ends with = ' + '...' + token.substring(token.length - 10))
@@ -397,7 +396,7 @@ exports.newGithubServer = function newGithubServer() {
                                     for (let j = 0; j < filesChanged.length; j++) {
                                         let pullRequestFile = filesChanged[j]
                                         let fileContentUrl = pullRequestFile.raw_url
-                                        if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') >= 0) {
+                                        if (fileContentUrl.indexOf('Plugins/Governance/User-Profiles') >= 0) {
                                             await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.rest.issues.createComment({
                                                 owner: owner,
@@ -427,7 +426,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let pullRequestFile = filesChanged[0]
                                 fileContentUrl = pullRequestFile.raw_url
 
-                                if (fileContentUrl.indexOf('Governance/Plugins/User-Profiles') < 0) {
+                                if (fileContentUrl.indexOf('Plugins/Governance/User-Profiles') < 0) {
                                     /*
                                     If it is not a user profile then there is no need to auto merge.
                                     */
@@ -847,7 +846,7 @@ exports.newGithubServer = function newGithubServer() {
                             } else {
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->Method call produced an error.')
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->err.stack = ' + err.stack)
-                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repository)
+                                console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->repository = ' + repo)
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->username = ' + username)
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token starts with = ' + token.substring(0, 10) + '...')
                                 console.log('[ERROR] Github Server -> mergeGithubPullRequests -> doGithub -> closePrsToMaster ->token ends with = ' + '...' + token.substring(token.length - 10))
@@ -867,7 +866,7 @@ exports.newGithubServer = function newGithubServer() {
         } catch (err) {
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> Method call produced an error.')
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> err.stack = ' + err.stack)
-            console.log('[ERROR] Github Server -> mergeGithubPullRequests -> repository = ' + repository)
+            console.log('[ERROR] Github Server -> mergeGithubPullRequests -> repository = ' + repo)
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> username = ' + username)
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> token starts with = ' + token.substring(0, 10) + '...')
             console.log('[ERROR] Github Server -> mergeGithubPullRequests -> token ends with = ' + '...' + token.substring(token.length - 10))

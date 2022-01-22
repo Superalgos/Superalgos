@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Haben Sie Probleme mit den Trading Layers? Es ist wichtig, dass Sie wissen, wonach Sie suchen, sonst finden Sie es vielleicht nicht.",
                 "updated": 1639500186980
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret ( Trading ) Katmanları ile ilgili sorun mu yaşıyorsunuz? Ne aradığınızı bilmeniz önemlidir, aksi halde bulamayabilirsiniz.",
+                "updated": 1642881684238
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Achten Sie auf den Time Frame und die Daten, unter denen die Sitzung durchgeführt wurde. Sonst werden Sie nichts sehen!",
                     "updated": 1639500251377
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Oturumun yürütüldüğü Zaman Çerçevesine ( Time Frame ) ve tarihlere dikkat etmeyi unutmayın. Aksi takdirde hiçbir şey göremezsiniz!",
+                    "updated": 1642881854303
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Die Lightning Strike Backtesting Session wurde im einminütigen Zeitrahmen vom 1. September 2020 bis zum 2. September 2020 durchgeführt.",
                     "updated": 1639500311080
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Lightning Strike Geri Test Oturumu ( Backtesting Session ), 1 Eylül 2020 ile 2 Eylül 2020 arasındaki bir dakikalık zaman diliminde gerçekleştirildi.",
+                    "updated": 1642881941654
                 }
             ]
         },

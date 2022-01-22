@@ -1,0 +1,14 @@
+{
+    "type": "Task Server App Reference",
+    "definition": {
+        "text": "This node stores a reference to the Task Server App node allowing its parent Task to access the Signing Account of the current user's task server.  ",
+        "updated": 1642820724358
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "By having access to the User's signing account, the current task will now be able to access the Superalgos peer to peer network.",
+            "updated": 1642820815167
+        }
+    ]
+}

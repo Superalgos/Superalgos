@@ -8,9 +8,9 @@ function getProfile(queryParams) {
     return httpRequest('/users/profile', GET, undefined, queryParams)
 }
 
-function getPaginationProfiles(initialPaginationIdex, pagination) {
+function getPaginationProfiles(initialPaginationIndex, pagination) {
     const body = {
-        initialIndex: initialPaginationIdex,
+        initialIndex: initialPaginationIndex,
         pagination: pagination
     }
     return httpRequest('/users/paginate-profiles', POST, body)

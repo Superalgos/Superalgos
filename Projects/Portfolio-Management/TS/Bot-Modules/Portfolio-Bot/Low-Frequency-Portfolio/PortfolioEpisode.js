@@ -3,7 +3,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
     This module packages all functions related to Episodes.
     */
     let thisObject = {
-        mantain: mantain,
+        maintain: maintain,
         reset: reset,
         openEpisode: openEpisode,
         updateExitType: updateExitType,
@@ -31,7 +31,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
         sessionParameters = undefined
     }
 
-    function mantain() {
+    function maintain() {
         updateCounters()
         updateStatistics()
         updateEnds()
@@ -262,6 +262,7 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
 
     function updateDistanceToPortfolioEventsCounters() {
         /* Keeping Distance Counters Up-to-date while avoinding counting before the first event happens. */
+        /*
         if (
             portfolioEngine.portfolioCurrent.portfolioEpisode.distanceToPortfolioEvent.triggerOn.value > 0
         ) {
@@ -314,6 +315,6 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
             portfolioEngine.portfolioCurrent.portfolioEpisode.distanceToPortfolioEvent.closeOrder.value > 0
         ) {
             portfolioEngine.portfolioCurrent.portfolioEpisode.distanceToPortfolioEvent.closeOrder.value++
-        }
+        }*/
     }
 }

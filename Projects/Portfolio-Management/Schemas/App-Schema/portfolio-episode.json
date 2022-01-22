@@ -52,27 +52,15 @@
             "autoAdd": true
         },
         {
-            "name": "beginRate",
+            "name": "exchangeManagedAssets",
             "type": "node",
-            "childType": "Begin Rate",
-            "autoAdd": true
-        },
-        {
-            "name": "endRate",
-            "type": "node",
-            "childType": "End Rate",
+            "childType": "Exchange Managed Assets",
             "autoAdd": true
         },
         {
             "name": "status",
             "type": "node",
             "childType": "Status",
-            "autoAdd": true
-        },
-        {
-            "name": "exitType",
-            "type": "node",
-            "childType": "Exit Type",
             "autoAdd": true
         },
         {
@@ -85,18 +73,6 @@
             "name": "processDate",
             "type": "node",
             "childType": "Process Date",
-            "autoAdd": true
-        },
-        {
-            "name": "episodeBaseAsset",
-            "type": "node",
-            "childType": "Episode Base Asset",
-            "autoAdd": true
-        },
-        {
-            "name": "episodeQuotedAsset",
-            "type": "node",
-            "childType": "Episode Quoted Asset",
             "autoAdd": true
         },
         {
@@ -127,6 +103,12 @@
             "name": "cycle",
             "type": "node",
             "childType": "Cycle",
+            "autoAdd": true
+        },
+        {
+            "name": "managedTradingBots",
+            "type": "node",
+            "childType": "Managed Trading Bots",
             "autoAdd": true
         },
         {

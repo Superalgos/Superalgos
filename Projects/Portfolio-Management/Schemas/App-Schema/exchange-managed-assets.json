@@ -1,13 +1,13 @@
 {
-    "type": "Portfolio Last",
+    "type": "Exchange Managed Assets",
     "menuItems": [
         {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
-            "relatedUiObject": "Portfolio Parameters",
+            "action": "Add UI Object",
+            "label": "Add Exchange Managed Asset",
+            "relatedUiObject": "Exchange Managed Asset",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Portfolio-Management"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",
@@ -23,15 +23,14 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio Engine->"
+        "compatibleTypes": "->Portfolio Episode->Portfolio Last->"
     },
-    "propertyNameAtParent": "portfolioLast",
+    "propertyNameAtParent": "exchangeManagedAssets",
     "childrenNodesProperties": [
         {
-            "name": "exchangeManagedAssets",
-            "type": "node",
-            "childType": "Exchange Managed Assets",
-            "autoAdd": true
+            "name": "exchangeManagedAsset",
+            "type": "array",
+            "childType": "Exchange Managed Asset"
         }
     ]
 }

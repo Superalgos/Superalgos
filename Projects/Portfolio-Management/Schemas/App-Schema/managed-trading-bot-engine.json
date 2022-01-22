@@ -1,5 +1,5 @@
 {
-    "type": "Distance To Portfolio Event",
+    "type": "Managed Trading Bot Engine",
     "menuItems": [
         {
             "action": "Delete UI Object",
@@ -15,9 +15,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio Episode->"
+        "compatibleTypes": "->Managed Trading Bot->"
     },
-    "propertyNameAtParent": "distanceToPortfolioEvent",
-    "childrenNodesProperties": [
-    ]
+    "propertyNameAtParent": "managedTradingBotEngine"
 }

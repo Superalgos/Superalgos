@@ -1,13 +1,13 @@
 {
-    "type": "Portfolio Last",
+    "type": "Managed Trading Bot",
     "menuItems": [
         {
-            "action": "Add Missing Children",
-            "label": "Add Missing Children",
-            "relatedUiObject": "Portfolio Parameters",
+            "action": "Add UI Object",
+            "label": "Add Managed Trading Bot Engine",
+            "relatedUiObject": "Managed Trading Bot Engine",
+            "relatedUiObjectProject": "Portfolio-Management",
             "actionFunction": "payload.executeAction",
-            "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Portfolio-Management"
+            "actionProject": "Visual-Scripting"
         },
         {
             "action": "Delete UI Object",
@@ -23,14 +23,14 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio Engine->"
+        "compatibleTypes": "->Managed Trading Bots->"
     },
-    "propertyNameAtParent": "portfolioLast",
+    "propertyNameAtParent": "managedTradingBot",
     "childrenNodesProperties": [
         {
-            "name": "exchangeManagedAssets",
+            "name": "managedTradingBotEngine",
             "type": "node",
-            "childType": "Exchange Managed Assets",
+            "childType": "Managed Trading Bot Engine",
             "autoAdd": true
         }
     ]

@@ -63,6 +63,12 @@
             "autoAdd": true
         },
         {
+            "name": "managedAssets",
+            "type": "node",
+            "childType": "Managed Assets",
+            "autoAdd": true
+        },
+        {
             "name": "userDefinedParameters",
             "type": "node",
             "childType": "User Defined Parameters",

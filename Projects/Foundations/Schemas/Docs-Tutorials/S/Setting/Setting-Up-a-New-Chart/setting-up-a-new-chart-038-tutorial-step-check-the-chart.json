@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Jetzt ist alles verbunden, hurra! Machen Sie eine Spritztour mit Ihren neuen Charts!",
                 "updated": 1639499974834
+            },
+            {
+                "language": "TR",
+                "text": "Bu noktada, her şey çok iyi bağlanmış, yaşasın! Devam edin ve parlak yeni çizelgelerinizi deneyin!",
+                "updated": 1642881361663
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Stellen Sie sicher, dass Sie die Backtesting Session für das Lightning Strike Trading System ausführen und warten, bis sie beendet ist. ",
                     "updated": 1639500054072
+                },
+                {
+                    "language": "TR",
+                    "text": "Önemli: Lightning Strike Ticaret Sistemi ( Trading System ) için Geriye Dönük Test ( Backtesting Session ) Oturumunu çalıştırdığınızdan ve bitmesini beklediğinizden emin olun.",
+                    "updated": 1642881510355
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Überprüfen Sie Ihr Diagramm, indem Sie einige Trading System Ebenen einschalten.",
                     "updated": 1639500123534
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç Ticaret Sistemi ( Trading System ) katmanını açarak grafiğinizi kontrol edin.",
+                    "updated": 1642881598197
                 }
             ]
         }

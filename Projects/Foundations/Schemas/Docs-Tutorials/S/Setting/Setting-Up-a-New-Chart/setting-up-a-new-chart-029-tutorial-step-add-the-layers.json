@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Dieser Schritt wird leicht vergessen, ist aber sehr wichtig. Fügen Sie diese Ebenen hinzu, damit wir die Daten in unserem Diagramm sehen können!",
                 "updated": 1639276287504
+            },
+            {
+                "language": "TR",
+                "text": "Bu adım kolayca unutulabilir, ancak çok önemlidir. Bu seviyeleri ekleyin, böylece verileri grafiğimizde görebiliriz!",
+                "updated": 1642594420458
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Der letzte Schritt besteht darin, den Mauszeiger über den Layer Manager zu bewegen und auf <I>Add All Mine Layers</I>. zu klicken. Stellen Sie sicher, dass Sie nach dem Klicken auf die Schaltfläche bestätigen!",
                     "updated": 1639276449610
+                },
+                {
+                    "language": "TR",
+                    "text": "Son adım, Katman Yöneticisinin ( Layer Manager ) üzerine gelip Tüm Maden Katmanlarını Ekle'ye ( Add All Mine Layers ) tıklamaktır. Butona bastıktan sonra onaylamayı unutmayın!",
+                    "updated": 1642594497887
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Dadurch werden automatisch Verweise auf alle einzelnen von der Data Mine erzeugten Ebenen hinzugefügt.",
                     "updated": 1639276509467
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, Veri Madeni ( Data Mine ) tarafından üretilen tüm bireysel katmanlara otomatik olarak referanslar ekleyecektir.",
+                    "updated": 1642594605498
                 }
             ]
         },

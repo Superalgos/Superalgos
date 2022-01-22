@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Özet: Bu kurşun ne diyor? Üst sıradaki hata noktalarından birinin üzerine gelin ve neler olduğunu görün!",
                 "updated": 1641660541095
+            },
+            {
+                "language": "RU",
+                "text": "Итак, что же находится в этих шариках? Подведите мышь к одной из ошибок в верхнем ряду и посмотрите, что произойдет!",
+                "updated": 1642657072694
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "TR",
                     "text": "Ticaret botu tarafından işlenen her hata için, dokümanlarda, hatanın neden oluştuğuna dair geliştiriciler tarafından yazılmış bir açıklamanın yanı sıra, hatanın nedenini belirlemenize ve gidermenize yardımcı olacak bağlamsal teknik bilgiler içeren bir sayfa bulunur.",
                     "updated": 1641660577721
+                },
+                {
+                    "language": "RU",
+                    "text": "Каждая ошибка, обработанная торговым ботом, имеет страницу в Docs с описанием причин ошибки, написанным человеческим языком, а также контекстной технической информацией, которая должна помочь вам определить и устранить причины ошибки.",
+                    "updated": 1642657134621
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Bu sayfaya yakından bir göz atın!",
                     "updated": 1641660610456
+                },
+                {
+                    "language": "RU",
+                    "text": "Внимательно изучите эту страницу!",
+                    "updated": 1642657161644
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "TR",
                     "text": "Başarısızlığın temel nedenine işaret eden çok fazla bilgi var, ancak hala yapılacak oldukça fazla dedektiflik işi var!",
                     "updated": 1641660628252
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть много информации, указывающей на причины ошибки, но еще предстоит проделать некоторую работу по расследованию!",
+                    "updated": 1642657192271
                 }
             ]
         },

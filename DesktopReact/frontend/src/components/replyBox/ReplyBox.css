@@ -1,0 +1,15 @@
+.replyText {
+    margin: 0 1rem;
+    width: 30rem;
+}
+
+.replyButton {
+    margin: 0 0.5rem !important;
+    width: 7rem;
+    max-height: 1.5rem;
+}
+
+.avatar {
+    height: 3rem !important;
+    width: 3rem !important;
+}

@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Я знаю! Все это звучит слишком абстрактно! Позвольте мне привести несколько примеров!",
                 "updated": 1640630620897
+            },
+            {
+                "language": "TR",
+                "text": "Biliyorum! Bütün bunlar kulağa çok soyut geliyor! Birkaç örnek vereyim!",
+                "updated": 1642513528325
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "При работе с часовыми таймфреймами, когда концепция или событие - например, позиция - охватывает несколько дней:",
                     "updated": 1640630647856
+                },
+                {
+                    "language": "TR",
+                    "text": "Br saat altı zaman dilimlerinde çalışırken bir kavram veya olay (örneğin, bir pozisyon) birden çok güne yayılır:",
+                    "updated": 1642513663893
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Вы можете увидеть несколько треугольников! Один треугольник рисуется при закрытии каждого дня, а последний - при закрытии позиции, или, если позиция еще не закрылась, - в текущий момент времени.Вы можете увидеть несколько треугольников! Один треугольник рисуется при закрытии каждого дня, а последний - при закрытии позиции, или, если позиция еще не закрылась, - в данный момент времени.",
                     "updated": 1640630685321
+                },
+                {
+                    "language": "TR",
+                    "text": "Birden çok üçgen görebilirsiniz! Her günün sonunda bir üçgen çizilir ve pozisyonun kapanışında veya pozisyonun henüz kapanmamış olması durumunda mevcut tarih saatinde son bir üçgen çizilir.",
+                    "updated": 1642513671951
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Статистика (Statistics) и показатели тоже фрагментированы! Например, ROI, Profit Loss и оценка позиции как удачной или неудачной определяются ежедневно!",
                     "updated": 1640630754804
+                },
+                {
+                    "language": "TR",
+                    "text": "İstatistikler (Statistics) ve metrikler de parçalıdır! Örneğin, ROI, Kar Kaybı (Profit Loss) ve pozisyonun isabet veya başarısızlık olarak değerlendirilmesi günlük olarak belirlenir!",
+                    "updated": 1642513762084
                 }
             ]
         }

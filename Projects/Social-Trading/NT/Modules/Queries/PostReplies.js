@@ -27,13 +27,15 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         thisObject.post = undefined
     }
 
-    function initialize(queryReceived){
+    function initialize(queryReceived) {
 
         NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
 
-        thisObject.array = Array.from(thisObject.post.replies)
 
         NT.projects.socialTrading.utilities.queriesValidations.postValidations(queryReceived, thisObject)
+
+        thisObject.array = Array.from(thisObject.post.replies)
+
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 
@@ -46,15 +48,19 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
-                    if (post === undefined) { break }
+                    if (thisObject.post === undefined) {
+                        break
+                    }
                     addToResponse(arrayItem[1])
                 }
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested && i >= 0; i--) {
                     let arrayItem = thisObject.array[i]
-                    if (post === undefined) { break }
+                    if (thisObject.post === undefined) {
+                        break
+                    }
                     addToResponse(arrayItem[1])
                 }
                 break
@@ -62,7 +68,10 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
         }
         return response
 
-        function addToResponse(post) {
+        function addToResponse(postHash) {
+            let post = SA.projects.socialTrading.globals.memory.maps.POSTS.get(postHash);
+
+            if (post === undefined) return;
 
             let postResponse = {
                 originSocialPersonaId: post.originSocialPersonaId,
@@ -84,14 +93,17 @@ exports.newSocialTradingModulesQueriesPostReplies = function newSocialTradingMod
 
             if (originSocialPersona !== undefined) {
                 let query = NT.projects.socialTrading.modules.queriesSocialPersonaStats.newSocialTradingModulesQueriesSocialPersonaStats()
-                query.initialize({ targetSocialPersonaId: event.originSocialPersonaId })
+                query.initialize({targetSocialPersonaId: originSocialPersona.id})
                 postResponse.originSocialPersona = query.run()
                 query.finalize()
             }
 
             if (originSocialTradingBot !== undefined) {
                 let query = NT.projects.socialTrading.modules.queriesSocialTradingBotStats.newSocialTradingModulesQueriesSocialTradingBotStats()
-                query.initialize({ targetSocialPersonaId: event.originSocialPersonaId, targetSocialTradingBotId: originSocialTradingBotId })
+                query.initialize({
+                    targetSocialPersonaId: originSocialPersona.id,
+                    targetSocialTradingBotId: originSocialTradingBot.id
+                })
                 postResponse.originSocialTradingBot = query.run()
                 query.finalize()
             }

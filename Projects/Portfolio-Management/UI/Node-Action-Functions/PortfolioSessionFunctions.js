@@ -168,6 +168,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             'Index->Situation Name->Formula->Periods->' +
             'User Defined Variables->User Defined Variable->' +
             'Exchange Managed Assets->Exchange Managed Asset->' +
+            'Asset Initial Balance->Asset Free Balance->Asset Locked Balance->Asset Total Balance->' +
             'Managed Trading Bots->Managed Trading Bot->Managed Trading Bot Engine->'
 
         let portfolioEngine = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node.portfolioEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)

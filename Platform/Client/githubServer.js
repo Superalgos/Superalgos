@@ -490,8 +490,6 @@ exports.newGithubServer = function newGithubServer() {
                                         state: 'closed'
                                     });
                                     return false
-
-                                    return false
                                 }
                                 
                                 if (userProfile.type !== 'User Profile') {

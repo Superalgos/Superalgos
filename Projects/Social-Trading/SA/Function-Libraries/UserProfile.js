@@ -277,7 +277,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                             config: '{}',
                         }
                         userProfile.userApps.mobilepApps.socialTradingDesktopApps.push(targetNode)
-                        targetNodeTypeCount = userProfile.userApps.mobilepApps.socialTradingDesktopApps.lenght
+                        targetNodeTypeCount = userProfile.userApps.mobilepApps.socialTradingDesktopApps.length
                         break
                     }
                 }

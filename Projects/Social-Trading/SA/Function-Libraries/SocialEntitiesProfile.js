@@ -9,7 +9,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
     return thisObject
 
     async function createSocialEntity() {
-
+        addOpenStorage()
     }
 
     async function deleteSocialEntity() {

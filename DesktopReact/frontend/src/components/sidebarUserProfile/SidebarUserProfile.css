@@ -14,7 +14,7 @@
     align-self: center;
     height: 3rem !important;
     width: 3rem !important;
-    padding: 0 1rem;
+    margin: 0 0.2rem;
     border-radius: 50%;
 }
 .sidebarProfileCardContent {

@@ -5,6 +5,7 @@ import {getFeed} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import React, {useEffect, useState} from "react";
+import {Divider} from "@mui/material";
 
 const Feed = () => {
     const [posts, setPosts] = useState([]);
@@ -36,8 +37,11 @@ const Feed = () => {
 
     return (
         <div className="feed">
-            <PostPlaceholder reloadPostCallback={loadPosts}/>
-            <PostsFeed posts={posts} loading={loading}/>
+            <div className="feedContainer">
+                <PostPlaceholder reloadPostCallback={loadPosts}/>
+            </div>
+            <Divider flexItem/>
+                <PostsFeed posts={posts} loading={loading}/>
         </div>
     );
 }

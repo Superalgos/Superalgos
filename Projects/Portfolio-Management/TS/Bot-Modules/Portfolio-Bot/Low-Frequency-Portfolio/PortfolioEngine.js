@@ -5,7 +5,7 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
     */
 
     let thisObject = {
-        mantain: mantain,
+        maintain: maintain,
         reset: reset,
         getNodeById: getNodeById,
         cloneValues: cloneValues,
@@ -44,7 +44,7 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
         nodesMap = undefined
     }
 
-    function mantain() {
+    function maintain() {
     }
 
     function reset() {

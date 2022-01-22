@@ -1,0 +1,2926 @@
+{
+    "type": "Portfolio Engine",
+    "name": "Low-Frequency-PM-Engine",
+    "config": "{\"codeName\":\"Low-Frequency-PM-Engine\"}",
+    "project": "Portfolio-Management",
+    "portfolioCurrent": {
+        "type": "Portfolio Current",
+        "name": "New Portfolio Current",
+        "project": "Foundations",
+        "portfolioEpisode": {
+            "type": "Portfolio Episode",
+            "name": "New Portfolio Episode",
+            "project": "Foundations",
+            "serialNumber": {
+                "type": "Serial Number",
+                "name": "New Serial Number",
+                "config": "{\n\"initialValue\": 0\n}",
+                "project": "Foundations",
+                "id": "ca7b2a44-bd16-42d8-ba8e-8ce30b1ed3b7",
+                "savedPayload": {
+                    "position": {
+                        "x": 35394.694198206744,
+                        "y": 18267.577840749764
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "identifier": {
+                "type": "Identifier",
+                "name": "New Identifier",
+                "config": "{\n\"initialValue\": \"\"\n}",
+                "project": "Foundations",
+                "id": "74bafd0b-2667-441e-9085-de6394f6c644",
+                "savedPayload": {
+                    "position": {
+                        "x": 35479.11109786378,
+                        "y": 18293.185427301138
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "begin": {
+                "type": "Begin",
+                "name": "New Begin",
+                "config": "{\n\"initialValue\": 0\n}",
+                "project": "Foundations",
+                "id": "53c06e45-9b86-4c1d-ba24-c6843559da21",
+                "savedPayload": {
+                    "position": {
+                        "x": 35556.91015815831,
+                        "y": 18334.769891395074
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "end": {
+                "type": "End",
+                "name": "New End",
+                "config": "{\n\"initialValue\": 0\n}",
+                "project": "Foundations",
+                "id": "eb7216e8-8531-46c1-9823-98092c375403",
+                "savedPayload": {
+                    "position": {
+                        "x": 35625.101604833435,
+                        "y": 18390.733165397272
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "exchangeManagedAssets": {
+                "type": "Exchange Managed Assets",
+                "name": "New Exchange Managed Assets",
+                "project": "Foundations",
+                "exchangeManagedAsset": [
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "f1a025da-b0d8-418f-a7bc-73ab665c3710",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35437.386673619185,
+                                "y": 17417.62275150121
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "e75b92e4-dd83-43cf-9502-7cb75d5f22a2",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35578.76510787018,
+                                "y": 17363.655771466863
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "6bf6e645-acc1-4c1b-bd21-0b8332f5711c",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35726.607822824015,
+                                "y": 17331.362920239833
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "91a020f9-6922-4a70-aa9f-e9370da2f374",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35877.61225653134,
+                                "y": 17321.465566754203
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "8a81f2f2-0a51-4500-9e17-1446c666a656",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36028.40521947046,
+                                "y": 17334.184801531952
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "c205dd3f-29cc-4bd3-8eab-d63279d5c7e3",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36175.61824602719,
+                                "y": 17369.236497886053
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "c0e06eb2-f239-4128-8754-ccb120083391",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36315.96284045045,
+                                "y": 17425.837658841137
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "9f2e93b6-fc4d-45de-9dd9-9b3b55308917",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36446.30393641327,
+                                "y": 17502.723907992073
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "ece988e5-df1d-48bb-89b2-9a6224d11002",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36563.729929214045,
+                                "y": 17598.177733583532
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "57480a58-4815-428b-ad0d-a7b58d5e2292",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36665.6177162142,
+                                "y": 17710.066854884495
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "498f8bde-d9d3-46a7-9a03-545026327c62",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36749.691292616655,
+                                "y": 17835.891853816313
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "4db89e98-ad78-4956-b70e-fecb4f898f57",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36814.07259365199,
+                                "y": 17972.842007822393
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "4ad2fd08-552e-4506-9775-2bb69b906edf",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36857.32344744196,
+                                "y": 18117.858076765562
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "b400593b-9023-489c-b2df-d0ec8d0106e0",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36878.47770138279,
+                                "y": 18267.700641297466
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "328be290-50bf-42b2-87fd-1692ff0bf63d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36877.06280439779,
+                                "y": 18419.022466133847
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "52ec8593-889a-4272-9e8a-12c6e016300e",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36853.11036294757,
+                                "y": 18568.443271759654
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "6896d609-56d4-479f-8429-a9508e3c04f7",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36807.155434993896,
+                                "y": 18712.62524428765
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "92555be9-e835-45da-9e5d-fb48e1e9900b",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36740.22457768902,
+                                "y": 18848.347596705094
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "1f76b74b-899e-4c00-b67f-2e0e0a4a18ad",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36653.81291578523,
+                                "y": 18972.578515933426
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Exchange Managed Asset",
+                        "name": "New Exchange Managed Asset",
+                        "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                        "project": "Portfolio-Management",
+                        "id": "843b6723-3a28-4cba-8c35-95d1607872c1",
+                        "savedPayload": {
+                            "position": {
+                                "x": 36549.850743018476,
+                                "y": 19082.542888522494
+                            },
+                            "targetPosition": {
+                                "x": 35868.145541603706,
+                                "y": 18333.921309642985
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 4,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "id": "708413ed-488e-44ac-a585-46f6c4d1df3d",
+                "savedPayload": {
+                    "position": {
+                        "x": 35868.145541603706,
+                        "y": 18333.921309642985
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 4,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "status": {
+                "type": "Status",
+                "name": "New Status",
+                "config": "{\n\"initialValue\": \"Not Open\"\n}",
+                "project": "Foundations",
+                "id": "50810b02-2f4d-4677-bf62-c4b6d5778dd3",
+                "savedPayload": {
+                    "position": {
+                        "x": 35722.649342929566,
+                        "y": 18536.723672366927
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "headOfTheMarket": {
+                "type": "Head Of The Market",
+                "name": "New Head Of The Market",
+                "config": "{\n\"initialValue\": false\n}",
+                "project": "Foundations",
+                "id": "2ceb1b46-ab03-48b4-8726-d267c2143407",
+                "savedPayload": {
+                    "position": {
+                        "x": 35748.256929480944,
+                        "y": 18621.14057202396
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "processDate": {
+                "type": "Process Date",
+                "name": "New Process Date",
+                "config": "{\n\"initialValue\": 0\n}",
+                "project": "Foundations",
+                "id": "2ba5addc-1c91-4d80-b4bf-39109ce3cd2f",
+                "savedPayload": {
+                    "position": {
+                        "x": 35756.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "portfolioEpisodeCounters": {
+                "type": "Portfolio Episode Counters",
+                "name": "New Portfolio Episode Counters",
+                "project": "Foundations",
+                "periods": {
+                    "type": "Periods",
+                    "name": "New Periods",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "b7b01482-d390-4da2-87ec-9bc872fe75c8",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31125.35509982846,
+                            "y": 17886.15149691481
+                        },
+                        "targetPosition": {
+                            "x": 30851.412456774535,
+                            "y": 18243.160500045866
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "strategies": {
+                    "type": "Strategies",
+                    "name": "New Strategies",
+                    "config": "{\n    \"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "d50010f7-5b89-4d0f-81d8-88a30f19d71f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31241.12388847753,
+                            "y": 18018.160500045866
+                        },
+                        "targetPosition": {
+                            "x": 30851.412456774535,
+                            "y": 18243.160500045866
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "positions": {
+                    "type": "Positions",
+                    "name": "New Positions",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "f0b72cff-905e-473f-a596-e86cad4d111b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31297.56264439275,
+                            "y": 18184.423713546843
+                        },
+                        "targetPosition": {
+                            "x": 30851.412456774535,
+                            "y": 18243.160500045866
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "orders": {
+                    "type": "Orders",
+                    "name": "New Orders",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "89693b22-9009-440e-b920-5954d69eca4d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31286.079078604616,
+                            "y": 18359.629070342
+                        },
+                        "targetPosition": {
+                            "x": 30851.412456774535,
+                            "y": 18243.160500045866
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "hits": {
+                    "type": "Hits",
+                    "name": "New Hits",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "39365966-9c99-4bd0-8736-43020457a31e",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31208.421459905592,
+                            "y": 18517.10314309979
+                        },
+                        "targetPosition": {
+                            "x": 30851.412456774535,
+                            "y": 18243.160500045866
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "fails": {
+                    "type": "Fails",
+                    "name": "New Fails",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "7a2f5f19-27cc-4058-8fb0-a92b0eee4936",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31076.412456774535,
+                            "y": 18632.871931748865
+                        },
+                        "targetPosition": {
+                            "x": 30851.412456774535,
+                            "y": 18243.160500045866
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "userDefinedCounters": [
+                    {
+                        "type": "User Defined Counter",
+                        "name": "New User Defined Counter",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "8c02e903-4fe4-43b2-9ead-17fdd097f8cb",
+                        "savedPayload": {
+                            "position": {
+                                "x": 30910.149243273558,
+                                "y": 18689.31068766408
+                            },
+                            "targetPosition": {
+                                "x": 30851.412456774535,
+                                "y": 18243.160500045866
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "id": "51aa9d61-bc99-46f3-8e72-d16e471d6cfe",
+                "savedPayload": {
+                    "position": {
+                        "x": 35748.256929480944,
+                        "y": 18796.721861838476
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "portfolioEpisodeStatistics": {
+                "type": "Portfolio Episode Statistics",
+                "name": "New Portfolio Episode Statistics",
+                "project": "Foundations",
+                "profitLoss": {
+                    "type": "Profit Loss",
+                    "name": "New Profit Loss",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "19457de5-fe5f-414e-b809-c2267fcf27b9",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31178.264715089652,
+                            "y": 18098.1979036211
+                        },
+                        "targetPosition": {
+                            "x": 30806.457266647452,
+                            "y": 18351.69192974973
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "ROI": {
+                    "type": "ROI",
+                    "name": "New ROI",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "7a1346f6-7dd0-4121-8289-d0e66f134bb4",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31251.43113844876,
+                            "y": 18284.62290997045
+                        },
+                        "targetPosition": {
+                            "x": 30806.457266647452,
+                            "y": 18351.69192974973
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "hitFail": {
+                    "type": "Hit Fail",
+                    "name": "New Hit Fail",
+                    "config": "{\n\"initialValue\": \"\"\n}",
+                    "project": "Foundations",
+                    "id": "33727b25-6c6a-4c83-a098-c30f8b77cf8c",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31236.465029251216,
+                            "y": 18484.331758234635
+                        },
+                        "targetPosition": {
+                            "x": 30806.457266647452,
+                            "y": 18351.69192974973
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "days": {
+                    "type": "Days",
+                    "name": "New Days",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "04dd796e-258f-41ad-bb70-75d2598cc2cd",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31136.330608970875,
+                            "y": 18657.769661746643
+                        },
+                        "targetPosition": {
+                            "x": 30806.457266647452,
+                            "y": 18351.69192974973
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "annualizedRateOfReturn": {
+                    "type": "Annualized Rate Of Return",
+                    "name": "New Annualized Rate Of Return",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "0346ee82-507f-47b5-bec8-d208c7e12637",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30970.86072761233,
+                            "y": 18770.58511663962
+                        },
+                        "targetPosition": {
+                            "x": 30806.457266647452,
+                            "y": 18351.69192974973
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "userDefinedStatistics": [
+                    {
+                        "type": "User Defined Statistic",
+                        "name": "New User Defined Statistic",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "formula": {
+                            "type": "Formula",
+                            "name": "New Formula",
+                            "code": "// Type your formula",
+                            "project": "Foundations",
+                            "id": "4f55e100-d3f5-4774-b5a9-2205fbe70e07",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 30739.200182419674,
+                                    "y": 19249.17534721279
+                                },
+                                "targetPosition": {
+                                    "x": 30772.828724533563,
+                                    "y": 18800.43363848126
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "d89e3416-521c-4238-ad01-4d0b064944b6",
+                        "savedPayload": {
+                            "position": {
+                                "x": 30772.828724533563,
+                                "y": 18800.43363848126
+                            },
+                            "targetPosition": {
+                                "x": 30806.457266647452,
+                                "y": 18351.69192974973
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "id": "a83b7878-9acc-43e2-b695-cd802e133e0d",
+                "savedPayload": {
+                    "position": {
+                        "x": 35722.649342929566,
+                        "y": 18881.13876149551
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "distanceToPortfolioEvent": {
+                "type": "Distance To Portfolio Event",
+                "name": "New Distance To Portfolio Event",
+                "project": "Foundations",
+                "id": "f36ec31a-c687-414a-91a1-9752b4861a1e",
+                "savedPayload": {
+                    "position": {
+                        "x": 35681.064878835634,
+                        "y": 18958.937821790038
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "candle": {
+                "type": "Candle",
+                "name": "New Candle",
+                "project": "Foundations",
+                "begin": {
+                    "type": "Begin",
+                    "name": "New Begin",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "8d3a6334-6584-4c9b-ac24-ff5f530e69e9",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36040.84739446351,
+                            "y": 18854.921723900872
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "end": {
+                    "type": "End",
+                    "name": "New End",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "32f2f32f-3c57-4b20-b79e-717510cba504",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36075.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "open": {
+                    "type": "Open",
+                    "name": "New Open",
+                    "project": "Foundations",
+                    "id": "d1b851af-ca80-45cf-80fc-1b7ca46f977d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 36040.84739446351,
+                            "y": 19199.336813029455
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "close": {
+                    "type": "Close",
+                    "name": "New Close",
+                    "project": "Foundations",
+                    "id": "91074066-0757-4fb0-86d1-a344ae9d03cc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35943.29965636738,
+                            "y": 19345.32731999911
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "min": {
+                    "type": "Min",
+                    "name": "New Min",
+                    "project": "Foundations",
+                    "id": "9ae1e9d9-9232-4934-8073-99531809e433",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35797.309149397726,
+                            "y": 19442.875058095244
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "max": {
+                    "type": "Max",
+                    "name": "New Max",
+                    "project": "Foundations",
+                    "id": "3fbc5355-9064-45c8-a0fd-878edec7a51f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35625.101604833435,
+                            "y": 19477.129268465163
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "index": {
+                    "type": "Index",
+                    "name": "New Index",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "22e5af85-6b66-489c-9b1e-6eb638fa9323",
+                    "savedPayload": {
+                        "position": {
+                            "x": 35452.894060269144,
+                            "y": 19442.875058095244
+                        },
+                        "targetPosition": {
+                            "x": 35625.101604833435,
+                            "y": 19027.129268465163
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "f96aaf54-955b-416a-99bf-056937df1bc3",
+                "savedPayload": {
+                    "position": {
+                        "x": 35625.101604833435,
+                        "y": 19027.129268465163
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "cycle": {
+                "type": "Cycle",
+                "name": "New Cycle",
+                "project": "Foundations",
+                "begin": {
+                    "type": "Begin",
+                    "name": "New Begin",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "558629bf-9228-4538-9721-b87a9360b590",
+                    "savedPayload": {
+                        "position": {
+                            "x": 31089.280687860177,
+                            "y": 18563.44116992317
+                        },
+                        "targetPosition": {
+                            "x": 30641.745834944453,
+                            "y": 18516.40336145273
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "end": {
+                    "type": "End",
+                    "name": "New End",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "1dbd2290-b62c-41a3-a2d6-754c7e5dd32d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30976.161006409282,
+                            "y": 18817.512134314216
+                        },
+                        "targetPosition": {
+                            "x": 30641.745834944453,
+                            "y": 18516.40336145273
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "lastBegin": {
+                    "type": "Last Begin",
+                    "name": "New Last Begin",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "d941b46c-0494-4d0b-a44f-ff5a8c0e34e2",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30735.306095812444,
+                            "y": 18956.569781782942
+                        },
+                        "targetPosition": {
+                            "x": 30641.745834944453,
+                            "y": 18516.40336145273
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "lastEnd": {
+                    "type": "Last End",
+                    "name": "New Last End",
+                    "config": "{\n\"initialValue\": 0\n}",
+                    "project": "Foundations",
+                    "id": "e94b518e-e3ae-4a28-b6ae-d197cbda5e3f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 30458.714345560344,
+                            "y": 18927.4988173919
+                        },
+                        "targetPosition": {
+                            "x": 30641.745834944453,
+                            "y": 18516.40336145273
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "8d1d7afd-eb29-4f95-8e7a-4eb7bef1a1c8",
+                "savedPayload": {
+                    "position": {
+                        "x": 35556.91015815831,
+                        "y": 19083.092542467362
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "managedTradingBots": {
+                "type": "Managed Trading Bots",
+                "name": "New Managed Trading Bots",
+                "project": "Foundations",
+                "managedTradingBot": [
+                    {
+                        "type": "Managed Trading Bot",
+                        "name": "New Managed Trading Bot",
+                        "project": "Foundations",
+                        "managedTradingBotEngine": {
+                            "type": "Managed Trading Bot Engine",
+                            "name": "New Managed Trading Bot Engine",
+                            "project": "Foundations",
+                            "id": "1063a083-8bdf-4538-badc-230fa3527498",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 35925.261285481996,
+                                    "y": 19183.41379306032
+                                },
+                                "targetPosition": {
+                                    "x": 35702.18619167289,
+                                    "y": 19154.04539981081
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "6b25dc0e-4eea-4367-899e-1a9cd309d08b",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35702.18619167289,
+                                "y": 19154.04539981081
+                            },
+                            "targetPosition": {
+                                "x": 35479.11109786378,
+                                "y": 19124.6770065613
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Managed Trading Bot",
+                        "name": "New Managed Trading Bot",
+                        "project": "Portfolio-Management",
+                        "managedTradingBotEngine": {
+                            "type": "Managed Trading Bot Engine",
+                            "name": "New Managed Trading Bot Engine",
+                            "project": "Portfolio-Management",
+                            "id": "454d66d3-7623-4c4b-8883-af0567d29e14",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 35836.120100994835,
+                                    "y": 19398.619649615222
+                                },
+                                "targetPosition": {
+                                    "x": 35657.61559942931,
+                                    "y": 19261.64832808826
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "09666e7d-f210-4824-8065-ec08ed09d4ff",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35657.61559942931,
+                                "y": 19261.64832808826
+                            },
+                            "targetPosition": {
+                                "x": 35479.11109786378,
+                                "y": 19124.6770065613
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Managed Trading Bot",
+                        "name": "New Managed Trading Bot",
+                        "project": "Portfolio-Management",
+                        "managedTradingBotEngine": {
+                            "type": "Managed Trading Bot Engine",
+                            "name": "New Managed Trading Bot Engine",
+                            "project": "Portfolio-Management",
+                            "id": "8f193cf1-746f-401c-831d-4da74db3dc48",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 35651.318642428065,
+                                    "y": 19540.422796191375
+                                },
+                                "targetPosition": {
+                                    "x": 35565.21487014592,
+                                    "y": 19332.549901376336
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "11964f55-eb7a-4604-adda-19fe23934ce7",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35565.21487014592,
+                                "y": 19332.549901376336
+                            },
+                            "targetPosition": {
+                                "x": 35479.11109786378,
+                                "y": 19124.6770065613
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Managed Trading Bot",
+                        "name": "New Managed Trading Bot",
+                        "project": "Portfolio-Management",
+                        "managedTradingBotEngine": {
+                            "type": "Managed Trading Bot Engine",
+                            "name": "New Managed Trading Bot Engine",
+                            "project": "Portfolio-Management",
+                            "id": "78a4e246-5d29-4226-b4a2-c0d6387e88ee",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 35420.37431136476,
+                                    "y": 19570.827194179514
+                                },
+                                "targetPosition": {
+                                    "x": 35449.74270461427,
+                                    "y": 19347.752100370406
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "cc253ff3-d4bb-44ba-9bf0-4addf707b9c6",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35449.74270461427,
+                                "y": 19347.752100370406
+                            },
+                            "targetPosition": {
+                                "x": 35479.11109786378,
+                                "y": 19124.6770065613
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "Managed Trading Bot",
+                        "name": "New Managed Trading Bot",
+                        "project": "Portfolio-Management",
+                        "managedTradingBotEngine": {
+                            "type": "Managed Trading Bot Engine",
+                            "name": "New Managed Trading Bot Engine",
+                            "project": "Portfolio-Management",
+                            "id": "04360310-ee52-49d4-921e-dd522fa573ad",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 35205.16845480985,
+                                    "y": 19481.686009692352
+                                },
+                                "targetPosition": {
+                                    "x": 35342.139776336815,
+                                    "y": 19303.181508126825
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        "id": "2cd5021e-decb-4d51-8768-d32f0880f6ac",
+                        "savedPayload": {
+                            "position": {
+                                "x": 35342.139776336815,
+                                "y": 19303.181508126825
+                            },
+                            "targetPosition": {
+                                "x": 35479.11109786378,
+                                "y": 19124.6770065613
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 2,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "id": "2a65c967-ff70-41d3-ac6a-9062dca4b6e2",
+                "savedPayload": {
+                    "position": {
+                        "x": 35479.11109786378,
+                        "y": 19124.6770065613
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "userDefinedVariables": {
+                "type": "User Defined Variables",
+                "name": "New User Defined Variables",
+                "project": "Foundations",
+                "userDefinedVariable": [
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-0",
+                        "config": "{\n    \"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "a626e41f-c528-409b-bfb4-0bb571532793",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33890.12022828875,
+                                "y": 21332.9007298984
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-1",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "84fbbaed-6a07-4cf8-931f-70066b4d4476",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33812.02079730199,
+                                "y": 21434.418337069146
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-2",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "6d47fb6a-c979-4246-af76-af3984f999df",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33708.48412699427,
+                                "y": 21509.820615467874
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-3",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "d167a254-c129-492a-aa9c-e243e1d7a79d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33587.898142637634,
+                                "y": 21552.998920933333
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-4",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "552bf36d-4b0c-47b5-a657-8029888dca13",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33460.032003532186,
+                                "y": 21560.455203947986
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-5",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "c5239785-de08-4c20-8be2-bc31dc73e339",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33335.244663819045,
+                                "y": 21531.585400806205
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-6",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "58b94fee-f84d-48bb-846f-111873aad134",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33223.64565162288,
+                                "y": 21468.728371263212
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-7",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "e8d4ed8d-c24c-4948-abf0-e7ab92c7482a",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33134.276055206945,
+                                "y": 21376.976418027425
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-8",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "495439af-cd96-4233-b3a8-10ecbe9503ab",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33074.3760677714,
+                                "y": 21263.762738680136
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    {
+                        "type": "User Defined Variable",
+                        "name": "User-Defined-Variable-9",
+                        "config": "{\n\"initialValue\": 0\n}",
+                        "project": "Foundations",
+                        "id": "803f397b-69dd-4e67-8af5-7943ce462e71",
+                        "savedPayload": {
+                            "position": {
+                                "x": 33048.79843005935,
+                                "y": 21138.259232214383
+                            },
+                            "targetPosition": {
+                                "x": 33498.03527934666,
+                                "y": 21112.062796533042
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 2,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "id": "acda5880-8295-47d4-9dec-c98ef13bb8a6",
+                "savedPayload": {
+                    "position": {
+                        "x": 35394.694198206744,
+                        "y": 19150.284593112672
+                    },
+                    "targetPosition": {
+                        "x": 35306.90355329949,
+                        "y": 18708.931216931218
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": true,
+                        "angleToParent": 2,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "308f5581-0f16-493a-a807-3d21ce63605a",
+            "savedPayload": {
+                "position": {
+                    "x": 35306.90355329949,
+                    "y": 18708.931216931218
+                },
+                "targetPosition": {
+                    "x": 34856.90355329949,
+                    "y": 18708.931216931218
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "a42b9432-cea2-4317-823f-09fda1114292",
+        "savedPayload": {
+            "position": {
+                "x": 34856.90355329949,
+                "y": 18708.931216931218
+            },
+            "targetPosition": {
+                "x": 34406.90355329949,
+                "y": 18708.931216931218
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "portfolioLast": {
+        "type": "Portfolio Last",
+        "name": "New Portfolio Last",
+        "project": "Portfolio-Management",
+        "exchangeManagedAssets": {
+            "type": "Exchange Managed Assets",
+            "name": "New Exchange Managed Assets",
+            "project": "Portfolio-Management",
+            "exchangeManagedAsset": [
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "bca5f12b-c498-4a86-86a3-0e45a508c563",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33181.300023630574,
+                            "y": 19376.39202463318
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "7bdbf6ce-74c0-45e8-b5c8-c25e0c6913f8",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33082.94381057213,
+                            "y": 19353.94286083686
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "cbf52304-9df8-4f14-b623-aad8ccb60ee9",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32989.03202939514,
+                            "y": 19317.08520276535
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "1f570cab-4062-4411-9ec3-21fabfb7ad82",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32901.662514106545,
+                            "y": 19266.642389594515
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "9c34b7ba-eaa6-4135-b8c5-973e9241b73f",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32822.78695530412,
+                            "y": 19203.74123041635
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "21856e44-3eb3-4be0-89c6-9a5eaaaeaf7a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32754.16730263357,
+                            "y": 19129.786833185863
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "c5a49cdb-0c8f-4985-9216-9491be991546",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32697.336405744994,
+                            "y": 19046.431216931218
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "623f46e8-308f-439c-a7bb-0c5125deadf5",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32653.56377296465,
+                            "y": 18955.536408378535
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "05a21238-2f15-4ca3-ab12-32e1668aa006",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32623.827212576758,
+                            "y": 18859.13284735173
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "29a1a9bf-8b51-4098-a711-6f29dbd3dba3",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32608.790990202193,
+                            "y": 18759.374030102055
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "3f9cdd5c-a4d3-4fda-968d-11499c3b9e29",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32608.790990202193,
+                            "y": 18658.48840376038
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "c4214d61-4649-4bd1-97e3-0353b8e57760",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32623.827212576758,
+                            "y": 18558.729586510704
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "e15be100-f942-4f48-83a9-e4b218d1a32e",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32653.56377296465,
+                            "y": 18462.3260254839
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "869af374-4802-4571-8c3a-b1f006adcc35",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32697.336405744994,
+                            "y": 18371.431216931218
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "40f9d5e4-f9a7-4d71-9f42-4c022012938a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32754.16730263357,
+                            "y": 18288.075600676573
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "422fe02c-d16e-42c1-ab72-3c5eedb209b4",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32822.78695530412,
+                            "y": 18214.121203446084
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "1df0d651-96b2-4ab2-99d2-82d89a1c6bb2",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32901.662514106545,
+                            "y": 18151.22004426792
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "f5cb3b3d-4a6a-44ae-888d-faf08c1f4ac4",
+                    "savedPayload": {
+                        "position": {
+                            "x": 32989.03202939514,
+                            "y": 18100.777231097087
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "aa6b0647-0a6c-405a-809e-ed186153382b",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33082.94381057213,
+                            "y": 18063.919573025574
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Exchange Managed Asset",
+                    "name": "New Exchange Managed Asset",
+                    "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }",
+                    "project": "Portfolio-Management",
+                    "id": "aaf47a05-e64e-4ee3-8987-33c3a26c5426",
+                    "savedPayload": {
+                        "position": {
+                            "x": 33181.300023630574,
+                            "y": 18041.470409229256
+                        },
+                        "targetPosition": {
+                            "x": 33281.90355329949,
+                            "y": 18708.931216931218
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "41be30be-4dcc-4915-b305-7792d4579d02",
+            "savedPayload": {
+                "position": {
+                    "x": 33281.90355329949,
+                    "y": 18708.931216931218
+                },
+                "targetPosition": {
+                    "x": 33956.90355329949,
+                    "y": 18708.931216931218
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 2,
+                    "distanceToParent": 4,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "d8b86b37-940f-4dc0-a6de-fc4ddac17324",
+        "savedPayload": {
+            "position": {
+                "x": 33956.90355329949,
+                "y": 18708.931216931218
+            },
+            "targetPosition": {
+                "x": 34406.90355329949,
+                "y": 18708.931216931218
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "08de5d64-99c1-46eb-ab2a-a8ea2f9effda",
+    "savedPayload": {
+        "position": {
+            "x": 34406.90355329949,
+            "y": 18708.931216931218
+        },
+        "targetPosition": {
+            "x": 34406.90355329949,
+            "y": 18708.931216931218
+        },
+        "floatingObject": {
+            "isPinned": true,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 4,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

@@ -1,6 +1,6 @@
 exports.newPortfolioManagementModulesPortfolioManagerClient = function (processIndex) {
     /*
-    This object represents a proxy of the Profile Manager. It is used to send 
+    This object represents a proxy of the Portfolio Manager. It is used to send 
     requests to the Event and Formula Managers and receive their answers.
     */
     let thisObject = {

@@ -86,6 +86,9 @@ exports.newSimulationFunctionLibrariesOutputRecordsFunctions = function () {
                 /*
                 The product root can be a node or a node property of type array.
                 */
+                if (product.config.nodePath == "portfolioEngine.portfolioCurrent.strategy") {
+                    console.log("Here");
+                }
                 let productRoot
                 try {
                     productRoot = eval(product.config.nodePath)

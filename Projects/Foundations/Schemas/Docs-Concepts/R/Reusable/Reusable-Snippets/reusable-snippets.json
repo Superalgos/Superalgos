@@ -50,8 +50,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Diese Seite behandelt die Top-Level-Informationen über den Abschnitt der Hierarchie, der in der folgenden Tabelle dargestellt ist. Klicken Sie auf einen der Knoten, um die Details zu erfahren, einschließlich der Angaben zur Konfiguration, falls zutreffend.",
-                    "updated": 1634293316369
+                    "text": "Diese Seite behandelt die Top-Level-Informationen über den Abschnitt der Hierarchie, der in der folgenden Tabelle dargestellt ist. Klicken Sie auf einen der Nodes, um die Details zu erfahren, einschließlich der Angaben zur Konfiguration, falls zutreffend.",
+                    "updated": 1642890592092
                 },
                 {
                     "language": "RU",

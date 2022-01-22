@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Seni saat çizelgesine getirdim! Burada gördüklerimizi tartışmadan önce, diyagramınızı düzenlemek için bir dakikanızı ayırın.",
                 "updated": 1641663998530
+            },
+            {
+                "language": "RU",
+                "text": "Я только что привел вас к часовому графику! Прежде чем обсуждать то, что мы здесь видим, давайте потратим минуту на организацию вашего графика.",
+                "updated": 1642662202825
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Böylece benimle aynı şeyleri görmeni sağlayabilirim!",
                     "updated": 1641664010411
+                },
+                {
+                    "language": "RU",
+                    "text": "Так я смогу убедиться, что вы видите то же, что и я!",
+                    "updated": 1642662220133
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Bollinger Veri katmanı yöneticisi(Bollinger Data layer manager): Bollinger Bantları katmanları hariç her şeyi kapatın.",
                     "updated": 1641664023078
+                },
+                {
+                    "language": "RU",
+                    "text": "Bollinger Data layer manager: Выключите все, кроме слоев Bollinger Bands.",
+                    "updated": 1642662266452
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Simulation Objects katman yöneticisi(Simulation Objects layer manager): \"Strategies\" ve \"Trigger Stages\" katmanları dışında her şeyi kapatın.",
                     "updated": 1641664059447
+                },
+                {
+                    "language": "RU",
+                    "text": "Simulation Objects layer manager:  Выключите все, кроме слоев \"Strategies\" и \"Trigger Stages\".",
+                    "updated": 1642662292100
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "language": "TR",
                     "text": "Ticaret sistemi katman yöneticisi(Trading System layer manager): \"Ticaret Sistemi Hataları\"(Trading System Errors), \"Öne Çıkanlar\"(Highlights) ve \"Değerler\"(Values) seviyeleri dışında her şeyi devre dışı bırakın.",
                     "updated": 1641664093351
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading System layer manager: Выключите все, кроме слоев \" Trading System Errors\", \"Highlights\" и \"Values\".",
+                    "updated": 1642662317682
                 }
             ]
         },
@@ -103,6 +128,11 @@
                     "language": "TR",
                     "text": "Ticaret Sistemi katman yöneticisi(Trading Engine layer manager): Her şeyi kapatın.",
                     "updated": 1641664104387
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Engine layer manager: Выключите все.",
+                    "updated": 1642662332051
                 }
             ]
         },
@@ -119,6 +149,11 @@
                     "language": "TR",
                     "text": "Bir sonraki video benim ne gördüğümü gösteriyor ... ve ne görmen gerektiğini!",
                     "updated": 1641664117925
+                },
+                {
+                    "language": "RU",
+                    "text": "В следующем видео показано то, что вижу я... и что должны видеть вы!",
+                    "updated": 1642662346249
                 }
             ]
         }

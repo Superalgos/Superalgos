@@ -110,7 +110,7 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             if (
                 thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPLY_TO_POST
             ) {
-                targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
+                targetPost.replies.set(thisObject.originPostHash, thisObject.originPostHash)
             }
         }
     }

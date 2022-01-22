@@ -4,30 +4,72 @@
     "type": "Screen Capture and Sharing",
     "definition": {
         "text": "Share you screen with friends and colleagues capturing still images or videos directly from within the frontend.",
-        "updated": 1611490773902
+        "updated": 1611490773902,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Teilen Sie Ihren Bildschirm mit Freunden und Kollegen, indem Sie Bilder oder Videos direkt aus dem Frontend heraus aufnehmen.",
+                "updated": 1640724286373
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "List",
             "text": "Hit Ctrl + F8 to capture a static PNG image.",
-            "updated": 1611490790992
+            "updated": 1611490790992,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F8, um ein statisches PNG-Bild zu erfassen.",
+                    "updated": 1640724325692
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file."
+            "text": "Hit Ctrl + F9 to start capturing a GIF video, and hit the same key combination again to end the capture. Once the capture ends, it takes some time to process the capture and generate the final file.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F9, um die Aufnahme eines GIF-Videos zu starten, und drücken Sie die gleiche Tastenkombination erneut, um die Aufnahme zu beenden. Sobald die Aufnahme beendet ist, dauert es einige Zeit, bis die Aufnahme verarbeitet und die endgültige Datei erstellt ist.",
+                    "updated": 1640724366288
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly."
+            "text": "Hit Ctrl + F10 to start capturing a WEBM video, and hit the same key combination again to end the capture. WEBM videos are processed instantly.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Drücken Sie Ctrl + F10, um die Aufnahme eines WEBM-Videos zu starten, und drücken Sie dieselbe Tastenkombination erneut, um die Aufnahme zu beenden. WEBM-Videos werden sofort verarbeitet.",
+                    "updated": 1640724417583
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder."
+            "text": "In all three cases, the browser downloads the resulting file and makes it available in the downloads folder.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "In allen drei Fällen lädt der Browser die resultierende Datei herunter und stellt sie im Ordner \"Downloads\" zur Verfügung.",
+                    "updated": 1640724537080
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "GIF files tend to grow a lot in long captures, but are more universal, thus more devices can display them properly. WEBM files are a lot more efficient, but do not work in Apple and, potentially, other platforms or devices.",
-            "updated": 1611490891864
+            "updated": 1611490891864,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "GIF-Dateien neigen dazu, bei langen Aufnahmen sehr groß zu werden, sind aber universeller, so dass mehr Geräte sie richtig anzeigen können. WEBM-Dateien sind viel effizienter, funktionieren aber nicht auf Apple und möglicherweise auch nicht auf anderen Plattformen oder Geräten.",
+                    "updated": 1640724661066
+                }
+            ]
         },
         {
             "style": "Text",

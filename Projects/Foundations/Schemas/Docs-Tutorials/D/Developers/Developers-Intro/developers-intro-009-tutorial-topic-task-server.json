@@ -7,24 +7,59 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI ."
+        "text": "The Task Server is a Node.js fork process of Client that receives the definition of the Task that needs to run from the UI .",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Task Server - это Node.js форк процесса Client, который получает определение задачи, которую нужно запустить, из пользовательского интерфейса.",
+                "updated": 1640930213490
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The definition includes:"
+            "text": "The definition includes:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определение включает в себя:",
+                    "updated": 1640930221960
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot."
+            "text": "Bot to run: The bot might be a Sensor Bot, an Indicator Bot or a Trading Bot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бот для запуска: Бот может быть Sensor Bot, Indicator Bot или Trading Bot.",
+                    "updated": 1640930268288
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Processes to run: Each bot definition may have one or more bot processes."
+            "text": "Processes to run: Each bot definition may have one or more bot processes.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процессы для запуска: Каждое определение бота может иметь один или несколько процессов бота.",
+                    "updated": 1640930279775
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run."
+            "text": "The UI is where all definitions live. Every time the user runs a task, the UI collects all the relevant information into a single, giant JSON object and sends this to the Task Manager Server, which in turn, after the fork process is running, passes this definition to the Task Server instance just created. With that definition, the Task Server knows all the details of the task to run.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользовательский интерфейс (UI) - это место, где хранятся все определения. Каждый раз, когда пользователь запускает задачу, UI собирает всю необходимую информацию в один гигантский объект JSON и отправляет его на сервер Task Manager Server, который, в свою очередь, после запуска процесса fork передает это определение только что созданному экземпляру Task Server. Благодаря этому определению сервер задач знает все детали запускаемой задачи.",
+                    "updated": 1640930344481
+                }
+            ]
         }
     ]
 }

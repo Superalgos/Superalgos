@@ -35,7 +35,6 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent('Task Manager - ' + taskId, 'Nodejs Process Ready for Task')
                     function eventReceived(message) {
                         try {
-                            setUpAppSchema(JSON.parse(message.event.projectSchemas))
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition);
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition);
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
@@ -59,7 +58,6 @@ exports.newTaskServer = function newTaskServer() {
                     TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.listenToEvent('Task Server', 'Debug Task Started', undefined, 'Task Server', undefined, startDebugging)
                     function startDebugging(message) {
                         try {
-                            setUpAppSchema(JSON.parse(message.event.projectSchemas))
                             TS.projects.foundations.globals.taskConstants.TASK_NODE = JSON.parse(message.event.taskDefinition)
                             TS.projects.foundations.globals.taskConstants.NETWORK_NODE = JSON.parse(message.event.networkDefinition)
                             TS.projects.foundations.globals.taskConstants.MANAGED_TASKS = JSON.parse(message.event.managedTasksDefinition);
@@ -75,24 +73,13 @@ exports.newTaskServer = function newTaskServer() {
                     console.log('[ERROR] Task Server -> Task -> preLoader -> TS.projects.foundations.globals.taskConstants.TASK_NODE = ' + JSON.stringify(TS.projects.foundations.globals.taskConstants.TASK_NODE).substring(0, 1000))
                 }
             }
-
-            function setUpAppSchema(projectSchemas) {
-                /* Setup the APP_SCHEMA_MAP based on the APP_SCHEMA_ARRAY */
-                for (let i = 0; i < projectSchemas.length; i++) {
-                    let project = projectSchemas[i]
-
-                    for (let j = 0; j < project.schema.length; j++) {
-                        let schemaDocument = project.schema[j]
-                        let key = project.name + '-' + schemaDocument.type
-                        SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.set(key, schemaDocument)
-                    }
-                }
-            }
         }
 
         async function bootingProcess() {
             try {
                 initializeProjectDefinitionNode()
+                setupTradingSignals()
+                await setupOpenStorage()
                 await setupP2PNetwork()
                 setupTaskHeartbeats()
                 startProcesses()
@@ -119,6 +106,53 @@ exports.newTaskServer = function newTaskServer() {
                     }
                 }
 
+                function setupTradingSignals() {
+                    /*
+                    If we received a Bot Instance with a child Social Trading Bot Reference with a reference parent, 
+                    that would mean that we will need Trading Signals.
+                    */
+                    if (
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
+                    ) {
+                        return
+                    }
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS = {
+                        incomingCandleSignals: TS.projects.tradingSignals.modules.incomingCandleSignals.newTradingSignalsModulesIncomingCandleSignals(),
+                        outgoingCandleSignals: TS.projects.tradingSignals.modules.outgoingCandleSignals.newTradingSignalsModulesOutgoingCandleSignals()
+                    }
+
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.initialize()
+                    TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.outgoingCandleSignals.initialize()
+                }
+
+                async function setupOpenStorage() {
+                    /*
+                    If we received a Bot Instance with a child Social Trading Bot Reference with a reference parent, 
+                    that would mean that we will need Open Storage
+                    */
+                    if (
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined 
+                    ) {
+                        return
+                    }
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT =
+                        SA.projects.openStorage.modules.openStorageClient.newOpenStorageModulesOpenStorageClient()
+                    TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.initialize()
+
+                    //TEST IT FROM HERE.
+
+                    //let data = "This is the File Content, test 1 file per second."
+
+                    //TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.persit(data)
+
+                    //let receivedFileContent = await TS.projects.foundations.globals.taskConstants.OPEN_STORAGE_CLIENT.loadFile(fileName, filePath)
+                    //console.log(receivedFileContent)
+                }
+
                 async function setupP2PNetwork() {
                     /*
                     If we received a App Server Reference Node and a Signing Account, then we will connect to the P2P Network
@@ -134,36 +168,40 @@ exports.newTaskServer = function newTaskServer() {
                     /*
                     We set up the object that will hold our p2p network client identity, meaning the identity we will present to the network.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity = SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity.initialize()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity =
+                        SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()                    
                     /*
                     We will read all user profiles plugins, store them in memory and get from there our own network client identity.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.userProfiles = SA.projects.network.modules.userProfiles.newNetworkModulesUserProfiles()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.userProfiles.initialize(
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess.run(
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.config.codeName,
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
                     )
                     /*
                     We set up the P2P Network, meaning the array of nodes we will be able to connect to.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork = SA.projects.network.modules.p2pNetwork.newNetworkModulesP2PNetwork()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.initialize('Network Client')
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.initialize(
+                        'Network Client',
+                        global.env.TASK_SERVER_TARGET_NETWORK_CODENAME,
+                        global.env.TASK_SERVER_TARGET_NETWORK_TYPE
+                    )
                     /*
                     This is where we will process all the events comming from the p2p network.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface.initialize()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.p2pNetworkInterface.initialize()
                     /*
                     Set up the connections to network peers nodes. These connections will be used to consume signals.
                     In this context peers means network nodes with a similar ranking that our network client identity.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers = SA.projects.network.modules.p2pNetworkPeers.newNetworkModulesP2PNetworkPeers()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkPeers.initialize(
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkNodesConnectedTo.initialize(
                         'Network Client',
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork.p2pNetworkInterface, 
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes,
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.p2pNetworkInterface,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS
                     )
                     /*
@@ -173,7 +211,7 @@ exports.newTaskServer = function newTaskServer() {
                     await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.initialize(
                         'Network Client',
                         TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetwork,
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_HEADS
                     )
                 }

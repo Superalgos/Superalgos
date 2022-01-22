@@ -19,42 +19,51 @@
     "paragraphs": [
         {
             "style": "Chapter",
-            "text": "I->Foundations->Topic->Alpha Data Mine",
-            "updated": 1611686360926
+            "text": "I->Foundations->Topic->Alpha Data Mine"
         },
         {
             "style": "Chapter",
-            "text": "II->Foundations->Topic->Buddha Data Mine->",
-            "updated": 1611686389041
+            "text": "II->Foundations->Topic->Buddha Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "III->Foundations->Topic->Delta Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "III->Foundations->Topic->Heikin Data Mine->",
-            "updated": 1611686401703
+            "text": "IV->Foundations->Topic->Heikin Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "IV->Foundations->Topic->Masters Data Mine->",
-            "updated": 1611686401703
+            "text": "V->Foundations->Topic->Masters Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "VI->Foundations->Topic->Omega One Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "VII->Foundations->Topic->Pluvtech Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "V->Foundations->Topic->Sparta Data Mine->",
-            "updated": 1611686413735
+            "text": "VIII->Foundations->Topic->Polus Data Mine->"
+        },
+		{
+            "style": "Chapter",
+            "text": "IX->Foundations->Topic->quantum Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VI->Foundations->Topic->Zeus Data Mine->",
-            "updated": 1611686424488
+            "text": "X->Foundations->Topic->Sparta Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VII->Foundations->Topic->CoinGecko API Map and Mine->",
-            "updated": 1622690513016
+            "text": "XI->Foundations->Topic->Zeus Data Mine->"
         },
         {
             "style": "Chapter",
-            "text": "VIII->Foundations->Topic->quantum Data Mine->"
+            "text": "XII->Foundations->Topic->CoinGecko API Map and Mine->"
         }
     ]
 }

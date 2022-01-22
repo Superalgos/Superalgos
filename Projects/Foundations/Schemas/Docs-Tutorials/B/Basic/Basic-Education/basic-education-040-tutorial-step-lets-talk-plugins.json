@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Eklentiler ( Plugins ) , sistemle birlikte gelen ve Eklentiler hiyerarşisini ( Plugins Hierrarchy ) kullanarak herhangi bir çalışma alanına çağırabileceğiniz veri yapılarıdır.",
                 "updated": 1639767098656
+            },
+            {
+                "language": "RU",
+                "text": "Плагины (Plugins) - это структуры данных, которые поставляются вместе с системой и которые вы можете вызывать в любом рабочем пространстве с помощью иерархии Plugins.",
+                "updated": 1640873263568
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Eklentiler ( Plugins ), yeniden kullanılması amaçlanan veri yapılarıdır. Bu nedenle, herhangi bir çalışma alanına yerleştirebilmeniz için eklenti olarak menüde yer alırlar.",
                     "updated": 1639767154794
+                },
+                {
+                    "language": "RU",
+                    "text": "Плагины - это структуры данных, предназначенные для повторного использования. Именно поэтому они поставляются в виде плагинов, чтобы вы могли разместить их на любом рабочем пространстве.",
+                    "updated": 1640873283703
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Plugins düğümünü genişletin!",
                     "updated": 1639767179987
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Plugins!",
+                    "updated": 1640873292273
                 }
             ]
         },
@@ -118,6 +133,11 @@
                     "language": "TR",
                     "text": "Hiyerarşinin yapısından da anlayabileceğiniz gibi, çeşitli eklenti türleri vardır! Eklentiler klasöründe türe göre sıralanmış JSON dosyaları olarak bulunurlar. Eklentiler düğümünü keşfetmekten çekinme!",
                     "updated": 1639767248787
+                },
+                {
+                    "language": "RU",
+                    "text": "Как видно из структуры иерархии, существует несколько типов плагинов! Они поставляются в виде JSON файлов, отсортированных по типу в папке Plugins. Проверьте это!",
+                    "updated": 1640873318649
                 }
             ]
         },

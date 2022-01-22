@@ -15,6 +15,11 @@
                 "language": "EL",
                 "text": "Μπορείτε να χρησιμοποιήσετε το ποντίκι και το πληκτρολόγιό σας για να πλοηγηθείτε στη διεπαφή.",
                 "updated": 1639093055935
+            },
+            {
+                "language": "DE",
+                "text": "Sie können mit der Maus und der Tastatur auf der Oberfläche (Interface) navigieren.",
+                "updated": 1640974132482
             }
         ]
     },
@@ -59,7 +64,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Щелкните и перетащите ползунок вверх и вниз, чтобы освободить место для области Charting Space вверху или области Design Space внизу.",
+                    "text": "Щелкните и перетащите ползунок вверх и вниз, чтобы освободить место для пространства Charting Space вверху или пространства Design Space внизу.",
                     "updated": 1638349016667
                 },
                 {

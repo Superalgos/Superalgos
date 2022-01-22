@@ -4,33 +4,75 @@
     "type": "Launch Scripts and Shortcuts",
     "definition": {
         "text": "There are a number of scripts to help make launching Superalgos easier and feel more native. The eventual goal is to make Superalgos feel like any other program installed on an operating system.",
-        "updated": 1621801562983
+        "updated": 1621801562983,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Существует ряд скриптов, помогающих облегчить запуск Superalgos и сделать его более \"родным\". Конечная цель состоит в том, чтобы Superalgos чувствовал себя как любая другая программа, установленная в операционной системе.",
+                "updated": 1640354837284
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The current solution is to use two sets of scripts:",
-            "updated": 1620051940824
+            "updated": 1620051940824,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Текущее решение заключается в использовании двух наборов скриптов:",
+                    "updated": 1640354851208
+                }
+            ]
         },
         {
             "style": "List",
             "text": "One set to execute node run and actually start Superalgos.",
-            "updated": 1620051973593
+            "updated": 1620051973593,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первый набор для выполнения запуска узла и фактического запуска Superalgos.",
+                    "updated": 1640354899948
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The second to create and place shortcuts to these launch scripts for convenient use.",
-            "updated": 1620052849823
+            "updated": 1620052849823,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Второй - создать и разместить ярлыки этих сценариев запуска для удобного использования.",
+                    "updated": 1640354888195
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The following page includes a description of each script and what it accomplishes.",
-            "updated": 1621801618461
+            "updated": 1621801618461,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На этой странице приведено описание каждого сценария и его действий.",
+                    "updated": 1640354959415
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "All launch related scripts are held in the Launch-Scripts folder in the main Superalgos directory.",
-            "updated": 1620504577923
+            "updated": 1620504577923,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все скрипты, связанные с запуском, хранятся в папке Launch-Scripts в главном каталоге Superalgos.",
+                    "updated": 1640354977215
+                }
+            ]
         },
         {
             "style": "Text",
@@ -38,12 +80,26 @@
         },
         {
             "style": "Title",
-            "text": "Basic Launch Scripts"
+            "text": "Basic Launch Scripts",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Основные скрипты запуска",
+                    "updated": 1640354999012
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "These scripts execute the node run command to start Superalgos. They can be run from command line calls or a file browser.",
-            "updated": 1620052707525
+            "updated": 1620052707525,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти скрипты выполняют команду node run для запуска Superalgos. Их можно запускать из командной строки или через файловый менеджер.",
+                    "updated": 1640355110390
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -66,7 +122,14 @@
         {
             "style": "Text",
             "text": "This script uses basic shell commands to be compatible with both Linux and OSX systems.",
-            "updated": 1621801760692
+            "updated": 1621801760692,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот сценарий использует основные команды оболочки, чтобы быть совместимым с системами Linux и OSX.",
+                    "updated": 1640355200208
+                }
+            ]
         },
         {
             "style": "Subtitle",
@@ -75,7 +138,14 @@
         {
             "style": "Title",
             "text": "Create Desktop/Launcher Shortcuts",
-            "updated": 1621802101953
+            "updated": 1621802101953,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Создание ярлыков рабочего стола/лаунчера",
+                    "updated": 1640355253661
+                }
+            ]
         },
         {
             "style": "Json",
@@ -85,12 +155,26 @@
         {
             "style": "Text",
             "text": "There is one unified script to automatically create and place shortcuts to the appropriate launch script. This script is automatically run during the \"node setup\" command. It can also be run individual as follows.",
-            "updated": 1621802202684
+            "updated": 1621802202684,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует один унифицированный сценарий для автоматического создания и размещения ярлыков к соответствующему скрипту запуска. Этот скрипт автоматически запускается во время команды \"node setup\". Его также можно запустить отдельно следующим образом.",
+                    "updated": 1640355285529
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "In a terminal or command prompt, navigate to the Launch-Scripts file and type:",
-            "updated": 1621802248464
+            "updated": 1621802248464,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В терминале или командной строке перейдите к файлу Launch-Scripts и введите:",
+                    "updated": 1640355299283
+                }
+            ]
         },
         {
             "style": "Json",
@@ -99,16 +183,37 @@
         {
             "style": "Text",
             "text": "This will place shortcuts within your Start Menu/Launcher as well as on your Desktop. In Windows the start menu shortcut is also searchable using the start menu search bar.",
-            "updated": 1621802356143
+            "updated": 1621802356143,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это позволит разместить ярлыки в меню Пуск/Запуск, а также на рабочем столе. В Windows ярлык в меню \"Пуск\" также можно искать с помощью строки поиска в меню \"Пуск\".",
+                    "updated": 1640355337926
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Shortcut Locations"
+            "text": "Shortcut Locations",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расположение ярлыков",
+                    "updated": 1640355349637
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Depending on your operating system, shortcuts will be placed within different directories. Listed below are the locations by operating system.",
-            "updated": 1621802761147
+            "updated": 1621802761147,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В зависимости от вашей операционной системы ярлыки будут располагаться в разных каталогах. Ниже перечислены расположения в зависимости от операционной системы.",
+                    "updated": 1640355363859
+                }
+            ]
         },
         {
             "style": "Text",
@@ -144,47 +249,110 @@
         {
             "style": "Important",
             "text": "Currently unhandled collaborator needed.",
-            "updated": 1621802848597
+            "updated": 1621802848597,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В настоящее время требуется коллаборатор.",
+                    "updated": 1640355499888
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Additional set up needed on Ubuntu",
-            "updated": 1621802397032
+            "updated": 1621802397032,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Необходима дополнительная настройка на Ubuntu",
+                    "updated": 1640355477648
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most shortcuts will work out of the box. Ubuntu desktop shortcuts, however, take a few additional steps to set up. The following section will walk you through these steps.",
-            "updated": 1621802969207
+            "updated": 1621802969207,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство ярлыков будут работать из коробки. Однако для настройки ярлыков на рабочем столе Ubuntu требуется несколько дополнительных действий. В следующем разделе мы их рассмотрим.",
+                    "updated": 1640355542401
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "First, desktop icons need to be enabled within the Tweaks app.",
-            "updated": 1620505123531
+            "updated": 1620505123531,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Во-первых, значки рабочего стола должны быть включены в приложении Tweaks.",
+                    "updated": 1640355554121
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Check if Tweaks is installed.",
-            "updated": 1620505145330
+            "updated": 1620505145330,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проверьте, установлен ли Tweaks.",
+                    "updated": 1640355565179
+                }
+            ]
         },
         {
             "style": "List",
             "text": "If not go to Ubuntu Software.",
-            "updated": 1620505149642
+            "updated": 1620505149642,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если нет, перейдите в раздел Ubuntu Software.",
+                    "updated": 1640355576669
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Install Tweaks.",
-            "updated": 1620505153965
+            "updated": 1620505153965,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Установите Tweaks.",
+                    "updated": 1640355590844
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Open Tweaks.",
-            "updated": 1620505158082
+            "updated": 1620505158082,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Откройте Tweaks.",
+                    "updated": 1640355614437
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Under extensions turn on Desktop Icons.",
-            "updated": 1621803788239
+            "updated": 1621803788239,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В разделе Extensions (Расширения) включите Desktop Icons (Значки рабочего стола).",
+                    "updated": 1640355639244
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -193,17 +361,38 @@
         {
             "style": "Success",
             "text": "If you do not see the desktop shortcut appear right away you may need to restart your computer.",
-            "updated": 1620505754854
+            "updated": 1620505754854,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если ярлык на рабочем столе не появился сразу, возможно, вам нужно перезагрузить компьютер.",
+                    "updated": 1640355656555
+                }
+            ]
         },
         {
             "style": "Callout",
             "text": "Finally, you will need to enable the desktop shortcut.",
-            "updated": 1620505790748
+            "updated": 1620505790748,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Наконец, необходимо включить ярлык на рабочем столе.",
+                    "updated": 1640355669515
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Right click Superalgos.desktop and select Allow Launching.",
-            "updated": 1620505813768
+            "updated": 1620505813768,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните правой кнопкой мыши Superalgos.desktop и выберите Allow Launching (Разрешить запуск).",
+                    "updated": 1640355712503
+                }
+            ]
         },
         {
             "style": "Gif",
@@ -213,12 +402,26 @@
         {
             "style": "Title",
             "text": "Uninstall Shortcuts",
-            "updated": 1620789208012
+            "updated": 1620789208012,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Удаление ярлыков",
+                    "updated": 1640355725714
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "There is one unified script to automatically uninstall shortcuts. To ese it open a command prompt or terminal.  Then navigate to your Superalgos directory and type the following command:",
-            "updated": 1621804036052
+            "updated": 1621804036052,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует один универсальный скрипт для автоматического удаления ярлыков. Для его выполнения откройте командную строку или терминал. Затем перейдите в каталог Superalgos и введите следующую команду:",
+                    "updated": 1640355752799
+                }
+            ]
         },
         {
             "style": "Json",

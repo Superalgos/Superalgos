@@ -7,32 +7,81 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "The Web Server has two main goals: it serves all the JS files that form the Web App and all the data files to be plotted at the charts to the browser that is running the UI."
+        "text": "The Web Server has two main goals: it serves all the JS files that form the Web App and all the data files to be plotted at the charts to the browser that is running the UI.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "У веб-сервера две основные задачи: он обслуживает все JS-файлы, формирующие веб-приложение, и все файлы данных для построения графиков в браузере, в котором запущен пользовательский интерфейс.",
+                "updated": 1640929553664
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The complete list Web Server uses is:"
+            "text": "The complete list Web Server uses is:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Полный список, который использует Web Server, следующий:",
+                    "updated": 1640929564156
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "JS Files: Enables the Web App to run on a browser."
+            "text": "JS Files: Enables the Web App to run on a browser.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "JS-файлы: Позволяет веб-приложению работать в браузере.",
+                    "updated": 1640929584394
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "JSON Data Files: Allows the UI to access data to plot."
+            "text": "JSON Data Files: Allows the UI to access data to plot.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файлы данных JSON: Позволяет пользовательскому интерфейсу получить доступ к данным для построения графика.",
+                    "updated": 1640929594454
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Images: Images used on the UI are served from the Web Server."
+            "text": "Images: Images used on the UI are served from the Web Server.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Изображения: Изображения, используемые в пользовательском интерфейсе, передаются с веб-сервера.",
+                    "updated": 1640929614143
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "JSON Workspaces Files: Allow users to create definitions on different Workspaces."
+            "text": "JSON Workspaces Files: Allow users to create definitions on different Workspaces.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файлы JSON рабочих пространств: Позволяет пользователям создавать определения на разных рабочих пространствах.",
+                    "updated": 1640929655619
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "JSON Plugin Files: Files that are automatically included on Workspaces for convenience."
+            "text": "JSON Plugin Files: Files that are automatically included on Workspaces for convenience.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Файлы JSON плагинов: Файлы, которые автоматически включаются в рабочие пространства для удобства.",
+                    "updated": 1640929699584
+                }
+            ]
         }
     ]
 }

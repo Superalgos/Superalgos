@@ -1,4 +1,4 @@
-# Superalgos 1.0.1
+# Superalgos 1.1.1
 
 ![contributors](https://img.shields.io/github/contributors-anon/Superalgos/Superalgos?label=Contributors)
 ![pull-activity](https://img.shields.io/github/issues-pr-closed-raw/Superalgos/Superalgos?color=blueviolet)
@@ -16,6 +16,7 @@
     - [Installation Notes](#installation-notes)
   - [Uninstall](#uninstall)
 - [Usage](#usage)
+  - [Partner Exchanges](#partner-exchanges)
   - [Run the Client and GUI](#run-the-client-and-gui)
     - [Using the shortcuts](#using-the-shortcuts)
     - [Using the Command Line](#using-the-command-line)
@@ -77,6 +78,10 @@ Once you have chosen which type of release you would like to install, you can th
 > 
 > These installers are not code signed (this costs money and Superalgos is completely free for everyone). Therefore, antivirus will probably flag the file as unsecure. You can force the installation to allow the packages to run.  A more detailed explanation of this can be found in this [medium article](https://medium.com/superalgos/superalgos-packaged-application-release-8befd2895102). If this makes you uncomfortable, it is recommended you look into some of the other installation methods that do not suffer from this limitation.
 
+> **NOTE ABOUT ASCENDEX:**
+>
+> An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
+
 
 #### Windows Portable Application
 
@@ -126,7 +131,7 @@ It is also possible to install the Superalgos Platfrom from source code. This is
 
 > **Note**: 
 > 
-> If you are just starting out and want to contribute, this is the recommended meathod of installation to follow.
+> If you are just starting out and want to contribute, this is the recommended method of installation to follow.
 
 All procedures (other than pre-requisites) are the same for Windows, Linux, or Mac OS. Raspberry Pi terminal commands have been included for ease of use.
 
@@ -418,15 +423,39 @@ Then simply delete the `Superalgos` folder to completely remove the application.
 
 ## Usage
 
+### Partner Exchanges
+
+The Superalgos Platform is exchange-agnostic, but [the project offers partner exchanges](https://superalgos.org/partner-exchanges.shtml) custom support and a curated onboarding experience for their customers. In turn, partner exchanges offer preferential trading fees and, in some cases, other benefits to Superalgos users.
+
+Find more information on how to get the benefits in the corresponding Telegram group.
+
+| Partner Exchange | Benefits | Telegram Group |
+|--- |--- |-- |
+| AscendEX | VIP 2 (7.5 bip Maker, 8.5 bip Taker) | https://t.me/superalgosascendex |
+
+Partner exchanges have custom workspaces for the onboarding of their users. The following sections cover how to use them from the get-go.
+
 ### Run the Client and GUI
 
 #### Using the shortcuts
+
+> **NOTE:** This method launches the platform with the fallback workspace only. If you wish to launch with a partner exchange workspace, use the Command Line method instead.
 
 If you ran `node setup` with no options above, then you should see a desktop icon which you can double click to launch the Superalgos application. A terminal window will show the server is running, and a browser window will open with the WebUI.
 
 #### Using the Command Line
 
-To run Superalgos, go to the Superalgos directory/folder and run this command:
+To launch the platform with one of the Partner Exchanges custom workspaces, go to the Superalgos directory and run the command as per the following table. You will learn about other options further down this page.
+
+| Partner Exchange | Launch Command |
+|--- |--- |
+| AscendEX | `node platform Foundations 01-Onboarding-AscendEX` |
+
+> **NOTE ABOUT ASCENDEX:**
+>
+> An issue with AscendEX API may prevent the Welcome to Superalgos tutorial to run as expected. We suggest you use the fallback/default workspace in the meantime. The issue was reported to the exchange and is currently being investigated. 
+
+To run Superalgos with the fallback workspace, go to the Superalgos directory/folder and run this command:
 
 ```sh
 node platform
@@ -435,13 +464,19 @@ node platform
 Available Options:
 
 ```sh
-usage: node platform <options>
+usage: node platform [options] [project] [workspace]
 ```
 
 | Option | Description |
 | --- | --- |
-| `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with less than 8GB of ram, like a Raspberry Pi. |
+| `minMemo` | Run with minimal memory footprint. This is critical for running on platforms with 8GB of ram or less, like a Raspberry Pi. |
 | `noBrowser` | Do not attempt to open the WebUI in a browser. This is useful on headless servers where a UI is not available. |
+
+To load a specific workspace on launch, include any options, then the project, then the workspace. For example, to load the Blank-Template workspace of the Foundations project with no options:
+
+```sh
+node platform Foundations Blank-Template
+```
 
 The Client will run on your terminal and the GUI will launch on your default browser. If Chrome/Safari is not your default browser, copy the URL, close the browser, open Chrome/Safari, and paste the URL. Be patient... it takes a few seconds to fully load the GUI.
 
@@ -502,7 +537,7 @@ journalctl -u superalgos -f
 
 ### Workspace Refactoring for Version 1
 
-Verion 1.0.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
+Verion 1.1.1 carries with it a reorganization of the codebase where several projects where extracted from Foundations : Data-Mining, Algorithmic Trading, Machine Learning and Community Plugins.
 
 This means that these projects can now have a project leader and a team working on them.
 

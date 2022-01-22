@@ -33,8 +33,13 @@
             },
             {
                 "language": "RU",
-                "text": "Извините, что оторвал Вас от графиков, но я хотел представить Вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
+                "text": "Извините, что оторвал Вас от графиков, но я хотел представить вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
                 "updated": 1637755743535
+            },
+            {
+                "language": "ID",
+                "text": "Maaf telah menyeret kamu keluar dari charts, tapi aku ingin memperkenalkan kamu kepada seseorang: orang di sebelah kanan adalah orang yang menempatkan buy orders!",
+                "updated": 1640564914771
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Мы находимся внутри Trading System - Lightning Strike - в рамках определений Open Stage. На этом этапе Execution Algorithm вступает в силу после того, как решение занять позицию уже было приянто на Trigger Stage. Я знаю, что Вы еще не знаете, что такое Situation или Condition, но я все равно бы хотел, чтобы Вы что-нибудь сделали...",
                     "updated": 1637756027374
+                },
+                {
+                    "language": "ID",
+                    "text": "Kita berada di dalam Lightning Strike Trading System, dalam definisi Open Stage. Pada tahap ini, Execution Algorithm mengambil alih setelah keputusan untuk mengambil posisi telah dibuat pada Trigger Stage. Aku tahu kamu masih belum tahu apa itu Situation atau Condition, tapi aku tetap ingin kamu melakukan sesuatu...",
+                    "updated": 1640565563790
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Потратьте несколько минут на изучение узлов под алгоритмом выполнения, проверьте формулы и условия и посмотрите, что Вы можете из них сделать!",
                     "updated": 1637756059992
+                },
+                {
+                    "language": "ID",
+                    "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya!",
+                    "updated": 1640565111657
                 }
             ]
         }

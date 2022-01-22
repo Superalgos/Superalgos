@@ -3,8 +3,10 @@
     "menuItems": [
         {
             "action": "Add UI Object",
-            "label": "Add Situation",
-            "relatedUiObject": "Situation",
+            "label": "Add Formula",
+            "relatedUiObject": "Formula",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "formula",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations",
             "actionProject": "Visual-Scripting"
@@ -30,10 +32,14 @@
     },
     "childrenNodesProperties": [
         {
-            "name": "situations",
-            "type": "array",
-            "childType": "Situation"
+            "name": "formula",
+            "type": "node",
+            "childType": "Formula"
         }
     ],
-    "propertyNameAtParent": "confirmFormulaReference"
+    "propertyNameAtParent": "confirmFormulaReferences",
+    "title": [
+        "Use Reference Parent Type",
+        "Reference Parent Find In Parents Node Type->Trading Strategy"
+    ]
 }

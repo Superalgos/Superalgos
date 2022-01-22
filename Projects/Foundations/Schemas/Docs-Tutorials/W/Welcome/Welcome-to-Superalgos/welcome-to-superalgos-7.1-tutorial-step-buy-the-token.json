@@ -1,0 +1,44 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "107.1",
+    "type": "Tutorial Step - Buy the Token!",
+    "definition": {
+        "text": "If you wish to support the people building Superalgos, buying some tokens in PancakeSwap is the way to go! This is why...",
+        "icon": {
+            "name": "Crypto-Exchanges\\pancakeswap",
+            "project": "Foundations"
+        },
+        "updated": 1640335838861,
+        "translations": [
+            {
+                "language": "ID",
+                "text": "Jika kamu ingin mendukung orang-orang yang membangun Superalgos, membeli beberapa token di PancakeSwap adalah cara yang harus ditempuh! Inilah sebabnya...",
+                "updated": 1640599300653
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Success",
+            "text": "Superalgos is a community-owned crypto project. The native token is used to incentivize contributions, meaning that the project distributes the token exclusively among contributors. Every dollar you spend buying the Superalgos SA Token goes directly to the people bringing you this awesome piece of software!",
+            "updated": 1640334923676,
+            "translations": [
+                {
+                    "language": "ID",
+                    "text": "Superalgos adalah proyek crypto milik masyarakat. Token asli digunakan untuk memberi insentif pada kontribusi, yang berarti bahwa proyek mendistribusikan token secara eksklusif di antara para kontributor. Setiap dolar yang kamu habiskan untuk membeli Superalgos SA Token langsung ke orang-orang yang membawakan kamu software yang luar biasa ini!",
+                    "updated": 1640599360537
+                }
+            ]
+        },
+        {
+            "style": "Link",
+            "text": "Learn more about the Superalgos SA Token->https://superalgos.org/token-overview.shtml",
+            "updated": 1640335484013
+        },
+        {
+            "style": "Link",
+            "text": "</br>How to buy the token using Trust Wallet->https://medium.com/superalgos/how-to-buy-the-superalgos-sa-token-using-trust-wallet-ca37aec0c0f5",
+            "updated": 1640335796928
+        }
+    ]
+}

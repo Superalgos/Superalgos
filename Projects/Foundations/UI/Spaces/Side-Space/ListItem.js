@@ -78,7 +78,7 @@ function newListItem() {
     }
 
     function onMouseClick(event) {
-        UI.projects.foundations.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(project, name)
+        UI.projects.workspaces.spaces.designSpace.workspace.replaceWorkspaceByLoadingOne(project, name)
     }
 
     function physics() {
@@ -86,7 +86,7 @@ function newListItem() {
     }
 
     function draw() {
-        let icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndType('Foundations', type)
+        let icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndType('Foundations', type)
         let backgroundColor
         let labelColor
 

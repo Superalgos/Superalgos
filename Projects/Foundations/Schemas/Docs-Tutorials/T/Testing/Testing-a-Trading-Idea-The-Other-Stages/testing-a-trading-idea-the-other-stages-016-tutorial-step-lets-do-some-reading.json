@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Lesen Sie diese ersten Absätze über die Open Execution, damit wir dann mit der Arbeit an den Definitionen beginnen können.",
                 "updated": 1639398487234
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Açık Yürütmeyle ( Open Execution ) ilgili bu ilk birkaç paragrafı okuyun, böylece tanımlar üzerinde çalışmaya başlayabiliriz.",
+                "updated": 1641746506818
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Der springende Punkt ist, dass Superalgos granulare Definitionen von Aufträgen innerhalb von Ausführungsalgorithmen vorschlägt, die wiederum in Strategien eingebaut sind, um sowohl einfache als auch komplexe Ausführungslogik zu programmieren.",
                     "updated": 1639398494473
+                },
+                {
+                    "language": "TR",
+                    "text": "Ana nokta, Superalgos'un hem basit hem de karmaşık yürütme mantığını programlamanın bir yolu olarak, sırayla stratejilere yerleştirilen yürütme algoritmaları içinde oluşturulan siparişlerin ayrıntılı tanımlarını önermesidir.",
+                    "updated": 1641746531047
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen!",
                     "updated": 1639398502617
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bunları yapmadan önce biraz daha okuma yapacağız!",
+                    "updated": 1641746555946
                 }
             ]
         }

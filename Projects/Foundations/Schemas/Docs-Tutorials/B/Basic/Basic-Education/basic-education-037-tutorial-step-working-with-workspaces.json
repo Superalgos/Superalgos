@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Çalışma alanını bir tiyatro sahnesi olarak düşünebilirsiniz. Herhangi birşey ile oynayabileceğiniz bir yer.",
                 "updated": 1639743696784
+            },
+            {
+                "language": "RU",
+                "text": "Вы можете представить себе рабочее пространство как сцену в театре. Это окружение, на котором что-то будет происходить!",
+                "updated": 1640871697395
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Her biri farklı kullanım durumları için istediğiniz kadar çalışma alanı oluşturabilirsiniz. Örneğin:",
                     "updated": 1639745440768
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете создать столько рабочих пространств, сколько пожелаете, каждое из которых предназначено для определенных случаев использования. Например:",
+                    "updated": 1640871711776
                 }
             ]
         },
@@ -89,6 +99,11 @@
                     "language": "TR",
                     "text": "Belirli bir Veri Madeninden ( Data Mine ) belirli göstergelere ihtiyaç duyacak bir Ticaret Sistemi ( Trading System ) oluşturmak için bir çalışma alanı oluşturabilirsiniz.",
                     "updated": 1639745526299
+                },
+                {
+                    "language": "RU",
+                    "text": "У вас может быть рабочее пространство для построения торговой системы, для которой потребуются определенные индикаторы из конкретных Data Mine.",
+                    "updated": 1640871745307
                 }
             ],
             "updated": 1622374580811
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Her birinin nasıl çalıştığını inceleyebilmeniz için mevcut tüm göstergelere sahip başka bir çalışma alanı kurulumunuz olabilir.",
                     "updated": 1639745549535
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете настроить еще одно рабочее пространство со всеми доступными индикаторами, чтобы изучить, как работает каждый из них.",
+                    "updated": 1640871761029
                 }
             ]
         },
@@ -148,6 +168,11 @@
                     "language": "TR",
                     "text": "Çalışma alanlarıyla nasıl başa çıkılacağına ilişkin temel bilgileri öğrenmek için bu sayfayı okuyun... Workspaces",
                     "updated": 1639746575260
+                },
+                {
+                    "language": "RU",
+                    "text": "Прочитайте эту страницу, чтобы узнать основы работы с рабочими пространствами...",
+                    "updated": 1640871822987
                 }
             ]
         }

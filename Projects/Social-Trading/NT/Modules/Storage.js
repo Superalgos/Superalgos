@@ -1,11 +1,11 @@
 exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage() {
     /*
-    This module represents the Network Node Physical Storage.
+    This module represents the Social Graph Physical Storage.
     It is used to save the in-memory events and also to load
     them when the node is starting. 
 
-    Each node has a github repository to store its social graph. 
-    That Github repository can be used by any other node to get the history of
+    Each node has a github repository to store its social graph.                        TODO: Integrate this with Open Storage Project
+    That Github repository can be used by any other node to get the history of          TODO: Build the mechanism to retrieve information form other node's storage
     events that can build the social graph.
     
     Each Network Node saves locally all unsaved events, every one minute,
@@ -54,9 +54,11 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     try {
                         let event = NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent()
                         event.initialize(storedEvent)
-                        NT.projects.network.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
-                        NT.projects.network.globals.memory.arrays.EVENTS.push(event)
-                        indexLastSavedEvent = NT.projects.network.globals.memory.arrays.EVENTS.length - 1
+                        event.run()
+                        
+                        SA.projects.socialTrading.globals.memory.maps.EVENTS.set(storedEvent.eventId, event)
+                        SA.projects.socialTrading.globals.memory.arrays.EVENTS.push(event)
+                        indexLastSavedEvent = SA.projects.socialTrading.globals.memory.arrays.EVENTS.length - 1
                     } catch (err) {
                         if (err.stack !== undefined) {
                             console.log('[ERROR] Client Interface -> err.stack = ' + err.stack)
@@ -94,8 +96,8 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
             let eventsToSave = []
             let minuteToSave
 
-            for (let i = indexLastSavedEvent + 1; i < NT.projects.network.globals.memory.arrays.EVENTS.length; i++) {
-                let event = NT.projects.network.globals.memory.arrays.EVENTS[i]
+            for (let i = indexLastSavedEvent + 1; i < SA.projects.socialTrading.globals.memory.arrays.EVENTS.length; i++) {
+                let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
 
                 let currentMinute = Math.trunc((new Date()).valueOf() / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
                 let eventMinute = Math.trunc(event.timestamp / SA.projects.foundations.globals.timeConstants.ONE_MIN_IN_MILISECONDS)
@@ -114,13 +116,14 @@ exports.newSocialTradingModulesStorage = function newSocialTradingModulesStorage
                     let eventToSave = {
                         eventId: event.eventId,
                         eventType: event.eventType,
-                        emitterUserProfileId: event.emitterUserProfileId,
-                        targetUserProfileId: event.targetUserProfileId,
-                        emitterBotProfileId: event.emitterBotProfileId,
-                        targetBotProfileId: event.targetBotProfileId,
-                        emitterPostHash: event.emitterPostHash,
+                        originSocialPersonaId: event.originSocialPersonaId,
+                        targetSocialPersonaId: event.targetSocialPersonaId,
+                        originSocialTradingBotId: event.originSocialTradingBotId,
+                        targetSocialTradingBotId: event.targetSocialTradingBotId,
+                        originPostHash: event.originPostHash,
                         targetPostHash: event.targetPostHash,
                         timestamp: event.timestamp,
+                        fileKeys: event.fileKeys,
                         botAsset: event.botAsset,
                         botExchange: event.botExchange,
                         botEnabled: event.botEnabled

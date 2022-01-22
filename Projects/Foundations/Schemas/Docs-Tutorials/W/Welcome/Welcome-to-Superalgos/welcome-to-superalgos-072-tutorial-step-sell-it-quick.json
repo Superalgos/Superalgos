@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Я уверен, Вы заметили, что после того, как заказ был размещен, не осталось лимитных ордеров на покупку. Вместо этого начинают появляться заказы на продажу!",
                 "updated": 1637595913971
+            },
+            {
+                "language": "ID",
+                "text": "Aku yakin kamu mengetahui tidak ada lagi limit buy orders setelah pesanan terisi. Sebaliknya, sell orders mulai hadir!",
+                "updated": 1640562963215
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Обратите внимание, что первый Limit Sell Order выставляется в 00:21 утра - через минуту после выполнения ордера на покупку.",
                     "updated": 1637596009712
+                },
+                {
+                    "language": "ID",
+                    "text": "Perhatikan bagaimana Limit Sell Order pertama dipasang pada 00:22 AM, beberapa menit setelah buy order terisi!",
+                    "updated": 1640562980011
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "RU",
                     "text": "В ту же минуту Superalgos получил бы уведомление от биржи о том, что заказ был выполнен. Trading Bot соединяется с биржей и проходит два определенных цикла.",
                     "updated": 1637596461485
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada saat yang sama Superalgos akan mendapat pemberitahuan dari exchange bahwa pesanan telah dipenuhi. Trading Bot terhubung dengan exchange dan melewati dua Cycle berbeda.",
+                    "updated": 1640563068267
                 }
             ]
         },
@@ -136,6 +151,11 @@
                     "language": "RU",
                     "text": "В первом Cycle он выясняет статус существующих ордеров. Во втором - дает новые инструкции.",
                     "updated": 1637655276008
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada Cycle pertama, bot mengetahui status pesanan yang ada. Yang kedua, bot akan memberikan instruksi baru.",
+                    "updated": 1640563083904
                 }
             ]
         }

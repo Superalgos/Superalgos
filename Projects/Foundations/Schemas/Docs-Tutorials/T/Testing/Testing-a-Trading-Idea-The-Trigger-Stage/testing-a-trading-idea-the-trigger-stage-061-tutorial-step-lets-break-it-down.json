@@ -1,0 +1,105 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 61,
+    "type": "Tutorial Step - Let's Break It Down!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "condition"
+        },
+        "text": "We will go through the statement step and step and put it into proper syntax!",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen!",
+                "updated": 1639389564281
+            },
+            {
+                "language": "TR",
+                "text": "İfadeyi adım adım inceleyeceğiz ve doğru sözdizimine getireceğiz!",
+                "updated": 1641663516896
+            },
+            {
+                "language": "RU",
+                "text": "Мы пройдем пошагово через утверждение и приведем его к правильному синтаксису!",
+                "updated": 1642660856072
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "List",
+            "text": "Remember, time goes first: in the 1H chart! ",
+            "updated": 1610470932699,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm!",
+                    "updated": 1639389574772
+                },
+                {
+                    "language": "TR",
+                    "text": "Unutmayın, zaman önce gelir: 1H diyagramında!",
+                    "updated": 1641663535365
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните, время идет первым: в графике 1H!",
+                    "updated": 1642660878963
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs."
+        },
+        {
+            "style": "List",
+            "text": "The close of the candle is lesser than: ",
+            "updated": 1610470968732,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der Schluss der Kerze ist kleiner als:",
+                    "updated": 1639389583113
+                },
+                {
+                    "language": "TR",
+                    "text": "Mumun kapanışı şundan daha azdır:",
+                    "updated": 1641663552553
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрытие свечи меньше, чем:",
+                    "updated": 1642660897026
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "candle.close <"
+        },
+        {
+            "style": "List",
+            "text": "The moving average minus the deviation, with a time frame defined for every statement:",
+            "updated": 1610471073502,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Der gleitende Durchschnitt minus die Abweichung, wobei für jede Anweisung ein Zeitrahmen definiert wird:",
+                    "updated": 1639389589076
+                },
+                {
+                    "language": "RU",
+                    "text": "Скользящая средняя минус отклонение, с таймфреймом, определенным для каждого показания:",
+                    "updated": 1642660947764
+                }
+            ]
+        },
+        {
+            "style": "Javascript",
+            "text": "chart.at01hs.bollingerBand.movingAverage - \nchart.at01hs.bollingerBand.deviation",
+            "updated": 1610471042788
+        }
+    ]
+}

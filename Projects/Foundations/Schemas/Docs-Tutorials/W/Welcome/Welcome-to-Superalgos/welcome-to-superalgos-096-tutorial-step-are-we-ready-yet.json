@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "işlemlerin en son aşaması olan Dirençler ve Destekler (Resistance And Support) bittiğinde hazır olacağız. Bu yüzden gözünüz üzerinde olsun!",
                 "updated": 1636573001616
+            },
+            {
+                "language": "ID",
+                "text": "Resistances dan Supports Multi-Time-Frame-Daily di kiri adalah yang terakhir dari proses yang harus diselesaikan, jadi awasi itu!",
+                "updated": 1640576393304
             }
         ]
     },
@@ -60,6 +65,11 @@
                     "language": "TR",
                     "text": "Bu işlem %100 ise, o zaman gitmeye hazırız.",
                     "updated": 1636573018130
+                },
+                {
+                    "language": "ID",
+                    "text": "Jika proses ini 100%, maka kita siap melanjutkan.",
+                    "updated": 1640576423336
                 }
             ]
         },
@@ -88,6 +98,11 @@
                     "language": "TR",
                     "text": "Gerekli göstergeler güncel olmadan Canlı İşlem Oturumu ( Live Trading Session ) çalıştırmayı denerseniz, felaketle sonuçlanan hiçbir şey olmaz. Bir hata olur ve nedeni size bildirilir. Yani, önemli değil!",
                     "updated": 1636573076891
+                },
+                {
+                    "language": "ID",
+                    "text": "Adapun, tidak ada masalah yang terjadi jika kamu mencoba untuk menjalankan Live Trading Session ketika indikator yang diperlukan tidak up to date. Akan ada kesalahan, dan kamu akan diberitahu alasannya. Jadi, bukan masalah besar!",
+                    "updated": 1640576516923
                 }
             ]
         },
@@ -117,6 +132,11 @@
                     "language": "TR",
                     "text": "Bir sonraki adımda, Görevi ( Tasks ) ve Canlı İşlem Oturumunu ( Live Trading Session ) başlatmanızı isteyeceğim. Yapmak istemiyorsanız, eğitime devam etmişsiniz gibi devam edin...",
                     "updated": 1636573159432
+                },
+                {
+                    "language": "ID",
+                    "text": "Pada langkah berikutnya aku akan meminta kamu untuk memulai Task dan Live Trading Session. Jika kamu memilih untuk tidak melakukannya, teruskan tutorial seolah-olah kamu punya...",
+                    "updated": 1640576592357
                 }
             ]
         }

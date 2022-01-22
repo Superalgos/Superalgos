@@ -1,0 +1,16 @@
+{
+    "tutorial": "Welcome to Superalgos!",
+    "pageNumber": "98.1",
+    "type": "Tutorial Step - Welcome AscendEX Live Trading Process Progress",
+    "definition": {
+        "text": "This step plays a video in full screen mode.",
+        "updated": 1640967785818
+    },
+    "paragraphs": [
+        {
+            "style": "Gif",
+            "text": "GIFs/Foundations/Tutorials/welcome-live-trading-ascendex-orders.gif",
+            "updated": 1640968058406
+        }
+    ]
+}

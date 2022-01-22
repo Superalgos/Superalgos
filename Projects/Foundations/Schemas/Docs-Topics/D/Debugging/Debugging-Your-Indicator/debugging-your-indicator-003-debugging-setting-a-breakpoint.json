@@ -4,18 +4,39 @@
     "type": "Debugging - Setting a Breakpoint",
     "definition": {
         "text": "A breakpoint is a user defined place in the code where the debugger will pause and allow you to examine the state of affairs! This means you can analyse the current state of variables and inputs and outputs of functions to help try determine where the cause of a problem might be.",
-        "updated": 1623408792317
+        "updated": 1623408792317,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Точка прерывания - это определенное пользователем место в коде, где отладчик приостанавливается и позволяет вам изучить состояние дел! Это означает, что вы можете проанализировать текущее состояние переменных, входов и выходов функций, чтобы попытаться определить, где может быть причина проблемы.",
+                "updated": 1640281011184
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "For this example we are going to be debugging an indicator, therefore we expand into the Projects folder and find the file with the code which builds indicators. In this file we will place a breakpoint.",
-            "updated": 1623405682457
+            "updated": 1623405682457,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В данном примере мы будем отлаживать индикатор, поэтому откроем папку Projects и найдем файл с кодом, который формирует индикатор. В этом файле мы разместим точку прерывания.",
+                    "updated": 1640281090646
+                }
+            ]
         },
         {
             "style": "Success",
             "text": "A breakpoint is an intentional stopping or pausing place in a program, put in place for debugging purposes. It's where the code execution pauses and you can check on the status of things!",
-            "updated": 1623405106048
+            "updated": 1623405106048,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Точка прерывания - это преднамеренная остановка или пауза в программе, устанавливаемая в целях отладки. Это место, где выполнение кода приостанавливается, и вы можете проверить, как обстоят дела!",
+                    "updated": 1640281117613
+                }
+            ]
         },
         {
             "style": "Text",
@@ -24,7 +45,14 @@
         {
             "style": "Text",
             "text": "Expand the Projects folder and open the file \"SingleMarketFunctions.js\" (..Superalgos/Projects/Superalgos/TS/Function-Libraries/SingleMarketFunctions.js).",
-            "updated": 1623414479019
+            "updated": 1623414479019,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Раскройте папку Projects и откройте файл \"SingleMarketFunctions.js\" (...Superalgos/Projects/Superalgos/TS/Function-Libraries/SingleMarketFunctions.js).",
+                    "updated": 1640281130717
+                }
+            ]
         },
         {
             "style": "Png",
@@ -34,7 +62,14 @@
         {
             "style": "Text",
             "text": "Now we will have to find the line in the code where we'd like the process to pause, and show us what's really happening. This point would be the line that says:",
-            "updated": 1623405827603
+            "updated": 1623405827603,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь нам нужно найти строку в коде, где мы хотели бы, чтобы процесс приостановился и показал нам, что происходит на самом деле. Этой точкой будет строка, содержащая:",
+                    "updated": 1640281175905
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -49,17 +84,38 @@
         {
             "style": "Text",
             "text": "Click just to the left of the line number, or press F9 to insert a breakpoint at this line.",
-            "updated": 1623405851133
+            "updated": 1623405851133,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Щелкните чуть левее номера строки или нажмите F9, чтобы вставить точку прерывания на этой строке.",
+                    "updated": 1640281199343
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Using \"CTRL+F\" allows us to find what we search for in the code.",
-            "updated": 1614265550399
+            "updated": 1614265550399,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Использование \"CTRL+F\" позволяет нам найти то, что мы ищем в коде.",
+                    "updated": 1640281213755
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Now we have a breakpoint configured, we can try running a Task. Click Next to go through the process of how to start the TS and trigger your breakpoint.",
-            "updated": 1623409257540
+            "updated": 1623409257540,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь у нас настроена точка прерывания, и мы можем попробовать запустить задачу (\"Task\"). Нажмите Next (\"Далее\"), чтобы пройти процесс запуска TS и инициирования точки прерывания.",
+                    "updated": 1640281270607
+                }
+            ]
         }
     ]
 }

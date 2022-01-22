@@ -197,7 +197,7 @@ function newPlottersManager() {
             	scheme = window.location.protocol.slice(0,-1)
             }
 
-            let eventsServerClient = UI.projects.foundations.spaces.designSpace.workspace.eventsServerClients.get(layer.lanNetworkNode.id)
+            let eventsServerClient = UI.projects.workspaces.spaces.designSpace.workspace.eventsServerClients.get(layer.lanNetworkNode.id)
 
             storage.initialize(
                 mine,

@@ -5,7 +5,11 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     */
     const MODULE_NAME = 'Portfolio System'
     let thisObject = {
-        mantain: mantain,
+        confirmThisEvent: confirmThisEvent,
+        setThisEvent: setThisEvent,
+        confirmThisFormula: confirmThisFormula,
+        setThisFormula: setThisFormula,
+        maintain: maintain,
         reset: reset,
         run: run,
         updateChart: updateChart,
@@ -20,13 +24,14 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     let chart
     let exchange
     let market
-    var count = 0;
 
     let portfolioSystem
     let portfolioEngine
     let sessionParameters
 
-    let portfolioManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioManager.newPortfolioManagementBotModulesPortfolioManager(processIndex)
+    let portfolioEventsManagerModuleObject
+    let portfolioFormulasManagerModuleObject
+    let exchangeAPIModuleObject
 
     /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -43,7 +48,14 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         portfolioSystem.conditions = new Map()
         portfolioSystem.formulas = new Map()
 
-        portfolioManagerModuleObject.initialize()
+        portfolioEventsManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioEventsManager.newPortfolioManagementBotModulesPortfolioEventsManager(processIndex)
+        portfolioEventsManagerModuleObject.initialize()
+
+        portfolioFormulasManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioFormulasManager.newPortfolioManagementBotModulesPortfolioFormulasManager(processIndex)
+        portfolioFormulasManagerModuleObject.initialize()
+
+        exchangeAPIModuleObject = TS.projects.portfolioManagement.botModules.exchangeAPI.newPortfolioManagementBotModulesExchangeAPI(processIndex)
+        exchangeAPIModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Portfolio System Definition */
         portfolioSystem.checkConditions = function (situation, passed) {
@@ -70,12 +82,18 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
             evalNode(startingNode, 'Conditions', descendentOfNodeType)
         }
 
-        portfolioSystem.evalFormulas = function (startingNode, descendentOfNodeType) {
-            evalNode(startingNode, 'Formulas', descendentOfNodeType)
+        portfolioSystem.evalFormulas = function (startingNode, descendentOfNodeType, currentValue) {
+            evalNode(
+                startingNode,
+                'Formulas',
+                descendentOfNodeType,
+                undefined,
+                currentValue
+            )
         }
 
         portfolioSystem.evalUserCode = function (startingNode, descendentOfNodeType) {
-          evalNode(startingNode, 'User Codes', descendentOfNodeType);
+            evalNode(startingNode, 'User Codes', descendentOfNodeType);
         }
 
         portfolioSystem.addError = function (errorDataArray) {
@@ -124,11 +142,23 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                 return false
             }
         }
+
+        if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
+            for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
+                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = sessionParameters.managedAssets.managedAsset[i].referenceParent.config.codeName;
+                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.initialBalance = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.free = sessionParameters.managedAssets.managedAsset[i].config.initialBalance;
+            }
+        } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
+            fetchBalances(initFlag = true);
+        }
     }
 
     function finalize() {
-        portfolioManagerModuleObject.finalize()
-        portfolioManagerModuleObject = undefined
+        portfolioEventsManagerModuleObject.finalize()
+        portfolioEventsManagerModuleObject = undefined
+
+        portfolioFormulasManagerModuleObject.finalize()
+        portfolioFormulasManagerModuleObject = undefined
 
         chart = undefined
         exchange = undefined
@@ -152,13 +182,16 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         //taskParameters = undefined
     }
 
-    function mantain() {
-        portfolioManagerModuleObject.mantain()
+    function maintain() {
+        // Move Current to Last:
+        for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.free = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.locked = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.locked
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.total = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.total
+        }
     }
 
     function reset() {
-        portfolioManagerModuleObject.reset()
-
         portfolioSystem.highlights = []
         portfolioSystem.errors = []
         portfolioSystem.warnings = []
@@ -179,38 +212,16 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         exchange = pExchange
         market = pMarket
 
-        portfolioManagerModuleObject.updateChart(pChart, pExchange, pMarket)
     }
 
     async function run() {
         try {
-            /* Run Asset Refresh */
-            // assetRefreshPlaceholderFunction()
-            count++;
-
-            console.log(" ---- @ PortfolioSystem.run()  ---  TMP MSG - What todo here? ----count=>" + count);
-
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
+            // update balances:
+            if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
+                await fetchBalances();
+            } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
+                fetchLastBalances();
             }
-            await sleep(20000);
-
-
-            //portfolioManagerModuleObject.runTriggerStage()
-
-            /* Run the Open Stage */
-            //await portfolioManagerModuleObject.runOpenStage()
-
-            /* Run the Manage Stage */
-            //portfolioManagerModuleObject.runManageStage()
-
-            /* Run the Close Stage */
-           //await portfolioManagerModuleObject.runCloseStage()
-
-            /* Validation if we need to exit the position */
-            //portfolioManagerModuleObject.exitPositionValidation()
-
-            portfolioManagerModuleObject.cycleBasedStatistics()
 
         } catch (err) {
             /*
@@ -227,7 +238,62 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         }
     }
 
-    function evalNode(node, evaluating, descendentOfNodeType, isDescendent) {
+    async function fetchBalances(init) {
+        let balances = await exchangeAPIModuleObject.fetchBalance();
+
+        if (balances) {
+            for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
+                // Set the balances at the trading engine:
+                let assetBalToSet = sessionParameters.managedAssets.managedAsset[i].referenceParent.config.codeName;
+                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].name = assetBalToSet;
+
+                // Needs error checks: 
+                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free = balances[assetBalToSet].free
+                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.locked = balances[assetBalToSet].used
+                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.total = balances[assetBalToSet].total
+            }
+        }
+
+        if (init) {
+            for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
+                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.initialBalance = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.initialBalance = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free
+                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].name
+            }
+        }
+    }
+
+    function fetchLastBalances() {
+        for (let i = 0; i < portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset.length; i++) {
+            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name
+            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.free;
+            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.locked = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.locked;
+            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.total = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.total;
+        }
+    }
+
+    function confirmThisEvent(event) {
+        return portfolioEventsManagerModuleObject.confirmThisEvent(event)
+    }
+
+    function setThisEvent(event) {
+        return portfolioEventsManagerModuleObject.setThisEvent(event)
+    }
+
+    function confirmThisFormula(formula) {
+        return portfolioFormulasManagerModuleObject.confirmThisFormula(formula)
+    }
+
+    function setThisFormula(formula) {
+        return portfolioFormulasManagerModuleObject.setThisFormula(formula)
+    }
+
+    function evalNode(
+        node,
+        evaluating,
+        descendentOfNodeType,
+        isDescendent,
+        currentValue
+    ) {
         if (node === undefined) { return }
 
         /* Verify if this node is decendent of the specified node type */
@@ -250,18 +316,21 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
             if (node.code !== undefined) {
                 /* We will eval this formula */
                 if (isDescendent === true) {
-                    evalFormula(node)
+                    evalFormula(
+                        node,
+                        currentValue
+                    )
                 }
             }
         }
 
         /* Here we check if there is a User Defined-Javascript Code to be evaluated: */
         if (node.type === 'Javascript Code' && evaluating === 'User Codes') {
-          if (node.code !== undefined) {
-            if (isDescendent === true) {
-              evalJSCode(node);
+            if (node.code !== undefined) {
+                if (isDescendent === true) {
+                    evalJSCode(node);
+                }
             }
-          }
         }
 
         /* Now we go down through all this node children */
@@ -277,7 +346,13 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                     case 'node': {
                         if (property.name !== previousPropertyName) {
                             if (node[property.name] !== undefined) {
-                                evalNode(node[property.name], evaluating, descendentOfNodeType, isDescendent)
+                                evalNode(
+                                    node[property.name],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    currentValue
+                                )
                             }
                             previousPropertyName = property.name
                         }
@@ -287,7 +362,13 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                         if (node[property.name] !== undefined) {
                             let nodePropertyArray = node[property.name]
                             for (let m = 0; m < nodePropertyArray.length; m++) {
-                                evalNode(nodePropertyArray[m], evaluating, descendentOfNodeType, isDescendent)
+                                evalNode(
+                                    nodePropertyArray[m],
+                                    evaluating,
+                                    descendentOfNodeType,
+                                    isDescendent,
+                                    currentValue
+                                )
                             }
                         }
                         break
@@ -350,7 +431,10 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
         TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalCondition -> value = ' + value)
     }
 
-    function evalFormula(node) {
+    function evalFormula(
+        node,
+        currentValue // This is value of the Formula at the Trading Bot, that can be used at code to be evaluated.
+    ) {
         let value
         let errorMessage
         let docs
@@ -416,29 +500,29 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     function evalJSCode(node) {
-      let value
-      let errorMessage
-      let docs
+        let value
+        let errorMessage
+        let docs
 
-      try {
-        value = eval(node.code);
+        try {
+            value = eval(node.code);
 
-      } catch (err) {
-        value = 0
-        errorMessage = err.message
-        docs = {
-            project: 'Foundations',
-            category: 'Topic',
-            type: 'TS LF Portfolio Bot Error - Evaluating User Code Error',
-            placeholder: {}
+        } catch (err) {
+            value = 0
+            errorMessage = err.message
+            docs = {
+                project: 'Foundations',
+                category: 'Topic',
+                type: 'TS LF Portfolio Bot Error - Evaluating User Code Error',
+                placeholder: {}
+            }
+            TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
         }
-        TS.projects.education.utilities.docsFunctions.buildPlaceholder(docs, err, node.name, node.code, undefined)
-      }
 
-      if (errorMessage !== undefined) {
-          portfolioSystem.addError([node.id, errorMessage, docs])
-          TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
-          return
-      }
+        if (errorMessage !== undefined) {
+            portfolioSystem.addError([node.id, errorMessage, docs])
+            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[INFO] evalFormula -> errorMessage = ' + errorMessage)
+            return
+        }
     }
 }

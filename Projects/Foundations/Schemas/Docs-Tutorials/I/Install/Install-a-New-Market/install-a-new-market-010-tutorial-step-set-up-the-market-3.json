@@ -19,14 +19,19 @@
                 "language": "DE",
                 "text": "Stellen Sie nun einen Verweis vom Knoten Market Quoted Asset im soeben definierten Market auf den entsprechenden Asset Knoten unter Exchange Assets her.",
                 "updated": 1635832310411
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Şimdi, Borsa Varlıkları ( Exchange Assets ) altındaki ilgili Varlık ( Asset ) düğümüne az önce tanımladığınız Piyasadaki, Piyasa Koteli Varlık ( Market Quoted Asset ) düğümünden bir bağlantı oluşturun.",
+                "updated": 1642148844954
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Success",
-            "text": "You are almost done with this references!",
-            "updated": 1617212021559,
+            "text": "You are almost done with these references!",
+            "updated": 1640709313365,
             "translations": [
                 {
                     "language": "ES",
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "Sie sind mit diesen Referenzen fast fertig!",
                     "updated": 1635832357018
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu referanslarla işiniz neredeyse bitti!",
+                    "updated": 1642148902368
                 }
             ]
         }

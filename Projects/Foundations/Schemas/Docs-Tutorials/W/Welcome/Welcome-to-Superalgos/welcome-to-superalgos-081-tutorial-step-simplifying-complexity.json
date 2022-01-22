@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Ticaret sistemlerini bir çerçeve olarak anlattık, ancak bu açıklamayla ilgili bir hatılatma : bir tiacaret sistemi birden fazla stratejiyi ele alabilir.",
                 "updated": 1636210282829
+            },
+            {
+                "language": "ID",
+                "text": "Kita belum membahas trading systems sebagai framework, tetapi fitur yang relevan dengan penjelasan ini yaitu mereka dapat menangani banyak strategi.",
+                "updated": 1640566149032
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Her strateji, her biri kendi yürütme tanımlarına sahip bir Açık Aşama ( Open Stage ) ve bir Kapatma Aşaması ( Close Stage ) içerir. Her aşama birden fazla yürütme algoritması içerebilir ve her algoritma birden fazla siparişi işleyebilir.",
                     "updated": 1636210854492
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap strategi menampilkan Open Stage dan Close Stage, masing-masing dengan definisi eksekusi sendiri. Setiap stage dapat menampilkan multiple execution algoritha, dan setiap algoritma dapat menangani multiple order.",
+                    "updated": 1640566280344
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Kalıbı görüyor musun? Biz buna ayrıntı düzeyi diyoruz.",
                     "updated": 1636210976648
+                },
+                {
+                    "language": "ID",
+                    "text": "Apakah kamu melihat pattern yang ada? Kami menyebutnya Granularity.",
+                    "updated": 1640566371054
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "TR",
                     "text": "Superalgos, her konuyu minimum ifadeye ayırır ve çözümleri bütünleştirir. Bu şekilde hem basit hem de hayal edebileceğiniz en karmaşık ticaret kurulumlarını tasarlamanıza, dağıtmanıza ve yönetmenize olanak tanır.",
                     "updated": 1636210999536
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos memecah setiap masalah ke ekspresi minimum, dan mengintegrasikan solusi. Ini adalah bagaimana hal ini memungkinkan kamu untuk design, deploy, dan manage trading setup dari sederhana hingga paling kompleks yang mungkin kamu bayangkan.",
+                    "updated": 1640566531213
                 }
             ]
         }

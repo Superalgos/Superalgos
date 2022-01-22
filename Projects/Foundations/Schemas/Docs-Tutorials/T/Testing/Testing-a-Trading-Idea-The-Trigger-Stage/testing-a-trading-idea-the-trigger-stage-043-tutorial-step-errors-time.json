@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Fehler sind immer an einen Zeitpunkt, d.h. an eine bestimmte Kerze gebunden! Wie in diesem Fall kann mehr als ein Fehler gleichzeitig auftreten!",
                 "updated": 1639267360171
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Hatalar her zaman zamanın bir noktasına, yani belirli bir muma bağlıdır! Bu durumda olduğu gibi aynı anda birden fazla hata oluşabilir!",
+                "updated": 1641660472550
+            },
+            {
+                "language": "RU",
+                "text": "Ошибки всегда привязаны к моменту времени, то есть к конкретной свече! Как и в данном случае, одновременно может произойти более одной ошибки!",
+                "updated": 1642656437527
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Wenn der Trading Bot eine Handelssitzung durchführt, wendet er die Definitionen im Trading System Kerze für Kerze an, eine nach der anderen. Der Bot weiß nicht, was als Nächstes kommt... er kennt nur die aktuelle Kerze - die, die gerade ausgewertet wird.",
                     "updated": 1639267371193
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Ticaret Botu ( Trading Bot ) bir ticaret seansı gerçekleştirdiğinde, Ticaret Sistemindeki ( Trading System ) tanımları birer birer,mum mum uygular. Bot sırada ne olduğunu bilmez... sadece mevcut mumu bilir — yani değerlendirilen mumu.",
+                    "updated": 1641660498609
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда торговый бот запускает торговую сессию, он применяет определения в торговой системе свеча за свечой, по одной за раз. Бот не знает, что будет дальше... он знает только текущую свечу - ту, которая оценивается.",
+                    "updated": 1642656951573
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Wenn ein Fehler auftritt, wird er mit dem Zeitstempel der entsprechenden Kerze gespeichert. Wenn mehr als ein Fehler bei derselben Kerze auftritt, wird jeder Fehler unter dem vorherigen aufgezeichnet, wobei die Kugeln immer kleiner werden. Auf diese Weise wissen Sie genau, welche Fehler wann aufgetreten sind.",
                     "updated": 1639267380172
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir hata oluştuğunda, ilgili mum zaman damgasıyla kaydedilir. Aynı mum üzerinde birden fazla hata meydana gelirse, her hata bir öncekinin altına kaydedilir ve hatalar toplandıkca küçülür . Bu şekilde, tam olarak hangi hataların ne zaman meydana geldiğini bilirsiniz.",
+                    "updated": 1641660516291
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда происходит ошибка, она сохраняется вместе с временной меткой соответствующей свечи. Если на одной и той же свече произошло несколько ошибок, каждая ошибка отображается под предыдущей, причем размер шариков уменьшается. Так вы узнаете, какие именно ошибки когда произошли.",
+                    "updated": 1642657028952
                 }
             ]
         }

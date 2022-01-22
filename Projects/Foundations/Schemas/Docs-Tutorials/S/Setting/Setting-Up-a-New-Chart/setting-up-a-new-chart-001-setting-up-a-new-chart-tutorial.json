@@ -15,6 +15,11 @@
                 "language": "RU",
                 "text": "В этом Tutorial рассматриваются основные внутренние механизмы работы с Charting Space чтобы помочь вам научиться создавать собственные пользовательские графики.",
                 "updated": 1637912833054
+            },
+            {
+                "language": "TR",
+                "text": "Bu öğretici ( Tutorial ), kendi özel çizelgelerinizi nasıl oluşturacağınızı öğrenebilmeniz için Grafik Alanının ( Charting Space ) temel işlevleri konusunda size yol gösterecektir.",
+                "updated": 1642518148260
             }
         ]
     },

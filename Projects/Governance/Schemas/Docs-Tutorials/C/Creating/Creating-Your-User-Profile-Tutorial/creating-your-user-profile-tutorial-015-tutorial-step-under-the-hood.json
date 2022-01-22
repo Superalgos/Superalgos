@@ -25,6 +25,11 @@
                 "language": "RU",
                 "text": "Давайте подробнее рассмотрим криптографическую подпись в вашем новом профиле.",
                 "updated": 1639047574989
+            },
+            {
+                "language": "DE",
+                "text": "Schauen wir uns die kryptografische Signatur in Ihrem neuen Profil genauer an.",
+                "updated": 1640073446031
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "RU",
                     "text": "Щелкните параметр configure в узле User Profile и посмотрите, что внутри.",
                     "updated": 1639067582587
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie auf die Konfigurationsoption in Ihrem Benutzerprofilknoten und sehen Sie sich an, was dort steht.",
+                    "updated": 1640073472809
                 }
             ]
         },
@@ -72,6 +82,11 @@
                     "language": "RU",
                     "text": "Ух ты, много цифр! Опять же, именно так система управления узнает, что этот профиль пользователя принадлежит закрытому ключу, подписавшему сообщение, который, в свою очередь, принадлежит адресу, который будет содержать токены, которые присваивают вашему профилю Token Power.",
                     "updated": 1639047671461
+                },
+                {
+                    "language": "DE",
+                    "text": "Wow, das sind eine Menge Zahlen! So weiß das Governance-System, dass dieses Benutzerprofil ( User Profile ) zu dem privaten Schlüssel gehört, mit dem die Nachricht signiert wurde, der wiederum zu der Adresse gehört, die die Token enthält, mit denen Ihr Profil Token Power erhält.",
+                    "updated": 1640073506764
                 }
             ]
         }

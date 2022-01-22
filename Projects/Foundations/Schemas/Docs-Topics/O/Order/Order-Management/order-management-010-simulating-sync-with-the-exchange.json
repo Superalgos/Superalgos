@@ -4,33 +4,82 @@
     "type": "Simulating Sync With the Exchange",
     "definition": {
         "text": "The simulated synchronization with the exchange resembles the real synchronization in that it follows the same logic. The difference lies in that the data involved in calculations originates in user definitions instead of real-life orders.",
-        "updated": 1610222523595
+        "updated": 1610222523595,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Имитация синхронизации с биржей похожа на реальную синхронизацию, поскольку следует той же логике. Разница заключается в том, что данные, участвующие в расчетах, берутся из пользовательских определений, а не из реальных ордеров.",
+                "updated": 1640332301212
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "The simulation of the synchronization with the exchange looks to reproduce the logic of live trading for backtesting and paper trading sessions so that simulations follow similar mechanisms, and thus, maximize their capacity to predict what live trading with any given trading system may look like.",
-            "updated": 1610222800319
+            "updated": 1610222800319,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция синхронизации с биржей призвана воспроизвести логику живой торговли для бэктестинга и бумажных торговых сессий, чтобы симуляции следовали аналогичным механизмам и, таким образом, максимизировали свою способность предсказывать, как может выглядеть живая торговля с любой конкретной торговой системой.",
+                    "updated": 1640332335754
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The obvious difference is that there is no exchange involved in the process, that is, no real-life data about the variables affecting orders such as the actual fill rates, or if orders are filled at all. Instead, all information is taken from user definitions (both from the trading system and session parameters) and market information."
+            "text": "The obvious difference is that there is no exchange involved in the process, that is, no real-life data about the variables affecting orders such as the actual fill rates, or if orders are filled at all. Instead, all information is taken from user definitions (both from the trading system and session parameters) and market information.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Очевидное различие заключается в том, что в процессе не участвует биржа, то есть нет реальных данных о переменных, влияющих на ордера, таких как фактические коэффициенты заполнения, или если ордера вообще заполняются. Вместо этого вся информация берется из пользовательских определений (как из торговой системы, так и из параметров сессии) и рыночной информации.",
+                    "updated": 1640332381140
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are two main levels of definitions that affect how orders are simulated."
+            "text": "There are two main levels of definitions that affect how orders are simulated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует два основных уровня определений, которые влияют на то, как моделируются ордера.",
+                    "updated": 1640332399389
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The one level that takes precedence in all cases is the definitions made through the simulated exchange events section under each order defined in the trading system. These definitions affect each order, providing granular control over how each order should be simulated."
+            "text": "The one level that takes precedence in all cases is the definitions made through the simulated exchange events section under each order defined in the trading system. These definitions affect each order, providing granular control over how each order should be simulated.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Один уровень, который имеет приоритет во всех случаях, - это определения, сделанные через раздел моделируемых биржевых событий под каждым ордером, определенным в торговой системе. Эти определения влияют на каждый ордер, обеспечивая детальный контроль над тем, как каждый ордер должен быть смоделирован.",
+                    "updated": 1640332427119
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The second level of definitions affecting how simulations work is that of parameters at the level of the trading session. These parameters are used for all orders that do not have a specific definition in the form of simulated exchange events."
+            "text": "The second level of definitions affecting how simulations work is that of parameters at the level of the trading session. These parameters are used for all orders that do not have a specific definition in the form of simulated exchange events.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Второй уровень определений, влияющих на то, как работают симуляции, - это параметры на уровне торговой сессии. Эти параметры используются для всех ордеров, которые не имеют конкретного определения в виде имитируемых биржевых событий.",
+                    "updated": 1640332483010
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like with the real synchronization process, once all calculations are done, the trading bot does the bookkeeping (see Accounting)."
+            "text": "Like with the real synchronization process, once all calculations are done, the trading bot does the bookkeeping (see Accounting).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с реальным процессом синхронизации, после завершения всех расчетов торговый бот ведет бухгалтерский учет (см. Accounting).",
+                    "updated": 1640332509754
+                }
+            ]
         },
         {
             "style": "Block",
@@ -38,11 +87,25 @@
         },
         {
             "style": "Title",
-            "text": "Actual Size Simulation"
+            "text": "Actual Size Simulation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция фактического размера",
+                    "updated": 1640332587122
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Minimal variations in the size of orders that may occur during live trading sessions are irrelevant to the production of proper simulations, thus, there is no need to simulate such things. Instead, the trading bot takes the defined sizes as valid and uses those as the actual size of the order."
+            "text": "Minimal variations in the size of orders that may occur during live trading sessions are irrelevant to the production of proper simulations, thus, there is no need to simulate such things. Instead, the trading bot takes the defined sizes as valid and uses those as the actual size of the order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Минимальные изменения в размерах ордеров, которые могут происходить во время реальных торговых сессий, не имеют значения для создания правильных симуляций, поэтому нет необходимости моделировать такие вещи. Вместо этого торговый бот принимает установленные размеры за действительные и использует их в качестве фактического размера ордера.",
+                    "updated": 1640332614935
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -56,11 +119,25 @@
         },
         {
             "style": "Title",
-            "text": "Actual Rate Simulation"
+            "text": "Actual Rate Simulation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция фактической ставки",
+                    "updated": 1640332636235
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The initial value for the rate of orders is the close of the last candle for market orders, that is, the last known market rate, and the value defined for the rate node in case of limit orders."
+            "text": "The initial value for the rate of orders is the close of the last candle for market orders, that is, the last known market rate, and the value defined for the rate node in case of limit orders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Начальным значением для ставок ордеров является закрытие последней свечи для рыночных ордеров, то есть последний известный рыночный курс, и значение, определенное для узла ставок в случае лимитных ордеров.",
+                    "updated": 1640332685633
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -68,31 +145,80 @@
         },
         {
             "style": "Text",
-            "text": "However, in real live trading situations, there are many factors out of the users’ control that may affect the actual rate of an order, especially for market orders. Properly simulating such issues is conducive to more realistic projections on the potential performance of strategies, thus, simulations should take such issues into account."
+            "text": "However, in real live trading situations, there are many factors out of the users’ control that may affect the actual rate of an order, especially for market orders. Properly simulating such issues is conducive to more realistic projections on the potential performance of strategies, thus, simulations should take such issues into account.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако в реальных торговых ситуациях существует множество факторов, неподконтрольных пользователям, которые могут повлиять на фактическую ставку ордера, особенно для рыночных ордеров. Правильное моделирование таких вопросов способствует более реалистичным прогнозам потенциальной эффективности стратегий, поэтому моделирование должно учитывать такие вопросы.",
+                    "updated": 1640332717447
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three steps involved in the simulation of the actual rate, and shall be analyzed separately:"
+            "text": "There are three steps involved in the simulation of the actual rate, and shall be analyzed separately:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В симуляции фактической ставки участвуют три этапа, которые будут проанализированы отдельно:",
+                    "updated": 1640332744837
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Slippage simulation when there are definitions at the level of the trading system, that is, at the level of the simulated exchange events node (see Based On Trading System below)."
+            "text": "Slippage simulation when there are definitions at the level of the trading system, that is, at the level of the simulated exchange events node (see Based On Trading System below).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Моделирование проскальзывания при наличии определений на уровне торговой системы, то есть на уровне узла симулируемых биржевых событий (см. ниже раздел \"На основе торговой системы\").",
+                    "updated": 1640335503183
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Slippage simulation when there are no definitions at the level of the trading system; session parameters are used instead (see Based On Session Parameters below)."
+            "text": "Slippage simulation when there are no definitions at the level of the trading system; session parameters are used instead (see Based On Session Parameters below).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Моделирование проскальзывания, когда нет определений на уровне торговой системы; вместо этого используются параметры сессии (см. раздел \"На основе параметров сессии\").",
+                    "updated": 1640335331327
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The last case has to do with verifying if the simulated actual rate defined in either of the two earlier steps makes sense in the context of the market (see Consider Best Match With Order Book below)."
+            "text": "The last case has to do with verifying if the simulated actual rate defined in either of the two earlier steps makes sense in the context of the market (see Consider Best Match With Order Book below).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Последний случай связан с проверкой того, имеет ли смысл симулированный фактический курс, определенный на одном из двух предыдущих этапов, в контексте рынка (см. ниже раздел \"На основе наилучшего соответствия с книгой заказов\").",
+                    "updated": 1640335360116
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Based On Trading System"
+            "text": "Based On Trading System",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На основе торговой системы",
+                    "updated": 1640333049957
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If an actual rate is properly defined under simulated exchange events for the order in question, the value resulting from the formula is used as the actual rate."
+            "text": "If an actual rate is properly defined under simulated exchange events for the order in question, the value resulting from the formula is used as the actual rate.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если фактический курс правильно определен при симулированных биржевых событиях для данного ордера, то в качестве фактического курса используется значение, полученное по формуле.",
+                    "updated": 1640333081911
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -102,19 +228,47 @@
         {
             "style": "Note",
             "text": "Although limit orders tend to have little or no slippage, notice that the above is valid both for market orders and limit orders.",
-            "updated": 1610222907606
+            "updated": 1610222907606,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Хотя лимитные ордера имеют тенденцию к небольшому проскальзыванию или его отсутствию, обратите внимание, что вышесказанное справедливо как для рыночных, так и для лимитных ордеров.",
+                    "updated": 1640333100334
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Based On Session Parameters"
+            "text": "Based On Session Parameters",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На основе параметров сессии",
+                    "updated": 1640335268123
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "If a limit order does not have an actual rate defined under simulated exchange events, then the actual rate of a limit order is the defined initial rate, as the slippage session parameter does not apply to limit orders. That is, the value is left untouched."
+            "text": "If a limit order does not have an actual rate defined under simulated exchange events, then the actual rate of a limit order is the defined initial rate, as the slippage session parameter does not apply to limit orders. That is, the value is left untouched.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если у лимитного ордера нет фактического курса, определенного при симулированных биржевых событиях, то фактическим курсом лимитного ордера является определенный начальный курс, так как параметр сессии проскальзывания не применяется к лимитным ордерам. То есть значение остается нетронутым.",
+                    "updated": 1640333141772
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, if a market order does not have an actual rate defined under simulated exchange events, then the marketOrderRate parameter within the slippage session parameter is used to apply a slippage factor."
+            "text": "However, if a market order does not have an actual rate defined under simulated exchange events, then the marketOrderRate parameter within the slippage session parameter is used to apply a slippage factor.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако, если рыночный ордер не имеет фактического курса, определенного при симуляции биржевых событий, то параметр marketOrderRate в параметре проскальзывания сессии используется для применения коэффициента проскальзывания.",
+                    "updated": 1640333191847
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -124,7 +278,14 @@
         {
             "style": "Important",
             "text": "Slippage is applied so that it always goes against the interest of the trading system. For example, for a market sell order, the slippage amount is subtracted from the initial rate, therefore simulating that the rate is worse than ideal.",
-            "updated": 1610222950786
+            "updated": 1610222950786,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Проскальзывание применяется таким образом, что оно всегда идет вразрез с интересами торговой системы. Например, для рыночного ордера на продажу сумма проскальзывания вычитается из начального курса, таким образом имитируя, что курс хуже идеального.",
+                    "updated": 1640333214469
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -133,7 +294,14 @@
         },
         {
             "style": "Text",
-            "text": "The opposite is true for market buy orders:"
+            "text": "The opposite is true for market buy orders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Иначе обстоит дело с рыночными ордерами на покупку:",
+                    "updated": 1640333237555
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -142,51 +310,135 @@
         },
         {
             "style": "Subtitle",
-            "text": "Consider Best Match With Order Book"
+            "text": "Consider Best Match With Order Book",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "На основе наилучшего соответствия с книгой заказов",
+                    "updated": 1640335286908
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Let’s set up the context for a little piece of analysis required to understand this simulation criterion."
+            "text": "Let’s set up the context for a little piece of analysis required to understand this simulation criterion.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Давайте создадим условия для небольшого анализа, необходимого для понимания этого критерия симулирования.",
+                    "updated": 1640333292487
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The exchange’s order book is populated with bids (buy orders) and asks (sell orders). In terms of rates, we could argue that buy orders sit below sell orders. When the rate of buy and sell orders converge, orders get filled."
+            "text": "The exchange’s order book is populated with bids (buy orders) and asks (sell orders). In terms of rates, we could argue that buy orders sit below sell orders. When the rate of buy and sell orders converge, orders get filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Книга заявок биржи заполняется бидами (заявки на покупку) и асками (заявки на продажу). С точки зрения ставок, можно утверждать, что ордера на покупку располагаются ниже ордеров на продажу. Когда ставки заявок на покупку и продажу сходятся, ордера заполняются.",
+                    "updated": 1640333345968
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Market buy orders are filled with the lowest rate possible sell orders in the book. Market sell orders are filled with the highest rate possible buy orders in the book."
+            "text": "Market buy orders are filled with the lowest rate possible sell orders in the book. Market sell orders are filled with the highest rate possible buy orders in the book.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рыночные ордера на покупку заполняются ордерами на продажу с наименьшей возможной ставкой в книге. Рыночные ордера на продажу заполняются ордерами на покупку по самому высокой ставке из всех возможных в книге.",
+                    "updated": 1640334972891
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Limit buy and sell orders have a defined rate. However, by definition, a limit order is an instruction to the exchange to fill the order at the specified price or better. The “or better” part of the instruction is the key to this analysis."
+            "text": "Limit buy and sell orders have a defined rate. However, by definition, a limit order is an instruction to the exchange to fill the order at the specified price or better. The “or better” part of the instruction is the key to this analysis.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Лимитные ордера на покупку и продажу имеют определенную ставку. Однако, по определению, лимитный ордер - это указание бирже исполнить ордер по указанной цене или лучше. Часть инструкции \"или лучше\" является ключевой для данного анализа.",
+                    "updated": 1640334998986
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "During the period of time represented in a candle, the range of rates between the maximum and minimum rates in the candle tells us that virtually all orders within those rates that were open upon the begin datetime of the candle must have been filled."
+            "text": "During the period of time represented in a candle, the range of rates between the maximum and minimum rates in the candle tells us that virtually all orders within those rates that were open upon the begin datetime of the candle must have been filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В течение периода времени, представленного в свече, диапазон ставок между максимальной и минимальной ставками в свече говорит нам о том, что практически все ордера в рамках этих ставок, которые были открыты на момент начала свечи, должны были быть исполнены.",
+                    "updated": 1640335032643
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Now, what happens if a buy order is placed at a rate higher than the maximum rate of the candle?"
+            "text": "Now, what happens if a buy order is placed at a rate higher than the maximum rate of the candle?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Теперь, что произойдет, если ордер на покупку будет размещен по курсу выше, чем максимальный курс свечи?",
+                    "updated": 1640335047103
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In such a scenario, it is safe to make the following assumptions:"
+            "text": "In such a scenario, it is safe to make the following assumptions:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При таком раскладе можно сделать следующие предположения:",
+                    "updated": 1640335076984
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The order is filled, because there are plenty of sell orders at a cheaper rate."
+            "text": "The order is filled, because there are plenty of sell orders at a cheaper rate.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордер исполняется, потому что есть много ордеров на продажу по более дешевому курсу.",
+                    "updated": 1640335091603
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The order is filled at a lower rate than the one defined, for the same reasons (there are cheaper asks in the order book)."
+            "text": "The order is filled at a lower rate than the one defined, for the same reasons (there are cheaper asks in the order book).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордер исполняется по более низкой ставке, чем определенный, по тем же причинам (в книге заявок есть более дешевые заявки).",
+                    "updated": 1640335112254
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The above is the consideration that drives this simulation criterion to estimate the actual rate of an order. However, what is not possible to pinpoint is the exact rate at which the order would be filled."
+            "text": "The above is the consideration that drives this simulation criterion to estimate the actual rate of an order. However, what is not possible to pinpoint is the exact rate at which the order would be filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вышеуказанное соображение является тем критерием симуляции, который позволяет оценить фактическую ставку выполнения ордера. Однако, что невозможно точно определить, так это точную ставку, с которой ордер будет выполнен.",
+                    "updated": 1640335153759
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "With all this in mind, when a buy order’s actual rate—as calculated by the Based On Trading System or the Based On Session Parameters approaches—is higher than the maximum rate of the candle, the Consider Best Match With Order Book simulation corrects the actual rate and assigns it the maximum value of the candle."
+            "text": "With all this in mind, when a buy order’s actual rate—as calculated by the Based On Trading System or the Based On Session Parameters approaches—is higher than the maximum rate of the candle, the Consider Best Match With Order Book simulation corrects the actual rate and assigns it the maximum value of the candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Учитывая все это, когда фактический курс ордера на покупку, рассчитанный подходами \"Основанный на торговой системе\" или \"Основанный на параметрах сессии\", превышает максимальный курс свечи, симуляция \"На основе наилучшего соответствия с книгой заказов\" фактический курс и присваивает ему максимальное значение свечи.",
+                    "updated": 1640335387625
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -195,19 +447,47 @@
         },
         {
             "style": "Text",
-            "text": "As a corollary, the following criteria govern this particular simulation:"
+            "text": "As a corollary, the following criteria govern this particular simulation:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как следствие, следующие критерии определяют эту конкретную симуляцию:",
+                    "updated": 1640335543206
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "On one hand, the simulation must mirror live trading as closely as possible. This is the reason for factoring in this analysis."
+            "text": "On one hand, the simulation must mirror live trading as closely as possible. This is the reason for factoring in this analysis.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С одной стороны, симуляция должна как можно точнее отражать реальную торговлю. Это является причиной для учета данного анализа.",
+                    "updated": 1640335563311
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "On the other hand, when something is uncertain, the simulation must assume the worst possible scenario, so that simulations remain on the “realistic-pessimistic” type of performance outcome, as opposed to “wishful-thinking” scenarios that may be dangerous. This is the reason for using candle.max instead of any other more optimistic assumptions that—while feasible—are not necessarily more likely to happen."
+            "text": "On the other hand, when something is uncertain, the simulation must assume the worst possible scenario, so that simulations remain on the “realistic-pessimistic” type of performance outcome, as opposed to “wishful-thinking” scenarios that may be dangerous. This is the reason for using candle.max instead of any other more optimistic assumptions that—while feasible—are not necessarily more likely to happen.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "С другой стороны, когда что-то неопределенно, симуляция должна предполагать наихудший возможный сценарий, так что симуляция остается на \"реалистично-пессимистичном\" типе результатов работы, в отличие от \"желаемых\" сценариев, которые могут быть опасными. Это причина для использования candle.max вместо любых других более оптимистичных предположений, которые, хотя и выполнимы, не обязательно имеют большую вероятность осуществиться.",
+                    "updated": 1640335652409
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The reversed scenario is considered as well: when a sell order is placed at a lower rate than the minimum rate of the candle against which the order is being simulated, the actual rate is corrected with the candle.min value."
+            "text": "The reversed scenario is considered as well: when a sell order is placed at a lower rate than the minimum rate of the candle against which the order is being simulated, the actual rate is corrected with the candle.min value.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Рассматривается и обратный сценарий: когда ордер на продажу размещается по курсу ниже минимального курса свечи, против которой симулируется ордер, фактический курс корректируется значением candle.min.",
+                    "updated": 1640335677299
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -220,11 +500,25 @@
         },
         {
             "style": "Title",
-            "text": "Recalculate Actual Size"
+            "text": "Recalculate Actual Size",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересчет фактического размера",
+                    "updated": 1640335690126
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Since the actual rate may have been modified by the Actual Rate Simulation, it is necessary to recalculate the actual size in the quoted asset. The actual size in base asset remains the same, as it is not affected by the change in rate. Remember that the properties of the quoted asset always derive from the properties of the base asset."
+            "text": "Since the actual rate may have been modified by the Actual Rate Simulation, it is necessary to recalculate the actual size in the quoted asset. The actual size in base asset remains the same, as it is not affected by the change in rate. Remember that the properties of the quoted asset always derive from the properties of the base asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку фактическая ставка могла быть изменена в результате симуляции фактической ставки, необходимо пересчитать фактический размер в котируемом активе. Фактический размер в базовом активе остается неизменным, так как на него не влияет изменение ставки. Помните, что свойства котируемого актива всегда вытекают из свойств базового актива.",
+                    "updated": 1640335724007
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -237,15 +531,36 @@
         },
         {
             "style": "Title",
-            "text": "Recalculate Size Placed"
+            "text": "Recalculate Size Placed",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересчет размещенного размера",
+                    "updated": 1640335739193
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Since the actual rate may have changed, it is also necessary to calculate the stage’s size placed. Remember that the size placed node at the level of the stage keeps track of the total size of orders that have been placed so that the target size defined for the stage may be enforced as a cap."
+            "text": "Since the actual rate may have changed, it is also necessary to calculate the stage’s size placed. Remember that the size placed node at the level of the stage keeps track of the total size of orders that have been placed so that the target size defined for the stage may be enforced as a cap.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поскольку фактическая ставка могла измениться, необходимо также рассчитать размер размещенных заявок этапа. Помните, что узел размещенного размера на уровне этапа отслеживает общий размер заявок, которые были размещены, так что целевой размер, определенный для этапа, может быть применен в качестве ограничения.",
+                    "updated": 1640335791386
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "As done during a typical exchange synchronization, the initial size of the order is subtracted from the size placed, and then the actual size is added. This is done in two steps, for clarity:"
+            "text": "As done during a typical exchange synchronization, the initial size of the order is subtracted from the size placed, and then the actual size is added. This is done in two steps, for clarity:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как это делается во время типичной биржевой синхронизации, начальный размер ордера вычитается из размещенного размера, а затем добавляется фактический размер. Для наглядности это делается в два приёма:",
+                    "updated": 1640335843961
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -258,15 +573,36 @@
         },
         {
             "style": "Title",
-            "text": "Percentage Filled Simulation"
+            "text": "Percentage Filled Simulation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция процента заполнения ",
+                    "updated": 1640335897456
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The simulation of the filling of market orders is straightforward: they always fill. For limit orders, the trading bot runs a basic check:"
+            "text": "The simulation of the filling of market orders is straightforward: they always fill. For limit orders, the trading bot runs a basic check:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Имитация заполнения рыночных ордеров проста: они всегда заполняются. Для лимитных ордеров торговый бот выполняет базовую проверку:",
+                    "updated": 1640335916404
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "For limit buy orders to fill, the minimum rate of the candle must be equal or lower than the actual rate of the order. This means that the rate of the order falls within the range of rates filled during the duration of the candle."
+            "text": "For limit buy orders to fill, the minimum rate of the candle must be equal or lower than the actual rate of the order. This means that the rate of the order falls within the range of rates filled during the duration of the candle.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Чтобы лимитные ордера на покупку исполнились, минимальный курс свечи должен быть равен или ниже фактического курса ордера. Это означает, что ставка ордера попадает в диапазон ставок, заполненных в течение времени действия свечи.",
+                    "updated": 1640335958154
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -275,7 +611,14 @@
         },
         {
             "style": "List",
-            "text": "For limit sell orders to fill, the reverse logic applies: the maximum rate of the candle must be equal or greater than the actual rate of the order."
+            "text": "For limit sell orders to fill, the reverse logic applies: the maximum rate of the candle must be equal or greater than the actual rate of the order.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для того чтобы лимитные ордера на продажу заполнялись, действует обратная логика: максимальный курс свечи должен быть равен или больше фактического курса ордера.",
+                    "updated": 1640335981015
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -285,11 +628,25 @@
         {
             "style": "Note",
             "text": "If limit orders do not pass the above check, they remain unfilled.",
-            "updated": 1610223159959
+            "updated": 1610223159959,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Если лимитные ордера не проходят вышеуказанную проверку, они остаются не исполненными.",
+                    "updated": 1640336004333
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When an order is filled, by default it is filled fully, that is, the percentage filled is 100%:"
+            "text": "When an order is filled, by default it is filled fully, that is, the percentage filled is 100%:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Когда ордер заполняется, по умолчанию он заполняется полностью, то есть процент заполнения составляет 100%:",
+                    "updated": 1640336027249
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -297,7 +654,14 @@
         },
         {
             "style": "Text",
-            "text": "However, the above may change if you have defined a specific fill probability for the specific order on the simulated partial fill node. If there is a valid definition to simulate the probability of the order to be filled on each execution, then this is what the trading bot does with it:"
+            "text": "However, the above may change if you have defined a specific fill probability for the specific order on the simulated partial fill node. If there is a valid definition to simulate the probability of the order to be filled on each execution, then this is what the trading bot does with it:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако все вышесказанное может измениться, если вы определили конкретную вероятность заполнения для конкретного ордера на узле симуляции частичного заполнения. Если существует действительное определение для симуляции вероятности заполнения ордера при каждом исполнении, то торговый бот поступает именно так:",
+                    "updated": 1640336060895
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -306,11 +670,25 @@
         },
         {
             "style": "Text",
-            "text": "That is, the fillProbability parameter is multiplied by 100, and the result is the percentage filled. If the percentage filled is lower than 100, then the order may continue filling in subsequent executions, provided it passes the above checks."
+            "text": "That is, the fillProbability parameter is multiplied by 100, and the result is the percentage filled. If the percentage filled is lower than 100, then the order may continue filling in subsequent executions, provided it passes the above checks.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "То есть, параметр fillProbability умножается на 100, и результатом является процент заполнения. Если процент заполнения меньше 100, то ордер может продолжать заполняться при последующих исполнениях, если он прошел вышеуказанные проверки.",
+                    "updated": 1640336099563
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Therefore, in every execution, the following update is done on the percentage filled node of the order statistics:"
+            "text": "Therefore, in every execution, the following update is done on the percentage filled node of the order statistics:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поэтому при каждом исполнении происходит следующее обновление процента заполнения узла статистики ордеров:",
+                    "updated": 1640336133197
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -320,7 +698,14 @@
         {
             "style": "Note",
             "text": "Of course, there is also a check to make sure that the percentage filled is never greater than 100.",
-            "updated": 1610223219878
+            "updated": 1610223219878,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Конечно, существует также проверка, чтобы убедиться, что процент заполнения, никогда не превышает 100.",
+                    "updated": 1640336174775
+                }
+            ]
         },
         {
             "style": "Block",
@@ -328,31 +713,80 @@
         },
         {
             "style": "Title",
-            "text": "Fees Paid Simulation"
+            "text": "Fees Paid Simulation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция комиссий",
+                    "updated": 1640336230660
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Like with the definitions regarding the actual rate of the order, the definition of the simulated fees paid node under simulated exchange events takes precedence in regards to the definitions in the fee structure parameter of the trading session."
+            "text": "Like with the definitions regarding the actual rate of the order, the definition of the simulated fees paid node under simulated exchange events takes precedence in regards to the definitions in the fee structure parameter of the trading session.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как и в случае с определениями, касающимися фактической ставки ордера, определение имитированных комиссий, уплачиваемых узлом при имитированных биржевых событиях, имеет приоритет по отношению к определениям в параметре структуры комиссий торговой сессии.",
+                    "updated": 1640336260251
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "In general terms, fees paid are calculated as follows:"
+            "text": "In general terms, fees paid are calculated as follows:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В общем случае уплаченные комиссии рассчитываются следующим образом:",
+                    "updated": 1640336282700
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The percentage of fees is applied to the actual size to obtain the total amount of fees to be paid when the order is 100% filled."
+            "text": "The percentage of fees is applied to the actual size to obtain the total amount of fees to be paid when the order is 100% filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Процент комиссии применяется к фактическому размеру для получения общей суммы комиссии, подлежащей оплате, когда ордер будет исполнен на 100%.",
+                    "updated": 1640336311534
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Then, the percentage filled is applied to obtain the fees paid for the portion of the order that actually filled."
+            "text": "Then, the percentage filled is applied to obtain the fees paid for the portion of the order that actually filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Затем применяется процент заполнения, чтобы получить комиссионные, уплаченные за ту часть ордера, которая фактически была исполнена.",
+                    "updated": 1640336339200
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Trading system definitions"
+            "text": "Trading system definitions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определения торговых систем",
+                    "updated": 1640336348938
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For buy orders, fees are calculated in the base asset, as that is the asset being acquired:"
+            "text": "For buy orders, fees are calculated in the base asset, as that is the asset being acquired:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для ордеров на покупку комиссии рассчитываются в базовом активе, поскольку именно этот актив приобретается:",
+                    "updated": 1640336363420
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -361,7 +795,14 @@
         },
         {
             "style": "Text",
-            "text": "For sell orders, fees are calculated in the quoted asset:"
+            "text": "For sell orders, fees are calculated in the quoted asset:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для ордеров на продажу комиссии рассчитываются в котируемом активе:",
+                    "updated": 1640336374609
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -370,15 +811,36 @@
         },
         {
             "style": "Subtitle",
-            "text": "Session parameters definitions"
+            "text": "Session parameters definitions",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Определения параметров сессии",
+                    "updated": 1640336387030
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "When producing the simulation based on the fees structure parameter of the trading session, the maker setting is applied to limit orders and the taker setting is applied to market orders."
+            "text": "When producing the simulation based on the fees structure parameter of the trading session, the maker setting is applied to limit orders and the taker setting is applied to market orders.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При создании симуляции на основе параметра структуры комиссий торговой сессии, настройка maker применяется для лимитных ордеров, а настройка taker - для рыночных ордеров.",
+                    "updated": 1640336408532
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "For market buy orders:"
+            "text": "For market buy orders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для рыночных ордеров на покупку:",
+                    "updated": 1640336417879
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -387,7 +849,14 @@
         },
         {
             "style": "Text",
-            "text": "For market sell orders:"
+            "text": "For market sell orders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для рыночных ордеров на продажу:",
+                    "updated": 1640336425832
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -396,7 +865,14 @@
         },
         {
             "style": "Text",
-            "text": "For limit buy orders:"
+            "text": "For limit buy orders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для лимитных ордеров на покупку:",
+                    "updated": 1640336434689
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -405,7 +881,14 @@
         },
         {
             "style": "Text",
-            "text": "For limit sell orders:"
+            "text": "For limit sell orders:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Для лимитных ордеров на продажу:",
+                    "updated": 1640336443632
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -418,11 +901,25 @@
         },
         {
             "style": "Title",
-            "text": "Size Filled Simulation"
+            "text": "Size Filled Simulation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция заполнения размера ",
+                    "updated": 1640336507936
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Calculating the size filled is straightforward considering we have already established the percentage of the size that has been filled. Bear in mind the property needs to be calculated for both assets."
+            "text": "Calculating the size filled is straightforward considering we have already established the percentage of the size that has been filled. Bear in mind the property needs to be calculated for both assets.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вычисление заполненного размера является простым, учитывая, что мы уже определили процент заполненного размера. Имейте в виду, что свойство должно быть рассчитано для обоих активов.",
+                    "updated": 1640336534618
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -435,15 +932,36 @@
         },
         {
             "style": "Title",
-            "text": "Amount Received Simulation"
+            "text": "Amount Received Simulation",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Симуляция полученной суммы",
+                    "updated": 1640336566318
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "This is a simple calculation to explicitly determine how much of the asset was acquired in the transaction. It is calculated by subtracting the fees from the actual size."
+            "text": "This is a simple calculation to explicitly determine how much of the asset was acquired in the transaction. It is calculated by subtracting the fees from the actual size.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это простой расчет, позволяющий однозначно определить, какая часть актива была приобретена в ходе сделки. Он рассчитывается путем вычитания комиссионных из фактического размера.",
+                    "updated": 1640336596403
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Buy orders acquire the base asset, thus, the amount is denominated in the base asset:"
+            "text": "Buy orders acquire the base asset, thus, the amount is denominated in the base asset:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера на покупку приобретают базовый актив, поэтому сумма выражается в базовом активе:",
+                    "updated": 1640336616522
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -452,7 +970,14 @@
         },
         {
             "style": "Text",
-            "text": "Sell orders acquire the quoted asset, thus, the amount is denominated in the quoted asset:"
+            "text": "Sell orders acquire the quoted asset, thus, the amount is denominated in the quoted asset:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера на продажу приобретают котируемый актив, поэтому сумма выражается в котируемом активе:",
+                    "updated": 1640336652680
+                }
+            ]
         },
         {
             "style": "Javascript",

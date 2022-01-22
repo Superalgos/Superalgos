@@ -196,7 +196,7 @@ function newLayer() {
                 'Text->Text Condition->Text Position->Point->Text Formula->Text Style->' +
                 'Plotter Panel->Plotter Panel Javascript Code->Panel Data->Data Formula->Text Style->' +
                 'Nodes Highlights->Nodes Values->Nodes Errors->Nodes Warnings->Nodes Infos->Nodes Status->Nodes Progress->Nodes Running->Nodes Announcements->Record Values->'
-            thisObject.definition = UI.projects.visualScripting.functionLibraries.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
+            thisObject.definition = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(thisObject.payload.node, false, true, true, false, false, lightingPath)
 
             /* Without this I can not continue, because I can not even show error. */
             if (thisObject.payload === undefined) {
@@ -309,7 +309,7 @@ function newLayer() {
             thisObject.exchangeIcon = getIcon(thisObject.exchange)
 
             if (thisObject.plotterModule.config.icon !== undefined) {
-                thisObject.plotterTypeIcon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.plotterModule.config.icon)
+                thisObject.plotterTypeIcon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', thisObject.plotterModule.config.icon)
             }
 
             thisObject.baseAssetIcon = getIcon(thisObject.baseAsset)
@@ -328,9 +328,9 @@ function newLayer() {
                     }
                 }
                 if (iconName !== undefined) {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', iconName)
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', iconName)
                 } else {
-                    icon = UI.projects.foundations.spaces.designSpace.getIconByProjectAndName('Foundations', schemaDocument.icon)
+                    icon = UI.projects.workspaces.spaces.designSpace.getIconByProjectAndName('Foundations', schemaDocument.icon)
                 }
                 return icon
             }

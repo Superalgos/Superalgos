@@ -4,7 +4,14 @@
     "type": "Superalgos Review - the best tutorial i've ever followed",
     "definition": {
         "text": "Very beginner freindly and well done, also funny and entertaining!",
-        "updated": 1621370034737
+        "updated": 1621370034737,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Очень дружественный к новичкам и хорошо продуманный, а также смешной и увлекательный!",
+                "updated": 1640412860360
+            }
+        ]
     },
     "paragraphs": [
         {

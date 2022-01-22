@@ -4,30 +4,72 @@
     "type": "Superalgos Review - Harrell Initial Review",
     "definition": {
         "text": "Amazing platform that will definitely surpass all the proprietary bots in the future.  A true testiment to the power of the open source community.",
-        "updated": 1615948612321
+        "updated": 1615948612321,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Удивительная платформа, которая в будущем, безусловно, превзойдет все проприетарные боты. Настоящее подтверждение могущества сообщества с открытым исходным кодом.",
+                "updated": 1640408987876
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Wow I am very impressed with the scope of this project! I have seen so many trading bot platforms that are more like scams than actual tools. Whether it be from outragious subscriptions prices to completely hidden trading logic. Superalgos is a breath of fresh air. I am a hobbist programmer and even with my limited experience I can see the massive amount of work that has gone into this platform already. I firmly believe that the relationship we have with the tools we use should not be blind consumerism. The community drive behind this project is a wonderful example of what can be accomplished with open source. I am excited to have found it and am looking forward to continuing to learn and improve it.",
-            "updated": 1615948666225
+            "updated": 1615948666225,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я очень впечатлен масштабами этого проекта! Я видел так много торговых бот-платформ, которые больше похожи на мошенничество, чем на реальные инструменты. Будь то возмутительные цены на подписку или полностью скрытая торговая логика. Superalgos - это глоток свежего воздуха. Я хоббист-программист, и даже с моим ограниченным опытом я могу видеть огромное количество работы, которая была проделана в этой платформе. Я твердо верю, что наши отношения с инструментами, которые мы используем, не должны быть слепым потребительством. Движение сообщества за этим проектом - прекрасный пример того, чего можно достичь с открытым исходным кодом. Я рад, что нашел его, и с удовольствием продолжу изучать и совершенствовать его.",
+                    "updated": 1640409080100
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "I was overwhelmed at first with Superalgos. Just the sheer size of the system is a lot to wrap your head around at first. However, the tutorials where an excellent method to break things down and learn bit by bit. Also having the documentation directly accessible in the user interface is such a time saver and lowers the learning barrier as well. ",
-            "updated": 1615948794237
+            "updated": 1615948794237,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Сначала я был ошеломлен системой Superalgos. Из-за огромного размера системы поначалу приходится ломать голову. Однако учебные пособия - отличный способ разложить все по полочкам и учиться понемногу. Кроме того, наличие документации непосредственно в пользовательском интерфейсе позволяет экономить время и снижает барьер в обучении.",
+                    "updated": 1640409139177
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "However, this project still has some work to do with making the barrier to entry a little more managable for less technical users. Having some experience with github and node.js made the techincal side of setting up straightforward for myself, but I can only imagine how daunting it would be to try and take on trading concepts and techincal concepts all at once."
+            "text": "However, this project still has some work to do with making the barrier to entry a little more managable for less technical users. Having some experience with github and node.js made the techincal side of setting up straightforward for myself, but I can only imagine how daunting it would be to try and take on trading concepts and techincal concepts all at once.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Однако в этом проекте еще есть над чем поработать, чтобы сделать барьер для входа немного более управляемым для менее технических пользователей. Имея некоторый опыт работы с GitHub и node.js, я могу себе представить, насколько сложной была бы попытка взять на себя одновременно торговые и технические концепции.",
+                    "updated": 1640409339944
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "I appreciate the focus on visual scripting and seperation from hard code in the design space. It has made trying to learn the concepts of trading much easier without having to try and code at the same time. I am very new to the relm of crypto trading and have had to give myself a crash course into trading concepts and ideas to help suppliment the material I am learning in tutorials. It would be helpful for new traders like myself to have some more resources for basic trading concepts more easily accessible within the first few moments on the platform. It has taken me a hot minute to figure out what is in the documentation/tutorials and what I need to research more on my own."
+            "text": "I appreciate the focus on visual scripting and seperation from hard code in the design space. It has made trying to learn the concepts of trading much easier without having to try and code at the same time. I am very new to the relm of crypto trading and have had to give myself a crash course into trading concepts and ideas to help suppliment the material I am learning in tutorials. It would be helpful for new traders like myself to have some more resources for basic trading concepts more easily accessible within the first few moments on the platform. It has taken me a hot minute to figure out what is in the documentation/tutorials and what I need to research more on my own.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Я ценю акцент на визуальном скриптинге и отделении от жесткого кода в пространстве проектирования. Это значительно облегчает изучение концепций торговли без необходимости одновременно пытаться кодировать. Я совсем новичок в сфере торговли криптовалютами, и мне пришлось пройти ускоренный курс обучения торговым концепциям и идеям, чтобы дополнить материал, который я изучаю в учебниках. Для таких новичков, как я, было бы полезно иметь больше ресурсов для основных торговых концепций, которые были бы легко доступны в течение первых нескольких минут работы на платформе. Мне потребовалась горячая минута, чтобы понять, что есть в документации/учебниках, а что мне нужно изучить самостоятельно.",
+                    "updated": 1640409277574
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Overall, Superalgos is the best crypto trading project I have come across by far. There is no comparison. The amount of control and extensiblity of the project is absolutely magical. As the project grows and hardens I can only imagine how powerful and accessible it will be for the whole world."
+            "text": "Overall, Superalgos is the best crypto trading project I have come across by far. There is no comparison. The amount of control and extensiblity of the project is absolutely magical. As the project grows and hardens I can only imagine how powerful and accessible it will be for the whole world.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В целом, Superalgos - это лучший проект по торговле криптовалютами, с которым я сталкивался. Нет никакого сравнения. Объем контроля и расширяемость проекта просто волшебны. По мере роста и укрепления проекта я могу только представить, насколько мощным и доступным он станет для всего мира.",
+                    "updated": 1640409307982
+                }
+            ]
         },
         {
             "style": "Text",

@@ -1,0 +1,73 @@
+{
+    "tutorial": "Testing a Trading Idea - The Trigger Stage",
+    "pageNumber": 75,
+    "type": "Tutorial Step - Let's Test Again!",
+    "definition": {
+        "icon": {
+            "project": "Foundations",
+            "name": "task"
+        },
+        "text": "After you delete the open, close, and manage stages, you are ready to run a new backtest with the same parameters used earlier.",
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Nachdem Sie die Open, Close und Manage Stage gelöscht haben, können Sie einen neuen Backtest mit denselben Parametern wie zuvor durchführen.",
+                "updated": 1639391298071
+            },
+            {
+                "language": "TR",
+                "text": "Aç, Kapat ve Yönet Aşamasını sildikten sonra, eskisi gibi aynı parametrelerle yeni bir geriye dönük test yapabilirsiniz.",
+                "updated": 1641665261922
+            },
+            {
+                "language": "RU",
+                "text": "После удаления этапов открытия, закрытия и управления вы готовы запустить новый бэктест с теми же параметрами, которые использовались ранее.",
+                "updated": 1642663571646
+            }
+        ]
+    },
+    "paragraphs": [
+        {
+            "style": "Callout",
+            "text": "Let's do it! Run the task and session!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": " Los geht's! Starten ( Run ) Sie die Aufgabe und die Sitzung!",
+                    "updated": 1639391319380
+                },
+                {
+                    "language": "TR",
+                    "text": "İşte başlıyoruz! Görevi ve oturumu başlatın (Run)!",
+                    "updated": 1641665271881
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте сделаем это! Запустите задачу и сессию!",
+                    "updated": 1642663604578
+                }
+            ]
+        },
+        {
+            "style": "Note",
+            "text": "When you run multiple backtests on the same time frame, the earlier data is replaced. That is, a trading session stores one data set for each time frame. If you want to keep&mdash;and be able to access&mdash;different versions of the tests you should use different trading sessions, and even better, different trading systems so that you may keep the matching definitions as well!",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Wenn Sie mehrere Backtests auf demselben Zeitrahmen ausführen, werden die früheren Daten ersetzt. Das heißt, eine Handelssitzung speichert einen Datensatz für jeden Zeitrahmen. Wenn Sie verschiedene Versionen der Tests aufbewahren und darauf zugreifen wollen, sollten Sie verschiedene Trading sessions und noch besser verschiedene Trading Systeme verwenden, damit Sie auch die passenden Definitionen aufbewahren können!",
+                    "updated": 1639391329528
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Aynı zaman çerçevesinde birden çok geriye dönük test çalıştırdığınızda, önceki veriler değiştirilir. Yani, bir ticaret seansı, her zaman çerçevesi için bir veri seti depolar. Testlerin farklı sürümlerini saklamak ve bunlara erişebilmek istiyorsanız, farklı ticaret oturumları ve daha da iyisi, farklı ticaret sistemleri kullanmalısınız, böylece eşleşen tanımları da saklayabilirsiniz!",
+                    "updated": 1641665290409
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда вы запускаете несколько бэктестов на одном и том же таймфрейме, более ранние данные заменяются. То есть в торговой сессии хранится один набор данных для каждого таймфрейма. Если вы хотите сохранить и иметь доступ к разным версиям тестов, вам следует использовать разные торговые сессии, а еще лучше - разные торговые системы, чтобы вы могли сохранить и одинаковые определения!",
+                    "updated": 1642663646876
+                }
+            ]
+        }
+    ]
+}

@@ -16,7 +16,7 @@
 
             let dataFiles = new Map()
             let multiTimeFrameDataFiles = new Map()
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT = TS.projects.algorithmicTrading.botModules.tradingEngine.newAlgorithmicTradingBotModulesTradingEngine(processIndex)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT = TS.projects.algorithmicTrading.botModules.tradingEngine.newAlgorithmicTradingBotModulesTradingEngine(processIndex)
             let tradingOutputModuleObject = TS.projects.algorithmicTrading.botModules.tradingOutput.newAlgorithmicTradingBotModulesTradingOutput(processIndex)
 
             let currentTimeFrame = {}
@@ -46,7 +46,7 @@
             }
 
             /* We set up the Trading Engine Module. */
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initialize()
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initialize()
 
             /* Initializing the Trading Process Date */
             if (TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_FIRST_LOOP === true && TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).IS_SESSION_RESUMING === false) {

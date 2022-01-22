@@ -93,7 +93,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 result: 'Ok'
             }
 
-            //await checkCreateFork()
+            await checkCreateFork()
+            if (response.result === 'Error') { return }
             await checkCreateUserProfile()
             if (response.result === 'Error') { return }
             addUserApps()
@@ -292,9 +293,9 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 if (response.result === 'Error') { resolve(response) }
             }
 
-            async function pushProfileAndPullRequest(){
-                
-                await pushPluginFileAndPullRequest(
+            async function pushProfileAndPullRequest() {
+
+                await SA.projects.communityPlugins.utilities.pluginsAtGithub.pushPluginFileAndPullRequest(
                     JSON.stringify(userProfile, undefined, 4),
                     profileMessage.storageProviderToken,
                     GOVERNANCE_PLUGINS_REPO_NAME,
@@ -302,8 +303,8 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     'User-Profiles',
                     profileMessage.storageProviderUsername
                 )
-                .then()
-                .catch(profileNotPushed)
+                    .then()
+                    .catch(profileNotPushed)
 
                 function profileNotPushed(err) {
                     response = {
@@ -311,6 +312,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                         message: 'Error pushing the User Profile to Github.',
                         stack: err.stack
                     }
+                    resolve(response)
                 }
             }
 

@@ -20,7 +20,7 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
         */
         return new Promise(promiseWork)
 
-        async function promiseWork(resolve, resolve) {
+        async function promiseWork(resolve, reject) {
 
             const { Octokit } = SA.nodeModules.octokit
             const octokit = new Octokit({

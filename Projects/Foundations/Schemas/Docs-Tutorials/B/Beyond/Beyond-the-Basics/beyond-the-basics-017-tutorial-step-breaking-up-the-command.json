@@ -26,6 +26,16 @@
                 "language": "DE",
                 "text": "Bevor Sie mit dem Schreiben Ihrer tollen Rezension weitermachen, lassen Sie mich den Befehl zerlegen, damit Sie verstehen, was Sie gerade getan haben!",
                 "updated": 1635148901086
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем вы приступите к написанию своего потрясающего обзора, позвольте мне описать эту команду, чтобы вы поняли, что вы только что сделали!",
+                "updated": 1640160619289
+            },
+            {
+                "language": "TR",
+                "text": "Müthiş incelemenizi yazmaya başlamadan önce, ne yaptığınızı anlamanız için komutu incelememe izin verin!",
+                "updated": 1640609570442
             }
         ]
     },
@@ -51,6 +61,16 @@
                     "language": "DE",
                     "text": "docs.add: root syntax des Docs Add Command.",
                     "updated": 1635148919397
+                },
+                {
+                    "language": "RU",
+                    "text": "docs.add: корневой синтаксис команды добавления документов (Docs Add Command).",
+                    "updated": 1640159775339
+                },
+                {
+                    "language": "TR",
+                    "text": "docs.add: Docs Add Command kök sözdizimi.",
+                    "updated": 1640609613550
                 }
             ]
         },
@@ -75,6 +95,16 @@
                     "language": "DE",
                     "text": "Review: die Docs Page Category der Seite.",
                     "updated": 1635148950148
+                },
+                {
+                    "language": "RU",
+                    "text": "Review: категория страницы документов (Docs Page Category).",
+                    "updated": 1640159864526
+                },
+                {
+                    "language": "TR",
+                    "text": "Review: Sayfanın kategorisi. ( Docs Page Category )",
+                    "updated": 1640609711999
                 }
             ]
         },
@@ -99,6 +129,16 @@
                     "language": "DE",
                     "text": "to: ein umgangssprachlicher Konnektor, um die Lesbarkeit zu verbessern.",
                     "updated": 1635148965566
+                },
+                {
+                    "language": "RU",
+                    "text": "to: колокальный соединитель для улучшения читабельности.",
+                    "updated": 1640159893159
+                },
+                {
+                    "language": "TR",
+                    "text": "to: okunabilirliği artırmak için bir konuşma dili bağlayıcısı.",
+                    "updated": 1640609736194
                 }
             ]
         },
@@ -117,6 +157,16 @@
                     "language": "DE",
                     "text": "Superalgos: das Projekt, zu dem die Seite hinzugefügt wird.",
                     "updated": 1635148976136
+                },
+                {
+                    "language": "RU",
+                    "text": "Foundations: проект, в который добавляется страница.",
+                    "updated": 1640159909273
+                },
+                {
+                    "language": "TR",
+                    "text": "Foundations:Vakıflar: Sayfanın eklendiği proje ( Project )",
+                    "updated": 1640609759564
                 }
             ]
         },
@@ -141,6 +191,16 @@
                     "language": "DE",
                     "text": "Superalgos Project Review: der Name der Seitensammlung, zu der die Review gehört.",
                     "updated": 1635148984696
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos Project Review: название коллекции страниц, к которой относится обзор.",
+                    "updated": 1640160379654
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Project Review: Superalgos Proje İncelemesi: İncelemenin ait olduğu sayfa koleksiyonunun adı.",
+                    "updated": 1640609778188
                 }
             ]
         },
@@ -165,6 +225,16 @@
                     "language": "DE",
                     "text": "->: ein Trennzeichen, das in Befehlen verwendet wird, die zwei benutzerdefinierte Parameter erfordern (in diesem Fall den Namen der Seitensammlung und den Namen der Seite).",
                     "updated": 1635148994252
+                },
+                {
+                    "language": "RU",
+                    "text": "->: разделитель, используемый в командах, требующих два определяемых пользователем параметра (в данном случае название коллекции страниц и название страницы).",
+                    "updated": 1640160413029
+                },
+                {
+                    "language": "TR",
+                    "text": "->: ->: iki kullanıcı tanımlı parametre gerektiren komutlarda kullanılan bir ayırıcı (bu durumda, sayfa koleksiyonunun adı ve sayfanın adı).",
+                    "updated": 1640609803436
                 }
             ]
         },
@@ -189,6 +259,16 @@
                     "language": "DE",
                     "text": "Superalgos Review - Your Review Title: dies ist der Docs Page Name; wir wiederholen Superalgos Review im Seitennamen, um die Wahrscheinlichkeit doppelter Namen zu verringern",
                     "updated": 1635149022701
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos Review - Your Review Title: это название страницы (Docs Page Name); мы повторяем Superalgos Review в названии страницы, чтобы снизить вероятность дублирования названий.",
+                    "updated": 1640160523658
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Review - Your Review Title: Superalgos İncelemesi - İnceleme Başlığınız: bu, Dokümanlar Sayfa Adıdır; Yinelenen adların olasılığını azaltmak için sayfa adında Superalgos İncelemesini tekrarlıyoruz",
+                    "updated": 1640609834844
                 }
             ]
         }

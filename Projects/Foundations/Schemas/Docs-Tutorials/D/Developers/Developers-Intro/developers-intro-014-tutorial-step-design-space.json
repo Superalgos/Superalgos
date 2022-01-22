@@ -7,20 +7,48 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "Manages the core concept of nodes which, when attached to one another, may form vast definitions easily made and maintained by users."
+        "text": "Manages the core concept of nodes which, when attached to one another, may form vast definitions easily made and maintained by users.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Управляет основной схемой узлов, которые, будучи присоединенными друг к другу, могут образовывать обширные определения, легко создаваемые и поддерживаемые пользователями.",
+                "updated": 1640931112373
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The system features a file called App Schema which has the rules about the existing types of nodes, which nodes may be the child of other nodes, and which may reference other nodes and which. It also defines the menu items of nodes. All these rules are enforced on the Design Space."
+            "text": "The system features a file called App Schema which has the rules about the existing types of nodes, which nodes may be the child of other nodes, and which may reference other nodes and which. It also defines the menu items of nodes. All these rules are enforced on the Design Space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В системе имеется файл под названием App Schema, который содержит правила о существующих типах узлов, о том, какие узлы могут быть дочерними по отношению к другим узлам, какие узлы могут ссылаться на другие узлы, а какие нет. Он также определяет пункты меню узлов. Все эти правила применяются в пространстве проектирования (Design Space).",
+                    "updated": 1640931154257
+                }
+            ]
         },
         {
             "style": "Callout",
-            "text": "Users may then attach nodes, establish references between nodes, select menu items,  and more..."
+            "text": "Users may then attach nodes, establish references between nodes, select menu items,  and more...",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пользователи могут присоединять узлы, устанавливать ссылки между узлами, выбирать пункты меню и многое другое...",
+                    "updated": 1640931176660
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Design Space is tightly coupled with the Floating Space."
+            "text": "The Design Space is tightly coupled with the Floating Space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Design Space тесно связано с Floating Space.",
+                    "updated": 1640931199401
+                }
+            ]
         }
     ]
 }

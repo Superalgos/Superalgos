@@ -4,7 +4,14 @@
     "type": "Accounts Specific to Orders",
     "definition": {
         "text": "Learn about accounts specific to the context of orders. On this page: Rate, Actual Rate, Size, Percentage Filled, Fees Paid, and Lock.",
-        "updated": 1611336548381
+        "updated": 1611336548381,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Узнайте о счетах, специфичных для контекста ордеров. На этой странице: Rate, Actual Rate, Size, Percentage Filled, Fees Paid и Lock.",
+                "updated": 1640350066850
+            }
+        ]
     },
     "paragraphs": [
         {

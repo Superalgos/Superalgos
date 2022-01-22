@@ -3,15 +3,18 @@
     const MODULE_NAME = "Portfolio Session"
 
     let thisObject = {
-        initialize: initialize
+        initialize: initialize,
+        finalize: finalize
     }
-
-    TS.projects.foundations.globals.processVariables.PORTFOLIO_MANAGER_EVENTS_INTERFACE = TS.projects.portfolioManagement.modules.portfolioManagerEventsInterface.newPortfolioManagementModulesPortfolioManagerEventsInterface(processIndex);
 
     TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE =
         TS.projects.socialBots.botModules.socialBots.newSocialBotsBotModulesSocialBots(processIndex)
 
-    return thisObject;
+    return thisObject
+
+    function finalize() {
+
+    }
 
     function initialize(callBackFunction) {
         try {
@@ -22,7 +25,7 @@
                 callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
                 return;
             }
-            /* 
+            /*
             We will store here the session key, which we will need everytine
             we need to emit an event related to the session itself.
             */
@@ -33,11 +36,6 @@
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type +
                 '-' +
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.id;
-            
-            /*
-             *  Initialize the Events Interface.
-             */
-            TS.projects.foundations.globals.processVariables.PORTFOLIO_MANAGER_EVENTS_INTERFACE.initialize();
 
             /*
             We will also store the session folder name, to be used for debug logging and session output.
@@ -48,9 +46,9 @@
                 VARIABLES_BY_PROCESS_INDEX.SESSION_FOLDER_NAME = TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.type.replace(' ', '-').replace(' ', '-') + '-' + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.config.folderName
             }
 
-            /* 
-            We will store all session keys on a map so as to be able to send an event to all 
-            of them when the task stops. 
+            /*
+            We will store all session keys on a map so as to be able to send an event to all
+            of them when the task stops.
             */
             TS.projects.foundations.globals.taskVariables.SESSION_MAP.set(
                 TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY,
@@ -107,11 +105,6 @@
 
             function onSessionRun(message) {
                 try {
-                    /*
-                    Run the Events Interface.
-                    */
-                    TS.projects.foundations.globals.processVariables.PORTFOLIO_MANAGER_EVENTS_INTERFACE.run();
-
                     /* This happens when the UI is reloaded, the session was running and tries to run it again. */
                     if (
                         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_STATUS === 'Idle' ||
@@ -208,10 +201,10 @@
             }
 
             function setUpSessionFolderName() {
-                /* 
-                The session object is overwritten when the session is run. For that reason we 
+                /*
+                The session object is overwritten when the session is run. For that reason we
                 need to setup again the folder name at the Session level.
-                Set the folderName for logging, reports, context and data output 
+                Set the folderName for logging, reports, context and data output
                 */
                 let config
                 if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.config !== undefined) {
@@ -335,7 +328,7 @@
                 }
 
                 function useDefaultDatetimes(initialDefault, finalDefault) {
-                    /* 
+                    /*
                     Note that inside the system, we are going to deal with these
                     dates in their numeric value representation.
                     */
@@ -414,70 +407,6 @@
                     }
 
                     TS.projects.foundations.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeFrame, errorMessage, docs)
-                    return false
-                }
-
-                /* Session Base Asset */
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset === undefined) {
-                    let errorMessage = "Session Base Asset Node Missing"
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS Portfolio Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.foundations.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.initialBalance === undefined) {
-                    let errorMessage = "Initial Balance Property Missing"
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS Portfolio Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.foundations.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset, errorMessage, docs)
-                    return false
-                }
-
-                /* Session Quoted Asset */
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset === undefined) {
-                    let errorMessage = "Session Quoted Asset Node Missing"
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS Portfolio Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.foundations.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters, errorMessage, docs)
-                    return false
-                }
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.initialBalance === undefined) {
-                    let errorMessage = "Initial Balance Property Missing"
-                    TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).PROCESS_INSTANCE_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
-                        "[ERROR] initialize -> checkParemeters -> " + errorMessage)
-
-                    let docs = {
-                        project: 'Foundations',
-                        category: 'Topic',
-                        type: 'TS Portfolio Session Error - ' + errorMessage,
-                        placeholder: {}
-                    }
-
-                    TS.projects.foundations.functionLibraries.sessionFunctions.sessionError(processIndex, TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset, errorMessage, docs)
                     return false
                 }
 
@@ -595,22 +524,6 @@
             function startFordwardTesting(message) {
                 if (checkKey() === false) { return false }
 
-                /* Reduce the balance */
-                let balancePercentage = 1 // This is the default value
-
-                if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.config.balancePercentage !== undefined) {
-                    balancePercentage = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.config.balancePercentage
-                }
-
-                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.initialBalance = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.initialBalance * balancePercentage / 100
-                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.initialBalance = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.initialBalance * balancePercentage / 100
-
-                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.minimumBalance = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.minimumBalance * balancePercentage / 100
-                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.minimumBalance = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.minimumBalance * balancePercentage / 100
-
-                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.maximumBalance = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionBaseAsset.config.maximumBalance * balancePercentage / 100
-                TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.maximumBalance = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.sessionQuotedAsset.config.maximumBalance * balancePercentage / 100
-
                 TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].referenceParent.config.normalWaitTime = TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.portfolioParameters.timeFrame.config.value
 
                 return true
@@ -652,4 +565,4 @@
             callBackFunction(TS.projects.foundations.globals.standardResponses.DEFAULT_FAIL_RESPONSE);
         }
     }
-};
+}

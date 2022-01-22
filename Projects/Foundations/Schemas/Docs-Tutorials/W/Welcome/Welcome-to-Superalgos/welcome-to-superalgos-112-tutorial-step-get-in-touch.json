@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Merhaba demek, yardım almak ve Toplulukla ( Community ) tanışmak için uğrayın! Her şeyin başladığı yeni Discord Sunucusuna veya aşağıdaki orijinal Telegram gruplarına katılabilirsiniz!",
                 "updated": 1638913840643
+            },
+            {
+                "language": "ID",
+                "text": "Mampir untuk menyapa, mendapatkan bantuan, dan bertemu Komunitas! Kamu dapat bergabung dengan Discord Server baru atau grup Telegram asli di bawah ini, di mana semuanya dimulai!",
+                "updated": 1640600271999
             }
         ]
     },
@@ -55,6 +60,11 @@
                     "language": "TR",
                     "text": "Duyurular Kanalı ( Announcements Channel ) — Önce resmi haberleri alın!",
                     "updated": 1638913886098
+                },
+                {
+                    "language": "ID",
+                    "text": "Announcements Channel — Dapatkan berita resmi lebih awal!",
+                    "updated": 1640600306704
                 }
             ]
         },
@@ -71,6 +81,11 @@
                     "language": "TR",
                     "text": "Topluluk Grubu ( Community Group ) — Haydi Superalgos hakkında konuşalım!",
                     "updated": 1638914076141
+                },
+                {
+                    "language": "ID",
+                    "text": "Community Group — Mari biacara tentang Superalgos!",
+                    "updated": 1640600316779
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Geliştiriciler Grubu ( Develop Group ) — Diğer geliştiricilerle tanışın!",
                     "updated": 1638914087853
+                },
+                {
+                    "language": "ID",
+                    "text": "Develop Group — Bertemu dengan developers lainnya!",
+                    "updated": 1640600339329
                 }
             ]
         },
@@ -105,6 +125,11 @@
                     "language": "TR",
                     "text": "Destek Grubu ( Support Group ) — Başlarken yardıma mı ihtiyacınız var?",
                     "updated": 1638914156904
+                },
+                {
+                    "language": "ID",
+                    "text": "Support Group — Butuh bantuan untuk memulai?",
+                    "updated": 1640600354723
                 }
             ]
         },
@@ -122,6 +147,11 @@
                     "language": "TR",
                     "text": "Token Grubu ( Token Group ) — Yönetim ve Token hakkında konuşalım!",
                     "updated": 1638914218979
+                },
+                {
+                    "language": "ID",
+                    "text": "Token Group — mari bicara tentang Governance dan token!",
+                    "updated": 1640600372583
                 }
             ]
         },
@@ -139,6 +169,11 @@
                     "language": "TR",
                     "text": "Kullanıcı deneyimi/Arayüzü Grubu ( UX-UI Group ) — Tasarlayabilir misin?",
                     "updated": 1638914331685
+                },
+                {
+                    "language": "ID",
+                    "text": "UX-UI Group — Apakah kamu bisa design?",
+                    "updated": 1640600382396
                 }
             ]
         },
@@ -156,23 +191,11 @@
                     "language": "TR",
                     "text": "Dokümanlar Grubu ( Docs Group ) — Dokümanları iyileştirmemize yardımcı olabilirsin!",
                     "updated": 1638914389026
-                }
-            ]
-        },
-        {
-            "style": "List",
-            "text": "Machine Learning Group — Discuss TensorFlow!",
-            "updated": 1630944752351,
-            "translations": [
-                {
-                    "language": "DE",
-                    "text": "Machine Learning Group - Diskutieren Sie über TensorFlow!",
-                    "updated": 1634247524820
                 },
                 {
-                    "language": "TR",
-                    "text": "Makine Öğrenimi Grubu ( Machine Learning Group ) — TensorFlow'u tartışın!",
-                    "updated": 1638914441873
+                    "language": "ID",
+                    "text": "Docs Group — Bantu kami mengembangkan Docs!",
+                    "updated": 1640600445662
                 }
             ]
         },
@@ -196,6 +219,11 @@
                     "language": "TR",
                     "text": "Dokümanlar panelinde davet bağlantısını bulmak için tıklayın!",
                     "updated": 1638914459181
+                },
+                {
+                    "language": "ID",
+                    "text": "Klik untuk menemukan tautan undangan di panel Docs !",
+                    "updated": 1640600471322
                 }
             ]
         }

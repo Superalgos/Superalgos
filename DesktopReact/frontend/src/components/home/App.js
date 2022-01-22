@@ -1,25 +1,39 @@
 import './App.css';
 import Sidebar from "../sidebar/Sidebar";
-import UsersSidebar from "../UsersSidebar/UsersSidebar";
-import {Stack} from "@mui/material";
-import {Outlet} from "react-router-dom";
-import {getProfiles} from '../../api/service'
+import {Outlet, useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import UsersSidebar from "../userSideBar/UsersSidebar";
 
 function App() {
-    getProfiles().then( response => {
-        console.log(response)
-    });
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.actualUser);
+    let navigate = useNavigate();
+
+    const loadUser = async () => {
+        /*     if (user) return;
+             let {data, result} = await getProfile().then(response => response.json());
+             if (data.missingProfile) {
+                  navigate("/signUp")
+             }
+             if (result === STATUS_OK) {
+                 dispatch(setActualProfile(data))
+             }*/
+    }
+
+    useEffect(() => {
+        loadUser();
+    }, [navigate]);
+
     return (
         <div className="app">
+            {/*<Stack className="appContainer"
+                   direction="row">*/}
 
-            <Stack className="app"
-                direction="row"
-                justifyContent="space-around">
-                <Sidebar/>
-                <Outlet className="middleSection"/>
-                <UsersSidebar/>
-            </Stack>
-
+            <Sidebar/>
+            <Outlet className="middleSection"/>
+            <UsersSidebar/>
+            {/*</Stack>*/}
         </div>
     );
 }

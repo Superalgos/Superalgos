@@ -4,7 +4,14 @@
     "type": "Collaborations Group",
     "definition": {
         "text": "Join this group if you'd like to collaborate with people that may complement your skillset.",
-        "updated": 1618846110937
+        "updated": 1618846110937,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Присоединяйтесь к этой группе, если вы хотите сотрудничать с людьми, которые могут дополнить ваши навыки.",
+                "updated": 1640353755632
+            }
+        ]
     },
     "paragraphs": [
         {

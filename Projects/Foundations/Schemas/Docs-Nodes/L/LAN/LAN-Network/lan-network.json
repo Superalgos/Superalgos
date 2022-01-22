@@ -17,6 +17,11 @@
                 "language": "DE",
                 "text": "\nDie network hierarchy (Netzhierarchie) bietet die Kontrollfunktionen für die Durchführung von DataMining und trading operations (Handelsoperationen). Da die Operationen entweder auf einem einzigen Rechner oder über ein Netz von Rechnern verteilt ausgeführt werden können, enthält sie auch Definitionen bezüglich des physischen Standorts, an dem die Knoten leben oder arbeiten.\nDie network hierarchy (Netzhierarchie) bietet die Kontrollfunktionen für die Durchführung von DataMining und trading operations (Handelsoperationen). Da die Operationen entweder auf einem einzigen Rechner oder über ein Netz von Rechnern verteilt ausgeführt werden können, enthält sie auch Definitionen bezüglich des physischen Standorts, an dem die Knoten leben oder arbeiten.",
                 "updated": 1639568652528
+            },
+            {
+                "language": "EL",
+                "text": "Η ιεραρχία δικτύου παρέχει τις λειτουργίες ελέγχου για την εκτέλεση λειτουργιών εξόρυξης δεδομένων και συναλλαγών. Επειδή οι λειτουργίες μπορούν να εκτελεστούν είτε σε ένα μόνο μηχάνημα είτε να κατανεμηθούν σε ένα δίκτυο μηχανών, περιέχει επίσης ορισμούς σχετικά με τη φυσική θέση στην οποία ζουν ή λειτουργούν οι κόμβοι.",
+                "updated": 1641827650343
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "DE",
                     "text": "Die Netzwerkhierarchie legt fest, an welcher Stelle des Netzwerks Sie die einzelnen Bots ausführen und wo die von den bots ausgegebenen Daten gespeichert werden.",
                     "updated": 1639568724618
+                },
+                {
+                    "language": "EL",
+                    "text": "Η ιεραρχία δικτύου ορίζει πού στο δίκτυο εκτελείτε καθένα από τα ρομπότ που επιλέγετε να εκτελεστούν και πού αποθηκεύονται τα δεδομένα που εξάγουν.",
+                    "updated": 1641827681624
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "DE",
                     "text": "Sie werden die Netzhierarchie für die folgenden Zwecke nutzen:",
                     "updated": 1639570749626
+                },
+                {
+                    "language": "EL",
+                    "text": "Θα χρησιμοποιήσετε την ιεραρχία δικτύου για τους ακόλουθους σκοπούς:",
+                    "updated": 1641827704546
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "DE",
                     "text": "Zur Steuerung Ihrer Data Mining Operationen, d. h. der Aufgaben, die Sensor  und Indicator Bots ausführen. Data Mining tasks verarbeiten Daten, die von anderen genutzt werden können, z. B. damit Ihre trading systems mit qualitätsreichen Informationen rechnen können.",
                     "updated": 1639570835575
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να ελέγξετε τη λειτουργία εξόρυξης δεδομένων σας — δηλαδή, εργασίες που εκτελούν ρομπότ αισθητήρων και δεικτών. Οι εργασίες εξόρυξης δεδομένων επεξεργάζονται δεδομένα που μπορεί να χρησιμοποιηθούν από άλλους. Για παράδειγμα, έτσι ώστε τα συστήματα συναλλαγών σας να μετρούν με ποιοτικές πληροφορίες.",
+                    "updated": 1641827724923
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "DE",
                     "text": "Kontrolle der testing environement (Testumgebung), d. h. der trading sessions inklusive Backtesting und paper trading sessions.",
                     "updated": 1639570874728
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να ελέγχετε το περιβάλλον δοκιμών σας — δηλαδή, συνεδρίες συναλλαγών, συμπεριλαμβανομένων των τεστ συνεδριών και συνεδριάσεων σε χαρτί.",
+                    "updated": 1641827744182
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "DE",
                     "text": "zur Kontrolle Ihrer production environment (Produktionsumgebung), d. h. für forward testing (Vorwärtstests) und live trading sessions.",
                     "updated": 1639570942222
+                },
+                {
+                    "language": "EL",
+                    "text": "•\tΓια να ελέγχετε το περιβάλλον παραγωγής σας—δηλαδή, μελλοντικές δοκιμές και ζωντανές συνεδρίες συναλλαγών.",
+                    "updated": 1641827763634
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "DE",
                     "text": "Verwaltung der Speicherung der Daten, die von den Bots erzeugt werden, die Sie als Outputs ausführen. Dazu gehört auch die Verwaltung der physischen Speicherorte, an denen die von den Bots erzeugten Datenprodukte gespeichert werden.",
                     "updated": 1639570975495
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να διαχειριστείτε την αποθήκευση των δεδομένων που παράγονται από τα ρομπότ που εκτελείτε ως αποτελέσματα. Αυτό περιλαμβάνει τη διαχείριση των φυσικών τοποθεσιών στις οποίες βρίσκονται τα προϊόντα δεδομένων που παράγονται από ρομπότ.",
+                    "updated": 1641827779980
                 }
             ]
         },
@@ -127,15 +162,20 @@
             "style": "Warning",
             "text": "At this stage, the system does not implement any form of security measures, therefore, Superalgos is to be run in the context of a restricted Local Area Network only, unless you implement your own network security.",
             "translations": [
-              {
+                {
                     "language": "RU",
                     "text": "На данном этапе в системе не реализованы какие-либо меры безопасности, поэтому Superalgos следует запускать только в контексте ограниченной локальной сети, если вы не реализуете собственную сетевую безопасность.",
                     "updated": 1638337639123
-              },
+                },
                 {
                     "language": "DE",
                     "text": "In diesem Stadium implementiert das System keinerlei Sicherheitsmaßnahmen, daher sollte Superalgos nur im Rahmen eines eingeschränkten lokalen Netzwerks betrieben werden, es sei denn, Sie implementieren Ihre eigene Netzwerksicherheit.",
                     "updated": 1639570995473
+                },
+                {
+                    "language": "EL",
+                    "text": "Σε αυτό το στάδιο, το σύστημα δεν εφαρμόζει κανενός είδους μέτρα ασφαλείας, επομένως, το Superalgos πρέπει να εκτελείται μόνο στο πλαίσιο ενός περιορισμένου τοπικού δικτύου, εκτός εάν εφαρμόζετε τη δική σας ασφάλεια δικτύου.",
+                    "updated": 1641827797173
                 }
             ]
         }

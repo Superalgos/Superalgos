@@ -1,0 +1,90 @@
+{
+    "topic": "Pluvtech Data Mine",
+    "pageNumber": "16",
+    "type": "DCA Levels Long",
+    "definition": {
+        "text": "Dollar Cost Average (DCA) levels is an indicator that provides a set of take profit, stop loss signals and potential entry points based upon DCA principles. It is to be used for spot buying, or for long entries only, shorting is not currently suported by this indicator.",
+        "updated": 1622696264788
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "DCA Levels on the Charts:",
+            "updated": 1622481793076
+        },
+		{
+            "style": "Text",
+            "text": "For each candle, this indicator provides potential entry points marked as safetyDown, as well as potential take profit values. This indicator is based on using the Average True Range to provide the values and makes use of DCA principles to try and lower the overall cost of entry."
+        },
+		{
+            "style": "Link",
+            "text": "DCA - (investopedia)->https://www.investopedia.com/terms/d/dollarcostaveraging.asp"
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-DCALevels.png",
+            "updated": 1611661370646
+        },
+		{
+            "style": "Text",
+            "text": "The following parameters can be modified by locating and opening the Javascript Code under Data Building Procedure -> Procedure Initialization under \u2019DCALevelsLong\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Pluvtech-DCALevels-params.png",
+            "updated": 1611673329568
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| DCALevelsLong | DCALevelsLong | tp1Up...tp3Up, safety1Down...safety3Down, slLong, atr |",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "Examples:",
+            "updated": 1611661674316
+        },
+		{
+            "style": "Text",
+            "text": "The Percentage calculation could be used to set a take profit or stop loss limit based on the desired percentage change."
+        },
+		{
+            "style": "Text",
+            "text": "The following example would set a take profit signal if the current candle close price rose above the tp2Up setpoint:"
+        },
+		{
+            "style": "Javascript",
+            "text": "if(chart.at01hs.DCALevelsLong.tp2Up < chart.at01hs.candle.close){\n    let tp=chart.at01hs.candle.close\n    }\n tp \\\\returns take profit variable",
+            "updated": 1636853769
+        },
+		{
+            "style": "Text",
+            "text": "To implement DCA, this indicator can be used to set up buy orders at the desired safety levels, such as safety1Down, safety2Down and safety3Down."
+        },
+		{
+            "style": "Text",
+            "text": "As these values will change for each candle period, it is recommended to copy the value to a user defined variable, such as tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value , at a set moment in time to prevent the value being overwritten with each new candle period:"
+        },
+		{
+            "style": "Javascript",
+            "text": "let tp = tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value\nif ( tradingEngine.tradingCurrent.tradingEpisode.distanceToTradingEvent.takePosition.value == 1 ) {\n    tp = chart.at01hs.DCALevelsLong.tp1Up\n    tradingEngine.tradingCurrent.tradingEpisode.userDefinedVariables.userDefinedVariable[0].value = tp\n    }\n tp \\\\returns take profit variable"
+        },
+		{
+            "style": "Title",
+            "text": "Maintainer:",
+            "updated": 1622481793076
+        },
+        {
+            "style": "Link",
+            "text": "@pluvtech (Telegram)->t.me/pluvtech"
+        }
+    ]
+}

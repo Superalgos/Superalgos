@@ -1,8 +1,8 @@
 {
     "type": "List of Plugin Workspaces and Tutorials",
     "definition": {
-        "text": "Tutorials exists withing specific workspaces. This is a list of the workspaces shipping with Superalgos and the tutorials each of them feature.",
-        "updated": 1616703721108,
+        "text": "Tutorials exist within specific workspaces. This is a list of the workspaces shipping with Superalgos and the tutorials each of them feature.",
+        "updated": 1640708135058,
         "translations": [
             {
                 "language": "ES",
@@ -11,8 +11,8 @@
             },
             {
                 "language": "RU",
-                "text": "Учебные пособия существуют в определенных рабочих областях. Это список рабочих пространств, поставляемых с Superalgos, и обучающих программ, которые есть в каждом из них.",
-                "updated": 1638285607452
+                "text": "Учебники существуют в определенных рабочих пространствах. Здесь приведен список рабочих пространств, поставляемых с Superalgos, и учебников, которые есть в каждом из них.",
+                "updated": 1641834556463
             }
         ]
     },
@@ -223,7 +223,8 @@
         },
         {
             "style": "Subtitle",
-            "text": "Token Distrabution Superalgos"
+            "text": "Token Distribution Superalgos",
+            "updated": 1640708153705
         },
         {
             "style": "List",

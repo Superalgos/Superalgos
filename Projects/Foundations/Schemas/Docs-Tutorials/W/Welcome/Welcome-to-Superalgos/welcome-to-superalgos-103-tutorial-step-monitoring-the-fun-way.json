@@ -7,7 +7,7 @@
             "name": "Bullet\\bullet-limit-buy-order",
             "project": "Foundations"
         },
-        "text": "You thought I would let you monitor the Live Trading Session watching the ugly list of orders at the exchange? No way!",
+        "text": "You thought I would let you monitor the Live Trading Session watching the list of orders at the exchange? No way!",
         "translations": [
             {
                 "language": "IT",
@@ -30,8 +30,14 @@
                 "language": "TR",
                 "text": "Borsadaki kirli emir listesini izleyerek Canlı İşlem Oturumunu ( Live Trading Session ) izlemene izin vereceğimi mi sandın? Mümkün değil!",
                 "updated": 1636632883293
+            },
+            {
+                "language": "ID",
+                "text": "Kamu pikir aku akan membiarkan kamu memantau Live Trading Session dan menonton list order di exchange? Tidak mungkin!",
+                "updated": 1640596146921
             }
-        ]
+        ],
+        "updated": 1640291830600
     },
     "paragraphs": [
         {
@@ -60,6 +66,11 @@
                     "language": "TR",
                     "text": "Superalgos, gerçek zamanlı olarak canlı oturumlar için de aşık olduğunuz simülasyonları üretir!",
                     "updated": 1636632876142
+                },
+                {
+                    "language": "ID",
+                    "text": "Superalgos menghasilkan simulasi yang akan kamu cintai serta live sessions juga, secara realtime!",
+                    "updated": 1640596334283
                 }
             ]
         },
@@ -88,6 +99,11 @@
                     "language": "TR",
                     "text": "Grafikteki ilk birkaç satın alma siparişini görebiliyor musunuz?",
                     "updated": 1636632901099
+                },
+                {
+                    "language": "ID",
+                    "text": "Dapatkah kamu melihat beberapa buy orders pertama pada chart?",
+                    "updated": 1640596368483
                 }
             ]
         },
@@ -116,6 +132,11 @@
                     "language": "TR",
                     "text": "Seni 1 dakikalık grafikte şimdiki zamana getirdim. En son mum oluşumunu ve birkaç siparişi zaten görebilmeliyorsun. Hız Ölçeği her iki uçta da otomatik modda. Ölçekleri beğeninize göre değiştirmekten çekinmeyin.",
                     "updated": 1636632974769
+                },
+                {
+                    "language": "ID",
+                    "text": "Aku baru saja membawa kamu ke waktu sekarang, pada 1-minute chart. Kamu harus dapat melihat pembentukan candle terbaru dan beberapa orders sudah ada. Rate Scale dalam mode otomatis di kedua ujungnya. Jangan ragu untuk mengubah scales sesuai keinginanmu.",
+                    "updated": 1640596463623
                 }
             ]
         }

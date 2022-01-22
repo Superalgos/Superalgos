@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Check Your Spot Balance!",
     "definition": {
         "icon": {
-            "name": "Crypto-Exchanges\\binance",
+            "name": "crypto-exchange",
             "project": "Foundations"
         },
         "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!",
@@ -30,6 +30,11 @@
                 "language": "TR",
                 "text": "Canlı İşlem Oturumunu ( Live Trading Session ) çalıştırmadan önce, borsada yeterli miktarda USDT bakiyeniz olduğundan emin olun!",
                 "updated": 1636552555684
+            },
+            {
+                "language": "ID",
+                "text": "Sebelum kamu menjalankan Live Trading Session, pastikan kamu memiliki saldo USDT spot yang cukup di exchange!",
+                "updated": 1640575421612
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "TR",
                     "text": "Borsadaki bakiyenize bir göz atın ve seans için yeterli USDT'yi ayarlayın!",
                     "updated": 1636552569147
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihatlah saldo kamu di exchange dan atur USDT yang cukup untuk sesi ini!",
+                    "updated": 1640575452390
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "TR",
                     "text": "Alım Satım Botu ( Trading Bot ), ilk Bakiye ( initialBalance ) için bir limit emri verecek ve daha önce açıklandığı gibi, doldurulmaması durumunda bir sonraki dakika iptal edecektir.",
                     "updated": 1636552620567
+                },
+                {
+                    "language": "ID",
+                    "text": "Trading Bot akan menempatkan satu limit order untuk initialBalance, dan membatalkannya pada menit berikutnya jika tidak diisi, seperti yang dijelaskan sebelumnya.",
+                    "updated": 1640575503592
                 }
             ]
         },
@@ -116,6 +131,11 @@
                     "language": "TR",
                     "text": "Ticarete hazır olmasanız bile devam edin! Bu önemli çünkü öğreticide öğrenilecek daha çok şey var!",
                     "updated": 1636552643669
+                },
+                {
+                    "language": "ID",
+                    "text": "Terus lanjutkan bahkan jika kamu tidak siap untuk trade! Ini penting karena ada lebih banyak hal untuk dipelajari dalam tutorial!",
+                    "updated": 1640575553876
                 }
             ]
         }

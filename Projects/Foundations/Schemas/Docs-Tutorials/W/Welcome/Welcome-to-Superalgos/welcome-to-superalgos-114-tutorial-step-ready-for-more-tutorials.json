@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Kendi başınıza bir girişimde bulunmadan önce tüm eğitimleri tamamlamanın ne kadar önemli olduğunu hatılatmama gerek yok umarım!",
                 "updated": 1636663270210
+            },
+            {
+                "language": "ID",
+                "text": "Bukan untuk menyombongkan diri, tetapi aku tidak bisa cukup menekankan betapa pentingnya kamu membuat semua tutorial tersedia sebelum menjelajah sendiri!",
+                "updated": 1640600653713
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Sistem çok geniştir ve karmaşık konuları kapsar. Superalgos ile ilk günlerinizde yalnız başınıza gitmek, yalnızca kafalarını duvara vurmaktan hoşlanan kişiler için önerilir :-) !",
                     "updated": 1636663300533
+                },
+                {
+                    "language": "ID",
+                    "text": "Sistem ini luas dan mencakup hal-hal kompleks. Berjalan sendiri pada hari-hari pertamamu dengan Superalgos hanya direkomendasikan untuk orang-orang yang suka membenturkan kepala ke dinding!",
+                    "updated": 1640600702243
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Sağınızdaki İlk Adımlar Öğreticiler kitabı ( First Steps Toturial ) , Superalgos'u öğrenmeye zaman ayırmanın en iyi yolunun tüm ayrıntılarını sağlar.",
                     "updated": 1636663360924
+                },
+                {
+                    "language": "ID",
+                    "text": "First Steps Tutorials book di sebelah kananmu memberikan semua detail tentang cara terbaik untuk menginvestasikan waktu kamu mempelajari Superalgos.",
+                    "updated": 1640600737479
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Bitirmeden önce, sizi bir sonraki öğretici ile baş başa bırakacağım!",
                     "updated": 1636663390761
+                },
+                {
+                    "language": "ID",
+                    "text": "Sebelum kamu selesai, aku akan meninggalkan kamu dengan tutorial terbaik berikutnya dalam series!",
+                    "updated": 1640600776299
                 }
             ]
         }

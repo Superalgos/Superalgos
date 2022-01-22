@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Hepimizin tercih ettiği borsalar var... Hadi biraz Superalgos'un bunlarla nasıl ilgilendiğinden ve hangilerini kullanabileceğinizden bahsedelim...",
                 "updated": 1639819162110
+            },
+            {
+                "language": "RU",
+                "text": "У каждого из нас есть свои предпочитаемые биржи... давайте немного поговорим о том, как Superalgos работает с ними и какие из них вы можете использовать...",
+                "updated": 1640875212461
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Superalgos, Borsa API iletişimleri için bir standart öneren açık kaynaklı bir kitaplık olan CCXT'yi kullanır. Sistem, standarda uygun borsalarla çalışır:",
                     "updated": 1639819344622
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos использует CCXT, библиотеку с открытым исходным кодом, предлагающую стандарт для API-коммуникаций бирж. Система работает с биржами, соответствующими этому стандарту:",
+                    "updated": 1640875273571
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "TR",
                     "text": "Ancak listede görünmek yetmez! Birçok borsa gerçekten uymuyor! Sonuç olarak, Superalgos ile kullanılabilecek Borsaları ve belgeleri test etmek için devam eden bir topluluk çabası var! Bu, çabayı kapsayan Dokümanlar'daki konudur. Hangi borsaların ne ölçüde test edildiğini öğrenmek için TOC'ye bakın.",
                     "updated": 1639819393029
+                },
+                {
+                    "language": "RU",
+                    "text": "Однако одного присутствия в списке недостаточно! Многие биржи на самом деле не соответствуют требованиям! В результате в сообществе ведется работа по тестированию бирж и документированию того, какие из них и как можно использовать с Superalgos! Эта тема есть в документации, где описываются эти усилия. Посмотрите в TOC, чтобы найти, какие биржи были протестированы и в какой степени.",
+                    "updated": 1640875422649
                 }
             ]
         }

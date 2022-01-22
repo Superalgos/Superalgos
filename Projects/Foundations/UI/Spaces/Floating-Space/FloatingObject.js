@@ -359,7 +359,7 @@ function newFloatingObject() {
                 if (parent.payload === undefined) { return }
                 if (parent.payload.position === undefined) { return }
                 distanceToParent = Math.sqrt(Math.pow(parent.payload.position.x - thisObject.container.frame.position.x, 2) + Math.pow(parent.payload.position.y - thisObject.container.frame.position.y, 2))  // ... we calculate the distance ...
-                parentChildren = UI.projects.visualScripting.functionLibraries.nodeChildren.childrenCount(parent, thisObject.payload.node)
+                parentChildren = UI.projects.visualScripting.nodeActionFunctions.nodeChildren.childrenCount(parent, thisObject.payload.node)
                 parentDistanceToGarndParent = parent.payload.distance
             }
 

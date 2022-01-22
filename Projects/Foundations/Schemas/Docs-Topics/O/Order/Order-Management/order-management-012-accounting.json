@@ -4,29 +4,71 @@
     "type": "Accounting",
     "definition": {
         "text": "The accounting process involves keeping balances synchronized with the happenings at the exchange (or the simulated events) and keeping track of the size placed and size filled of the stage.",
-        "updated": 1610223863701
+        "updated": 1610223863701,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Процесс учета включает в себя поддержание балансов, синхронизированных с событиями на бирже (или симулированными событиями), и отслеживание размещенного и заполненного размера этапа.",
+                "updated": 1640336836353
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Once the synchronization is done, either with a real exchange or in a simulation, and with all relevant details about the order gathered and in place, it is time to do some bookkeeping.",
-            "updated": 1610223883776
+            "updated": 1610223883776,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "После того как синхронизация выполнена, либо с реальной биржей, либо в симуляторе, и собрана и установлена вся необходимая информация об ордере, настало время заняться бухгалтерским учетом.",
+                    "updated": 1640336859145
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Both the real and simulated synchronization processes save the previous values for the size filled and fees paid in both assets before performing the calculations to update those values."
+            "text": "Both the real and simulated synchronization processes save the previous values for the size filled and fees paid in both assets before performing the calculations to update those values.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как реальный, так и имитированный процессы синхронизации сохраняют предыдущие значения заполненного размера и уплаченных комиссий в обоих активах перед выполнением расчетов для обновления этих значений.",
+                    "updated": 1640336891680
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "These previous values are then used to undo the previous accounts to redo them with the latest synchronized data."
+            "text": "These previous values are then used to undo the previous accounts to redo them with the latest synchronized data.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Эти предыдущие значения затем используются для отмены предыдущих счетов, чтобы повторно выполнить их с последними синхронизированными данными.",
+                    "updated": 1640336911923
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Update Stage Assets"
+            "text": "Update Stage Assets",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обновление активов этапа",
+                    "updated": 1640336969858
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Stage base asset, undoing the previous accounting:"
+            "text": "Stage base asset, undoing the previous accounting:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Базовый актив стадии, отменяющий предыдущий учет:",
+                    "updated": 1640336989808
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -36,7 +78,14 @@
         {
             "style": "Text",
             "text": "Stage base asset, accounting for the current filling and fees:",
-            "updated": 1610223935259
+            "updated": 1610223935259,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Базовый актив этапа, учитывающий текущее заполнение и комиссии:",
+                    "updated": 1640337011347
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -46,7 +95,14 @@
         {
             "style": "Text",
             "text": "Stage quoted asset, undoing the previous accounting:",
-            "updated": 1610223973902
+            "updated": 1610223973902,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Котируемый актив, отменяющий предыдущий учет:",
+                    "updated": 1640337023199
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -56,7 +112,14 @@
         {
             "style": "Text",
             "text": "Stage quote asset, accounting for the current filling and fees:",
-            "updated": 1610223987080
+            "updated": 1610223987080,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Котируемый актив этапа, учитывающий текущее заполнение и комиссии:",
+                    "updated": 1640337108904
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -66,19 +129,47 @@
         {
             "style": "Title",
             "text": "Update Balances",
-            "updated": 1610224010466
+            "updated": 1610224010466,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Обновление балансов",
+                    "updated": 1640337119664
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The updating of balances must take one crucial aspect into account: for sell orders, fees are paid in the quoted asset, while for buy orders, fees are paid in the base asset."
+            "text": "The updating of balances must take one crucial aspect into account: for sell orders, fees are paid in the quoted asset, while for buy orders, fees are paid in the base asset.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "При обновлении балансов необходимо учитывать один важный аспект: для ордеров на продажу комиссии выплачиваются в котируемом активе, а для ордеров на покупку комиссии выплачиваются в базовом активе.",
+                    "updated": 1640337142271
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "Sell orders"
+            "text": "Sell orders",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера на продажу",
+                    "updated": 1640337157078
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Balance base asset, undoing the previous accounting:"
+            "text": "Balance base asset, undoing the previous accounting:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс базового актива, отменяющий предыдущий учет:",
+                    "updated": 1640337168472
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -88,7 +179,14 @@
         {
             "style": "Text",
             "text": "Balance base asset, accounting for the current filling and fees:",
-            "updated": 1610224064051
+            "updated": 1610224064051,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс базового актива, учитывающий текущее заполнение и комиссии:",
+                    "updated": 1640337192848
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -98,7 +196,14 @@
         {
             "style": "Text",
             "text": "Balance quoted asset, undoing the previous accounting:",
-            "updated": 1610224090601
+            "updated": 1610224090601,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс котируемого актива, отменяющий предыдущий учет:",
+                    "updated": 1640337205635
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -108,7 +213,14 @@
         {
             "style": "Text",
             "text": "Balance quoted asset, account for the current filling and fees:",
-            "updated": 1610224138020
+            "updated": 1610224138020,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс котируемого актива, учитывающий текущее заполнение и комиссии:",
+                    "updated": 1640337232872
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -118,11 +230,25 @@
         {
             "style": "Subtitle",
             "text": "Buy orders",
-            "updated": 1610224169177
+            "updated": 1610224169177,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ордера на покупку",
+                    "updated": 1640337267888
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Balance base asset, undoing the previous accounting:"
+            "text": "Balance base asset, undoing the previous accounting:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс базового актива, отменяющий предыдущий учет:",
+                    "updated": 1640337314270
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -132,7 +258,14 @@
         {
             "style": "Text",
             "text": "Balance base asset, accounting for the current filling and fees:",
-            "updated": 1610224192900
+            "updated": 1610224192900,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс базового актива, учитывающий текущее заполнение и комиссии:",
+                    "updated": 1640337335098
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -142,7 +275,14 @@
         {
             "style": "Text",
             "text": "Balance quoted asset, undoing the previous accounting:",
-            "updated": 1610224209182
+            "updated": 1610224209182,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс котируемого актива, отменяющий предыдущий учет:",
+                    "updated": 1640337344682
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -152,7 +292,14 @@
         {
             "style": "Text",
             "text": "Balance quoted asset, accounting for the current filling and fees:",
-            "updated": 1610224228103
+            "updated": 1610224228103,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Баланс котируемого актива, учитывающий текущее заполнение и комиссии:",
+                    "updated": 1640337363289
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -162,31 +309,80 @@
         {
             "style": "Title",
             "text": "Recalculate Stage Size",
-            "updated": 1610224257004
+            "updated": 1610224257004,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересчет размера этапа",
+                    "updated": 1640337388405
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The stage keeps track of the accumulated size of orders placed for two reasons:"
+            "text": "The stage keeps track of the accumulated size of orders placed for two reasons:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этап отслеживает накопленный размер размещенных ордеров по двум причинам:",
+                    "updated": 1640337409420
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The trading bot must enforce the cap embodied in the definition of the target size. That is, the bot must not place orders for an amount higher than the size defined."
+            "text": "The trading bot must enforce the cap embodied in the definition of the target size. That is, the bot must not place orders for an amount higher than the size defined.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Торговый бот должен обеспечить соблюдение ограничения, заложенного в определении целевого размера. То есть бот не должен размещать ордера на сумму, превышающую установленный размер.",
+                    "updated": 1640337433097
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "The bot must close the stage once the target size has been filled."
+            "text": "The bot must close the stage once the target size has been filled.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бот должен закрыть этап, как только целевой размер будет заполнен.",
+                    "updated": 1640337451139
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "That is why keeping track of the size placed at the level of the stage is important."
+            "text": "That is why keeping track of the size placed at the level of the stage is important.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вот почему важно следить за размерами, установленными на уровне этапа.",
+                    "updated": 1640337489021
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The process is similar to what other accounting operations we’ve covered so far: first, the obsolete account is undone; then the new account is made."
+            "text": "The process is similar to what other accounting operations we’ve covered so far: first, the obsolete account is undone; then the new account is made.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот процесс похож на другие бухгалтерские операции, которые мы уже рассматривали: сначала отменяется устаревший счет; затем создается новый счет.",
+                    "updated": 1640337517518
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Undoing the old accounts for base and quoted asset:"
+            "text": "Undoing the old accounts for base and quoted asset:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отмена старых счетов для базового и котируемого актива:",
+                    "updated": 1640337541772
+                }
+            ]
         },
         {
             "style": "Text",
@@ -200,7 +396,14 @@
         {
             "style": "Text",
             "text": "Redoing the new accounts for base and quoted asset:",
-            "updated": 1610224337735
+            "updated": 1610224337735,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Переделать новые счета для базового и котируемого актива:",
+                    "updated": 1640337575028
+                }
+            ]
         },
         {
             "style": "Javascript",

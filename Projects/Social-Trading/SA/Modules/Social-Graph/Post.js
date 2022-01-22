@@ -13,22 +13,21 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
     */
     let thisObject = {
         /* Parents Ids */
-        emitterUserProfileId: undefined,
-        targetUserProfileId: undefined,
-        emitterBotProfileId: undefined,
-        targetBotProfileId: undefined,
+        originSocialPersonaId: undefined,
+        targetSocialPersonaId: undefined,
+        originSocialTradingBotId: undefined,
+        targetSocialTradingBotId: undefined,
         /* Unique Keys */
-        emitterPostHash: undefined,
+        originPostHash: undefined,
         targetPostHash: undefined,
         /* Post Unique Properties */
         postType: undefined,
+        fileKeys: undefined, 
         timestamp: undefined,
-        /* Signal Related Properties */
-        signalType: undefined,
-        signalData: undefined,        
         /* Maps */
         replies: undefined,
         reactions: undefined,
+        reactionsBySocialEntity: undefined,
         /* Reaction Functions */
         addReaction: addReaction,
         removeReactions: removeReaction,
@@ -37,47 +36,53 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         finalize: finalize
     }
 
-    thisObject.replies = new Map()
-
-    thisObject.reactions = new Map()
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LIKE, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LOVE, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_HAHA, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_WOW, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_SAD, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
-    thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
-
     return thisObject
 
     function finalize() {
+        thisObject.fileKeys = undefined
         thisObject.replies = undefined
         thisObject.reactions = undefined
+        thisObject.reactionsBySocialEntity = undefined
     }
 
     function initialize(
-        emitterUserProfileId,
-        targetUserProfileId,
-        emitterBotProfileId,
-        targetBotProfileId,
-        emitterPostHash,
+        originSocialPersonaId,
+        targetSocialPersonaId,
+        originSocialTradingBotId,
+        targetSocialTradingBotId,
+        originPostHash,
         targetPostHash,
         postType,
         timestamp,
-        signalType,
-        signalData
+        fileKeys
     ) {
+        /*
+        Maps Initialization
+        */
+        thisObject.replies = new Map()
 
-        thisObject.emitterUserProfileId = emitterUserProfileId
-        thisObject.targetUserProfileId = targetUserProfileId
-        thisObject.emitterBotProfileId = emitterBotProfileId
-        thisObject.targetBotProfileId = targetBotProfileId
-        thisObject.emitterPostHash = emitterPostHash
+        thisObject.reactions = new Map()
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LIKE, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_LOVE, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_HAHA, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_WOW, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_SAD, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_ANGRY, 0)
+        thisObject.reactions.set(SA.projects.socialTrading.globals.reactionTypes.REACTION_CARE, 0)
+
+        thisObject.reactionsBySocialEntity = new Map()
+        /*
+        Assimilating Parameters
+        */
+        thisObject.originSocialPersonaId = originSocialPersonaId
+        thisObject.targetSocialPersonaId = targetSocialPersonaId
+        thisObject.originSocialTradingBotId = originSocialTradingBotId
+        thisObject.targetSocialTradingBotId = targetSocialTradingBotId
+        thisObject.originPostHash = originPostHash
         thisObject.targetPostHash = targetPostHash
         thisObject.postType = postType
         thisObject.timestamp = timestamp
-        thisObject.signalType = signalType
-        thisObject.signalData = signalData        
+        thisObject.fileKeys = fileKeys
         /*
         Let's find the Target Post
         */
@@ -87,14 +92,14 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             thisObject.postType === SA.projects.socialTrading.globals.postTypes.QUOTE_REPOST
         ) {
             /*
-            Validate Target User Profile.
+            Validate Target Social Persona.
             */
-            let targetUserProfile = SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.get(thisObject.targetUserProfileId)
-            if (targetUserProfile === undefined) {
-                throw ('Target User Profile Not Found.')
+            let targetSocialPersona = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(thisObject.targetSocialPersonaId)
+            if (targetSocialPersona === undefined) {
+                throw ('Target Social Persona Not Found.')
             }
 
-            let targetPost = targetUserProfile.posts.get(thisObject.targetPostHash)
+            let targetPost = targetSocialPersona.posts.get(thisObject.targetPostHash)
 
             if (targetPost === undefined) {
                 throw ('Target Post Not Found.')
@@ -105,12 +110,19 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
             if (
                 thisObject.postType === SA.projects.socialTrading.globals.postTypes.REPLY_TO_POST
             ) {
-                targetPost.replies.set(thisObject.targetPostHash, thisObject.targetPostHash)
+                targetPost.replies.set(thisObject.originPostHash, thisObject.originPostHash)
             }
         }
     }
 
-    function addReaction(reactionType) {
+    function addReaction(reactionType, socialEntityId) {
+        /*
+        Remember who reacted
+        */
+        thisObject.reactionsBySocialEntity.set(socialEntityId, reactionType)
+        /*
+        Increase Counter
+        */
         let reactionCount = thisObject.reactions.get(reactionType)
 
         if (reactionCount === undefined) {
@@ -120,7 +132,14 @@ exports.newSocialTradingModulesSocialGraphPost = function newSocialTradingModule
         thisObject.reactions.set(reactionType, reactionCount + 1)
     }
 
-    function removeReaction(reactionType) {
+    function removeReaction(reactionType, socialEntityId) {
+        /*
+        Forget who reacted
+        */
+        thisObject.reactionsBySocialEntity.delete(socialEntityId)
+        /*
+        Decrease Counter
+        */
         let reactionCount = thisObject.reactions.get(reactionType)
 
         if (reactionCount === undefined) {

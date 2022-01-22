@@ -4,11 +4,11 @@
     "type": "Tutorial Step - Is It Working?",
     "definition": {
         "icon": {
-            "name": "Crypto-Exchanges\\binance",
+            "name": "crypto-exchange",
             "project": "Foundations"
         },
-        "text": "The unequivocal way to verify if things are working fine is logging on to Binance and checking your order history for BTC/USDT.",
-        "updated": 1616435272813,
+        "text": "The unequivocal way to verify if things are working fine is logging on to the exchange and checking your order history for BTC/USDT.",
+        "updated": 1640291050452,
         "translations": [
             {
                 "language": "IT",
@@ -31,13 +31,18 @@
                 "language": "TR",
                 "text": "İşlerin yolunda gidip gitmediğini doğrulamanın kesin yolu Binance'de oturum açmak ve BTC/USDT için sipariş geçmişinizi kontrol etmektir.",
                 "updated": 1636577853845
+            },
+            {
+                "language": "ID",
+                "text": "Salah satu cara untuk memverifikasi apakah semuanya berfungsi dengan baik adalah masuk ke exchange dan memeriksa riwayat pesanan kamu untuk BTC / USDT .",
+                "updated": 1640595940733
             }
         ]
     },
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go to Binance and take a look at what's going on!",
+            "text": "Go to the exchange's web interface and take a look at what's going on!",
             "translations": [
                 {
                     "language": "IT",
@@ -60,8 +65,14 @@
                     "language": "TR",
                     "text": "Binance'e gidin ve neler olduğuna bir bakın!",
                     "updated": 1636577874188
+                },
+                {
+                    "language": "ID",
+                    "text": "Pergi ke exchange's website interface dan lihat apa yang terjadi!",
+                    "updated": 1640595981515
                 }
-            ]
+            ],
+            "updated": 1640291072820
         },
         {
             "style": "Note",
@@ -88,6 +99,11 @@
                     "language": "TR",
                     "text": "Herhangi bir zamanda, bir sonraki adımdaki videoda olduğu gibi, sipariş geçmişinizde bir açık sipariş ve bir dizi iptal edilen siparişin biriktiğini görmelisiniz!",
                     "updated": 1636577910650
+                },
+                {
+                    "language": "ID",
+                    "text": "Kapan saja, kamu akan melihat satu open order dan sejumlah canceled orders muncul dalam riwayat pesananmu, seperti dalam video pada langkah berikutnya!",
+                    "updated": 1640596048300
                 }
             ]
         }

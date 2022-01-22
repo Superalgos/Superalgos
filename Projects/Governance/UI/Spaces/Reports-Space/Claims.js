@@ -65,7 +65,7 @@ function newGovernanceReportsClaims() {
         /*
         Here we get from the workspace all User Profiles.
         */
-        let userProfiles = UI.projects.foundations.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
+        let userProfiles = UI.projects.workspaces.spaces.designSpace.workspace.getHierarchyHeadsByNodeType('User Profile')
         /*
         Transform the result array into table records.
         */

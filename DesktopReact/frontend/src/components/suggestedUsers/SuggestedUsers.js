@@ -1,32 +1,115 @@
 import "./SuggestedUsers.css"
-import React, {useEffect} from 'react';
-import UserCard from "../User/UserCard";
+import React, {useEffect, useState} from 'react';
 import ShowMoreUsers from "../showMoreUsers/ShowMoreUsers";
-import {Stack} from "@mui/material";
+import {Skeleton, Stack} from "@mui/material";
+import {STATUS_OK} from "../../api/httpConfig";
+import {getPaginationProfiles} from "../../api/profile.httpService";
+import {useDispatch, useSelector} from 'react-redux'
+import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
+import UserCard from "../userCard/UserCard";
 
 
-const SuggestedUsers = ({showMoreCallback}) => {
-    const usersIds = [1, 2, 3, 4, 5];
+/* TODO remove unused code */
+const SuggestedUsers = () => {
+    //  TODO change this, should not be here
+    const skeletons = [<div key={0} className="skeleton">
+        <Skeleton variant="circular" width="3rem" height="3rem"/>
+        <Skeleton variant="text"
+                  width="8rem"/>
+        <Skeleton variant="text"
+                  width="4rem"/>
+    </div>, <div key={1} className="skeleton">
+        <Skeleton variant="circular" width="3rem" height="3rem"/>
+        <Skeleton variant="text"
+                  width="8rem"/>
+        <Skeleton variant="text"
+                  width="4rem"/>
+    </div>, <div key={2} className="skeleton">
+        <Skeleton variant="circular" width="3rem" height="3rem"/>
+        <Skeleton variant="text"
+                  width="8rem"/>
+        <Skeleton variant="text"
+                  width="4rem"/>
+    </div>]
+    const dispatch = useDispatch();
+    const suggestedUsersList = useSelector(state => state.suggestedUsers.suggestedUsersList)
+    const [loading, setLoading] = useState(true);
+    const [users, setUsers] = useState([]);
+    const [initialPaginationIdex, setInitialPaginationIndex] = useState(7);
+    const [pagination, setPagination] = useState(3);
 
-
-    const users = usersIds.map(value => {
-        let callBack = () => console.log(`Clicked follow on user${value}`);
-        return <UserCard key={value} id={value} name={`user${value}`} followCallback={callBack}/>
-    })
+    const loadProfiles = async () => {
+        setLoading(true)
+        let {data, result} = await getProfiles().then(response => response.json());
+        if (result === STATUS_OK) {
+            let mappedUsers = data.map((profile, index) => {
+                let callBack = () => console.log(`Clicked follow on user${profile.socialPersonaHandle}`);
+                return <UserCard key={index} id={index} name={profile.socialPersonaHandle}
+                                 userId={profile.socialPersonaId}
+                                 followCallback={callBack}/>
+            });
+            setUsers(mappedUsers);
+        }
+        setLoading(false);
+    }
 
     useEffect(() => {
-        console.log("SuggestedUsersConstructor called")
+        getPaginationProfiles().then(promiseResponse => {
+            promiseResponse.json().then(response => {
+                const {data, result} = response;
+                if (result === STATUS_OK) {
+                    dispatch(setSuggestedUsersList(data));
+                }
+            });
+        })
     }, []);
 
+    const followCallback = (userProfile) => {
+
+    }
+
+    const showMoreCallback = () => {
+        const paginationIndex = suggestedUsersList.length + initialPaginationIdex;
+        getPaginationProfiles(paginationIndex, pagination).then(promiseResponse => {
+            promiseResponse.json().then(response => {
+                const {data, result} = response;
+                if (result === STATUS_OK) {
+                    const arr = suggestedUsersList.concat(data)
+                    dispatch(setSuggestedUsersList(arr))
+                    const docElement = document.getElementById('scroll-div')
+                    docElement.scrollTop = docElement.scrollHeight
+                }
+            })
+        })
+    }
 
     return (
-        <Stack direction="column"
-               justifyContent="flex-start"
-               alignItems="center"
-               spacing={1}>
-            {users}
+        <>
+            <div className='scroll-element' id='scroll-div'>
+                <Stack
+                    direction="column"
+                    justifyContent="flex-start"
+                    alignItems="center"
+                    spacing={1}
+                    width="20rem"
+                >
+                    {
+                        suggestedUsersList
+                            ? suggestedUsersList.map((profile, index) => {
+                                return <UserCard
+                                    key={index}
+                                    id={index}
+                                    name={profile.socialPersonaHandle}
+                                    userId={profile.socialPersonaId}
+                                    followCallback={followCallback}
+                                />
+                            })
+                            : (skeletons)
+                    }
+                </Stack>
+            </div>
             <ShowMoreUsers showMoreCallback={showMoreCallback}/>
-        </Stack>
+        </>
     );
 };
 export default SuggestedUsers;

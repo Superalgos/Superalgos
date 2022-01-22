@@ -103,7 +103,7 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
         /*
         Now that the position is closed, it is the right time to move this position from current to last at the Trading Engine data structure.
         */
-        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.position, tradingEngine.tradingLast.position)
+        TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngine.tradingCurrent.position, tradingEngine.tradingLast.position)
 
         cycleBasedStatistics()
 
@@ -416,7 +416,7 @@ exports.newAlgorithmicTradingBotModulesTradingPosition = function (processIndex)
 
     function resetTradingEngineDataStructure() {
         if (tradingEngine.tradingCurrent.position.status.value === 'Closed') {
-            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).TRADING_ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.position)
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.initializeNode(tradingEngine.tradingCurrent.position)
         }
     }
 

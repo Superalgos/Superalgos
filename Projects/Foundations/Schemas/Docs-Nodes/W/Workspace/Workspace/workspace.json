@@ -12,7 +12,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "В рабочей области хранится информация:",
+                    "text": "В рабочем пространстве хранится информация:",
                     "updated": 1638344605651
                 },
                 {
@@ -51,6 +51,11 @@
                     "language": "TR",
                     "text": "Eklenti olmayan her türlü hiyerarşi.",
                     "updated": 1639746876427
+                },
+                {
+                    "language": "EL",
+                    "text": "Οποιαδήποτε ιεραρχία που δεν περιλαμβάνεται ως πρόσθετο.",
+                    "updated": 1641829782309
                 }
             ]
         },
@@ -78,6 +83,11 @@
                     "language": "TR",
                     "text": "Hiyerarşilerden kopuk, etrafta yüzen düğümler.",
                     "updated": 1639746892148
+                },
+                {
+                    "language": "EL",
+                    "text": "Κόμβοι που μπορεί να επιπλέουν, αποκομμένοι από ιεραρχίες.",
+                    "updated": 1641829796376
                 }
             ]
         },
@@ -94,7 +104,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Информация о физическом положении и состоянии всех узлов в пространстве дизайна Design Space, даже тех, которые отделены от иерархий.",
+                    "text": "Информация о физическом положении и состоянии всех узлов в пространстве проектирования Design Space, даже тех, которые отделены от иерархий.",
                     "updated": 1638344705517
                 },
                 {
@@ -106,6 +116,11 @@
                     "language": "TR",
                     "text": "Tasarım alanı içindeki tüm düğümlerin, hatta hiyerarşilerden ayrılanların bile fiziksel konumu ve durumu ile ilgili bilgiler.",
                     "updated": 1639746907339
+                },
+                {
+                    "language": "EL",
+                    "text": "Πληροφορίες σχετικά με τη φυσική θέση και την κατάσταση όλων των κόμβων εντός του σχεδιαστικού χώρου, ακόμη και εκείνων που είναι αποκομμένοι από ιεραρχίες.",
+                    "updated": 1641829810443
                 }
             ]
         },
@@ -133,6 +148,11 @@
                     "language": "TR",
                     "text": "Çalışma alanı, hiyerarşilerin (Düğümlerin) hiçbirinin parçası değildir; tam tersine çalışma alanı hiyerarşileri (Düğümleri) içeris",
                     "updated": 1639746963024
+                },
+                {
+                    "language": "EL",
+                    "text": "Ένας χώρος εργασίας δεν αποτελεί μέρος καμίας από τις ιεραρχίες. Αντίθετα, τις περιέχει.",
+                    "updated": 1641829822166
                 }
             ]
         },
@@ -160,6 +180,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanlarını Yükleme",
                     "updated": 1639746981742
+                },
+                {
+                    "language": "EL",
+                    "text": "Loading Workspaces (Φόρτωση Χώρων Εργασίας)",
+                    "updated": 1641829840251
                 }
             ]
         },
@@ -187,6 +212,11 @@
                     "language": "TR",
                     "text": "Kullanıcılar birden fazla çalışma alanınına sahip olabilir ve yönetebilirler, ancak sisteme yalnızca bir çalışma alanı yüklenebilir. İkinci bie çalışma alanı açma şansınız yoktur. Çalıştığınız çalışma alanını kapatarak yeni bir çalışma alanı yüklersiniz.",
                     "updated": 1639747065664
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι χρήστες μπορούν να διαχειρίζονται πολλούς χώρους εργασίας, αλλά μόνο ένας χώρος εργασίας μπορεί να φορτωθεί στο σύστημα σε οποιοδήποτε σημείο.",
+                    "updated": 1641829867667
                 }
             ]
         },
@@ -209,6 +239,11 @@
                     "language": "TR",
                     "text": "Bir çalışma alanı yüklemek için ekranın sol tarafındaki çalışma alanları (Workspaces) sekmesine tıklayın ve mevcut dosyalardan birini seçin.",
                     "updated": 1639747628768
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να φορτώσετε έναν χώρο εργασίας, κάντε κλικ στην καρτέλα Χώροι Εργασίας στην αριστερή πλευρά της οθόνης και επιλέξτε ένα από τα διαθέσιμα αρχεία.",
+                    "updated": 1641829880312
                 }
             ]
         },
@@ -225,7 +260,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Чтобы загрузить рабочее пространство, полученное от третьего лица, вы можете поместить файл в папку My-Workspaces, чтобы его можно было открывать на вкладке Worcspaces. Вы также можете перетащить файл в область дизайна.",
+                    "text": "Чтобы загрузить рабочее пространство, полученное от третьего лица, вы можете поместить файл в папку My-Workspaces, чтобы его можно было открывать на вкладке Worcspaces. Вы также можете перетащить файл в пространство проектирования.",
                     "updated": 1638344920643
                 },
                 {
@@ -237,6 +272,11 @@
                     "language": "TR",
                     "text": "Üçüncü şahıslardan edindiğiniz bir çalışma alanını yüklemek için dosyayı Çalışma Alanlarım klasörüne yerleştirebilir ve çalışma alanları sekmesinden açabilirsiniz. Ayrıca dosyayı sürükleyip tasarım alanına bırakabilirsiniz.",
                     "updated": 1639747661767
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να φορτώσετε έναν χώρο εργασίας που λάβατε από τρίτο μέρος, μπορείτε να τοποθετήσετε το αρχείο στο φάκελο My-Workspaces, ώστε να μπορείτε να το ανοίξετε από την καρτέλα Χώροι εργασίας. Μπορείτε επίσης να σύρετε το αρχείο και να το αποθέσετε στον χώρο σχεδίασης.",
+                    "updated": 1641829891511
                 }
             ]
         },
@@ -259,6 +299,11 @@
                     "language": "TR",
                     "text": "Farklı çalışma alanlarını aynı anda yüklemek için farklı tarayıcı sekmelerinde birden çok UI örneğini başlatmanız önerilmez. Sistem bu tür bir kullanımı işlemeye hazır değildir ve sonuç olarak kararsız davranabilir.",
                     "updated": 1639747682544
+                },
+                {
+                    "language": "EL",
+                    "text": "Δεν συνιστάται η εκκίνηση πολλαπλών παρουσιών της διεπαφής χρήστη σε ξεχωριστές καρτέλες του προγράμματος περιήγησης για τη φόρτωση διαφορετικών χώρων εργασίας ταυτόχρονα. Το σύστημα δεν είναι προετοιμασμένο να χειριστεί αυτόν τον τύπο χρήσης και ως συνέπεια μπορεί να συμπεριφέρεται ακανόνιστα.",
+                    "updated": 1641829921156
                 }
             ]
         },
@@ -290,6 +335,11 @@
                     "language": "TR",
                     "text": "Çalışma Alanlarının Kaydedilmesi",
                     "updated": 1639747716343
+                },
+                {
+                    "language": "EL",
+                    "text": "Saving Workspaces (Αποθήκευση Xώρων Eργασίας)",
+                    "updated": 1641829933201
                 }
             ]
         },
@@ -306,7 +356,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Любая рабочая область, сохраненная пользователем, является пользовательской рабочей областью.",
+                    "text": "Любая рабочее пространство, сохраненная пользователем, является пользовательским рабочим пространством.",
                     "updated": 1638345038084
                 },
                 {
@@ -318,6 +368,11 @@
                     "language": "TR",
                     "text": "Kullanıcı tarafından kaydedilen herhangi bir çalışma alanı, bir Kullanıcı Çalışma Alanıdır.",
                     "updated": 1639747701144
+                },
+                {
+                    "language": "EL",
+                    "text": "Κάθε χώρος εργασίας που αποθηκεύεται από τον χρήστη είναι ένας User Workspace (Χώρος Εργασίας Χρήστη).",
+                    "updated": 1641829969120
                 }
             ]
         },
@@ -334,7 +389,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Пользовательские рабочие области имеют фиолетовый фон на вкладке рабочих пространств.",
+                    "text": "Пользовательские рабочие пространства имеют фиолетовый фон на вкладке рабочих пространств.",
                     "updated": 1638345054880
                 },
                 {
@@ -346,6 +401,11 @@
                     "language": "TR",
                     "text": "Kullanıcı çalışma alanları, çalışma alanları sekmesinde mor bir arka plana sahiptir.",
                     "updated": 1639747731565
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι χώροι εργασίας χρήστη διαθέτουν μωβ φόντο στην καρτέλα χώρων εργασίας.",
+                    "updated": 1641829982552
                 }
             ]
         },
@@ -362,7 +422,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Рабочие области сохраняются в виде файлов JSON в папке My-Workspaces.",
+                    "text": "Рабочие пространства сохраняются в виде файлов JSON в папке My-Workspaces.",
                     "updated": 1638345077867
                 },
                 {
@@ -374,6 +434,11 @@
                     "language": "TR",
                     "text": "Çalışma alanları, My-Workspaces klasörüne JSON dosyaları olarak kaydedilir.",
                     "updated": 1639748878847
+                },
+                {
+                    "language": "EL",
+                    "text": "Οι Workspaces (Χώροι Εργασίας) αποθηκεύονται ως αρχεία JSON στο φάκελο My-Workspaces.",
+                    "updated": 1641829997794
                 }
             ]
         },
@@ -402,6 +467,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki kısayol tuşu kombinasyonunu kullanarak bir çalışma alanını kaydedebilirsiniz:",
                     "updated": 1639748905406
+                },
+                {
+                    "language": "EL",
+                    "text": "Μπορείτε να αποθηκεύσετε χειροκίνητα έναν χώρο εργασίας χρησιμοποιώντας τον ακόλουθο συνδυασμό πλήκτρων συντόμευσης:",
+                    "updated": 1641830020438
                 }
             ]
         },
@@ -423,13 +493,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "При резервном копировании рабочей области этот же файл загружается в локальную папку Downloads. Это хороший способ сохранить последовательные версии на случай, если вам когда-нибудь понадобится вернуться к предыдущему состоянию дел.",
+                    "text": "При резервном копировании рабочего пространства этот же файл загружается в локальную папку Downloads. Это хороший способ сохранить последовательные версии на случай, если вам когда-нибудь понадобится вернуться к предыдущему состоянию дел.",
                     "updated": 1638345134303
                 },
                 {
                     "language": "TR",
                     "text": "Bir çalışma alanını yedeklemek, dosyayı yerel İndirilenler klasörünüze indirir. Bu, önceki bir duruma geri dönmeniz gerekmesi ihtimaline karşı sıralı sürümleri saklamanın iyi bir yoludur.",
                     "updated": 1639748938597
+                },
+                {
+                    "language": "EL",
+                    "text": "Η δημιουργία αντιγράφων ασφαλείας ενός χώρου εργασίας κατεβάζει το ίδιο αρχείο στον τοπικό σας φάκελο \"Λήψεις\". Αυτός είναι ένας καλός τρόπος αποθήκευσης διαδοχικών εκδόσεων σε περίπτωση που χρειαστεί να επιστρέψετε σε μια προηγούμενη κατάσταση πραγμάτων.",
+                    "updated": 1641830034677
                 }
             ]
         },
@@ -447,6 +522,11 @@
                     "language": "RU",
                     "text": "Плагины Workspace",
                     "updated": 1638345161193
+                },
+                {
+                    "language": "EL",
+                    "text": "Plugin Workspaces (Χώροι Εργασίας Πρόσθετων)",
+                    "updated": 1641830046311
                 }
             ]
         },
@@ -463,13 +543,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos поставляется с несколькими рабочими областями плагинов Plugin Workspaces. Это предварительно настроенные рабочие пространства, созданные для определенных целей, например, для размещения учебных пособий, демонстрационных стратегий, конкретных проектов и т. д.",
+                    "text": "Superalgos поставляется с несколькими рабочими пространствами плагинов Plugin Workspaces. Это предварительно настроенные рабочие пространства, созданные для определенных целей, например, для размещения учебных пособий, демонстрационных стратегий, конкретных проектов и т. д.",
                     "updated": 1638345229136
                 },
                 {
                     "language": "DE",
                     "text": "Superalgos wird mit mehreren Plugin-Workspaces ausgeliefert. Dies sind vorkonfigurierte Workspaces, die für bestimmte Zwecke erstellt wurden, z. B. um Tutorials, Demostrategien, bestimmte Projekte usw. zu hosten.",
                     "updated": 1639345052372
+                },
+                {
+                    "language": "EL",
+                    "text": "Το Superalgos έρχεται με πολλούς Plugin Workspaces (Χώρους Εργασίας Πρόσθετων). Αυτοί είναι προ διαμορφωμένοι χώροι εργασίας που έχουν δημιουργηθεί για συγκεκριμένους σκοπούς, για παράδειγμα, για τη φιλοξενία σεμιναρίων, στρατηγικών επίδειξης, συγκεκριμένων έργων και ούτω καθεξής.",
+                    "updated": 1641830073316
                 }
             ]
         },
@@ -493,6 +578,11 @@
                     "language": "DE",
                     "text": "Auf der Registerkarte \"Workspaces\" sind Plugin Workspaces mit den Worten \"Plugin Workspace\" gekennzeichnet und haben einen schwarzen Hintergrund, damit Sie sie von Ihren eigenen Workspaces unterscheiden können.",
                     "updated": 1639345123503
+                },
+                {
+                    "language": "EL",
+                    "text": "Στην καρτέλα Χώροι εργασίας, οι χώροι εργασίας των πρόσθετων επισημαίνονται με τις λέξεις \"χώρος εργασίας προσθήκης\" και διαθέτουν μαύρο φόντο, ώστε να μπορείτε να τους διαφοροποιήσετε από τους δικούς σας χώρους εργασίας.",
+                    "updated": 1641830085955
                 }
             ]
         },
@@ -509,13 +599,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Когда вы загружаете, изменяете и сохраняете Plugin Workspace, фактический файл плагина остается нетронутым, то есть плагин не изменяется. Вместо этого в папке «My-Workspaces» создается новый файл. Этот файл является копией рабочей области плагина с внесенными вами изменениями. Копия сохраняется с именем узла Workspace, имя обычно совпадает с названием плагина. Чтобы сохранить рабочую область под другим именем, необходимо изменить имя узла рабочей области и сохранить.",
+                    "text": "Когда вы загружаете, изменяете и сохраняете Plugin Workspace, фактический файл плагина остается нетронутым, то есть плагин не изменяется. Вместо этого в папке «My-Workspaces» создается новый файл. Этот файл является копией рабочего пространства плагина с внесенными вами изменениями. Копия сохраняется с именем узла Workspace, имя обычно совпадает с названием плагина. Чтобы сохранить рабочее пространство под другим именем, необходимо изменить имя узла рабочего пространства и сохранить.",
                     "updated": 1638345532766
                 },
                 {
                     "language": "DE",
                     "text": "Wenn Sie einen Plugin Workspace laden, ändern und speichern, bleibt die eigentliche Plugin-Datei intakt, d. h. das Plugin wird nicht geändert. Stattdessen wird eine neue Datei im Ordner My-Workspaces erstellt. Diese Datei ist eine Kopie des Plugin-Arbeitsbereichs mit den von Ihnen vorgenommenen Änderungen. Die Kopie wird unter dem Namen der Node  Workspace gespeichert, der in der Regel derselbe ist wie der Name des Plugins. Um den Workspace unter einem anderen Namen zu speichern, müssen Sie den Namen der Workspace Node ändern und speichern.",
                     "updated": 1639345443024
+                },
+                {
+                    "language": "EL",
+                    "text": "Όταν φορτώνετε, τροποποιείτε και αποθηκεύετε έναν Plugin Workspace (Χώρο Εργασίας Πρόσθετων), το πραγματικό αρχείο του πρόσθετου παραμένει άθικτο, δηλαδή, το πρόσθετο δεν τροποποιείται. Αντίθετα, δημιουργείται ένα νέο αρχείο στο φάκελο My-Workspaces. Αυτό το αρχείο είναι ένα αντίγραφο του χώρου εργασίας του πρόσθετου που περιλαμβάνει τις τροποποιήσεις που εισαγάγατε. Το αντίγραφο αποθηκεύεται με το όνομα του κόμβου Χώρου Εργασίας, το οποίο είναι συνήθως το ίδιο όνομα με το πρόσθετο. Για να αποθηκεύσετε το χώρο εργασίας με διαφορετικό όνομα, πρέπει να αλλάξετε το όνομα του κόμβου του χώρου εργασίας και να το αποθηκεύσετε.",
+                    "updated": 1641830110805
                 }
             ]
         },
@@ -538,6 +633,11 @@
                     "language": "DE",
                     "text": "Workspaces erstellen:",
                     "updated": 1639346933048
+                },
+                {
+                    "language": "EL",
+                    "text": "Creating Workspaces (Δημιουργία Χώρων Εργασίας)",
+                    "updated": 1641830128218
                 }
             ]
         },
@@ -554,6 +654,11 @@
                     "language": "DE",
                     "text": "Um einen neuen Workspace zu erstellen, benennen Sie einen der vorhandenen Workspaces um, indem Sie die Bezeichnung der Workspace Node ändern, und speichern Sie ihn wie oben beschrieben. Nach dem Ändern der Bezeichnung und dem Speichern des Workspaces (auf einem der üblichen Wege) wird eine neue Datei im Ordner My-Workspaces gespeichert.",
                     "updated": 1639347021732
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να δημιουργήσετε έναν νέο χώρο εργασίας, μετονομάστε οποιονδήποτε από τους υπάρχοντες χώρους εργασίας αλλάζοντας την ετικέτα του κόμβου χώρου εργασίας και αποθηκεύστε τον όπως εξηγήθηκε παραπάνω. Αφού αλλάξετε την ετικέτα και αφού αποθηκευτεί ο χώρος εργασίας (με οποιοδήποτε από τα συνήθη μέσα), αποθηκεύεται ένα νέο αρχείο στο φάκελο My-Workspaces.",
+                    "updated": 1641830146595
                 }
             ]
         },
@@ -571,6 +676,11 @@
                     "language": "DE",
                     "text": "Der Blank Template Plugin Workspace eignet sich am besten für den Anfang, wenn Sie Ihr eigenes Setup erstellen möchten.",
                     "updated": 1639347042936
+                },
+                {
+                    "language": "EL",
+                    "text": "Το Πρόσθετο Κενό Πρότυπο Χώρου Εργασίας είναι το καλύτερο για να ξεκινήσετε εάν θέλετε να δημιουργήσετε τη δική σας σύνθεση.",
+                    "updated": 1641830213361
                 }
             ]
         },
@@ -593,6 +703,11 @@
                     "language": "DE",
                     "text": "Workspaces löschen",
                     "updated": 1639347055020
+                },
+                {
+                    "language": "EL",
+                    "text": "Deleting Workspaces (Διαγραφή Χώρων Εργασίας)",
+                    "updated": 1641830201923
                 }
             ]
         },
@@ -615,6 +730,11 @@
                     "language": "DE",
                     "text": "Um einen Workspace zu löschen, löschen Sie die entsprechende workspace datei in der Dateisystemanwendung(Datei verwaltung/File system) Ihres Betriebssystems.",
                     "updated": 1639347139221
+                },
+                {
+                    "language": "EL",
+                    "text": "Για να διαγράψετε έναν χώρο εργασίας, διαγράψτε το αντίστοιχο αρχείο χώρου εργασίας μέσα από την εφαρμογή συστήματος αρχείων του λειτουργικού σας συστήματος.",
+                    "updated": 1641830192466
                 }
             ]
         }
@@ -643,6 +763,11 @@
                 "language": "TR",
                 "text": "Çalışma alanı, eklentilerin durumu ve içeriği hariç, sistem ve kullanıcı tarafından oluşturulan bilgileri depolayan bir alandır. Teknik açıdan, çalışma alanı bir JSON dosyasıdır.",
                 "updated": 1639233230804
+            },
+            {
+                "language": "EL",
+                "text": "Ο χώρος εργασίας είναι μια οντότητα που αποθηκεύει όλες τις πληροφορίες που δημιουργούνται από το σύστημα και τους χρήστες, εξαιρουμένης της κατάστασης και των περιεχομένων των προσθηκών. Από τεχνική άποψη, ένας χώρος εργασίας είναι ένα αρχείο JSON.",
+                "updated": 1641829753699
             }
         ]
     }

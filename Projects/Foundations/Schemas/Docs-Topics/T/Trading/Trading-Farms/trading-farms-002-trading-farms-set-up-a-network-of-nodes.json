@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Installieren Sie Superalgos auf jedem Rechner, um dann für jeden Rechner eine Netzwerknode (Netzwerk Knoten) zu erstellen und einzurichten.\nIns deutsche Übersetzt von gitforkgit.",
                 "updated": 1637876698345
+            },
+            {
+                "language": "RU",
+                "text": "Установите Superalgos на каждую машину, чтобы затем создать и настроить сетевой узел для каждой машины.",
+                "updated": 1640364746482
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Von hier aus gibt es im Wesentlichen zwei Ansätze.",
                     "updated": 1637875828713
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь возможны два варианта.",
+                    "updated": 1640364771293
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "DE",
                     "text": "All in One Node installieren: Die erste und wahrscheinlich einfachste Möglichkeit besteht darin, die Markets zunächst an einer Netzwerk node zu installieren und später die branches (Zweigstellen), die Sie verschieben möchten, zu anderen Netzwerk nodes zu verschieben.",
                     "updated": 1637875895046
+                },
+                {
+                    "language": "RU",
+                    "text": "Установить все в одном узле: Первый и, вероятно, самый простой вариант - сначала установить рынки на одном сетевом узле, а затем переместить ветви, которые вы хотите переместить, на другие сетевые узлы.",
+                    "updated": 1640364858652
                 }
             ]
         },
@@ -46,6 +61,11 @@
                     "language": "DE",
                     "text": "All in All Node installieren: Bei diesem Ansatz erstellen Sie zunächst alle Network Nodes und installieren dann die markets, mit denen Sie arbeiten möchten. Die Installationsprozedur installiert jeden Markt auf allen Knoten, so dass Sie anschließend alle doppelten Daten (Duplikate) von Hand löschen müssen.",
                     "updated": 1637875971847
+                },
+                {
+                    "language": "RU",
+                    "text": "Установить все на всех узлах: При таком подходе вы сначала создаете все узлы сети и устанавливаете рынки, с которыми хотите работать, процедура установки установит каждый рынок на всех узлах, поэтому затем вам придется вручную удалить все дубликаты.",
+                    "updated": 1640364890664
                 }
             ]
         },
@@ -57,6 +77,11 @@
                     "language": "DE",
                     "text": "Market installieren",
                     "updated": 1637875998237
+                },
+                {
+                    "language": "RU",
+                    "text": "Установка рынка",
+                    "updated": 1640364907680
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "DE",
                     "text": "Das Verfahren zur Einrichtung einer Network node besteht darin, die Market menu option einer bestimmten Market node zu installieren. Dies ist ein komplexes Verfahren, das alle Punkte für Sie von A bis Z verbindet. Sie können dieses Verfahren auch von Hand ausführen, aber es wird Sie viel Zeit kosten, und Sie müssen alle Details kennen, um alles miteinander zu verbinden.",
                     "updated": 1637876433613
+                },
+                {
+                    "language": "RU",
+                    "text": "Процедура установки сетевого узла заключается в выполнении пункта меню Install Market определенного узла Market. Это сложная процедура, которая соединит для вас все точки от А до Я. Вы можете выполнить эту процедуру вручную, но это займет у вас много времени, и вам нужно будет знать все детали того, как соединить все вместе.",
+                    "updated": 1640364940998
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "DE",
                     "text": "Eines der wichtigsten Dinge, die Sie bei diesem Verfahren verstehen müssen, ist, dass es die Dinge berücksichtigt, die Sie zum Zeitpunkt der Ausführung dieses Befehls im Workspace haben.",
                     "updated": 1637876525803
+                },
+                {
+                    "language": "RU",
+                    "text": "Одна из самых важных вещей, которые нужно понять в этой процедуре, заключается в том, что она учитывает вещи, которые находятся в рабочем пространстве в тот момент, когда вы выполняете эту команду.",
+                    "updated": 1640364972802
                 }
             ]
         },
@@ -92,6 +127,11 @@
                     "language": "DE",
                     "text": "Ein Beispiel: Wenn Sie 2 trading systems haben, werden automatisch Backtesting und Live-Trading tasks für beide erstellt.",
                     "updated": 1637876565042
+                },
+                {
+                    "language": "RU",
+                    "text": "Например: если у вас есть 2 торговые системы, он автоматически создаст задачи бэктестинга и реальной торговли для обеих.",
+                    "updated": 1640364991866
                 }
             ]
         },
@@ -104,6 +144,11 @@
                     "language": "DE",
                     "text": "Das Verfahren wird auch auf jede Network Node im Workspace angewandt, vorausgesetzt, Sie löschen später die tasks oder andere nicht benötigte branches. Dazu müssen Sie aber wissen, was als Ergebnis dieser Ausführung hinzugefügt wird.",
                     "updated": 1637876635609
+                },
+                {
+                    "language": "RU",
+                    "text": "Процедура также будет применена к каждому сетевому узлу Network, находящемуся в рабочем пространстве, предполагая, что позже вы удалите задачи или другие ненужные вам ветви. Но чтобы сделать это, вам нужно знать, что добавляется в результате выполнения этой процедуры.",
+                    "updated": 1640365100509
                 }
             ]
         },
@@ -115,6 +160,11 @@
                     "language": "DE",
                     "text": "In der LAN Network Hierarchy (LAN-Netzwerkhierarchie)",
                     "updated": 1637876677554
+                },
+                {
+                    "language": "RU",
+                    "text": "В иерархии LAN Network",
+                    "updated": 1640365162994
                 }
             ]
         },
@@ -127,6 +177,11 @@
                     "language": "DE",
                     "text": "Hier wird dieses Verfahren im Wesentlichen 2 Dinge hinzufügen:",
                     "updated": 1637876719719
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь эта процедура добавит, по сути, 2 вещи:",
+                    "updated": 1640365176444
                 }
             ]
         },
@@ -138,6 +193,11 @@
                     "language": "DE",
                     "text": "Tasks: Dazu gehören Backtesting, Live Trading, Learning oder jede andere unterstützte Art von Task.",
                     "updated": 1637876758941
+                },
+                {
+                    "language": "RU",
+                    "text": "Tasks (Задачи): Сюда входит бэктестинг, реальная торговля, обучение или любой другой поддерживаемый тип задачи.",
+                    "updated": 1640365221771
                 }
             ]
         },
@@ -150,6 +210,11 @@
                     "language": "DE",
                     "text": "Data Products: Sie können sich dies als Verweise auf die physischen Daten vorstellen. Diese Definitionen sagen dem System im Allgemeinen, wo sich die Daten physisch befinden.",
                     "updated": 1637876822591
+                },
+                {
+                    "language": "RU",
+                    "text": "Data Products (Продукты данных): Можно считать, что это ссылки на физические данные. Эти определения говорят системе в целом, где физически находятся данные.",
+                    "updated": 1640365256044
                 }
             ]
         },
@@ -161,6 +226,11 @@
                     "language": "DE",
                     "text": "In der Charting Space Hierarchie",
                     "updated": 1637876836807
+                },
+                {
+                    "language": "RU",
+                    "text": "В иерархии Charting Space",
+                    "updated": 1640365278356
                 }
             ]
         },
@@ -173,6 +243,11 @@
                     "language": "DE",
                     "text": "Hier wird dieses Verfahren Time Machine s mit Timeline Chart s in ihnen hinzufügen. Tiefer in dieser Branch finden Sie die Node Layer s, welche auf die Data products (Datenprodukte) in der LAN Network Hierarchy verweist. Diese reference (Referenz) ist wichtig, damit das System weiß, woher die Daten geholt werden müssen (von welchem Client), wenn Sie eine Layer in den Charts (Diagrammen) einschalten.",
                     "updated": 1637877101462
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь эта процедура добавит машины времени с временными диаграммами внутри них. Глубже в этой ветви вы найдете узел Layer, который ссылается на продукты данных в иерархии LAN Network. Эта ссылка очень важна для того, чтобы система знала, когда вы включаете слой на диаграммах, откуда нужно получить данные (с какого клиента).",
+                    "updated": 1640365355595
                 }
             ]
         },
@@ -185,6 +260,11 @@
                     "language": "DE",
                     "text": "Wenn Sie alle vorherigen Beziehungen verstehen, können Sie einen Markt in allen Network Node s gleichzeitig installieren und dann versuchen, alle duplizierten Definitionen zu löschen. Wenn Ihnen das nicht klar ist, empfiehlt es sich, alle markets in einer einzigen Network Node zu installieren und dann die gewünschten branches von einer Networknode zur anderen zu verschieben.",
                     "updated": 1637877260476
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вам понятны все предыдущие взаимосвязи, вы можете пойти дальше и установить рынок во всех сетевых узлах одновременно, а затем попытаться удалить все дублирующиеся определения. Если вам не все понятно, рекомендуется установить все рынки в одном сетевом узле, а затем переместить нужные вам ветви из одного сетевого узла в другой.",
+                    "updated": 1640365396948
                 }
             ]
         },
@@ -196,6 +276,11 @@
                     "language": "DE",
                     "text": "Task`s verschieben (Moving Tasks)",
                     "updated": 1638026929422
+                },
+                {
+                    "language": "RU",
+                    "text": "Перемещение задач",
+                    "updated": 1640365410641
                 }
             ]
         },
@@ -208,6 +293,11 @@
                     "language": "DE",
                     "text": "Angenommen, Sie installieren zunächst eine Network Node, dann sollten Sie wissen, wie Sie Tasks zu anderen Network Nodes verschieben können.",
                     "updated": 1638026974664
+                },
+                {
+                    "language": "RU",
+                    "text": "Предполагая, что вы будете придерживаться стратегии установки сначала одного сетевого узла, вот что вам нужно знать о том, как переместить задачи на другие сетевые узлы.",
+                    "updated": 1640366222973
                 }
             ]
         },
@@ -220,6 +310,11 @@
                     "language": "DE",
                     "text": "Es gibt verschiedene Arten von Tasks (Aufgaben), die alle zusammen mit den entsprechenden Data Products definitions verschoben werden müssen, damit das System die dependencies (Abhängigkeiten) verfolgen kann. Die Data Products definitions befinden sich unter der  \"Data Storage\" Node einer Network Nodes. Sie sind in verschiedene Zweige (branches) unterteilt, je nach Art der Data, Project, Exchange, Market und vielem mehr, aber am Ende finden Sie Data Product nodes, die auf Product Definitions innerhalb von Mines (Minen) verweisen. Wenn Sie Tasks von einer Network Node zu einer anderen verschieben, müssen Sie auch den zugehörigen branch (Zweig) in der Datenablage (Data Storage) zu derselben Network Node verschieben.",
                     "updated": 1638027548415
+                },
+                {
+                    "language": "RU",
+                    "text": "Существуют различные типы задач, и каждая из них должна быть перемещена вместе с соответствующими определениями продуктов данных (Data Products), чтобы система могла отслеживать зависимости. Определения продуктов данных находятся в узле Data Storage узла Network. Они подразделяются на различные ветви в зависимости от типа данных, проекта, биржи, рынка и многого другого, но в итоге вы найдете узлы Data Product, которые ссылаются на Product Definitions внутри Mines. Когда вы перемещаете задачи из одного узла Network в другой, вам также необходимо переместить связанную ветвь в Data Storage в тот же узел Network.",
+                    "updated": 1640366554432
                 }
             ]
         },
@@ -231,6 +326,11 @@
                     "language": "DE",
                     "text": "Denken Sie immer daran, dass Sie im System lediglich festlegen müssen, wo die Tasks ausgeführt und die Daten gehostet werden sollen. Es besteht jedoch eine implizite Beziehung zwischen Tasks und Daten, da eine Task bestimmte Daten erzeugt, und diese Definitionen müssen konsistent sein und sich an derselben Network Node befinden.",
                     "updated": 1638027682358
+                },
+                {
+                    "language": "RU",
+                    "text": "Всегда помните, что системе нужно только определить, где вы хотите запускать задачи и размещать данные, но между задачами и данными существует неявная связь, поскольку задача производит определенные данные, и эти определения должны быть последовательными и находиться на одном и том же узле сети.",
+                    "updated": 1640366590709
                 }
             ]
         },
@@ -242,6 +342,11 @@
                     "language": "DE",
                     "text": "Wenn Sie nur eine Task verschieben, ohne die zugehörigen Data Products definitions zu verschieben, werden die Dinge höchstwahrscheinlich genau dort aufhören zu funktionieren.",
                     "updated": 1638027771925
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы переместите только задачу и не переместите связанные с ней определения продуктов данных, скорее всего, все перестанет работать прямо на этом месте.",
+                    "updated": 1640367568490
                 }
             ]
         },
@@ -254,6 +359,11 @@
                     "language": "DE",
                     "text": "Die Definitionen in der Charting System hierarchy müssen nicht geändert werden. Sie verweisen weiterhin auf die Data products, auf die sie zuvor verweisen, unabhängig davon, wohin Sie diese Data Products definitions verschieben. Wenn Sie sie von einer Network Node zu einer anderen geändert haben, holt der Plotter die Daten einfach von der Network Node ab, bei dem Sie diese Data Product definitionen hinterlassen haben.",
                     "updated": 1638028163201
+                },
+                {
+                    "language": "RU",
+                    "text": "Определения в иерархии Charting System вообще не нужно изменять. Они будут продолжать указывать на продукты данных, на которые они указывали, независимо от того, куда вы переместили эти определения продуктов данных. Если вы переместили их с одного сетевого узла на другой, плоттер (Plotter) просто получит данные с того сетевого узла, где вы оставили эти определения продуктов данных.",
+                    "updated": 1640367659558
                 }
             ]
         },
@@ -266,6 +376,11 @@
                     "language": "DE",
                     "text": "Wenn wir von Verschieben sprechen, meinen wir damit, dass eine Node branch (Zweig) abgetrennt und dieselbe branch an einer anderen Stelle wieder angefügt wird. Beachten Sie, dass Sie, wenn Sie z.B. ein Backup einer branch erstellen und diese an einem anderen Ort wiederherstellen, ohne die ursprüngliche branch vorher zu löschen, versehentlich neue IDs für jeden Node in dieser branch erstellen und die eingehenden Referenzen durcheinander bringen, was dazu führt, dass die Dinge nicht mehr funktionieren.",
                     "updated": 1638028769523
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда мы говорим о перемещении, мы имеем в виду отсоединение ветви узла и повторное присоединение этой же ветви в другом месте. Обратите внимание, что если вы, например, сделаете резервную копию ветви, восстановите ее в другом месте, не удалив сначала исходную ве��вь, вы непреднамеренно создадите новые идентификаторы для каждого узла в этой ветви и испортите входящие ссылки, что приведет к тому, что все перестанет работать.",
+                    "updated": 1640367697881
                 }
             ]
         },
@@ -281,6 +396,11 @@
                     "language": "DE",
                     "text": "Bevor Sie beginnen",
                     "updated": 1638028780622
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем начать",
+                    "updated": 1640367714392
                 }
             ]
         },
@@ -292,6 +412,11 @@
                     "language": "DE",
                     "text": "Erstellen Sie eine kurze Liste mit dem Namen, den Sie jeder Node geben möchten, und der entsprechenden IP-Adresse im Netzwerk. Diese benötigen Sie für die Konfiguration der einzelnen Network Nodes.",
                     "updated": 1638028817241
+                },
+                {
+                    "language": "RU",
+                    "text": "Составьте быстрый список с названием, которое вы хотите дать каждому узлу, и соответствующим IP-адресом в сети. Они понадобятся для настройки каждого узла сети.",
+                    "updated": 1640367741942
                 }
             ]
         },
@@ -303,6 +428,11 @@
                     "language": "DE",
                     "text": "Vielleicht möchten Sie auch planen, wie Ihr Betrieb aussehen soll.",
                     "updated": 1638028843062
+                },
+                {
+                    "language": "RU",
+                    "text": "Кроме того, вы, возможно, захотите продумать, как должна выглядеть ваша операция.",
+                    "updated": 1640367767082
                 }
             ]
         },
@@ -314,6 +444,11 @@
                     "language": "DE",
                     "text": "Zuallererst sollten Sie entscheiden, auf welcher Node Sie den Workspace aufbewahren wollen, auf dem das Netzwerk von Nodes konfiguriert werden soll. Wir nennen dies den home node (Heimatknoten).",
                     "updated": 1638028934865
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде всего, вы должны решить, на каком узле будет находиться рабочее пространство, на котором будет настроена сеть узлов. Мы называем его узлом home (домашний узел).",
+                    "updated": 1640368150929
                 }
             ]
         },
@@ -325,6 +460,11 @@
                     "language": "DE",
                     "text": "Dies ist keine Voraussetzung, da Sie verschiedene Workspaces in verschiedenen Nodes halten und sogar verschiedene Netzwerke auf verschiedenen Workspaces einrichten können, aber es ist die übliche Konfiguration.",
                     "updated": 1638029006555
+                },
+                {
+                    "language": "RU",
+                    "text": "Это не является обязательным требованием, поскольку вы можете держать разные рабочие пространства в разных узлах и даже устанавливать разные сети на разных рабочих пространствах, но это самая обычная настройка.",
+                    "updated": 1640367807043
                 }
             ]
         },
@@ -336,6 +476,11 @@
                     "language": "DE",
                     "text": "Außerdem möchten Sie vielleicht planen, welche Nodes im Netzwerk welche Data Mining Tasks ausführen sollen, welche Nodes welche trading sessions durchführen sollen usw. Wie auf der Seite mit den grundlegenden Konzepten (fundamental concepts page) angedeutet, sind die Möglichkeiten endlos, so dass wir hier nicht auf Alternativen eingehen werden. Wenn Sie genau wissen, was Sie tun wollen, sollte es einfach zu implementieren sein. Es steht Ihnen jedoch frei, auch zu experimentieren.",
                     "updated": 1638029310544
+                },
+                {
+                    "language": "RU",
+                    "text": "Кроме того, вы, возможно, захотите спланировать, какие узлы в сети должны выполнять задачи по обработке данных, какие узлы должны выполнять торговые сессии и так далее. Как уже говорилось на странице фундаментальных концепций, возможности бесконечны, поэтому мы не будем рассматривать здесь альтернативные варианты. Если вы точно знаете, что хотите сделать, это будет легко реализовать. Тем не менее, вы можете свободно исследовать и экспериментировать.",
+                    "updated": 1640367843444
                 }
             ]
         },
@@ -347,6 +492,11 @@
                     "language": "DE",
                     "text": "Beginnen sie hier:",
                     "updated": 1638029348510
+                },
+                {
+                    "language": "RU",
+                    "text": "Начинайте здесь",
+                    "updated": 1640367858501
                 }
             ]
         },
@@ -358,6 +508,11 @@
                     "language": "DE",
                     "text": "1. Richten Sie Superalgos den Rechnern die sie dafür nutzen möchten. Sobald Superalgos installiert ist, starten Sie das System zum ersten Mal mit dem \" node run noBrowser \" Befehl. Der Parameter noBrowser führt den Client aus, ohne die Benutzeroberfläche (UI) zu starten.",
                     "updated": 1638029478889
+                },
+                {
+                    "language": "RU",
+                    "text": "1. Установите Superalgos на каждой машине. После установки Superalgos запустите систему в первый раз с помощью команды node run noBrowser. Параметр noBrowser запускает клиент без запуска пользовательского интерфейса.",
+                    "updated": 1640367889174
                 }
             ]
         },
@@ -369,6 +524,11 @@
                     "language": "DE",
                     "text": "2. Starten Sie die Benutzeroberfläche, um auf die home node zuzugreifen.",
                     "updated": 1638029554999
+                },
+                {
+                    "language": "RU",
+                    "text": "2. Запустите пользовательский интерфейс для доступа к узлу home.",
+                    "updated": 1640367933825
                 }
             ]
         },
@@ -380,6 +540,11 @@
                     "language": "DE",
                     "text": "Sie können auf die home node lokal zugreifen, d. h. den Browser auf dem Rechner ausführen, auf dem die home node läuft, oder Sie können den Browser auf einem beliebigen anderen Rechner im physischen Netzwerk ausführen - auch auf einem, auf dem Superalgos nicht läuft , indem Sie zur IP-Adresse der home node navigieren.",
                     "updated": 1638029674761
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете получить доступ к узлу home локально, то есть запустив браузер на машине, на которой запущен узел home, или вы можете запустить браузер на любой другой машине в физической сети - даже на той, на которой не запущен Superalgos - перейдя на IP-адрес узла home.",
+                    "updated": 1640368045668
                 }
             ]
         },
@@ -392,6 +557,11 @@
                     "language": "DE",
                     "text": "Wenn Sie aus der Ferne auf die home node zugreifen, müssen Sie die My Computer network node so konfigurieren, dass die IP-Adresse des Rechners anstelle von localhost im Parameter host verwendet wird. Dadurch wird die Web Sockets Verbindung aktiviert.",
                     "updated": 1638029885556
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы получаете удаленный доступ к домашнему узлу, вам необходимо настроить сетевой узел My Computer на использование IP-адреса машины вместо localhost в параметре host. Это позволит установить соединение через веб-сокеты.",
+                    "updated": 1640368081747
                 }
             ]
         },
@@ -404,6 +574,11 @@
                     "language": "DE",
                     "text": "Aus organisatorischen Gründen und um spätere Verwechslungen/Verwirrungen zu vermeiden, empfiehlt es sich, den Workspace der home node aufzuräumen und die nicht benötigten markets zu deinstallieren.",
                     "updated": 1638030016950
+                },
+                {
+                    "language": "RU",
+                    "text": "В организационных целях и во избежание путаницы в дальнейшем рекомендуется очистить рабочее пространство домашнего узла, удалив ненужные рынки.",
+                    "updated": 1640368127784
                 }
             ]
         },
@@ -415,6 +590,11 @@
                     "language": "DE",
                     "text": "Klicken Sie hier, um zu erfahren, wie Sie einen bestehenden market deinstallieren können",
                     "updated": 1638030047887
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите, чтобы узнать, как удалить существующий рынок",
+                    "updated": 1640368213588
                 }
             ]
         },
@@ -426,6 +606,11 @@
                     "language": "DE",
                     "text": "3. Fügen Sie für jeden Rechner eine Network Node hinzu und konfigurieren Sie diese.",
                     "updated": 1638030080581
+                },
+                {
+                    "language": "RU",
+                    "text": "3. Добавьте и настройте сетевой узел для каждой машины.",
+                    "updated": 1640368236012
                 }
             ]
         },
@@ -437,6 +622,11 @@
                     "language": "DE",
                     "text": "Hinzufügen einer Network Node",
                     "updated": 1638030106718
+                },
+                {
+                    "language": "RU",
+                    "text": "Добавление сетевого узла",
+                    "updated": 1640368248205
                 }
             ]
         },
@@ -448,6 +638,11 @@
                     "language": "DE",
                     "text": "Um eine Network Node hinzuzufügen, wählen Sie die Add LAN Network Node im Superalgos Network Node Menü. Eine Network Node wird zusammen mit der Grundstruktur der Nodes zum Einrichten einer Node hinzugefügt.",
                     "updated": 1638030176456
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы добавить сетевой узел, выберите Add LAN Network Node в меню узла Superalgos Network. Сетевой узел добавляется вместе с базовой структурой узлов для настройки узла.",
+                    "updated": 1640368305563
                 }
             ]
         },
@@ -459,6 +654,11 @@
                     "language": "DE",
                     "text": "Konfigurieren der Network Node",
                     "updated": 1638030220405
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройка сетевого узла",
+                    "updated": 1640368323817
                 }
             ]
         },
@@ -470,6 +670,11 @@
                     "language": "DE",
                     "text": "Wählen Sie im Menü Configure, um auf die Konfiguration zuzugreifen.",
                     "updated": 1638030237147
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите Configure в меню для доступа к конфигурации.",
+                    "updated": 1640368335053
                 }
             ]
         },
@@ -487,6 +692,11 @@
                     "language": "DE",
                     "text": "Host ist die Maschine oder Hardware, die durch die Network Node repräsentiert wird. Der Standardparameter ist localhost. Wenn Sie jedoch von einem entfernten Computer aus auf die Client-Dienste dieser Node zugreifen möchten, müssen Sie localhost in die IP-Adresse des Rechners ändern, auf dem die Node läuft, z. B. in 147.0.0.1. Verwenden Sie die gepunktete IP-Adresse anstelle eines Hostnamens, da dies die Suche nach dem Hostnamen reduziert.",
                     "updated": 1638030334611
+                },
+                {
+                    "language": "RU",
+                    "text": "host - это машина или оборудование, представленное сетевым узлом. Параметр по умолчанию - localhost, но если вы собираетесь получить доступ к клиентским службам этого узла с удаленного компьютера, то необходимо изменить localhost на IP-адрес машины, на которой работает узел, например, на 147.0.0.1. Используйте точечный IP-адрес, а не название узла, так как это сокращает поиск по названию узла.",
+                    "updated": 1640368381471
                 }
             ]
         },
@@ -498,6 +708,11 @@
                     "language": "DE",
                     "text": "webPort ist der vom Webserver verwendete Port, in diesem Fall 34248.",
                     "updated": 1638030864316
+                },
+                {
+                    "language": "RU",
+                    "text": "webPort - это порт, используемый веб-сервером, на данном этапе 34248.",
+                    "updated": 1640368396695
                 }
             ]
         },
@@ -509,6 +724,11 @@
                     "language": "DE",
                     "text": "webSocketsPort ist der port, der vom System für die Kommunikation über das lokale Netzwerk verwendet wird und standardmäßig auf 18041 eingestellt ist.",
                     "updated": 1638030922690
+                },
+                {
+                    "language": "RU",
+                    "text": "webSocketsPort - порт, используемый системой для связи по локальной сети, по умолчанию установлен на 18041.",
+                    "updated": 1640368414874
                 }
             ]
         },
@@ -520,6 +740,11 @@
                     "language": "DE",
                     "text": "Konfigurieren Sie die erste Node und drücken Sie F5, um die Seite zu aktualisieren. Sobald die Seite neu geladen ist, wird oben auf dem Bildschirm ein Hinweis angezeigt, dass das System eine Verbindung mit der neuen Network Node herstellt. Wiederholen Sie den Vorgang für jeden Rechner.",
                     "updated": 1638031013262
+                },
+                {
+                    "language": "RU",
+                    "text": "Настройте первый узел и нажмите F5, чтобы обновить страницу. После перезагрузки страницы в верхней части экрана появится уведомление о том, что система подключается к новому сетевому узлу. Повторите этот процесс для каждой машины.",
+                    "updated": 1640368436677
                 }
             ]
         }

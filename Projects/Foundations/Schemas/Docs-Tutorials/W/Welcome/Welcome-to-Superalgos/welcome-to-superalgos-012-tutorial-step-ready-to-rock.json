@@ -41,14 +41,14 @@
             },
             {
                 "language": "RU",
-                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для Network Node.",
-                "updated": 1635611514856,
+                "text": "Узел Data Tasks управляет всеми задачами интеллектуального анализа данных, определенными для узла LAN Network Node.",
+                "updated": 1641803953590,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Veri Görevleri düğümü ( Data Tasks ), bu Ağ Düğümü ( Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
-                "updated": 1635579379923
+                "text": "Veri Görevleri düğümü ( Data Tasks ), bu LAN Ağ Düğümü ( LAN Network Node ) için tanımlanan tüm veri madenciliği görevlerini kontrol eder.",
+                "updated": 1640627348348
             }
         ],
         "updated": 1636910229969
@@ -103,7 +103,7 @@
         },
         {
             "style": "List",
-            "text": "Run a data mining operation to get data for the BTC/USDT Market from Binance.",
+            "text": "Run a data mining operation to get data for the BTC/USDT Market from the exchange.",
             "translations": [
                 {
                     "language": "IT",
@@ -137,17 +137,17 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a data mining, чтобы получить данны BTC/USDT Market от Binance.",
-                    "updated": 1635583091531,
+                    "text": "Запустить операцию по добыче данных, чтобы получить с биржи данные для рынка BTC/USDT.",
+                    "updated": 1641804289856,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Binance'den BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
-                    "updated": 1635579469652
+                    "text": "Borsa'dan BTC/USDT Piyasası ( Market ) için veri almak üzere bir veri madenciliği operasyonu çalıştıracağız.",
+                    "updated": 1640627207922
                 }
             ],
-            "updated": 1616414602356
+            "updated": 1640350823953
         },
         {
             "style": "List",
@@ -185,8 +185,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a Backtesting Session с использованием существующей стратегии с открытым исходным кодом.",
-                    "updated": 1635583981313
+                    "text": "Запустить сессию бэктестинга (Backtesting Session) с существующей стратегией с открытым исходным кодом.",
+                    "updated": 1641804298897
                 },
                 {
                     "language": "TR",
@@ -232,8 +232,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Run a Live Trading Session с минимальными средствами, чтобы проверить критические аспекты системы.",
-                    "updated": 1635584028882
+                    "text": "Запустить реальную торговую сессию (Live Trading Session) с минимальными средствами, чтобы протестировать критические аспекты системы.",
+                    "updated": 1641804305254
                 },
                 {
                     "language": "TR",

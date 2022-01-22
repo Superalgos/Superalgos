@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Şu anki çalışma alanı, herhangi bir noktada kullandığınız Kullanıcı Çalışma Alanı ( User Workspace ) veya Eklenti Çalışma Alanıdır ( Plugin Workspace ).\n",
                 "updated": 1639766680038
+            },
+            {
+                "language": "RU",
+                "text": "Текущее рабочее пространство - это рабочее пространство пользователя (User Workspace) или рабочее пространство плагина (Plugin Workspace), которое вы используете в данный момент.",
+                "updated": 1640873140025
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Uygulamayı kapatıp yeniden başlatırsanız veya kullanıcı arayüzünü ( UI ) yenilerseniz, sistem en son kullanımda olan çalışma alanını yükler.",
                     "updated": 1639766730029
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы закрываете и перезапускаете приложение или обновляете пользовательский интерфейс, система загружает рабочее пространство, которое использовалось в последний раз.",
+                    "updated": 1640873164889
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Workspace düğümünün menüsünü açın, \"Gettşing Started Tutorial\" etiketine çift tıklayın ve \"Basic Education\" olarak değiştirin.",
                     "updated": 1639766836285
+                },
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню узла Workspace, дважды щелкните по ярлыку \"Getting Started Tutorials\" и измените его на \"Basic Education\".",
+                    "updated": 1640873189495
                 }
             ]
         },
@@ -119,6 +134,11 @@
                     "language": "TR",
                     "text": "Ve bu tuş kombinasyonunu kullanarak çalışma alanınızı kaydedin:  Ctrl + Shift + Alt + Key-S",
                     "updated": 1639766873790
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь нажмите Ctrl + Shift + Alt + Key-S",
+                    "updated": 1640873199684
                 }
             ]
         },
@@ -148,6 +168,11 @@
                     "language": "TR",
                     "text": "Yeni dosyanın orada olduğunu doğrulamak için Dosya gezgininizde Superalgos klasörünün altında, az önce verdilen yolu kontrol edin. ",
                     "updated": 1639766984680
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в папку My-Workspaces, чтобы убедиться, что новый файл находится там. Найдите его также на вкладке Workspaces!",
+                    "updated": 1640873230589
                 }
             ]
         }

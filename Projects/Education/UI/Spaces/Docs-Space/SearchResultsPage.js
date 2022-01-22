@@ -22,32 +22,40 @@ function newFoundationsDocsSearchResultsPage() {
         let initialTime = new Date()
 
 
-        let searchByType = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
-            pluck: 'docsSchemaDocument:type',
-            enrich: true,
-            limit: 10000
-        })
-        let searchByText = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
-            pluck: 'text',
-            enrich: true,
-            limit: 10000
-        })
-
-        // Search in all fields and remove duplicates
-        Promise.all([searchByType, searchByText]).then(
-            function (values) {
-                let flags = {}
-                values.forEach(arrResult => {
-                   arrResult.forEach(result => {
-                       if (!flags[result.id]) {
-                           flags[result.id] = true;
-                           resultsArray.push({documentIndex: result.doc});
-                       }
-                   })
-                })
-                buildHTML()
+        //empty search for get all documents #3216
+        if (UI.projects.education.spaces.docsSpace.commandInterface.command === "") {
+            for (const [key, value] of Object.entries(UI.projects.education.spaces.docsSpace.searchEngine.documentIndex.store)) {
+                resultsArray.push({documentIndex: value});
             }
-        )
+            buildHTML()
+        } else {
+            let searchByType = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+                pluck: 'docsSchemaDocument:type',
+                enrich: true,
+                limit: 10000
+            });
+            let searchByText = docIndex.search(UI.projects.education.spaces.docsSpace.commandInterface.command.toLowerCase(), {
+                pluck: 'text',
+                enrich: true,
+                limit: 10000
+            })
+
+            // Search in all fields and remove duplicates
+            Promise.all([searchByType, searchByText]).then(
+                function (values) {
+                    let flags = {}
+                    values.forEach(arrResult => {
+                        arrResult.forEach(result => {
+                            if (!flags[result.id]) {
+                                flags[result.id] = true;
+                                resultsArray.push({documentIndex: result.doc});
+                            }
+                        })
+                    })
+                    buildHTML()
+                }
+            )
+        }
 
         function buildHTML() {
             const tabs = ['All', 'Nodes', 'Concepts', 'Topics', 'Tutorials', 'Reviews', 'Books', 'Workspace']

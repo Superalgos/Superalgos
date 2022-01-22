@@ -1,63 +1,48 @@
 import "./Post.css"
 import React, {useState} from 'react';
-import {Avatar, Card, IconButton, Stack, Typography} from "@mui/material";
-import {Autorenew, ThumbDown, ThumbUp} from "@mui/icons-material";
+import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
+import {useNavigate, useParams} from "react-router-dom";
+import PostFooter from "../postFooter/PostFooter";
 
-const Post = () => {
+const Post = ({postData}) => {
+    const {postId: postIdParameter} = useParams();
+    const navigate = useNavigate();
+    const [collapse, setCollapse] = useState(true);
+    const ToggleCollapse = () => setCollapse(!collapse);
 
-    const userName = "User Name",
-        postBody = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const {
+        originSocialPersonaId,
+        postText,
+        reactions,
+        originPostHash
+    } = postData;
 
-    const [count, setCount] = useState(0); /* todo define one more for dislike button */
-
-    function onLikeButtonClick() { {/* todo console log print need a fix */}
-        console.log("Liked " + count + " times")
-    }
-
-    function onButtonClick(){ /* todo dislike button function necessary? */
-        console.log("Liked " + count + " times")
+    const handlePostClick = (e) => {
+        if (postIdParameter !== originPostHash) {
+            e.preventDefault()
+            navigate(`/post?post=${originPostHash}&user=${originSocialPersonaId}`) //todo implement reply feed
+        }
     }
 
     return (
-        <Card className="post">
-            <Stack direction="row">
-                <Stack className="postAvatarContainer">
-                    <Avatar src={pic}/>
+        <div className="postWrapper">
+            <div className="post">
+                {/* TODO remove stacks inside of stacks*/}
+                <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
+                    <div className="postAvatarContainer">
+                        <Avatar src={pic} className="avatar"/>
+                    </div>
+                    <Typography className="postUserName">
+                        {originSocialPersonaId} {/* TODO use name */}
+                    </Typography>
                 </Stack>
-                <Stack className="postUserName">
-                    {userName}
-                </Stack>
-            </Stack>
-            <Stack className="postBody">
-                    {postBody}
-            </Stack>
-            <Stack className="postFooterContainer" direction="row">
-                <Stack className="postFooterLikeDislike" direction="row">
-                <IconButton
-                    onClick={() => setCount(count + 1)}
-                    >
-                    <ThumbUp/>
-                </IconButton><Typography>{count}</Typography>
-                <IconButton
-                    onClick={() => {/* TODO remove unnecessary arrow function*/
-                        onButtonClick()
-                    }}
-                >
-                    <ThumbDown/>
-                </IconButton>
-                </Stack>
-                <Stack className="postFooterRepost" direction="row">
-                <IconButton
-                    onClick={() => {/* TODO remove unnecessary arrow function*/
-                        onButtonClick()
-                    }}
-                >
-                    <Autorenew/>
-                </IconButton>
-                </Stack>
-            </Stack>
-        </Card>
+                <div className="postBody">
+                    {postText ? postText.toString() : ''}
+                </div>
+                <PostFooter postData={postData} postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
+            </div>
+        </div>
     );
 };
 

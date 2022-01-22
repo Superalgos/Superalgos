@@ -35,6 +35,11 @@
                 "language": "RU",
                 "text": "Оставив весы позади, давайте посмотрим, как система делает данные доступными на графиках.",
                 "updated": 1636564273949
+            },
+            {
+                "language": "ID",
+                "text": "Tinggalkan pembahasan skala terlebih dahulu, mari kita lihat bagaimana sistem membuat data tersedia di chart.",
+                "updated": 1639586978562
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "RU",
                     "text": "Каждый Timeline Chart имеет соответствующий Layer Manager, который представлен в виде раскрывающегося меню со списком нескольких слоев.",
                     "updated": 1636564352556
+                },
+                {
+                    "language": "ID",
+                    "text": "Setiap Timeline Chart memiliki Layer Manager terkait, yang direpresentasikan sebagai menu bercabang yang mencantumkan banyak lapisan.",
+                    "updated": 1639587068431
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "RU",
                     "text": "Чтобы открыть менеджер слоев, прокрутите колесико мыши на его заголовке. Таким же способом можете прокручивать и его содержимое.",
                     "updated": 1636565702384
+                },
+                {
+                    "language": "ID",
+                    "text": "Untuk membuka layers manager, scroll mouse wheel pada headernya. Gunakan mouse wheel untuk menggulir kontennya juga!",
+                    "updated": 1639587173937
                 }
             ]
         },
@@ -135,6 +150,11 @@
                     "language": "RU",
                     "text": "Посмотрите видео на следующем шаге для большей ясности...",
                     "updated": 1636565759888
+                },
+                {
+                    "language": "ID",
+                    "text": "Lihat video pada langkah selanjutnya untuk memperjelas ...",
+                    "updated": 1639587199142
                 }
             ]
         }

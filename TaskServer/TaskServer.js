@@ -135,7 +135,7 @@ exports.newTaskServer = function newTaskServer() {
                     if (
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot === undefined ||
                         TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference === undefined ||
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined 
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.socialTradingBotReference.referenceParent === undefined
                     ) {
                         return
                     }
@@ -166,53 +166,21 @@ exports.newTaskServer = function newTaskServer() {
                     }
                     TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
                     /*
-                    We set up the object that will hold our p2p network client identity, meaning the identity we will present to the network.
+                    This is what we are going to use to receive events from the P2P Network.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity =
-                        SA.projects.network.modules.p2pNetworkClientIdentity.newNetworkModulesP2PNetworkClientIdentity()                    
+                    let P2P_NETWORK_INTERFACE_MODULE = require('./p2pNetworkInterface.js')
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkInterface = P2P_NETWORK_INTERFACE_MODULE.newP2PNetworkInterface()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkInterface.initialize()
                     /*
-                    We will read all user profiles plugins, store them in memory and get from there our own network client identity.
+                    We set up the P2P Network Client.
                     */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess = SA.projects.network.modules.appBootstrapingProcess.newNetworkModulesAppBootstrapingProcess()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.appBootstrapingProcess.run(
-                        TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.config.codeName,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
-                    )
-                    /*
-                    We set up the P2P Network, meaning the array of nodes we will be able to connect to.
-                    */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes = SA.projects.network.modules.p2pNetworkReachableNodes.newNetworkModulesP2PNetworkReachableNodes()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.initialize(
-                        'Network Client',
-                        global.env.TASK_SERVER_TARGET_NETWORK_CODENAME,
-                        global.env.TASK_SERVER_TARGET_NETWORK_TYPE
-                    )
-                    /*
-                    This is where we will process all the events comming from the p2p network.
-                    */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.p2pNetworkInterface = SA.projects.socialTrading.modules.p2pNetworkInterface.newSocialTradingModulesP2PNetworkInterface()
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.p2pNetworkInterface.initialize()
-                    /*
-                    Set up the connections to network peers nodes. These connections will be used to consume signals.
-                    In this context peers means network nodes with a similar ranking that our network client identity.
-                    */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkNodesConnectedTo = SA.projects.network.modules.p2pNetworkNodesConnectedTo.newNetworkModulesP2PNetworkNodesConnectedTo()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkNodesConnectedTo.initialize(
-                        'Network Client',
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes.p2pNetworkInterface,
-                        global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS
-                    )
-                    /*
-                    Set up the connections to network start nodes. These connections will be used to send signals.
-                    */
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart = SA.projects.network.modules.p2pNetworkStart.newNetworkModulesP2PNetworkStart()
-                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.initialize(
-                        'Network Client',
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkReachableNodes,
-                        global.env.TASK_SERVER_APP_MAX_OUTGOING_HEADS
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
+                    await TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.initialize(
+                        TS.projects.foundations.globals.taskConstants.TASK_NODE.taskServerAppReference.referenceParent.signingAccount.config.codeName,
+                        'P2P Network', // global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                        'Testnet', // global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                        global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
+                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkInterface.eventReceived
                     )
                 }
 

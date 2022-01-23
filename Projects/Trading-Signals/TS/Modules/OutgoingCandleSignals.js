@@ -61,6 +61,6 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
             signature: signature
         }
  
-        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkStart.sendMessage(signal, "Trading Signals")
+        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClient.p2pNetworkStart.sendMessage(signal, "Trading Signals")
     }
 }

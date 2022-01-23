@@ -8,6 +8,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         p2pNetworkClientIdentity: undefined,
         p2pNetworkReachableNodes: undefined,
         p2pNetworkNodesConnectedTo: undefined,
+        p2pNetworkStart: undefined,
         socialGraphNetworkServiceClient: undefined,
         eventReceivedCallbackFunction: undefined,
         initialize: initialize,
@@ -25,6 +26,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         targetNetworkType,
         targetNetworkCodeName,
         maxOutgoingPeers,
+        maxOutgoingStartPeers,
         eventReceivedCallbackFunction
     ) {
 
@@ -67,6 +69,16 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject,
                 maxOutgoingPeers
             )
+            /*
+            Set up the connection to start nodes.
+            */
+            thisObject.p2pNetworkStart = SA.projects.network.modules.p2pNetworkStart.newNetworkModulesP2PNetworkStart()
+            await thisObject.p2pNetworkStart.initialize(
+                'Network Client',
+                thisObject.p2pNetworkClientIdentity,
+                thisObject.p2pNetworkReachableNodes,
+                maxOutgoingStartPeers
+                )
         }
 
         async function setupNetworkServices() {

@@ -103,7 +103,14 @@ It provides access to all modules built for this App.
             We set up the P2P Network Client.
             */
             thisObject.p2pNetworkClient = SA.projects.network.modules.p2pNetworkClient.newNetworkModulesP2PNetworkClient()
-            await thisObject.p2pNetworkClient.initialize(global.env.DESKTOP_APP_SIGNING_ACCOUNT, global.env.DESKTOP_TARGET_NETWORK_TYPE, global.env.DESKTOP_TARGET_NETWORK_CODENAME, global.env.DESKTOP_APP_MAX_OUTGOING_PEERS, thisObject.p2pNetworkInterface.eventReceived)
+            await thisObject.p2pNetworkClient.initialize(
+                global.env.DESKTOP_APP_SIGNING_ACCOUNT,
+                global.env.DESKTOP_TARGET_NETWORK_TYPE,
+                global.env.DESKTOP_TARGET_NETWORK_CODENAME,
+                global.env.DESKTOP_APP_MAX_OUTGOING_PEERS,
+                global.env.DESKTOP_APP_MAX_OUTGOING_START_PEERS,
+                thisObject.p2pNetworkInterface.eventReceived
+            )
         }
 
         async function finalSetupInterfaces() {

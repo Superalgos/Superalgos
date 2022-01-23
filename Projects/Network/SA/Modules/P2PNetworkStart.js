@@ -9,6 +9,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     messages via the http interface of nodes to some of them.
     */
     let thisObject = {
+        p2pNetworkClientIdentity: undefined, 
         sendMessage: sendMessage,
 
         /* Framework Functions */
@@ -26,6 +27,8 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
     return thisObject
 
     function finalize() {
+        thisObject.p2pNetworkClientIdentity = undefined
+
         web3 = undefined
         peersMap = undefined
         messagesToBeDelivered = undefined
@@ -45,24 +48,24 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         p2pNetwork,
         maxOutgoingPeers
     ) {
-
+        thisObject.p2pNetworkClientIdentity = p2pNetworkClientIdentity
         web3 = new SA.nodeModules.web3()
 
         for (let i = 0; i < NETWORK_SERVICES.length; i++) {
-            let networkServide = NETWORK_SERVICES[i]
+            let networkService = NETWORK_SERVICES[i]
             let peers = []
-            peersMap.set(networkServide, peers)
+            peersMap.set(networkService, peers)
 
-            await initializeNetworkService(networkServide)
+            await initializeNetworkService(networkService)
         }
 
-        async function initializeNetworkService(networkServide) {
+        async function initializeNetworkService(networkService) {
             messagesToBeDelivered = []
-            let peers = peersMap.get(networkServide)
+            let peers = peersMap.get(networkService)
 
             await connectToPeers()
             let intervalId = setInterval(connectToPeers, RECONNECT_DELAY);
-            intervalIdConnectToPeers.set(networkServide, intervalId)
+            intervalIdConnectToPeers.set(networkService, intervalId)
             async function connectToPeers() {
 
                 if (peers.length >= maxOutgoingPeers) { return }
@@ -114,10 +117,10 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
                         if (peer.httpClient !== undefined) { return }
 
                         peer.httpClient = SA.projects.network.modules.webHttpNetworkClient.newNetworkModulesHttpNetworkClient()
-                        peer.httpClient.initialize(callerRole, p2pNetworkClientIdentity, peer.p2pNetworkNode)
+                        peer.httpClient.initialize(callerRole, thisObject.p2pNetworkClientIdentity, peer.p2pNetworkNode)
 
 
-                        await peer.httpClient.sendTestMessage(networkServide)
+                        await peer.httpClient.sendTestMessage(networkService)
                             .then(isConnected)
                             .catch(isNotConnected)
 
@@ -133,9 +136,9 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         }
     }
 
-    async function sendMessage(message, networkServide) {
+    async function sendMessage(message, networkService) {
 
-        let userApp = TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkClientIdentity
+        let userApp = thisObject.p2pNetworkClientIdentity
         if (userApp === undefined) { return }
         if (userApp.node.config === undefined) { return }
         let userAppCodeName = userApp.node.config.codeName
@@ -146,7 +149,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         let signature = await web3.eth.accounts.sign(JSON.stringify(userApp.node.id), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
 
         let messageHeader = {
-            networkService: networkServide,
+            networkService: networkService,
             userApp: {
                 categoryType: userAppCategory.type,
                 appType: userApp.node.type,
@@ -156,7 +159,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
             payload: JSON.stringify(message)
         }
 
-        let peers = peersMap.get(networkServide)
+        let peers = peersMap.get(networkService)
         /*
         This function will send the messageHeader from a random picked network node
         selected from the array of already verified online peers.

@@ -42,18 +42,6 @@
             "updated": 1642954690025
         },
         {
-            "style": "Block",
-            "text": "The Associated Workspace",
-            "updated": 1617712309440,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Ассоциированное рабочее пространство",
-                    "updated": 1640268703993
-                }
-            ]
-        },
-        {
             "style": "Title",
             "text": "The Associated Workspace"
         },
@@ -133,18 +121,6 @@
                     "language": "RU",
                     "text": "Обязательно включите шаг, позволяющий пользователям перейти на BinanceUS в случае необходимости, как в учебном пособии Welcome to Superalgos.",
                     "updated": 1640268916224
-                }
-            ]
-        },
-        {
-            "style": "Block",
-            "text": "Tutorial Series & Planning",
-            "updated": 1617712970783,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Серия уроков и планирование",
-                    "updated": 1640268933652
                 }
             ]
         },
@@ -271,18 +247,6 @@
             ]
         },
         {
-            "style": "Block",
-            "text": "The Target Audience",
-            "updated": 1617713465981,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Целевая аудитория",
-                    "updated": 1640269245929
-                }
-            ]
-        },
-        {
             "style": "Title",
             "text": "The Target Audience"
         },
@@ -355,18 +319,6 @@
             ]
         },
         {
-            "style": "Block",
-            "text": "Communication Resources",
-            "updated": 1617720397017,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Коммуникационные ресурсы",
-                    "updated": 1640269483853
-                }
-            ]
-        },
-        {
             "style": "Title",
             "text": "Communication Resources"
         },
@@ -408,17 +360,6 @@
             "style": "Include",
             "text": "Foundations->Concept->Reusable Documenting Snippets->Use Precise Language",
             "updated": 1642954727527
-        },
-        {
-            "style": "Block",
-            "text": "Consistent Use of Space and Styles",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Согласованное использование пространства и стилей",
-                    "updated": 1640269881222
-                }
-            ]
         },
         {
             "style": "Title",
@@ -583,17 +524,6 @@
             "style": "Include",
             "text": "Foundations->Concept->Reusable Documenting Snippets->Alternating Colors",
             "updated": 1642954766494
-        },
-        {
-            "style": "Block",
-            "text": "Use of Docs Pages",
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Использование страниц",
-                    "updated": 1640271575560
-                }
-            ]
         },
         {
             "style": "Title",
@@ -1097,18 +1027,6 @@
             "updated": 1642954912526
         },
         {
-            "style": "Block",
-            "text": "The First Page",
-            "updated": 1621874343005,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Первая страница",
-                    "updated": 1640274568878
-                }
-            ]
-        },
-        {
             "style": "Title",
             "text": "The First Page"
         },
@@ -1213,7 +1131,7 @@
         },
         {
             "style": "List",
-            "text": "If the tutorial requires prior knowledge beyond the tutorials in the Getting Started Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
+            "text": "If the tutorial requires prior knowledge beyond the Getting Started Tutorials Plugin Workspace, devote a step to explaining what prior knowledge is required so that users may complete the relevant tutorials first.",
             "translations": [
                 {
                     "language": "ES",
@@ -1225,7 +1143,8 @@
                     "text": "Если учебник требует предварительных знаний, выходящих за рамки учебников Getting Started Plugin Workspace, посвятите отдельный шаг объяснению того, какие предварительные знания требуются, чтобы пользователи могли сначала пройти соответствующие учебники.",
                     "updated": 1640275151211
                 }
-            ]
+            ],
+            "updated": 1642955219046
         },
         {
             "style": "List",

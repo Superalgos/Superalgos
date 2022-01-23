@@ -163,26 +163,38 @@ exports.newGithubServer = function newGithubServer() {
         }
     }
 
-    async function createGithubFork(token, repo='Superalgos') {
+    async function createGithubFork(username, token, repo='Superalgos') {
         try {
             token = unescape(token)
-
+            username = unescape(username)
             await doGithub()
-            SA.nodeModules.process.env.PROJECT_PLUGIN_MAP.values.foreach(v => {
-              await doGithub(v)
-            })
+            await Promise.all(Object.values(global.env.PROJECT_PLUGIN_MAP).map(v => {
+              return doGithub(v.repo)
+            }))
 
             async function doGithub(repo='Superalgos') {
                 try {
-                    const { Octokit } = SA.nodeModules.octokit
+                    let Octokit
+                    if (SA && SA.nodeModules && SA.nodeModules.octokit) Octokit = SA.nodeModules.octokit.Octokit
+                    else Octokit = require('@octokit/rest').Octokit
                     const octokit = new Octokit({
                         auth: token,
                         userAgent: 'Superalgos ' + SA.version
                     })
+                    // check if repo already exists
 
-                    await octokit.repos.createFork({
-                        owner: 'Superalgos',
-                        repo: repo
+                    octokit.repos.get({
+                        owner: username,
+                        repo: repo,
+                    }).catch(async err => {
+                        console.log('[ERROR] Github Server -> createGithubFork -> doGithub -> err.stack = ' + err.stack)
+                        console.log('[WARN] Github Server -> createGithubFork -> doGithub -> forking new submodule: ' + repo)
+                        // fork it since it doesn't seem to exist, but the user has presumably already forked main repo
+                        await octokit.repos.createFork({
+                            owner: 'Superalgos',
+                            repo: repo
+                        })
+
                     })
                 } catch (err) {
                     if (err === undefined) { return }

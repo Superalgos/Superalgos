@@ -10,6 +10,7 @@ const externalScripts = [
     "https://code.jquery.com/jquery-3.6.0.js",
     "https://code.jquery.com/ui/1.13.0/jquery-ui.js"
 ];
+const projectPluginMap = require('./Plugins/project-plugin-map.json')
 
 // Check system is set up correctly 
 systemCheck();
@@ -106,25 +107,27 @@ for (let dir of nodeModulesDirs) {
 // Install Node_Modules to Main Superalgos Directory
 let dir = process.cwd()
 let command = "echo Results of install at "+ dir + " & npm ci";
-exec( command,
-    {
-        cwd: dir 
-    },
-    function ( error, stdout ){
-        if (error) {
-            console.log('');
-            console.log("There was an error installing some dependencies error: ");
-            console.log('');
-            console.log( error );
-            if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
-                tfjsWinInstall();
+let nodeInstPromise = new Promise(resolve => {
+    exec( command,
+        {
+            cwd: dir 
+        },
+        function ( error, stdout ){
+            if (error) {
+                console.log('');
+                console.log("There was an error installing some dependencies error: ");
+                console.log('');
+                console.log( error );
+                if (tfjsWinInstallFlag == true && dir == path.join(process.cwd(), "Projects", "TensorFlow", "TS", "Bot-Modules", "Learning-Bot", "Low-Frequency-Learning")) {
+                    tfjsWinInstall();
+                }
+                process.exit(1)
             }
-            process.exit(1)
-        }
-        console.log('');
-        console.log( stdout );
+            console.log('');
+            console.log( stdout );
+            resolve()
     });
-
+})
 
 /*  If WinOS && error with tfjs installation:
  *  This is a well known and documented issue with @Tensorflow/tfjs-node installation on WinOS.
@@ -163,3 +166,101 @@ for (let url of externalScripts) {
         writeStream.on("finish", () => writeStream.close());
     });
 };
+
+// wait until node installation is complete
+nodeInstPromise.then(() => {
+  // Initialize and update git repositories
+  // Ensure upstream and origin are set for this repo and submodules
+  const simpleGit = require("simple-git")
+
+  let gitUser;
+  setUpstreamAndOrigin().then(async () => {
+      Object.values(projectPluginMap).forEach(plugin => {
+          setUpstreamAndOrigin(plugin.dir, plugin.repo)
+      })
+  }).catch(errorResp)
+
+  function errorResp (e) {
+      console.error(e)
+      process.exit(1)
+  }
+
+  async function setUpstreamAndOrigin(dir, repo="Superalgos") {
+      // initialize simpleGit
+      const options = {
+          binary: 'git',
+          maxConcurrentProcesses: 6,
+      }
+      // main app repo should be the working directory
+      if (repo === 'Superalgos') options.baseDir = dir || process.cwd()
+      // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+      else options.baseDir = path.join(process.cwd(), 'Plugins', dir)
+      const git = simpleGit(options)
+
+      // Check to see it main repo has been set as upstream
+      let remotes = await git.getRemotes(true).catch(errorResp);
+      let isUpstreamSet
+      let origin
+      for (let remote in remotes) {
+          if (remotes[remote].name === 'upstream') {
+              isUpstreamSet = true
+          } else {
+              isUpstreamSet = false
+              if (remotes[remote].name === 'origin') {
+                  origin = remotes[remote].refs.fetch
+              }
+          }
+      }
+      // If upstream has not been set. Set it now
+      if (isUpstreamSet === false) {
+          await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp);
+      }
+      // if in main Superalgos repo, set gitUser from origin
+      if (repo === "Superalgos" && origin) gitUser = origin.split('/')[3]
+      if (repo !== "Superalgos" && origin) await git.removeRemote('origin')
+      if (repo !== "Superalgos") await git.addRemote('origin', `https://github.com/${gitUser}/${repo}`).catch(errorResp);
+  }
+
+  // Initialize app like in PlatformRoot.js
+  // This is to run fork for all submodules, to catch developers up on the new plugin repos.
+  // After current batch of devs are caught up, this should be phased out, to allow the httpInterface
+  // to create the forks on explicit user request.
+  global.PL = {}
+  global.SA = {}
+  let ENVIRONMENT = require('./Environment.js')
+  let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
+  global.env = ENVIRONMENT_MODULE
+  global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
+  let MULTI_PROJECT = require('./MultiProject.js')
+  let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
+  MULTI_PROJECT_MODULE.initialize(PL, 'PL')
+  MULTI_PROJECT_MODULE.initialize(SA, 'SA')
+
+  const newGithubServer = require('./Platform/Client/githubServer.js').newGithubServer
+  const githubServer = newGithubServer()
+
+  global.SA.version = require('./package.json').version
+
+  // try to get github token
+  try {
+      var tokenDist = require("./Platform/My-Workspaces/Token-Distribution-Superalgos.json")
+      if (tokenDist) {
+          tokenDist.rootNodes.forEach(node => {
+              if (node.githubAPI && node.githubAPI.config) {
+                  var githubConf = JSON.parse(node.githubAPI.config)
+                  // use github APi config to try to fork each plugin
+                  Object.values(projectPluginMap).forEach(plugin => {
+                      githubServer.createGithubFork(
+                          githubConf.username,
+                          githubConf.token,
+                          plugin.repo
+                      )
+                  })
+              }
+          })
+      }
+  } catch (e) {
+      console.error(e)
+  }
+})
+

@@ -1973,7 +1973,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Support Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{\r\n    \"percentage\": 95\r\n}",
                                                                         "project": "Governance",
                                                                         "id": "e1049be2-431e-479e-aa2a-7dd6222a22dd",
@@ -2028,7 +2028,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Support Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "3d29b6f1-29e9-4a2a-80ca-e3759060dc79",
@@ -2140,7 +2140,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Mentorship Rewards Pool",
+                                                                        "name": "",
                                                                         "config": "{\r\n    \"percentage\": 95\r\n}",
                                                                         "project": "Governance",
                                                                         "id": "4c1032fb-2f9a-4b69-a3de-98fca4367bcf",
@@ -2195,7 +2195,7 @@
                                                                     },
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Mentorship Bonus Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "52600e2b-3e91-402b-9440-abec9216479e",
@@ -2360,7 +2360,7 @@
                                                                 "poolWeightVotes": [
                                                                     {
                                                                         "type": "Pool Weight Vote",
-                                                                        "name": "Liquidity Rewards BTCB Pool",
+                                                                        "name": "",
                                                                         "config": "{}",
                                                                         "project": "Governance",
                                                                         "id": "8b1555fc-e7dd-41a7-91b1-8527ab2b7aed",
@@ -2562,7 +2562,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Team Positions Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e0870512-9813-4d51-8460-fb0f5f824f11",
@@ -2658,7 +2658,7 @@
                                                 "poolWeightVotes": [
                                                     {
                                                         "type": "Pool Weight Vote",
-                                                        "name": "Reserve For Future Distributions Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "1c0e483d-44e9-4772-a9fe-5082a28f2b19",
@@ -2802,7 +2802,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Data Mining Team PoW Report Data Mining Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "d7b3ae33-7893-4b17-9e36-e8b150b4942b",
@@ -2914,7 +2914,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Education Team PoW Report Translation Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "3bb4c115-f696-4ed8-9d89-43bd263764ab",
@@ -2969,7 +2969,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Education Team PoW Report Documentation Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "1aa26878-5f34-4c6f-93db-9fa74b51c223",
@@ -3081,7 +3081,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Distribution Team PoW Report Distribution Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "e7f2deb4-eb51-416c-b629-b224077f6391",
@@ -3193,7 +3193,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "WHTV Team PoW Report WHTV Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "4c1c1304-2993-485a-873e-78b97edf25b0",
@@ -3305,7 +3305,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Marketing Teams PoW Report Superalgos Medium Blog Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "a76d0523-d603-4ad9-921b-05c0439874fc",
@@ -3360,7 +3360,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Marketing Teams PoW Report Public Relations Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "d2f1390f-b4f1-4da3-ba68-34d26318f79b",
@@ -3472,7 +3472,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Luis’ Team PoW Report Lantschirky Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "41c2bdec-ca42-4e3b-9c9f-49bbf7f14baf",
@@ -3527,7 +3527,7 @@
                                                     },
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Luis’ Team PoW Report SSChana Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "b1a8e220-af4f-4cfe-9c78-e68f32ba91f2",
@@ -3639,7 +3639,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Brett's Team PoW Report Brett’s Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "c824a36e-3238-4f27-bd3c-f8dcc4d6c254",
@@ -3751,7 +3751,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Smidy’s Team PoW Report Smidy’s Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "9adb24ce-4e41-4411-8a70-91989a715d28",
@@ -3863,7 +3863,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Desktop Team PoW Report Desktop Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "48119bcf-6ea2-4bf4-8d37-7ebbead6d176",
@@ -3975,7 +3975,7 @@
                                                 "positionWeightVotes": [
                                                     {
                                                         "type": "Position Weight Vote",
-                                                        "name": "Exchange Testing Team PoW Report Exchange Testing Team Token Pool",
+                                                        "name": "",
                                                         "config": "{}",
                                                         "project": "Governance",
                                                         "id": "ccc2aa47-10e1-4dbc-b6ee-7de93121dfbd",
@@ -4244,7 +4244,7 @@
                         "positionContributionClaims": [
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Luis’ Team Token Pool Luis’ Team PoW Report",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "3797a2cb-8af4-41d1-8cb6-758a8dee5809",
@@ -4299,7 +4299,7 @@
                             },
                             {
                                 "type": "Position Contribution Claim",
-                                "name": "Portfolio Management Team Token Pool Portfolio Management Team PoW Report",
+                                "name": "",
                                 "config": "{}",
                                 "project": "Governance",
                                 "id": "2f998fbd-08fa-447b-b6ab-97f807c8923d",
@@ -5225,8 +5225,8 @@
                         "id": "d9f43b7b-46b4-4055-ab14-00396d628112",
                         "savedPayload": {
                             "position": {
-                                "x": 38013.909782242685,
-                                "y": 19408.77774788672
+                                "x": 38291.687530129406,
+                                "y": 19467.42346141748
                             },
                             "targetPosition": {
                                 "x": 38001.909782242685,
@@ -5283,8 +5283,8 @@
                         "id": "ea43d511-0865-407e-88e3-aed9f8c74201",
                         "savedPayload": {
                             "position": {
-                                "x": 37721.77774788672,
-                                "y": 19684.909782242685
+                                "x": 37867.42346141748,
+                                "y": 19891.687530129406
                             },
                             "targetPosition": {
                                 "x": 37789.77774788672,
@@ -5369,8 +5369,8 @@
                         "id": "bca09287-15c7-45b3-a776-156440c83fdc",
                         "savedPayload": {
                             "position": {
-                                "x": 37579,
-                                "y": 19630
+                                "x": 37500,
+                                "y": 20000
                             },
                             "targetPosition": {
                                 "x": 37500,
@@ -5455,8 +5455,8 @@
                         "id": "fb730ae7-30ea-42ef-bb50-23622dc09793",
                         "savedPayload": {
                             "position": {
-                                "x": 37222.22225211328,
-                                "y": 19565.909782242685
+                                "x": 37132.57653858252,
+                                "y": 19891.687530129406
                             },
                             "targetPosition": {
                                 "x": 37210.22225211328,
@@ -5513,8 +5513,8 @@
                         "id": "6754389d-1c82-40ae-9585-c9a1a15421d2",
                         "savedPayload": {
                             "position": {
-                                "x": 36933.090217757315,
-                                "y": 19359.77774788672
+                                "x": 36708.312469870594,
+                                "y": 19467.42346141748
                             },
                             "targetPosition": {
                                 "x": 36998.090217757315,
@@ -7516,8 +7516,8 @@
                     "id": "74e7d339-0719-46b1-8b58-d514047d25fd",
                     "savedPayload": {
                         "position": {
-                            "x": 36942.19237886467,
-                            "y": 18861
+                            "x": 36790.19237886467,
+                            "y": 19209.807621135333
                         },
                         "targetPosition": {
                             "x": 36940.19237886467,
@@ -7704,8 +7704,8 @@
                     "id": "4b42f64f-6309-4e55-bb16-0add578cede0",
                     "savedPayload": {
                         "position": {
-                            "x": 36995.19237886467,
-                            "y": 18642
+                            "x": 36640.19237886467,
+                            "y": 18650
                         },
                         "targetPosition": {
                             "x": 36940.19237886467,
@@ -7944,7 +7944,7 @@
                 },
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
-                    "name": "Testnet",
+                    "name": "",
                     "project": "Network",
                     "id": "f365a1bf-b51d-4314-ac4d-686237aa2ab3",
                     "savedPayload": {
@@ -8122,7 +8122,7 @@
                 },
                 "p2pNetworkReference": {
                     "type": "P2P Network Reference",
-                    "name": "Testnet",
+                    "name": "",
                     "project": "Network",
                     "id": "1594ddfa-28df-4cc4-a4e0-5574445beb86",
                     "savedPayload": {

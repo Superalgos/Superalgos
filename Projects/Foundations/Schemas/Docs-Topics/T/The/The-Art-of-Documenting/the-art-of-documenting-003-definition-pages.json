@@ -62,12 +62,17 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Topic->Docs Block Style->Content",
-            "updated": 1642950296962
+            "text": "Foundations->Topic->Docs Block Style->Definition",
+            "updated": 1642959663822
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Block Style->Content"
         },
         {
             "style": "Note",
-            "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Content block. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block."
+            "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Definition and Content blocks. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block.",
+            "updated": 1642959851690
         },
         {
             "style": "Warning",

@@ -43,6 +43,11 @@
         {
             "style": "Chapter",
             "text": "VI->Foundations->Topic->Docs Context Menu Actions"
+        },
+        {
+            "style": "Chapter",
+            "text": "VII->Foundations->Topic->The Art of Documenting",
+            "updated": 1642951322561
         }
     ]
 }

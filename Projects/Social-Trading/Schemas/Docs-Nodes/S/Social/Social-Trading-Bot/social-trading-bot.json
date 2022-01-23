@@ -1,12 +1,28 @@
 {
     "type": "Social Trading Bot",
     "definition": {
-        "text": "Write the definition for this Node."
+        "text": "A Social Trading Bot is the main interface between a signal provider and recipient.      ",
+        "updated": 1642907618416
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Right click and select the pencil button to enter edit mode."
+            "text": "Each bot holds all the information necissary to be able to receive the signals defined under this Bot.",
+            "updated": 1642907669009
+        },
+        {
+            "style": "Title",
+            "text": "Properties"
+        },
+        {
+            "style": "List",
+            "text": "codeName This is the name this bot will use internally within the user's instance of the Superalgos Platform.",
+            "updated": 1642907946205
+        },
+        {
+            "style": "List",
+            "text": "<code class=\"docs-code\">handle</code> This is the name this bot will use on the Superalgos peer to peer network.",
+            "updated": 1642907895972
         }
     ]
 }

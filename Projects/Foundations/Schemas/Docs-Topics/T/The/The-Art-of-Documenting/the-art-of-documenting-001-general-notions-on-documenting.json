@@ -1,0 +1,35 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "1",
+    "type": "General Notions on Documenting",
+    "definition": {
+        "text": "The main challenge in producing collaborative documentation is in maintaining quality and consistency. Let's start with a few general guidelines that will help us set the tone for what's to come.",
+        "updated": 1642956159522
+    },
+    "paragraphs": [
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->The Quest for Quality"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Proper English"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Use Precise Language"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Title Case"
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Concept->Reusable Documenting Snippets->Tooltips"
+        },
+        {
+            "style": "Text",
+            "text": "asdf"
+        }
+    ]
+}

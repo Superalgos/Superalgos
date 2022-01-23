@@ -29,9 +29,10 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
         Broadcast the Signal to all clients connected to this Network Node.
         */
         let messageHeader = {
+            networkService: 'Trading Signals',
             payload: JSON.stringify({ signal: JSON.stringify(signal) })
         }
-        if (NT.networkApp.webSocketsInterface.broadcastToClients(messageHeader) !== true) {
+        if (NT.networkApp.webSocketsInterface.broadcastSignalsToClients(messageHeader) !== true) {
             response = {
                 result: 'Error',
                 message: 'Signal Could Not be Broadcasted to Network Clients.'

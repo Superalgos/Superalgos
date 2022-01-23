@@ -46,8 +46,8 @@
         },
         {
             "style": "Text",
-            "text": "Once you apply the Docs Block Style, the paragraph seems to disappear. It doesn't though. What happens is that the paragraph gets assigned a CSS style that makes invisible the name you wrote, and displays a deem triangle pointing downwards that is highlighted on mouseover. The triangle now marks the start of the block.",
-            "updated": 1642938480931
+            "text": "Once you apply the Docs Block Style, the paragraph seems to disappear. It doesn't though. What happens is that the paragraph gets assigned a CSS style that makes invisible the name you wrote, and displays a faint triangle pointing downwards that is highlighted upon mouseover. The triangle now marks the start of the block.",
+            "updated": 1642950503111
         },
         {
             "style": "Callout",

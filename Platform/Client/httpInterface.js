@@ -1017,6 +1017,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
                                         await doGit()
+                                        SA.nodeModules.process.env.PROJECT_PLUGIN_MAP.values.foreach(v => {
+                                          await doGit(v)
+                                        })
 
                                         if (error === undefined) {
                                             // Run node setup to prepare instance for branch change
@@ -1037,13 +1040,16 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
-                                async function doGit() {
+                                async function doGit(repo='Superalgos') {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
-                                        baseDir: process.cwd(),
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
+                                    // main app repo should be the working directory
+                                    if (repo === 'Superalgos') options.baseDir = process.cwd()
+                                    // if repo is not main app repo, assume it is a plugin, in ./Plugins.
+                                    else options.baseDir = SA.nodeModules.path.join(process.cwd(), 'Plugins', repo)
                                     const git = simpleGit(options)
                                     try {
                                         await git.checkout(currentBranch)
@@ -1060,7 +1066,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         // If upstream has not been set. Set it now
                                         if (isUpstreamSet === false) {
-                                            await git.addRemote('upstream', 'https://github.com/Superalgos/Superalgos');
+                                            await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`);
                                         }
                                         // Pull branch from main repo
                                         await git.pull('upstream', currentBranch);

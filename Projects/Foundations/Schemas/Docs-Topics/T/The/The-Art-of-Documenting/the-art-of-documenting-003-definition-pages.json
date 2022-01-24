@@ -3,14 +3,19 @@
     "pageNumber": "3",
     "type": "Definition Pages",
     "definition": {
-        "text": "A definition page is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
-        "updated": 1642949952423
+        "text": "A definition page, also known as Docs Node Page, is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
+        "updated": 1643045362437
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This page is the main source of information about the particular node. Think of definition pages as the place where people should find all the details about the behavior of the node, including its configuration.",
             "updated": 1642949968941
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Node Page->Content",
+            "updated": 1643045336873
         },
         {
             "style": "Title",

@@ -930,7 +930,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                 payload.referenceChildren = new Map()
                 for (let referenceChild of node.savedPayload.referenceChildren) {
                     referenceChild = mapOfNodes.get(referenceChild.id)
-                    payload.referenceChildren.set(referenceChild.id, referenceChild)
+                    if (referenceChild !== undefined) {
+                        payload.referenceChildren.set(referenceChild.id, referenceChild)
+                    }
                 }
             }
         }

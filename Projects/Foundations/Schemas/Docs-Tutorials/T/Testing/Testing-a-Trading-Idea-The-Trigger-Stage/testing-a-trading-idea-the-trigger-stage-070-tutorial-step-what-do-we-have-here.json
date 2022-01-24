@@ -7,21 +7,21 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "In our first backtest, the strategy triggered after the daily Feb 26th candle closes. That shouldn't change on this one!",
+        "text": "In our first backtest, the strategy triggered after the daily Feb 26th candle closes. That shouldn't change on this one",
         "translations": [
             {
                 "language": "DE",
-                "text": "In unserem ersten Backtest wurde die Strategie ausgelöst, nachdem die Tageskerze vom 26. Februar geschlossen wurde. Das sollte sich auch dieses Mal nicht ändern!",
+                "text": "In unserem ersten Backtest wurde die Strategie ausgelöst, nachdem die Tageskerze vom 26. Februar geschlossen wurde. Das sollte sich auch dieses Mal nicht ändern",
                 "updated": 1639390509550
             },
             {
                 "language": "TR",
-                "text": "İlk geriye dönük testimizde, strateji 26 Şubat'ta günlük mum kapandıktan sonra tetiklendi. Bu sefer de değişmemeli!",
+                "text": "İlk geriye dönük testimizde, strateji 26 Şubat'ta günlük mum kapandıktan sonra tetiklendi. Bu sefer de değişmemeli",
                 "updated": 1641664175979
             },
             {
                 "language": "RU",
-                "text": "В нашем первом бэктесте стратегия сработала после закрытия дневной свечи 26 февраля. В этом случае ситуация не должна измениться!",
+                "text": "В нашем первом бэктесте стратегия сработала после закрытия дневной свечи 26 февраля. В этом случае ситуация не должна измениться",
                 "updated": 1642662397951
             }
         ]
@@ -29,21 +29,21 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a look! The strategy is triggered as soon as the last hourly candle of Feb 26th closes!",
+            "text": "Take a look! The strategy is triggered as soon as the last hourly candle of Feb 26th closes",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schauen Sie nach! Die Strategie wird ausgelöst, sobald die letzte stündliche Kerze des 26. Februar schließt!",
+                    "text": "Schauen Sie nach! Die Strategie wird ausgelöst, sobald die letzte stündliche Kerze des 26. Februar schließt",
                     "updated": 1639390516723
                 },
                 {
                     "language": "TR",
-                    "text": "Dikkatli bak! Strateji, 26 Şubat'ta son saatlik mum kapanır kapanmaz tetiklenecek!",
+                    "text": "Dikkatli bak! Strateji, 26 Şubat'ta son saatlik mum kapanır kapanmaz tetiklenecek",
                     "updated": 1641664186263
                 },
                 {
                     "language": "RU",
-                    "text": "Взгляните! Стратегия срабатывает, как только закрывается последняя часовая свеча от 26 февраля!",
+                    "text": "Взгляните! Стратегия срабатывает, как только закрывается последняя часовая свеча от 26 февраля",
                     "updated": 1642662412949
                 }
             ]

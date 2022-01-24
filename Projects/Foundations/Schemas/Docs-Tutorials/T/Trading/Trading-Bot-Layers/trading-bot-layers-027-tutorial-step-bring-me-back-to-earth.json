@@ -1,27 +1,27 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 27,
-    "type": "Tutorial Step - Bring Me Back To Earth!",
+    "type": "Tutorial Step - Bring Me Back To Earth",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "take-position-event"
         },
-        "text": "I know! This all sounds too abstract! Let me lay out a few examples!",
+        "text": "I know! This all sounds too abstract! Let me lay out a few examples",
         "translations": [
             {
                 "language": "DE",
-                "text": "Ich weiß! Das klingt alles zu abstrakt! Lassen Sie mich ein paar Beispiele anführen!",
+                "text": "Ich weiß! Das klingt alles zu abstrakt! Lassen Sie mich ein paar Beispiele anführen",
                 "updated": 1639145205438
             },
             {
                 "language": "RU",
-                "text": "Я знаю! Все это звучит слишком абстрактно! Позвольте мне привести несколько примеров!",
+                "text": "Я знаю! Все это звучит слишком абстрактно! Позвольте мне привести несколько примеров",
                 "updated": 1640630620897
             },
             {
                 "language": "TR",
-                "text": "Biliyorum! Bütün bunlar kulağa çok soyut geliyor! Birkaç örnek vereyim!",
+                "text": "Biliyorum! Bütün bunlar kulağa çok soyut geliyor! Birkaç örnek vereyim",
                 "updated": 1642513528325
             }
         ]
@@ -71,21 +71,21 @@
         },
         {
             "style": "List",
-            "text": "Statistics and metrics are fragmented too! For example, ROI, Profit Loss, and the evaluation of the position as a hit or a fail are determined daily!",
+            "text": "Statistics and metrics are fragmented too! For example, ROI, Profit Loss, and the evaluation of the position as a hit or a fail are determined daily",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Statistics und Metriken sind ebenfalls fragmentiert! Zum Beispiel werden ROI, Profit Loss und die Bewertung der Position als Hit oder Fail täglich ermittelt!",
+                    "text": "Statistics und Metriken sind ebenfalls fragmentiert! Zum Beispiel werden ROI, Profit Loss und die Bewertung der Position als Hit oder Fail täglich ermittelt",
                     "updated": 1639145250990
                 },
                 {
                     "language": "RU",
-                    "text": "Статистика (Statistics) и показатели тоже фрагментированы! Например, ROI, Profit Loss и оценка позиции как удачной или неудачной определяются ежедневно!",
+                    "text": "Статистика (Statistics) и показатели тоже фрагментированы! Например, ROI, Profit Loss и оценка позиции как удачной или неудачной определяются ежедневно",
                     "updated": 1640630754804
                 },
                 {
                     "language": "TR",
-                    "text": "İstatistikler (Statistics) ve metrikler de parçalıdır! Örneğin, ROI, Kar Kaybı (Profit Loss) ve pozisyonun isabet veya başarısızlık olarak değerlendirilmesi günlük olarak belirlenir!",
+                    "text": "İstatistikler (Statistics) ve metrikler de parçalıdır! Örneğin, ROI, Kar Kaybı (Profit Loss) ve pozisyonun isabet veya başarısızlık olarak değerlendirilmesi günlük olarak belirlenir",
                     "updated": 1642513762084
                 }
             ]

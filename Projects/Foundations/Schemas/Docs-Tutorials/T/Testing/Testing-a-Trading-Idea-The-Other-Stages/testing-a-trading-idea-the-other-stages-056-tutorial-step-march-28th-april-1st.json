@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The first position on the 28th seems like a decent entry, despite not reaching the 10% target. It did stay in profit for a while, and got to about 7% on March 30th at 0 hs. The second position is a clear fail!",
+            "text": "The first position on the 28th seems like a decent entry, despite not reaching the 10% target. It did stay in profit for a while, and got to about 7% on March 30th at 0 hs. The second position is a clear fail",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die erste Position am 28. März scheint ein guter Einstieg gewesen zu sein, auch wenn das Ziel von 10 % nicht erreicht wurde. Sie blieb eine Zeit lang im Gewinn und erreichte am 30. März um 0 Uhr etwa 7%. Die zweite Position ist ein klarer Fehlschlag!",
+                    "text": "Die erste Position am 28. März scheint ein guter Einstieg gewesen zu sein, auch wenn das Ziel von 10 % nicht erreicht wurde. Sie blieb eine Zeit lang im Gewinn und erreichte am 30. März um 0 Uhr etwa 7%. Die zweite Position ist ein klarer Fehlschlag",
                     "updated": 1639418867334
                 },
                 {
                     "language": "TR",
-                    "text": "28 Mart'taki ilk pozisyon, %10 hedefine ulaşılamamasına rağmen iyi bir giriş olmuş gibi görünüyor. Bir süre kârda kaldı ve 30 Mart gece yarısı yaklaşık %7'ye ulaştı. İkinci pozisyon açık bir başarısızlıktır!",
+                    "text": "28 Mart'taki ilk pozisyon, %10 hedefine ulaşılamamasına rağmen iyi bir giriş olmuş gibi görünüyor. Bir süre kârda kaldı ve 30 Mart gece yarısı yaklaşık %7'ye ulaştı. İkinci pozisyon açık bir başarısızlıktır",
                     "updated": 1641804047796
                 }
             ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Note",
-            "text": "To me, it looks like a reasonable context to go short, but what do I know?!",
+            "text": "To me, it looks like a reasonable context to go short, but what do I know?",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Für mich sieht es nach einem vernünftigen Kontext aus, um short zu gehen, aber was weiß ich schon?!",
+                    "text": "Für mich sieht es nach einem vernünftigen Kontext aus, um short zu gehen, aber was weiß ich schon?",
                     "updated": 1639418882643
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Benim için, kısa sürede mantıklı bir bağlam gibi görünüyor?!",
+                    "text": "Not: Benim için, kısa sürede mantıklı bir bağlam gibi görünüyor?",
                     "updated": 1641805567334
                 }
             ]

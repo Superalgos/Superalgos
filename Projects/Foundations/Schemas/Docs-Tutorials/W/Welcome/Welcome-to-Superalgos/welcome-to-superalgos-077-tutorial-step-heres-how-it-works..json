@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 77,
     "type": "Tutorial Step - Here's How it Works...",
     "definition": {
@@ -84,38 +84,38 @@
         },
         {
             "style": "Callout",
-            "text": "Take a minute to verify that buy orders are placed at the fourth support level!",
+            "text": "Take a minute to verify that buy orders are placed at the fourth support level",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Prenditi un attimo per verificare che i buy orders siano effettivamente piazzati al quarto supporto!",
+                    "text": "Prenditi un attimo per verificare che i buy orders siano effettivamente piazzati al quarto supporto",
                     "updated": 1618064944102,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Tómate un minuto para verificar que las órdenes de compra se colocan en el cuarto nivel de soporte!",
+                    "text": "¡Tómate un minuto para verificar que las órdenes de compra se colocan en el cuarto nivel de soporte",
                     "updated": 1624458716693,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich eine Minute Zeit, um zu überprüfen, ob Kaufaufträge auf der vierten Unterstützungsebene platziert werden!",
+                    "text": "Nehmen Sie sich eine Minute Zeit, um zu überprüfen, ob Kaufaufträge auf der vierten Unterstützungsebene platziert werden",
                     "updated": 1634225445485
                 },
                 {
                     "language": "TR",
-                    "text": "Satın alma siparişlerinin dördüncü destek seviyesinde verildiğini doğrulamak için bir dakikanızı ayırın!",
+                    "text": "Satın alma siparişlerinin dördüncü destek seviyesinde verildiğini doğrulamak için bir dakikanızı ayırın",
                     "updated": 1636206291919
                 },
                 {
                     "language": "RU",
-                    "text": "Потратьте минуту, чтобы убедиться, что заказы на покупку размещены на четвертом уровне поддержки!",
+                    "text": "Потратьте минуту, чтобы убедиться, что заказы на покупку размещены на четвертом уровне поддержки",
                     "updated": 1637755660080
                 },
                 {
                     "language": "ID",
-                    "text": "Luangkan waktu sebentar untuk memverifikasi bahwa buy order ditempatkan di support level keempat!",
+                    "text": "Luangkan waktu sebentar untuk memverifikasi bahwa buy order ditempatkan di support level keempat",
                     "updated": 1640564815395
                 }
             ]

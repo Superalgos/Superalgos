@@ -92,21 +92,21 @@
         },
         {
             "style": "Success",
-            "text": "That was the easy bit! Let's tackle the Bollinger Bands bit!",
+            "text": "That was the easy bit! Let's tackle the Bollinger Bands bit",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das war der einfache Teil! Jetzt geht's an die Bollinger Bands!",
+                    "text": "Das war der einfache Teil! Jetzt geht's an die Bollinger Bands",
                     "updated": 1639389284404
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu işin kolay kısmıydı! Şimdi sıra Bollinger Bantlarında!",
+                    "text": "İpucu: Bu işin kolay kısmıydı! Şimdi sıra Bollinger Bantlarında",
                     "updated": 1641662891171
                 },
                 {
                     "language": "RU",
-                    "text": "Это было легко! Давайте займемся полосами Боллинджера!",
+                    "text": "Это было легко! Давайте займемся полосами Боллинджера",
                     "updated": 1642660522543
                 }
             ]

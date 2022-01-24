@@ -42,33 +42,33 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Right-click on the Trading Parameters node and pull it closer to the Backtesting session node! Release when you see an orange ring surrounding the Backtesting Session node!",
+            "text": "Right-click on the Trading Parameters node and pull it closer to the Backtesting session node! Release when you see an orange ring surrounding the Backtesting Session node",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fai click con il tasto destro sul nodo Trading Parameters e trascinalo vicino al nodo Backtesting Session. Rilascialo quando vedi un anello arancione intorno ad esso!",
+                    "text": "Fai click con il tasto destro sul nodo Trading Parameters e trascinalo vicino al nodo Backtesting Session. Rilascialo quando vedi un anello arancione intorno ad esso",
                     "updated": 1619466965635,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic derecho en el nodo Trading ParametersY tire de él más cerca del nodo Backtesting session. ¡Suelta cuando veas un anillo naranja que rodea el nodo Backtesting session!",
+                    "text": "Haz clic derecho en el nodo Trading ParametersY tire de él más cerca del nodo Backtesting session. ¡Suelta cuando veas un anillo naranja que rodea el nodo Backtesting session",
                     "updated": 1626358925461,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie mit der rechten Maustaste auf den Knoten Trading Parameters und ziehen Sie ihn näher an den Knoten Backtesting Session! Lassen Sie los, wenn Sie einen orangefarbenen Ring um den Backtesting Session Knoten sehen!",
+                    "text": "Klicken Sie mit der rechten Maustaste auf den Knoten Trading Parameters und ziehen Sie ihn näher an den Knoten Backtesting Session! Lassen Sie los, wenn Sie einen orangefarbenen Ring um den Backtesting Session Knoten sehen",
                     "updated": 1634333597218
                 },
                 {
                     "language": "TR",
-                    "text": "İşlem Parametreleri düğümüne ( Trading Parameters ) sağ tıklayın ve Geriye Dönük Test oturumu (Backtesting Session Node ) düğümüne yaklaştırın! Geriye Dönük Test Oturumu düğümünü çevreleyen turuncu bir halka gördüğünüzde bırakın!",
+                    "text": "İşlem Parametreleri düğümüne ( Trading Parameters ) sağ tıklayın ve Geriye Dönük Test oturumu (Backtesting Session Node ) düğümüne yaklaştırın! Geriye Dönük Test Oturumu düğümünü çevreleyen turuncu bir halka gördüğünüzde bırakın",
                     "updated": 1636791340589
                 },
                 {
                     "language": "RU",
-                    "text": "Щелкните правой кнопкой мыши на узле Trading Parameters и подтяните его ближе к узлу Backtesting Session! Отпустите, когда увидите оранжевое кольцо вокруг узла Backtesting Session!",
+                    "text": "Щелкните правой кнопкой мыши на узле Trading Parameters и подтяните его ближе к узлу Backtesting Session! Отпустите, когда увидите оранжевое кольцо вокруг узла Backtesting Session",
                     "updated": 1640868014417
                 }
             ]

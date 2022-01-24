@@ -3,7 +3,7 @@
     "pageNumber": 8,
     "type": "Tutorial Step - Node's Independence",
     "definition": {
-        "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest!",
+        "text": "Notice how you changed the Angle to Parent setting on different siblings and each of them reacted to the new setting independently from the rest",
         "updated": 1615319889017,
         "icon": {
             "name": "Set\\set-angle-to-parent-node-to-90-degrees",
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Nota come hai modificato l'impostazione Angle to Parent su nodi fratelli e come ognuno di essi ha reagito alla nuova impostazione in maniera indipendente dagli altri!",
+                "text": "Nota come hai modificato l'impostazione Angle to Parent su nodi fratelli e come ognuno di essi ha reagito alla nuova impostazione in maniera indipendente dagli altri",
                 "updated": 1619460136934,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Observa cómo cambió la configuración de Ángulo a padre en diferentes hermanos y cada uno de ellos reaccionó a la nueva configuración de forma independiente del resto!",
+                "text": "¡Observa cómo cambió la configuración de Ángulo a padre en diferentes hermanos y cada uno de ellos reaccionó a la nueva configuración de forma independiente del resto",
                 "updated": 1625956624650,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Beachten Sie, wie Sie die Einstellung \"Angle to Parent\" bei verschiedenen Geschwistern geändert haben und jedes von ihnen unabhängig von den anderen auf die neue Einstellung reagierte!",
+                "text": "Beachten Sie, wie Sie die Einstellung \"Angle to Parent\" bei verschiedenen Geschwistern geändert haben und jedes von ihnen unabhängig von den anderen auf die neue Einstellung reagierte",
                 "updated": 1634298018896
             },
             {
                 "language": "TR",
-                "text": "Farklı alt düğümlerin açı ayarının ana düğüme göre nasıl değiştirdiğinize ve her birinin yeni ayara diğerlerinden bağımsız olarak nasıl tepki verdiğine dikkat edin!",
+                "text": "Farklı alt düğümlerin açı ayarının ana düğüme göre nasıl değiştirdiğinize ve her birinin yeni ayara diğerlerinden bağımsız olarak nasıl tepki verdiğine dikkat edin",
                 "updated": 1636746759816
             },
             {
                 "language": "RU",
-                "text": "Обратите внимание, как вы изменили настройку Angle to Parent для других родственных узлов, и каждый из них отреагировал на новую настройку независимо от остальных!",
+                "text": "Обратите внимание, как вы изменили настройку Angle to Parent для других родственных узлов, и каждый из них отреагировал на новую настройку независимо от остальных",
                 "updated": 1640866233003
             }
         ]
@@ -76,45 +76,45 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu!",
+            "text": "Go to the Lightning Strike Backtesting Session and select Add Missing Children from the right-hand side of the menu",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù!",
+                    "text": "Vai al nodo Backtesting Session e seleziona Add Missing Children dal lato destro del menù",
                     "updated": 1619460209880,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Ve a el Lightning Strike Backtesting Session y selecciona Add Missing Childrendesde el lado derecho del menú!",
+                    "text": "¡Ve a el Lightning Strike Backtesting Session y selecciona Add Missing Childrendesde el lado derecho del menú",
                     "updated": 1625956891800,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Rufen Sie die Lightning Strike \"Backtesting Session\" auf und wählen Sie \"Add Missing Children\" auf der rechten Seite des Menüs!",
+                    "text": "Rufen Sie die Lightning Strike \"Backtesting Session\" auf und wählen Sie \"Add Missing Children\" auf der rechten Seite des Menüs",
                     "updated": 1634298035258
                 },
                 {
                     "language": "TR",
-                    "text": "Lightning Strike Backtesting Oturumuna gidin ve menünün sağ tarafından Kayıp Çocukları Ekle'yi ( Add Missing Children ) seçin!",
+                    "text": "Lightning Strike Backtesting Oturumuna gidin ve menünün sağ tarafından Kayıp Çocukları Ekle'yi ( Add Missing Children ) seçin",
                     "updated": 1636746977214
                 },
                 {
                     "language": "RU",
-                    "text": "Зайдите в сессию бэктестинга Lightning Strike и в правой части меню выберите Add Missing Children!",
+                    "text": "Зайдите в сессию бэктестинга Lightning Strike и в правой части меню выберите Add Missing Children",
                     "updated": 1640866284989
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Notice how the Social Bots node inherited the Angle to Parent setting from its closest sibling!",
+            "text": "Notice how the Social Bots node inherited the Angle to Parent setting from its closest sibling",
             "updated": 1615322906744,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Nota come il nodo Social Bots ha ereditato la proprietà Angle to Parent dal più vicino nodo fratello!",
+                    "text": "Nota come il nodo Social Bots ha ereditato la proprietà Angle to Parent dal più vicino nodo fratello",
                     "updated": 1619460248115,
                     "style": "Success"
                 },
@@ -126,17 +126,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Beachten Sie, dass der Knoten \"Social Bots\" die Einstellung \"Winkel zum Elternteil\" von seinem nächsten Geschwisterknoten geerbt hat!",
+                    "text": "Beachten Sie, dass der Knoten \"Social Bots\" die Einstellung \"Winkel zum Elternteil\" von seinem nächsten Geschwisterknoten geerbt hat",
                     "updated": 1634298043102
                 },
                 {
                     "language": "TR",
-                    "text": "Sosyal Botlar ( Social Bots ) düğümünün, ana düğüm ayarını en yakın kardeşinden nasıl devraldığına dikkat edin!",
+                    "text": "Sosyal Botlar ( Social Bots ) düğümünün, ana düğüm ayarını en yakın kardeşinden nasıl devraldığına dikkat edin",
                     "updated": 1636747051481
                 },
                 {
                     "language": "RU",
-                    "text": "Обратите внимание, что узел Social Bots унаследовал параметр Angle to Parent от своего ближайшего родственника!",
+                    "text": "Обратите внимание, что узел Social Bots унаследовал параметр Angle to Parent от своего ближайшего родственника",
                     "updated": 1640866319931
                 }
             ]

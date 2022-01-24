@@ -7,17 +7,17 @@
             "project": "Foundations",
             "name": "execution-algorithm"
         },
-        "text": "Take a look at this page about the Execution Algorithm! Read the Configuration section too!",
+        "text": "Take a look at this page about the Execution Algorithm! Read the Configuration section too",
         "updated": 1617197894850,
         "translations": [
             {
                 "language": "DE",
-                "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration!",
+                "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration",
                 "updated": 1639398534498
             },
             {
                 "language": "TR",
-                "text": "Yürütme Algoritması ( Execution Algorithm ) ile ilgili bu sayfaya bir bakın! Ayrıca yapılandırma bölümünü de okuyun!",
+                "text": "Yürütme Algoritması ( Execution Algorithm ) ile ilgili bu sayfaya bir bakın! Ayrıca yapılandırma bölümünü de okuyun",
                 "updated": 1641746583219
             }
         ]
@@ -41,16 +41,16 @@
         },
         {
             "style": "Callout",
-            "text": "Once you finish reading, take a look at the configuration of the algorithm!",
+            "text": "Once you finish reading, take a look at the configuration of the algorithm",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus!",
+                    "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus",
                     "updated": 1639398548509
                 },
                 {
                     "language": "TR",
-                    "text": "Okumayı bitirdiğinizde, algoritmanın nasıl yapılandırıldığına bir bakın!",
+                    "text": "Okumayı bitirdiğinizde, algoritmanın nasıl yapılandırıldığına bir bakın",
                     "updated": 1641746615204
                 }
             ]
@@ -73,16 +73,16 @@
         },
         {
             "style": "Success",
-            "text": "This is the first instance in which the target size we defined earlier comes into the scene!",
+            "text": "This is the first instance in which the target size we defined earlier comes into the scene",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt!",
+                    "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt",
                     "updated": 1639398562678
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Daha önce tanımladığımız hedef ilk kez devreye giriyor!",
+                    "text": "İpucu: Daha önce tanımladığımız hedef ilk kez devreye giriyor",
                     "updated": 1641746633320
                 }
             ]

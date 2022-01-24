@@ -1,23 +1,23 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 22,
-    "type": "Tutorial Step - Warp-Speed Zooming!",
+    "type": "Tutorial Step - Warp-Speed Zooming",
     "definition": {
         "icon": {
             "name": "Mouse\\mouse-wheel-down",
             "project": "Foundations"
         },
-        "text": "There's one more tool that you may find useful to manipulate spacetime! The native browser zoom function!",
+        "text": "There's one more tool that you may find useful to manipulate spacetime! The native browser zoom function",
         "translations": [
             {
                 "language": "IT",
-                "text": "C'è ancora uno strumento utile per manipolare lo spazio-tempo: la funzione zoom del tuo browser!",
+                "text": "C'è ancora uno strumento utile per manipolare lo spazio-tempo: la funzione zoom del tuo browser",
                 "updated": 1614789109029,
                 "style": "Definition"
             },
             {
                 "language": "ID",
-                "text": "Ada satu hal lagi yang berguna untukmu dalam memanipulasi waktu! yaitu fungsi zomm native browser!",
+                "text": "Ada satu hal lagi yang berguna untukmu dalam memanipulasi waktu! yaitu fungsi zomm native browser",
                 "updated": 1616699454737,
                 "style": "Definition"
             },
@@ -29,25 +29,25 @@
             },
             {
                 "language": "DE",
-                "text": "Es gibt noch ein weiteres nützliches Werkzeug, um die Raumzeit zu manipulieren! \nDie Zoomfunktion des Browsers!",
+                "text": "Es gibt noch ein weiteres nützliches Werkzeug, um die Raumzeit zu manipulieren! \nDie Zoomfunktion des Browsers",
                 "updated": 1634164815326,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Er is nog een hulpmiddel dat je wellicht nuttig vindt om de ruimtetijd te manipuleren! De zoom functie van de browser!",
+                "text": "Er is nog een hulpmiddel dat je wellicht nuttig vindt om de ruimtetijd te manipuleren! De zoom functie van de browser",
                 "updated": 1635180926329,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Есть еще один инструмент, который может оказаться полезным для управлением временным простарнством! Встроенная функция масштабирования браузера!",
+                "text": "Есть еще один инструмент, который может оказаться полезным для управлением временным простарнством! Встроенная функция масштабирования браузера",
                 "updated": 1635609923705,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Uzay-zamanı manipüle etmek için yararlı bulabileceğiniz bir araç daha var! Yerel tarayıcı yakınlaştırma işlevi!",
+                "text": "Uzay-zamanı manipüle etmek için yararlı bulabileceğiniz bir araç daha var! Yerel tarayıcı yakınlaştırma işlevi",
                 "updated": 1635951488270
             }
         ]

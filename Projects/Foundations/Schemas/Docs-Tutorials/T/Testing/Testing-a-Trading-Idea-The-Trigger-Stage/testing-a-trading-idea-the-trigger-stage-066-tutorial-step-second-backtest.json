@@ -1,27 +1,27 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 66,
-    "type": "Tutorial Step - Second Backtest!",
+    "type": "Tutorial Step - Second Backtest",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Now that we have implemented statements involving the 1H chart, we need to revise our testing parameters!",
+        "text": "Now that we have implemented statements involving the 1H chart, we need to revise our testing parameters",
         "translations": [
             {
                 "language": "DE",
-                "text": "Nachdem wir nun Aussagen zum 1H-Chart implementiert haben, müssen wir unsere Testparameter überarbeiten!",
+                "text": "Nachdem wir nun Aussagen zum 1H-Chart implementiert haben, müssen wir unsere Testparameter überarbeiten",
                 "updated": 1639390052067
             },
             {
                 "language": "TR",
-                "text": "Artık 1H grafiğiyle ilgili ifadeleri uyguladığımıza göre, test parametrelerimizi gözden geçirmemiz gerekiyor!",
+                "text": "Artık 1H grafiğiyle ilgili ifadeleri uyguladığımıza göre, test parametrelerimizi gözden geçirmemiz gerekiyor",
                 "updated": 1641663851562
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда мы внедрили условные выражения, связанные с графиком 1H, нам необходимо пересмотреть параметры тестирования!",
+                "text": "Теперь, когда мы внедрили условные выражения, связанные с графиком 1H, нам необходимо пересмотреть параметры тестирования",
                 "updated": 1642661968815
             }
         ]

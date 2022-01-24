@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 80,
     "type": "Tutorial Step - The Seller",
     "definition": {
@@ -84,11 +84,11 @@
         },
         {
             "style": "Callout",
-            "text": "Select Configure on the menu of the algorithm and reflect on the implications of this definition!",
+            "text": "Select Configure on the menu of the algorithm and reflect on the implications of this definition",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Seleziona Configure dal menu dell'algoritmo e rifletti sulle implicazioni di questa definizione!",
+                    "text": "Seleziona Configure dal menu dell'algoritmo e rifletti sulle implicazioni di questa definizione",
                     "updated": 1618065569642,
                     "style": "Callout"
                 },
@@ -100,22 +100,22 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wählen Sie Configure im Menü des Algorithmus und denken Sie über die Auswirkungen dieser Definition nach!",
+                    "text": "Wählen Sie Configure im Menü des Algorithmus und denken Sie über die Auswirkungen dieser Definition nach",
                     "updated": 1634225757960
                 },
                 {
                     "language": "TR",
-                    "text": "Algoritmanın menüsünde Yapılandır'ı (Configure) seçin ve bu tanımın sonuçlarını düşünün!",
+                    "text": "Algoritmanın menüsünde Yapılandır'ı (Configure) seçin ve bu tanımın sonuçlarını düşünün",
                     "updated": 1636208699352
                 },
                 {
                     "language": "RU",
-                    "text": "Выберите Configure в меню алгоритма и подумайте над значением этого определения!",
+                    "text": "Выберите Configure в меню алгоритма и подумайте над значением этого определения",
                     "updated": 1637757772068
                 },
                 {
                     "language": "ID",
-                    "text": "Pilih Configure pada menu algorithm dan reflect implikasi dari definisi ini!",
+                    "text": "Pilih Configure pada menu algorithm dan reflect implikasi dari definisi ini",
                     "updated": 1640565742692
                 }
             ]

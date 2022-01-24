@@ -7,21 +7,21 @@
             "name": "Trading\\trading-strategy",
             "project": "Foundations"
         },
-        "text": "We got to the point where we can finally put the theory in practice, so let's get on with it!",
+        "text": "We got to the point where we can finally put the theory in practice, so let's get on with it",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir sind an dem Punkt angelangt, an dem wir endlich die Theorie in die Praxis umsetzen können, also legen wir los!",
+                "text": "Wir sind an dem Punkt angelangt, an dem wir endlich die Theorie in die Praxis umsetzen können, also legen wir los",
                 "updated": 1639254306995
             },
             {
                 "language": "RU",
-                "text": "Мы добрались до того момента, когда наконец-то можем применить теорию на практике, так что давайте приступим к делу!",
+                "text": "Мы добрались до того момента, когда наконец-то можем применить теорию на практике, так что давайте приступим к делу",
                 "updated": 1640933119920
             },
             {
                 "language": "TR",
-                "text": "Özet: Sonunda teoriyi pratiğe dökebileceğimiz noktaya geldik, hadi başlayalım!",
+                "text": "Özet: Sonunda teoriyi pratiğe dökebileceğimiz noktaya geldik, hadi başlayalım",
                 "updated": 1641062082892
             }
         ]
@@ -50,37 +50,37 @@
         },
         {
             "style": "Callout",
-            "text": "In this tutorial, we will test the hypothesis!",
+            "text": "In this tutorial, we will test the hypothesis",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "In diesem Tutorial werden wir die Hypothese testen!",
+                    "text": "In diesem Tutorial werden wir die Hypothese testen",
                     "updated": 1639254330335
                 },
                 {
                     "language": "RU",
-                    "text": "В этом учебнике мы проверим гипотезу!",
+                    "text": "В этом учебнике мы проверим гипотезу",
                     "updated": 1640933179436
                 },
                 {
                     "language": "TR",
-                    "text": "Bu eğitimde varsayımı test edeceğiz!",
+                    "text": "Bu eğitimde varsayımı test edeceğiz",
                     "updated": 1641062215027
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "I highly recommend you do the first and second tutorials in the series before doing this one! The story is carried from one to the next!",
+            "text": "I highly recommend you do the first and second tutorials in the series before doing this one! The story is carried from one to the next",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Ich empfehle Ihnen dringend, das erste und das zweite Tutorial der Reihe zu lesen, bevor Sie mit diesem beginnen! Die Geschichte wird von einem zum nächsten weitergeführt!",
+                    "text": "Ich empfehle Ihnen dringend, das erste und das zweite Tutorial der Reihe zu lesen, bevor Sie mit diesem beginnen! Die Geschichte wird von einem zum nächsten weitergeführt",
                     "updated": 1639254337943
                 },
                 {
                     "language": "RU",
-                    "text": "Я настоятельно рекомендую вам прочесть первый и второй учебники из этой серии, прежде чем браться за этот! История переносится из одного в другой!",
+                    "text": "Я настоятельно рекомендую вам прочесть первый и второй учебники из этой серии, прежде чем браться за этот! История переносится из одного в другой",
                     "updated": 1640933201552
                 },
                 {

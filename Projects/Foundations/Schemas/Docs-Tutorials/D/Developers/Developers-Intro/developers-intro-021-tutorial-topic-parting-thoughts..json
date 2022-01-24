@@ -30,11 +30,11 @@
         },
         {
             "style": "Callout",
-            "text": "We hope you agree it's a good idea to reuse this infrastructure to build trading intelligence rather than code a trading bot from scratch. We hope more devs will join us!",
+            "text": "We hope you agree it's a good idea to reuse this infrastructure to build trading intelligence rather than code a trading bot from scratch. We hope more devs will join us",
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Мы надеемся, что вы согласны с тем, что это хорошая идея - использовать эту инфраструктуру для создания торгового интеллекта, а не создавать торгового бота с нуля. Мы надеемся, что к нам присоединится больше разработчиков!",
+                    "text": "Мы надеемся, что вы согласны с тем, что это хорошая идея - использовать эту инфраструктуру для создания торгового интеллекта, а не создавать торгового бота с нуля. Мы надеемся, что к нам присоединится больше разработчиков",
                     "updated": 1640932145724
                 }
             ]

@@ -1,9 +1,9 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 108,
-    "type": "Tutorial Step - Back to Work!",
+    "type": "Tutorial Step - Back to Work",
     "definition": {
-        "text": "Superalgos features an in-app, editable, and multi-language documentation site, and a built-in command line! Learn to use those and you'll be the king of the hill!",
+        "text": "Superalgos features an in-app, editable, and multi-language documentation site, and a built-in command line! Learn to use those and you'll be the king of the hill",
         "updated": 1610648506240,
         "icon": {
             "name": "status-dependency",
@@ -12,19 +12,19 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Superalgos è provvisto di una documentazione in-app, editabile e multilingua, e addirittura di una command line! Impara a usare questi strumenti e sarai a cavallo!",
+                "text": "Superalgos è provvisto di una documentazione in-app, editabile e multilingua, e addirittura di una command line! Impara a usare questi strumenti e sarai a cavallo",
                 "updated": 1618072460548,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Superalgos cuenta con un sitio de documentación en la aplicación, editable y en varios idiomas, y una línea de comandos incorporada. ¡Aprende a usarlos y serás el rey de la colina!",
+                "text": "Superalgos cuenta con un sitio de documentación en la aplicación, editable y en varios idiomas, y una línea de comandos incorporada. ¡Aprende a usarlos y serás el rey de la colina",
                 "updated": 1624486499008,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Superalgos bietet eine bearbeitbare, mehrsprachige In-App-Dokumentation und eine integrierte Befehlszeile! Lernen Sie, diese zu benutzen und Sie werden der Champion sein!",
+                "text": "Superalgos bietet eine bearbeitbare, mehrsprachige In-App-Dokumentation und eine integrierte Befehlszeile! Lernen Sie, diese zu benutzen und Sie werden der Champion sein",
                 "updated": 1634246238513
             },
             {
@@ -34,7 +34,7 @@
             },
             {
                 "language": "ID",
-                "text": "Superalgos memiliki situs dokumentasi dalam aplikasi, dapat diedit, dan multi-bahasa, dan command line bawaan! Belajarlah menggunakan itu dan kamu akan menjadi masternya!",
+                "text": "Superalgos memiliki situs dokumentasi dalam aplikasi, dapat diedit, dan multi-bahasa, dan command line bawaan! Belajarlah menggunakan itu dan kamu akan menjadi masternya",
                 "updated": 1640599441676
             }
         ]
@@ -42,34 +42,34 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg!",
+            "text": "You've already used a couple of documentation pages on the Docs panel on the right, but that's just the tip of the iceberg",
             "updated": 1616694225866,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Hai già utilizzato un paio di pagine della documentazione nel pannello Docs a destra, ma è solo la punta dell'iceberg!",
+                    "text": "Hai già utilizzato un paio di pagine della documentazione nel pannello Docs a destra, ma è solo la punta dell'iceberg",
                     "updated": 1618072487694,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Ya has usado un par de páginas de documentación en el panel de Documentos de la derecha, ¡pero eso es solo la punta del iceberg!",
+                    "text": "Ya has usado un par de páginas de documentación en el panel de Documentos de la derecha, ¡pero eso es solo la punta del iceberg",
                     "updated": 1624497233786,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Sie haben bereits einige Dokumentationsseiten im Docs-Panel auf der rechten Seite verwendet, aber das ist nur die Spitze des Eisbergs!",
+                    "text": "Sie haben bereits einige Dokumentationsseiten im Docs-Panel auf der rechten Seite verwendet, aber das ist nur die Spitze des Eisbergs",
                     "updated": 1634245877514
                 },
                 {
                     "language": "TR",
-                    "text": "Sağdaki Dokümanlar panelinde daha önce zaten birkaç belge sayfası kullandınız, ancak bu sadece buzdağının görünen kısmı!",
+                    "text": "Sağdaki Dokümanlar panelinde daha önce zaten birkaç belge sayfası kullandınız, ancak bu sadece buzdağının görünen kısmı",
                     "updated": 1636662497865
                 },
                 {
                     "language": "ID",
-                    "text": "Kamu sudah menggunakan beberapa halaman documentation di panel Docs di sebelah kanan, tapi itu hanya puncak gunung es!",
+                    "text": "Kamu sudah menggunakan beberapa halaman documentation di panel Docs di sebelah kanan, tapi itu hanya puncak gunung es",
                     "updated": 1640599491971
                 }
             ]

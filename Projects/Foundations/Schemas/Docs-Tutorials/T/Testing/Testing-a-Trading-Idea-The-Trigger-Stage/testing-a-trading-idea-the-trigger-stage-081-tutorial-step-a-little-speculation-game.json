@@ -29,43 +29,43 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages!",
+            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Verwerfen Sie die Kette von Strategien, die darauf folgen, da diese ein Nebenprodukt der Nichtdefinition der restlichen Phasen sind!",
+                    "text": "Verwerfen Sie die Kette von Strategien, die darauf folgen, da diese ein Nebenprodukt der Nichtdefinition der restlichen Phasen sind",
                     "updated": 1639391671496
                 },
                 {
                     "language": "TR",
-                    "text": "Geri kalan aşamaları tanımlamamanın bir yan ürünü olduğu için takip eden stratejiler zincirini atın!",
+                    "text": "Geri kalan aşamaları tanımlamamanın bir yan ürünü olduğu için takip eden stratejiler zincirini atın",
                     "updated": 1641666184426
                 },
                 {
                     "language": "RU",
-                    "text": "Отбросьте последующие цепочки стратегий, поскольку они являются побочным продуктом отсутствия определения остальных этапов!",
+                    "text": "Отбросьте последующие цепочки стратегий, поскольку они являются побочным продуктом отсутствия определения остальных этапов",
                     "updated": 1642664327062
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!",
+            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't",
             "updated": 1622490115400,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Panel der Kerzen-Datenebene und schalten Sie das Plotter-Panel der Kerzen-Ebene ein, falls es noch nicht aktiviert ist!",
+                    "text": "Gehen Sie zum Panel der Kerzen-Datenebene und schalten Sie das Plotter-Panel der Kerzen-Ebene ein, falls es noch nicht aktiviert ist",
                     "updated": 1639391677929
                 },
                 {
                     "language": "TR",
-                    "text": "Mum Verileri katmanı paneline gidin (Candles Data layer panel) ve Mumlar katmanının çizici panelini(plotter panel of the Candles layer) açın!",
+                    "text": "Mum Verileri katmanı paneline gidin (Candles Data layer panel) ve Mumlar katmanının çizici panelini(plotter panel of the Candles layer) açın",
                     "updated": 1641666194427
                 },
                 {
                     "language": "RU",
-                    "text": "Перейдите на панель слоя Candles Data и включите панель плоттера слоя Candles, если его нет!",
+                    "text": "Перейдите на панель слоя Candles Data и включите панель плоттера слоя Candles, если его нет",
                     "updated": 1642664343739
                 }
             ]

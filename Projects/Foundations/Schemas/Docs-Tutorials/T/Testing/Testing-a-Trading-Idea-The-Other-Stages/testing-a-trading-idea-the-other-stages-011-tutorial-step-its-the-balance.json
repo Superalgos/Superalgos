@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
     "pageNumber": 11,
-    "type": "Tutorial Step - It's The Balance!",
+    "type": "Tutorial Step - It's The Balance",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "balance"
         },
-        "text": "What we need is the Balance! What balance? Take a minute and see if you can finish tying up the loose ends of the reasoning!",
+        "text": "What we need is the Balance! What balance? Take a minute and see if you can finish tying up the loose ends of the reasoning",
         "translations": [
             {
                 "language": "DE",
-                "text": "Was wir brauchen, ist das Gleichgewicht! Welches Gleichgewicht? Nehmen Sie sich eine Minute Zeit und versuchen Sie, die losen Enden der Argumentation zu verknüpfen!",
+                "text": "Was wir brauchen, ist das Gleichgewicht! Welches Gleichgewicht? Nehmen Sie sich eine Minute Zeit und versuchen Sie, die losen Enden der Argumentation zu verknüpfen",
                 "updated": 1639398065960
             },
             {
                 "language": "TR",
-                "text": "İhtiyacımız olan şey denge ( Balance )! Hangi denge? Bir dakikanızı ayırın ve tartışmanın yarım kalan taraflarını birleştirmeye çalışın!",
+                "text": "İhtiyacımız olan şey denge ( Balance )! Hangi denge? Bir dakikanızı ayırın ve tartışmanın yarım kalan taraflarını birleştirmeye çalışın",
                 "updated": 1641746042634
             }
         ]

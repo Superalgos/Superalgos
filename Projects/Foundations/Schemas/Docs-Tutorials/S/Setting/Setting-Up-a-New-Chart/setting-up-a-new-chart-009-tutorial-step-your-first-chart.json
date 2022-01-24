@@ -89,7 +89,7 @@
         },
         {
             "style": "Text",
-            "text": "We will also attach the Backtesting Session for the Lighting Strike Trading System. This will allow us to see the output from the trading system in our chart as well!",
+            "text": "We will also attach the Backtesting Session for the Lighting Strike Trading System. This will allow us to see the output from the trading system in our chart as well",
             "updated": 1628360723559,
             "translations": [
                 {
@@ -99,17 +99,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wir werden auch die Backtesting Session mit dem Lighting Strike Trading System verbinden. So können wir den Output des trading systems auch in unserem Chart sehen!",
+                    "text": "Wir werden auch die Backtesting Session mit dem Lighting Strike Trading System verbinden. So können wir den Output des trading systems auch in unserem Chart sehen",
                     "updated": 1637616271842
                 },
                 {
                     "language": "RU",
-                    "text": "Мы также приложим сессию бэктестинга (Backtesting Session) для торговой системы (Trading System) Lighting Strike. Это позволит нам увидеть вывод торговой системы на нашем графике!",
+                    "text": "Мы также приложим сессию бэктестинга (Backtesting Session) для торговой системы (Trading System) Lighting Strike. Это позволит нам увидеть вывод торговой системы на нашем графике",
                     "updated": 1637918901245
                 },
                 {
                     "language": "TR",
-                    "text": "Ayrıca geriye dönük test oturumunu ( Backtesting Session ) Lighting Strike Ticaret Sistemine ( Trading System ) bağlayacağız. Böylece ticaret sisteminin çıktısını grafiğimizde de görebiliriz!",
+                    "text": "Ayrıca geriye dönük test oturumunu ( Backtesting Session ) Lighting Strike Ticaret Sistemine ( Trading System ) bağlayacağız. Böylece ticaret sisteminin çıktısını grafiğimizde de görebiliriz",
                     "updated": 1642518808513
                 }
             ]

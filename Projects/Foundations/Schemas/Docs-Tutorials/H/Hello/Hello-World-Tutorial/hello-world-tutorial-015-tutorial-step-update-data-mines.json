@@ -3,7 +3,7 @@
     "pageNumber": 15,
     "type": "Tutorial Step - Update Data Mines",
     "definition": {
-        "text": "Chances are you already have some data mined!",
+        "text": "Chances are you already have some data mined",
         "icon": {
             "name": "data-tasks",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Eventuell hast du bereits ein paar Daten gemined!",
+                "text": "Eventuell hast du bereits ein paar Daten gemined",
                 "updated": 1622980204621,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Lo más probable es que ya tengas algunos datos extraídos!",
+                "text": "¡Lo más probable es que ya tengas algunos datos extraídos",
                 "updated": 1629576816892
             },
             {
                 "language": "IT",
-                "text": "Se hai già seguito il Welcome Tutorial, probabilmente hai già minato un pò di candele!",
+                "text": "Se hai già seguito il Welcome Tutorial, probabilmente hai già minato un pò di candele",
                 "updated": 1640110485198
             },
             {
                 "language": "TR",
-                "text": "Bazı verileri zaten almış olabilirsiniz!",
+                "text": "Bazı verileri zaten almış olabilirsiniz",
                 "updated": 1640617991764
             },
             {
                 "language": "RU",
-                "text": "Скорее всего, у вас уже есть некоторые накопленные данные!",
+                "text": "Скорее всего, у вас уже есть некоторые накопленные данные",
                 "updated": 1640857240429
             }
         ]

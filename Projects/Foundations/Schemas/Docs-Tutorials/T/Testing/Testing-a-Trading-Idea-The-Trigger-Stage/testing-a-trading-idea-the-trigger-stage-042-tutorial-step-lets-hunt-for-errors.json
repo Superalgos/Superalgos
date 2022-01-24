@@ -1,17 +1,17 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 42,
-    "type": "Tutorial Step - Let's Hunt For Errors!",
+    "type": "Tutorial Step - Let's Hunt For Errors",
     "definition": {
         "icon": {
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Even when you are getting the results you expect, you may still have errors lurking around!",
+        "text": "Even when you are getting the results you expect, you may still have errors lurking around",
         "translations": [
             {
                 "language": "DE",
-                "text": "Selbst wenn Sie die erwarteten Ergebnisse erhalten, können sich noch Fehler einschleichen!",
+                "text": "Selbst wenn Sie die erwarteten Ergebnisse erhalten, können sich noch Fehler einschleichen",
                 "updated": 1639267285566
             },
             {
@@ -21,7 +21,7 @@
             },
             {
                 "language": "RU",
-                "text": "Даже если вы получаете ожидаемые результаты, в них все равно могут скрываться ошибки!",
+                "text": "Даже если вы получаете ожидаемые результаты, в них все равно могут скрываться ошибки",
                 "updated": 1642656029360
             }
         ]
@@ -50,22 +50,22 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading System layer manager and turn on the \"Trading System Errors\" layer!",
+            "text": "Go to the Trading System layer manager and turn on the \"Trading System Errors\" layer",
             "updated": 1622488220992,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Layer-Manager Trading System und schalten Sie den Layer \"Trading System Errors\" ein!",
+                    "text": "Gehen Sie zum Layer-Manager Trading System und schalten Sie den Layer \"Trading System Errors\" ein",
                     "updated": 1639267310481
                 },
                 {
                     "language": "TR",
-                    "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve Ticaret Sistemi Hataları (Trading System Errors) katmanını açın!",
+                    "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve Ticaret Sistemi Hataları (Trading System Errors) katmanını açın",
                     "updated": 1641660424706
                 },
                 {
                     "language": "RU",
-                    "text": "Перейдите в менеджер слоев торговой системы и включите слой \"Trading System Errors\"!",
+                    "text": "Перейдите в менеджер слоев торговой системы и включите слой \"Trading System Errors\"",
                     "updated": 1642656209179
                 }
             ]

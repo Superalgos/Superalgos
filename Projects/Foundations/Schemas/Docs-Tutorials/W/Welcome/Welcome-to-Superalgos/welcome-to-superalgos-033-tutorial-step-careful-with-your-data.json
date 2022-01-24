@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 33,
-    "type": "Tutorial Step - Careful With Your Data!",
+    "type": "Tutorial Step - Careful With Your Data",
     "definition": {
         "icon": {
             "name": "Data\\dataset-definition",
@@ -53,29 +53,29 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Check the console app to see tasks stopping!",
+            "text": "Check the console app to see tasks stopping",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Guarda la console per verificare che le tasks si stoppino!",
+                    "text": "Guarda la console per verificare che le tasks si stoppino",
                     "updated": 1618646677731,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Periksa console app untuk melihat tasks berhenti!",
+                    "text": "Periksa console app untuk melihat tasks berhenti",
                     "updated": 1616932267740,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Abre la consola y ve cómo se detienen las tareas!",
+                    "text": "¡Abre la consola y ve cómo se detienen las tareas",
                     "updated": 1624378638174,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Überprüfen Sie die Kommandozeile Ihres Systems, um zu sehen, ob die Aufgaben gestoppt wurden!",
+                    "text": "Überprüfen Sie die Kommandozeile Ihres Systems, um zu sehen, ob die Aufgaben gestoppt wurden",
                     "updated": 1634173091261,
                     "style": "Callout"
                 },
@@ -91,7 +91,7 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Controleer de console app of de taken stoppen!",
+                    "text": "Controleer de console app of de taken stoppen",
                     "updated": 1638780387554
                 }
             ],
@@ -257,40 +257,40 @@
         },
         {
             "style": "Warning",
-            "text": "Closing the Client before tasks stop may cause your data to become corrupt!",
+            "text": "Closing the Client before tasks stop may cause your data to become corrupt",
             "updated": 1616416130792,
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Menutup Client sebelum tasks berhenti akan menyebabkan data akan corrupt!",
+                    "text": "Menutup Client sebelum tasks berhenti akan menyebabkan data akan corrupt",
                     "updated": 1616932378361,
                     "style": "Warning"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Cerrar el Client antes de que se detengan puede hacer que tus datos se corrompan!",
+                    "text": "¡Cerrar el Client antes de que se detengan puede hacer que tus datos se corrompan",
                     "updated": 1627303957439,
                     "style": "Warning"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie den Client schließen, bevor die Tasks beendet sind, können Ihre Daten beschädigt werden!",
+                    "text": "Wenn Sie den Client schließen, bevor die Tasks beendet sind, können Ihre Daten beschädigt werden",
                     "updated": 1634173172953,
                     "style": "Warning"
                 },
                 {
                     "language": "TR",
-                    "text": "Görevler durmadan İstemciyi ( Client ) kapatmak, verilerinizin bozulmasına neden olabilir!",
+                    "text": "Görevler durmadan İstemciyi ( Client ) kapatmak, verilerinizin bozulmasına neden olabilir",
                     "updated": 1636033906258
                 },
                 {
                     "language": "RU",
-                    "text": "Закрытие Client до остановки всех задач может привести к повреждению Ваших данных!",
+                    "text": "Закрытие Client до остановки всех задач может привести к повреждению Ваших данных",
                     "updated": 1636197418068
                 },
                 {
                     "language": "NL",
-                    "text": "Het stoppen van de Client voordat de taken zijn gestopt, kan je data corrupt raken!",
+                    "text": "Het stoppen van de Client voordat de taken zijn gestopt, kan je data corrupt raken",
                     "updated": 1638780998930
                 }
             ]

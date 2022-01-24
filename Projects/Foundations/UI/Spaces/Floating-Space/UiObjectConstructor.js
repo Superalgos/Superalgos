@@ -309,7 +309,7 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Collapse / Uncollapse',
+                action: 'Expand / Collapse',
                 actionFunction: floatingObject.collapseToggle,
                 actionStatus: floatingObject.getCollapseStatus,
                 currentStatus: false,

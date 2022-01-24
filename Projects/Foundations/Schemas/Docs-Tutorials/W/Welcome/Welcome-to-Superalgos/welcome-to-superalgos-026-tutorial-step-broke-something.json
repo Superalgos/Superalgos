@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 26,
     "type": "Tutorial Step - Broke Something?",
     "definition": {
@@ -54,29 +54,29 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "... you may easily start over with the original Getting Started Tutorials Plugin Workspace or the Partner Exchange workspace you may be using!",
+            "text": "... you may easily start over with the original Getting Started Tutorials Plugin Workspace or the Partner Exchange workspace you may be using",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "...c'è un modo semplice di ricominciare con un nuovo workspace!",
+                    "text": "...c'è un modo semplice di ricominciare con un nuovo workspace",
                     "updated": 1614791206441,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Kamu dapat dengan mudah memulai kembali dengan Getting Started Tutorials Plugin Workspace!",
+                    "text": "Kamu dapat dengan mudah memulai kembali dengan Getting Started Tutorials Plugin Workspace",
                     "updated": 1639744807414,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Puedes volver a empezar fácilmente con los tutoriales de introducción originales en el Workspace!",
+                    "text": "¡Puedes volver a empezar fácilmente con los tutoriales de introducción originales en el Workspace",
                     "updated": 1624292407924,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "... können Sie ganz einfach mit dem ursprünglichen Getting Started Tutorials Plugin Workspace neu beginnen!",
+                    "text": "... können Sie ganz einfach mit dem ursprünglichen Getting Started Tutorials Plugin Workspace neu beginnen",
                     "updated": 1634166463236,
                     "style": "Callout"
                 },
@@ -93,7 +93,7 @@
                 },
                 {
                     "language": "NL",
-                    "text": "... start je simpelweg opnieuw met de originele Getting Started Tutorials Plugin Workspace!",
+                    "text": "... start je simpelweg opnieuw met de originele Getting Started Tutorials Plugin Workspace",
                     "updated": 1636978022861
                 }
             ],
@@ -101,7 +101,7 @@
         },
         {
             "style": "Text",
-            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the workspace, and click it! The original Plugin Workspace will load and the tutorial will show up again, fresh from the start!",
+            "text": "In such a case, just pull the tab on the left-hand side, scroll, find the workspace, and click it! The original Plugin Workspace will load and the tutorial will show up again, fresh from the start",
             "translations": [
                 {
                     "language": "IT",
@@ -111,7 +111,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Dalam kasus seperti itu, cukup tarik tab di sisi kiri, gulir, temukan plugin Getting Started Tutorials, dan klik! Plugin Workspace dasar akan dimuat dan tutorial akan muncul lagi, baru dari awal!",
+                    "text": "Dalam kasus seperti itu, cukup tarik tab di sisi kiri, gulir, temukan plugin Getting Started Tutorials, dan klik! Plugin Workspace dasar akan dimuat dan tutorial akan muncul lagi, baru dari awal",
                     "updated": 1639744920683,
                     "style": "Text"
                 },
@@ -135,7 +135,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Böyle bir durumda, sol taraftaki sekmeyi çekip kaydırmanız, çalışma alanını ( Plugin Workspace ) bulmanız ve tıklamanız yeterlidir!",
+                    "text": "Böyle bir durumda, sol taraftaki sekmeyi çekip kaydırmanız, çalışma alanını ( Plugin Workspace ) bulmanız ve tıklamanız yeterlidir",
                     "updated": 1640627614538
                 },
                 {
@@ -148,7 +148,7 @@
         },
         {
             "style": "Success",
-            "text": "Plugin Workspaces ship with the system. You will later learn to create your own too!",
+            "text": "Plugin Workspaces ship with the system. You will later learn to create your own too",
             "updated": 1640358298486,
             "translations": [
                 {
@@ -165,23 +165,23 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Подключаемые рабочие пространства (Plugin Workspaces) поставляются вместе с системой. Позже вы научитесь создавать и свои собственные!",
+                    "text": "Подключаемые рабочие пространства (Plugin Workspaces) поставляются вместе с системой. Позже вы научитесь создавать и свои собственные",
                     "updated": 1641809388018,
                     "style": "Success"
                 },
                 {
                     "language": "TR",
-                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz!",
+                    "text": "Eklenti Çalışma Alanları ( Plugin Workspaces ) sistemle birlikte gönderilir. Daha sonra kendinizinkini de yaratmayı öğreneceksiniz",
                     "updated": 1640627696169
                 },
                 {
                     "language": "NL",
-                    "text": "Plugin Workspaces horen bij het systeem, laten we eens kijken of je ze eigen kan maken of zelfs nieuwe kan creëeren!",
+                    "text": "Plugin Workspaces horen bij het systeem, laten we eens kijken of je ze eigen kan maken of zelfs nieuwe kan creëeren",
                     "updated": 1636978365070
                 },
                 {
                     "language": "ID",
-                    "text": "Plugin Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru!",
+                    "text": "Plugin Workspaces berjalan bersama sistem. Mari kita lihat bagaimana kamu bisa menjadikannya milikmu sendiri, atau membuat ruang kerja baru",
                     "updated": 1639744717855
                 }
             ]

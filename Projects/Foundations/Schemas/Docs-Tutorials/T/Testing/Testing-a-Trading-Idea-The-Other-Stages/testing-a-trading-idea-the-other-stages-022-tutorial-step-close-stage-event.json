@@ -7,16 +7,16 @@
             "name": "Close\\close-stage-event",
             "project": "Foundations"
         },
-        "text": "We are not going to use the Close Stage Event either, so go ahead and delete it too!",
+        "text": "We are not going to use the Close Stage Event either, so go ahead and delete it too",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden auch das Ereignis \" Close Stage Event \" nicht verwenden, also löschen Sie auch dieses!",
+                "text": "Wir werden auch das Ereignis \" Close Stage Event \" nicht verwenden, also löschen Sie auch dieses",
                 "updated": 1639399088049
             },
             {
                 "language": "TR",
-                "text": "Özet: Ayrıca Aşamayı Kapat Etkinliğini ( Close Stage Event ) de kullanmayacağız, o yüzden onu da silin!",
+                "text": "Özet: Ayrıca Aşamayı Kapat Etkinliğini ( Close Stage Event ) de kullanmayacağız, o yüzden onu da silin",
                 "updated": 1641747022710
             }
         ]

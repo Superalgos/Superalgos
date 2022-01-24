@@ -3,7 +3,7 @@
     "pageNumber": 26,
     "type": "Tutorial Step - The Data You Want to See",
     "definition": {
-        "text": "In Superalgos, you control the flow of data. Talk about control!",
+        "text": "In Superalgos, you control the flow of data. Talk about control",
         "updated": 1619024163418,
         "icon": {
             "name": "data-storage",
@@ -12,22 +12,22 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "En Superalgos, controlas el flujo de datos. ¡Habla de control!",
+                "text": "En Superalgos, controlas el flujo de datos. ¡Habla de control",
                 "updated": 1628723580912
             },
             {
                 "language": "RU",
-                "text": "В Superalgos вы контролируете поток данных. Поговорим о контроле!",
+                "text": "В Superalgos вы контролируете поток данных. Поговорим о контроле",
                 "updated": 1639075167672
             },
             {
                 "language": "DE",
-                "text": "In Superalgos kontrollieren Sie den Datenfluss. Apropos Kontrolle!",
+                "text": "In Superalgos kontrollieren Sie den Datenfluss. Apropos Kontrolle",
                 "updated": 1639274966504
             },
             {
                 "language": "TR",
-                "text": "Superalgos'ta veri akışını siz kontrol edersiniz. Kontrolden bahsedelim!",
+                "text": "Superalgos'ta veri akışını siz kontrol edersiniz. Kontrolden bahsedelim",
                 "updated": 1642592703933
             }
         ]

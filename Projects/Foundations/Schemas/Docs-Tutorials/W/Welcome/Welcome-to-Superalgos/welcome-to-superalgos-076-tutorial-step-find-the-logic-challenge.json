@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 76,
-    "type": "Tutorial Step - Find the Logic Challenge!",
+    "type": "Tutorial Step - Find the Logic Challenge",
     "definition": {
         "icon": {
             "name": "Layer\\layer-resistance",
@@ -46,38 +46,38 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take some time to explore the period of time tested looking for clues on how support levels determine the rate of the Limit Buy Order!",
+            "text": "Take some time to explore the period of time tested looking for clues on how support levels determine the rate of the Limit Buy Order",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Prenditi un'attimo per esplorare il periodo di tempo testato e cercare indizi su come i livelli di supporto determinino l'inserimento del Limit Buy Order!",
+                    "text": "Prenditi un'attimo per esplorare il periodo di tempo testato e cercare indizi su come i livelli di supporto determinino l'inserimento del Limit Buy Order",
                     "updated": 1618064580106,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Tómate tu tiempo para explorar el período de tiempo probado en busca de pistas sobre cómo los niveles de apoyo determinan la tasa del Limit Buy Order!",
+                    "text": "Tómate tu tiempo para explorar el período de tiempo probado en busca de pistas sobre cómo los niveles de apoyo determinan la tasa del Limit Buy Order",
                     "updated": 1624458322994,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich etwas Zeit, um den getesteten Zeitraum zu untersuchen und nach Hinweisen darauf zu suchen, wie die Unterstützungsniveaus den Kurs der Limit Buy Order bestimmen!",
+                    "text": "Nehmen Sie sich etwas Zeit, um den getesteten Zeitraum zu untersuchen und nach Hinweisen darauf zu suchen, wie die Unterstützungsniveaus den Kurs der Limit Buy Order bestimmen",
                     "updated": 1634225355612
                 },
                 {
                     "language": "TR",
-                    "text": "Destek seviyelerinin Limitli Alış Emri oranını nasıl belirlediğine dair ipuçlarını aramak ve test edilen süreyi keşfetmek için biraz zaman ayırın!",
+                    "text": "Destek seviyelerinin Limitli Alış Emri oranını nasıl belirlediğine dair ipuçlarını aramak ve test edilen süreyi keşfetmek için biraz zaman ayırın",
                     "updated": 1636206011307
                 },
                 {
                     "language": "RU",
-                    "text": "Потратьте некоторое время на изучение проверенного периода времени в поисках подсказок о том, как уровни поддержки определяют скорость Limit Buy Order!",
+                    "text": "Потратьте некоторое время на изучение проверенного периода времени в поисках подсказок о том, как уровни поддержки определяют скорость Limit Buy Order",
                     "updated": 1637755087157
                 },
                 {
                     "language": "ID",
-                    "text": "Luangkan waktu untuk menjelajahi periode waktu yang diuji untuk mencari petunjuk tentang bagaimana level support menentukan tingkat Limit Buy Order!",
+                    "text": "Luangkan waktu untuk menjelajahi periode waktu yang diuji untuk mencari petunjuk tentang bagaimana level support menentukan tingkat Limit Buy Order",
                     "updated": 1640564365008
                 }
             ]
@@ -122,38 +122,38 @@
         },
         {
             "style": "Success",
-            "text": "But the trick lies in counting levels above the order!",
+            "text": "But the trick lies in counting levels above the order",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il trucco sta nel contare i livelli sopra l'ordine!",
+                    "text": "Il trucco sta nel contare i livelli sopra l'ordine",
                     "updated": 1618064660104,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Pero el truco está en contar niveles por encima de la orden!",
+                    "text": "¡Pero el truco está en contar niveles por encima de la orden",
                     "updated": 1624458422706,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Der Trick besteht darin, die Niveaus oberhalb der Order zu zählen!",
+                    "text": "Der Trick besteht darin, die Niveaus oberhalb der Order zu zählen",
                     "updated": 1634225370008
                 },
                 {
                     "language": "TR",
-                    "text": "Ancak işin püf noktası, sıranın üzerindeki seviyeleri saymakta yatar!",
+                    "text": "Ancak işin püf noktası, sıranın üzerindeki seviyeleri saymakta yatar",
                     "updated": 1636206075760
                 },
                 {
                     "language": "RU",
-                    "text": "Однако хитрость заключается в подсчете уровней выше порядка!",
+                    "text": "Однако хитрость заключается в подсчете уровней выше порядка",
                     "updated": 1637755186829
                 },
                 {
                     "language": "ID",
-                    "text": "Tapi triknya terletak pada menghitung level di atas order!",
+                    "text": "Tapi triknya terletak pada menghitung level di atas order",
                     "updated": 1640564478555
                 }
             ]

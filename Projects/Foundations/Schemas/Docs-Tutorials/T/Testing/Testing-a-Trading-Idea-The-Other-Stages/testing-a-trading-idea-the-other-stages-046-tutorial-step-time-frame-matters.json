@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
     "pageNumber": 46,
-    "type": "Tutorial Step - Time Frame Matters!",
+    "type": "Tutorial Step - Time Frame Matters",
     "definition": {
         "icon": {
             "name": "Time\\time-frame",
             "project": "Foundations"
         },
-        "text": "The Time Frame of the trading session determines how often the trading bot does what it does!",
+        "text": "The Time Frame of the trading session determines how often the trading bot does what it does",
         "translations": [
             {
                 "language": "DE",
-                "text": "\"Der Zeitrahmen \" Time Frame \" der Trading-Session bestimmt, wie oft der Trading-Bot tut, was er tut!",
+                "text": "\"Der Zeitrahmen \" Time Frame \" der Trading-Session bestimmt, wie oft der Trading-Bot tut, was er tut",
                 "updated": 1639418462057
             },
             {
                 "language": "TR",
-                "text": "Özet: Ticaret seansının zaman çerçevesi ( Time Frame ), ticaret botunun yaptığı şeyi ne sıklıkta yapacağını belirler!",
+                "text": "Özet: Ticaret seansının zaman çerçevesi ( Time Frame ), ticaret botunun yaptığı şeyi ne sıklıkta yapacağını belirler",
                 "updated": 1641802309302
             }
         ]
@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Read this page about the time frame carefully!",
+            "text": "Read this page about the time frame carefully",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diese Seite über den Zeitrahmen sorgfältig durch!",
+                    "text": "Lesen Sie diese Seite über den Zeitrahmen sorgfältig durch",
                     "updated": 1639418470216
                 },
                 {
                     "language": "TR",
-                    "text": "Zaman çerçevesi hakkında bu sayfayı dikkatlice okuyun!",
+                    "text": "Zaman çerçevesi hakkında bu sayfayı dikkatlice okuyun",
                     "updated": 1641802321790
                 }
             ]

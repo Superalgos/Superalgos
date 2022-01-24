@@ -1,9 +1,9 @@
 {
     "tutorial": "Beyond the Basics",
     "pageNumber": 21,
-    "type": "Tutorial Step - Get Ready to Push!",
+    "type": "Tutorial Step - Get Ready to Push",
     "definition": {
-        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos!",
+        "text": "Amazing! You learned to add a page to the Docs, edit it, and save it! Now you've got to make it transcend your PC, and contribute it to Superalgos",
         "icon": {
             "name": "github",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ottimo! Hai imparato ad aggiungere una pagina ai Docs, editarla e salvarla! Ora manca solo l'ultimo step...spedirla dal tuo PC a Superalgos!",
+                "text": "Ottimo! Hai imparato ad aggiungere una pagina ai Docs, editarla e salvarla! Ora manca solo l'ultimo step...spedirla dal tuo PC a Superalgos",
                 "updated": 1619636976424,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos!",
+                "text": "¡Increíble! ¡Aprendiste a agregar una página a los Documentos, editarla y guardarla! ¡Ahora tienes que hacer que trascienda tu PC y contribuir con Superalgos",
                 "updated": 1628191613869,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Erstaunlich! Sie haben gelernt, eine Seite zu den Docs hinzuzufügen, sie zu bearbeiten und zu speichern! Jetzt müssen Sie sie über Ihren PC hinausbringen und sie zu Superalgos beitragen!",
+                "text": "Erstaunlich! Sie haben gelernt, eine Seite zu den Docs hinzuzufügen, sie zu bearbeiten und zu speichern! Jetzt müssen Sie sie über Ihren PC hinausbringen und sie zu Superalgos beitragen",
                 "updated": 1635150364540
             },
             {
                 "language": "RU",
-                "text": "Потрясающе! Вы научились добавлять страницу в Docs, редактировать ее и сохранять! Теперь вам нужно сделать так, чтобы она вышла за пределы вашего компьютера и попала в Superalgos!",
+                "text": "Потрясающе! Вы научились добавлять страницу в Docs, редактировать ее и сохранять! Теперь вам нужно сделать так, чтобы она вышла за пределы вашего компьютера и попала в Superalgos",
                 "updated": 1640162015180
             },
             {
                 "language": "TR",
-                "text": "İnanılmaz! Dokümanlar'a bir sayfa eklemeyi, düzenlemeyi ve kaydetmeyi öğrendiniz! Şimdi onu PC'nizin ötesine taşımanız ve Superalgos'a katkıda bulunmanız gerekiyor!",
+                "text": "İnanılmaz! Dokümanlar'a bir sayfa eklemeyi, düzenlemeyi ve kaydetmeyi öğrendiniz! Şimdi onu PC'nizin ötesine taşımanız ve Superalgos'a katkıda bulunmanız gerekiyor",
                 "updated": 1640628334773
             }
         ]

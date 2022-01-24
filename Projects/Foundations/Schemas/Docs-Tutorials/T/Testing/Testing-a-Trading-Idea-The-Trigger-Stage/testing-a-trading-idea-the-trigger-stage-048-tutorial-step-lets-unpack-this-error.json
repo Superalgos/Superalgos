@@ -7,22 +7,22 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "The error is associated with one of our conditions. The error details clearly pointed to the Javascript Code we used!",
+        "text": "The error is associated with one of our conditions. The error details clearly pointed to the Javascript Code we used",
         "updated": 1612639466412,
         "translations": [
             {
                 "language": "DE",
-                "text": "Der Fehler ist mit einer unserer Bedingungen verbunden. Die Fehlerdetails weisen eindeutig auf den von uns verwendeten Javascript Code hin!",
+                "text": "Der Fehler ist mit einer unserer Bedingungen verbunden. Die Fehlerdetails weisen eindeutig auf den von uns verwendeten Javascript Code hin",
                 "updated": 1639267907428
             },
             {
                 "language": "TR",
-                "text": "Özet: Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor!",
+                "text": "Özet: Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor",
                 "updated": 1641661632347
             },
             {
                 "language": "RU",
-                "text": "Ошибка связана с одним из наших условий. Детали ошибки четко указывают на код Javascript, который мы использовали!",
+                "text": "Ошибка связана с одним из наших условий. Детали ошибки четко указывают на код Javascript, который мы использовали",
                 "updated": 1642657652939
             }
         ]

@@ -1,9 +1,9 @@
 {
     "tutorial": "Beyond the Basics",
     "pageNumber": 19,
-    "type": "Tutorial Step - Don't Forget to Sign!",
+    "type": "Tutorial Step - Don't Forget to Sign",
     "definition": {
-        "text": "These comments about your first impressions on Superalgos are your first contribution, and for that we thank you!",
+        "text": "These comments about your first impressions on Superalgos are your first contribution, and for that we thank you",
         "updated": 1610735268141,
         "icon": {
             "name": "Bullet\\bullet-warning",
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Questa recensione è il tuo primo contributo, e ti ringraziamo molto per questo!",
+                "text": "Questa recensione è il tuo primo contributo, e ti ringraziamo molto per questo",
                 "updated": 1619636353818,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Estos comentarios sobre tus primeras impresiones en Superalgos son tu primer aporte, ¡y por eso te agradecemos!",
+                "text": "Estos comentarios sobre tus primeras impresiones en Superalgos son tu primer aporte, ¡y por eso te agradecemos",
                 "updated": 1628190090733,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Diese Kommentare über Ihre ersten Eindrücke von Superalgos sind Ihr erster Beitrag, und dafür danken wir Ihnen!",
+                "text": "Diese Kommentare über Ihre ersten Eindrücke von Superalgos sind Ihr erster Beitrag, und dafür danken wir Ihnen",
                 "updated": 1635149257044
             },
             {
                 "language": "RU",
-                "text": "Эти комментарии о ваших первых впечатлениях о Superalgos - ваш первый вклад, и за это мы вас поблагодарим!",
+                "text": "Эти комментарии о ваших первых впечатлениях о Superalgos - ваш первый вклад, и за это мы вас поблагодарим",
                 "updated": 1640161730955
             },
             {
                 "language": "TR",
-                "text": "Superalgos'taki ilk izlenimlerinizle ilgili bu yorumlar sizin ilk katkınızdır ve bunun için size teşekkür ederiz!",
+                "text": "Superalgos'taki ilk izlenimlerinizle ilgili bu yorumlar sizin ilk katkınızdır ve bunun için size teşekkür ederiz",
                 "updated": 1640610855166
             }
         ]

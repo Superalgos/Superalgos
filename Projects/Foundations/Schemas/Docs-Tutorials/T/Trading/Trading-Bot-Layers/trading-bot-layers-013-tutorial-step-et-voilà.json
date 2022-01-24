@@ -1,7 +1,7 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 13,
-    "type": "Tutorial Step - Et Voilà!",
+    "type": "Tutorial Step - Et Voilà",
     "definition": {
         "icon": {
             "name": "Trading/trading-current",
@@ -53,23 +53,23 @@
         },
         {
             "style": "Text",
-            "text": "Right! In the beginning Periods, Strategies, and Positions where showing their values because they are under the Trading Episode Counters node of the hierachy... the one we turned on first! If you follow the hierarchy upstream, you will find the Trading Episode node, and if you keep going further upstream, you'll find the Trading Current node. Exactly! \"Current Episode\"!",
+            "text": "Right! In the beginning Periods, Strategies, and Positions where showing their values because they are under the Trading Episode Counters node of the hierachy... the one we turned on first! If you follow the hierarchy upstream, you will find the Trading Episode node, and if you keep going further upstream, you'll find the Trading Current node. Exactly! \"Current Episode\"",
             "updated": 1622541250322,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Richtig! Am Anfang zeigten Periods, Strategies und Positions ihre Werte an, weil sie unter dem Knoten Trading Episode Counters der Hierarchie liegen... den wir zuerst eingeschaltet haben! Wenn du der Hierarchie stromaufwärts folgst, findest du den Knoten Trading Episode, und wenn du noch weiter stromaufwärts gehst, findest du den Knoten Trading Current. Ganz genau! Aktuelle Episode!",
+                    "text": "Richtig! Am Anfang zeigten Periods, Strategies und Positions ihre Werte an, weil sie unter dem Knoten Trading Episode Counters der Hierarchie liegen... den wir zuerst eingeschaltet haben! Wenn du der Hierarchie stromaufwärts folgst, findest du den Knoten Trading Episode, und wenn du noch weiter stromaufwärts gehst, findest du den Knoten Trading Current. Ganz genau! Aktuelle Episode",
                     "updated": 1623013692101,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Правильно! В начале периоды (Periods), стратегии (Strategies) и позиции (Positions) показывали свои значения, потому что они находятся в узле иерархии \" Trading Episode Counters\"... тот, который мы включили первым! Если вы проследуете по иерархии вверх по ветке, вы найдете узел Торговый эпизод, а если вы продолжите двигаться дальше вверх по ветке, вы найдете узел Trading Current. Именно! \"Текущий эпизод\"!",
+                    "text": "Правильно! В начале периоды (Periods), стратегии (Strategies) и позиции (Positions) показывали свои значения, потому что они находятся в узле иерархии \" Trading Episode Counters\"... тот, который мы включили первым! Если вы проследуете по иерархии вверх по ветке, вы найдете узел Торговый эпизод, а если вы продолжите двигаться дальше вверх по ветке, вы найдете узел Trading Current. Именно! \"Текущий эпизод\"",
                     "updated": 1640546516255
                 },
                 {
                     "language": "TR",
-                    "text": "Evet, Hiyerarşinin Ticaret Bölüm Sayaçları (Trading Episode Counters) düğümü altında Periyot (Periods), Stratejiler (Strategies) ve Pozisyonlar (Positions) düğümlerini gördük.Şimdi hiyerarşiyi yukarı doğru takip ederseniz, Trading Episode (İşlem Bölümü) düğümünü bulacaksınız ve onun bir üstündeyse Trading Current düğümünü. Aynen öyle! \"Current Epiode\"!",
+                    "text": "Evet, Hiyerarşinin Ticaret Bölüm Sayaçları (Trading Episode Counters) düğümü altında Periyot (Periods), Stratejiler (Strategies) ve Pozisyonlar (Positions) düğümlerini gördük.Şimdi hiyerarşiyi yukarı doğru takip ederseniz, Trading Episode (İşlem Bölümü) düğümünü bulacaksınız ve onun bir üstündeyse Trading Current düğümünü. Aynen öyle! \"Current Epiode\"",
                     "updated": 1641993946162
                 }
             ]

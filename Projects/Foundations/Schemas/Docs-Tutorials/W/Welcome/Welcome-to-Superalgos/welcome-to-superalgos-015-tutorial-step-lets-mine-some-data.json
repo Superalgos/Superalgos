@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 15,
-    "type": "Tutorial Step - Let's Mine Some Data!",
+    "type": "Tutorial Step - Let's Mine Some Data",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -61,13 +61,13 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Clicca sul pulsante Run All Project Data Tasks!",
+                    "text": "Clicca sul pulsante Run All Project Data Tasks",
                     "updated": 1614720129427,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Click tombol Run All Project Data Tasks!",
+                    "text": "Click tombol Run All Project Data Tasks",
                     "updated": 1616697004627,
                     "style": "Callout"
                 },

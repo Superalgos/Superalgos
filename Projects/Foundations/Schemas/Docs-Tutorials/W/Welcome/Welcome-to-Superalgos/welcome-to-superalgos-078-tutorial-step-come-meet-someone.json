@@ -1,44 +1,44 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 78,
-    "type": "Tutorial Step - Come Meet Someone!",
+    "type": "Tutorial Step - Come Meet Someone",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "execution-algorithm"
         },
-        "text": "Sorry for dragging you away from the charts, but I wanted to introduce you to someone: the guy on the right is the one placing the buy orders!",
+        "text": "Sorry for dragging you away from the charts, but I wanted to introduce you to someone: the guy on the right is the one placing the buy orders",
         "translations": [
             {
                 "language": "IT",
-                "text": "Scusa se ti ho trascinato via dai grafici, ma volevo presentarti a qualcuno: il tipo qui a destra è quello che piazza tutti i buy order!",
+                "text": "Scusa se ti ho trascinato via dai grafici, ma volevo presentarti a qualcuno: il tipo qui a destra è quello che piazza tutti i buy order",
                 "updated": 1618064981900,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Perdón por sacarte de los gráfico, pero quería presentarte a alguien: ¡el tipo de la derecha es el que hace las órdenes de compra!",
+                "text": "Perdón por sacarte de los gráfico, pero quería presentarte a alguien: ¡el tipo de la derecha es el que hace las órdenes de compra",
                 "updated": 1624458802818,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Entschuldigen Sie, dass ich Sie von den Charts weggezerrt habe, aber ich wollte Ihnen jemanden vorstellen: Der Typ rechts ist derjenige, der die Kaufaufträge erteilt!",
+                "text": "Entschuldigen Sie, dass ich Sie von den Charts weggezerrt habe, aber ich wollte Ihnen jemanden vorstellen: Der Typ rechts ist derjenige, der die Kaufaufträge erteilt",
                 "updated": 1634225548501
             },
             {
                 "language": "TR",
-                "text": "Sizi grafiklerden uzaklaştırdığım için özür dilerim ama sizi biriyle tanıştırmak istedim: satın alma siparişlerini veren kişi sağdaki adam!",
+                "text": "Sizi grafiklerden uzaklaştırdığım için özür dilerim ama sizi biriyle tanıştırmak istedim: satın alma siparişlerini veren kişi sağdaki adam",
                 "updated": 1636206465488
             },
             {
                 "language": "RU",
-                "text": "Извините, что оторвал Вас от графиков, но я хотел представить вам кое-кого: парень справа - это тот, кто размещает заказы на покупку!",
+                "text": "Извините, что оторвал Вас от графиков, но я хотел представить вам кое-кого: парень справа - это тот, кто размещает заказы на покупку",
                 "updated": 1637755743535
             },
             {
                 "language": "ID",
-                "text": "Maaf telah menyeret kamu keluar dari charts, tapi aku ingin memperkenalkan kamu kepada seseorang: orang di sebelah kanan adalah orang yang menempatkan buy orders!",
+                "text": "Maaf telah menyeret kamu keluar dari charts, tapi aku ingin memperkenalkan kamu kepada seseorang: orang di sebelah kanan adalah orang yang menempatkan buy orders",
                 "updated": 1640564914771
             }
         ]
@@ -84,38 +84,38 @@
         },
         {
             "style": "Callout",
-            "text": "Take a few minutes to explore the nodes below the execution algorithm, check the formulas and conditions, and see what you can make of them!",
+            "text": "Take a few minutes to explore the nodes below the execution algorithm, check the formulas and conditions, and see what you can make of them",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Esplora i nodi sotto l'Execution Algorithm, controlla le formule e condizioni, e vedi cosa puoi ricavarne!",
+                    "text": "Esplora i nodi sotto l'Execution Algorithm, controlla le formule e condizioni, e vedi cosa puoi ricavarne",
                     "updated": 1618065182365,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Tómate unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y ve qué puedes hacer con ellas!",
+                    "text": "Tómate unos minutos para explorar los nodos debajo del algoritmo de ejecución, verifique las fórmulas y condiciones, ¡y ve qué puedes hacer con ellas",
                     "updated": 1627314866507,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um die Knoten unterhalb des Ausführungsalgorithmus zu erkunden, die Formeln und Bedingungen zu überprüfen und zu sehen, was Sie daraus machen können!",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um die Knoten unterhalb des Ausführungsalgorithmus zu erkunden, die Formeln und Bedingungen zu überprüfen und zu sehen, was Sie daraus machen können",
                     "updated": 1634225560838
                 },
                 {
                     "language": "TR",
-                    "text": "Yürütme algoritmasının altındaki düğümleri keşfetmek için birkaç dakikanızı ayırın, formülleri ve koşulları kontrol edin ve bunlardan neler yapabileceğinizi görün!",
+                    "text": "Yürütme algoritmasının altındaki düğümleri keşfetmek için birkaç dakikanızı ayırın, formülleri ve koşulları kontrol edin ve bunlardan neler yapabileceğinizi görün",
                     "updated": 1636207209256
                 },
                 {
                     "language": "RU",
-                    "text": "Потратьте несколько минут на изучение узлов под алгоритмом выполнения, проверьте формулы и условия и посмотрите, что Вы можете из них сделать!",
+                    "text": "Потратьте несколько минут на изучение узлов под алгоритмом выполнения, проверьте формулы и условия и посмотрите, что Вы можете из них сделать",
                     "updated": 1637756059992
                 },
                 {
                     "language": "ID",
-                    "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya!",
+                    "text": "Luangkan waktu beberapa menit untuk menjelajahi node di bawah execution algorithm, periksa formulas dan conditions, dan lihat apa yang dapat kamu lakukan darinya",
                     "updated": 1640565111657
                 }
             ]

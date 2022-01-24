@@ -3,7 +3,7 @@
     "pageNumber": 4,
     "type": "Tutorial Step - Let's Start With the Menu",
     "definition": {
-        "text": "The left-hand side of a node's menu is common to most nodes. The right-hand side, however, is specific to the type of node!",
+        "text": "The left-hand side of a node's menu is common to most nodes. The right-hand side, however, is specific to the type of node",
         "updated": 1615315122923,
         "icon": {
             "name": "unpinned-node",
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il lato sinistro del menù di un nodo è generalmente sempre uguale. Il lato destro, invece, è specifico per ogni tipo di nodo!",
+                "text": "Il lato sinistro del menù di un nodo è generalmente sempre uguale. Il lato destro, invece, è specifico per ogni tipo di nodo",
                 "updated": 1619459213047,
                 "style": "Definition"
             },
@@ -24,22 +24,22 @@
             },
             {
                 "language": "DE",
-                "text": "Die linke Seite des Menüs eines Knotens ist für die meisten Knoten gleich. Die rechte Seite ist jedoch spezifisch für den Typ des Knotens!",
+                "text": "Die linke Seite des Menüs eines Knotens ist für die meisten Knoten gleich. Die rechte Seite ist jedoch spezifisch für den Typ des Knotens",
                 "updated": 1634297081552
             },
             {
                 "language": "TR",
-                "text": "Bir düğüm menüsünde sol taraftaki öğreler, çoğu düğüm için ortaktır. Ancak sağ taraftak öğeler düğüm tipine özeldir!",
+                "text": "Bir düğüm menüsünde sol taraftaki öğreler, çoğu düğüm için ortaktır. Ancak sağ taraftak öğeler düğüm tipine özeldir",
                 "updated": 1636699172648
             },
             {
                 "language": "RU",
-                "text": "Левая часть меню узла является общей для большинства узлов. Однако правая часть меню зависит от типа узла!",
+                "text": "Левая часть меню узла является общей для большинства узлов. Однако правая часть меню зависит от типа узла",
                 "updated": 1640858911184
             },
             {
                 "language": "ID",
-                "text": "Sisi kiri menu node adalah umum untuk sebagian besar nodes. Sisi kanan, bagaimanapun, khusus untuk jenis node!",
+                "text": "Sisi kiri menu node adalah umum untuk sebagian besar nodes. Sisi kanan, bagaimanapun, khusus untuk jenis node",
                 "updated": 1641094441266
             }
         ]
@@ -47,39 +47,39 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Let's take a close look at the left-hand side!",
+            "text": "Let's take a close look at the left-hand side",
             "updated": 1615313694440,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Diamo un'occhiata al lato sinistro!",
+                    "text": "Diamo un'occhiata al lato sinistro",
                     "updated": 1619459263897,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Echemos un vistazo al lado izquierdo!",
+                    "text": "¡Echemos un vistazo al lado izquierdo",
                     "updated": 1625935546791,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen wir uns die linke Seite genau an!",
+                    "text": "Schauen wir uns die linke Seite genau an",
                     "updated": 1634297088928
                 },
                 {
                     "language": "TR",
-                    "text": "Sol tarafa yakından bakalım!",
+                    "text": "Sol tarafa yakından bakalım",
                     "updated": 1636699207312
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте внимательно посмотрим на левую сторону!",
+                    "text": "Давайте внимательно посмотрим на левую сторону",
                     "updated": 1640858921506
                 },
                 {
                     "language": "ID",
-                    "text": "Mari kita perhatikan sisi kiri!",
+                    "text": "Mari kita perhatikan sisi kiri",
                     "updated": 1641094461776
                 }
             ]

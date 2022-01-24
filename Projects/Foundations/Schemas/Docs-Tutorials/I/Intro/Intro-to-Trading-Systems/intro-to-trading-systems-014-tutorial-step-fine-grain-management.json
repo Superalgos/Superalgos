@@ -1,27 +1,27 @@
 {
     "tutorial": "Intro to Trading Systems",
     "pageNumber": 14,
-    "type": "Tutorial Step - Fine-Grain Management!",
+    "type": "Tutorial Step - Fine-Grain Management",
     "definition": {
         "icon": {
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "When complex trading logic is split into multiple strategies, you gain the opportunity to manage the resulting trades differently!",
+        "text": "When complex trading logic is split into multiple strategies, you gain the opportunity to manage the resulting trades differently",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wenn komplexe Handelslogik in mehrere Strategien aufgeteilt wird, haben Sie die Möglichkeit, die daraus resultierenden Trades unterschiedlich zu verwalten!",
+                "text": "Wenn komplexe Handelslogik in mehrere Strategien aufgeteilt wird, haben Sie die Möglichkeit, die daraus resultierenden Trades unterschiedlich zu verwalten",
                 "updated": 1639148239837
             },
             {
                 "language": "TR",
-                "text": "Özet: Karmaşık işlem mantığını birden fazla stratejiye böldüğünüzde, ortaya çıkan işlemleri farklı şekilde yönetme fırsatı elde edersiniz!",
+                "text": "Özet: Karmaşık işlem mantığını birden fazla stratejiye böldüğünüzde, ortaya çıkan işlemleri farklı şekilde yönetme fırsatı elde edersiniz",
                 "updated": 1640782750024
             },
             {
                 "language": "RU",
-                "text": "Когда сложная торговая логика разделена на несколько стратегий, вы получаете возможность управлять результирующими сделками по-разному!",
+                "text": "Когда сложная торговая логика разделена на несколько стратегий, вы получаете возможность управлять результирующими сделками по-разному",
                 "updated": 1640886130902
             }
         ]
@@ -50,21 +50,21 @@
         },
         {
             "style": "Callout",
-            "text": "Each strategy in a trading system may have its own logic for managing positions!",
+            "text": "Each strategy in a trading system may have its own logic for managing positions",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Jede Strategie in einem Trading System kann ihre eigene Logik zur Verwaltung der Positionen haben!",
+                    "text": "Jede Strategie in einem Trading System kann ihre eigene Logik zur Verwaltung der Positionen haben",
                     "updated": 1639148259702
                 },
                 {
                     "language": "TR",
-                    "text": "Bir ticaret sistemindeki her stratejinin pozisyonları yönetmek için kendi mantığı olabilir!",
+                    "text": "Bir ticaret sistemindeki her stratejinin pozisyonları yönetmek için kendi mantığı olabilir",
                     "updated": 1640782988636
                 },
                 {
                     "language": "RU",
-                    "text": "Каждая стратегия в торговой системе может иметь свою собственную логику управления позициями!",
+                    "text": "Каждая стратегия в торговой системе может иметь свою собственную логику управления позициями",
                     "updated": 1640886153976
                 }
             ]

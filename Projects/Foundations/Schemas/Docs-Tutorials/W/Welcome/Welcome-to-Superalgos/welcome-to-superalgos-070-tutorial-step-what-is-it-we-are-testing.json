@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 70,
     "type": "Tutorial Step - What Is It We Are Testing?",
     "definition": {
@@ -7,38 +7,38 @@
             "name": "trading-system",
             "project": "Algorithmic-Trading"
         },
-        "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics!",
+        "text": "We've run a backtest but we haven't discussed the Trading System we are testing! Let's go through the basics",
         "translations": [
             {
                 "language": "IT",
-                "text": "Abbiamo lanciato un backtest ma non abbiamo discusso del Trading System che stiamo testando! Facciamolo ora!",
+                "text": "Abbiamo lanciato un backtest ma non abbiamo discusso del Trading System che stiamo testando! Facciamolo ora",
                 "updated": 1618061084694,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Hemos realizado un backtest pero no hemos discutido el Trading System que estamos probando. ¡Repasemos los conceptos básicos!",
+                "text": "Hemos realizado un backtest pero no hemos discutido el Trading System que estamos probando. ¡Repasemos los conceptos básicos",
                 "updated": 1624455109238,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wir haben einen Backtest durchgeführt, aber wir haben noch nicht über das Trading System gesprochen, das wir testen! Lassen Sie uns die Grundlagen durchgehen!",
+                "text": "Wir haben einen Backtest durchgeführt, aber wir haben noch nicht über das Trading System gesprochen, das wir testen! Lassen Sie uns die Grundlagen durchgehen",
                 "updated": 1634222921349
             },
             {
                 "language": "TR",
-                "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System )tartışmadık! Temel bilgileri gözden geçirelim!",
+                "text": "Bir geriye dönük test yaptık ama test ettiğimiz Ticaret Sistemini ( Trading System )tartışmadık! Temel bilgileri gözden geçirelim",
                 "updated": 1636201414712
             },
             {
                 "language": "RU",
-                "text": "Мы провели обратное тестирование, но мы не обсуждали Trading System, которую мы тестируем! Давайте пройдемся по основам!",
+                "text": "Мы провели обратное тестирование, но мы не обсуждали Trading System, которую мы тестируем! Давайте пройдемся по основам",
                 "updated": 1636931402487
             },
             {
                 "language": "ID",
-                "text": "Kita telah menjalankan backtest tetapi kita belum membahas Trading System yang kita uji! Mari kita pergi melalui dasar-dasar!",
+                "text": "Kita telah menjalankan backtest tetapi kita belum membahas Trading System yang kita uji! Mari kita pergi melalui dasar-dasar",
                 "updated": 1639748602660
             }
         ]

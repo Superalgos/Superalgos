@@ -71,21 +71,21 @@
         },
         {
             "style": "Text",
-            "text": "We are going to run a backtesting session between January 1st and October 1st, 2020, on the 24H time frame. Take a look at the Time Range and Time Frame parameters and make sure they match the above!",
+            "text": "We are going to run a backtesting session between January 1st and October 1st, 2020, on the 24H time frame. Take a look at the Time Range and Time Frame parameters and make sure they match the above",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wir werden eine Backtesting-Sitzung zwischen dem 1. Januar und dem 1. Oktober 2020 auf dem 24-Stunden-Zeitrahmen durchführen. Schauen Sie sich die Parameter Time Range und Time Frame an und vergewissern Sie sich, dass sie mit den obigen Angaben übereinstimmen!",
+                    "text": "Wir werden eine Backtesting-Sitzung zwischen dem 1. Januar und dem 1. Oktober 2020 auf dem 24-Stunden-Zeitrahmen durchführen. Schauen Sie sich die Parameter Time Range und Time Frame an und vergewissern Sie sich, dass sie mit den obigen Angaben übereinstimmen",
                     "updated": 1639266019938
                 },
                 {
                     "language": "RU",
-                    "text": "Мы проведем бэктестинг с 1 января по 1 октября 2020 года на 24-х часовом таймфрейме. Посмотрите на параметры Time Range и Time Frame и убедитесь, что они соответствуют вышеуказанным!",
+                    "text": "Мы проведем бэктестинг с 1 января по 1 октября 2020 года на 24-х часовом таймфрейме. Посмотрите на параметры Time Range и Time Frame и убедитесь, что они соответствуют вышеуказанным",
                     "updated": 1640947050891
                 },
                 {
                     "language": "TR",
-                    "text": "1 Ocak ile 1 Ekim 2020 arasında 24 saatlik zaman diliminde bir geriye dönük test oturumu gerçekleştireceğiz. Zaman Aralığı ( Time Range ) ve Zaman Çerçevesi ( Time Frame ) parametrelerine bir göz atın ve yukarıdakilerle eşleştiğinden emin olun!",
+                    "text": "1 Ocak ile 1 Ekim 2020 arasında 24 saatlik zaman diliminde bir geriye dönük test oturumu gerçekleştireceğiz. Zaman Aralığı ( Time Range ) ve Zaman Çerçevesi ( Time Frame ) parametrelerine bir göz atın ve yukarıdakilerle eşleştiğinden emin olun",
                     "updated": 1641655130777
                 }
             ]

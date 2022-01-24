@@ -3,7 +3,7 @@
     "pageNumber": 35,
     "type": "Tutorial Step - Another Timeline Chart",
     "definition": {
-        "text": "To connect with our Trading System we will need another Timeline Chart. Let's go ahead and add it!",
+        "text": "To connect with our Trading System we will need another Timeline Chart. Let's go ahead and add it",
         "updated": 1619024596906,
         "icon": {
             "name": "timeline-chart",
@@ -12,22 +12,22 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Para conectar con nuestro Trading System Nosotros necesitaremos otro Timeline Chart ¡Sigamos adelante y agreguemos!",
+                "text": "Para conectar con nuestro Trading System Nosotros necesitaremos otro Timeline Chart ¡Sigamos adelante y agreguemos",
                 "updated": 1628731520938
             },
             {
                 "language": "RU",
-                "text": "Для связи с нашей торговой системой (Trading System) нам понадобится еще один графикr (Timeline Chart). Давайте продолжим и добавим его!",
+                "text": "Для связи с нашей торговой системой (Trading System) нам понадобится еще один графикr (Timeline Chart). Давайте продолжим и добавим его",
                 "updated": 1639083760701
             },
             {
                 "language": "DE",
-                "text": "Um eine Verbindung zu unserem Trading System herzustellen, benötigen wir einen weiteren Timeline Chart. Fügen wir ihn einfach hinzu!",
+                "text": "Um eine Verbindung zu unserem Trading System herzustellen, benötigen wir einen weiteren Timeline Chart. Fügen wir ihn einfach hinzu",
                 "updated": 1639498771368
             },
             {
                 "language": "TR",
-                "text": "Ticaret sistemimizle ( Trading System ) bağlantı kurmak için başka bir zaman çizelgesi grafiğine ( Timeline Chart ) ihtiyacımız var. Hemen ekleyelim!",
+                "text": "Ticaret sistemimizle ( Trading System ) bağlantı kurmak için başka bir zaman çizelgesi grafiğine ( Timeline Chart ) ihtiyacımız var. Hemen ekleyelim",
                 "updated": 1642598657109
             }
         ]

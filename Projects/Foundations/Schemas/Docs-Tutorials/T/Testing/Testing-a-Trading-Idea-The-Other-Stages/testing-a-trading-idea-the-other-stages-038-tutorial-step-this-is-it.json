@@ -1,7 +1,7 @@
 {
     "tutorial": "Testing a Trading Idea - The Other Stages",
     "pageNumber": 38,
-    "type": "Tutorial Step - This is it!",
+    "type": "Tutorial Step - This is it",
     "definition": {
         "icon": {
             "name": "Market\\market-order",
@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Remember the tricks for the trip!",
+            "text": "Remember the tricks for the trip",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Merken Sie sich die Tricks für die Reise!",
+                    "text": "Merken Sie sich die Tricks für die Reise",
                     "updated": 1639418054977
                 },
                 {
                     "language": "TR",
-                    "text": "Yolculuk için püf noktalarını ezberleyin!",
+                    "text": "Yolculuk için püf noktalarını ezberleyin",
                     "updated": 1641797228941
                 }
             ]
@@ -72,16 +72,16 @@
         },
         {
             "style": "List",
-            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
+                    "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt",
                     "updated": 1639418096221
                 },
                 {
                     "language": "TR",
-                    "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın kullanın. Düğmeleri basılı tutun ve düğüm uçsun!",
+                    "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın kullanın. Düğmeleri basılı tutun ve düğüm uçsun",
                     "updated": 1641797264584
                 }
             ]

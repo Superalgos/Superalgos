@@ -1,9 +1,9 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 55,
-    "type": "Tutorial Step - Lost? Get an API Map!",
+    "type": "Tutorial Step - Lost? Get an API Map",
     "definition": {
-        "text": "Are you wondering how to get data from sources other than exchanges in CCXT? Messari? Twitter? We've got you covered!",
+        "text": "Are you wondering how to get data from sources other than exchanges in CCXT? Messari? Twitter? We've got you covered",
         "updated": 1622645027378,
         "icon": {
             "name": "Api\\api-map",
@@ -12,23 +12,23 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto!",
+                "text": "¿Se preguntas cómo obtener datos de fuentes distintas a los intercambios en CCXT? Messari? Twitter? ¡Te tenemos cubierto",
                 "updated": 1628032498537,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Sie fragen sich, wie Sie in CCXT Daten aus anderen Quellen als Börsen erhalten können? Messari? Twitter? Wir haben die Lösung für Sie!",
+                "text": "Sie fragen sich, wie Sie in CCXT Daten aus anderen Quellen als Börsen erhalten können? Messari? Twitter? Wir haben die Lösung für Sie",
                 "updated": 1634590563604
             },
             {
                 "language": "TR",
-                "text": "CCXT'de borsalar dışındaki kaynaklardan nasıl veri alacağınızı merak ediyor musunuz? Messari? Twitter? Bunu da düşündük!",
+                "text": "CCXT'de borsalar dışındaki kaynaklardan nasıl veri alacağınızı merak ediyor musunuz? Messari? Twitter? Bunu da düşündük",
                 "updated": 1639836892838
             },
             {
                 "language": "RU",
-                "text": "Вам интересно, как получить данные из других источников, кроме бирж, в CCXT? Messari? Twitter? Мы поможем вам!",
+                "text": "Вам интересно, как получить данные из других источников, кроме бирж, в CCXT? Messari? Twitter? Мы поможем вам",
                 "updated": 1640877284248
             }
         ]
@@ -36,7 +36,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Superalgos enables you to fetch data from any API on the Internet, and you don't need to code to do it! Instead, you may design an API Map or use the ones shipping with the system!",
+            "text": "Superalgos enables you to fetch data from any API on the Internet, and you don't need to code to do it! Instead, you may design an API Map or use the ones shipping with the system",
             "updated": 1622645477339,
             "translations": [
                 {
@@ -47,17 +47,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos ermöglicht es Ihnen, Daten von jeder beliebigen API im Internet abzurufen, und Sie müssen dafür nicht programmieren! Stattdessen können Sie eine API Map entwerfen oder die mit dem System mitgelieferten verwenden!",
+                    "text": "Superalgos ermöglicht es Ihnen, Daten von jeder beliebigen API im Internet abzurufen, und Sie müssen dafür nicht programmieren! Stattdessen können Sie eine API Map entwerfen oder die mit dem System mitgelieferten verwenden",
                     "updated": 1634590573292
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos, İnternet'teki herhangi bir API'den veri almanızı sağlar ve bunu yapmak için kod yazmanıza gerek yoktur! Bunun yerine, bir API Haritası ( API Map ) tasarlayabilir veya sistemle birlikte gönderilenleri kullanabilirsiniz!",
+                    "text": "Superalgos, İnternet'teki herhangi bir API'den veri almanızı sağlar ve bunu yapmak için kod yazmanıza gerek yoktur! Bunun yerine, bir API Haritası ( API Map ) tasarlayabilir veya sistemle birlikte gönderilenleri kullanabilirsiniz",
                     "updated": 1639836924296
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos позволяет вам получать данные из любого API в Интернете, и для этого не нужно писать код! Вместо этого вы можете разработать свой API Map или использовать те, которые поставляются вместе с системой!",
+                    "text": "Superalgos позволяет вам получать данные из любого API в Интернете, и для этого не нужно писать код! Вместо этого вы можете разработать свой API Map или использовать те, которые поставляются вместе с системой",
                     "updated": 1640877320381
                 }
             ]
@@ -92,28 +92,28 @@
         },
         {
             "style": "Callout",
-            "text": "Dive into this section of the Data Mining topic when you are ready to explore the API landscape!",
+            "text": "Dive into this section of the Data Mining topic when you are ready to explore the API landscape",
             "updated": 1622645435555,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Sumérgete en esta sección del Data Mining para explorar el panorama de API!",
+                    "text": "¡Sumérgete en esta sección del Data Mining para explorar el panorama de API",
                     "updated": 1628032872757,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Tauchen Sie in diesen Abschnitt des Data-Mining-Themas ein, wenn Sie bereit sind, die API-Landschaft zu erkunden!",
+                    "text": "Tauchen Sie in diesen Abschnitt des Data-Mining-Themas ein, wenn Sie bereit sind, die API-Landschaft zu erkunden",
                     "updated": 1634590587052
                 },
                 {
                     "language": "TR",
-                    "text": "API ortamını keşfetmeye hazır olduğunuzda Veri Madenciliği konusunun bu bölümüne dalın!",
+                    "text": "API ortamını keşfetmeye hazır olduğunuzda Veri Madenciliği konusunun bu bölümüne dalın",
                     "updated": 1639836993378
                 },
                 {
                     "language": "RU",
-                    "text": "Погрузитесь в этот раздел темы Data Mining, когда будете готовы к изучению возможностей API!",
+                    "text": "Погрузитесь в этот раздел темы Data Mining, когда будете готовы к изучению возможностей API",
                     "updated": 1640877401322
                 }
             ]

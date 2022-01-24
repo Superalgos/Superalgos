@@ -1,27 +1,27 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 33,
-    "type": "Tutorial Step - A Bit About Backtesting!",
+    "type": "Tutorial Step - A Bit About Backtesting",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance!",
+        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken!",
+                "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken",
                 "updated": 1639266038745
             },
             {
                 "language": "RU",
-                "text": "Прежде чем мы приступим к выполнению первого бэктеста, я должен отметить кое-что очень важное!",
+                "text": "Прежде чем мы приступим к выполнению первого бэктеста, я должен отметить кое-что очень важное",
                 "updated": 1640947107238
             },
             {
                 "language": "TR",
-                "text": "Bu ilk geriye dönük testi yapmadan önce çok önemli bir şey söylemem gerekiyor!",
+                "text": "Bu ilk geriye dönük testi yapmadan önce çok önemli bir şey söylemem gerekiyor",
                 "updated": 1641655156458
             }
         ]

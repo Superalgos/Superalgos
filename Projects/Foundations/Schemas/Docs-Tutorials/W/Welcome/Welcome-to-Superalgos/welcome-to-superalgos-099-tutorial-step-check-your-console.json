@@ -1,39 +1,39 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 99,
-    "type": "Tutorial Step - Check Your Console!",
+    "type": "Tutorial Step - Check Your Console",
     "definition": {
         "icon": {
             "name": "Trading\\trading-process-instance",
             "project": "Foundations"
         },
-        "text": "If you don't see any errors on the Trading Process Instance, chances are everything is working fine!",
+        "text": "If you don't see any errors on the Trading Process Instance, chances are everything is working fine",
         "translations": [
             {
                 "language": "IT",
-                "text": "Se non vedi alcun errore sulla Trading Process Instance, probabilmente sta andando tutto bene!",
+                "text": "Se non vedi alcun errore sulla Trading Process Instance, probabilmente sta andando tutto bene",
                 "updated": 1618071552567,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Si no ves ningún error en el Trading Process Instance, ¡Lo más probable es que todo funcione bien!",
+                "text": "Si no ves ningún error en el Trading Process Instance, ¡Lo más probable es que todo funcione bien",
                 "updated": 1627319344987,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie keine Fehler in der Trading Process Instance sehen, ist die Wahrscheinlichkeit groß, dass alles einwandfrei funktioniert!",
+                "text": "Wenn Sie keine Fehler in der Trading Process Instance sehen, ist die Wahrscheinlichkeit groß, dass alles einwandfrei funktioniert",
                 "updated": 1634245167087
             },
             {
                 "language": "TR",
-                "text": "İşlem Süreci Eşgörünümünde ( Trading Process Instance ) herhangi bir hata görmüyorsanız, muhtemelen her şey yolunda gidiyor demektir!",
+                "text": "İşlem Süreci Eşgörünümünde ( Trading Process Instance ) herhangi bir hata görmüyorsanız, muhtemelen her şey yolunda gidiyor demektir",
                 "updated": 1636575842336
             },
             {
                 "language": "ID",
-                "text": "Jika kamu tidak melihat error pada Trading Process Instance, kemungkinan semuanya berjalan dengan baik!",
+                "text": "Jika kamu tidak melihat error pada Trading Process Instance, kemungkinan semuanya berjalan dengan baik",
                 "updated": 1640576908731
             }
         ]
@@ -74,33 +74,33 @@
         },
         {
             "style": "Callout",
-            "text": "Take a look at your console app!",
+            "text": "Take a look at your console app",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Dai un'occhiata alla console app!",
+                    "text": "Dai un'occhiata alla console app",
                     "updated": 1618071594539,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Echa un vistazo a la aplicación de tu consola!",
+                    "text": "¡Echa un vistazo a la aplicación de tu consola",
                     "updated": 1624496957961,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Werfen Sie einen Blick auf Ihre Kommandozeile!",
+                    "text": "Werfen Sie einen Blick auf Ihre Kommandozeile",
                     "updated": 1634245211481
                 },
                 {
                     "language": "TR",
-                    "text": "Konsol uygulamanıza bir göz atın!",
+                    "text": "Konsol uygulamanıza bir göz atın",
                     "updated": 1636575893503
                 },
                 {
                     "language": "ID",
-                    "text": "Lihatlah console app-mu!",
+                    "text": "Lihatlah console app-mu",
                     "updated": 1640576979252
                 }
             ]

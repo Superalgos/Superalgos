@@ -3,7 +3,7 @@
     "pageNumber": 5,
     "type": "Tutorial Step - A Brilliant Idea",
     "definition": {
-        "text": "Superalgos is free for everyone because we want your help! We want the best minds in the space to help us build the ultimate trading automation platform!",
+        "text": "Superalgos is free for everyone because we want your help! We want the best minds in the space to help us build the ultimate trading automation platform",
         "icon": {
             "name": "Nodes\\nodes-highlights",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Superalgos è gratis per tutti, perchè vogliamo il tuo aiuto! Vogliamo le menti migliori e più volenterose per aiutarci a costruire la piattaforma di trading automatizzato definitiva!",
+                "text": "Superalgos è gratis per tutti, perchè vogliamo il tuo aiuto! Vogliamo le menti migliori e più volenterose per aiutarci a costruire la piattaforma di trading automatizzato definitiva",
                 "updated": 1619632162177,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Superalgos es gratis para todos porque queremos tu ayuda! ¡Queremos que las mejores mentes nos ayuden a construir la plataforma de automatización trading definitiva!",
+                "text": "¡Superalgos es gratis para todos porque queremos tu ayuda! ¡Queremos que las mejores mentes nos ayuden a construir la plataforma de automatización trading definitiva",
                 "updated": 1628116911425,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Superalgos ist für jeden kostenlos, weil wir Ihre Hilfe wollen! Wir möchten, dass die besten Köpfe in diesem Bereich uns helfen, die ultimative Handelsautomatisierungsplattform zu bauen!",
+                "text": "Superalgos ist für jeden kostenlos, weil wir Ihre Hilfe wollen! Wir möchten, dass die besten Köpfe in diesem Bereich uns helfen, die ultimative Handelsautomatisierungsplattform zu bauen",
                 "updated": 1634820114946
             },
             {
                 "language": "TR",
-                "text": "Superalgos herkes için ücretsizdir çünkü yardımınızı istiyoruz! En üst düzey ticaret otomasyon platformunu oluşturmamıza yardımcı olacak en iyi beyinleri istiyoruz!",
+                "text": "Superalgos herkes için ücretsizdir çünkü yardımınızı istiyoruz! En üst düzey ticaret otomasyon platformunu oluşturmamıza yardımcı olacak en iyi beyinleri istiyoruz",
                 "updated": 1639862797572
             },
             {
                 "language": "RU",
-                "text": "Superalgos бесплатен для всех, потому что мы хотим вашей помощи! Мы хотим, чтобы лучшие умы в этой области помогли нам создать совершенную платформу для автоматизации торговли!",
+                "text": "Superalgos бесплатен для всех, потому что мы хотим вашей помощи! Мы хотим, чтобы лучшие умы в этой области помогли нам создать совершенную платформу для автоматизации торговли",
                 "updated": 1640154671767
             }
         ]
@@ -42,34 +42,34 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Your first contribution is your feedback!",
+            "text": "Your first contribution is your feedback",
             "updated": 1610715230137,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il tuo primo contributo è il tuo feedback!",
+                    "text": "Il tuo primo contributo è il tuo feedback",
                     "updated": 1619632177630,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Tu primera contribución es tu feedback!",
+                    "text": "¡Tu primera contribución es tu feedback",
                     "updated": 1628116797218,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Ihr erster Beitrag ist Ihr Feedback!",
+                    "text": "Ihr erster Beitrag ist Ihr Feedback",
                     "updated": 1634820120530
                 },
                 {
                     "language": "TR",
-                    "text": "İlk katkınız geri bildiriminizdir!",
+                    "text": "İlk katkınız geri bildiriminizdir",
                     "updated": 1639862814128
                 },
                 {
                     "language": "RU",
-                    "text": "Ваш первый вклад - это ваш отзыв!",
+                    "text": "Ваш первый вклад - это ваш отзыв",
                     "updated": 1640154684405
                 }
             ]
@@ -110,34 +110,34 @@
         },
         {
             "style": "Success",
-            "text": "You don't need to be a star programmer or professional trader to contribute. Every user is expected to give back! I'll tell you how!",
+            "text": "You don't need to be a star programmer or professional trader to contribute. Every user is expected to give back! I'll tell you how",
             "updated": 1610822419407,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non devi essere un super-programmatore o un trader professionista per contribuire. Ci si aspetta che ogni utente dia un contributo! Ti dico come!",
+                    "text": "Non devi essere un super-programmatore o un trader professionista per contribuire. Ci si aspetta che ogni utente dia un contributo! Ti dico come",
                     "updated": 1619632343742,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "No necesitas ser un programador estrella o un trader profesional para contribuir. ¡Se espera que cada usuario retribuya! ¡Te diré cómo!",
+                    "text": "No necesitas ser un programador estrella o un trader profesional para contribuir. ¡Se espera que cada usuario retribuya! ¡Te diré cómo",
                     "updated": 1628118458317,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Sie müssen kein Starprogrammierer oder professioneller Händler sein, um einen Beitrag zu leisten. Von jedem Nutzer wird erwartet, dass er etwas zurückgibt! Ich sage Ihnen wie!",
+                    "text": "Sie müssen kein Starprogrammierer oder professioneller Händler sein, um einen Beitrag zu leisten. Von jedem Nutzer wird erwartet, dass er etwas zurückgibt! Ich sage Ihnen wie",
                     "updated": 1634820132090
                 },
                 {
                     "language": "TR",
-                    "text": "Katkıda bulunmak için yıldız programcı veya profesyonel tüccar olmanıza gerek yok. Her kullanıcı katkı sunabilir! Sana nasıl olduğunu söyleyeceğim!",
+                    "text": "Katkıda bulunmak için yıldız programcı veya profesyonel tüccar olmanıza gerek yok. Her kullanıcı katkı sunabilir! Sana nasıl olduğunu söyleyeceğim",
                     "updated": 1639862964818
                 },
                 {
                     "language": "RU",
-                    "text": "Вам не нужно быть выдающимся программистом или профессиональным трейдером, чтобы внести свой вклад. От каждого пользователя ожидается отдача! Я расскажу вам как!",
+                    "text": "Вам не нужно быть выдающимся программистом или профессиональным трейдером, чтобы внести свой вклад. От каждого пользователя ожидается отдача! Я расскажу вам как",
                     "updated": 1640154733997
                 }
             ]

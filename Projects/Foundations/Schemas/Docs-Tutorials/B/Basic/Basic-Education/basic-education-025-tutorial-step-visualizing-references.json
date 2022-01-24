@@ -24,7 +24,7 @@
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie mit dem Mauszeiger über einen Knoten mit einer ausgehenden Referenz fahren, wird die Referenz sichtbar.\nEs gibt aber auch eine Möglichkeit, alle Verweise sichtbar zu machen!",
+                "text": "Wenn Sie mit dem Mauszeiger über einen Knoten mit einer ausgehenden Referenz fahren, wird die Referenz sichtbar.\nEs gibt aber auch eine Möglichkeit, alle Verweise sichtbar zu machen",
                 "updated": 1634334263709
             },
             {
@@ -42,29 +42,29 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "But there's also a way to make all references visible!",
+            "text": "But there's also a way to make all references visible",
             "updated": 1615804582821,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ma c'è anche un modo per rendere tutte le reference visibili!",
+                    "text": "Ma c'è anche un modo per rendere tutte le reference visibili",
                     "updated": 1619501260308,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Hay una manera de hacer visibles todas las referencias!",
+                    "text": "¡Hay una manera de hacer visibles todas las referencias",
                     "updated": 1626533252874,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Ancak tüm referansları görünür kılmanın da bir yolu var!",
+                    "text": "Ancak tüm referansları görünür kılmanın da bir yolu var",
                     "updated": 1639485880901
                 },
                 {
                     "language": "RU",
-                    "text": "Но есть также способ сделать все ссылки видимыми!",
+                    "text": "Но есть также способ сделать все ссылки видимыми",
                     "updated": 1640869265618
                 }
             ]

@@ -35,7 +35,7 @@
     "paragraphs": [
         {
             "style": "Important",
-            "text": "Remember to pay attention to the Time Frame and dates the session was run under. Otherwise you won’t see anything!",
+            "text": "Remember to pay attention to the Time Frame and dates the session was run under. Otherwise you won’t see anything",
             "updated": 1617887429273,
             "translations": [
                 {
@@ -45,17 +45,17 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Не забудьте обратить внимание на временные рамки (Time Frame) и даты, в которые проводилась сессия. Иначе вы ничего не увидите!",
+                    "text": "Не забудьте обратить внимание на временные рамки (Time Frame) и даты, в которые проводилась сессия. Иначе вы ничего не увидите",
                     "updated": 1639084486874
                 },
                 {
                     "language": "DE",
-                    "text": "Achten Sie auf den Time Frame und die Daten, unter denen die Sitzung durchgeführt wurde. Sonst werden Sie nichts sehen!",
+                    "text": "Achten Sie auf den Time Frame und die Daten, unter denen die Sitzung durchgeführt wurde. Sonst werden Sie nichts sehen",
                     "updated": 1639500251377
                 },
                 {
                     "language": "TR",
-                    "text": "Önemli: Oturumun yürütüldüğü Zaman Çerçevesine ( Time Frame ) ve tarihlere dikkat etmeyi unutmayın. Aksi takdirde hiçbir şey göremezsiniz!",
+                    "text": "Önemli: Oturumun yürütüldüğü Zaman Çerçevesine ( Time Frame ) ve tarihlere dikkat etmeyi unutmayın. Aksi takdirde hiçbir şey göremezsiniz",
                     "updated": 1642881854303
                 }
             ]

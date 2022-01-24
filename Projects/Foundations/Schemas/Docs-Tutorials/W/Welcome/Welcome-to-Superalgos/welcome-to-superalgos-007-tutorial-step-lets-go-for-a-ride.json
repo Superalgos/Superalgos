@@ -1,7 +1,7 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 7,
-    "type": "Tutorial Step - Let's Go for a Ride!",
+    "type": "Tutorial Step - Let's Go for a Ride",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -116,11 +116,11 @@
         },
         {
             "style": "Callout",
-            "text": "Expand the hierarchy and take a look inside!",
+            "text": "Expand the hierarchy and take a look inside",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Besarkan hirarki ini dan lihat didalamnya!",
+                    "text": "Besarkan hirarki ini dan lihat didalamnya",
                     "updated": 1614425575929,
                     "style": "Callout"
                 },
@@ -132,37 +132,37 @@
                 },
                 {
                     "language": "IT",
-                    "text": "Espandi la gerarchia e dacci un occhiata!",
+                    "text": "Espandi la gerarchia e dacci un occhiata",
                     "updated": 1614717504312,
                     "style": "Callout"
                 },
                 {
                     "language": "FR",
-                    "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur !",
+                    "text": "Élargissez la hiérarchie et jetez un coup d'œil à l'intérieur ",
                     "updated": 1623952177269,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Düğümü genişletin ve içeriye bir göz atın!",
+                    "text": "Düğümü genişletin ve içeriye bir göz atın",
                     "updated": 1633268461684,
                     "style": "Callout"
                 },
                 {
                     "language": "NL",
-                    "text": "Vouw de hiërarchie uit en laten we eens binnenin kijken!",
+                    "text": "Vouw de hiërarchie uit en laten we eens binnenin kijken",
                     "updated": 1633853650994,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Erweitern Sie die Hierarchie und schauen Sie rein!",
+                    "text": "Erweitern Sie die Hierarchie und schauen Sie rein",
                     "updated": 1634160512829,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Разверните иерархию и посмотрите внутрь!",
+                    "text": "Разверните иерархию и посмотрите внутрь",
                     "updated": 1635510510872
                 }
             ]

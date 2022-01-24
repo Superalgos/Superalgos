@@ -1,9 +1,9 @@
 {
     "tutorial": "Basic Education",
     "pageNumber": 30,
-    "type": "Tutorial Step - Back to Backups!",
+    "type": "Tutorial Step - Back to Backups",
     "definition": {
-        "text": "Now that you understand references, we can go deeper into Backups, and maybe even discuss the differences with Clones!",
+        "text": "Now that you understand references, we can go deeper into Backups, and maybe even discuss the differences with Clones",
         "updated": 1615813066430,
         "icon": {
             "name": "backup-entity",
@@ -12,19 +12,19 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ora che hai capito le references, possiamo addentrarci di più nei Backups e magari discuterne le differenze rispetto ai cloni!",
+                "text": "Ora che hai capito le references, possiamo addentrarci di più nei Backups e magari discuterne le differenze rispetto ai cloni",
                 "updated": 1619502554578,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Ahora que comprendes las referencias, podemos profundizar en Backups,tal vez incluso discutir las diferencias con Clones!",
+                "text": "Ahora que comprendes las referencias, podemos profundizar en Backups,tal vez incluso discutir las diferencias con Clones",
                 "updated": 1626568459683,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Jetzt, da Sie die Referenzen verstanden haben, können wir uns näher mit Backups befassen und vielleicht sogar die Unterschiede zu Clones diskutieren!",
+                "text": "Jetzt, da Sie die Referenzen verstanden haben, können wir uns näher mit Backups befassen und vielleicht sogar die Unterschiede zu Clones diskutieren",
                 "updated": 1634585586598
             },
             {
@@ -34,7 +34,7 @@
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда вы понимаете, что такое ссылки, мы можем углубиться в резервное копирование и, возможно, даже обсудить его отличие от клонирования!",
+                "text": "Теперь, когда вы понимаете, что такое ссылки, мы можем углубиться в резервное копирование и, возможно, даже обсудить его отличие от клонирования",
                 "updated": 1640870580637
             }
         ]
@@ -42,7 +42,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "You've got some more reading to do! Please, read this page carefully and let the info sink in!",
+            "text": "You've got some more reading to do! Please, read this page carefully and let the info sink in",
             "updated": 1615824048748,
             "translations": [
                 {
@@ -53,13 +53,13 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Tienes más que leer! ¡Por favor, lee esta página detenidamente y deja que la información se asimile!",
+                    "text": "¡Tienes más que leer! ¡Por favor, lee esta página detenidamente y deja que la información se asimile",
                     "updated": 1626569135266,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Sie müssen noch etwas lesen! Bitte lesen Sie diese Seite sorgfältig und lassen Sie die Informationen auf sich wirken!",
+                    "text": "Sie müssen noch etwas lesen! Bitte lesen Sie diese Seite sorgfältig und lassen Sie die Informationen auf sich wirken",
                     "updated": 1634585594377
                 },
                 {
@@ -69,7 +69,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вам предстоит еще немного почитать! Пожалуйста, внимательно прочитайте эту страницу и дайте информации усвоиться!",
+                    "text": "Вам предстоит еще немного почитать! Пожалуйста, внимательно прочитайте эту страницу и дайте информации усвоиться",
                     "updated": 1640870608708
                 }
             ]

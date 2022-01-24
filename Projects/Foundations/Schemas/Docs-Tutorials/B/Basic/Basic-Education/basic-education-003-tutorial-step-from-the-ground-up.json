@@ -52,39 +52,39 @@
         },
         {
             "style": "Callout",
-            "text": "We will focus on completing the overview of the interface, dealing with workspaces, backups, plugins, and more!",
+            "text": "We will focus on completing the overview of the interface, dealing with workspaces, backups, plugins, and more",
             "updated": 1615311348229,
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Arayüzün genel görünümü, çalışma alanları, yedeklemeler, eklentiler ve daha fazlasına odaklanacağız!",
+                    "text": "Arayüzün genel görünümü, çalışma alanları, yedeklemeler, eklentiler ve daha fazlasına odaklanacağız",
                     "updated": 1636700135746
                 },
                 {
                     "language": "RU",
-                    "text": "Мы сосредоточимся на завершении обзора интерфейса, разберемся с рабочими пространствами, резервным копированием, плагинами и многим другим!",
+                    "text": "Мы сосредоточимся на завершении обзора интерфейса, разберемся с рабочими пространствами, резервным копированием, плагинами и многим другим",
                     "updated": 1640858865509
                 },
                 {
                     "language": "ID",
-                    "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi!",
+                    "text": "Kita akan fokus menyelesaikan pratinjau interface, berurusan dengan workspaces, backups, plugins, dan banyak lagi",
                     "updated": 1641093480726
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Let's get on with it!",
+            "text": "Let's get on with it",
             "updated": 1615311356804,
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Давайте приступим к делу!",
+                    "text": "Давайте приступим к делу",
                     "updated": 1640858878888
                 },
                 {
                     "language": "ID",
-                    "text": "Mari kita lanjutkan!",
+                    "text": "Mari kita lanjutkan",
                     "updated": 1641093517301
                 }
             ]

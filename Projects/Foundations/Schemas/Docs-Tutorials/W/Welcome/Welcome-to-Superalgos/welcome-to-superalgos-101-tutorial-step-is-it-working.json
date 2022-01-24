@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 101,
     "type": "Tutorial Step - Is It Working?",
     "definition": {
@@ -42,33 +42,33 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go to the exchange's web interface and take a look at what's going on!",
+            "text": "Go to the exchange's web interface and take a look at what's going on",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai su Binance e controlla costa sta succedendo!",
+                    "text": "Vai su Binance e controlla costa sta succedendo",
                     "updated": 1618071709908,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Ve a Binance y echa un vistazo a lo que está pasando!",
+                    "text": "¡Ve a Binance y echa un vistazo a lo que está pasando",
                     "updated": 1624484856566,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zu Binance und schauen Sie sich an, was los ist!",
+                    "text": "Gehen Sie zu Binance und schauen Sie sich an, was los ist",
                     "updated": 1634245342910
                 },
                 {
                     "language": "TR",
-                    "text": "Binance'e gidin ve neler olduğuna bir bakın!",
+                    "text": "Binance'e gidin ve neler olduğuna bir bakın",
                     "updated": 1636577874188
                 },
                 {
                     "language": "ID",
-                    "text": "Pergi ke exchange's website interface dan lihat apa yang terjadi!",
+                    "text": "Pergi ke exchange's website interface dan lihat apa yang terjadi",
                     "updated": 1640595981515
                 }
             ],
@@ -76,33 +76,33 @@
         },
         {
             "style": "Note",
-            "text": "At any point in time, you should see one open order and a number of canceled orders pilling up in your order history, pretty much like in the video on the next step!",
+            "text": "At any point in time, you should see one open order and a number of canceled orders pilling up in your order history, pretty much like in the video on the next step",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In qualunque momento, dovresti vedere un ordine aperto e un certo numero di ordini cancellati nella tua cronologia, come nel video al prossimo step!",
+                    "text": "In qualunque momento, dovresti vedere un ordine aperto e un certo numero di ordini cancellati nella tua cronologia, come nel video al prossimo step",
                     "updated": 1618071750939,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "En cualquier momento, deberías ver un pedido abierto y un número de pedidos cancelados acumulándose en tu historial de pedidos, ¡casi como en el video del siguiente paso!",
+                    "text": "En cualquier momento, deberías ver un pedido abierto y un número de pedidos cancelados acumulándose en tu historial de pedidos, ¡casi como en el video del siguiente paso",
                     "updated": 1624484917412,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Zu einem beliebigen Zeitpunkt sollten Sie eine offene Order und eine Reihe von stornierten Orders in Ihrer Orderhistorie sehen, ähnlich wie im Video im nächsten Schritt!",
+                    "text": "Zu einem beliebigen Zeitpunkt sollten Sie eine offene Order und eine Reihe von stornierten Orders in Ihrer Orderhistorie sehen, ähnlich wie im Video im nächsten Schritt",
                     "updated": 1634245350624
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir zamanda, bir sonraki adımdaki videoda olduğu gibi, sipariş geçmişinizde bir açık sipariş ve bir dizi iptal edilen siparişin biriktiğini görmelisiniz!",
+                    "text": "Herhangi bir zamanda, bir sonraki adımdaki videoda olduğu gibi, sipariş geçmişinizde bir açık sipariş ve bir dizi iptal edilen siparişin biriktiğini görmelisiniz",
                     "updated": 1636577910650
                 },
                 {
                     "language": "ID",
-                    "text": "Kapan saja, kamu akan melihat satu open order dan sejumlah canceled orders muncul dalam riwayat pesananmu, seperti dalam video pada langkah berikutnya!",
+                    "text": "Kapan saja, kamu akan melihat satu open order dan sejumlah canceled orders muncul dalam riwayat pesananmu, seperti dalam video pada langkah berikutnya",
                     "updated": 1640596048300
                 }
             ]

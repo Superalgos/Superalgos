@@ -89,7 +89,7 @@
         },
         {
             "style": "Success",
-            "text": "Make sure to look under the Trading Session Reference nodes!",
+            "text": "Make sure to look under the Trading Session Reference nodes",
             "updated": 1617884973014,
             "translations": [
                 {
@@ -99,17 +99,17 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Обязательно загляните в узлы справочника торговых сессий Trading Session Reference !",
+                    "text": "Обязательно загляните в узлы справочника торговых сессий Trading Session Reference ",
                     "updated": 1639083602613
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen Sie unbedingt unter dem Knoten Trading Session Reference nach!",
+                    "text": "Schauen Sie unbedingt unter dem Knoten Trading Session Reference nach",
                     "updated": 1639498668334
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Ticaret Oturumu Referans ( Trading Session Reference ) düğümlerinin altına baktığınızdan emin olun!",
+                    "text": "İpucu: Ticaret Oturumu Referans ( Trading Session Reference ) düğümlerinin altına baktığınızdan emin olun",
                     "updated": 1642598503349
                 }
             ]

@@ -7,21 +7,21 @@
             "name": "Layer\\layer-bands",
             "project": "Foundations"
         },
-        "text": "How do we describe a candle closing below the lower band? Let's see how the lower band is described!",
+        "text": "How do we describe a candle closing below the lower band? Let's see how the lower band is described",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wie beschreibt man eine Kerze, die unterhalb des unteren Bandes schließt? Schauen wir uns an, wie das untere Band beschrieben wird!",
+                "text": "Wie beschreibt man eine Kerze, die unterhalb des unteren Bandes schließt? Schauen wir uns an, wie das untere Band beschrieben wird",
                 "updated": 1639389314889
             },
             {
                 "language": "TR",
-                "text": "Özet:Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım!",
+                "text": "Özet:Alt bandın altında kapanan bir mumu nasıl tanımlarsınız? Alt bandın nasıl tanımlandığına bakalım",
                 "updated": 1641662918760
             },
             {
                 "language": "RU",
-                "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса!",
+                "text": "Как описать закрытие свечи ниже нижней полосы? Давайте посмотрим, как описывается нижняя полоса",
                 "updated": 1642660544027
             }
         ]

@@ -7,21 +7,21 @@
             "name": "Record\\record-property",
             "project": "Foundations"
         },
-        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas!",
+        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas",
         "translations": [
             {
                 "language": "DE",
-                "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden!",
+                "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden",
                 "updated": 1639263355926
             },
             {
                 "language": "RU",
-                "text": "В этом разделе документации каждого индикатора содержится информация, необходимая для использования индикатора с условиями и формулами!",
+                "text": "В этом разделе документации каждого индикатора содержится информация, необходимая для использования индикатора с условиями и формулами",
                 "updated": 1640939815330
             },
             {
                 "language": "TR",
-                "text": "Özet: Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir!",
+                "text": "Özet: Gösterge belgelerinin bu bölümü, göstergeyi koşullar ve formüllerde nasıl kullanmanız gerektiğinin bilgilerini içerir",
                 "updated": 1641653798986
             }
         ]
@@ -113,21 +113,21 @@
         },
         {
             "style": "Callout",
-            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property!",
+            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen!",
+                    "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen",
                     "updated": 1639263536175
                 },
                 {
                     "language": "RU",
-                    "text": "Прочитайте этот раздел внимательно, чтобы мы могли вернуться к графикам и решить, как мы будем использовать свойство наклона (slope)!",
+                    "text": "Прочитайте этот раздел внимательно, чтобы мы могли вернуться к графикам и решить, как мы будем использовать свойство наклона (slope)",
                     "updated": 1640940026048
                 },
                 {
                     "language": "TR",
-                    "text": "Bu bölümü dikkatlice okuyunuz, böylece çizelgelere geri dönebilelim ve eğim özelliğini nasıl kullanacağımıza karar verebilelim!",
+                    "text": "Bu bölümü dikkatlice okuyunuz, böylece çizelgelere geri dönebilelim ve eğim özelliğini nasıl kullanacağımıza karar verebilelim",
                     "updated": 1641653896191
                 }
             ]

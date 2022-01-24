@@ -7,23 +7,23 @@
             "name": "trading-bot",
             "project": "Algorithmic-Trading"
         },
-        "text": "In this tutorial I'll show you how the layers of the Trading Bot work! I mean the ones featured on charts, associated with all types of trading sessions!",
+        "text": "In this tutorial I'll show you how the layers of the Trading Bot work! I mean the ones featured on charts, associated with all types of trading sessions",
         "updated": 1617106641313,
         "translations": [
             {
                 "language": "DE",
-                "text": "In diesem Tutorial zeige ich dir, wie die Layer des Trading Bot funktionieren! Ich meine die, die in den Charts zu sehen sind und mit allen Arten von Trading Sessions verbunden sind!",
+                "text": "In diesem Tutorial zeige ich dir, wie die Layer des Trading Bot funktionieren! Ich meine die, die in den Charts zu sehen sind und mit allen Arten von Trading Sessions verbunden sind",
                 "updated": 1622984863588,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "В этом уроке я покажу вам, как работают слои торгового бота! Я имею в виду те, которые изображены на графиках, связанные со всеми типами торговых сессий!",
+                "text": "В этом уроке я покажу вам, как работают слои торгового бота! Я имею в виду те, которые изображены на графиках, связанные со всеми типами торговых сессий",
                 "updated": 1640543199664
             },
             {
                 "language": "TR",
-                "text": "Bu eğitimde size Trading Bot'un katmanlarının nasıl çalıştığını göstereceğim! Her türlü alım satım seansıyla ilişkili grafiklerde gösterilenleri kastediyorum!",
+                "text": "Bu eğitimde size Trading Bot'un katmanlarının nasıl çalıştığını göstereceğim! Her türlü alım satım seansıyla ilişkili grafiklerde gösterilenleri kastediyorum",
                 "updated": 1641717504580
             }
         ]

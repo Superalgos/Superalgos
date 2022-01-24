@@ -7,16 +7,16 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "If you can't see what I showed in the video, chances are you skipped one or more of my previous instructions!",
+        "text": "If you can't see what I showed in the video, chances are you skipped one or more of my previous instructions",
         "translations": [
             {
                 "language": "TR",
-                "text": "Videoda gösterdiklerimi göremiyorsanız, önceki talimatlardan birini veya birkaçını atlamış olabilirsiniz!",
+                "text": "Videoda gösterdiklerimi göremiyorsanız, önceki talimatlardan birini veya birkaçını atlamış olabilirsiniz",
                 "updated": 1641655510400
             },
             {
                 "language": "RU",
-                "text": "Если вы не видите то же самое, что я показал в видео, скорее всего, вы пропустили одну или несколько моих предыдущих инструкций!",
+                "text": "Если вы не видите то же самое, что я показал в видео, скорее всего, вы пропустили одну или несколько моих предыдущих инструкций",
                 "updated": 1642655264985
             }
         ]
@@ -24,7 +24,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "I will cover some troubleshooting tactics later on, but for the time being, the solution is to go back in the tutorial and make sure you did everything I told you to do!",
+            "text": "I will cover some troubleshooting tactics later on, but for the time being, the solution is to go back in the tutorial and make sure you did everything I told you to do",
             "translations": [
                 {
                     "language": "TR",
@@ -33,7 +33,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Позже я расскажу о некоторых тактиках устранения неполадок, но на данный момент решение заключается в том, чтобы вернуться в учебник и убедиться, что вы сделали все, что я вам сказал!",
+                    "text": "Позже я расскажу о некоторых тактиках устранения неполадок, но на данный момент решение заключается в том, чтобы вернуться в учебник и убедиться, что вы сделали все, что я вам сказал",
                     "updated": 1642655287807
                 }
             ]
@@ -106,16 +106,16 @@
         },
         {
             "style": "Success",
-            "text": "Go backwards in the tutorial, step by step, and make sure you didn't skip any steps!",
+            "text": "Go backwards in the tutorial, step by step, and make sure you didn't skip any steps",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "İpucu: Eğitimde adım adım geriye gidin ve hiçbir adımı atlamadığınızdan emin olun!",
+                    "text": "İpucu: Eğitimde adım adım geriye gidin ve hiçbir adımı atlamadığınızdan emin olun",
                     "updated": 1641655692326
                 },
                 {
                     "language": "RU",
-                    "text": "Двигайтесь назад по учебнику, шаг за шагом, и убедитесь, что вы не пропустили ни одного шага!",
+                    "text": "Двигайтесь назад по учебнику, шаг за шагом, и убедитесь, что вы не пропустили ни одного шага",
                     "updated": 1642655506221
                 }
             ]

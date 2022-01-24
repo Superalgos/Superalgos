@@ -76,34 +76,34 @@
         },
         {
             "style": "Success",
-            "text": "A common scenario is keeping multiple versions of certain definitions while building strategies, so that you may test a set of rules and switch to other rules for the next run. You may even keep multiple versions of entire strategies!",
+            "text": "A common scenario is keeping multiple versions of certain definitions while building strategies, so that you may test a set of rules and switch to other rules for the next run. You may even keep multiple versions of entire strategies",
             "updated": 1615575707975,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Uno scenario comune è mantenere versioni multiple di alcune configurazioni mentre si costruiscono strategie, così da poter testare un set di regole e cambiarlo con un altro al test successivo. È perfino possibile mantenere diverse versioni di intere strategie!",
+                    "text": "Uno scenario comune è mantenere versioni multiple di alcune configurazioni mentre si costruiscono strategie, così da poter testare un set di regole e cambiarlo con un altro al test successivo. È perfino possibile mantenere diverse versioni di intere strategie",
                     "updated": 1619467375126,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Un escenario común es mantener múltiples versiones de ciertas definiciones mientras se construyen estrategias, de modo que pueda probar un conjunto de reglas y cambiar a otras reglas para la próxima ejecución. ¡Incluso puede conservar varias versiones de estrategias completas!",
+                    "text": "Un escenario común es mantener múltiples versiones de ciertas definiciones mientras se construyen estrategias, de modo que pueda probar un conjunto de reglas y cambiar a otras reglas para la próxima ejecución. ¡Incluso puede conservar varias versiones de estrategias completas",
                     "updated": 1626359279818,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Ein häufiges Szenario ist die Aufbewahrung mehrerer Versionen bestimmter Definitionen bei der Erstellung von Strategien, so dass Sie einen Satz von Regeln testen und beim nächsten Durchlauf zu anderen Regeln wechseln können. Sie können sogar mehrere Versionen von ganzen Strategien aufbewahren!",
+                    "text": "Ein häufiges Szenario ist die Aufbewahrung mehrerer Versionen bestimmter Definitionen bei der Erstellung von Strategien, so dass Sie einen Satz von Regeln testen und beim nächsten Durchlauf zu anderen Regeln wechseln können. Sie können sogar mehrere Versionen von ganzen Strategien aufbewahren",
                     "updated": 1634333685177
                 },
                 {
                     "language": "TR",
-                    "text": "Ortak bir senaryo, stratejiler oluştururken belirli tanımların birden çok sürümünü tutmaktır, böylece bir sonraki çalıştırma için bir dizi kuralı test edebilir ve diğer kurallara geçebilirsiniz. Tüm stratejilerin birden fazla versiyonunu bile tutabilirsiniz!",
+                    "text": "Ortak bir senaryo, stratejiler oluştururken belirli tanımların birden çok sürümünü tutmaktır, böylece bir sonraki çalıştırma için bir dizi kuralı test edebilir ve diğer kurallara geçebilirsiniz. Tüm stratejilerin birden fazla versiyonunu bile tutabilirsiniz",
                     "updated": 1636792469596
                 },
                 {
                     "language": "RU",
-                    "text": "Распространенным сценарием является сохранение нескольких версий определенных определений при построении стратегий, чтобы вы могли протестировать набор правил и перейти к другим правилам для следующего запуска. Вы даже можете хранить несколько версий целых стратегий!",
+                    "text": "Распространенным сценарием является сохранение нескольких версий определенных определений при построении стратегий, чтобы вы могли протестировать набор правил и перейти к другим правилам для следующего запуска. Вы даже можете хранить несколько версий целых стратегий",
                     "updated": 1640868133379
                 }
             ]

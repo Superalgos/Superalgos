@@ -35,7 +35,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Let's take a look around the Charting Space and find the time machine you added!",
+            "text": "Let's take a look around the Charting Space and find the time machine you added",
             "updated": 1620264582796,
             "translations": [
                 {
@@ -45,17 +45,17 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте осмотримся в Charting Space и найдем машину времени, которую вы добавили!",
+                    "text": "Давайте осмотримся в Charting Space и найдем машину времени, которую вы добавили",
                     "updated": 1637940276541
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen wir uns im Charting Space um und finden wir die Zeitmaschine, die Sie hinzugefügt haben!",
+                    "text": "Schauen wir uns im Charting Space um und finden wir die Zeitmaschine, die Sie hinzugefügt haben",
                     "updated": 1639108962126
                 },
                 {
                     "language": "TR",
-                    "text": "Grafik alanına ( Charting Space ) bir göz atalım ve eklediğiniz zaman makinesini bulalım!",
+                    "text": "Grafik alanına ( Charting Space ) bir göz atalım ve eklediğiniz zaman makinesini bulalım",
                     "updated": 1642586331801
                 }
             ]

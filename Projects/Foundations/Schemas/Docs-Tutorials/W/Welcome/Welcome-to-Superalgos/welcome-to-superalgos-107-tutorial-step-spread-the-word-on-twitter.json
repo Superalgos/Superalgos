@@ -1,40 +1,40 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 107,
-    "type": "Tutorial Step - Spread the Word on Twitter!",
+    "type": "Tutorial Step - Spread the Word on Twitter",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "twitter"
         },
-        "text": "Making some noise on Twitter will help bring more traders to the project. More traders pushing the boundaries of the software is the best driver of evolution!",
+        "text": "Making some noise on Twitter will help bring more traders to the project. More traders pushing the boundaries of the software is the best driver of evolution",
         "updated": 1610914488286,
         "translations": [
             {
                 "language": "IT",
-                "text": "Condividere il progetto su Twitter aiuterà a raggiungere più traders. Più traders che utilizzano il software è il miglior modo per incentivarne l'evoluzione!",
+                "text": "Condividere il progetto su Twitter aiuterà a raggiungere più traders. Più traders che utilizzano il software è il miglior modo per incentivarne l'evoluzione",
                 "updated": 1618072678582,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Hacer algo de ruido en Twitter ayudará a atraer más traders al proyecto. ¡Más traders que traspasan los límites del software es el mejor motor de la evolución!",
+                "text": "Hacer algo de ruido en Twitter ayudará a atraer más traders al proyecto. ¡Más traders que traspasan los límites del software es el mejor motor de la evolución",
                 "updated": 1624488263415,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie auf Twitter von sich reden machen, können Sie mehr Trader für das Projekt gewinnen. Mehr Trader, die die Grenzen der Software ausloten, sind der beste Motor für die Entwicklung!",
+                "text": "Wenn Sie auf Twitter von sich reden machen, können Sie mehr Trader für das Projekt gewinnen. Mehr Trader, die die Grenzen der Software ausloten, sind der beste Motor für die Entwicklung",
                 "updated": 1634247225135
             },
             {
                 "language": "TR",
-                "text": "Twitter'da biraz gürültü! yapmak, projeye daha fazla yatırımcının gelmesine yardımcı olacaktır. Yazılımın sınırlarını zorlayan daha fazla tüccar, evrimin en iyi itici gücüdür!",
+                "text": "Twitter'da biraz gürültü! yapmak, projeye daha fazla yatırımcının gelmesine yardımcı olacaktır. Yazılımın sınırlarını zorlayan daha fazla tüccar, evrimin en iyi itici gücüdür",
                 "updated": 1636662683451
             },
             {
                 "language": "ID",
-                "text": "Membuat keributan di Twitter akan membantu membawa lebih banyak traders ke proyek. Semakin banyak traders yang membangun software  menjadi pendorong evolusi terbaik!",
+                "text": "Membuat keributan di Twitter akan membantu membawa lebih banyak traders ke proyek. Semakin banyak traders yang membangun software  menjadi pendorong evolusi terbaik",
                 "updated": 1640598993861
             }
         ]
@@ -76,58 +76,58 @@
         },
         {
             "style": "Callout",
-            "text": "Go to our <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, follow us, and retweet our latest tweet. Make sure you tag traders you follow!",
+            "text": "Go to our <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, follow us, and retweet our latest tweet. Make sure you tag traders you follow",
             "updated": 1610961950814,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Vai sulla nostra page di <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, seguici e ritwitta il nostro ultimo tweet. Assicurati di taggare i traders che segui!",
+                    "text": "Vai sulla nostra page di <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>, seguici e ritwitta il nostro ultimo tweet. Assicurati di taggare i traders che segui",
                     "updated": 1618072761967,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Ve nuestra <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a> page, síganos y retuitee nuestro último tweet. ¡Asegúrese de etiquetar a los traders que sigas!",
+                    "text": "Ve nuestra <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a> page, síganos y retuitee nuestro último tweet. ¡Asegúrese de etiquetar a los traders que sigas",
                     "updated": 1624497570630,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Gehen Sie auf unsere <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>-Seite, folgen Sie uns, und retweeten Sie unseren letzten Tweet. Vergewissern Sie sich, dass Sie die Trader, denen Sie folgen, markieren!",
+                    "text": "Gehen Sie auf unsere <a href=\"https://twitter.com/superalgos\" style=\"color:blue\" target=\"_blank\">Twitter page</a>-Seite, folgen Sie uns, und retweeten Sie unseren letzten Tweet. Vergewissern Sie sich, dass Sie die Trader, denen Sie folgen, markieren",
                     "updated": 1634247258867
                 },
                 {
                     "language": "TR",
-                    "text": "Twitter sayfamıza gidin ( Twitter page ), bizi takip edin. Takip ettiğiniz trader'ları etiketlediğinizdem emin olun!",
+                    "text": "Twitter sayfamıza gidin ( Twitter page ), bizi takip edin. Takip ettiğiniz trader'ları etiketlediğinizdem emin olun",
                     "updated": 1636662879352
                 },
                 {
                     "language": "ID",
-                    "text": "Pergi ke Twitter page, follow kami, dan retweet cuitan terbaru kami. Pastikan kamu memberi tag pada traders yang kamu ikuti!",
+                    "text": "Pergi ke Twitter page, follow kami, dan retweet cuitan terbaru kami. Pastikan kamu memberi tag pada traders yang kamu ikuti",
                     "updated": 1640599119470
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "That's it! No big deal, right? We appreciate your help and wish you some happy and prosperous trading!",
+            "text": "That's it! No big deal, right? We appreciate your help and wish you some happy and prosperous trading",
             "updated": 1610957777183,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ottimo! Apprezziamo molto il tuo aiuto e ti auguriamo un trading felice e remunerativo!",
+                    "text": "Ottimo! Apprezziamo molto il tuo aiuto e ti auguriamo un trading felice e remunerativo",
                     "updated": 1618072801199,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eso es! No es gran cosa, ¿verdad? ¡Agradecemos su ayuda y le deseamos un feliz y próspero trading!",
+                    "text": "¡Eso es! No es gran cosa, ¿verdad? ¡Agradecemos su ayuda y le deseamos un feliz y próspero trading",
                     "updated": 1624488393889,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Das war's! Keine große Sache, oder? Wir danken Ihnen für Ihre Hilfe und wünschen Ihnen viel Erfolg beim Trading!",
+                    "text": "Das war's! Keine große Sache, oder? Wir danken Ihnen für Ihre Hilfe und wünschen Ihnen viel Erfolg beim Trading",
                     "updated": 1634247267706
                 },
                 {
@@ -137,7 +137,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Itu dia! Bukan masalah besar, benar? Kami menghargai bantuanmu dan berharap kamu melakukan trading yang bahagia dan makmur!",
+                    "text": "Itu dia! Bukan masalah besar, benar? Kami menghargai bantuanmu dan berharap kamu melakukan trading yang bahagia dan makmur",
                     "updated": 1640599156494
                 }
             ]

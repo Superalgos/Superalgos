@@ -61,16 +61,16 @@
         },
         {
             "style": "Callout",
-            "text": "Go ahead and edit the formula with the above syntax!",
+            "text": "Go ahead and edit the formula with the above syntax",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Bearbeiten Sie die Formel mit der obigen Syntax!",
+                    "text": "Bearbeiten Sie die Formel mit der obigen Syntax",
                     "updated": 1639395526472
                 },
                 {
                     "language": "TR",
-                    "text": "Yukarıdaki sözdizimini kullanarak formülü düzenleyin!",
+                    "text": "Yukarıdaki sözdizimini kullanarak formülü düzenleyin",
                     "updated": 1641668275856
                 }
             ]

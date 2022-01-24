@@ -50,21 +50,21 @@
         },
         {
             "style": "Callout",
-            "text": "Let's refresh the concepts that will help us describe that situation! We are back on the Syntax Overview page. Please, read the section about the Previous Property!",
+            "text": "Let's refresh the concepts that will help us describe that situation! We are back on the Syntax Overview page. Please, read the section about the Previous Property",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lassen Sie uns die Konzepte auffrischen, die uns helfen werden, diese Situation zu beschreiben! Wir sind zurück auf der Seite \"Syntax Overview\". Lesen Sie bitte den Abschnitt \"Previous Property\"!",
+                    "text": "Lassen Sie uns die Konzepte auffrischen, die uns helfen werden, diese Situation zu beschreiben! Wir sind zurück auf der Seite \"Syntax Overview\". Lesen Sie bitte den Abschnitt \"Previous Property\"",
                     "updated": 1639389935120
                 },
                 {
                     "language": "TR",
-                    "text": "Bu durumu tanımlamamıza yardımcı olacak kavramları tazeleyelim! \"Sözdizimine Genel Bakış\" ( Syntax Overview ) sayfasına geri döndük. Lütfen \"Önceki Mülkiyet\"(Previous Property) bölümünü okuyunuz!",
+                    "text": "Bu durumu tanımlamamıza yardımcı olacak kavramları tazeleyelim! \"Sözdizimine Genel Bakış\" ( Syntax Overview ) sayfasına geri döndük. Lütfen \"Önceki Mülkiyet\"(Previous Property) bölümünü okuyunuz",
                     "updated": 1641663693370
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте освежим в памяти понятия, которые помогут нам описать эту ситуацию! Мы вернемся на страницу \"Syntax Overview\". Пожалуйста, прочитайте раздел о свойстве Previous!",
+                    "text": "Давайте освежим в памяти понятия, которые помогут нам описать эту ситуацию! Мы вернемся на страницу \"Syntax Overview\". Пожалуйста, прочитайте раздел о свойстве Previous",
                     "updated": 1642661231200
                 }
             ]

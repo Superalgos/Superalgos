@@ -1,27 +1,27 @@
 {
     "tutorial": "Defining a Trading Idea",
     "pageNumber": 25,
-    "type": "Tutorial Step - We've got Two Hypotheses!",
+    "type": "Tutorial Step - We've got Two Hypotheses",
     "definition": {
         "icon": {
             "name": "Nodes\\nodes-highlights",
             "project": "Foundations"
         },
-        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations!",
+        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations",
         "translations": [
             {
                 "language": "DE",
-                "text": "Lassen Sie uns unsere vorherige Hypothese wiederherstellen und eine neue Hypothese für die jüngsten Beobachtungen aufstellen!",
+                "text": "Lassen Sie uns unsere vorherige Hypothese wiederherstellen und eine neue Hypothese für die jüngsten Beobachtungen aufstellen",
                 "updated": 1639253454746
             },
             {
                 "language": "RU",
-                "text": "Давайте восстановим нашу предыдущую гипотезу и придумаем новую для последних наблюдений!",
+                "text": "Давайте восстановим нашу предыдущую гипотезу и придумаем новую для последних наблюдений",
                 "updated": 1640891997877
             },
             {
                 "language": "TR",
-                "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım!",
+                "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım",
                 "updated": 1640949719690
             }
         ]

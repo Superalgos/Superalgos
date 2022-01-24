@@ -3,7 +3,7 @@
     "pageNumber": 19,
     "type": "Tutorial Step - Add a Timeline Chart",
     "definition": {
-        "text": "Now that we have something to hold our charts, let's go ahead and add one!",
+        "text": "Now that we have something to hold our charts, let's go ahead and add one",
         "updated": 1617800759702,
         "icon": {
             "name": "timeline-chart",
@@ -12,22 +12,22 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Ahora que tenemos algo para guardar nuestros gráficos, ¡sigamos adelante y agreguemos uno!",
+                "text": "Ahora que tenemos algo para guardar nuestros gráficos, ¡sigamos adelante y agreguemos uno",
                 "updated": 1628646604795
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда у нас есть, где хранить графики, давайте добавим их!",
+                "text": "Теперь, когда у нас есть, где хранить графики, давайте добавим их",
                 "updated": 1638175613264
             },
             {
                 "language": "DE",
-                "text": "Nun, da wir etwas haben, um unsere Diagramme zu halten, lassen Sie uns fortfahren und eines hinzufügen!",
+                "text": "Nun, da wir etwas haben, um unsere Diagramme zu halten, lassen Sie uns fortfahren und eines hinzufügen",
                 "updated": 1639113757053
             },
             {
                 "language": "TR",
-                "text": "Artık grafikleri saklayacak bir yerimiz olduğuna göre, hadi onları ekleyelim!",
+                "text": "Artık grafikleri saklayacak bir yerimiz olduğuna göre, hadi onları ekleyelim",
                 "updated": 1642586955657
             }
         ]

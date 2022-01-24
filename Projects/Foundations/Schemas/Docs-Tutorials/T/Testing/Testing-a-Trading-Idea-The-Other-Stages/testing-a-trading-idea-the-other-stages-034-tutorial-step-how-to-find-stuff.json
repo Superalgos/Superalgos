@@ -58,11 +58,11 @@
         },
         {
             "style": "List",
-            "text": "Strategy Open Stage : because the transaction to enter the position happened during this stage. We want to know how much USDT we got!",
+            "text": "Strategy Open Stage : because the transaction to enter the position happened during this stage. We want to know how much USDT we got",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Strategy Open Stage: weil die Transaktion zur Eingabe der Position in dieser Phase stattfand. Wir wollen wissen, wie viel USDT wir bekommen haben!",
+                    "text": "Strategy Open Stage: weil die Transaktion zur Eingabe der Position in dieser Phase stattfand. Wir wollen wissen, wie viel USDT wir bekommen haben",
                     "updated": 1639417795471
                 },
                 {
@@ -74,16 +74,16 @@
         },
         {
             "style": "List",
-            "text": "Stage Quoted Asset : because we sold the base asset and obtained the quoted asset, and it's the quoted asset we want to get rid of during the close stage! The question is how much of it!",
+            "text": "Stage Quoted Asset : because we sold the base asset and obtained the quoted asset, and it's the quoted asset we want to get rid of during the close stage! The question is how much of it",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Stage Quoted Asset: weil wir den Basiswert verkauft und den quotierten Vermögenswert erhalten haben, und es ist der quotierte Vermögenswert, den wir in der Close Stage loswerden wollen! Die Frage ist, wie viel davon!",
+                    "text": "Stage Quoted Asset: weil wir den Basiswert verkauft und den quotierten Vermögenswert erhalten haben, und es ist der quotierte Vermögenswert, den wir in der Close Stage loswerden wollen! Die Frage ist, wie viel davon",
                     "updated": 1639417812713
                 },
                 {
                     "language": "TR",
-                    "text": "Aşamalı Kote Varlık (Stage Quoted Asset): çünkü temel varlığı sattık ve kote varlığı elde ettik ve bu, yakın aşamada kurtulmak istediğimiz kote varlık! Soru, bunun ne kadar olduğu!",
+                    "text": "Aşamalı Kote Varlık (Stage Quoted Asset): çünkü temel varlığı sattık ve kote varlığı elde ettik ve bu, yakın aşamada kurtulmak istediğimiz kote varlık! Soru, bunun ne kadar olduğu",
                     "updated": 1641796478499
                 }
             ]

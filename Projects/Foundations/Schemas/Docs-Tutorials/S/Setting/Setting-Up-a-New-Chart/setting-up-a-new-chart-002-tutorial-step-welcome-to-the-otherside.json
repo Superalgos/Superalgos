@@ -62,7 +62,7 @@
         },
         {
             "style": "Note",
-            "text": "You can look at different combinations of Indicators, Backtesting and Live Trading results, even data from different Markets and Exchanges! This flexibility makes it possible to customize charts to your heart’s content. Pretty cool right!",
+            "text": "You can look at different combinations of Indicators, Backtesting and Live Trading results, even data from different Markets and Exchanges! This flexibility makes it possible to customize charts to your heart’s content. Pretty cool right",
             "updated": 1628362731091,
             "translations": [
                 {
@@ -77,12 +77,12 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Вы можете просматривать различные комбинации индикаторов, результаты бэктестинга и реальной торговли Trading , даже данные с разных рынков и бирж! Такая гибкость позволяет настраивать графики по своему усмотрению. Очень круто!",
+                    "text": "Вы можете просматривать различные комбинации индикаторов, результаты бэктестинга и реальной торговли Trading , даже данные с разных рынков и бирж! Такая гибкость позволяет настраивать графики по своему усмотрению. Очень круто",
                     "updated": 1637913366764
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Çeşitli gösterge kombinasyonlarını, geriye dönük test ve gerçek Ticaret sonuçlarını, hatta farklı pazarlardan ve borsalardan gelen verileri bile görüntüleyebilirsiniz! Bu esneklik, grafikleri uygun gördüğünüz şekilde özelleştirmenize olanak tanır. Çok havalı!",
+                    "text": "Not: Çeşitli gösterge kombinasyonlarını, geriye dönük test ve gerçek Ticaret sonuçlarını, hatta farklı pazarlardan ve borsalardan gelen verileri bile görüntüleyebilirsiniz! Bu esneklik, grafikleri uygun gördüğünüz şekilde özelleştirmenize olanak tanır. Çok havalı",
                     "updated": 1642518221461
                 }
             ]

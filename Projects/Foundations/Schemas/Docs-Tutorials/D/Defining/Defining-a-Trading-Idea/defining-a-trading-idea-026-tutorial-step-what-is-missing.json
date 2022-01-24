@@ -7,21 +7,21 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis!",
+        "text": "What we've got is a vague definition of the context and the entry point rules! We still need to formalize our hypothesis",
         "translations": [
             {
                 "language": "DE",
-                "text": "Was wir haben, ist eine vage Definition des Kontexts und der Regeln für den Einstiegspunkt! Wir müssen unsere Hypothese noch formalisieren!",
+                "text": "Was wir haben, ist eine vage Definition des Kontexts und der Regeln für den Einstiegspunkt! Wir müssen unsere Hypothese noch formalisieren",
                 "updated": 1639253523489
             },
             {
                 "language": "RU",
-                "text": "Все, что мы имеем, это расплывчатое определение контекста и правил точки входа! Нам все еще нужно сформулировать нашу гипотезу!",
+                "text": "Все, что мы имеем, это расплывчатое определение контекста и правил точки входа! Нам все еще нужно сформулировать нашу гипотезу",
                 "updated": 1640892078830
             },
             {
                 "language": "TR",
-                "text": "Elimizde, bağlamın ve giriş noktası kurallarının belirsiz bir tanımı var! Hala varsayımımızı resmileştirmeye ihtiyacımız var!",
+                "text": "Elimizde, bağlamın ve giriş noktası kurallarının belirsiz bir tanımı var! Hala varsayımımızı resmileştirmeye ihtiyacımız var",
                 "updated": 1640950261673
             }
         ]
@@ -138,38 +138,38 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "einen spezifischen Testmechanismus anbieten!",
+                    "text": "einen spezifischen Testmechanismus anbieten",
                     "updated": 1639253564191
                 },
                 {
                     "language": "RU",
-                    "text": "предложить конкретный механизм тестирования!",
+                    "text": "предложить конкретный механизм тестирования",
                     "updated": 1640892139908
                 },
                 {
                     "language": "TR",
-                    "text": "özel bir test mekanizması sunun!",
+                    "text": "özel bir test mekanizması sunun",
                     "updated": 1640950628599
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Let's proceed with fulfilling those requirements!",
+            "text": "Let's proceed with fulfilling those requirements",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lassen Sie uns mit der Erfüllung dieser Anforderungen fortfahren!",
+                    "text": "Lassen Sie uns mit der Erfüllung dieser Anforderungen fortfahren",
                     "updated": 1639253572715
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте приступим к выполнению этих требований!",
+                    "text": "Давайте приступим к выполнению этих требований",
                     "updated": 1640892149315
                 },
                 {
                     "language": "TR",
-                    "text": "Haydi bu gereksinimleri yerine getirmeye devam edelim!",
+                    "text": "Haydi bu gereksinimleri yerine getirmeye devam edelim",
                     "updated": 1640950750111
                 }
             ]

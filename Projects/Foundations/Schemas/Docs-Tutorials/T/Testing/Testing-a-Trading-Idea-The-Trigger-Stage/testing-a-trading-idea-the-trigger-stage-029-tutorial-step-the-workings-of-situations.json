@@ -7,21 +7,21 @@
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner!",
+        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner",
         "translations": [
             {
                 "language": "DE",
-                "text": "Dies ist ein Schlüsselkonzept, das Sie verstehen müssen, damit Sie die Logik auf die richtige Weise organisieren können!",
+                "text": "Dies ist ein Schlüsselkonzept, das Sie verstehen müssen, damit Sie die Logik auf die richtige Weise organisieren können",
                 "updated": 1639265748621
             },
             {
                 "language": "RU",
-                "text": "Это ключевое понятие, которое вы должны усвоить, чтобы правильно организовать логику!",
+                "text": "Это ключевое понятие, которое вы должны усвоить, чтобы правильно организовать логику",
                 "updated": 1640944804637
             },
             {
                 "language": "TR",
-                "text": "Bu, mantığı doğru şekilde organize edebilmeniz için anlamanız gereken önemli bir kavramdır!",
+                "text": "Bu, mantığı doğru şekilde organize edebilmeniz için anlamanız gereken önemli bir kavramdır",
                 "updated": 1641654639787
             }
         ]
@@ -50,21 +50,21 @@
         },
         {
             "style": "List",
-            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered!",
+            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Ein Ereignis gilt als wahr, wenn eine der Situationen innerhalb des Ereignisses als wahr gilt. Es ist so, als ob Situationen innerhalb eines Ereignisses durch den Operator || (or) gebunden wären! Wenn eine der Situationen zu einem bestimmten Zeitpunkt wahr ist, dann wird das Ereignis ausgelöst!",
+                    "text": "Ein Ereignis gilt als wahr, wenn eine der Situationen innerhalb des Ereignisses als wahr gilt. Es ist so, als ob Situationen innerhalb eines Ereignisses durch den Operator || (or) gebunden wären! Wenn eine der Situationen zu einem bestimmten Zeitpunkt wahr ist, dann wird das Ereignis ausgelöst",
                     "updated": 1639265804598
                 },
                 {
                     "language": "RU",
-                    "text": "Событие считается истинным, если истинна любая из ситуаций, входящих в него. Это как если бы ситуации внутри события были связаны оператором || (или)! Если любая из ситуаций истинна в определенный момент времени, то событие срабатывает!",
+                    "text": "Событие считается истинным, если истинна любая из ситуаций, входящих в него. Это как если бы ситуации внутри события были связаны оператором || (или)! Если любая из ситуаций истинна в определенный момент времени, то событие срабатывает",
                     "updated": 1640944849241
                 },
                 {
                     "language": "TR",
-                    "text": "Olay içindeki durumlardan herhangi biri doğru kabul edilirse olay doğru kabul edilir. Sanki bir olay içindeki durumlar || operatörü tarafından temsil ediliyormuş gibi (ya da) bağlı olacaktır! Belirli bir zamanda durumlardan biri doğruysa, olay tetiklenir!",
+                    "text": "Olay içindeki durumlardan herhangi biri doğru kabul edilirse olay doğru kabul edilir. Sanki bir olay içindeki durumlar || operatörü tarafından temsil ediliyormuş gibi (ya da) bağlı olacaktır! Belirli bir zamanda durumlardan biri doğruysa, olay tetiklenir",
                     "updated": 1641654660718
                 }
             ]

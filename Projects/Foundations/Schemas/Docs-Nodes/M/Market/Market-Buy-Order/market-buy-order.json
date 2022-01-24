@@ -27,6 +27,11 @@
             ]
         },
         {
+            "style": "Important",
+            "text": "A Market Buy Order node requires a reference to a Market Order node in the Trading Engine to actually perform the trade and track it",
+            "updated": 1643056742656
+        },
+        {
             "style": "Title",
             "text": "Market Orders' Rate",
             "updated": 1609604792445,

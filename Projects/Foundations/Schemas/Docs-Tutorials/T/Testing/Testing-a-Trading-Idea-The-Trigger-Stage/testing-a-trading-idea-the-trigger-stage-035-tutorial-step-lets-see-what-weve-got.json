@@ -1,22 +1,22 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 35,
-    "type": "Tutorial Step - Let's See What We've Got!",
+    "type": "Tutorial Step - Let's See What We've Got",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "trigger-stage"
         },
-        "text": "We are going to go through the simulation and see if the definition we came up with has the expected results!",
+        "text": "We are going to go through the simulation and see if the definition we came up with has the expected results",
         "translations": [
             {
                 "language": "TR",
-                "text": "Simülasyonu gözden geçireceğiz ve ortaya çıkan tanımın beklenen sonuçlara sahip olup olmadığına bakacağız!",
+                "text": "Simülasyonu gözden geçireceğiz ve ortaya çıkan tanımın beklenen sonuçlara sahip olup olmadığına bakacağız",
                 "updated": 1641655373874
             },
             {
                 "language": "RU",
-                "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты!",
+                "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты",
                 "updated": 1642655108942
             }
         ]
@@ -41,16 +41,16 @@
         },
         {
             "style": "Note",
-            "text": "Do you see the two instances of strategies triggered between February 26th and April 2nd? Now, pan the charts to the right... You should see another two triggered between September 3rd - 23rd! The following step features a video of what you should see on the screen, just to make sure we're on the same page!",
+            "text": "Do you see the two instances of strategies triggered between February 26th and April 2nd? Now, pan the charts to the right... You should see another two triggered between September 3rd - 23rd! The following step features a video of what you should see on the screen, just to make sure we're on the same page",
             "translations": [
                 {
                     "language": "TR",
-                    "text": "Not: 26 Şubat ve 2 Nisan arasında tetiklenen iki strateji örneğini görüyor musunuz? Şimdi, çizelgeleri sağa kaydırın... 3 - 23 Eylül arasında tetiklenen iki tane daha görmelisiniz! Aşağıdaki adım, aynı sayfada olduğumuzdan emin olmak için ekranda görmeniz gerekenlerin bir videosunu içeriyor!",
+                    "text": "Not: 26 Şubat ve 2 Nisan arasında tetiklenen iki strateji örneğini görüyor musunuz? Şimdi, çizelgeleri sağa kaydırın... 3 - 23 Eylül arasında tetiklenen iki tane daha görmelisiniz! Aşağıdaki adım, aynı sayfada olduğumuzdan emin olmak için ekranda görmeniz gerekenlerin bir videosunu içeriyor",
                     "updated": 1641655438338
                 },
                 {
                     "language": "RU",
-                    "text": "Видите ли вы два случая срабатывания стратегий между 26 февраля и 2 апреля? Теперь переверните графики вправо... Вы должны увидеть еще две стратегии, сработавшие в период с 3 по 23 сентября! Чтобы убедиться, что мы находимся на одной и той же странице, на следующем шаге мы покажем вам видео, что вы должны увидеть на экране!",
+                    "text": "Видите ли вы два случая срабатывания стратегий между 26 февраля и 2 апреля? Теперь переверните графики вправо... Вы должны увидеть еще две стратегии, сработавшие в период с 3 по 23 сентября! Чтобы убедиться, что мы находимся на одной и той же странице, на следующем шаге мы покажем вам видео, что вы должны увидеть на экране",
                     "updated": 1642655167714
                 }
             ]

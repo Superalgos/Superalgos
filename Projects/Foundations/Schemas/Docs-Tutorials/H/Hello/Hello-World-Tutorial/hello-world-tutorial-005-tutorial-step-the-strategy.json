@@ -3,7 +3,7 @@
     "pageNumber": 5,
     "type": "Tutorial Step - The Strategy",
     "definition": {
-        "text": "Let's build the mother of all strategies!",
+        "text": "Let's build the mother of all strategies",
         "icon": {
             "name": "strategy",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Lass uns die Mutter aller Strategien erstellen!",
+                "text": "Lass uns die Mutter aller Strategien erstellen",
                 "updated": 1622977892890,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Construyamos la madre de todas las estrategias!",
+                "text": "¡Construyamos la madre de todas las estrategias",
                 "updated": 1629347747877
             },
             {
                 "language": "IT",
-                "text": "Costruiamo la nostra strategia!",
+                "text": "Costruiamo la nostra strategia",
                 "updated": 1639073736630
             },
             {
                 "language": "TR",
-                "text": "Tüm stratejilerin anasını oluşturalım!",
+                "text": "Tüm stratejilerin anasını oluşturalım",
                 "updated": 1640616263549
             },
             {
                 "language": "RU",
-                "text": "Давайте создадим материнскую стратегию!",
+                "text": "Давайте создадим материнскую стратегию",
                 "updated": 1640854438221
             }
         ]

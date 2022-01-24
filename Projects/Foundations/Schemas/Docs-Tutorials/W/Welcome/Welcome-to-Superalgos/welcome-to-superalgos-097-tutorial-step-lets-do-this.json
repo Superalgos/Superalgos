@@ -1,39 +1,39 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 97,
-    "type": "Tutorial Step - Let's Do This!",
+    "type": "Tutorial Step - Let's Do This",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "live-trading-session"
         },
-        "text": "We've gone through the 3-point checklist and we are ready to go, so let's get on with it!",
+        "text": "We've gone through the 3-point checklist and we are ready to go, so let's get on with it",
         "translations": [
             {
                 "language": "IT",
-                "text": "Abbiamo completato tutti e tre i punti sulla nostra checklist e siamo pronti a partire!",
+                "text": "Abbiamo completato tutti e tre i punti sulla nostra checklist e siamo pronti a partire",
                 "updated": 1618071368189,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante!",
+                "text": "Hemos revisado la lista de verificación de 3 puntos y estamos listos para comenzar, ¡así que sigamos adelante",
                 "updated": 1624483496936,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wir sind die 3-Punkte-Checkliste durchgegangen und sind bereit, also legen wir los!",
+                "text": "Wir sind die 3-Punkte-Checkliste durchgegangen und sind bereit, also legen wir los",
                 "updated": 1634245028451
             },
             {
                 "language": "TR",
-                "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım!",
+                "text": "3 maddelik kontrol listesini gözden geçirdik ve gitmeye hazırız, hadi başlayalım",
                 "updated": 1636573370550
             },
             {
                 "language": "ID",
-                "text": "Kita telah melalui 3-point checklist dan kita siap berangkat, jadi mari kita lanjutkan!",
+                "text": "Kita telah melalui 3-point checklist dan kita siap berangkat, jadi mari kita lanjutkan",
                 "updated": 1640576693623
             }
         ]
@@ -41,23 +41,23 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Run the Lightning Strike Task, and then run the Lightning Strike Live Trading Session further down the hierarchy!",
+            "text": "Run the Lightning Strike Task, and then run the Lightning Strike Live Trading Session further down the hierarchy",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Lancia la Lightning Strike Task, e poi lancia la Lightning Strike Live Trading Session a destra!",
+                    "text": "Lancia la Lightning Strike Task, e poi lancia la Lightning Strike Live Trading Session a destra",
                     "updated": 1618071413222,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session abajo en la jerarquía!",
+                    "text": "¡Corre el Lightning Strike Task, y luego el Lightning Strike Live Trading Session abajo en la jerarquía",
                     "updated": 1625928738040,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Führen Sie den Lightning Strike Task aus, und starten Sie dann die Lightning Strike Live Trading Session weiter unten in der Hierarchie!",
+                    "text": "Führen Sie den Lightning Strike Task aus, und starten Sie dann die Lightning Strike Live Trading Session weiter unten in der Hierarchie",
                     "updated": 1634245034579
                 },
                 {
@@ -67,7 +67,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Run Lightning Strike Task, dan kemudian jalankan Lightning Strike Live Trading Session lebih jauh ke bawah hierarchy!",
+                    "text": "Run Lightning Strike Task, dan kemudian jalankan Lightning Strike Live Trading Session lebih jauh ke bawah hierarchy",
                     "updated": 1640576740486
                 }
             ],

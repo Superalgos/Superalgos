@@ -1,9 +1,9 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 11,
     "type": "Tutorial Step - About Small Hardware",
     "definition": {
-        "text": "While minimalist hardware like the Raspberry Pi can handle the Superalgos Client to run both data and trading tasks, some may be too small for active work!",
+        "text": "While minimalist hardware like the Raspberry Pi can handle the Superalgos Client to run both data and trading tasks, some may be too small for active work",
         "updated": 1610615755927,
         "icon": {
             "name": "Bullet\\bullet-warning",
@@ -18,7 +18,7 @@
             },
             {
                 "language": "ID",
-                "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks!",
+                "text": "Tau ngga perangkat keras minimalis seperti Raspberry Pi dapat menangani Client Superalgos untuk menjalankan data dan trading tasks",
                 "updated": 1616696668510,
                 "style": "Definition"
             },
@@ -30,25 +30,25 @@
             },
             {
                 "language": "FR",
-                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif !",
+                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif ",
                 "updated": 1623959646265,
                 "style": "Definition"
             },
             {
                 "language": "FR",
-                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif !",
+                "text": "Si un matériel reduit tel que le Raspberry Pi peut gérer le Client Superalgos pour exécuter des données et des tâches de négociation, il faut disposer de puissance pour effectuer un travail actif ",
                 "updated": 1623959646265,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Hoewel minimalistische hardware zoals de Raspberry Pi de Superalgos Client aankan voor zowel gegevens- als handelstaken, zijn sommige misschien te klein voor het werk!",
+                "text": "Hoewel minimalistische hardware zoals de Raspberry Pi de Superalgos Client aankan voor zowel gegevens- als handelstaken, zijn sommige misschien te klein voor het werk",
                 "updated": 1633885810600,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Minimale Rechner wie der Raspberry Pi können mit dem Superalgos-Client umgehen, um Daten- oder Handelsaufgaben auszuführen. Einige Prozesse sind jedoch möglicherweise zu groß für effektives arbeiten!",
+                "text": "Minimale Rechner wie der Raspberry Pi können mit dem Superalgos-Client umgehen, um Daten- oder Handelsaufgaben auszuführen. Einige Prozesse sind jedoch möglicherweise zu groß für effektives arbeiten",
                 "updated": 1634161449946,
                 "style": "Definition"
             },
@@ -59,7 +59,7 @@
             },
             {
                 "language": "TR",
-                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazıları aktif çalışma için çok küçük olabilir!",
+                "text": "Raspberry Pi gibi minimalist donanım, Superalgos İstemcisini ( Client ) hem veri hem de ticaret görevlerini yürütmek için idare edebilirken, bazıları aktif çalışma için çok küçük olabilir",
                 "updated": 1635578710092
             }
         ]

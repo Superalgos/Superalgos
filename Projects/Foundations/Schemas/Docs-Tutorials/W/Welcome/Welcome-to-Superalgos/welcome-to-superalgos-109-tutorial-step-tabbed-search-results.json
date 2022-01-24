@@ -1,5 +1,5 @@
 {
-    "tutorial": "Welcome to Superalgos!",
+    "tutorial": "Welcome to Superalgos",
     "pageNumber": 109,
     "type": "Tutorial Step - Tabbed Search Results",
     "definition": {
@@ -313,34 +313,34 @@
         },
         {
             "style": "List",
-            "text": "Workspace: returns nodes that are present in the active workspace... click to go to them!",
+            "text": "Workspace: returns nodes that are present in the active workspace... click to go to them",
             "updated": 1610713053382,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Workspace: mostra i nodi presenti nel workspace corrente. Clicca per raggungerli!",
+                    "text": "Workspace: mostra i nodi presenti nel workspace corrente. Clicca per raggungerli",
                     "updated": 1618073062614,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "Workspace: devuelve los nodos que están presentes en el espacio de trabajo activo... ¡haz clic para ir ahi!",
+                    "text": "Workspace: devuelve los nodos que están presentes en el espacio de trabajo activo... ¡haz clic para ir ahi",
                     "updated": 1624487240382,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Workspace: zeigt Knoten an, die sich im aktiven Arbeitsbereich befinden... klicken Sie darauf, um zu ihnen zu gelangen!",
+                    "text": "Workspace: zeigt Knoten an, die sich im aktiven Arbeitsbereich befinden... klicken Sie darauf, um zu ihnen zu gelangen",
                     "updated": 1634246504156
                 },
                 {
                     "language": "TR",
-                    "text": "Çalışma Alanı (Workspace): Aktif çalışma alanında bulunan düğümleri döndürür... Onlara gitmek için tıklayın!",
+                    "text": "Çalışma Alanı (Workspace): Aktif çalışma alanında bulunan düğümleri döndürür... Onlara gitmek için tıklayın",
                     "updated": 1636642870169
                 },
                 {
                     "language": "ID",
-                    "text": "Workspace: mengembalikan node yang ada di ruang kerja aktif... klik untuk pergi ke mereka!",
+                    "text": "Workspace: mengembalikan node yang ada di ruang kerja aktif... klik untuk pergi ke mereka",
                     "updated": 1640599896894
                 }
             ]

@@ -3,7 +3,7 @@
     "pageNumber": 3,
     "type": "Tutorial Step - Look around",
     "definition": {
-        "text": "Workspaces can be changed!",
+        "text": "Workspaces can be changed",
         "updated": 1629344688461,
         "icon": {
             "name": "layer",
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Workspaces können angepasst werden!",
+                "text": "Workspaces können angepasst werden",
                 "updated": 1622977673407,
                 "style": "Definition"
             },
@@ -24,22 +24,22 @@
             },
             {
                 "language": "FR",
-                "text": "Les workspaces peuvent être modifiés!",
+                "text": "Les workspaces peuvent être modifiés",
                 "updated": 1630681005766
             },
             {
                 "language": "IT",
-                "text": "I Workspaces si possono adattare!",
+                "text": "I Workspaces si possono adattare",
                 "updated": 1639072897945
             },
             {
                 "language": "TR",
-                "text": "Çalışma alanları ( Workspaces ) değiştirilebilir!",
+                "text": "Çalışma alanları ( Workspaces ) değiştirilebilir",
                 "updated": 1640616032095
             },
             {
                 "language": "RU",
-                "text": "Рабочее пространство можно поменять!",
+                "text": "Рабочее пространство можно поменять",
                 "updated": 1640632880649
             }
         ]
@@ -86,39 +86,39 @@
         },
         {
             "style": "Success",
-            "text": "Have a look around, right click on empty space and explore the Workspace I arranged for you!",
+            "text": "Have a look around, right click on empty space and explore the Workspace I arranged for you",
             "updated": 1629344734628,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schau dich um, klicke mit der rechten Maustaste auf eine leere Fläche und erkunde den Workspace, den ich für dich eingerichtet habe!",
+                    "text": "Schau dich um, klicke mit der rechten Maustaste auf eine leere Fläche und erkunde den Workspace, den ich für dich eingerichtet habe",
                     "updated": 1622977643971,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Echa un vistazo, haga clic derecho en el espacio vacío y explore el Workspace. ¡Lo arreglé para ti!",
+                    "text": "Echa un vistazo, haga clic derecho en el espacio vacío y explore el Workspace. ¡Lo arreglé para ti",
                     "updated": 1629344896872,
                     "style": "Success"
                 },
                 {
                     "language": "FR",
-                    "text": "Jetez un coup d'oeil, cliquez droit sur l'espace vide et explorez le workspace que j'ai arrangé pour vous!",
+                    "text": "Jetez un coup d'oeil, cliquez droit sur l'espace vide et explorez le workspace que j'ai arrangé pour vous",
                     "updated": 1630681234898
                 },
                 {
                     "language": "IT",
-                    "text": "Dai un'occhiata in giro, fai clic con il pulsante destro del mouse sullo spazio vuoto ed esplora il workspace che ho organizzato per te!",
+                    "text": "Dai un'occhiata in giro, fai clic con il pulsante destro del mouse sullo spazio vuoto ed esplora il workspace che ho organizzato per te",
                     "updated": 1639073053751
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Etrafa bir göz atın, boş alana sağ tıklayın ve sizin için düzenlediğim Çalışma Alanını ( Workspace ) keşfedin!",
+                    "text": "İpucu: Etrafa bir göz atın, boş alana sağ tıklayın ve sizin için düzenlediğim Çalışma Alanını ( Workspace ) keşfedin",
                     "updated": 1640616065312
                 },
                 {
                     "language": "RU",
-                    "text": "Осмотритесь, щелкните правой кнопкой мыши на пустом месте и изучите рабочее пространство, которое я организовал для вас!",
+                    "text": "Осмотритесь, щелкните правой кнопкой мыши на пустом месте и изучите рабочее пространство, которое я организовал для вас",
                     "updated": 1640632964362
                 }
             ]

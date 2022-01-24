@@ -24,32 +24,32 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Time to check the context in the 24H time frame!",
+            "text": "Time to check the context in the 24H time frame",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Zeit, den Kontext im 24-Stunden-Zeitrahmen zu überprüfen!",
+                    "text": "Zeit, den Kontext im 24-Stunden-Zeitrahmen zu überprüfen",
                     "updated": 1639418902033
                 },
                 {
                     "language": "TR",
-                    "text": "24 saatlik zaman çerçevesinde içeriği kontrol etme zamanı!",
+                    "text": "24 saatlik zaman çerçevesinde içeriği kontrol etme zamanı",
                     "updated": 1641806131863
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "To me, it looks unclear whether the context is suitable for a swing short or not!",
+            "text": "To me, it looks unclear whether the context is suitable for a swing short or not",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Für mich sieht es unklar aus, ob der Kontext für einen Swing-Short geeignet ist oder nicht!",
+                    "text": "Für mich sieht es unklar aus, ob der Kontext für einen Swing-Short geeignet ist oder nicht",
                     "updated": 1639418908604
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bana göre, bağlamın kısa bir salıncak için uygun olup olmadığı belirsiz görünüyor!",
+                    "text": "Not: Bana göre, bağlamın kısa bir salıncak için uygun olup olmadığı belirsiz görünüyor",
                     "updated": 1641806407569
                 }
             ]

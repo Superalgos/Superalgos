@@ -1,7 +1,7 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 33,
-    "type": "Tutorial Step - Trading System Values!",
+    "type": "Tutorial Step - Trading System Values",
     "definition": {
         "icon": {
             "project": "Foundations",
@@ -30,43 +30,43 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the \"Trading System Values\" layer on, slide your mouse over the chart and check the stop formulas!",
+            "text": "Turn the \"Trading System Values\" layer on, slide your mouse over the chart and check the stop formulas",
             "updated": 1622544977236,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schalten Sie die Ebene \"Trading System Values\" ein, fahren Sie mit der Maus über den Chart und überprüfen Sie die Stop-Formeln!",
+                    "text": "Schalten Sie die Ebene \"Trading System Values\" ein, fahren Sie mit der Maus über den Chart und überprüfen Sie die Stop-Formeln",
                     "updated": 1639145878112
                 },
                 {
                     "language": "RU",
-                    "text": "Включите слой \" Trading System Values\", проведите мышью по графику и проверьте формулы стопов!",
+                    "text": "Включите слой \" Trading System Values\", проведите мышью по графику и проверьте формулы стопов",
                     "updated": 1640631558036
                 },
                 {
                     "language": "TR",
-                    "text": "\"Ticaret Sistemi Değerleri\" katmanını açın, farenizi grafiğin üzerine getirin ve stop formüllerini kontrol edin!",
+                    "text": "\"Ticaret Sistemi Değerleri\" katmanını açın, farenizi grafiğin üzerine getirin ve stop formüllerini kontrol edin",
                     "updated": 1642516652947
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "The common theme among these layers is that they provide on-the-fly information about each node, for each candle!",
+            "text": "The common theme among these layers is that they provide on-the-fly information about each node, for each candle",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Gemeinsamkeit dieser Ebenen ist, dass sie für jede Kerze Informationen über jeden Knoten bereitstellen!",
+                    "text": "Die Gemeinsamkeit dieser Ebenen ist, dass sie für jede Kerze Informationen über jeden Knoten bereitstellen",
                     "updated": 1639145881304
                 },
                 {
                     "language": "RU",
-                    "text": "Общей темой этих слоев является то, что они предоставляют информацию \"на лету\" о каждом узле, для каждой свечи!",
+                    "text": "Общей темой этих слоев является то, что они предоставляют информацию \"на лету\" о каждом узле, для каждой свечи",
                     "updated": 1640631573352
                 },
                 {
                     "language": "TR",
-                    "text": "Bu katmanlar arasındaki ortak tema, her bir mum için her düğüm hakkında anında bilgi sağlamalarıdır!",
+                    "text": "Bu katmanlar arasındaki ortak tema, her bir mum için her düğüm hakkında anında bilgi sağlamalarıdır",
                     "updated": 1642516697201
                 }
             ]

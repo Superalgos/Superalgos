@@ -29,21 +29,21 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Pan the chart to the right and check the period between May 24th and July 16th!",
+            "text": "Pan the chart to the right and check the period between May 24th and July 16th",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schwenken Sie das Diagramm nach rechts und prüfen Sie den Zeitraum zwischen dem 24. Mai und dem 16. Juli!",
+                    "text": "Schwenken Sie das Diagramm nach rechts und prüfen Sie den Zeitraum zwischen dem 24. Mai und dem 16. Juli",
                     "updated": 1639262540419
                 },
                 {
                     "language": "RU",
-                    "text": "Посмотрите на график справа и проверьте период между 24 мая и 16 июля!",
+                    "text": "Посмотрите на график справа и проверьте период между 24 мая и 16 июля",
                     "updated": 1640935552309
                 },
                 {
                     "language": "TR",
-                    "text": "Grafiği sağa kaydırın ve 24 Mayıs ile 16 Temmuz arasındaki dönemi kontrol edin!",
+                    "text": "Grafiği sağa kaydırın ve 24 Mayıs ile 16 Temmuz arasındaki dönemi kontrol edin",
                     "updated": 1641653256138
                 }
             ]
@@ -71,21 +71,21 @@
         },
         {
             "style": "Success",
-            "text": "This is not the ultimate solution to determine the trend!",
+            "text": "This is not the ultimate solution to determine the trend",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies ist nicht die ultimative Lösung, um den Trend zu bestimmen!",
+                    "text": "Dies ist nicht die ultimative Lösung, um den Trend zu bestimmen",
                     "updated": 1639262556947
                 },
                 {
                     "language": "RU",
-                    "text": "Это не окончательное решение для определения тренда!",
+                    "text": "Это не окончательное решение для определения тренда",
                     "updated": 1640935583074
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu, trendi belirlemek için nihai çözüm değil!",
+                    "text": "İpucu: Bu, trendi belirlemek için nihai çözüm değil",
                     "updated": 1641653283826
                 }
             ]

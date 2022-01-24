@@ -3,7 +3,7 @@
     "pageNumber": 2,
     "type": "Tutorial Step - Welcome",
     "definition": {
-        "text": "Let’s build the mother of all trading strategies: The Moving Average Cross!",
+        "text": "Let’s build the mother of all trading strategies: The Moving Average Cross",
         "icon": {
             "name": "tutorial",
             "project": "Foundations"
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Lass uns die Mutter aller Handelsstrategien aufbauen: Die Moving Average Überkreuzung!",
+                "text": "Lass uns die Mutter aller Handelsstrategien aufbauen: Die Moving Average Überkreuzung",
                 "updated": 1622970055812,
                 "style": "Definition"
             },
@@ -24,7 +24,7 @@
             },
             {
                 "language": "FR",
-                "text": "Construisons la mère de toutes les stratégies de trading : Le croisement des moyennes mobiles !",
+                "text": "Construisons la mère de toutes les stratégies de trading : Le croisement des moyennes mobiles ",
                 "updated": 1630680395371
             },
             {
@@ -34,12 +34,12 @@
             },
             {
                 "language": "TR",
-                "text": "Gelin, tüm ticaret stratejilerinin anasını oluşturalım: Hareketli Çapraz Ortalama!",
+                "text": "Gelin, tüm ticaret stratejilerinin anasını oluşturalım: Hareketli Çapraz Ortalama",
                 "updated": 1640615768659
             },
             {
                 "language": "RU",
-                "text": "Давайте построим основную торговую стратегию: пересечение скользящих средних!",
+                "text": "Давайте построим основную торговую стратегию: пересечение скользящих средних",
                 "updated": 1640632690992
             }
         ]
@@ -203,39 +203,39 @@
         },
         {
             "style": "Note",
-            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4h TF, a classic!",
+            "text": "We will build a bot to backtest a strategy based on Simple Moving Average Cross between SMA50 and SMA200 on 4h TF, a classic",
             "updated": 1629342831236,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wir werden einen Bot bauen, der auf eine Simple Moving Average Überkreuzung zwischen SMA50 und SMA200 auf 4h TF(Time Frame) basierende Strategie backtestet, ein Klassiker!",
+                    "text": "Wir werden einen Bot bauen, der auf eine Simple Moving Average Überkreuzung zwischen SMA50 und SMA200 auf 4h TF(Time Frame) basierende Strategie backtestet, ein Klassiker",
                     "updated": 1622980080284,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "Construiremos un bot para probar una estrategia basada en Simple Moving Average Cross entre SMA50 y SMA200 en 4h TF, ¡un clásico!",
+                    "text": "Construiremos un bot para probar una estrategia basada en Simple Moving Average Cross entre SMA50 y SMA200 en 4h TF, ¡un clásico",
                     "updated": 1629343206412,
                     "style": "Note"
                 },
                 {
                     "language": "FR",
-                    "text": "Nous allons construire un bot afin de Backtester une stratégi basée sur le croisement des moyennes mobiles SMA50 et SMA200 sur une période de 4heures, un classique!",
+                    "text": "Nous allons construire un bot afin de Backtester une stratégi basée sur le croisement des moyennes mobiles SMA50 et SMA200 sur une période de 4heures, un classique",
                     "updated": 1630680963598
                 },
                 {
                     "language": "IT",
-                    "text": "Creeremo un bot di trading basato sull'incrocio delle medie mobili SMA50 e SMA200 e faremo un backtest della strategia, un classico!",
+                    "text": "Creeremo un bot di trading basato sull'incrocio delle medie mobili SMA50 e SMA200 e faremo un backtest della strategia, un classico",
                     "updated": 1639072264191
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bir klasik olan 4h TF'de SMA50 ve SMA200 arasındaki Basit Hareketli Ortalama ( Simple Moving Average ) Çaprazına dayalı bir stratejiyi geriye dönük test etmek için bir bot oluşturacağız!",
+                    "text": "Not: Bir klasik olan 4h TF'de SMA50 ve SMA200 arasındaki Basit Hareketli Ortalama ( Simple Moving Average ) Çaprazına dayalı bir stratejiyi geriye dönük test etmek için bir bot oluşturacağız",
                     "updated": 1640615931216
                 },
                 {
                     "language": "RU",
-                    "text": "Мы создадим бота для бэктестинга стратегии, основанной на пересечении простых скользящих средних SMA50 и SMA200 на 4-часовом таймфрейме, классика!",
+                    "text": "Мы создадим бота для бэктестинга стратегии, основанной на пересечении простых скользящих средних SMA50 и SMA200 на 4-часовом таймфрейме, классика",
                     "updated": 1640632859656
                 }
             ]

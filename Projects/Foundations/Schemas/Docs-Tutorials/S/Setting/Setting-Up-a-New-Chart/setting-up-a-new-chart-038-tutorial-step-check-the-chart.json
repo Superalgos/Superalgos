@@ -3,7 +3,7 @@
     "pageNumber": 38,
     "type": "Tutorial Step - Check the Chart",
     "definition": {
-        "text": "At this point everything is all hooked up, hurray! Go ahead and take your shiny new charts for a spin!",
+        "text": "At this point everything is all hooked up, hurray! Go ahead and take your shiny new charts for a spin",
         "updated": 1619024696288,
         "icon": {
             "name": "Charting-Space/chart-points",
@@ -12,22 +12,22 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "En este punto, todo está bien conectado, ¡hurra! ¡Adelante, pruebe sus nuevas y brillantes listas de éxitos!",
+                "text": "En este punto, todo está bien conectado, ¡hurra! ¡Adelante, pruebe sus nuevas y brillantes listas de éxitos",
                 "updated": 1628732255279
             },
             {
                 "language": "RU",
-                "text": "В этот момент все подключено, ура! Давайте, попробуйте покрутить свои новые блестящие графики!",
+                "text": "В этот момент все подключено, ура! Давайте, попробуйте покрутить свои новые блестящие графики",
                 "updated": 1639084268914
             },
             {
                 "language": "DE",
-                "text": "Jetzt ist alles verbunden, hurra! Machen Sie eine Spritztour mit Ihren neuen Charts!",
+                "text": "Jetzt ist alles verbunden, hurra! Machen Sie eine Spritztour mit Ihren neuen Charts",
                 "updated": 1639499974834
             },
             {
                 "language": "TR",
-                "text": "Bu noktada, her şey çok iyi bağlanmış, yaşasın! Devam edin ve parlak yeni çizelgelerinizi deneyin!",
+                "text": "Bu noktada, her şey çok iyi bağlanmış, yaşasın! Devam edin ve parlak yeni çizelgelerinizi deneyin",
                 "updated": 1642881361663
             }
         ]

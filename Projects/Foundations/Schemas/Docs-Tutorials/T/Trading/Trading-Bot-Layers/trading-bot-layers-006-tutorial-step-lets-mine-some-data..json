@@ -1,28 +1,28 @@
 {
     "tutorial": "Trading Bot Layers",
     "pageNumber": 6,
-    "type": "Tutorial Step - Let's Mine Some Data.....!",
+    "type": "Tutorial Step - Let's Mine Some Data.....",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "run"
         },
-        "text": "Now that you understand the implications of running this data mining operation, let's get on with it!",
+        "text": "Now that you understand the implications of running this data mining operation, let's get on with it",
         "translations": [
             {
                 "language": "DE",
-                "text": "Jetzt, da du die Auswirkungen der Ausführung dieser Data-Mining-Operation verstanden hast, lass uns loslegen!",
+                "text": "Jetzt, da du die Auswirkungen der Ausführung dieser Data-Mining-Operation verstanden hast, lass uns loslegen",
                 "updated": 1623012038673,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда вы понимаете значения операции по добыче данных, давайте приступим к делу!",
+                "text": "Теперь, когда вы понимаете значения операции по добыче данных, давайте приступим к делу",
                 "updated": 1640545023576
             },
             {
                 "language": "TR",
-                "text": "Artık veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım!",
+                "text": "Artık veri madenciliği işlemini yürütmenin sonuçlarını anladığınıza göre, başlayalım",
                 "updated": 1641752883733
             }
         ]
@@ -30,46 +30,46 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Select \"Run All Project Data Tasks\" on the Data Tasks node menu!",
+            "text": "Select \"Run All Project Data Tasks\" on the Data Tasks node menu",
             "updated": 1622540506392,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wähle \"Run All Project Data Tasks\" im \"Data Tasks\" Knotenmenü!",
+                    "text": "Wähle \"Run All Project Data Tasks\" im \"Data Tasks\" Knotenmenü",
                     "updated": 1623012059116,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Выберите пункт \"Run All Project Data Tasks\" в меню узла Data Tasks!",
+                    "text": "Выберите пункт \"Run All Project Data Tasks\" в меню узла Data Tasks",
                     "updated": 1640545061717
                 },
                 {
                     "language": "TR",
-                    "text": "Data Tasks düğümünün menüsünde \"Tüm Proje Veri Görevlerini Çalıştır\"ı (Run All Project Data Tasks) seçin!",
+                    "text": "Data Tasks düğümünün menüsünde \"Tüm Proje Veri Görevlerini Çalıştır\"ı (Run All Project Data Tasks) seçin",
                     "updated": 1641753045485
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "If you are doing this tutorial after doing the Getting Started tutorials, chances are you may already have part of the data required, which may make things faster!",
+            "text": "If you are doing this tutorial after doing the Getting Started tutorials, chances are you may already have part of the data required, which may make things faster",
             "updated": 1622540530483,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn du dieses Tutorial nach dem Tutorial \"Erste Schritte\" durchführst, besteht die Möglichkeit, dass du bereits einen Teil der benötigten Daten hast, was die Sache beschleunigen kann!",
+                    "text": "Wenn du dieses Tutorial nach dem Tutorial \"Erste Schritte\" durchführst, besteht die Möglichkeit, dass du bereits einen Teil der benötigten Daten hast, was die Sache beschleunigen kann",
                     "updated": 1623012091678,
                     "style": "Note"
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы проходите этот урок после изучения учебника Getting Started, то, скорее всего, у вас уже есть часть необходимых данных, что может ускорить процесс!",
+                    "text": "Если вы проходите этот урок после изучения учебника Getting Started, то, скорее всего, у вас уже есть часть необходимых данных, что может ускорить процесс",
                     "updated": 1640545123676
                 },
                 {
                     "language": "TR",
-                    "text": "Bu öğreticiyi Başlerken öğreticilerini (Getting Started Tutorial) yaptıktan sonra yapıyorsanız, gereken bilgilerin bir kısmına zaten sahip olabilirsiniz ve bu da işleri daha hızlı hale getirebilir!",
+                    "text": "Bu öğreticiyi Başlerken öğreticilerini (Getting Started Tutorial) yaptıktan sonra yapıyorsanız, gereken bilgilerin bir kısmına zaten sahip olabilirsiniz ve bu da işleri daha hızlı hale getirebilir",
                     "updated": 1641753477214
                 }
             ]

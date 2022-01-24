@@ -1,27 +1,27 @@
 {
     "tutorial": "Testing a Trading Idea - The Trigger Stage",
     "pageNumber": 30,
-    "type": "Tutorial Step - Separate Situations!",
+    "type": "Tutorial Step - Separate Situations",
     "definition": {
         "icon": {
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "Think of it in this way: we have identified two different market situations that would invalidate this idea!",
+        "text": "Think of it in this way: we have identified two different market situations that would invalidate this idea",
         "translations": [
             {
                 "language": "DE",
-                "text": "Stellen Sie es sich so vor: Wir haben zwei verschiedene Marktsituationen identifiziert, die diese Idee entkräften würden!",
+                "text": "Stellen Sie es sich so vor: Wir haben zwei verschiedene Marktsituationen identifiziert, die diese Idee entkräften würden",
                 "updated": 1639265844556
             },
             {
                 "language": "RU",
-                "text": "Подумайте об этом так: мы выявили две различные ситуации на рынке, которые бы опровергли эту идею!",
+                "text": "Подумайте об этом так: мы выявили две различные ситуации на рынке, которые бы опровергли эту идею",
                 "updated": 1640944912603
             },
             {
                 "language": "TR",
-                "text": "Bunu şu şekilde düşünün: Bu fikri geçersiz kılacak iki farklı piyasa durumu belirledik!",
+                "text": "Bunu şu şekilde düşünün: Bu fikri geçersiz kılacak iki farklı piyasa durumu belirledik",
                 "updated": 1641654716343
             }
         ]
@@ -29,22 +29,22 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "We will set up each condition in separate situation!",
+            "text": "We will set up each condition in separate situation",
             "updated": 1610470622189,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wir werden jede Bedingung in einer separaten Situation einrichten!",
+                    "text": "Wir werden jede Bedingung in einer separaten Situation einrichten",
                     "updated": 1639265851505
                 },
                 {
                     "language": "RU",
-                    "text": "Мы установим каждое условие в отдельной ситуации!",
+                    "text": "Мы установим каждое условие в отдельной ситуации",
                     "updated": 1640944924998
                 },
                 {
                     "language": "TR",
-                    "text": "Her koşulu farklı durumda ayarlayacağız!",
+                    "text": "Her koşulu farklı durumda ayarlayacağız",
                     "updated": 1641654763863
                 }
             ]

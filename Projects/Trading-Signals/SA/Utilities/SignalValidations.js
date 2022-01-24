@@ -6,13 +6,14 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
 
     return thisObject
 
-    function validateSignatures(signal) {
+    function validateSignatures(messageHeader) {
+
         let web3 = new SA.nodeModules.web3()
         /*
         We check that the entities sending the Signal belong to some User Profile,
         by extracting the blockchain accounts of the signatures.
         */
-        let socialTradingBotBLockchainAccount = web3.eth.accounts.recover(signal.signature)
+        let socialTradingBotBLockchainAccount = web3.eth.accounts.recover(messageHeader.signature)
 
         if (socialTradingBotBLockchainAccount === undefined) {
             let response = {
@@ -32,9 +33,9 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
         /*
         Validate that the Signed Message is the same as the Signal received.
         */
-        let signedMessage = JSON.stringify(signal.fileKey)
+        let signedMessage = messageHeader.signalMessage
         if (
-            signedMessage !== signal.signature.message 
+            signedMessage !== messageHeader.signature.message
         ) {
             let response = {
                 result: 'Error',
@@ -43,13 +44,13 @@ exports.newTradingSignalsUtilitiesSignalValidations = function () {
             return response
         }
         /*
-        We will verify that the signatures belongs to the signal contained at the message.
+        We will verify that the signatures belongs to the signalMessage contained at the message.
         To do this we will hash the signature.message and see if we get 
         the same hash of the signature.
         */
         let hash = web3.eth.accounts.hashMessage(signedMessage)
         if (
-            hash !== signal.signature.messageHash 
+            hash !== messageHeader.signature.messageHash
         ) {
             let response = {
                 result: 'Error',

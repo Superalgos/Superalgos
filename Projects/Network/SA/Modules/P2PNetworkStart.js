@@ -136,7 +136,7 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         }
     }
 
-    async function sendMessage(message, networkService) {
+    async function sendMessage(message) {
 
         let userApp = thisObject.p2pNetworkClientIdentity
         if (userApp === undefined) { return }
@@ -146,20 +146,21 @@ exports.newNetworkModulesP2PNetworkStart = function newNetworkModulesP2PNetworkS
         let userAppCategory = userApp.node.parentNode
         if (userAppCategory === undefined) { return }
 
-        let signature = await web3.eth.accounts.sign(JSON.stringify(userApp.node.id), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
+        let payload = JSON.stringify(message)
+        let signature = await web3.eth.accounts.sign(JSON.stringify(payload), SA.secrets.signingAccountSecrets.map.get(userAppCodeName).privateKey)
 
         let messageHeader = {
-            networkService: networkService,
+            networkService: message.networkService,
             userApp: {
                 categoryType: userAppCategory.type,
                 appType: userApp.node.type,
                 appId: userApp.node.id
             },
             signature: signature,
-            payload: JSON.stringify(message)
+            payload: payload
         }
 
-        let peers = peersMap.get(networkService)
+        let peers = peersMap.get(messageHeader.networkService)
         /*
         This function will send the messageHeader from a random picked network node
         selected from the array of already verified online peers.

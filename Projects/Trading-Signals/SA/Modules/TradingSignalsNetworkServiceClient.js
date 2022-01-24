@@ -58,7 +58,7 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
                 }
                 if (signalMessage.originSocialTradingBotId !== undefined) {
                     let socialEntityId = signalMessage.originSocialTradingBotId
-                    socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+                    socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
                 }
                 /*
                 Some Validations
@@ -89,7 +89,7 @@ exports.newTradingSignalsModulesTradingSignalsNetworkServiceClient = function ne
                 let response = {
                     result: 'Ok',
                     message: 'Signal Processed.',
-                    data: await thisObject.tradingSignalsNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader), "Trading Signals")
+                    data: await thisObject.tradingSignalsNetworkServiceProxy.sendMessage(messageHeader)
                 }
                 return response
             }

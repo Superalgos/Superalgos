@@ -811,7 +811,7 @@ function newWorkspace() {
             }
 
             thisObject.workspaceNode.rootNodes.push(droppedNode)
-            executeAction({ node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
+            executeAction({ isInternal: false, node: droppedNode, name: 'Create UI Object', project: 'Visual-Scripting', extraParameter: positionOffset })
             executeAction({ name: 'Connect Children to Reference Parents', project: 'Visual-Scripting' })
 
             // Recreate autocomplete models

@@ -121,7 +121,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
             that still can change. So effectively will be processing all closed candles.
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
-                if (i === 3) { i = 1436 }
+
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
                     tradingEngine.tradingCurrent.tradingEpisode.candle,

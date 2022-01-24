@@ -39,7 +39,7 @@ exports.newTradingSignalsModulesClientInterface = function newTradingSignalsModu
         At this point we have a new signal that have come directly from the broadcaster.
         We will run some validations on it before forwarding it to other P2P Network Nodes or recipients.
         */
-        let response = SA.projects.tradingSignals.utilities.signalValidations.validateSignatures(messageHeader)
+        let response = SA.projects.tradingSignals.utilities.signalSignatureValidations.validateSignatures(messageHeader)
 
         switch (messageHeader.requestType) {
             case 'Signal': {

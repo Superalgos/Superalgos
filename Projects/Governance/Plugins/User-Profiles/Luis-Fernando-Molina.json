@@ -7543,7 +7543,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": false,
+                "isCollapsed": true,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -7978,8 +7978,8 @@
                     "id": "e8d097d3-6e89-43c4-a8aa-906e069d4ea4",
                     "savedPayload": {
                         "position": {
-                            "x": 37052.090217757315,
-                            "y": 18516.22225211328
+                            "x": 36738.28259662198,
+                            "y": 18660.22225211328
                         },
                         "targetPosition": {
                             "x": 36998.090217757315,
@@ -8156,8 +8156,8 @@
                     "id": "1d37b476-2150-4a7a-806f-f1881200008d",
                     "savedPayload": {
                         "position": {
-                            "x": 37126.22225211328,
-                            "y": 18373.090217757315
+                            "x": 36950.414630977946,
+                            "y": 18148.090217757315
                         },
                         "targetPosition": {
                             "x": 37210.22225211328,
@@ -8311,7 +8311,7 @@
                     "floatingObject": {
                         "isPinned": false,
                         "isFrozen": false,
-                        "isCollapsed": false,
+                        "isCollapsed": true,
                         "angleToParent": 2,
                         "distanceToParent": 3,
                         "arrangementStyle": 0
@@ -8335,7 +8335,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8354,7 +8354,7 @@
             {
                 "type": "Permissioned P2P Network",
                 "name": "New Permissioned P2P Network",
-                "config": "{ \n\"codeName\": \"\"\n}",
+                "config": "{\n    \"codeName\": \"\"\n}",
                 "project": "Network",
                 "permissionGroups": [
                     {
@@ -8454,7 +8454,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0
@@ -8596,7 +8596,7 @@
             "floatingObject": {
                 "isPinned": false,
                 "isFrozen": false,
-                "isCollapsed": true,
+                "isCollapsed": false,
                 "angleToParent": 1,
                 "distanceToParent": 3,
                 "arrangementStyle": 0

@@ -49,6 +49,7 @@ exports.newTradingSignalsModulesOutgoingCandleSignals = function (processIndex) 
         if (socialTradingBot.signingAccount === undefined) { return }
 
         let signalMessage = {
+            signalId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(), 
             originSocialTradingBotId: socialTradingBot.id,
             fileKey: fileKey
         }

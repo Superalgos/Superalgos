@@ -2130,6 +2130,14 @@
             ]
         },
         "SA": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newTradingSignalsGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
             "modules": [
                 {
                     "name": "P2P Network Interface",
@@ -2146,10 +2154,10 @@
             ],
             "utilities": [
                 {
-                    "name": "Signal Validations",
-                    "propertyName": "signalValidations",
-                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
-                    "fileName": "SignalValidations.js"
+                    "name": "Signal Signature Validations",
+                    "propertyName": "signalSignatureValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalSignatureValidations",
+                    "fileName": "SignalSignatureValidations.js"
                 }
             ]
         }

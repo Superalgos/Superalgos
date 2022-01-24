@@ -1,4 +1,4 @@
-exports.newTradingSignalsUtilitiesSignalValidations = function () {
+exports.newTradingSignalsUtilitiesSignalSignatureValidations = function () {
 
     let thisObject = {
         validateSignatures: validateSignatures

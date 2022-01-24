@@ -81,57 +81,6 @@
         },
         {
             "style": "Title",
-            "text": "Learn How the Docs Work",
-            "updated": 1613811876102,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Узнайте, как работают Документы",
-                    "updated": 1637942671745
-                },
-                {
-                    "language": "DE",
-                    "text": "Erfahren Sie, wie die Docs funktionieren",
-                    "updated": 1642541399323
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!",
-            "updated": 1613827243519,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Вы, вероятно, имеете представление о том, как работать с документацией, после использования приложения и выполнения первых нескольких руководств. Если вы намерены вносить случайные мелкие исправления на существующие страницы, вы знаете достаточно, чтобы начать вносить свой вклад!",
-                    "updated": 1637942790124
-                },
-                {
-                    "language": "DE",
-                    "text": "Sie haben wahrscheinlich eine Vorstellung davon, wie die Docs funktionieren, weil Sie die App benutzen und die ersten paar Tutorials machen. Wenn Sie vorhaben, gelegentlich kleine Korrekturen an bestehenden Seiten vorzunehmen, wissen Sie wahrscheinlich genug, um einen Beitrag zu leisten (contributing)!",
-                    "updated": 1642541436113
-                }
-            ]
-        },
-        {
-            "style": "Text",
-            "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should read The Docs Explained book.",
-            "updated": 1613819297682,
-            "translations": [
-                {
-                    "language": "RU",
-                    "text": "Однако, если вы хотите заняться документированием новых функций, реорганизацией тем, систематизацией книг и т. д., вам следует прочитать книгу The Docs Explained.",
-                    "updated": 1637942922140
-                },
-                {
-                    "language": "DE",
-                    "text": "Wenn Sie sich jedoch mit der Dokumentation neuer Funktionen, der Neuorganisation von Themen, der Anordnung von Büchern usw. befassen möchten, sollten Sie das Buch \" The Docs Explained \" lesen.",
-                    "updated": 1642541475520
-                }
-            ]
-        },
-        {
-            "style": "Title",
             "text": "Logistics and Best Practice",
             "updated": 1613817330818,
             "translations": [
@@ -265,6 +214,20 @@
                     "updated": 1642542132582
                 }
             ]
+        },
+        {
+            "style": "Title",
+            "text": "Learn All About the Docs and the Art of Documenting",
+            "updated": 1642956868092
+        },
+        {
+            "style": "Text",
+            "text": "You probably have an idea of how the Docs work from using the app and doing the first few tutorials. If you intend to contribute the occasional small fixes on existing pages, you probably know enough to start contributing!"
+        },
+        {
+            "style": "Callout",
+            "text": "However, if you wish to get involved in documenting new functionality, reorganizing topics, arranging books, and so on, you should definitely read The Docs Explained book. Pay special attention to the last chapter: The Art of Documenting.",
+            "updated": 1642956969472
         },
         {
             "style": "Text",

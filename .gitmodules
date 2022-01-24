@@ -19,3 +19,6 @@
 [submodule "Plugins/Foundations"]
 	path = Plugins/Foundations
 	url = https://github.com/Superalgos/Foundations-Plugins.git
+[submodule "Plugins/Data-Mining"]
+	path = Plugins/Data-Mining
+	url = https://github.com/Superalgos/Data-Mining-Plugins.git

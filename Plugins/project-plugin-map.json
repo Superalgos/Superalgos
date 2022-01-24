@@ -26,5 +26,9 @@
   "Machine-Learning": {
      "dir": "Machine-Learning",
      "repo": "Machine-Learning-Plugins"
+   },
+  "Data-Mining": {
+     "dir": "Data-Mining",
+     "repo": "Data-Mining-Plugins"
    }
 }

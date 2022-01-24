@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Özet: Tanımsız \"direction\" özelliği okunamıyor. Bütün bunlar neyle ilgili?",
                 "updated": 1641660813443
+            },
+            {
+                "language": "RU",
+                "text": "Не удается прочитать свойство \"direction\" из undefined. Что это значит?",
+                "updated": 1642657452627
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Bu, bir hata mesajını açmak ve ne hakkında olduğunu anlamak için doğru prosedürdür:",
                     "updated": 1641660828758
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот правильная процедура, позволяющая разобрать сообщение об ошибке и понять, о чем оно:",
+                    "updated": 1642657538082
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Hatanın ne zaman oluştuğunu biliyorsan: Bunu not et, çünkü hata sadece oluştuğu mumla ilgilidir",
                     "updated": 1641660848667
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы знаете, когда произошла ошибка: имейте это в виду, поскольку ошибка связана исключительно со свечой, на которой она произошла!",
+                    "updated": 1642657559780
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "TR",
                     "text": "Hangi düğümün hataya neden olduğunu biliyorsan: Hataya neden olan, muhtemelen düğümdeki tanımdır, ya ilişkili Javascript kod ( Javascript Code ) düğümünün kodunda, yada formül ( Formula ) yapılandırmasında.",
                     "updated": 1641660904827
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы знаете, какой узел вызвал ошибку: скорее всего, это определение в узле, который вызвал ошибку, либо в коде связанного узла Javascript Code, либо в Formula, либо в конфигурации.",
+                    "updated": 1642657600623
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "TR",
                     "text": "Hata mesajını biliyorsan: Dikkatlice okuyun ve önceki iki ipucuyla bağlantı kurun",
                     "updated": 1641660940687
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы знаете сообщение об ошибке: прочитайте его внимательно и установите связь с двумя предыдущими подсказками!",
+                    "updated": 1642657620714
                 }
             ]
         }

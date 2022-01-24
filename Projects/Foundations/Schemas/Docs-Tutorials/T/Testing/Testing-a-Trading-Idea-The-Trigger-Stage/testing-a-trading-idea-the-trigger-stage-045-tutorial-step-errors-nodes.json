@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Özet: Hata topuna tekrar dokunun ve tasarım alanının hata ile en çok ilgisi olan düğüme nasıl yeniden konumlandığını fark edin; bu durum bir koşul ( Condition ) düğümü. Bu önemli bir bilgi",
                 "updated": 1641660658243
+            },
+            {
+                "language": "RU",
+                "text": "Снова коснитесь символа ошибки и обратите внимание, как пространство проектирования переместится в узел, наиболее связанный с ошибкой, в данном случае это узел Condition. Это очень важная информация!",
+                "updated": 1642657243264
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "TR",
                     "text": "Not: Durum ( Condition Node ) Düğümünü kontrol edin",
                     "updated": 1641660677597
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте этот узел!",
+                    "updated": 1642657276531
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Şimdiye kadar aşağıdaki konularda iyi bilgilere sahibiz:",
                     "updated": 1641660690874
+                },
+                {
+                    "language": "RU",
+                    "text": "На данный момент мы получили отличную информацию о следующем:",
+                    "updated": 1642657323025
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "hata oluştuğunda;",
                     "updated": 1641660714467
+                },
+                {
+                    "language": "RU",
+                    "text": "когда произошла ошибка;",
+                    "updated": 1642657334521
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "TR",
                     "text": "hata nedir;",
                     "updated": 1641660726955
+                },
+                {
+                    "language": "RU",
+                    "text": "в чем заключается ошибка;",
+                    "updated": 1642657345700
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "ve nerede ortaya çıktı",
                     "updated": 1641660735809
+                },
+                {
+                    "language": "RU",
+                    "text": "и где это произошло!",
+                    "updated": 1642657356250
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "TR",
                     "text": "Bulmacanın tüm parçaları elimizde gibi görünüyor! Şimdi kanıtları analiz etmek için birkaç dakika ayıralım",
                     "updated": 1641660747606
+                },
+                {
+                    "language": "RU",
+                    "text": "Кажется, что у нас есть все кусочки головоломки! Давайте потратим несколько минут на анализ улик!",
+                    "updated": 1642657375243
                 }
             ]
         }

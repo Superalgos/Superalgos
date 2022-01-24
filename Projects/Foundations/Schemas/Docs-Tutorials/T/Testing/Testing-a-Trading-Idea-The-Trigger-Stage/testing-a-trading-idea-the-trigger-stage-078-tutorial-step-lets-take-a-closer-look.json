@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Nasıl çalıştığını anlayabilmeniz ve grafikte gördüğümüz her şeyi açmak için birkaç dakikanızı ayıracağız",
                 "updated": 1641665982894
+            },
+            {
+                "language": "RU",
+                "text": "Мы уделим несколько минут разбору всего, что мы видим на графике, чтобы вы могли полностью понять, как это работает!",
+                "updated": 1642663832076
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Stratejinin art arda beş kez arka arkaya beş mumda tetiklenip kapatılmış olması şu anlama gelmelidir:",
                     "updated": 1641665993012
+                },
+                {
+                    "language": "RU",
+                    "text": "Тот факт, что стратегия срабатывает и закрывается пять раз подряд на пяти последовательных свечах, должен означать следующее:",
+                    "updated": 1642663847703
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Tetikleme Olayı ( Trigger On Event olayı ) bu mumların her biri için geçerlidir.",
                     "updated": 1641666005462
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие Trigger On Event принимает значение true на каждой из этих свечей.",
+                    "updated": 1642663879779
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Pozisyon Al Etkinliği ( Take Position Event ) bu mumların her biri için de geçerlidir",
                     "updated": 1641666021826
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие Take Position Event также соответствует true на каждой из этих свечей!",
+                    "updated": 1642663935798
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "İpucu: Aynı zamanda stratejinin aynı mum üzerinde tetikleneceği ve pozisyonu alacağı anlamına gelir! Şimdi tüm bunların doğru olup olmadığını kontrol edelim",
                     "updated": 1641666038197
+                },
+                {
+                    "language": "RU",
+                    "text": "Это также означает, что стратегия срабатывает и занимает позицию на одной и той же свече! Давайте проверим, так ли это!",
+                    "updated": 1642663962302
                 }
             ]
         }

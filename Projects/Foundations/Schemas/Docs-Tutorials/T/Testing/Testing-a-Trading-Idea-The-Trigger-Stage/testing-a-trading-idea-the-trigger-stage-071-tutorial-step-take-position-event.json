@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Pozisyon alma olayını (take position event) kısaca gözden geçirelim ve ardından ortaya çıkan sorunla ilgilenelim: Hatalarımız var",
                 "updated": 1641664867597
+            },
+            {
+                "language": "RU",
+                "text": "Давайте проведем быструю проверку события Take Position Event, а затем обратимся к слону в комнате: у нас есть ошибки!",
+                "updated": 1642662586685
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Pozisyon alma olayının (take position event) veya tetikleme olayının (trigger off event ) doğru olduğu onaylanırsa tetik aşamasının kapanacağını daha önce belirtmiştik.",
                     "updated": 1641664878623
+                },
+                {
+                    "language": "RU",
+                    "text": "Ранее мы упоминали, что когда либо событие взятия позиции, либо событие срабатывания триггера становится true, триггерный этап (Trigger Stage) закрывается.",
+                    "updated": 1642662680696
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Pekala, Tetik Aşamasının ( Trigger Stage ) 28 Şubat sabahı saat 9'da kapandığını görebiliriz ... alt bandın altında art arda iki saatlik kapanış fiyatından hemen sonra! Çok uzak çok iyi",
                     "updated": 1641664892452
+                },
+                {
+                    "language": "RU",
+                    "text": "Ну, мы видим закрытие Trigger Stage 28 февраля, в 9 часов... сразу после двух последовательных закрытий ниже нижней полосы! Пока все хорошо!",
+                    "updated": 1642662737314
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Uyarı: Ancak hatalar hemen ardından ortaya çıkıyor! burada neler olduğunu bulabilir misin",
                     "updated": 1641664903289
+                },
+                {
+                    "language": "RU",
+                    "text": "Но сразу после этого у нас возникают ошибки! Вы можете выяснить, что происходит?",
+                    "updated": 1642662753145
                 }
             ]
         }

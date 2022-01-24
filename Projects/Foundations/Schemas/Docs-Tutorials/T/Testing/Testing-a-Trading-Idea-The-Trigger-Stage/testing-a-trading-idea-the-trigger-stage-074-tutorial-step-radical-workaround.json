@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Aç, Kapat ve Yönet Aşamasındaki tanımlar bu serideki bir sonraki öğreticinin konusudur",
                 "updated": 1641665191783
+            },
+            {
+                "language": "RU",
+                "text": "Определения на этапах открытия, закрытия и управления являются темой следующего урока в этой серии!",
+                "updated": 1642663077052
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Tetikleme Aşamasının ( Trigger Stage ) genel görünümünü tamamlamak için, Test Edilen zaman aralığının geri kalanında pozisyon Al Etkinliğinin ( Take Position Event ) nasıl çalıştığını görebilmek istiyoruz. Radikal bir geçici çözüme gideceğiz",
                     "updated": 1641665208662
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы завершить обзор Trigger Stage, мы хотим увидеть, как работает событие Take Position Event на остальной части протестированного временного диапазона. Мы собираемся пойти на радикальный обходной путь!",
+                    "updated": 1642663101653
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Aç, Kapat ve Yönet Aşamalarını Silin! Menüdeki Sil düğmesini kullanın",
                     "updated": 1641665220853
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите этапы открытия, закрытия и управления! Используйте кнопку Delete в меню!",
+                    "updated": 1642663123522
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "TR",
                     "text": "Pozisyon alma olayı ( Take Position Event ) true olarak ilan edilirse ve ticaret botu açık aşamanın ( Open Stage ) tanımlarını okumaya çalışırsa, stratejinin geri kalanının tanımsız olduğunu anlayacak ve stratejiyi kapatacaktır.",
                     "updated": 1641665232509
+                },
+                {
+                    "language": "RU",
+                    "text": "Таким образом, когда событие Take Position Event станет true и торговый бот попытается прочитать определения этапа Open Stage, он поймет, что остальная часть стратегии не определена, и закроет стратегию.",
+                    "updated": 1642663166200
                 }
             ]
         }

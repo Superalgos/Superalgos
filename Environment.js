@@ -29,6 +29,7 @@ exports.newEnvironment = function () {
         PATH_TO_DEFAULT_WORKSPACE: path.join(basePath, './Projects/Foundations/Plugins/Workspaces'),
         PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
         PATH_TO_SECRETS: path.join(basePath, './My-Secrets'),
+        PATH_TO_MY_SOCIAL_TRADING_DATA: path.join(basePath, './My-Social-Trading-Data'),
         PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
         DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
         DESKTOP_APP_MAX_OUTGOING_PEERS: 1,

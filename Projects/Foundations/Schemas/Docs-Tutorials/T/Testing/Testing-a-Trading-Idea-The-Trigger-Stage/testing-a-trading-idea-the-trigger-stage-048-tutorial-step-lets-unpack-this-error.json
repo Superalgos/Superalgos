@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Özet: Hata, koşullarımızdan biriyle ilişkili. Hata ayrıntıları açıkça kullandığımız Javascript Kodunu ( Javascript Code ) işaret ediyor",
                 "updated": 1641661632347
+            },
+            {
+                "language": "RU",
+                "text": "Ошибка связана с одним из наших условий. Детали ошибки четко указывают на код Javascript, который мы использовали!",
+                "updated": 1642657652939
             }
         ]
     },
@@ -42,6 +47,11 @@
                     "language": "TR",
                     "text": "Hata, \"tanımsız\" olan bir nesnenin yön özelliğinin okunamayacağını belirtiyor.",
                     "updated": 1641661657737
+                },
+                {
+                    "language": "RU",
+                    "text": "Ошибка говорит, что свойство direction объекта, который является \"undefined\", не может быть прочитано.",
+                    "updated": 1642657681511
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "TR",
                     "text": "Hatanın ilişkili olduğu nesne bollingerSubChannel ürünüdür. Bu nesne \\\"tanımsız\\\". Peki neden? Bulmacanın son bir parçası daha var: hata veri kümesinin başında oluşuyor. Sorunu anladın mı?",
                     "updated": 1641661675751
+                },
+                {
+                    "language": "RU",
+                    "text": "Объектом, на который ссылается ошибка, является продукт bollingerSubChannel. Этот объект не определен. Почему? Остался последний кусочек головоломки: ошибка происходит в начале набора данных. Вы видите проблему?",
+                    "updated": 1642657734402
                 }
             ]
         }

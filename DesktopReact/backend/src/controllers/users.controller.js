@@ -27,12 +27,26 @@ const paginateProfiles = async (req, res) => {
   }).catch(error =>{ res.send(error)})
 }
 
+const loadProfile = async (req, res) => {
+  const result = await userService.loadProfile(req.query.socialPersonaId);
+  res.send(result);
+};
+
+
+const saveProfile = async (req, res) => {
+  const result = await userService.saveProfile(req.body);
+  res.send(result);
+};
+
+
 module.exports = {
   getProfiles,
   follow,
   paginateProfiles,
   editProfile,
-  getProfile
+  getProfile,
+  loadProfile,
+  saveProfile
 };
 
 

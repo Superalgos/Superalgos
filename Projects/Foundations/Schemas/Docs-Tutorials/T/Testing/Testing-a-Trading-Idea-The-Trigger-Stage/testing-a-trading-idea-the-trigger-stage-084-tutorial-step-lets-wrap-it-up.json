@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Tetikleme Aşamasının ( Trigger Stage ) temellerini ve inceliklerinin çoğunu ele aldık, ancak ticaret fikri henüz test edilmedi",
                 "updated": 1641666314982
+            },
+            {
+                "language": "RU",
+                "text": "Мы рассмотрели основы и многие нюансы этапа Trigger Stage, но торговая идея еще не протестирована!",
+                "updated": 1642664768097
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Az önce oynadığımız bu küçük spekülasyon oyunu tam da bu ... bir oyun! Ticaret fikri testini tamamlamak için geri kalan aşamaları derinlemesine incelememiz gerekiyor",
                     "updated": 1641666324941
+                },
+                {
+                    "language": "RU",
+                    "text": "Эта небольшая спекулятивная игра, в которую мы только что играли, является всего лишь... игрой! Чтобы завершить проверку торговой идеи, нам придется глубоко погрузиться в остальные этапы!",
+                    "updated": 1642664789741
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Ve bu, bir sonraki eğitimin konusu",
                     "updated": 1641666333274
+                },
+                {
+                    "language": "RU",
+                    "text": "И это тема следующего урока!",
+                    "updated": 1642664802254
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "İpucu: Devam etmeye hazırsanız, bu öğreticiyi kapatmak için İleri'ye tıklayın ve sağdaki Oynat'ı seçin",
                     "updated": 1641666343092
+                },
+                {
+                    "language": "RU",
+                    "text": "Если вы готовы продолжить, нажмите кнопку Next, чтобы закрыть этот урок, и выберите Play на странице справа!",
+                    "updated": 1642664834123
                 }
             ]
         }

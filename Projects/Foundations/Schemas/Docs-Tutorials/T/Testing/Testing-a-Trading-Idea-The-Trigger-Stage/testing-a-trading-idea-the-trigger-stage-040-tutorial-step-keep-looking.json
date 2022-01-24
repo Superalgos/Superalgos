@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu görsel kontrol, simülasyonda gördüğünüz noktalar ile oluşturduğunuz tanımlar arasında zihinsel olarak bağlantı kurmanıza yardımcı olacaktır",
                 "updated": 1641656548038
+            },
+            {
+                "language": "RU",
+                "text": "Этот визуальный контроль поможет вам мысленно соединить то, что вы видите на симуляции, с определениями, которые вы создаете!",
+                "updated": 1642655717341
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Stratejinin tetikleyici olayını (trigger off event) ve deneme süresi boyunca meydana gelen diğer tetikleyicileri araştırmak için birkaç dakika daha ayırın.",
                     "updated": 1641656559167
+                },
+                {
+                    "language": "RU",
+                    "text": "Потратьте еще несколько минут на изучение события выключения стратегии, а также остальных триггеров, возникающих в течение тестируемого периода.",
+                    "updated": 1642655740692
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Not: Olayların ancak belirli bir durumdaki tüm koşullar yerine getirildiğinde tetiklendiğini ve koşulların yalnızca kapalı mumlar aracılığıyla değerlendirildiğini içselleştirmek için biraz zaman ayırın",
                     "updated": 1641656570038
+                },
+                {
+                    "language": "RU",
+                    "text": "Уделите время тому, чтобы усвоить тот факт, что события наступают только после выполнения всех условий в данной ситуации, и что условия оцениваются только по закрытым свечам!",
+                    "updated": 1642655768655
                 }
             ]
         }

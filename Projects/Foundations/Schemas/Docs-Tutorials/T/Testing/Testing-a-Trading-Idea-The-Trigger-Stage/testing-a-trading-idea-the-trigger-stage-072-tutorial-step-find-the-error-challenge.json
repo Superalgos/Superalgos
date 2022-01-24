@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Özet: Sorunun ne olduğunu buldunuz mu? Sorun Ne? Kontrol etmedin mi? Hatalı düğümü bulabilmeniz için ekranı böldüm",
                 "updated": 1641664973982
+            },
+            {
+                "language": "RU",
+                "text": "Вы разобрались в ошибке? Что? Вы не посмотрели? Я просто разделил экран, чтобы вы тоже могли найти ошибочный узел!",
+                "updated": 1642662780644
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "TR",
                     "text": "Ticaret Sistem Hataları\"(Trading System Errors) seviyesi açıldı! Devam edin ve hatanın ne olduğunu araştırın",
                     "updated": 1641664990015
+                },
+                {
+                    "language": "RU",
+                    "text": "Слой \"Trading System Errors\" включен! Пройдите вперед и выясните, в чем заключается ошибка!",
+                    "updated": 1642662833332
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "TR",
                     "text": "İpucu: Unutmayın ... tüm yapmanız gereken çizelgedeki ilk hatayı işaret etmek, hatanın açıklamasını okumak, tasarım alanında hatalı düğümü işaretleyen kırmızı halkayı bulmak ve mevcut bilgileri yorumlamak! Sana başarılar diliyorum",
                     "updated": 1641665007871
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните... Вам просто нужно указать на первую ошибку на графике, прочитать описание ошибки, найти красное кольцо c крестиком, обозначающее узел-нарушитель в пространстве проектирования, и интерпретировать имеющуюся информацию! Удачи!",
+                    "updated": 1642662906100
                 }
             ]
         }

@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Pozisyon Al Etkinliğ ( Take Position Event ) kapsamında durumu oluşturmaya hazırız! İşte başlıyoruz",
                 "updated": 1641663601544
+            },
+            {
+                "language": "RU",
+                "text": "Мы готовы установить условие в событии \"Take Position Event\"! Давайте сделаем это!",
+                "updated": 1642660975580
             }
         ]
     },
@@ -41,6 +46,11 @@
                     "language": "TR",
                     "text": "Açıklamayı kopyalayıp yapıştırın",
                     "updated": 1641663614250
+                },
+                {
+                    "language": "RU",
+                    "text": "Скопируйте и вставьте эту формулу!",
+                    "updated": 1642661053842
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "TR",
                     "text": "İpucu: Duruma açıklayıcı bir ad vermeyi unutmayın! 1H Breakdown?",
                     "updated": 1641663623590
+                },
+                {
+                    "language": "RU",
+                    "text": "Не забудьте дать условию описательное название! Пробой 1Н?",
+                    "updated": 1642661100322
                 }
             ]
         }

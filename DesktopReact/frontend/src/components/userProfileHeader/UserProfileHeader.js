@@ -15,7 +15,7 @@ const UserProfileHeader = () => {
     const handleClickCallback = () => setModal(!modal);
 
     return (
-        <Card className="profileSection">
+        <div className="profileSection">
             {user.bannerPic ? (<CardMedia className="banner"
                                           component="img"
                                           src={`${user.bannerPic}`}
@@ -42,6 +42,7 @@ const UserProfileHeader = () => {
                         onClick={handleClickCallback}>
                     Edit profile
                 </Button>
+                {/* {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null} */}
                 {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null}
             </div>
             <div>
@@ -69,7 +70,7 @@ const UserProfileHeader = () => {
                     </Typography>) : null}
                 </CardContent>
             </div>
-        </Card>);
+        </div>);
 };
 
 export default UserProfileHeader;

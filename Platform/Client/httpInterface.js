@@ -1494,7 +1494,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 base = currentBranch
                                             }
                                             const title = 'Governance: ' + mess
-                                            const path = 'Plugins/Governance/User-Profiles/' + username + '.json';
+                                            const path = 'User-Profiles/' + username + '.json';
 
                                             const sha = await getSHA(path);
 
@@ -1515,7 +1515,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             try {
                                                 await octokit.repos.createOrUpdateFileContents({
                                                     owner: username,
-                                                    repo: "Superalgos",
+                                                    repo: repo,
                                                     path,
                                                     message: title,
                                                     content: encodedFile,
@@ -1574,7 +1574,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                                 const { repository } = await graphql(
                                                     '{  ' +
-                                                    '  repository(name: "SuperAlgos", owner: "' + username + '") {' +
+                                                    '  repository(name: "Governance-Plugins", owner: "' + username + '") {' +
                                                     '    object(expression: "develop:' + path + '") {' +
                                                     '      ... on Blob {' +
                                                     '        oid' +

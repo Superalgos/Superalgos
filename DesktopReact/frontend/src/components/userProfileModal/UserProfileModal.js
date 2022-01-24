@@ -69,7 +69,7 @@ const UserProfileModal = ({user, close}) => {
         saveProfile = {saveProfile}
         isEquals = {isEquals}
         errorState = {errorState}
-        close = {close} 
+        close = {close}
      />
 }
 

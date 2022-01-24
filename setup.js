@@ -88,7 +88,7 @@ for (let dir of nodeModulesDirs) {
     if (fs.existsSync(node_dir)) {
         exec( removeCommand,
             {
-                cwd: dir 
+                cwd: dir
             },
             function ( error, stdout ){
                 if (error) {
@@ -110,7 +110,7 @@ let command = "echo Results of install at "+ dir + " & npm ci";
 let nodeInstPromise = new Promise(resolve => {
     exec( command,
         {
-            cwd: dir 
+            cwd: dir
         },
         function ( error, stdout ){
             if (error) {
@@ -125,7 +125,23 @@ let nodeInstPromise = new Promise(resolve => {
             }
             console.log('');
             console.log( stdout );
-            resolve()
+
+            exec( `git submodule update --init Plugins/*`,
+                {
+                    cwd: dir
+                },
+                function ( error, stdout ){
+                    if (error) {
+                        console.log('');
+                        console.log("There was an error initializing the git submodules error: ");
+                        console.log('');
+                        console.log( error );
+                        process.exit(1)
+                    }
+                    console.log('');
+                    console.log( stdout );
+                    resolve()
+            });
     });
 })
 
@@ -216,9 +232,12 @@ nodeInstPromise.then(() => {
           await git.addRemote('upstream', `https://github.com/Superalgos/${repo}`).catch(errorResp);
       }
       // if in main Superalgos repo, set gitUser from origin
-      if (repo === "Superalgos" && origin) gitUser = origin.split('/')[3]
-      if (repo !== "Superalgos" && origin) await git.removeRemote('origin')
-      if (repo !== "Superalgos") await git.addRemote('origin', `https://github.com/${gitUser}/${repo}`).catch(errorResp);
+      if (repo === "Superalgos" && origin) {
+          if (origin.indexOf(':') === -1) gitUser = origin.split('/')[3]
+          else gitUser = origin.split(':')[1].split('/')[0]
+      }
+      if (repo !== "Superalgos" && origin && gitUser) await git.removeRemote('origin')
+      if (repo !== "Superalgos" && gitUser) await git.addRemote('origin', `https://github.com/${gitUser}/${repo}`).catch(errorResp);
   }
 
   // Initialize app like in PlatformRoot.js

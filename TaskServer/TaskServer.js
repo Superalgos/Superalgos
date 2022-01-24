@@ -164,13 +164,7 @@ exports.newTaskServer = function newTaskServer() {
                     ) {
                         return
                     }
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}
-                    /*
-                    This is what we are going to use to receive events from the P2P Network.
-                    */
-                    let P2P_NETWORK_INTERFACE_MODULE = require('./p2pNetworkInterface.js')
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkInterface = P2P_NETWORK_INTERFACE_MODULE.newP2PNetworkInterface()
-                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkInterface.initialize()
+                    TS.projects.foundations.globals.taskConstants.P2P_NETWORK = {}                                        
                     /*
                     We set up the P2P Network Client.
                     */
@@ -181,7 +175,7 @@ exports.newTaskServer = function newTaskServer() {
                         'Testnet', // global.env.DESKTOP_TARGET_NETWORK_CODENAME,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_PEERS,
                         global.env.TASK_SERVER_APP_MAX_OUTGOING_START_PEERS,
-                        TS.projects.foundations.globals.taskConstants.P2P_NETWORK.p2pNetworkInterface.eventReceived
+                        TS.projects.foundations.globals.taskConstants.TRADING_SIGNALS.incomingCandleSignals.signalReceived
                     )
                 }
 

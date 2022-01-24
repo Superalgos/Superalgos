@@ -10,6 +10,7 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
         p2pNetworkNodesConnectedTo: undefined,
         p2pNetworkStart: undefined,
         socialGraphNetworkServiceClient: undefined,
+        tradingSignalsNetworkServiceClient: undefined,
         eventReceivedCallbackFunction: undefined,
         initialize: initialize,
         finalize: finalize
@@ -78,18 +79,27 @@ exports.newNetworkModulesP2PNetworkClient = function newNetworkModulesP2PNetwork
                 thisObject.p2pNetworkClientIdentity,
                 thisObject.p2pNetworkReachableNodes,
                 maxOutgoingStartPeers
-                )
+            )
         }
 
         async function setupNetworkServices() {
             /*
             This is the Social Graph Network Service Client that will allow us to 
-            send Queries or Events to it. 
+            send Queries or Events to it's counterparty running inside a P2P Network Node. 
             */
             thisObject.socialGraphNetworkServiceClient = SA.projects.socialTrading.modules.socialGraphNetworkServiceClient.newSocialTradingModulesSocialGraphNetworkServiceClient()
             await thisObject.socialGraphNetworkServiceClient.initialize(
                 userAppSigningAccountCodeName,
                 thisObject.p2pNetworkNodesConnectedTo
+            )
+            /*
+            This is the Trading Signals Network Service Client that will allow us to 
+            send and receive Trading Signals to and from it's counterparty running inside a P2P Network Node. 
+            */
+            thisObject.tradingSignalsNetworkServiceClient = SA.projects.tradingSignals.modules.tradingSignalsNetworkServiceClient.newTradingSignalsModulesTradingSignalsNetworkServiceClient()
+            await thisObject.tradingSignalsNetworkServiceClient.initialize(
+                userAppSigningAccountCodeName,
+                thisObject.p2pNetworkStart
             )
         }
     }

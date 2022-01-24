@@ -292,7 +292,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 */
                 let response = {
                     result: 'Ok',
-                    message: 'Web App Interface Event Processed.',
+                    message: 'Event Processed.',
                     data: await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response

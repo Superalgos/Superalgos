@@ -2130,6 +2130,20 @@
             ]
         },
         "SA": {
+            "modules": [
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newTradingSignalsModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                },
+                {
+                    "name": "Trading Signals Network Service Client",
+                    "propertyName": "tradingSignalsNetworkServiceClient",
+                    "functionName": "newTradingSignalsModulesTradingSignalsNetworkServiceClient",
+                    "fileName": "TradingSignalsNetworkServiceClient.js"
+                }
+            ],
             "utilities": [
                 {
                     "name": "Signal Validations",

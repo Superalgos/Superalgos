@@ -2120,7 +2120,7 @@ exports.newHttpInterface = function newHttpInterface() {
                         readPluginWorkspaces()
 
                         function readPluginWorkspaces() {
-                            let pluginName = global.env.PROJECT_PLUGIN_MAP[project] || project
+                            let pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir || project
                             let dirPath = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/Workspaces'
                             try {
                                 let fs = SA.nodeModules.fs

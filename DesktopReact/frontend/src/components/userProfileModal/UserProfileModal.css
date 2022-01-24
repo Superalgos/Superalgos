@@ -60,3 +60,7 @@
     width: 100%;
     padding: 1rem 0;
 }
+
+.profilePicButtons{
+    border-radius: 20px !important;
+}

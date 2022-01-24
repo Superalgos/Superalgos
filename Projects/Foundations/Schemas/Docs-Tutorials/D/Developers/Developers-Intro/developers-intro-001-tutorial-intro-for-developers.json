@@ -7,7 +7,14 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "This tutorial walks you through the technical aspects of Superalgos so that you may take advantage of the infrastructure in place as efficiently as possible."
+        "text": "This tutorial walks you through the technical aspects of Superalgos so that you may take advantage of the infrastructure in place as efficiently as possible.",
+        "translations": [
+            {
+                "language": "TR",
+                "text": "Özet: Bu eğitim, Superalgos'un teknik yönlerinde size yol gösterir, böylece mevcut altyapıdan olabildiğince verimli şekilde yararlanabilirsiniz.",
+                "updated": 1642886829377
+            }
+        ]
     },
     "paragraphs": [
         {
@@ -18,6 +25,11 @@
                     "language": "RU",
                     "text": "Я затрону следующие темы:",
                     "updated": 1640928868392
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki konulara değineceğim:",
+                    "updated": 1642886840970
                 }
             ]
         },
@@ -29,6 +41,11 @@
                     "language": "RU",
                     "text": "Архитектура: Архитектурный обзор системы.",
                     "updated": 1640928895162
+                },
+                {
+                    "language": "TR",
+                    "text": "Mimari(Architecture): Sisteme mimari bakış.",
+                    "updated": 1642886851344
                 }
             ]
         },
@@ -40,6 +57,11 @@
                     "language": "RU",
                     "text": "Клиент: Как организован клиент (Client).",
                     "updated": 1640928990449
+                },
+                {
+                    "language": "TR",
+                    "text": "Müşteri (Client): Müşteri ( Client ) nasıl düzenlenir.",
+                    "updated": 1642886864759
                 }
             ]
         },
@@ -51,6 +73,11 @@
                     "language": "RU",
                     "text": "Фронтенд: Как работает пользовательский интерфейс (UI).",
                     "updated": 1640929013142
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlangıç ​​aşaması: Kullanıcı arabiriminin (UI) nasıl çalıştığı.",
+                    "updated": 1642886880885
                 }
             ]
         },
@@ -66,6 +93,11 @@
                     "language": "RU",
                     "text": "Это проект трехлетней давности, который несколько раз менял направление развития, чтобы достичь своего нынешнего состояния. Изначально он предназначался для соревнований торговых ботов, а теперь сосредоточен на автоматизации криптотрейдинга в целом. Основной технический поворот произошел, когда мы решили перейти от централизованного облачного приложения к децентрализованной сети узлов.",
                     "updated": 1640929034831
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu, mevcut durumuna ulaşmak için birkaç kez yön değiştiren üç yıllık bir projedir. Başlangıçta bot yarışmaları ticareti için tasarlandı ve şimdi genel olarak kripto ticaretinin otomasyonuna odaklanıyor. Ana teknik dönüş, merkezi bir bulut uygulamasından merkezi olmayan bir düğüm ağına geçmeye karar verdiğimiz zaman geldi.",
+                    "updated": 1642886893590
                 }
             ]
         }

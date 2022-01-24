@@ -1,0 +1,56 @@
+{
+    "type": "DeFi Wallet",
+    "menuItems": [
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "walletTokens",
+            "label": "Add Wallet Tokens",
+            "relatedUiObject": "Wallet Tokens",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "walletSecrets",
+            "label": "Add Wallet Secrets",
+            "relatedUiObject": "Wallet Secrets",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "addLeftIcons": true,
+    "level": 3,
+    "attachingRules": {
+        "compatibleTypes": "->DeFi Wallets->"
+    },
+    "propertyNameAtParent": "defiWallets",
+    "childrenNodesProperties": [
+        {
+            "name": "walletTokens",
+            "type": "node",
+            "childType": "Wallet Tokens",
+            "autoAdd": true
+        },
+        {
+            "name": "walletSecrets",
+            "type": "node",
+            "childType": "Wallet Secrets",
+            "autoAdd": true
+        }
+    ],
+    "isPersonalData": true
+}

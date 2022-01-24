@@ -60,7 +60,8 @@ SA.nodeModules = {
   discordTypes: require('discord-api-types/v9'),
   octokit: require('@octokit/rest'),
   graphql: require('@octokit/graphql'),
-  axios: require('axios')
+  axios: require('axios'),
+  ethers: require('ethers')
 }
 SA.version = require('./package.json').version
 /*

@@ -260,7 +260,16 @@ nodeInstPromise.then(() => {
           })
       }
   } catch (e) {
-      console.error(e)
+      console.log(`PLUGIN SETUP WARNING:
+Unable to fork the plugins in ./Plugins. There was an error detecting or using your github credentials. Please manually fork any plugins you contribute to. List:
+
+https://github.com/Superalgos/Governance-Plugins.git
+https://github.com/Superalgos/Portfolio-Management-Plugins.git
+https://github.com/Superalgos/Foundations-Plugins.git
+https://github.com/Superalgos/Algorithmic-Trading-Plugins.git
+https://github.com/Superalgos/Machine-Learning-Plugins.git
+https://github.com/Superalgos/TensorFlow-Plugins.git
+https://github.com/Superalgos/Trading-Signals-Plugins.git`)
   }
 })
 

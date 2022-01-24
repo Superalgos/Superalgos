@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Hasil disusun dalam beberapa kategori, dan setiap kategori diwakili oleh hasil pengelompokan tab yang cocok dengan kategori tersebut...",
                 "updated": 1640599617096
+            },
+            {
+                "language": "RU",
+                "text": "Результаты организованы в несколько категорий, и каждая категория представлена вкладкой, группирующей результаты, соответствующие категории...",
+                "updated": 1642773776354
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Aku akan menjelaskan masing-masing secara singkat dan membebaskan kamu untuk melihat-lihat :",
                     "updated": 1640599649961
+                },
+                {
+                    "language": "RU",
+                    "text": "Я кратко расскажу о каждом из них и предоставлю вам возможность осмотреться:",
+                    "updated": 1642773787219
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "ID",
                     "text": "All: semua fitur dari all categories.",
                     "updated": 1640599673560
+                },
+                {
+                    "language": "RU",
+                    "text": "All:  показывает результаты из всех категорий.",
+                    "updated": 1642773813152
                 }
             ]
         },
@@ -138,6 +153,11 @@
                     "language": "ID",
                     "text": "Nodes: Node Type mengandung frasa yang cocok.",
                     "updated": 1640599774344
+                },
+                {
+                    "language": "RU",
+                    "text": "Nodes: типы узлов, содержащие фразу.",
+                    "updated": 1642773950391
                 }
             ]
         },
@@ -172,6 +192,11 @@
                     "language": "ID",
                     "text": "Concepts: termasuk gagasan seperti References.",
                     "updated": 1640599711150
+                },
+                {
+                    "language": "RU",
+                    "text": "Concepts: содержит такие понятия, как ссылки.",
+                    "updated": 1642774013725
                 }
             ]
         },
@@ -206,6 +231,11 @@
                     "language": "ID",
                     "text": "Topics: tema besar tercakup dalam halaman berurutan.",
                     "updated": 1640599802958
+                },
+                {
+                    "language": "RU",
+                    "text": "Topics: большие темы, освещаемые на последовательных страницах.",
+                    "updated": 1642774029117
                 }
             ]
         },
@@ -240,6 +270,11 @@
                     "language": "ID",
                     "text": "Tutorials: fitur halaman yang membentuk tutorial.",
                     "updated": 1640599821810
+                },
+                {
+                    "language": "RU",
+                    "text": "Tutorials: содержит страницы, составляющие учебные пособия.",
+                    "updated": 1642774041253
                 }
             ]
         },
@@ -274,6 +309,11 @@
                     "language": "ID",
                     "text": "Reviews: fitur user review pada plugin, dll...",
                     "updated": 1640599847355
+                },
+                {
+                    "language": "RU",
+                    "text": "Reviews: особенности отзывов пользователей о плагинах и т.д....",
+                    "updated": 1642774060029
                 }
             ]
         },
@@ -308,6 +348,11 @@
                     "language": "ID",
                     "text": "Books: koleksi topik yang disusun dalam bab-bab yang mencakup seluruh domain aplikasi, untuk dibaca dengan tertib.",
                     "updated": 1640599872210
+                },
+                {
+                    "language": "RU",
+                    "text": "Books: сборники тем, организованные в главы, охватывающие целые области приложения, для упорядоченного чтения.",
+                    "updated": 1642774085004
                 }
             ]
         },
@@ -342,6 +387,11 @@
                     "language": "ID",
                     "text": "Workspace: mengembalikan node yang ada di ruang kerja aktif... klik untuk pergi ke mereka!",
                     "updated": 1640599896894
+                },
+                {
+                    "language": "RU",
+                    "text": "Workspace: возвращает узлы, которые присутствуют в активной рабочем пространстве... щелкните, чтобы перейти к ним!",
+                    "updated": 1642774113477
                 }
             ]
         },

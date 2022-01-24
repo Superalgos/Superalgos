@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Sebelum kita meninggalkan trading system, mari kita lihat dengan cepat salah satu pesanan ini dan lihat mungkin ada yang menarik.",
                 "updated": 1640566644087
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем мы покинем торговую систему, давайте вкратце рассмотрим один из этих ордеров и посмотрим, что может вызвать интерес.",
+                "updated": 1642769049916
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Expand Profit 0.6 dan periksa formula Order Rate node.",
                     "updated": 1640566727451
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните Profit 0.6 и проверьте формулу узла Order Rate.",
+                    "updated": 1642769073928
                 }
             ]
         },
@@ -103,6 +113,11 @@
                     "language": "ID",
                     "text": "Mari kita fokus pada sedikit formula misterius ini :",
                     "updated": 1640566761290
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте сосредоточимся на этой загадочной части формулы:",
+                    "updated": 1642769086685
                 }
             ]
         },
@@ -141,6 +156,11 @@
                     "language": "ID",
                     "text": "Formula ini mengambil nilai dari Exit Target Rate, yang ditentukan di tempat lain. Jangan fokus pada tingkat target ini. Sebagai gantinya, mari kita lihat mekanisme di mana Trading System dapat memiliki akses ke informasi yang diproses oleh Trading Bot.",
                     "updated": 1640566862084
+                },
+                {
+                    "language": "RU",
+                    "text": "Формула получает значение Exit Target Rate, определенное в другом месте. Не будем заострять внимание на том, какой может быть эта целевая ставка. Вместо этого рассмотрим механизм, с помощью которого торговая система может получить доступ к информации, обрабатываемой торговым ботом.",
+                    "updated": 1642769189322
                 }
             ]
         }

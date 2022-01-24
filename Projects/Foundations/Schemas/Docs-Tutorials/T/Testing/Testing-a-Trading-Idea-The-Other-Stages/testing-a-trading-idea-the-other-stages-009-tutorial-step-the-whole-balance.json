@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Ticaret fikrini test etmek tamamen isabet oranını ölçmekle ilgili olduğundan, pozisyon boyutu hakkında henüz konuşmadık.",
                 "updated": 1641668386952
+            },
+            {
+                "language": "RU",
+                "text": "До сих пор мы не обсуждали размер позиции, поскольку целью тестирования торговой идеи является только измерение коэффициента попадания.",
+                "updated": 1642777189592
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Aynı nedenden dolayı, burada başka bir değerlendirme yapmayacağız. Yürütme algoritmasını ve emirleri tanımlarken bazı hususları kaydedeceğiz.<br/><br/>İlk Bakiyenin nasıl tanımlandığını kontrol edebilmeniz için sizi ticaret seansının İşlem Parametrelerini tanımlamaya getirdim!",
                     "updated": 1641668527834
+                },
+                {
+                    "language": "RU",
+                    "text": "По этой же причине мы не будем вдаваться в дальнейшие рассуждения на данном этапе. Мы прибережем несколько мыслей на этот счет для того, чтобы определить алгоритм исполнения и ордера. Я только что привел вас к определению торговых параметров торговой сессии (Trading Parameters), чтобы вы могли проверить, как определяется начальный баланс (InitialBalance)!",
+                    "updated": 1642777258366
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Oturum Temel Varlığı ( Session Base Asset  ) ve Oturum Koteli Varlığı ( Session Quoted Asset ) yapılandırmasını kontrol edin!",
                     "updated": 1641668549088
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте конфигурацию Session Base Asset и Session Quoted Asset!",
+                    "updated": 1642777271099
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "updated": 1639251447394
             },
             {
+                "language": "RU",
+                "text": "Мы соберем некоторые данные, чтобы проанализировать несколько событий на графиках. Эти же данные мы будем использовать для проверки торговой идеи в следующем уроке!",
+                "updated": 1640887746496
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Tablolar üzerinde birkaç olayı analiz etmek için bazı veriler çıkaracağız. Bir sonraki eğitimde ticaret fikrini test etmek için aynı verileri kullanacağız!",
                 "updated": 1640863230957
@@ -42,6 +47,11 @@
                     "updated": 1639251511736
                 },
                 {
+                    "language": "RU",
+                    "text": "Сенсорный бот будет работать на рынке BTC/USDT (Binance) с 1 января 2020 года, вместе со следующими индикаторами из сборщиков данных Masters: Candles Volumes, Bollinger Bands и Bollinger Channels.",
+                    "updated": 1640887926142
+                },
+                {
                     "language": "TR",
                     "text": "Not: Sensör botu, 1 Ocak 2020'den itibaren BTC/USDT piyasasında (Binance) Masters veri madeninden alınan şu göstergelerle birlikte çalışacak: Mum Hacimleri, Bollinger Bantları ve Bollinger Kanalları.",
                     "updated": 1640863260563
@@ -61,6 +71,11 @@
                     "language": "DE",
                     "text": "Wenn Sie Daten für diesen Markt/diese Börse haben, aber in einem anderen Zeitbereich, kann dies Ihre Daten beeinflussen! Lesen Sie die Dokumentation des Sensor-Bots, um zu erfahren, wie das geht! Wenn die Daten, die Sie haben, nicht wichtig sind, können Sie ruhig weitermachen!",
                     "updated": 1639251519030
+                },
+                {
+                    "language": "RU",
+                    "text": "Если у вас есть данные по этому рынку/бирже, но в другом временном диапазоне, это может повлиять на ваши данные! Прочтите документацию по сенсорному боту, чтобы узнать, как это сделать! Если данные, которые у вас есть, не так важны, не сомневайтесь продолжать!",
+                    "updated": 1640888044748
                 },
                 {
                     "language": "TR",

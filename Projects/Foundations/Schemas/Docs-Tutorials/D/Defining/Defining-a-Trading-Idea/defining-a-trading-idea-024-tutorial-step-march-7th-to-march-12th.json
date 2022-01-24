@@ -15,6 +15,11 @@
                 "updated": 1639253393145
             },
             {
+                "language": "RU",
+                "text": "Возвращаясь к часовому графику, давайте посмотрим, что произошло между этими датами в контексте дневного нисходящего тренда.",
+                "updated": 1640891904085
+            },
+            {
                 "language": "TR",
                 "text": "Özet: 1H zaman çerçevesine geri dönersek, günlük düşüş trendi bağlamında bu tarihler arasında neler olduğuna bir göz atalım.",
                 "updated": 1640948983504
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "7. März, 17 Uhr: Ein Zusammenbruch nach einem zweitägigen Volatilitäts-Squeeze löst einen Abwärtstrend aus.",
                     "updated": 1639253406227
+                },
+                {
+                    "language": "RU",
+                    "text": "7 марта, 17 часов: Пробой после двухдневного сжатия волатильности запускает нисходящий тренд.",
+                    "updated": 1640891922693
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639253413244
                 },
                 {
+                    "language": "RU",
+                    "text": "8 марта, 15 часов: Дальнейшие пробои ускоряют спад.",
+                    "updated": 1640891935102
+                },
+                {
                     "language": "TR",
                     "text": "8 Mart, 15 hs: Daha fazla arıza, gerilemeyi hızlandırıyor",
                     "updated": 1640949038389
@@ -64,6 +79,11 @@
                     "updated": 1639253420383
                 },
                 {
+                    "language": "RU",
+                    "text": "12 марта, 07 часов: За пять часов до крупнейшего обвала рынка в новейшей истории серия пробоев вызывает новый спад после трех дней колебаний цен.",
+                    "updated": 1640891972281
+                },
+                {
                     "language": "TR",
                     "text": "12 Mart, 07 hs: Yakın tarihin en büyük piyasa çöküşünden beş saat önce, bir dizi arıza, üç günlük değişen fiyat hareketinden sonra yeni bir düşüşü tetikler.",
                     "updated": 1640949055195
@@ -78,6 +98,11 @@
                     "language": "DE",
                     "text": "Erkennen Sie das Muster? Können Sie eine Hypothese formulieren, die wir testen können?",
                     "updated": 1639253430255
+                },
+                {
+                    "language": "RU",
+                    "text": "Видите ли вы закономерность? Можете ли вы сформулировать гипотезу, которую мы могли бы проверить?",
+                    "updated": 1640891984506
                 },
                 {
                     "language": "TR",

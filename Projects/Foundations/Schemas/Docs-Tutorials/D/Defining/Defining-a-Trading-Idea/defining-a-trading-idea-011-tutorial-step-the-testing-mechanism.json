@@ -15,6 +15,11 @@
                 "updated": 1639251942284
             },
             {
+                "language": "RU",
+                "text": "Последняя задача - определить, как будет проверяться идея. Это тоже зависит от типа стратегии!",
+                "updated": 1640889973266
+            },
+            {
                 "language": "TR",
                 "text": "Son olarak, fikrin nasıl test edileceğini tanımlamaktır. Bu da stratejinin türüne bağlıdır!",
                 "updated": 1640868334918
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Der Schwerpunkt der Handelsidee liegt auf dem Einstiegspunkt, nicht auf dem Management des Handels oder dem Ausstieg. Aber...",
                     "updated": 1639251951116
+                },
+                {
+                    "language": "RU",
+                    "text": "В центре внимания торговой идеи находится точка входа, а не управление сделкой или выход из нее. Однако...",
+                    "updated": 1640889990244
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639251957420
                 },
                 {
+                    "language": "RU",
+                    "text": "Как определить, хороши или плохи точки входа? Какой период мы используем для тестирования?",
+                    "updated": 1640890018953
+                },
+                {
                     "language": "TR",
                     "text": "Giriş noktalarının iyi mi kötü mü olduğunu nasıl ölçeceğiz? Test için hangi periyodu kullanıyoruz?",
                     "updated": 1640868910311
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Die erste Frage führt uns zu der Erkenntnis, dass wir möglicherweise einige willkürliche Stop Loss- und Take Profit-Ziele festlegen müssen, damit wir feststellen können, ob die sich ergebenden Einstiegspunkte wahrscheinlich ein Treffer oder ein Fehlschlag sind. Mit der zweiten Frage werden wir uns im nächsten Tutorial befassen.",
                     "updated": 1639251990008
+                },
+                {
+                    "language": "RU",
+                    "text": "Первый вопрос заставляет нас признать, что нам может понадобиться определить некоторые произвольные цели стоп-лосс и тейк-профит, чтобы мы могли определить, будут ли результирующие точки входа, предположительно, удачными или неудачными. Второй вопрос мы рассмотрим в следующем уроке.",
+                    "updated": 1640890073506
                 },
                 {
                     "language": "TR",

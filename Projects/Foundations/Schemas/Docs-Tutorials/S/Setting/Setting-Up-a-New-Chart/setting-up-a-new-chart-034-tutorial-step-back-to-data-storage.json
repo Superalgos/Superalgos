@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": " Lassen Sie uns weitere Data Products finden. Sie werden ein Profi darin sein, Dinge in der Data Storage zu finden.",
                 "updated": 1639498409941
+            },
+            {
+                "language": "TR",
+                "text": "Biraz daha Veri Ürünü ( Data Products ) bulalım. Veri Depolama  ( Data Storage )hiyerarşisinde bir şeyler bulma konusunda profesyonel olacaksınız.",
+                "updated": 1642597982123
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Sie werden feststellen, dass es drei Verzweigungen gibt. Einen für jede Art von Daten, auf die wir in unseren Diagrammen zugreifen können. Da wir nun an den Daten unseres Trading System interessiert sind, benötigen wir die Datenprodukte, die in der Hierarchie der Trading Mines Data enthalten sind.",
                     "updated": 1639498499529
+                },
+                {
+                    "language": "TR",
+                    "text": "Üç şube olduğunu fark ettinmi. Grafiklerimizde erişebildiğimiz her veri türü için bir tane. Artık Ticaret Sistemi ( Trading System ) verilerimizle ilgilendiğimiz için Ticaret Madenleri Verileri ( Trading Mines Data ) hiyerarşisinde yer alan veri ürünlerine ihtiyacımız var.",
+                    "updated": 1642598250586
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Folgen Sie wie zuvor der Hierarchie, bis Sie die Knoten Trading Mine Products finden.",
                     "updated": 1639498553923
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha önce olduğu gibi, Ticaret Maden Ürünleri ( Trading Mine Products ) düğümlerini bulana kadar hiyerarşiyi takip edin.",
+                    "updated": 1642598408498
                 }
             ]
         },
@@ -91,6 +106,11 @@
                     "language": "DE",
                     "text": "Schauen Sie unbedingt unter dem Knoten Trading Session Reference nach!",
                     "updated": 1639498668334
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Ticaret Oturumu Referans ( Trading Session Reference ) düğümlerinin altına baktığınızdan emin olun!",
+                    "updated": 1642598503349
                 }
             ]
         }

@@ -34,6 +34,8 @@ function newUiObject() {
         percentageAngleOffset: 0,
         statusAtAngle: false,
         statusAngleOffset: 0,
+        highlightReferenceChildren: false,
+        drawReferenceLine: false,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -1564,7 +1566,7 @@ function newUiObject() {
     }
 
     function drawReferenceLine() {
-        if (UI.projects.foundations.spaces.floatingSpace.drawReferenceLines === false && thisObject.isOnFocus === false) { return }
+        if (UI.projects.foundations.spaces.floatingSpace.drawReferenceLines === false && thisObject.drawReferenceLine === false && thisObject.isOnFocus === false) { return }
         if (thisObject.payload.referenceParent === undefined) { return }
         if (thisObject.payload.referenceParent.payload === undefined) { return }
         if (thisObject.payload.referenceParent.payload.floatingObject === undefined) { return }
@@ -2253,6 +2255,9 @@ function newUiObject() {
             function drawHighlighted() {
                 if (isHighlighted === true) {
                     VISIBLE_RADIUS = thisObject.payload.floatingObject.container.frame.radius
+                    if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) {
+                        VISIBLE_RADIUS = UI.projects.foundations.spaces.floatingSpace.transformRadiusToMap(VISIBLE_RADIUS)
+                    }
                     let OPACITY = highlightCounter / 10
 
                     browserCanvasContext.beginPath()

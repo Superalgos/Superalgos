@@ -46,7 +46,7 @@ exports.newSocialTradingModulesQueriesSocialPersonas = function newSocialTrading
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_DOWN: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested && i >= 0; i--) {
                     let socialPersona = thisObject.socialPersonas[i]
                     if (socialPersona === undefined) { break }
                     addToResponse(socialPersona)

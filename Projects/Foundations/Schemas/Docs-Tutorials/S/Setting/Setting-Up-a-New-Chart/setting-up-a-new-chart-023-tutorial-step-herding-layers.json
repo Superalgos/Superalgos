@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Kommen wir nun zu den Feinheiten vom Ebenenmanager.",
                 "updated": 1639153250655
+            },
+            {
+                "language": "TR",
+                "text": "Katman yönetiminin inceliklerini anlayalım.",
+                "updated": 1642589496442
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Layer Managers behalten den Überblick über alle unter ihnen angeschlossenen Ebenen. Sie sind auch die Knoten, die Verweise auf eine Vielzahl von Data Mine Products akzeptieren. Indem wir Verweise auf eine bestimmte Mine herstellen, können wir alle mit ihr verbundenen Daten leicht hinzufügen. Die drei Haupttypen von Daten sind:",
                     "updated": 1639153530097
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman Yöneticileri ( Layer Managers ), altlarına bağlı tüm katmanların kaydını tutar. Bunlar aynı zamanda çeşitli Veri Madenciliği Ürünlerine ( Data Mine Products ) referansları kabul eden düğümlerdir. Belirli bir Maden ile referanslar kurarak, onunla ilişkili tüm verileri kolayca ekleyebiliriz. Üç ana veri türü şunlardır:",
+                    "updated": 1642589751571
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Data Mine Products – für Marktdaten und Indikatoren.",
                     "updated": 1639153565042
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Madeni Ürünleri ( Data Mine Products ) – Piyasa verileri ve göstergeleri için.",
+                    "updated": 1642589897047
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "DE",
                     "text": "Trading Mine Products – für die Ergebnisse von Handelssitzungen.",
                     "updated": 1639153578002
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Maden Ürünleri ( Trading Mine Products ) – Ticaret seanslarının sonuçları için.",
+                    "updated": 1642589990986
                 }
             ]
         },
@@ -111,6 +131,11 @@
                     "language": "DE",
                     "text": "Learning Mine Products – für Daten, die von Lernalgorithmen ausgegeben werden.",
                     "updated": 1639153592657
+                },
+                {
+                    "language": "TR",
+                    "text": "Maden Ürünlerini Öğrenme ( Learning Mine Products ) – öğrenme algoritmalarından veri çıkışı için.",
+                    "updated": 1642590047888
                 }
             ]
         },

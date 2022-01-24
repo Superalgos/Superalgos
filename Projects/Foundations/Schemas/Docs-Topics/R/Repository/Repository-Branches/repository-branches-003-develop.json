@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Ветка Develop - это ветка, которую разработчики используют для внесения вклада в кодовую базу. Изменения в этой ветке сливаются в ветку Master после каждого выпуска или пакета обновления. Цель ветки Develop - накапливать изменения в кодовой базе до даты релиза, когда изменения будут готовы к слиянию.",
                 "updated": 1640353124124
+            },
+            {
+                "language": "TR",
+                "text": "Geliştirme (Develop) dalı, geliştiricilerin kod tabanına katkıda bulunmak için kullandığı daldır. Bu daldaki değişiklikler, her yayın veya hizmet paketinden sonra Ana dal (Master) ile birleştirilir. Geliştirme şubesinin amacı, değişikliklerin birleştirilmeye hazır olduğu yayın tarihine kadar değişiklikleri kod tabanında toplamaktır.",
+                "updated": 1642710483059
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Сотрудники, работающие в этой ветке, зависают в группе Telegram Develop Group.",
                     "updated": 1640353193626
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu şubede çalışarak katkıda bulunanlar, Telegram Geliştirme Grubunda takılır.",
+                    "updated": 1642710508818
                 }
             ]
         },

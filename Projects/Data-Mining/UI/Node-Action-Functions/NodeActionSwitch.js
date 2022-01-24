@@ -22,7 +22,7 @@ function newDataMiningNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.dataMining.nodeActionFunctions.mineFunctions.addAllOutputDatasets(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -38,7 +38,7 @@ function newDataMiningNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.dataMining.nodeActionFunctions.mineFunctions.addAllDataDependencies(action.node)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -54,7 +54,7 @@ function newDataMiningNodeActionSwitch() {
                 {
                     let newUiObjects = await UI.projects.dataMining.nodeActionFunctions.mineFunctions.addAllDataMineDataDependencies(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,

@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Das haben Sie schon einmal gemacht! Stellen Sie sicher, dass Sie diese Ebenen hinzufügen. Leere Diagramme sind kein Spaß.",
                 "updated": 1639499545570
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bunu daha önce de yaptınız! Bu katmanları eklediğinizden emin olun. Boş çizelgeler eğlenceli değildir.",
+                "updated": 1642879799908
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "DE",
                     "text": "Bewegen Sie den Mauszeiger über den Layer Manager und klicken Sie auf <I>Add All Mine Layers</I>.",
                     "updated": 1639499665390
+                },
+                {
+                    "language": "TR",
+                    "text": "Katman Yöneticisinin (Layer Manager) üzerine gelin ve Tüm Maden Katmanlarını (All Mine Layers) Ekle'ye tıklayın.",
+                    "updated": 1642879875327
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Dieser Schritt wird leicht vergessen, ist aber sehr wichtig! Wenn sich unter dem Ebenenmanager keine Ebenen befinden, wird nichts angezeigt, egal wie sehr Sie sich bemühen.",
                     "updated": 1639499729307
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, unutulması kolay bir adımdır, ancak çok önemlidir! Katman yöneticisinin altında herhangi bir katman yoksa, ne kadar denerseniz deneyin hiçbir şey görünmeyecektir.",
+                    "updated": 1642879930884
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "DE",
                     "text": "Wenn sich die Ebenen zu stapeln beginnen, kann das Ganze etwas unübersichtlich werden. Es ist eine gute Idee, sich etwas Zeit zu nehmen und die Ebenenknoten und Ordner zu ordnen und zu reduzieren, damit die Dinge sauber aussehen.",
                     "updated": 1639499814909
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Katmanlar üst üste gelmeye başladığında işler biraz kontrolden çıkabilir. Her şeyin temiz görünmesine yardımcı olmak için biraz zaman ayırmak ve katman düğümlerini ve klasörlerini düzenleyip daraltmak iyi bir fikirdir.",
+                    "updated": 1642879979926
                 }
             ]
         }

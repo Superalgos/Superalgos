@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Wie Sie vielleicht bemerkt haben, stimmen die hinzugefügten Ebenen mit den Bot Products unter dem Knoten Candles Data Mine Products überein.",
                 "updated": 1639276637474
+            },
+            {
+                "language": "TR",
+                "text": "Gördüğünüz gibi, eklenen katmanlar Mum Veri Madeni Ürünleri ( Candles Data Mine Products ) düğümünün altındaki Bot Ürünleri'ne ( Bot Products ) karşılık geliyor.",
+                "updated": 1642594732219
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich ein paar Minuten Zeit und vergleichen Sie die Bot Products Nachkommenknoten mit Ihren neuen Ebenen. Sie stimmen überein!",
                     "updated": 1639276702434
+                },
+                {
+                    "language": "TR",
+                    "text": "Birkaç dakikanızı ayırın ve Bot Ürünleri ( Bot Products ) düğümü ve yeni katmanlarınızı inceleyin. Eşleşiyorlar mı!",
+                    "updated": 1642594873527
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "DE",
                     "text": "Sie können die in Ihren Diagrammen verfügbaren Ebenen noch genauer steuern, indem Sie einzelne Ebenen hinzufügen oder löschen. Ihre Diagramme gehören wirklich Ihnen!",
                     "updated": 1639276753042
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tek tek katmanlar ekleyerek veya silerek, çizelgelerinizde bulunan katmanlar üzerinde daha hassas ayar kontrolüne sahip olabilirsiniz. Grafikleriniz sizin!",
+                    "updated": 1642594936719
                 }
             ]
         }

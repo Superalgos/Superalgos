@@ -6,7 +6,7 @@ import {STATUS_OK} from "../../api/httpConfig";
 import {getPaginationProfiles} from "../../api/profile.httpService";
 import {useDispatch, useSelector} from 'react-redux'
 import {setSuggestedUsersList} from '../../store/slices/suggestedUsers.slice'
-import UserCard from "../UserCard/UserCard";
+import UserCard from "../userCard/UserCard";
 
 
 /* TODO remove unused code */
@@ -43,9 +43,9 @@ const SuggestedUsers = () => {
         let {data, result} = await getProfiles().then(response => response.json());
         if (result === STATUS_OK) {
             let mappedUsers = data.map((profile, index) => {
-                let callBack = () => console.log(`Clicked follow on user${profile.userProfileHandle}`);
-                return <UserCard key={index} id={index} name={profile.userProfileHandle}
-                                 userId={profile.userProfileId}
+                let callBack = () => console.log(`Clicked follow on user${profile.socialPersonaHandle}`);
+                return <UserCard key={index} id={index} name={profile.socialPersonaHandle}
+                                 userId={profile.socialPersonaId}
                                  followCallback={callBack}/>
             });
             setUsers(mappedUsers);
@@ -99,8 +99,8 @@ const SuggestedUsers = () => {
                                 return <UserCard
                                     key={index}
                                     id={index}
-                                    name={profile.userProfileHandle}
-                                    userId={profile.userProfileId}
+                                    name={profile.socialPersonaHandle}
+                                    userId={profile.socialPersonaId}
                                     followCallback={followCallback}
                                 />
                             })

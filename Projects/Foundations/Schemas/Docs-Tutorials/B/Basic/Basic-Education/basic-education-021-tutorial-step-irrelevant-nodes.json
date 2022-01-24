@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Bir hiyerarşiye bağlı olmayan düğümler hesaplanmaz. Çalışma alanında bulunurlar, ancak sistemin işleyişini hiçbir düzeyde etkilemezler.",
                 "updated": 1636791617905
+            },
+            {
+                "language": "RU",
+                "text": "Узлы, не привязанные к иерархии, не вычисляются. Они существуют в рабочем пространстве, но не влияют на работу системы на любом уровне.",
+                "updated": 1640868091127
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Bu, hiyerarşilerden kopuk sayıda düğüm yapısını istediğiniz kadar tutabileceğiniz, bunları daha sonra kullanmak üzere veya herhangi bir nedenle elinizin altında tutabileceğiniz anlamına gelir.",
                     "updated": 1636792301822
+                },
+                {
+                    "language": "RU",
+                    "text": "Это означает, что вы можете хранить столько структур узлов, отделенных от иерархий, сколько пожелаете, держа их под рукой для последующего использования или по любой другой причине.",
+                    "updated": 1640868111832
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Ortak bir senaryo, stratejiler oluştururken belirli tanımların birden çok sürümünü tutmaktır, böylece bir sonraki çalıştırma için bir dizi kuralı test edebilir ve diğer kurallara geçebilirsiniz. Tüm stratejilerin birden fazla versiyonunu bile tutabilirsiniz!",
                     "updated": 1636792469596
+                },
+                {
+                    "language": "RU",
+                    "text": "Распространенным сценарием является сохранение нескольких версий определенных определений при построении стратегий, чтобы вы могли протестировать набор правил и перейти к другим правилам для следующего запуска. Вы даже можете хранить несколько версий целых стратегий!",
+                    "updated": 1640868133379
                 }
             ]
         }

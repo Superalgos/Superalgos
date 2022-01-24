@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Узел Manage Stage позволяет поэтапно управлять целями стоп-лосс и тейк-профит. Давайте посмотрим, как это выглядит в симуляторах...",
                 "updated": 1640627689862
+            },
+            {
+                "language": "TR",
+                "text": "Yönetim Aşaması (The Manage Stage), aşamalı olarak zararı durdurma ve kar alma hedeflerinizin yönetimini sağlar. Simülasyonlarda nasıl göründüğünü görelim...",
+                "updated": 1642404467338
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Включите слои \"Stop Loss\" и \"Take Profit\" в менеджере слоев объектов симуляции (Simulation Objects)!",
                     "updated": 1640628140797
+                },
+                {
+                    "language": "TR",
+                    "text": "Simülasyon Nesneleri katman yöneticisinde (Simulation Objects Layer Manager) \"Zararı Durdur (Stop Loss)\" ve \"Kar Al (Take Profit)\" katmanlarını açın!",
+                    "updated": 1642404764469
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "RU",
                     "text": "Это, вероятно, не требует пояснений, верно? Значок Phase обозначает переключение фаз, таким же образом, Formula, используемая для определения формулы расчета каждой цели.",
                     "updated": 1640628516781
+                },
+                {
+                    "language": "TR",
+                    "text": "Muhtemelen ne olduğunu anlamışsınızdır, değil mi? Faz simgesi, her bir hedefi belirlemek için kullanılan Formülün, dolayısıyla, fazların geçişini gösterir.",
+                    "updated": 1642404816923
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "RU",
                     "text": "Это фантастическая возможность при разработке стратегий, так как вы можете буквально видеть, что делает формула и как меняются фазы!",
                     "updated": 1640628433075
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, stratejileri tasarlarken harika bir özelliktir, çünkü formülün ne yaptığını ve aşamaların nasıl değiştiğini tam anlamıyla görebilirsiniz!",
+                    "updated": 1642404833533
                 }
             ]
         }

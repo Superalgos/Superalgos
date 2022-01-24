@@ -37,9 +37,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                 UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.createUiObjectFromNode(action.node, undefined, undefined, action.extraParameter)
 
-                UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Connect Children to Reference Parents': {
@@ -119,20 +121,22 @@ function newVisualScriptingNodeActionSwitch() {
                         action.relatedNodeProject
                     )
 
-                    let historyObject = {
-                        action: action,
-                        newUiObject: newUiObject
+                    if (action.isInternal === false) {
+                        let historyObject = {
+                            action: action,
+                            newUiObject: newUiObject
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
                     }
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
                 }
                 break
             case 'Add Missing Children':
                 {
                     let newUiObjects = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
 
-                    if (newUiObjects !== undefined && newUiObjects.length > 0) {
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
                         let historyObject = {
                             action: action,
                             newUiObjects: newUiObjects,
@@ -154,10 +158,12 @@ function newVisualScriptingNodeActionSwitch() {
 
                     UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
                     }
+                }
                 break
             case 'Share':
                 {
@@ -223,9 +229,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                 UI.projects.visualScripting.nodeActionFunctions.chainAttachDetach.chainAttachNode(action.node, action.relatedNode, action.rootNodes)
 
-                UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Reference Attach': {
@@ -236,9 +244,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(action.node, action.relatedNode, action.rootNodes)
 
-                UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Parent Detach':
@@ -250,9 +260,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                     UI.projects.visualScripting.nodeActionFunctions.chainAttachDetach.chainDetachNode(action.node, action.rootNodes)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Reference Detach':
@@ -264,9 +276,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceDetachNode(action.node)
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Create Reference':
@@ -277,9 +291,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.createReference(action.node, action.rootNodes)
 
-                UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Pin / Unpin':
@@ -290,9 +306,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                     action.node.payload.floatingObject.pinToggle()
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Change Tension Level':
@@ -303,9 +321,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                     action.node.payload.floatingObject.angleToParentToggle()
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Change Distance to Parent':
@@ -316,9 +336,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                     action.node.payload.floatingObject.distanceToParentToggle()
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Change Arrangement Style':
@@ -329,9 +351,11 @@ function newVisualScriptingNodeActionSwitch() {
 
                     action.node.payload.floatingObject.arrangementStyleToggle()
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Freeze / Unfreeze':
@@ -342,9 +366,16 @@ function newVisualScriptingNodeActionSwitch() {
 
                     action.node.payload.floatingObject.freezeToggle()
 
-                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
-                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
-                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu() 
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu() 
+                    }
+                }
+                break
+            case 'Highlight Referencing Nodes':
+                {
+                    UI.projects.visualScripting.nodeActionFunctions.referenceChildren.toggleHighlightReferenceChildren(action.node)
                 }
                 break
             default: {

@@ -26,10 +26,10 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
     }
 
     function initialize(queryReceived) {
+        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
 
         thisObject.array = Array.from(thisObject.socialEntity.posts)
 
-        NT.projects.socialTrading.utilities.queriesValidations.socialValidations(queryReceived, thisObject)
         NT.projects.socialTrading.utilities.queriesValidations.arrayValidations(queryReceived, thisObject, thisObject.array)
     }
 
@@ -41,16 +41,20 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_FUTURE: {
                 for (let i = thisObject.initialIndex; i < thisObject.initialIndex + thisObject.amountRequested; i++) {
                     let arrayItem = thisObject.array[i]
-                    if (arrayItem === undefined) { break }
-                    addToResponse(arrayItem)
+                    if (arrayItem === undefined) {
+                        break
+                    }
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested && i >= 0; i--) {
                     let arrayItem = thisObject.array[i]
-                    if (arrayItem === undefined) { break }
-                    addToResponse(arrayItem)
+                    if (arrayItem === undefined) {
+                        break
+                    }
+                    addToResponse(arrayItem[1])
                 }
                 break
             }
@@ -68,10 +72,10 @@ exports.newSocialTradingModulesQueriesPosts = function newSocialTradingModulesQu
                 targetPostHash: post.targetPostHash,
                 postType: post.postType,
                 timestamp: post.timestamp,
-                fileKeys: fileKeys,
+                fileKeys: post.fileKeys,
                 repliesCount: post.replies.size,
                 reactions: Array.from(post.reactions),
-                reaction: post.reactionsByProfile.get(thisObject.socialEntity.id)
+                reaction: post.reactionsBySocialEntity.get(thisObject.socialEntity.id)
             }
             response.push(postResponse)
         }

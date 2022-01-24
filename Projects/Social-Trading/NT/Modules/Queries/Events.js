@@ -37,7 +37,7 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                 break
             }
             case SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST: {
-                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested; i--) {
+                for (let i = thisObject.initialIndex; i > thisObject.initialIndex - thisObject.amountRequested && i >= 0; i--) {
                     let event = SA.projects.socialTrading.globals.memory.arrays.EVENTS[i]
                     if (event === undefined) { break }
                     checkEventContext(event)
@@ -269,10 +269,10 @@ exports.newSocialTradingModulesQueriesEvents = function newSocialTradingModulesQ
                         targetPostHash: post.targetPostHash,
                         postType: post.postType,
                         timestamp: post.timestamp,
-                        fileKeys: fileKeys,
+                        fileKeys: post.fileKeys,
                         repliesCount: post.replies.size,
                         reactions: Array.from(post.reactions),
-                        reaction: post.reactionsByProfile.get(socialEntity.id)
+                        reaction: post.reactionsBySocialEntity.get(thisObject.socialEntity.id)
                     }
                     return postResponse
                 }

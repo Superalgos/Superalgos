@@ -12,6 +12,11 @@
                 "language": "RU",
                 "text": "Trigger Stage занимается мониторингом рынка в поисках торговых возможностей с соответствующей стратегией.",
                 "updated": 1639734184235
+            },
+            {
+                "language": "TR",
+                "text": "Tetik aşaması, ilgili strateji ile ticaret fırsatlarını araştırmak için piyasayı izlemekle ilgilenir.",
+                "updated": 1642500142465
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "RU",
                     "text": "Торговая система может иметь несколько стратегий, разработанных для одного и того же рынка.",
                     "updated": 1639734210373
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir ticaret sistemi, aynı pazar için tasarlanmış birden fazla stratejiye sahip olabilir.",
+                    "updated": 1642500202182
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "RU",
                     "text": "Важным аспектом торговых систем является то, что им выделяется определенный объем капитала (см. параметр Session Base Asset торговой сессии). Как следствие, стратегии в рамках торговой системы разделяют определенное распределение капитала.",
                     "updated": 1639734394068
+                },
+                {
+                    "language": "TR",
+                    "text": "Alım satım sistemlerinin önemli bir yönü, kendilerine belirli bir miktarda sermaye tahsis edilmiş olmalarıdır (ticaret seansının temel varlık parametresine bakın). Sonuç olarak, bir ticaret sistemi içindeki stratejiler, belirli bir sermaye tahsisini paylaşır.",
+                    "updated": 1642500186374
                 }
             ]
         },
@@ -50,6 +65,11 @@
                     "language": "RU",
                     "text": "Логика, лежащая в основе концепции стадии запуска, предполагает, что различные стратегии в рамках торговой системы могут быть специализированы для торговли в различных рыночных ситуациях. Таким образом, стадия запуска в каждой стратегии является механизмом, с помощью которого любая конкретная стратегия в рамках торговой системы может быть выбрана для торговли, учитывая любую конкретную рыночную ситуацию.",
                     "updated": 1639734636959
+                },
+                {
+                    "language": "TR",
+                    "text": "Tetik aşaması kavramının arkasındaki mantık, bir ticaret sistemi içindeki farklı stratejilerin, farklı piyasa durumlarında ticaret için özelleşebileceğini varsayar. Bu nedenle, her stratejideki tetikleme aşaması, belirli bir piyasa durumu göz önüne alındığında, ticaret sistemi içindeki herhangi bir belirli stratejinin ticaret için seçilebileceği mekanizmadır.",
+                    "updated": 1642500228916
                 }
             ]
         },
@@ -61,6 +81,11 @@
                     "language": "RU",
                     "text": "Включение стратегии эффективно блокирует выбор любой другой стратегии в торговой системе и резервирует все распределение капитала для одной выбранной стратегии, пока стратегия не будет отключена.",
                     "updated": 1639734689481
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir stratejinin tetiklenmesi, ticaret sistemindeki diğer herhangi bir stratejinin seçimini etkili bir şekilde engeller ve strateji tetiklenene kadar seçilen bir strateji için tüm sermaye tahsisini rezerve eder.",
+                    "updated": 1642500267920
                 }
             ]
         },
@@ -72,6 +97,11 @@
                     "language": "RU",
                     "text": "Поэтому, если определенные стратегии предназначены для торговли в одинаковых рыночных ситуациях и одновременного открытия сделок, то эти стратегии должны быть развернуты в отдельных торговых системах.",
                     "updated": 1639734728360
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu nedenle, belirli stratejiler aynı piyasa koşulları altında alım satım yapmak ve aynı anda alım satım yapmak için tasarlanmışsa, bu stratejiler ayrı alım satım sistemlerinde konuşlandırılmalıdır.",
+                    "updated": 1642500318933
                 }
             ]
         },
@@ -83,6 +113,11 @@
                     "language": "RU",
                     "text": "Как только стратегия срабатывает, она может принять или не принять решение о занятии позиции. Если позиция занята, то остальные этапы в конечном итоге становятся активными.",
                     "updated": 1639734845915
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir strateji tetiklendiğinde, strateji bir pozisyon almaya karar verebilir veya vermeyebilir. Bir pozisyon alınırsa, geri kalan aşamalar sonunda aktif hale gelir.",
+                    "updated": 1642500347909
                 }
             ]
         },
@@ -94,6 +129,11 @@
                     "language": "RU",
                     "text": "Однако стратегия может быть отключена и без занятия позиции. Когда стратегия отключается, торговая система возвращается к мониторингу определений включения для всех стратегий, и капитал высвобождается для использования той стратегией, которая включается следующей.",
                     "updated": 1639734881478
+                },
+                {
+                    "language": "TR",
+                    "text": "Ancak, strateji pozisyon almadan da tetiklenebilir. Bir strateji tetiklendiğinde, ticaret sistemi tüm stratejiler için tetikleme tanımlarını izlemeye geri döner ve bir sonraki tetiklenen strateji tarafından kullanılmak üzere sermaye serbest bırakılır.",
+                    "updated": 1642500370042
                 }
             ]
         }

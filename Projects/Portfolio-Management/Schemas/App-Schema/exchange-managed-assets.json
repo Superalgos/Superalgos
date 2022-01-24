@@ -30,7 +30,8 @@
         {
             "name": "exchangeManagedAsset",
             "type": "array",
-            "childType": "Exchange Managed Asset"
+            "childType": "Exchange Managed Asset",
+            "autoAdd": true
         }
     ]
 }

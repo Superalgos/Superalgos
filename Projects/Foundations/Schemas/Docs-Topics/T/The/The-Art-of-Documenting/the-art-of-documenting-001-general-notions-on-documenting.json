@@ -44,10 +44,6 @@
         {
             "style": "Include",
             "text": "Foundations->Concept->Reusable Documenting Snippets->Tooltips"
-        },
-        {
-            "style": "Text",
-            "text": "asdf"
         }
     ]
 }

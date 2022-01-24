@@ -16,7 +16,7 @@
     "postinstall": "electron-builder install-app-deps",
     "startNetwork": "node network",
     "startDesktop": "node desktop",
-    "installDesktopReact" : "cd ./DesktopReact && npm install",
+    "installDesktopReact": "cd ./DesktopReact && npm ci",
     "startDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
   },
   "dependencies": {
@@ -34,7 +34,7 @@
     "electron-updater": "^4.6.1",
     "ethereumjs-common": "^1.5.2",
     "ethereumjs-tx": "^2.1.2",
-    "ethers": "^5.5.1",
+    "ethers": "^5.5.3",
     "http": "0.0.1-security",
     "https": "^1.0.0",
     "ip": "^1.1.5",

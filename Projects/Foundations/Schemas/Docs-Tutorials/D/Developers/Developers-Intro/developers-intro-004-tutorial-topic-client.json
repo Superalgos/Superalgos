@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Это набор серверов, работающих на одном процессе Node.js.",
                 "updated": 1640929257887
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tek bir Node.js işleminde çalışan sunucular topluluğudur.",
+                "updated": 1643025912449
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "К серверам относятся:",
                     "updated": 1640929268862
+                },
+                {
+                    "language": "TR",
+                    "text": "sunucular şunlardır:",
+                    "updated": 1643025927295
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Web Server: Передает браузеру все JS-файлы, формирующие пользовательский интерфейс.",
                     "updated": 1640929289557
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sunucusu: Kullanıcı arayüzünü (UI) oluşturan tüm JS dosyalarını tarayıcıya iletir.",
+                    "updated": 1643025976647
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Web Sockets Server: Позволяет пользовательскому интерфейсу связаться с клиентом через WS.",
                     "updated": 1640929317198
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sockets Server: Kullanıcı arabiriminin (UI) WS aracılığıyla istemciyle (Client) iletişim kurmasını sağlar.",
+                    "updated": 1643026228933
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Events Server: Позволяет пользовательскому интерфейсу взаимодействовать с сервером Task Manager Server и всеми экземплярами процессов Task Servers через события по WS.",
                     "updated": 1640929383956
+                },
+                {
+                    "language": "TR",
+                    "text": "Events Server: Kullanıcı arabiriminin (UI) , WS üzerinden olaylar aracılığıyla Görev Yöneticisi Sunucusu ( Task Manager Server ) ve Görev Sunucularının tüm örnekleriyle etkileşime girmesine izin verir.",
+                    "updated": 1643026311492
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Task Manager Server: Управление процессами Task Servers на основе команд пользователя.",
                     "updated": 1640929426641
+                },
+                {
+                    "language": "TR",
+                    "text": "Task Manager Server: Kullanıcı komutlarına göre Görev Sunucuları ( Task Servers ) işlemlerini yönetir.",
+                    "updated": 1643026457919
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Все эти серверы являются встроенными в Superalgos. Мы предпочитаем строить только на основе надежных, широко используемых низкоуровневых библиотек, таких как WS, например.",
                     "updated": 1640929481445
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bu sunucuların tümü Superalgos için özel olarak üretilmiştir. Örneğin, yalnızca WS gibi sağlam, yaygın olarak kullanılan, düşük seviyeli kütüphanelerin üzerine inşa etmeyi tercih ediyoruz.",
+                    "updated": 1643026534160
                 }
             ]
         }

@@ -860,7 +860,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     // first look for modified user profile, since that's the most popular contribution
                                     let summary = await git.diffSummary()
                                     if (summary && summary.files && summary.files.length > 0) {
-                                        for (i = 0; i < summary.files.length; i++) {
+                                        for (let i = 0; i < summary.files.length; i++) {
                                             if (summary.files[i].file === 'Plugins/Governance' && summary.files[i].changes === 0) {
                                                 // switch to working in governance plugin submodule, since this must be changed first anyway
                                                 governanceModified = true

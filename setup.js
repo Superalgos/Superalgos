@@ -241,7 +241,6 @@ nodeInstPromise.then(() => {
             gitUser = origin.split(':')[1].split('/')[0]
           }
       }
-      if ()
       if (repo !== "Superalgos" && origin && gitUser) await git.removeRemote('origin')
       if (repo !== "Superalgos" && gitUser) {
           let orURL

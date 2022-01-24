@@ -56,15 +56,19 @@ exports.newNetworkRoot = function newNetworkRoot() {
             axios: require('axios')
         }
         SA.version = require('./package.json').version
+        /* 
+        Setting up the App Schema Memory Map. 
+        */
+        let APP_SCHEMAS = require('./AppSchemas.js')
+        let APP_SCHEMAS_MODULE = APP_SCHEMAS.newAppSchemas()
+        await APP_SCHEMAS_MODULE.initialize()
         /*
         Setting up Secrets.
         */
         let SECRETS = require('./Secrets.js').newSecrets()
         SECRETS.initialize()
 
-        NT.app = require('./Network/NetwokNode.js').newNetworkNode()
+        NT.app = require('./Network/NetwokApp.js').newNetworkApp()
         NT.app.run()
-
-        console.log('Superalgos Network is Running.')
     }
 }

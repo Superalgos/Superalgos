@@ -18,6 +18,11 @@
                 "language": "DE",
                 "text": "Herzlichen Glückwunsch... Sie haben das Ende des Tutorials erreicht!",
                 "updated": 1636470750188
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Tebrikler... Bu eğitimin sonuna geldiniz!",
+                "updated": 1642164236434
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "DE",
                     "text": "Sie können dieses Lernprogramm jederzeit wieder aufrufen. Wenn Sie im Menü die Option Play wählen, beginnen Sie direkt am Anfang. Wenn Sie stattdessen die Option Resume wählen, beginnen Sie dort, wo Sie zuletzt aufgehört haben oder wo Sie zuletzt einen Schritt übersprungen haben.",
                     "updated": 1636470883959
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu öğreticiyi istediğiniz zaman tekrar ziyaret edebilirsiniz. Menüden Oynat seçeneğini seçerseniz, en baştan başlarsınız. Bunun yerine Sürdür seçeneğini belirlerseniz, en son kaldığınız yerden veya en son atladığınız adım'dan başlarsınız.",
+                    "updated": 1642164304986
                 }
             ]
         }

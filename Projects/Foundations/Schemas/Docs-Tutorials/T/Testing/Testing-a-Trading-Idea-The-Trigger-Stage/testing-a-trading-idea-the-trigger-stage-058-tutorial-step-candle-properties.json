@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Wir haben direkten Zugriff auf die Eigenschaften von Kerzen, und der Wert des Schlusskurses ist über die Eigenschaft close verfügbar.",
                 "updated": 1639389239481
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Mumların özelliklerine doğrudan erişimimiz var ve kapanış fiyatının değeri, yakın mülk aracılığıyla öğrenilebilir.",
+                "updated": 1641662770987
+            },
+            {
+                "language": "RU",
+                "text": "У нас есть прямой доступ к свойствам свечей, и значение закрытия доступно в свойстве close.",
+                "updated": 1642660404628
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Dies macht den Zugriff auf den Close-Wert der Kerze recht einfach:",
                     "updated": 1639389247382
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, mumun Kapat değerine erişmesini oldukça kolaylaştırır:",
+                    "updated": 1641662797344
+                },
+                {
+                    "language": "RU",
+                    "text": "Это делает доступ к значению закрытия свечи довольно простым:",
+                    "updated": 1642660429881
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Deklarieren Sie den Zeitrahmen: chart.at01hs.",
                     "updated": 1639389258126
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman çerçevesini tanımla: <br/> chart.at01hs.",
+                    "updated": 1641662830617
+                },
+                {
+                    "language": "RU",
+                    "text": "Объявите таймфрейм: chart.at01hs.",
+                    "updated": 1642660465538
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Gefolgt von Produkt und Eigenschaft: candle.close",
                     "updated": 1639389274487
+                },
+                {
+                    "language": "TR",
+                    "text": "Ardından ürün ve özellik:<br/>candle.close",
+                    "updated": 1641662867018
+                },
+                {
+                    "language": "RU",
+                    "text": "Далее следуют продукт и свойство: candle.close",
+                    "updated": 1642660509921
                 }
             ]
         },
@@ -58,6 +98,16 @@
                     "language": "DE",
                     "text": "Das war der einfache Teil! Jetzt geht's an die Bollinger Bands!",
                     "updated": 1639389284404
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu işin kolay kısmıydı! Şimdi sıra Bollinger Bantlarında!",
+                    "updated": 1641662891171
+                },
+                {
+                    "language": "RU",
+                    "text": "Это было легко! Давайте займемся полосами Боллинджера!",
+                    "updated": 1642660522543
                 }
             ]
         }

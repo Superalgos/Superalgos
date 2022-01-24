@@ -21,6 +21,11 @@
                 "updated": 1639251297105
             },
             {
+                "language": "RU",
+                "text": "Прежде чем строить торговую стратегию, сначала нужно придумать четкую и проверяемую торговую идею.",
+                "updated": 1640887479031
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Stratejisi ( Trading Strategy ) oluşturmadan önce, net ve test edilebilir bir ticaret fikri bulmanız gerekir.",
                 "updated": 1640858579634
@@ -42,6 +47,11 @@
                     "language": "DE",
                     "text": "Eine Handelsidee ist der Vorläufer einer Trading Strategy. Während eine vollständige Strategie die Regeln für das Eingehen, Verwalten und Verlassen einer Position enthält, befasst sich eine Trading-Idee nur mit dem ersten dieser Punkte.",
                     "updated": 1639251307779
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговая идея - это предшественник торговой стратегии. В то время как полная стратегия включает в себя правила взятия, управления и выхода из позиции, торговая идея касается только первого из этих вопросов.",
+                    "updated": 1640887505405
                 },
                 {
                     "language": "TR",
@@ -66,6 +76,11 @@
                     "updated": 1639251321051
                 },
                 {
+                    "language": "RU",
+                    "text": "Тестирование торговой идеи перед тем, как приступить к построению полной стратегии, является логичным подходом, потому что управление и выход из неудачных входов - это не то, к чему вы должны стремиться!",
+                    "updated": 1640887524270
+                },
+                {
                     "language": "TR",
                     "text": "Eksiksiz bir strateji oluşturmaya karar vermeden önce bir ticaret fikrini test etmek mantıklı bir yaklaşımdır çünkü hedeflediğiniz şey başarısız girişleri yönetmek ve bunlardan çıkmak değildir!",
                     "updated": 1640858741535
@@ -86,6 +101,11 @@
                     "language": "DE",
                     "text": "In diesem Lehrgang wird erklärt, wie man eine Handelsidee richtig formuliert, die später getestet werden kann.",
                     "updated": 1639251327572
+                },
+                {
+                    "language": "RU",
+                    "text": "Этот учебник объясняет, как правильно сформулировать торговую идею, которая впоследствии может быть протестирована.",
+                    "updated": 1640887538516
                 },
                 {
                     "language": "TR",

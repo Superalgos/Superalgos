@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Dosya Gezgini uygulamanıza gidin ve Superalgos klasörüne göre aşağıdaki yolları arayın...",
                 "updated": 1639765842220
+            },
+            {
+                "language": "RU",
+                "text": "Зайдите в проводник (File Explorer) и найдите следующие пути относительно корневой папки Superalgos...",
+                "updated": 1640871895869
             }
         ]
     },
@@ -74,6 +79,28 @@
                     "language": "TR",
                     "text": "Daha önce kaydetmiş olabileceğiniz çalışma alanlarını burada bulabilirsiniz. Klasör boşsa veya mevcut değilse, henüz herhangi bir çalışma alanı kaydetmemişsiniz demektir!",
                     "updated": 1639765864958
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь вы найдете рабочие пространства, которые вы, возможно, сохранили ранее. Если папка пуста или не существует, это означает, что вы еще не сохранили ни одного рабочего пространства!",
+                    "updated": 1640871913521
+                }
+            ]
+        },
+        {
+            "style": "Warning",
+            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups. ",
+            "updated": 1638830459326,
+            "translations": [
+                {
+                    "language": "TR",
+                    "text": "Geliştirici dallarından Eklentiler-Belgeler Şubesi (Plugins-.Docs) kaldırılmıştır.. Tüm katkılar artık Develop şubesi ile yapılıyor.. Bununla ilgili sorularınız varsa, Telegram gruplarında sormaktan çekinmeyin.",
+                    "updated": 1639766338375
+                },
+                {
+                    "language": "RU",
+                    "text": "Ветка Plugins-Docs является устаревшей. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegramm.",
+                    "updated": 1640871933195
                 }
             ]
         },
@@ -107,6 +134,11 @@
                     "language": "TR",
                     "text": "Bu klasörde, Superalgos ile birlikte gönderilen Eklenti Çalışma Alanlarını ( Plugin Workspaces ) bulacaksınız. Her birinin ne hakkında olduğunu öğrenmek için Dokümanlar'daki \"Community Workspaces\" konusunu okuyabilirsiniz.",
                     "updated": 1639766445410
+                },
+                {
+                    "language": "RU",
+                    "text": "В этой папке вы найдете рабочие пространства плагинов, поставляемые с Superalgos. Вы можете прочитать тему \"Community Workspaces\" в документации, чтобы узнать, что представляет собой каждое из них!",
+                    "updated": 1640871987116
                 }
             ]
         },

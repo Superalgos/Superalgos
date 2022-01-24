@@ -13,6 +13,11 @@
                 "language": "DE",
                 "text": "Dies sind die letzten Abschlüsse im Testzeitraum, und alle drei sind eindeutig fehlgeschlagen.",
                 "updated": 1639418894073
+            },
+            {
+                "language": "TR",
+                "text": "Bunlar test edilen dönemdeki son birkaç işlem ve bunların üçü de açık bir şekilde başarısızdır oldu.",
+                "updated": 1641806047606
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "DE",
                     "text": "Zeit, den Kontext im 24-Stunden-Zeitrahmen zu überprüfen!",
                     "updated": 1639418902033
+                },
+                {
+                    "language": "TR",
+                    "text": "24 saatlik zaman çerçevesinde içeriği kontrol etme zamanı!",
+                    "updated": 1641806131863
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "DE",
                     "text": "Für mich sieht es unklar aus, ob der Kontext für einen Swing-Short geeignet ist oder nicht!",
                     "updated": 1639418908604
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Bana göre, bağlamın kısa bir salıncak için uygun olup olmadığı belirsiz görünüyor!",
+                    "updated": 1641806407569
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "DE",
                     "text": "Was soll man von diesem ersten Test halten? Vergleichen wir die Ergebnisse mit den Vorhersagen der Hypothese.",
                     "updated": 1639418914932
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Peki, bu ilk testten ne anlamalıyız? Sonuçları varsayım tahminleriyle karşılaştıralım.",
+                    "updated": 1641806453926
                 }
             ]
         }

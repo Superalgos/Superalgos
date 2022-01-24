@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Hoş Geldiniz öğreticisi sırasında parçalı yapı kavramından bahsettim... Hatırladınız mı?",
                 "updated": 1640781701548
+            },
+            {
+                "language": "RU",
+                "text": "Я упоминал концепцию гранулярности в учебнике Welcome... помните?",
+                "updated": 1640885878435
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Granularity,karmaşıklığı ele almanıza yardımcı olan bir cihazdır. Stratejilerin karmaşık bir kural ve tanım ağına dönüşmesine izin vermek yerine, karmaşık mantığı parçalara ayırmak ve daha küçük birimlerle başa çıkmak her zaman tercih edilir.",
                     "updated": 1640781986760
+                },
+                {
+                    "language": "RU",
+                    "text": "Гранулярность - это инструмент, который помогает справиться со сложностью. Вместо того чтобы позволять стратегиям разрастаться в сложную паутину правил и определений, всегда предпочтительнее разделить сложную логику на части и работать с более мелкими единицами.",
+                    "updated": 1640885899204
                 }
             ],
             "updated": 1640641303063
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Karmaşık mantığı birden çok stratejiye bölmek, stratejilerin basit ve anlaşılır tutulmasına yardımcı olur. Bu, stratejilerin hata ayıklamasını ve bakımını kolaylaştırır!",
                     "updated": 1640782237916
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделение сложной логики на несколько стратегий помогает сохранить стратегии простыми и понятными. Это облегчает отладку и сопровождение стратегий!",
+                    "updated": 1640885914418
                 }
             ]
         },
@@ -65,9 +80,9 @@
                     "updated": 1639148168274
                 },
                 {
-                    "language": "TR",
-                    "text": "Mümkün olduğunca, basit tutun!",
-                    "updated": 1640782275823
+                    "language": "RU",
+                    "text": "Всегда, когда это возможно, упрощайте!",
+                    "updated": 1640885944269
                 }
             ]
         }

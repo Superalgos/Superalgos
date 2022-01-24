@@ -42,7 +42,7 @@
                     "actionFunction": "payload.executeAction",
                     "label": "Add User Apps",
                     "relatedUiObject": "User Apps",
-                    "relatedUiObjectProject": "Governance"
+                    "relatedUiObjectProject": "User-Apps"
                 },
                 {
                     "action": "Add UI Object",
@@ -62,7 +62,7 @@
                     "actionFunction": "payload.executeAction",
                     "label": "Add Social Personas",
                     "relatedUiObject": "Social Personas",
-                    "relatedUiObjectProject": "Governance"
+                    "relatedUiObjectProject": "Social-Trading"
                 },
                 {
                     "action": "Add UI Object",
@@ -72,8 +72,18 @@
                     "actionFunction": "payload.executeAction",
                     "label": "Add P2P Network Nodes",
                     "relatedUiObject": "P2P Network Nodes",
-                    "relatedUiObjectProject": "Governance"
+                    "relatedUiObjectProject": "Network"
                 },
+                {
+                    "action": "Add UI Object",
+                    "actionProject": "Visual-Scripting",
+                    "disableIfPropertyIsDefined": true,
+                    "propertyToCheckFor": "permissionedP2PNetworks",
+                    "actionFunction": "payload.executeAction",
+                    "label": "Add Permissioned P2P Networks",
+                    "relatedUiObject": "Permissioned P2P Networks",
+                    "relatedUiObjectProject": "Network"
+                },                
                 {
                     "action": "Add UI Object",
                     "actionProject": "Visual-Scripting",
@@ -145,6 +155,7 @@
             "name": "userApps",
             "type": "node",
             "childType": "User Apps",
+            "project": "User-Apps",            
             "autoAdd": false
         },
         {
@@ -157,12 +168,21 @@
             "name": "socialPersonas",
             "type": "node",
             "childType": "Social Personas",
+            "project": "Social-Trading",
             "autoAdd": false
         },
         {
             "name": "p2pNetworkNodes",
             "type": "node",
             "childType": "P2P Network Nodes",
+            "project": "Network",
+            "autoAdd": false
+        },
+        {
+            "name": "permissionedP2PNetworks",
+            "type": "node",
+            "childType": "Permissioned P2P Networks",
+            "project": "Network",            
             "autoAdd": false
         },
         {

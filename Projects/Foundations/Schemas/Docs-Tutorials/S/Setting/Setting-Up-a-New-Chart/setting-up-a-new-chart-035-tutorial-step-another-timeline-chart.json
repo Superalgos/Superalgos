@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Um eine Verbindung zu unserem Trading System herzustellen, benötigen wir einen weiteren Timeline Chart. Fügen wir ihn einfach hinzu!",
                 "updated": 1639498771368
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret sistemimizle ( Trading System ) bağlantı kurmak için başka bir zaman çizelgesi grafiğine ( Timeline Chart ) ihtiyacımız var. Hemen ekleyelim!",
+                "updated": 1642598657109
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "DE",
                     "text": "Suchen Sie Ihre Time Machine und fügen Sie ein neues Timeline Chart hinzu.",
                     "updated": 1639498824723
+                },
+                {
+                    "language": "TR",
+                    "text": "Zaman Makineni ( Time Machine ) bul ve yeni bir Zaman Çizelgesi Grafiği ( Timeline Chart ) ekleyin.",
+                    "updated": 1642598777354
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "DE",
                     "text": "Vergessen Sie nicht, ihn zu benennen, damit er leicht zu erkennen ist. Benennen Sie es nach der Art der Mine oder der Daten. Ein guter Name wäre z.B.:",
                     "updated": 1639498878726
+                },
+                {
+                    "language": "TR",
+                    "text": "Kolay tanınması için adlandırmayı unutmayın. Maden tipine veya verilere göre adlandırırsak. İyi bir isim olur:",
+                    "updated": 1642598822790
                 }
             ]
         },

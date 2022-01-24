@@ -24,6 +24,11 @@
                 "language": "RU",
                 "text": "Прежде чем приступить к созданию пользовательских графиков, необходимо убедиться, что вы знаете основы работы в Superalgos.",
                 "updated": 1637914097943
+            },
+            {
+                "language": "TR",
+                "text": "Özel grafikler oluşturmaya başlamadan önce Superalgos'un temellerini bildiğinizden emin olmanız gerekir.",
+                "updated": 1642518250163
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "RU",
                     "text": "Прежде чем мы начнем, в этом руководстве предполагается, что вы закончили следующие руководства:",
                     "updated": 1637914133306
+                },
+                {
+                    "language": "TR",
+                    "text": "Başlamadan önce, bu öğretici aşağıdaki öğreticileri tamamladığınızı varsayar:",
+                    "updated": 1642518264972
                 }
             ]
         },
@@ -58,6 +68,11 @@
                     "language": "RU",
                     "text": "Welcome to Superalgos Tutorial (Добро пожаловать в учебник Superalgos)",
                     "updated": 1637914330246
+                },
+                {
+                    "language": "TR",
+                    "text": "Superalgos Eğitimine Hoş Geldiniz ( Welcome to Superalgos Tutorial )",
+                    "updated": 1642518281740
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "RU",
                     "text": "Basic Education Tutorial (Учебный курс по базовому образованию)",
                     "updated": 1637914368864
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Eğitim Kursu ( Basic Education Tutorial )",
+                    "updated": 1642518297187
                 }
             ]
         },
@@ -80,6 +100,11 @@
                     "language": "RU",
                     "text": "Beyond the Basics Tutorial (За пределами базового урока)",
                     "updated": 1637914402201
+                },
+                {
+                    "language": "TR",
+                    "text": "Temel Eğitimin Ötesinde ( Beyond the Basics Tutorial )",
+                    "updated": 1642518309859
                 }
             ]
         },
@@ -91,6 +116,11 @@
                     "language": "RU",
                     "text": "Install a New Market Tutorial (Установка нового учебника по рынку)",
                     "updated": 1637914425622
+                },
+                {
+                    "language": "TR",
+                    "text": "Yeni Bir Pazar Kurun Eğitimi ( Install a New Market Tutorial )",
+                    "updated": 1642518338113
                 }
             ]
         },
@@ -111,8 +141,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы не прошли эти уроки и не имеете базовых знаний о том, как перемещаться в рабочей области (Workspace), этот урок может показаться вам непонятным. Я бы предложил вам сделать паузу и вернуться сюда, когда вы немного освоитесь.",
+                    "text": "Если вы не прошли эти уроки и не имеете базовых знаний о том, как перемещаться в рабочем пространстве (Workspace), этот урок может показаться вам непонятным. Я бы предложил вам сделать паузу и вернуться сюда, когда вы немного освоитесь.",
                     "updated": 1637914221449
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu öğreticileri tamamlamadıysanız ve Çalışma Alanınızda ( Workspace ) nasıl dolaşılacağına dair temel bir çalışma bilgisine sahip değilseniz, bu öğretici kafa karıştırıcı olabilir. Biraz ara vermeni ve biraz daha rahatladığın zaman buraya gelmeni öneririm.",
+                    "updated": 1642518353719
                 }
             ]
         }

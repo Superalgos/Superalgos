@@ -20,3 +20,6 @@ exports.newDesktopAppFrontend = function newDesktopAppFrontend() {
         }
     }
 }
+
+let app = this.newDesktopAppFrontend();
+app.run();

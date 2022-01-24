@@ -31,7 +31,17 @@ function newVisualScriptingNodeActionSwitch() {
             }
 
             case 'Create UI Object': {
+                let historyObject = {
+                    action: action
+                }
+
                 UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.createUiObjectFromNode(action.node, undefined, undefined, action.extraParameter)
+
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Connect Children to Reference Parents': {
@@ -69,7 +79,6 @@ function newVisualScriptingNodeActionSwitch() {
             case 'Delete Workspace': {
                 return UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteWorkspace(action.node, action.rootNodes, action.callBackFunction)
             }
-                break
             case 'Copy Node Path':
                 {
                     let nodePath = UI.projects.visualScripting.nodeActionFunctions.nodePath.getNodePath(action.node)
@@ -105,22 +114,55 @@ function newVisualScriptingNodeActionSwitch() {
                 break
             case 'Add UI Object':
                 {
-                    UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
+                    let newUiObject = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(
                         action.node,
                         action.relatedNodeType,
                         action.rootNodes,
                         action.relatedNodeProject
                     )
+
+                    if (action.isInternal === false) {
+                        let historyObject = {
+                            action: action,
+                            newUiObject: newUiObject
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Add Missing Children':
                 {
-                    UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
+                    let newUiObjects = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addMissingChildren(action.node, action.rootNodes)
+
+                    if (action.isInternal === false && newUiObjects !== undefined && newUiObjects.length > 0) {
+                        let historyObject = {
+                            action: action,
+                            newUiObjects: newUiObjects,
+                            nodeClones: []
+                        }
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Delete UI Object':
                 {
+                    let nodeClone = UI.projects.visualScripting.nodeActionFunctions.nodeCloning.getNodeClone(action.node, false)
+                    let historyObject = {
+                        action: action,
+                        nodeClone: nodeClone
+                    }
+
                     UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(action.node, action.rootNodes)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Share':
@@ -180,29 +222,162 @@ function newVisualScriptingNodeActionSwitch() {
 
                 break
             case 'Parent Attach': {
+                let historyObject = {
+                    action: action,
+                    relatedNodeId: action.relatedNode.id
+                }
+
                 UI.projects.visualScripting.nodeActionFunctions.chainAttachDetach.chainAttachNode(action.node, action.relatedNode, action.rootNodes)
+
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Reference Attach': {
+                let historyObject = {
+                    action: action,
+                    relatedNodeId: action.relatedNode.id
+                }
+
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(action.node, action.relatedNode, action.rootNodes)
+
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
             case 'Parent Detach':
                 {
+                    let historyObject = {
+                        action: action,
+                        parentNodeId: action.node.payload.parentNode.id
+                    }
+
                     UI.projects.visualScripting.nodeActionFunctions.chainAttachDetach.chainDetachNode(action.node, action.rootNodes)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Reference Detach':
                 {
+                    let historyObject = {
+                        action: action,
+                        referenceParentId: action.node.payload.referenceParent.id
+                    }
+
                     UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceDetachNode(action.node)
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
                 }
                 break
             case 'Create Reference':
             {
+                let historyObject = {
+                    action: action
+                }
+
                 UI.projects.visualScripting.nodeActionFunctions.attachDetach.createReference(action.node, action.rootNodes)
+
+                if (action.isInternal === false) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
             }
                 break
+            case 'Pin / Unpin':
+                {
+                    let historyObject = {
+                        action: action
+                    }
 
+                    action.node.payload.floatingObject.pinToggle()
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
+                }
+                break
+            case 'Change Tension Level':
+                {
+                    let historyObject = {
+                        action: action
+                    }
+
+                    action.node.payload.floatingObject.angleToParentToggle()
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
+                }
+                break
+            case 'Change Distance to Parent':
+                {
+                    let historyObject = {
+                        action: action
+                    }
+
+                    action.node.payload.floatingObject.distanceToParentToggle()
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
+                }
+                break
+            case 'Change Arrangement Style':
+                {
+                    let historyObject = {
+                        action: action
+                    }
+
+                    action.node.payload.floatingObject.arrangementStyleToggle()
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                    }
+                }
+                break
+            case 'Freeze / Unfreeze':
+                {
+                    let historyObject = {
+                        action: action
+                    }
+
+                    action.node.payload.floatingObject.freezeToggle()
+
+                    if (action.isInternal === false) {
+                        UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                        UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                        UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu() 
+                    }
+                }
+                break
+            case 'Highlight Referencing Nodes':
+                {
+                    UI.projects.visualScripting.nodeActionFunctions.referenceChildren.toggleHighlightReferenceChildren(action.node)
+                }
+                break
             default: {
                 console.log("[WARN] Action sent to Visual-Scripting Action Switch does not belong here. Verify at the App Schema file of the node that triggered this action that the actionProject is pointing to the right project. -> Action = " + action.name + " -> Action Node Name = " + action.node.name)
             }

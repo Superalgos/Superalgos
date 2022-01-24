@@ -14,6 +14,16 @@
                 "language": "DE",
                 "text": "Haben Sie den Fehler herausgefunden? Was? Sie haben nicht nachgeschaut? Ich habe gerade den Bildschirm geteilt, damit Sie den fehlerhaften Knoten auch finden können!",
                 "updated": 1639390780532
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Sorunun ne olduğunu buldunuz mu? Sorun Ne? Kontrol etmedin mi? Hatalı düğümü bulabilmeniz için ekranı böldüm!",
+                "updated": 1641664973982
+            },
+            {
+                "language": "RU",
+                "text": "Вы разобрались в ошибке? Что? Вы не посмотрели? Я просто разделил экран, чтобы вы тоже могли найти ошибочный узел!",
+                "updated": 1642662780644
             }
         ]
     },
@@ -27,6 +37,16 @@
                     "language": "DE",
                     "text": "Die Ebene \"Trading System Errors\" ist eingeschaltet! Machen Sie weiter und untersuchen Sie, worum es sich bei dem Fehler handelt!",
                     "updated": 1639390793021
+                },
+                {
+                    "language": "TR",
+                    "text": "Ticaret Sistem Hataları\"(Trading System Errors) seviyesi açıldı! Devam edin ve hatanın ne olduğunu araştırın!",
+                    "updated": 1641664990015
+                },
+                {
+                    "language": "RU",
+                    "text": "Слой \"Trading System Errors\" включен! Пройдите вперед и выясните, в чем заключается ошибка!",
+                    "updated": 1642662833332
                 }
             ]
         },
@@ -39,6 +59,16 @@
                     "language": "DE",
                     "text": "Nicht vergessen... Sie müssen nur auf den ersten Fehler im Chart zeigen, die Beschreibung des Fehlers lesen, den roten Ring finden, der den fehlerhaften Knoten im design space markiert, und die verfügbaren Informationen interpretieren! Viel Erfolg!",
                     "updated": 1639390802890
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Unutmayın ... tüm yapmanız gereken çizelgedeki ilk hatayı işaret etmek, hatanın açıklamasını okumak, tasarım alanında hatalı düğümü işaretleyen kırmızı halkayı bulmak ve mevcut bilgileri yorumlamak! Sana başarılar diliyorum!",
+                    "updated": 1641665007871
+                },
+                {
+                    "language": "RU",
+                    "text": "Помните... Вам просто нужно указать на первую ошибку на графике, прочитать описание ошибки, найти красное кольцо c крестиком, обозначающее узел-нарушитель в пространстве проектирования, и интерпретировать имеющуюся информацию! Удачи!",
+                    "updated": 1642662906100
                 }
             ]
         }

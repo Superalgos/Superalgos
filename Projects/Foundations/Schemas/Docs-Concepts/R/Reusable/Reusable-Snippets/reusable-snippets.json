@@ -50,8 +50,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Diese Seite behandelt die Top-Level-Informationen über den Abschnitt der Hierarchie, der in der folgenden Tabelle dargestellt ist. Klicken Sie auf einen der Knoten, um die Details zu erfahren, einschließlich der Angaben zur Konfiguration, falls zutreffend.",
-                    "updated": 1634293316369
+                    "text": "Diese Seite behandelt die Top-Level-Informationen über den Abschnitt der Hierarchie, der in der folgenden Tabelle dargestellt ist. Klicken Sie auf einen der Nodes, um die Details zu erfahren, einschließlich der Angaben zur Konfiguration, falls zutreffend.",
+                    "updated": 1642890592092
                 },
                 {
                     "language": "RU",
@@ -398,8 +398,8 @@
         },
         {
             "style": "Text",
-            "text": "All contributions to the Docs and Plugins must be submitted to the Plugins-Docs branch. All contributions to the code base must be submitted to the Develop branch. Make sure you update to the latest version in new branch and that everything you are submitting works properly in that version.",
-            "updated": 1620501903096,
+            "text": "All contributions to the Docs and plugins must be submitted to the Develop branch. All contributions to the code base must be submitted to the Develop branch too. Make sure you update to the latest version on the new branch and that everything you are submitting works properly in that version.",
+            "updated": 1642956564675,
             "translations": [
                 {
                     "language": "DE",
@@ -415,8 +415,8 @@
         },
         {
             "style": "Warning",
-            "text": "The Plugins-Docs Branch is OUTDATED. All contributions now go to the develop branch. If you got questions regarding to that, feel free to ask in the Telegramm groups.",
-            "updated": 1638831064656,
+            "text": "The Plugins-Docs Branch has been deprecated. All contributions now go to the Develop branch.",
+            "updated": 1642956370949,
             "translations": [
                 {
                     "language": "RU",
@@ -443,8 +443,8 @@
         },
         {
             "style": "Text",
-            "text": "To switch to the plugins-docs(-outdated) or the develop branch:",
-            "updated": 1638831170834,
+            "text": "To switch to branches:",
+            "updated": 1642956644914,
             "translations": [
                 {
                     "language": "DE",
@@ -453,14 +453,14 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Чтобы переключиться в ветку разработки:",
-                    "updated": 1638294977472
+                    "text": "Чтобы перейти к ветке plugins-docs(устарела) или ветке develop:",
+                    "updated": 1641834425134
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Go to the footer of this page.",
+            "text": "Go to the footer of this page (scroll down).",
             "translations": [
                 {
                     "language": "DE",
@@ -472,12 +472,13 @@
                     "text": "Перейти в нижний колонтитул этой страницы.",
                     "updated": 1638294992609
                 }
-            ]
+            ],
+            "updated": 1642956536861
         },
         {
             "style": "List",
-            "text": "Select Develop or master(only if you get specifically told to switch into master branch) under the Contributions Branch title.",
-            "updated": 1638831120115,
+            "text": "Select Develop or Master under the Contributions Branch title.",
+            "updated": 1642956666928,
             "translations": [
                 {
                     "language": "DE",
@@ -486,15 +487,15 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Выберите Develop под заголовком Contributions Branch.",
-                    "updated": 1638295021031
+                    "text": "Выберите Develop или Master (только если вам специально сказали перейти в ветку Master) под заголовком Contributions Branch.",
+                    "updated": 1641834468741
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Then select Develop or master(only if you get specifically told to switch into master branch) under the Choose the Current Branch title.",
-            "updated": 1638831147506,
+            "text": "Then select Develop or Master under the Choose the Current Branch title.",
+            "updated": 1642956683083,
             "translations": [
                 {
                     "language": "DE",
@@ -503,8 +504,8 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Затем выберите Develop под заголовком Choose the Current Branch.",
-                    "updated": 1638295062350
+                    "text": "Затем выберите Develop или Master (только если вам специально сказали перейти в ветку Master) под заголовком Choose the Current Branch. ",
+                    "updated": 1641834498609
                 }
             ]
         },
@@ -538,8 +539,8 @@
         },
         {
             "style": "List",
-            "text": "Run the App Update Command by typing it into the Searchfield at the top of the Docs",
-            "updated": 1634293024048,
+            "text": "Run the App Update Command by typing it into the search field at the top of the Docs",
+            "updated": 1642956704690,
             "translations": [
                 {
                     "language": "DE",
@@ -559,7 +560,7 @@
         },
         {
             "style": "List",
-            "text": "Close the app and restart.",
+            "text": "Now close the app and restart.",
             "translations": [
                 {
                     "language": "DE",
@@ -571,7 +572,8 @@
                     "text": "Закройте приложение и перезапустите.",
                     "updated": 1638295242408
                 }
-            ]
+            ],
+            "updated": 1642956712859
         },
         {
             "style": "Title",

@@ -15,6 +15,11 @@
                 "updated": 1639254306995
             },
             {
+                "language": "RU",
+                "text": "Мы добрались до того момента, когда наконец-то можем применить теорию на практике, так что давайте приступим к делу!",
+                "updated": 1640933119920
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Sonunda teoriyi pratiğe dökebileceğimiz noktaya geldik, hadi başlayalım!",
                 "updated": 1641062082892
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Im zweiten Tutorial dieser Reihe haben wir uns damit beschäftigt, wie man eine Handelsidee richtig definiert, damit sie überprüfbar ist. Wir haben auch eine Exkursion unternommen und sind mit einer richtig formalisierten Hypothese zurückgekommen, die wir testen können.",
                     "updated": 1639254318951
+                },
+                {
+                    "language": "RU",
+                    "text": "Во втором уроке из этой серии мы рассказали о том, как правильно определить торговую идею, чтобы ее можно было проверить. Мы также отправились на экскурсию и вернулись с правильной формализованной гипотезой для проверки.",
+                    "updated": 1640933147749
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639254330335
                 },
                 {
+                    "language": "RU",
+                    "text": "В этом учебнике мы проверим гипотезу!",
+                    "updated": 1640933179436
+                },
+                {
                     "language": "TR",
                     "text": "Bu eğitimde varsayımı test edeceğiz!",
                     "updated": 1641062215027
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Ich empfehle Ihnen dringend, das erste und das zweite Tutorial der Reihe zu lesen, bevor Sie mit diesem beginnen! Die Geschichte wird von einem zum nächsten weitergeführt!",
                     "updated": 1639254337943
+                },
+                {
+                    "language": "RU",
+                    "text": "Я настоятельно рекомендую вам прочесть первый и второй учебники из этой серии, прежде чем браться за этот! История переносится из одного в другой!",
+                    "updated": 1640933201552
                 },
                 {
                     "language": "TR",

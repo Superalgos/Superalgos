@@ -33,6 +33,11 @@
                 "updated": 1636699172648
             },
             {
+                "language": "RU",
+                "text": "Левая часть меню узла является общей для большинства узлов. Однако правая часть меню зависит от типа узла!",
+                "updated": 1640858911184
+            },
+            {
                 "language": "ID",
                 "text": "Sisi kiri menu node adalah umum untuk sebagian besar nodes. Sisi kanan, bagaimanapun, khusus untuk jenis node!",
                 "updated": 1641094441266
@@ -68,6 +73,11 @@
                     "updated": 1636699207312
                 },
                 {
+                    "language": "RU",
+                    "text": "Давайте внимательно посмотрим на левую сторону!",
+                    "updated": 1640858921506
+                },
+                {
                     "language": "ID",
                     "text": "Mari kita perhatikan sisi kiri!",
                     "updated": 1641094461776
@@ -99,6 +109,11 @@
                     "language": "TR",
                     "text": "Tasarım alanı, düğümlerin, düğüm menüsünden kontrol edebileceğiniz belirli düzenleme özelliklerini bünyesinde barındıran, kendi kendini organize eden bir çalışma alanı paradigması altında işlev görür.",
                     "updated": 1636699360931
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство проектирования функционирует в парадигме самоорганизующегося рабочего пространства, в котором узлы стремятся найти свое место, руководствуясь определенными свойствами расположения, которыми можно управлять из меню узла.",
+                    "updated": 1640858950813
                 },
                 {
                     "language": "ID",
@@ -133,6 +148,11 @@
                     "language": "TR",
                     "text": "Oturum Temel Varlık ( Session Base Asset ) düğümünün sol üst köşesindeki sabitle düğmesini tıklayarak düğümü uzağa sürükleyin ve bırakın! Şimdi başka bir düğümü sabitlemeden sürükleyip bırakın. Farkı gördünüz mü?",
                     "updated": 1636699433193
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите на кнопку с булавкой в левом верхнем углу узла Session Base Asset. Теперь перетащите узел в сторону и отпустите его! Теперь перетащите и отпустите любой другой узел, не закрепляя его. Видите разницу?",
+                    "updated": 1640858976607
                 },
                 {
                     "language": "ID",

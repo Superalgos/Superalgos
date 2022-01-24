@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Узел Order Base Asset отслеживает эволюцию определенных свойств заказов, выраженных в базовом активе.",
                 "updated": 1640345847440
+            },
+            {
+                "language": "TR",
+                "text": "Order Base Asset düğümü, temel varlıkta verilen siparişlerin belirli özelliklerinin gelişimini takip eder.",
+                "updated": 1642403730093
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Подробнее о том, как ведутся счета для базового актива и котируемого актива, можно узнать на странице базового актива и котируемого актива в разделе документации Trading Engine.",
                     "updated": 1640345862070
+                },
+                {
+                    "language": "TR",
+                    "text": "Belgelerin Trading Engine bölümündeki temel varlık ve kote varlık sayfasında temel varlık ve kote varlık hesaplarının nasıl tutulduğu hakkında daha fazla bilgi edinin.",
+                    "updated": 1642403746496
                 }
             ]
         }

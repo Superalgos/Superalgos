@@ -1,0 +1,74 @@
+{
+    "topic": "Polus Data Mine",
+    "pageNumber": "13",
+    "type": "Ehlers Signal-to-noise Ratio",
+    "definition": {
+        "text": "This is a volatility indicator created by John Ehlers and published in his book \u2019Rocket Science for Traders, p81-82.\u2019"
+    },
+    "paragraphs": [
+        {
+            "style": "Title",
+            "text": "Info:"
+        },
+        {
+            "style": "Text",
+            "text": "The Signal To Noise Ratio was authored by John Ehlers; it is derived from his Hilbert Transform Indicator. Highs, lows, Eulers logarithms, factors and feedback are applied to Hilbert's complex number calculations to produce this indicator's amplitude value."
+        },          
+		{
+            "style": "Text",
+            "text": "This indicator will show the asset's level of volatility and provide possible buy and sell entries."
+        },        
+		{
+            "style": "Text",
+            "text": "If the indicator crosses over the zero line then the asset is volatile. For a consolidating market, the indicator will be below the zero. The color of the indicator shows potential buy and sell entries: green for buy and red for sell."
+        },
+		{
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Ehlers-SNR.png"
+        },
+		{
+            "style": "Text",
+            "text": "The length of the transform and the period can be changed by locating and opening the Javascript Code under Data Building Procedure -> Procedure Loop under \u2019Ehlers Signal to Noise\u2019 Product Definition."
+        },
+        {
+            "style": "Png",
+            "text": "PNGs/Foundations/Docs/indicators/Polus-Ehlers-SNR-params.png"
+        },
+		{
+            "style": "Text",
+            "text": "The zero line could also be changed to 6 or higher to provide more conservative trend threshold. This is done in the plotter under Ehlers Signal to Noise plotter -> SNR Shapes -> Chart Points -> Zero Begin/End -> Point Formula"
+        },
+		{
+            "style": "Title",
+            "text": "Products & Properties"
+        },
+        {
+            "style": "Text",
+            "text": "The following properties are available to access:"
+        },
+        {
+            "style": "Table",
+            "text": "| Product Name | Product Variable | Properties |\n| Polus-Ehlers-SNR | EhlersSignalToNoise | snr, h1, smooth |"
+        },
+		{
+            "style": "Text",
+            "text": "Example:"
+        },
+		{
+            "style": "Text",
+            "text": "A simple strategy could be built to open a trade when the indicator rises above the threshold value and the signal turns green:"
+        },
+		{
+            "style": "Javascript",
+            "text": "chart.at24hs.EhlersSignalToNoise.previous.snr < 6 && chart.at24hs.EhlersSignalToNoise.snr > 6 && \n chart.at24hs.EhlersSignalToNoise.h1 < chart.at24hs.EhlersSignalToNoise.smooth"
+        },
+        {
+            "style": "Title",
+            "text": "Maintainer:"
+        },
+        {
+            "style": "Link",
+            "text": "@ThomasHuault (Telegram)->t.me/ThomasHuault"
+        }
+    ]
+}

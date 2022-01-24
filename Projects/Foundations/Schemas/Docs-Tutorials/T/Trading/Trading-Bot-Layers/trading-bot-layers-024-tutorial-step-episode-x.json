@@ -4,7 +4,7 @@
     "type": "Tutorial Step - Episode X",
     "definition": {
         "icon": {
-            "name": "trading-episode",
+            "name": "Trading/trading-episode",
             "project": "Foundations"
         },
         "text": "There's one layer left... Episodes! It marks the duration of the episode and features several plotter panels...",
@@ -19,6 +19,11 @@
                 "language": "RU",
                 "text": "Остался один слой... Эпизоды! Он обозначает продолжительность эпизода и содержит несколько панелей плоттера...",
                 "updated": 1640630164191
+            },
+            {
+                "language": "TR",
+                "text": "Bir katman kaldı... Episodes! Bölümün süresini belirtir ve birkaç çizici paneli içerir...",
+                "updated": 1642502569443
             }
         ]
     },
@@ -37,6 +42,11 @@
                     "language": "RU",
                     "text": "Включите слой \"Episodes\"!",
                     "updated": 1640630183428
+                },
+                {
+                    "language": "TR",
+                    "text": "\"Episodes\" katmanını açın!",
+                    "updated": 1642502595675
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "RU",
                     "text": "В данном случае эпизод длится шесть месяцев, поэтому все, что вы увидите, это линию в нижней части экрана и значок эпизода с обеих сторон, сигнализирующий о том, что эпизод длится дольше, чем период, представленный на экране.",
                     "updated": 1640630233254
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu durumda, bölüm altı ay uzunluğundadır, bu nedenle tek göreceğiniz ekranın alt kısmındaki bir çizgidir ve her iki taraftaki bölüm simgesi bölümün ekranda gösterilen süreden daha uzun olduğunu belirtir.",
+                    "updated": 1642502623529
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "RU",
                     "text": "Как обычно, панели плоттера содержат информацию, которая объясняется в разделе документации Trading Engine.",
                     "updated": 1640630255998
+                },
+                {
+                    "language": "TR",
+                    "text": "Her zamanki gibi, çizici panelleri, belgelerin TTrading Engine bölümünde açıklanan bilgileri içerir.",
+                    "updated": 1642502659971
                 }
             ]
         }

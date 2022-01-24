@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Менеджеры слоев организуют слои и связывают их с продуктами данных, которые будут отображаться на диаграммах.",
                 "updated": 1636205082022
+            },
+            {
+                "language": "TR",
+                "text": "Katman Yöneticileri, katmanları düzenler ve grafiklerde görüntülenecek veri ürünlerine bağlanır.",
+                "updated": 1641717629201
             }
         ]
     },

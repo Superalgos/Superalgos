@@ -287,7 +287,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -307,7 +307,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -327,7 +327,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(global.DEFAULT_FAIL_RESPONSE), httpResponse)
                                         })
                                 })
-                                .catch (err => {
+                                .catch(err => {
                                     console.error(err)
                                 })
                             break
@@ -429,7 +429,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     let filePath = global.env.PATH_TO_SECRETS + '/'
                                     let fileName = "SigningAccountsSecrets.json"
 
-                                    createNewDir(filePath)
+                                    SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
                                     SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, body)
 
                                     console.log('[SUCCESS] ' + filePath + '/' + fileName + '  created.')
@@ -720,9 +720,9 @@ exports.newHttpInterface = function newHttpInterface() {
 
                             function createPrefixDirectories(filePath, schemaTextToUse) {
                                 let firstLetter = schemaTextToUse.substring(0, 1)
-                                createNewDir(filePath + '/' + firstLetter)
+                                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath + '/' + firstLetter)
                                 let extraWord = schemaTextToUse.split(' ')[0]
-                                createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
+                                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath + '/' + firstLetter + '/' + extraWord)
                                 return filePath + '/' + firstLetter + '/' + extraWord + '/' + cleanFileName(schemaTextToUse)
                             }
 
@@ -746,7 +746,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         schemaDocument.updated = undefined
                                         schemaDocument.created = undefined
                                         let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                        createNewDir(newFilepath)
+                                        SA.projects.foundations.utilities.filesAndDirectories.createNewDir(newFilepath)
                                         fs.writeFileSync(newFilepath + '/' + fileName, fileContent)
                                         if (created === true) {
                                             console.log('[SUCCESS] ' + newFilepath + '/' + fileName + '  created.')
@@ -1232,8 +1232,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 allAppSchemasFilePaths.push(fileToRead)
                                                 allAppSchemasFileProjects.push(project)
                                             } catch (err) {
-                                                console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                                return
+                                                console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                                continue
                                             }
                                         }
                                         PROJECTS_MAP.set(project, SCHEMA_MAP)
@@ -1303,11 +1303,11 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
 
                                         //if (wasUpdated === true) {
-                                            //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
-                                            //let filePath = allAppSchemasFilePaths[i]
-                                            //console.log('Saving File at ' + filePath)
-                                            //console.log(fileContent)
-                                            //fs.writeFileSync(filePath, fileContent)
+                                        //let fileContent = JSON.stringify(schemaDocument, undefined, 4)
+                                        //let filePath = allAppSchemasFilePaths[i]
+                                        //console.log('Saving File at ' + filePath)
+                                        //console.log(fileContent)
+                                        //fs.writeFileSync(filePath, fileContent)
                                         //}
                                     }
                                 } catch (err) {
@@ -1453,10 +1453,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                             let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
                                                 params.token
                                             )
-        
+
                                             SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(serverResponse), httpResponse)
-                                            
-                                            if(error != undefined) {
+
+                                            if (error != undefined) {
                                                 console.log('[ERROR] httpInterface -> Gov -> createFork -> You already have a fork. Good for you!')
                                             }
                                         }
@@ -1891,9 +1891,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                     try {
                                         schemaDocument = JSON.parse(fileContent)
                                     } catch (err) {
-                                        console.log('[ERROR] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
-                                        SA.projects.foundations.utilities.httpResponses.respondWithContent("[]", httpResponse)
-                                        return
+                                        console.log('[WARN] sendSchema -> Error Parsing JSON File: ' + fileToRead + ' .Error = ' + err.stack)
+                                        continue
                                     }
                                     schemaArray.push(schemaDocument)
                                 }
@@ -2354,16 +2353,6 @@ exports.newHttpInterface = function newHttpInterface() {
             }
             if (err.message !== undefined) {
                 console.log('[ERROR] onHttpRequest -> err.message = ' + err.message)
-            }
-        }
-    }
-
-    function createNewDir(path) {
-        try {
-            SA.nodeModules.fs.mkdirSync(path, { recursive: true })
-        } catch (err) {
-            if (err.message.indexOf('file already exists') < 0) {
-                throw (err)
             }
         }
     }

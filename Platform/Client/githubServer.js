@@ -853,8 +853,6 @@ exports.newGithubServer = function newGithubServer() {
                             }
 
                         } catch (err) {
-                            console.log(err)
-
                             if (err.stack.indexOf('last page') >= 0) {
                                 return
                             } else {

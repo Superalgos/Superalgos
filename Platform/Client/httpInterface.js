@@ -794,6 +794,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const token = unescape(requestPath[5])
                                 const currentBranch = unescape(requestPath[6])
                                 const contributionsBranch = unescape(requestPath[7])
+                                let governanceModified = false
                                 let error
 
                                 /* Unsaving # */
@@ -810,7 +811,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                     if (gitpath === undefined) {
                                         console.log('[ERROR] `git` not installed.')
                                     } else {
-                                        await doGit()
+                                        await doGit().catch(e => {
+                                            error = e
+                                        })
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -825,7 +828,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                             return
                                         }
 
-                                        await doGithub()
+                                        await doGithub().catch(e => {
+                                            error = e
+                                        })
                                         if (error !== undefined) {
 
                                             let docs = {
@@ -846,32 +851,48 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
+                                    let options = {
                                         baseDir: process.cwd(),
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
-                                    const git = simpleGit(options)
-
-                                    try {
-                                        await git.add('./*')
-                                        await git.commit(commitMessage)
-                                        await git.push('origin', currentBranch)
-                                    } catch (err) {
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
-                                        console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
-                                        console.log('')
-                                        console.log('Troubleshooting Tips:')
-                                        console.log('')
-                                        console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
-                                        console.log('2. Make sure you are running the latest version of Git available for your OS.')
-                                        console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
-                                        console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
-                                        error = err
+                                    let git = simpleGit(options)
+                                    // first look for modified user profile, since that's the most popular contribution
+                                    let summary = await git.diffSummary()
+                                    if (summary && summary.files && summary.files.length > 0) {
+                                        for (i = 0; i < summary.files.length; i++) {
+                                            if (summary.files[i].file === 'Plugins/Governance' && summary.files[i].changes === 0) {
+                                                // switch to working in governance plugin submodule, since this must be changed first anyway
+                                                governanceModified = true
+                                                options = {
+                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
+                                                    binary: 'git',
+                                                    maxConcurrentProcesses: 6,
+                                                }
+                                                git = simpleGit(options)
+                                            }
+                                        }
+                                        try {
+                                            await git.add('./*')
+                                            await git.commit(commitMessage)
+                                            await git.push('origin', currentBranch)
+                                        } catch (err) {
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> Method call produced an error.')
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> err.stack = ' + err.stack)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> commitMessage = ' + commitMessage)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> currentBranch = ' + currentBranch)
+                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGit -> contributionsBranch = ' + contributionsBranch)
+                                            console.log('')
+                                            console.log('Troubleshooting Tips:')
+                                            console.log('')
+                                            console.log('1. Make sure that you have set up your Github Username and Token at the APIs -> Github API node at the workspace.')
+                                            console.log('2. Make sure you are running the latest version of Git available for your OS.')
+                                            console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
+                                            console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+                                            error = err
+                                        }
                                     }
+
                                 }
 
                                 async function doGithub() {
@@ -883,7 +904,9 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    const repo = 'Superalgos'
+                                    let repo
+                                    if (governanceModified) repo = 'Governance-Plugins'
+                                    else repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
@@ -1495,7 +1518,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                             }
                                             const title = 'Governance: ' + mess
                                             const path = 'User-Profiles/' + username + '.json';
-
                                             const sha = await getSHA(path);
 
                                             if (sha === undefined) {
@@ -1511,15 +1533,14 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                             let buff = new Buffer.from(file, 'utf-8');
                                             let encodedFile = buff.toString('base64');
-
                                             try {
                                                 await octokit.repos.createOrUpdateFileContents({
                                                     owner: username,
                                                     repo: repo,
-                                                    path,
+                                                    path: path,
                                                     message: title,
                                                     content: encodedFile,
-                                                    sha,
+                                                    sha: sha,
                                                     branch: base
                                                 });
                                             } catch (err) {
@@ -1537,7 +1558,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                                     error = err
                                                 }
                                             }
-
                                             try {
                                                 await octokit.pulls.create({
                                                     owner,
@@ -1562,7 +1582,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 }
 
                                             }
-
 
                                         }
 

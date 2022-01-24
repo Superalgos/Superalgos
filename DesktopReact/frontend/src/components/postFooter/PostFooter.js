@@ -4,14 +4,14 @@ import {IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {
     AccessibilityNewOutlined,
+    Autorenew,
     FavoriteBorder,
     MessageOutlined,
     Mood,
     OutletOutlined,
     SentimentVeryDissatisfied,
     SentimentVeryDissatisfiedOutlined,
-    ThumbUp,
-    Autorenew
+    ThumbUp
 } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import {dialStyle} from "./reactionsStyle";
@@ -19,7 +19,7 @@ import {reactedPost} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import {useDispatch} from "react-redux";
 import {setModalPost} from "../../store/slices/post.slice";
-import FooterReplyModal from "../FooterReplyModal/FooterReplyModal";
+import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
@@ -30,7 +30,7 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-
+/* TODO refactor this*/
 const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props needed? review
     const actionsNav = [
         {
@@ -70,11 +70,11 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const [badgeValues, setBadgeValues] = useState([])
     const [likeBadgeValue, setLikeBadgeValue] = useState()
     const [replyModal, setReplyModal] = useState(false)
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const BadgeCounterValue = () => {
-        setLikeBadgeValue(reactions[0][1]) // need an callback
-        let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
-        setBadgeValues(reactionsValue)
+        // setLikeBadgeValue(reactions[0][1]) // need an callback
+        // let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
+        // setBadgeValues(reactionsValue)
 
     }
 
@@ -91,7 +91,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         e.stopPropagation()
         setReplyModal(!replyModal);
         console.log("Hello from Comment")
-        dispatch(setModalPost(postData))
+        // dispatch(setModalPost(postData))
     }
 
 
@@ -142,28 +142,10 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         />
     }
 
-    const FooterComponent = () => {
-        return <div className="footerCommentContainer">
-            <Stack className="postFooterComment" direction="row">
-                <IconButton className="commentIconButton" size="small"
-                            onClick={HandleCommentContainer}>
-                    <MessageOutlined/>
-                </IconButton>
-                {replyModal ? <FooterReplyModal show={replyModal}
-                                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
-            </Stack>
-            <Stack className="postFooterRepost" direction="row"> {/*todo not implemented yet*/}
-                <IconButton className="repostIconButton" onClick={handleRepost} size="small">
-                    <Autorenew/>
-                </IconButton>
-            </Stack>
-        </div>
-    }
-
     return (
         <div className="postFooterContainer">
             <Stack className="postFooterContainerStack" direction="row">
-                <Stack className="postFooterContainerSpeedDial" direction="row">
+                <div className="postFooterContainerSpeedDial">
                     <SpeedDial
                         FabProps={{ /*Access to props of SpeedDial*/
                             style: {...dialStyle}
@@ -185,8 +167,25 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                             return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */
                         })}
                     </SpeedDial>
-                </Stack>
-                <FooterComponent/>
+                </div>
+                <div className="footerCommentContainer">
+                    <div className="postFooterComment">
+                        <IconButton className="commentIconButton" size="small"
+                                    onClick={HandleCommentContainer}>
+                            <MessageOutlined/>
+                        </IconButton>
+                        {replyModal ?
+                            <FooterReplyModal
+                                post={postData}
+                                show={replyModal}
+                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
+                    </div>
+                    <div className="postFooterRepost"> {/*todo not implemented yet*/}
+                        <IconButton className="repostIconButton" onClick={handleRepost} size="small">
+                            <Autorenew/>
+                        </IconButton>
+                    </div>
+                </div>
             </Stack>
         </div>
     );

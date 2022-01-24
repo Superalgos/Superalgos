@@ -17,6 +17,11 @@
         {                "language": "RU",
                 "text": "Анимации запускают функции physics() и draw() для каждого пространства, позволяя каждому из них иметь свой собственный физический движок / правила и визуализировать себя как слой верхнего уровня на пользовательском интерфейсе.",
                 "updated": 1640930807995
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Animasyonlar her alan için fizik() ve çizim() işlevlerini çalıştırarak her birinin kendi fizik motoruna/kurallarına sahip olmasına ve kendisini kullanıcı arayüzünde en üst düzey katman olarak oluşturmasına olanak tanır.",
+                "updated": 1643040554579
             }
         ]
     },
@@ -33,6 +38,11 @@
         {                    "language": "RU",
                     "text": "На каждом кадре анимация вызывает сначала функцию physics() каждого пространства, а затем функцию draw(). Затем она запрашивает обратный вызов у браузера и начинает все сначала.",
                     "updated": 1640930831392
+                },
+                {
+                    "language": "TR",
+                    "text": "Her karede, animasyon önce her bir boşluğun fizik() işlevini, ardından da draw() işlevini çağırır. Daha sonra tarayıcıdan bir geri arama ister ve baştan başlar.",
+                    "updated": 1643040566343
                 }
             ]
         },
@@ -48,6 +58,11 @@
         {                    "language": "RU",
                     "text": "В зависимости от того, сколько объектов пользователь держит открытыми, вызов physics() или draw() может длиться больше или меньше времени. Это делает количество кадров в секунду переменным и зависит от количества того, что нужно рассчитать или отобразить на экране.",
                     "updated": 1640930866169
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Kullanıcının kaç tane nesne açtığına bağlı olarak, fizik() veya çizim() çağrısı daha uzun veya daha kısa sürebilir. Bu, saniyedeki kare sayısını değişken yapar ve hesaplanması veya ekranda gösterilmesi gerekenlerin miktarına bağlıdır.",
+                    "updated": 1643040577777
                 }
             ]
         }

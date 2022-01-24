@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Bukan untuk menyombongkan diri, tetapi aku tidak bisa cukup menekankan betapa pentingnya kamu membuat semua tutorial tersedia sebelum menjelajah sendiri!",
                 "updated": 1640600653713
+            },
+            {
+                "language": "RU",
+                "text": "Не хочу хвастаться, но я не могу не подчеркнуть, как важно, чтобы все учебники были доступны, прежде чем вы решитесь на самостоятельную работу!",
+                "updated": 1642774629261
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Sistem ini luas dan mencakup hal-hal kompleks. Berjalan sendiri pada hari-hari pertamamu dengan Superalgos hanya direkomendasikan untuk orang-orang yang suka membenturkan kepala ke dinding!",
                     "updated": 1640600702243
+                },
+                {
+                    "language": "RU",
+                    "text": "Система обширна и охватывает сложные вопросы. В первые дни работы с Superalgos рекомендуется заниматься в одиночку только тем, кто любит биться головой о стену!",
+                    "updated": 1642774650427
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "ID",
                     "text": "First Steps Tutorials book di sebelah kananmu memberikan semua detail tentang cara terbaik untuk menginvestasikan waktu kamu mempelajari Superalgos.",
                     "updated": 1640600737479
+                },
+                {
+                    "language": "RU",
+                    "text": "Книга First Steps Tutorials, расположенная справа от вас, содержит все подробности о том, как лучше всего потратить свое время на изучение Superalgos.",
+                    "updated": 1642774666905
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "ID",
                     "text": "Sebelum kamu selesai, aku akan meninggalkan kamu dengan tutorial terbaik berikutnya dalam series!",
                     "updated": 1640600776299
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем вы закончите, я оставлю вам следующий лучший учебник из этой серии!",
+                    "updated": 1642774749825
                 }
             ]
         }

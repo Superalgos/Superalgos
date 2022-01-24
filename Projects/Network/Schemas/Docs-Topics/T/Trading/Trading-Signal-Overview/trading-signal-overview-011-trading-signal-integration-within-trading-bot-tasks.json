@@ -1,0 +1,33 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 11,
+    "type": "Trading Signal Integration within Trading Bot Tasks",
+    "definition": {
+        "text": "A traditional trading bot executes trades based on the logic held within a Trading System. Trading signals add on to these functions of a Trading Bot Task to transmit and receive signal data.",
+        "updated": 1642819777524
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Trading Bot tasks are very different from Social Trading Bots! While Social trading bots define and expose trading signals on the peer to peer network. Trading bot tasks run the mechanics to actually generate or receive trading signals. You can think of these trading bot tasks as the muscle to put into action all the logic held within the trading system as well as feed signal data to and receive data from social trading bots that are active on the network.",
+            "updated": 1642819858425
+        },
+        {
+            "style": "Text",
+            "text": "Trading Bot tasks run within the task server of the Superalgos Platform. The task server itself must have a signing account set up in order for the current machine to identify itself on the peer to peer network.  Each Trading bot task uses the signing account for the current user’s task server in order to access the network.  This is achieved by setting up a Task Server App Reference node underneath the Task node holding the trading bot.  Then connect a reference from the Task Server App node (held under the users governance profile) to Task Server App Reference node.  This will give the bot running within this task access to the signing account associated with the current user."
+        },
+        {
+            "style": "Text",
+            "text": "In addition to this, the trading bot task also needs to have a reference to the Social Trading Bot it will be either sending signals through or receiving signals from. This is done by connecting a Social Trading Bot Reference node to the Trading Bot Instance node. Then connecting a reference between the social trading bot reference node and social trading bot node. The social trading bot node will be held under the provider's profile if receiving signals, and the user’s profile if sending signals.",
+            "updated": 1642819938516
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": ""
+        }
+    ]
+}

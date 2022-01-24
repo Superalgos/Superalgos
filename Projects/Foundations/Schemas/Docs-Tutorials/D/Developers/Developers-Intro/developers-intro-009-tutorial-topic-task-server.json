@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Task Server - это Node.js форк процесса Client, который получает определение задачи, которую нужно запустить, из пользовательского интерфейса.",
                 "updated": 1640930213490
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Görev Sunucusu, Kullanıcı Arabiriminden (UI) çalıştırılması gereken Görev tanımını alan İstemcinin bir Node.js çatal işlemidir.",
+                "updated": 1643040241961
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Определение включает в себя:",
                     "updated": 1640930221960
+                },
+                {
+                    "language": "TR",
+                    "text": "Tanım şunları içerir:",
+                    "updated": 1643040254360
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "Бот для запуска: Бот может быть Sensor Bot, Indicator Bot или Trading Bot.",
                     "updated": 1640930268288
+                },
+                {
+                    "language": "TR",
+                    "text": "Bot çalıştırılacak: Bot, bir Sensör Botu( Sensor Bot ), Gösterge Botu (Indicator Bot) veya Ticaret Botu (Trading Bot) olabilir.",
+                    "updated": 1643040274006
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Процессы для запуска: Каждое определение бота может иметь один или несколько процессов бота.",
                     "updated": 1640930279775
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalıştırılacak süreçler: Her bot tanımında bir veya daha fazla bot süreci olabilir.",
+                    "updated": 1643040284762
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Пользовательский интерфейс (UI) - это место, где хранятся все определения. Каждый раз, когда пользователь запускает задачу, UI собирает всю необходимую информацию в один гигантский объект JSON и отправляет его на сервер Task Manager Server, который, в свою очередь, после запуска процесса fork передает это определение только что созданному экземпляру Task Server. Благодаря этому определению сервер задач знает все детали запускаемой задачи.",
                     "updated": 1640930344481
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Kullanıcı arabirimi (UI), tüm tanımların depolandığı yerdir. Kullanıcı bir görevi her başlattığında, kullanıcı arayüzü ihtiyaç duyduğu tüm bilgileri tek bir dev JSON nesnesinde toplar ve bunu Görev Yöneticisi Sunucusuna gönderir, bu da çatal işlemini çalıştırdıktan sonra bu tanımı yeni oluşturulan Görev Sunucusu örneğine iletir.. Bu tanım sayesinde görev sunucusu çalıştırılmakta olan görevin tüm detaylarını bilir.",
+                    "updated": 1643040302955
                 }
             ]
         }

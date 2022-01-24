@@ -166,14 +166,17 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' +
-            'User Defined Variables->User Defined Variable->'
+            'User Defined Variables->User Defined Variable->' +
+            'Exchange Managed Assets->Exchange Managed Asset->' +
+            'Asset Initial Balance->Asset Free Balance->Asset Locked Balance->Asset Total Balance->' +
+            'Managed Trading Bots->Managed Trading Bot->Managed Trading Bot Engine->'
 
         let portfolioEngine = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node.portfolioEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 
         lightingPath = '' +
             'Backtesting Portfolio Session->Paper Portfolio Session->Forward Testing Session->Live Portfolio Session->' +
             'Portfolio Parameters->' +
-            'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->' +
+            'Session Base Asset->Session Quoted Asset->Time Range->Time Frame->Slippage->Fee Structure->Snapshots->Heartbeats->User Defined Parameters->Managed Assets->Managed Asset->Asset->' +
             'Social Bots->Telegram Bot->Discord Bot->Slack Bot->Twitter Bot->' +
             'Social Bot Command->Formula->' +
             'Exchange Account Asset->Asset->'

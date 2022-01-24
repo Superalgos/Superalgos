@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "У веб-сервера две основные задачи: он обслуживает все JS-файлы, формирующие веб-приложение, и все файлы данных для построения графиков в браузере, в котором запущен пользовательский интерфейс.",
                 "updated": 1640929553664
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Web sunucusunun iki ana görevi vardır: web uygulamasını oluşturan tüm JS dosyalarına ve kullanıcı arayüzünü (UI) çalıştıran tarayıcıda çizim için tüm veri dosyalarına hizmet eder.",
+                "updated": 1643026758163
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Полный список, который использует Web Server, следующий:",
                     "updated": 1640929564156
+                },
+                {
+                    "language": "TR",
+                    "text": "Web Sunucusunun kullandığı tam liste aşağıdaki gibidir:",
+                    "updated": 1643026785453
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "JS-файлы: Позволяет веб-приложению работать в браузере.",
                     "updated": 1640929584394
+                },
+                {
+                    "language": "TR",
+                    "text": "JS dosyaları: Web uygulamasının bir tarayıcıda çalışmasına izin verir.",
+                    "updated": 1643026806354
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "RU",
                     "text": "Файлы данных JSON: Позволяет пользовательскому интерфейсу получить доступ к данным для построения графика.",
                     "updated": 1640929594454
+                },
+                {
+                    "language": "TR",
+                    "text": "JSON veri dosyaları: Kullanıcı arayüzünün çizim için verilere erişmesine izin verir.",
+                    "updated": 1643026830247
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "RU",
                     "text": "Изображения: Изображения, используемые в пользовательском интерфейсе, передаются с веб-сервера.",
                     "updated": 1640929614143
+                },
+                {
+                    "language": "TR",
+                    "text": "Görüntüler ( Images ) : Kullanıcı arayüzünde kullanılan görüntüler web sunucusundan iletilir.",
+                    "updated": 1643026885135
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "RU",
                     "text": "Файлы JSON рабочих пространств: Позволяет пользователям создавать определения на разных рабочих пространствах.",
                     "updated": 1640929655619
+                },
+                {
+                    "language": "TR",
+                    "text": "Çalışma alanı JSON dosyaları: Kullanıcıların farklı çalışma alanlarında ( Workspaces ) tanımlar oluşturmasına olanak tanır.",
+                    "updated": 1643026948036
                 }
             ]
         },
@@ -115,6 +145,11 @@
                     "language": "RU",
                     "text": "Файлы JSON плагинов: Файлы, которые автоматически включаются в рабочие пространства для удобства.",
                     "updated": 1640929699584
+                },
+                {
+                    "language": "TR",
+                    "text": "Eklenti ( Plugin ) JSON dosyaları: Kolaylık sağlamak için çalışma alanlarına otomatik olarak dahil edilen dosyalar.",
+                    "updated": 1643026995050
                 }
             ]
         }

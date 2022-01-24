@@ -19,6 +19,11 @@ function newWorkspacesSystemActionSwitch() {
 
     async function executeAction(action) {
         switch (action.name) {
+            case 'collapseAllRootNodes':
+                {
+                    UI.projects.workspaces.systemActionFunctions.workspaceFunctions.collapseAllRootNodes()
+                }
+                break
             case 'saveWorkspace':
                 {
                     await UI.projects.workspaces.spaces.designSpace.workspace.save()

@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Superalgos memiliki situs dokumentasi dalam aplikasi, dapat diedit, dan multi-bahasa, dan command line bawaan! Belajarlah menggunakan itu dan kamu akan menjadi masternya!",
                 "updated": 1640599441676
+            },
+            {
+                "language": "RU",
+                "text": "Superalgos имеет встроенный в приложение, редактируемый и многоязычный сайт документации, а также встроенную командную строку! Научитесь пользоваться ими, и вы станете царем горы!",
+                "updated": 1642773717384
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Kamu sudah menggunakan beberapa halaman documentation di panel Docs di sebelah kanan, tapi itu hanya puncak gunung es!",
                     "updated": 1640599491971
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы уже использовали несколько страниц документации на панели Docs справа, но это только вершина айсберга!",
+                    "updated": 1642773732711
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "ID",
                     "text": "Ayo kita coba! Cari kata... network.",
                     "updated": 1640599527316
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте попробуем! Найдите слово... network.",
+                    "updated": 1642773752339
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "ID",
                     "text": "Bukan untuk menyombongkan diri, tetapi kecepatan mesin pencari menyaingi mesin pencarian Google ;-)",
                     "updated": 1640599583507
+                },
+                {
+                    "language": "RU",
+                    "text": "Не хочу хвастаться, но скорость работы поисковой системы соперничает с Google ;-)",
+                    "updated": 1642773763829
                 }
             ]
         },

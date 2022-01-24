@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Beklediğiniz sonuçları alsanız bile, yine de hatalar ortaya çıkabilir.",
                 "updated": 1641660391137
+            },
+            {
+                "language": "RU",
+                "text": "Даже если вы получаете ожидаемые результаты, в них все равно могут скрываться ошибки!",
+                "updated": 1642656029360
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bazı hatalar zararsız olabilir ve bazılarının fark edilmemesi zor sonuçları olabilir.",
                     "updated": 1641660403990
+                },
+                {
+                    "language": "RU",
+                    "text": "Некоторые ошибки могут быть безобидными, а некоторые могут иметь трудноуловимые последствия.",
+                    "updated": 1642656069103
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Ticaret Sistemi ( Trading System ) katman yöneticisine gidin ve Ticaret Sistemi Hataları (Trading System Errors) katmanını açın!",
                     "updated": 1641660424706
+                },
+                {
+                    "language": "RU",
+                    "text": "Перейдите в менеджер слоев торговой системы и включите слой \"Trading System Errors\"!",
+                    "updated": 1642656209179
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Ocak ayının ilk birkaç gününe gelene kadar grafikleri sola sürükleyin. Mumların altındaki hata listelerini görüyor musunuz?",
                     "updated": 1641660434875
+                },
+                {
+                    "language": "RU",
+                    "text": "Перемещайте графики влево, пока не дойдете до первых дней января. Видите ли вы метки ошибок под свечами?",
+                    "updated": 1642656405023
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "TR",
                     "text": "Not: Gerekirse bazı katmanları kapatmaktan çekinmeyin.",
                     "updated": 1641660444545
+                },
+                {
+                    "language": "RU",
+                    "text": "Не бойтесь отключать некоторые слои, если это необходимо.",
+                    "updated": 1642656254296
                 }
             ]
         }

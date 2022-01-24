@@ -1,0 +1,111 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "5",
+    "type": "Planning Topics and Books",
+    "definition": {
+        "text": "Now that you have iterated on Definition Pages, it's time to consider how you will present all the information to the reader.",
+        "updated": 1643049278880
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "At the highest level, the Docs are organized in books.",
+            "updated": 1643049291781
+        },
+        {
+            "style": "Text",
+            "text": "A book is a collection of topics, each representing a chapter in the book. The purpose of a book is to offer a compendium of information optimized for linear reading, from start to end, usually covering an entire Project."
+        },
+        {
+            "style": "Text",
+            "text": "A topic is a collection of pages that explore a certain feature or a particular dimension of a Project. When arranged in a book, each topic makes up a chapter in the book."
+        },
+        {
+            "style": "Text",
+            "text": "The Definition Pages you wrote are building blocks you will use to feed content on new pages you will create. Those pages will be topic pages, that is, the pages that make up a topic."
+        },
+        {
+            "style": "Callout",
+            "text": "With the above in mind, it's time to take a deep breath, sit, and think! The task at hand is a creative task for which there is no specific directive or formula to tell you how to approach it. You need to think what is the best way to explain the whole feature or project to someone that knows absolutely nothing about it!"
+        },
+        {
+            "style": "Title",
+            "text": "Does the Content Fit an Existing Book?"
+        },
+        {
+            "style": "Text",
+            "text": "The main book in the Docs is the User Manual. This book covers all the aspects of the Superalgos Platform that involve the individual use of the system for individual traders."
+        },
+        {
+            "style": "Text",
+            "text": "If the feature or project you're documenting involves functionality directly related to trading automation using the Superalgos Platform, chances are that the content should end up enriching the User Manual book."
+        },
+        {
+            "style": "Text",
+            "text": "If, on the other hand, the functionality involves other uses of the Superalgos Platform, like Governance, for instance, or is about collaborative uses of the platform, then chances are the content belongs to other existing books or a new book altogether."
+        },
+        {
+            "style": "Important",
+            "text": "All in all, this is the kind of decision that you shouldn't make on your own. Instead, you should get other contributors involved, particularly Community members with a track record writing documentation!"
+        },
+        {
+            "style": "Title",
+            "text": "General Guidance"
+        },
+        {
+            "style": "Text",
+            "text": "If you're writing documentation for a whole new project, chances are you will write at least one topic, and likely more. How many topics you need depends on the depth and complexity of the project."
+        },
+        {
+            "style": "Text",
+            "text": "If a project is large and deep enough, consider writing an entire introduction topic. The topic will likely have several pages offering an overview of the most important aspects of the project. This is where you will explain what the project is about, the kind of functionality it brings, and what users may achieve with it. It may also offer an overview of how the project interacts with the rest of the infrastructure. In any case, this introduction should feature the birds'-eye view and not go into operational details.",
+            "updated": 1643049460434
+        },
+        {
+            "style": "Success",
+            "text": "You may look into the introduction chapter of the User Manual and Governance books for reference.",
+            "updated": 1643049508392
+        },
+        {
+            "style": "Text",
+            "text": "Let's briefly explore the layout of the introduction chapter of the User Manual. These are a few ideas worth mentioning:",
+            "updated": 1643049515630
+        },
+        {
+            "style": "List",
+            "text": "The first page describes the few theoretical concepts and the main elements that make up the experience of engaging with the Superalgos Platform."
+        },
+        {
+            "style": "Note",
+            "text": "It's a first glimpse into what users are getting into, mentioning a few specific notions like hierarchies, nodes, spaces, and workspaces."
+        },
+        {
+            "style": "List",
+            "text": "The second page offers an overview of the concept of bots and clarifies some fundamental terminology."
+        },
+        {
+            "style": "Note",
+            "text": "The page goes a little bit deeper touching on other fundamental concepts, but still from the bird's-eye perspective."
+        },
+        {
+            "style": "List",
+            "text": "The rest of the pages explore the rest of the fundamental concepts behind the overall design of the platform, this time offering a certain level of detail that help the user bring things down to earth."
+        },
+        {
+            "style": "Note",
+            "text": "These pages complete the overview of other high-level concepts that are particular to the workings of the Superalgos Platform."
+        },
+        {
+            "style": "Text",
+            "text": "After this broad introduction, the user is now ready to dive into a sequence of chapters offering the deepest level of detail on each of the topics covered."
+        },
+        {
+            "style": "Text",
+            "text": "Each subsequent chapter in the book covers either a specific hierarchy or a specific concept. Because all of these concepts and hierarchies interact with each other in complex manners, there is no absolute best way to order chapters. However, we try to arrange them in a logical order, with the following question in mind: "
+        },
+        {
+            "style": "Callout",
+            "text": "What is the best way to explain the whole thing to someone that knows nothing about it?"
+        }
+    ]
+}

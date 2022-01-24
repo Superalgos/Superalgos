@@ -162,6 +162,28 @@
         ]
     },
     {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Decentralized Exchanges Functions",
+                    "propertyName": "decentralizedExchangesFunctions",
+                    "functionName": "newFoundationsFunctionLibraryDecentralizedExchangesFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "SA":{},
+        "TS": {
+            "functionLibraries": [],
+            "botModules": []
+        },
+        "plugins": [],
+        "tasks": []
+    },
+    {
         "name": "Portfolio-Management",
         "propertyName": "portfolioManagement",
         "UI": {
@@ -501,6 +523,12 @@
                     "propertyName": "nodeFunctions",
                     "functionName": "newVisualScriptingUtilitiesNodeFunctions",
                     "fileName": "NodeFunctions.js"
+                },
+                {
+                    "name": "Node Configuration",
+                    "propertyName": "nodeConfiguration",
+                    "functionName": "newVisualScriptingUtilitiesNodeConfiguration",
+                    "fileName": "NodeConfiguration.js"
                 }
             ]
         }
@@ -910,12 +938,7 @@
         },
         "PL": {
             "utilities": [
-                {
-                    "name": "Web Access",
-                    "propertyName": "webAccess",
-                    "functionName": "newFoundationsUtilitiesWebAccess",
-                    "fileName": "WebAccess.js"
-                }
+
             ]
         },
         "SA": {
@@ -934,6 +957,12 @@
                 }
             ],
             "utilities": [
+                {
+                    "name": "Web Access",
+                    "propertyName": "webAccess",
+                    "functionName": "newFoundationsUtilitiesWebAccess",
+                    "fileName": "WebAccess.js"
+                },
                 {
                     "name": "Miscellaneous Functions",
                     "propertyName": "miscellaneousFunctions",
@@ -1198,6 +1227,12 @@
                     "functionName": "newPluginsUtilitiesPlugins",
                     "fileName": "Plugins.js"
                 },
+                {
+                    "name": "PluginsAtGithub",
+                    "propertyName": "pluginsAtGithub",
+                    "functionName": "newPluginsUtilitiesPluginsAtGithub",
+                    "fileName": "PluginsAtGithub.js"
+                },                
                 {
                     "name": "Nodes",
                     "propertyName": "nodes",
@@ -1592,6 +1627,16 @@
                 }
             ]
         },
+        "SA": {
+            "utilities": [
+                {
+                    "name": "Signing Accounts",
+                    "propertyName": "signingAccounts",
+                    "functionName": "newGovernanceUtilitiesSigningAccounts",
+                    "fileName": "SigningAccounts.js"
+                }
+            ]
+        },
         "TS": {},
         "PL": {},
         "plugins": [
@@ -1869,8 +1914,40 @@
                     "propertyName": "p2pNetworkInterface",
                     "functionName": "newSocialTradingModulesP2PNetworkInterface",
                     "fileName": "P2PNetworkInterface.js"
+                },
+                {
+                    "name": "Social Graph Network Service Client",
+                    "propertyName": "socialGraphNetworkServiceClient",
+                    "functionName": "newSocialTradingModulesSocialGraphNetworkServiceClient",
+                    "fileName": "SocialGraphNetworkServiceClient.js"
                 }
             ],
+            "functionLibraries": [
+                {
+                    "name": "Posts Storage",
+                    "propertyName": "postsStorage",
+                    "functionName": "newSocialTradingFunctionLibrariesPostsStorage",
+                    "fileName": "PostsStorage.js"
+                },
+                {
+                    "name": "Social Entities Storage",
+                    "propertyName": "socialEntitiesStorage",
+                    "functionName": "newSocialTradingFunctionLibrariesSocialEntitiesStorage",
+                    "fileName": "SocialEntitiesStorage.js"
+                },
+                {
+                    "name": "Social Entities Profile",
+                    "propertyName": "socialEntitiesProfile",
+                    "functionName": "newSocialTradingFunctionLibrariesSocialEntitiesProfile",
+                    "fileName": "SocialEntitiesProfile.js"
+                },
+                {
+                    "name": "User Profile",
+                    "propertyName": "userProfile",
+                    "functionName": "newSocialTradingFunctionLibrariesUserProfile",
+                    "fileName": "UserProfile.js"
+                }
+            ],            
             "globals": [
                 {
                     "name": "Memory",
@@ -1932,14 +2009,7 @@
         },
         "DK": {
             "globals": [],
-            "modules": [
-                {
-                    "name": "Social Graph Network Service Client",
-                    "propertyName": "socialGraphNetworkServiceClient",
-                    "functionName": "newSocialTradingModulesSocialGraphNetworkServiceClient",
-                    "fileName": "SocialGraphNetworkServiceClient.js"
-                }
-            ],
+            "modules": [],
             "utilities": []
         },
         "UI": {

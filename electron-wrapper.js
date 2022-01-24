@@ -41,7 +41,7 @@ function firstRun() {
 
 // iterate in the workspaces folder and get all *Onboarding ones to present in the selection page
 function getWorkspaces() {
-  const workspacePath = path.join(process.env.PACKAGED_PATH, 'Projects/Foundations/Plugins/Workspaces')
+  const workspacePath = path.join(process.env.PACKAGED_PATH, 'Plugins/Foundations/Workspaces')
   const workspaces = []
   try {
     const files = fs.readdirSync(workspacePath)

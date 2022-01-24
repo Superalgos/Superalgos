@@ -30,6 +30,11 @@
                 "language": "ID",
                 "text": "Sebelum aku meninggalkan kamu dengan tutorial berikutnya, kamu harus tahu bahwa Superalgos adalah proyek crypto dengan distributed governance!",
                 "updated": 1640600837887
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем я оставлю вас со следующим уроком, вы должны знать, что Superalgos - это криптопроект с распределенным управлением!",
+                "updated": 1642774805232
             }
         ]
     },
@@ -59,6 +64,11 @@
                     "language": "ID",
                     "text": "Kamu dapat memperoleh Superalgos SA Tokens dan Reputation dengan berkontribusi pada proyek.",
                     "updated": 1640600897495
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете заработать токены Superalgos SA и репутацию, внося свой вклад в проект.",
+                    "updated": 1642774842895
                 }
             ]
         },
@@ -87,6 +97,11 @@
                     "language": "ID",
                     "text": "Kemudian kamu dapat memanfaatkan token dan reputasi kamu untuk berpartisipasi dalam Governance Programs.",
                     "updated": 1640600931238
+                },
+                {
+                    "language": "RU",
+                    "text": "Затем вы можете использовать свои токены и репутацию для участия в программах управления.",
+                    "updated": 1642774852208
                 }
             ]
         },
@@ -115,6 +130,11 @@
                     "language": "ID",
                     "text": "Berpartisipasi dalam tata kelola memberi kamu lebih banyak token, karena membantu mengarahkan proyek adalah kontribusi penting dalam dan bagi dirinya sendiri!",
                     "updated": 1640600973916
+                },
+                {
+                    "language": "RU",
+                    "text": "Участие в управлении приносит вам больше токенов, поскольку помощь в руководстве проектом сама по себе является важным вкладом!",
+                    "updated": 1642774867764
                 }
             ]
         },
@@ -143,6 +163,11 @@
                     "language": "ID",
                     "text": "Kamu dapat memperoleh beberapa token pertama kamu dengan Program Airdrops hanya dengan mengatur User Profile. Tetapi sebelum kamu melakukan itu, kamu perlu melakukan beberapa tutorial lagi untuk menyelesaikan pendidikanmu!",
                     "updated": 1640601046482
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете заработать свои первые несколько токенов по программе Airdrops, просто создав свой профиль пользователя. Но прежде чем вы это сделаете, вам нужно пройти еще несколько уроков, чтобы завершить свое обучение!",
+                    "updated": 1642774889598
                 }
             ]
         }

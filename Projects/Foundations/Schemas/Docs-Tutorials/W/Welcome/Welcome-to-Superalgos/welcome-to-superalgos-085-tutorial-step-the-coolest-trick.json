@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Humans dapat mengakses informasi ini dengan menggunakan trik keren yang membuat charting space berinteraksi dengan design space!",
                 "updated": 1640570748576
+            },
+            {
+                "language": "RU",
+                "text": "Люди могут получить доступ к этой информации, используя классный трюк, который заставляет пространство диаграмм взаимодействовать с пространством проектирования!",
+                "updated": 1642769480612
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Untuk menggunakan trik ini, Aku hanya melakukan yang berikut :",
                     "updated": 1640572916586
+                },
+                {
+                    "language": "RU",
+                    "text": "Чтобы использовать этот трюк, я просто сделал следующее:",
+                    "updated": 1642769496764
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Split layar menjadi dua, tarik slider ke atas sehingga kita dapat melihat kedua spaces secara bersamaan.",
                     "updated": 1640573003032
+                },
+                {
+                    "language": "RU",
+                    "text": "Разделите экран пополам, потянув ползунок вверх, чтобы мы могли видеть оба пространства одновременно.",
+                    "updated": 1642769512294
                 }
             ]
         },
@@ -136,6 +151,11 @@
                     "language": "ID",
                     "text": "Nyalakan layer Current Position Ini pada  Trading engine layer manager. Aku memilih layer ini karena sesuai dengan bagian hierarki ini... tradingEngine.tradingCurrent.position, ingat?",
                     "updated": 1640573077824
+                },
+                {
+                    "language": "RU",
+                    "text": "Включите слой Current Position в менеджере слоев Trading Engine. Я выбрал этот слой, потому что он соответствует этой секции иерархии... tradingEngine.tradingCurrent.position, помните?",
+                    "updated": 1642769542948
                 }
             ]
         },
@@ -169,6 +189,11 @@
                     "language": "ID",
                     "text": "Sekarang, geser mouse pointer melintasi candles tempat position diambil dan lihat apa yang terjadi pada nodes di sebelah kiri...",
                     "updated": 1640573136142
+                },
+                {
+                    "language": "RU",
+                    "text": "Теперь проведите указателем мыши по свечам, по которым занята позиция, и посмотрите, что происходит на узлах слева...",
+                    "updated": 1642769561252
                 }
             ]
         }

@@ -29,14 +29,14 @@
             "type": "node",
             "childType": "Portfolio Current",
             "autoAdd": false,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         },
         {
             "name": "portfolioLast",
             "type": "node",
             "childType": "Portfolio Last",
             "autoAdd": false,
-            "project": "Foundations"
+            "project": "Portfolio-Management"
         }
     ]
 }

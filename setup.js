@@ -190,6 +190,7 @@ nodeInstPromise.then(() => {
   const simpleGit = require("simple-git")
 
   let gitUser;
+  let usesSSH = false
   setUpstreamAndOrigin().then(async () => {
       Object.values(projectPluginMap).forEach(plugin => {
           setUpstreamAndOrigin(plugin.dir, plugin.repo)
@@ -233,11 +234,21 @@ nodeInstPromise.then(() => {
       }
       // if in main Superalgos repo, set gitUser from origin
       if (repo === "Superalgos" && origin) {
-          if (origin.indexOf(':') === -1) gitUser = origin.split('/')[3]
-          else gitUser = origin.split(':')[1].split('/')[0]
+          if (origin.indexOf(':') === -1) {
+            gitUser = origin.split('/')[3]
+            usesSSH = true
+          } else {
+            gitUser = origin.split(':')[1].split('/')[0]
+          }
       }
+      if ()
       if (repo !== "Superalgos" && origin && gitUser) await git.removeRemote('origin')
-      if (repo !== "Superalgos" && gitUser) await git.addRemote('origin', `https://github.com/${gitUser}/${repo}`).catch(errorResp);
+      if (repo !== "Superalgos" && gitUser) {
+          let orURL
+          if (usesSSH) orURL = `git@github.com:${gitUser}/${repo}.git`
+          else orURL = `https://github.com/${gitUser}/${repo}.git`
+          await git.addRemote('origin', orURL).catch(errorResp);
+      }
   }
 
   // Initialize app like in PlatformRoot.js

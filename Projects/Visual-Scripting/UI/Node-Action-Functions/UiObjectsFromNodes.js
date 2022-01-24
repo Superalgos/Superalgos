@@ -422,6 +422,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                             function getNextNodeFromPath(node, pathName, pathType) {
                                 let schemaDocument = getSchemaDocument(node)
                                 if (schemaDocument === undefined) { return }
+                                if (schemaDocument.childrenNodesProperties === undefined) { return }
                                 let nextNode = undefined
                                 for (let i = 0; i < schemaDocument.childrenNodesProperties.length; i++) {
 
@@ -929,7 +930,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                 payload.referenceChildren = new Map()
                 for (let referenceChild of node.savedPayload.referenceChildren) {
                     referenceChild = mapOfNodes.get(referenceChild.id)
-                    payload.referenceChildren.set(referenceChild.id, referenceChild)
+                    if (referenceChild !== undefined) {
+                        payload.referenceChildren.set(referenceChild.id, referenceChild)
+                    }
                 }
             }
         }

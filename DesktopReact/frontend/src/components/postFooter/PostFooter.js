@@ -30,7 +30,7 @@ const StyledBadge = styled(Badge)(({theme}) => ({
     },
 }));
 
-
+/* TODO refactor this*/
 const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props needed? review
     const actionsNav = [
         {
@@ -70,7 +70,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const [badgeValues, setBadgeValues] = useState([])
     const [likeBadgeValue, setLikeBadgeValue] = useState()
     const [replyModal, setReplyModal] = useState(false)
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const BadgeCounterValue = () => {
         // setLikeBadgeValue(reactions[0][1]) // need an callback
         // let reactionsValue = reactions.filter((item) => item[0] !== 0).map(([i, k]) => [i, k]);
@@ -91,7 +91,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         e.stopPropagation()
         setReplyModal(!replyModal);
         console.log("Hello from Comment")
-        dispatch(setModalPost(postData))
+        // dispatch(setModalPost(postData))
     }
 
 
@@ -174,8 +174,11 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                                     onClick={HandleCommentContainer}>
                             <MessageOutlined/>
                         </IconButton>
-                        {replyModal ? <FooterReplyModal show={replyModal}
-                                                        close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
+                        {replyModal ?
+                            <FooterReplyModal
+                                post={postData}
+                                show={replyModal}
+                                close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
                     </div>
                     <div className="postFooterRepost"> {/*todo not implemented yet*/}
                         <IconButton className="repostIconButton" onClick={handleRepost} size="small">

@@ -1,50 +1,27 @@
 import "./Post.css"
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
-import {setSelectedPost} from '../../store/slices/post.slice'
 import PostFooter from "../postFooter/PostFooter";
-
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const selectedPost = useSelector(state => state.post.selectedPost); /* TODO not use this way, only get the data as params */
-    const [post, setPost] = useState({});
     const [collapse, setCollapse] = useState(true);
     const ToggleCollapse = () => setCollapse(!collapse);
-
-    useEffect(() => {
-        if (postData) {
-            setPost(postData);
-            if (selectedPost) {
-                // dispatch(setSelectedPost({}));
-            }
-        } else {
-            if (selectedPost)
-                setPost(selectedPost);
-        }
-    }, [])
-
-    if (!post.originSocialPersonaId) {
-        return <></>
-    }
 
     const {
         originSocialPersonaId,
         postText,
         reactions,
         originPostHash
-    } = post;
+    } = postData;
 
     const handlePostClick = (e) => {
         if (postIdParameter !== originPostHash) {
             e.preventDefault()
-            dispatch(setSelectedPost(postData))
-            navigate(`/post/${originPostHash}`) //todo implement reply feed
+            navigate(`/post?post=${originPostHash}&user=${originSocialPersonaId}`) //todo implement reply feed
         }
     }
 
@@ -57,13 +34,13 @@ const Post = ({postData}) => {
                         <Avatar src={pic} className="avatar"/>
                     </div>
                     <Typography className="postUserName">
-                        {originSocialPersonaId}
+                        {originSocialPersonaId} {/* TODO use name */}
                     </Typography>
                 </Stack>
                 <div className="postBody">
                     {postText ? postText.toString() : ''}
                 </div>
-                <PostFooter postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
+                <PostFooter postData={postData} postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
             </div>
         </div>
     );

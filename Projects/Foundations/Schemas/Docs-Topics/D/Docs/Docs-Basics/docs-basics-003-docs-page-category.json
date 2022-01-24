@@ -3,8 +3,8 @@
     "pageNumber": 3,
     "type": "Docs Page Category",
     "definition": {
-        "text": "The Docs feature six categories of pages: Node, Concept, Topic, Tutorial, Review, and Book. Each category is represented by a tab in the Docs Search Results.",
-        "updated": 1616876130108,
+        "text": "The Docs feature seven categories of pages: Node, Concept, Topic, Tutorial, Review,Book and Workspace. Each category is represented by a tab in the Docs Search Results.",
+        "updated": 1642711625422,
         "translations": [
             {
                 "language": "ID",
@@ -20,8 +20,8 @@
             },
             {
                 "language": "DE",
-                "text": "Die Docs enthalten sechs Kategorien von Seiten: Node,Concept,Topic,Tutorial,Review und Book. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
-                "updated": 1633806275183,
+                "text": "Die Docs enthalten sechs Kategorien von Seiten: Node, Concept, Topic, Tutorial, Review, Book und Workspace. Jede Kategorie wird durch eine Registerkarte in den Docs-Suchergebnissen dargestellt.",
+                "updated": 1642718416492,
                 "style": "Definition"
             },
             {

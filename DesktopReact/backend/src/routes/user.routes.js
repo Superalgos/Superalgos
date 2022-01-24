@@ -13,11 +13,11 @@ router
 
   router
   .route('/profile')
-  .get(userController.getProfile);
+  .get(userController.loadProfile);
 
 router
   .route('/profile')
-  .post(userController.editProfile);
+  .post(userController.saveProfile);
 
   router
   .route('/paginate-profiles')

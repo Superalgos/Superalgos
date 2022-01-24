@@ -225,7 +225,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
         node,
         rootNodes
     ) {
-        let newUiObjects = []
         let market = node
         let cryptoExchange = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Crypto Exchange', undefined, true, false, true, false)
         if (cryptoExchange === undefined) {
@@ -285,9 +284,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Tasks', node, true)
                         if (dataTasks === undefined) {
                             dataTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Tasks')
-                            if (dataTasks !== undefined) {
-                                newUiObjects.push(dataTasks)
-                            }
                         }
                         /*
                         We will make ourselves sure that the Project Data Tasks nodes are there.
@@ -321,9 +317,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let learningTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Learning Tasks', node, true)
                         if (learningTasks === undefined) {
                             learningTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Learning Tasks')
-                            if (learningTasks !== undefined) {
-                                newUiObjects.push(learningTasks)
-                            }
                         }
                         /*
                         We will make ourselves sure that the Project Learning Tasks nodes are there.
@@ -378,9 +371,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let tradingTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (tradingTasks === undefined) {
                                 tradingTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
-                                if (tradingTasks !== undefined) {
-                                    newUiObjects.push(tradingTasks)
-                                }
                             }
                             /*
                              We will make ourselves sure that the Project Trading Tasks nodes are there.
@@ -438,9 +428,6 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let portfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (portfolioTasks === undefined) {
                                 portfolioTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
-                                if (portfolioTasks !== undefined) {
-                                    newUiObjects.push(portfolioTasks)
-                                }
                             }
                             /*
                              We will make ourselves sure that the Project Portfolio Tasks nodes are there.
@@ -452,7 +439,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                                 let projectPortfolioTasks = portfolioTasks.projectPortfolioTasks[i]
                                 projectPortfolioTasks.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
 
-                                if (projectPortfolioTasks.project === "Foundations") {
+                                if (projectPortfolioTasks.project === "Foundations" ||
+                                    projectPortfolioTasks.project === "Portfolio-Management") {
                                     installTheRestOfTheBranch(projectPortfolioTasks)
                                 }
                             }
@@ -488,16 +476,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let dataMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Data Mines Data', node, true)
                         if (dataMinesData === undefined) {
                             dataMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Data Mines Data')
-                            if (dataMinesData !== undefined) {
-                                newUiObjects.push(dataMinesData)
-                            }
                         }
                         dataMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -533,16 +515,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let learningMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Learning Mines Data', node, true)
                         if (learningMinesData === undefined) {
                             learningMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Learning Mines Data')
-                            if (learningMinesData !== undefined) {
-                                newUiObjects.push(learningMinesData)
-                            }
                         }
                         learningMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -594,16 +570,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let tradingMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Trading Mines Data', node, true)
                         if (tradingMinesData === undefined) {
                             tradingMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Trading Mines Data')
-                            if (tradingMinesData !== undefined) {
-                                newUiObjects.push(tradingMinesData)
-                            }
                         }
                         tradingMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -655,16 +625,10 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         let dataStorage = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, 'Data Storage', node, true)
                         if (dataStorage === undefined) {
                             dataStorage = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, 'Data Storage')
-                            if (dataStorage !== undefined) {
-                                newUiObjects.push(dataStorage)
-                            }
                         }
                         let portfolioMinesData = UI.projects.visualScripting.utilities.branches.findInBranch(dataStorage, 'Portfolio Mines Data', node, true)
                         if (portfolioMinesData === undefined) {
                             portfolioMinesData = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataStorage, 'Portfolio Mines Data')
-                            if (portfolioMinesData !== undefined) {
-                                newUiObjects.push(portfolioMinesData)
-                            }
                         }
                         portfolioMinesData.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_90
                         /*
@@ -677,7 +641,8 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let projectPortfolioProducts = portfolioMinesData.projectPortfolioProducts[i]
                             projectPortfolioProducts.payload.floatingObject.angleToParent = ANGLE_TO_PARENT.RANGE_45
 
-                            if (projectPortfolioProducts.project === "Foundations") {
+                            if (projectPortfolioProducts.project === "Foundations" ||
+                                projectPortfolioProducts.project === "Portfolio-Management") {
                                 installTheRestOfTheBranch(projectPortfolioProducts)
                             }
                         }
@@ -731,14 +696,13 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
 
                     for (let i = 0; i < dashboardsArray.length; i++) {
                         /*
-                        If the Dashboard we need is not already there we create a new one. 
+                        If the Dashboard we need is not already there we create a new one.
                         */
                         let arrayItem = dashboardsArray[i]
                         let dashboard = UI.projects.visualScripting.utilities.nodeChildren.findOrCreateChildWithReference(projectDashboards, 'Dashboard', arrayItem.environmentNode)
                         dashboard.name = arrayItem.environmentNode.type + ' ' + arrayItem.lanNetworkNode.name
-                        newUiObjects.push(dashboard)
                         /*
-                        We delete all the existing Time Machines related to the market we are currently installing. 
+                        We delete all the existing Time Machines related to the market we are currently installing.
                         For that, we make a new array with the existing Time Machines so that the deleting
                         of each node does not affect the processing of the whole set.
                         */
@@ -751,7 +715,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             let timeMachine = timeMachines[i]
                             let session = timeMachine.payload.referenceParent
                             if (session === undefined || session.cleaned === true) {
-                                /* 
+                                /*
                                 This is what usually happens, that the install process make these
                                 time machines to lose their reference parent since the install
                                 process deletes them.
@@ -776,26 +740,21 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             }
                         }
                         /*
-                        We create a time machine for each session added during the previous processing. 
+                        We create a time machine for each session added during the previous processing.
                         */
                         for (let j = 0; j < arrayItem.sessionsArray.length; j++) {
                             let session = arrayItem.sessionsArray[j]
                             let timeMachine = UI.projects.foundations.nodeActionFunctions.chartingSpaceFunctions.createTimeMachine(dashboard, session, node, arrayItem.lanNetworkNode, rootNodes)
-                            if (timeMachine !== undefined) {
-                                newUiObjects.push(timeMachine)
-                            }
                         }
                     }
                 }
             }
         }
-
-        return newUiObjects
     }
 
     function uninstallMarket(node, rootNodes) {
 
-        node.payload.uiObject.setInfoMessage('This market is being uninstalled. Please hold on  that it might take a while.')
+        node.payload.uiObject.setInfoMessage('This market is being uninstalled. Please hold on, it might take a while.')
 
         setTimeout(uninstallMarketProcedure, 500)
 
@@ -818,20 +777,25 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                     let timeMachine = timeMachines[i]
                     let session = timeMachine.payload.referenceParent
                     if (session === undefined) { continue }
-                    let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
-                    if (marketTradingTasks === undefined) { continue }
-                    if (marketTradingTasks.payload === undefined) { continue }
-                    if (marketTradingTasks.payload.referenceParent === undefined) { continue }
-                    if (marketTradingTasks.payload.referenceParent.id === market.id) {
-                        UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+
+                    if (session.project === 'Foundations') {
+                        let marketTradingTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Trading Tasks', undefined, true, false, true, false)
+                        if (marketTradingTasks === undefined) { continue }
+                        if (marketTradingTasks.payload === undefined) { continue }
+                        if (marketTradingTasks.payload.referenceParent === undefined) { continue }
+                        if (marketTradingTasks.payload.referenceParent.id === market.id) {
+                            UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        }
                     }
 
-                    let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
-                    if (marketPortfolioTasks === undefined) { continue }
-                    if (marketPortfolioTasks.payload === undefined) { continue }
-                    if (marketPortfolioTasks.payload.referenceParent === undefined) { continue }
-                    if (marketPortfolioTasks.payload.referenceParent.id === market.id) {
-                        UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                    if (session.project === 'Portfolio-Management') {
+                        let marketPortfolioTasks = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(session, 'Market Portfolio Tasks', undefined, true, false, true, false)
+                        if (marketPortfolioTasks === undefined) { continue }
+                        if (marketPortfolioTasks.payload === undefined) { continue }
+                        if (marketPortfolioTasks.payload.referenceParent === undefined) { continue }
+                        if (marketPortfolioTasks.payload.referenceParent.id === market.id) {
+                            UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(timeMachine, rootNodes)
+                        }
                     }
                 }
 
@@ -840,7 +804,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 for (let i = 0; i < dashboardArray.length; i++) {
                     let dashboard = dashboardArray[i]
                     if (dashboard.timeMachines.length === 0) {
-                        /* 
+                        /*
                         If possible, after we delete the dashboards, we will also
                         delete the project reference.
                         */
@@ -892,7 +856,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                         if (marketReference.payload === undefined) { continue }
                         if (marketReference.payload.referenceParent === undefined) { continue }
                         if (marketReference.payload.referenceParent.id === market.id) {
-                            /* 
+                            /*
                             If possible, after we delete the market reference, we will also
                             delete the exchange reference.
                             */
@@ -901,7 +865,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             UI.projects.visualScripting.nodeActionFunctions.nodeDeleter.deleteUIObject(marketReference, rootNodes)
                             if (exchangeReference !== undefined && schemaDocument.propertyNameAtParent !== undefined) {
                                 if (exchangeReference[schemaDocument.propertyNameAtParent].length === 0) {
-                                    /* 
+                                    /*
                                     If possible, after we delete the exchange reference, we will also
                                     delete the project reference.
                                     */

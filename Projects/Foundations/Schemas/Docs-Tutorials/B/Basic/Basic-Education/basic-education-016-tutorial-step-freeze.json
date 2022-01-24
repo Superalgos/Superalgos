@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Dondur düğmesi çok özel koşullar altında anlamlıdır.",
                 "updated": 1636752747872
+            },
+            {
+                "language": "RU",
+                "text": "Кнопка замораживания имеет смысл при очень специфических обстоятельствах: когда физические свойства активируются на уровне пространства проектирования.",
+                "updated": 1640867294871
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Tasarım Alanı ( Design Space ), biri evrenin fiziğini etkinleştiren bazı özelleştirme özellikleri sunar. Fizik açıkken, tüm uzay canlanır!",
                     "updated": 1636752835468
+                },
+                {
+                    "language": "RU",
+                    "text": "Пространство проектирования (Design Space) предлагает некоторые возможности настройки, одна из которых - включение физики вселенной. Когда физика включена, все пространство становится живым!",
+                    "updated": 1640867354540
                 }
             ]
         },
@@ -119,6 +129,11 @@
                     "language": "TR",
                     "text": "Dondur seçeneği, düğümün ebeveyni ile zincir bağlantılarını dondurur ve yavrular ve bağlantı hatları maviye döner. Fizik animasyonları açıkken dondurma işlemi, sistem düğümlerin konumlarını ve durumunu hesaplamayı durdurduğundan CPU kaynaklarını serbest bırakır.",
                     "updated": 1636752891025
+                },
+                {
+                    "language": "RU",
+                    "text": "Опция замораживания замораживает цепные связи узла с его родителем и потомками, и соединительные линии становятся синими. Замораживание освобождает ресурсы процессора в случае включенной анимации физики, так как система перестает вычислять положение и состояние узлов.",
+                    "updated": 1640867425269
                 }
             ]
         }

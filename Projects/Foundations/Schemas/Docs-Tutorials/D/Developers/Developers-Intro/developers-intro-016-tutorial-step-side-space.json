@@ -7,24 +7,59 @@
             "project": "Foundations",
             "name": ""
         },
-        "text": "It is the section on the left, accessed by clicking a tab button. As of today, it features a Workspace selector for users to switch between different workspaces."
+        "text": "It is the section on the left, accessed by clicking a tab button. As of today, it features a Workspace selector for users to switch between different workspaces.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Это раздел слева, доступ к которому осуществляется нажатием кнопки вкладки. На сегодняшний день в нем имеется селектор рабочего пространства, позволяющий пользователям переключаться между различными рабочими пространствами.",
+                "updated": 1640931391812
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
-            "text": "On the Side Space users may:"
+            "text": "On the Side Space users may:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "В Side Space пользователи могут:",
+                    "updated": 1640931409319
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Select an included workspace: The system ships with one or more included workspaces that serve as examples or case studies."
+            "text": "Select an included workspace: The system ships with one or more included workspaces that serve as examples or case studies.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выбрать встроенное рабочее пространство: Система поставляется с одним или несколькими встроенными рабочими пространствами, которые служат в качестве примеров или тематических исследований.",
+                    "updated": 1640931516752
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Select one's own workspaces: By renaming any included workspace, the user may create a workspace and switch workspaces using the Side Space."
+            "text": "Select one's own workspaces: By renaming any included workspace, the user may create a workspace and switch workspaces using the Side Space.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Выбрать собственные рабочие пространства: Путем переименования любого встроенного рабочего пространства пользователь может создать свое рабочее пространство и переключать рабочие пространства с помощью Side Space.",
+                    "updated": 1640931578292
+                }
+            ]
         },
         {
             "style": "Note",
-            "text": "The Side Space is expected to grow in functionality in the future."
+            "text": "The Side Space is expected to grow in functionality in the future.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Ожидается, что функциональность Side Space будет расти в будущем.",
+                    "updated": 1640931588087
+                }
+            ]
         }
     ]
 }

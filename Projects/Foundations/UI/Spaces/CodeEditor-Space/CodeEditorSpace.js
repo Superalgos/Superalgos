@@ -110,6 +110,23 @@ function newFoundationsCodeEditorSpace() {
 
     function onClosing() {
         thisObject.isVisible = false
+        for (let historyObject of UI.projects.workspaces.spaces.designSpace.workspace.undoStackOnHold) {
+            if (historyObject.previousCode !== undefined) {
+                if (historyObject.action.node.code != historyObject.previousCode) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
+            }
+            if (historyObject.previousConfig !== undefined) {
+                if (historyObject.action.node.config != historyObject.previousConfig) {
+                    UI.projects.workspaces.spaces.designSpace.workspace.undoStack.push(historyObject)
+                    UI.projects.workspaces.spaces.designSpace.workspace.redoStack = []
+                    UI.projects.workspaces.spaces.designSpace.workspace.buildSystemMenu()
+                }
+            }
+        }
+        UI.projects.workspaces.spaces.designSpace.workspace.undoStackOnHold = []
     }
 
     function draw() {

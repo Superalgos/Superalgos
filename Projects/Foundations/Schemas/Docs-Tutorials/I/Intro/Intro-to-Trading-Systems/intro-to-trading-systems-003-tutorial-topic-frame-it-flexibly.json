@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Bir Ticaret Sistemi ( Trading System ) , ticaret stratejilerini yönetir ve bunları oluşturmak için esnek, ancak yapılandırılmış bir çerçeve sağlar.",
                 "updated": 1640692400531
+            },
+            {
+                "language": "RU",
+                "text": "Торговая система регулирует торговые стратегии и обеспечивает гибкую, но структурированную основу для их построения.",
+                "updated": 1640878761889
             }
         ]
     },
@@ -46,6 +51,11 @@
                     "language": "TR",
                     "text": "Lütfen, ticaret sistemlerinin nasıl çalıştığını hızlıca öğrenmen için bu sayfayı okuyun!",
                     "updated": 1640692866775
+                },
+                {
+                    "language": "RU",
+                    "text": "Пожалуйста, прочитайте страницу о торговых системах, чтобы узнать, как они работают!",
+                    "updated": 1640878774285
                 }
             ]
         },
@@ -67,6 +77,11 @@
                     "language": "TR",
                     "text": "İpucu: Bilginin yerini tutamaz, bu yüzden mantığınızı iyi bir akıl yürütme ile kirletmeden önce biraz okuma yapmanız gerekecek!",
                     "updated": 1640693379485
+                },
+                {
+                    "language": "RU",
+                    "text": "Знания ничем не заменишь, поэтому вам придется немного почитать, прежде чем я запачкаю ваши руки старой доброй торговой логикой!",
+                    "updated": 1640878792659
                 }
             ]
         },
@@ -88,6 +103,11 @@
                     "language": "TR",
                     "text": "Uyarı: Okumanın atlanması kalıcı nörolojik bozuklukla sonuçlanabilir. Yinede senin kararın!",
                     "updated": 1640693515242
+                },
+                {
+                    "language": "RU",
+                    "text": "Пропуск чтения может привести к необратимым неврологическим нарушениям. Ваш выбор!",
+                    "updated": 1640878837334
                 }
             ]
         }

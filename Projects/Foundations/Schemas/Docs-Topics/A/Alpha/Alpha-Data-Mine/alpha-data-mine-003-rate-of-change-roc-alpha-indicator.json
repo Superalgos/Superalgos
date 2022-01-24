@@ -4,17 +4,38 @@
     "type": "Rate of Change (ROC) - Alpha Indicator",
     "definition": {
         "text": "The indicator features three products for the following periods: 9, 32, 76.",
-        "updated": 1611653819391
+        "updated": 1611653819391,
+        "translations": [
+            {
+                "language": "DE",
+                "text": "Der Indikator umfasst drei Produkte für die folgenden Zeiträume: 9, 32, 76.",
+                "updated": 1641916818842
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Rate of Change On the Charts",
-            "updated": 1611653837081
+            "updated": 1611653837081,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Veränderungsrate auf den Diagrammen",
+                    "updated": 1641917240013
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "According to Investopedia, “The rate of change (ROC) is the speed at which a variable changes over a specific period of time.” It’s an unbounded momentum indicator and a good tool to spot long term trends. This indicator should not be used as a signal in and of itself but can help to confirm other signals."
+            "text": "According to Investopedia, “The rate of change (ROC) is the speed at which a variable changes over a specific period of time.” It’s an unbounded momentum indicator and a good tool to spot long term trends. This indicator should not be used as a signal in and of itself but can help to confirm other signals.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Laut Investopedia „ist die Veränderungsrate (ROC) die Geschwindigkeit, mit der sich eine Variable in einem bestimmten Zeitraum verändert.“ Es handelt sich um einen uneingeschränkten Momentum-Indikator und ein gutes Instrument zur Erkennung langfristiger Trends. Dieser Indikator sollte nicht als eigenständiges Signal verwendet werden, sondern kann helfen, andere Signale zu bestätigen.",
+                    "updated": 1641917375060
+                }
+            ]
         },
         {
             "style": "Png",
@@ -27,28 +48,70 @@
         },
         {
             "style": "Text",
-            "text": "Mathematically, ROC describes the percentage change of the current close price to the close price from an earlier period."
+            "text": "Mathematically, ROC describes the percentage change of the current close price to the close price from an earlier period.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Mathematisch gesehen beschreibt die ROC die prozentuale Veränderung des aktuellen Schlusskurses gegenüber dem Schlusskurs eines früheren Zeitraums.",
+                    "updated": 1641917455222
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The Alpha data-mine provides 3 ROC indicators with periods 76, 32, and 9. The Rate of Change is closely tied to price action. When price raises ROC value tends to be above the zero line and when price is falling ROC value tends to be below the zero line."
+            "text": "The Alpha data-mine provides 3 ROC indicators with periods 76, 32, and 9. The Rate of Change is closely tied to price action. When price raises ROC value tends to be above the zero line and when price is falling ROC value tends to be below the zero line.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Alpha-Datenmine bietet 3 ROC-Indikatoren mit den Perioden 76, 32 und 9. Die Rate of Change ist eng mit der Preisentwicklung verbunden. Wenn der Preis steigt, liegt der ROC-Wert tendenziell über der Nulllinie, und wenn der Preis fällt, liegt der ROC-Wert tendenziell unter der Nulllinie.",
+                    "updated": 1641917531460
+                }
+            ]
         },
         {
             "style": "Title",
-            "text": "Rate of Change Products & Properties"
+            "text": "Rate of Change Products & Properties",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Rate of Change Produkte & Eigenschaften",
+                    "updated": 1641917667836
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are three products based on various periods available. It is a simple indicator and has only one value: the percentage of change to the previous period."
+            "text": "There are three products based on various periods available. It is a simple indicator and has only one value: the percentage of change to the previous period.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Es sind drei Produkte auf der Grundlage verschiedener Zeiträume verfügbar. Es handelt sich um einen einfachen Indikator, der nur einen Wert hat: den Prozentsatz der Veränderung gegenüber dem vorangegangenen Zeitraum.",
+                    "updated": 1641917708845
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Product Name | Product Variable | Properties |\n| ROC | roc9 | value |\n| ROC | roc32 | value |\n| ROC | roc76 | value |",
-            "updated": 1611654013516
+            "updated": 1611654013516,
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "| Produktname | Produktvariable | Eigenschaften |\n| ROC | roc9 | value |\n| ROC | roc32 | value |\n| ROC | roc76 | value |",
+                    "updated": 1641917741466
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Examples:"
+            "text": "Examples:",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Beispiele:",
+                    "updated": 1641917829158
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -57,7 +120,14 @@
         },
         {
             "style": "Text",
-            "text": "Check if Rate of Change is above the zero trend line and moving upwards."
+            "text": "Check if Rate of Change is above the zero trend line and moving upwards.",
+            "translations": [
+                {
+                    "language": "DE",
+                    "text": "Prüft ob die Rate of Change über der Null-Trendlinie liegt und sich nach oben bewegt.",
+                    "updated": 1641917911000
+                }
+            ]
         }
     ]
 }

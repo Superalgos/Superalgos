@@ -15,6 +15,11 @@
                 "updated": 1639252535020
             },
             {
+                "language": "RU",
+                "text": "Вы видели полосы Боллинджера и знаете, как их читать... Можете ли вы придумать торговую идею для построения стратегии?",
+                "updated": 1640890491546
+            },
+            {
                 "language": "TR",
                 "text": "Bollinger Bantlarını gördünüz ve onları nasıl okuyacağınızı biliyorsunuz... Bir strateji oluşturmak için bir ticaret fikri düşünebilir misiniz?",
                 "updated": 1640947506140
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Nehmen Sie sich ein paar Minuten Zeit, um in diesem Diagramm herumzustöbern und sehen Sie, ob Ihnen etwas einfällt!",
                     "updated": 1639252544363
+                },
+                {
+                    "language": "RU",
+                    "text": "Уделите несколько минут работе с этой таблицей и посмотрите, сможете ли вы что-нибудь придумать!",
+                    "updated": 1640890564079
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639252553967
                 },
                 {
+                    "language": "RU",
+                    "text": "Индикаторы обычно строятся аналитиками и трейдерами для математического описания торговых идей.",
+                    "updated": 1640890575776
+                },
+                {
                     "language": "TR",
                     "text": "Not: Göstergeler genellikle ticaret fikirlerini matematiksel olarak tanımlamak için analistler ve trader'lar tarafından oluşturulur.",
                     "updated": 1640947566429
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Die Idee, die wir als nächstes besprechen werden, hat mit Ausbrüchen zu tun! Aber das ist nur eine der vier oder fünf beliebten Ideen, die dieser Indikator liefert!",
                     "updated": 1639252562061
+                },
+                {
+                    "language": "RU",
+                    "text": "Идея, которую мы обсудим дальше, связана с прорывами! Но это лишь одна из четырех или пяти популярных идей с использованием этого индикатора!",
+                    "updated": 1640890595887
                 },
                 {
                     "language": "TR",

@@ -9,9 +9,10 @@
     margin: 1rem;
     padding-left: 3rem;
     padding-right: 3rem;
-    min-height: 13rem;
+    /*width: 15rem;*/
+    /*min-height: 13rem;*/
     max-height: 35rem;
     align-items: center;
     overflow: hidden;
     overflow-y: scroll;
-  };
+}

@@ -3,8 +3,8 @@
     "pageNumber": 22,
     "type": "Docs Block Style",
     "definition": {
-        "text": "Block paragraphs defines set of paragraphs that can be included from other pages. When you include a block by creating a Docs Include Style paragraph, you need to reference a Block paragraph created at the page that have the set of paragraphs to be included. A Block contains all the paragraph after itself until the next Block or the end of the page.",
-        "updated": 1638116268152,
+        "text": "Use block paragraphs to define blocks of content with any number of paragraphs. A block starts with the paragraph that is assigned the Docs Block Style and ends on the last paragraph before the next paragraph with a Docs Block Style, or where the page ends.",
+        "updated": 1642938399056,
         "translations": [
             {
                 "language": "DE",
@@ -20,9 +20,9 @@
     },
     "paragraphs": [
         {
-            "style": "Text",
-            "text": "To correctly define an Block Paragraph, you need to follow the following syntax:",
-            "updated": 1633958247918,
+            "style": "Block",
+            "text": "Content",
+            "updated": 1642938781588,
             "translations": [
                 {
                     "language": "DE",
@@ -35,6 +35,33 @@
                     "updated": 1638544350250
                 }
             ]
+        },
+        {
+            "style": "Text",
+            "text": "To start a new block, write the name of the block in a new paragraph and apply the Docs Block Style."
+        },
+        {
+            "style": "Callout",
+            "text": "Once you apply the Docs Block Style, the paragraph seems to disappear. It doesn't though. What happens is that the paragraph gets assigned a CSS style that makes invisible the name you wrote, and displays a faint triangle pointing downwards that is highlighted upon mouseover. The triangle now marks the start of the block.",
+            "updated": 1642950503111
+        },
+        {
+            "style": "Text",
+            "text": "To end a block, create a new block after it. If you don't, then the block ends wherever the page ends."
+        },
+        {
+            "style": "Block",
+            "text": "Example",
+            "updated": 1642938594418
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example"
+        },
+        {
+            "style": "Success",
+            "text": "This example is set up as a block. Notice the dim triangle on the right-hand side of the page right above the Example title. Double click to the left of the triangle to select the hidden text. This is how you find the name of the block.",
+            "updated": 1642938905830
         },
         {
             "style": "Javascript",

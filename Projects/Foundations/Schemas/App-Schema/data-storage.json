@@ -29,7 +29,7 @@
             "relatedUiObject": "Portfolio Mines Data",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "relatedUiObjectProject": "Portfolio-Management"
         },
         {
             "action": "Add UI Object",

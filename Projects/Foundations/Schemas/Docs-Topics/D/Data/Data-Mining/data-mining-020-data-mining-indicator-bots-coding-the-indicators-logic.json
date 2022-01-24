@@ -212,7 +212,7 @@
         },
         {
             "style": "Text",
-            "text": "This function allows users to locate an object at a dataset whose objects does not have a begin and end property but instead, they have a timestamp property. It receives an arbitrary begin / end object and the function will search within the dependency dataset for the first record whose timestamp is whitin the begin and end of the received reference objet. For example, a user can get the News record that belong to a certain Candle object.",
+            "text": "This function allows users to locate an object at a dataset whose objects does not have a begin and end property but instead, they have a timestamp property. It receives an arbitrary begin / end object and the function will search within the dependency dataset for the first record whose timestamp is within the begin and end of the received reference objet. For example, a user can get the News record that belong to a certain Candle object.",
             "updated": 1621105823745,
             "translations": [
                 {

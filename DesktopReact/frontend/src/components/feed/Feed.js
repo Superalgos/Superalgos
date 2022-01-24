@@ -1,10 +1,11 @@
 import './Feed.css';
 import PostPlaceholder from "../postPlaceholder/PostPlaceholder";
 import PostsFeed from "../postsFeed/PostsFeed";
-import {getPosts} from "../../api/post.httpService";
+import {getFeed} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import React, {useEffect, useState} from "react";
+import {Divider} from "@mui/material";
 
 const Feed = () => {
     const [posts, setPosts] = useState([]);
@@ -12,7 +13,7 @@ const Feed = () => {
 
     const loadPosts = async () => {
         setLoading(true)
-        getPosts().then(promiseResponse => {
+        getFeed().then(promiseResponse => {
             const mappedPosts = [];
             let parsedPromiseResponse = promiseResponse.json();
             parsedPromiseResponse.then(response => {
@@ -36,8 +37,11 @@ const Feed = () => {
 
     return (
         <div className="feed">
-            <PostPlaceholder reloadPostCallback={loadPosts}/>
-            <PostsFeed posts={posts} loading={loading}/>
+            <div className="feedContainer">
+                <PostPlaceholder reloadPostCallback={loadPosts}/>
+            </div>
+            <Divider flexItem/>
+                <PostsFeed posts={posts} loading={loading}/>
         </div>
     );
 }

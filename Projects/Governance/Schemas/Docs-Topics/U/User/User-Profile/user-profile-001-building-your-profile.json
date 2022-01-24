@@ -55,7 +55,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Предварительные знания: базовое понимание того, как работает платформа Superalgos. Если вы еще этого не сделали, убедитесь, что вы изучили учебные материалы в рабочей области подключаемого модуля Getting Started Tutorials Plugin Workspace, прежде чем погрузиться в проект управления Governance Project.",
+                    "text": "Предварительные знания: базовое понимание того, как работает платформа Superalgos. Если вы еще этого не сделали, убедитесь, что вы изучили учебные материалы в рабочем пространстве подключаемого модуля Getting Started Tutorials Plugin Workspace, прежде чем погрузиться в проект управления Governance Project.",
                     "updated": 1638705588992
                 },
                 {
@@ -149,7 +149,7 @@
             "translations": [
                 {
                     "language": "RU",
-                    "text": "Вы можете начать с рабочей области плагина Token Distribution Superalgos Plugin Workspace, чтобы позже взаимодействовать с определениями верхнего уровня проекта Superalgos Project.",
+                    "text": "Вы можете начать с рабочего пространства плагина Token Distribution Superalgos Plugin Workspace, чтобы позже взаимодействовать с определениями верхнего уровня проекта Superalgos Project.",
                     "updated": 1638705889923
                 },
                 {

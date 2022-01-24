@@ -1,0 +1,16 @@
+{
+    "topic": "Trading Signal Overview",
+    "pageNumber": 6,
+    "type": "User Storage",
+    "definition": {
+        "text": "This is the storage used to house signal content in order to be easily available to signal recipents.",
+        "updated": 1642564985762
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "The open storage used to house signal content is defined under the provider’s governance profile. These nodes simply hold the address of this open storage and allow Social Trading Bots to reference this information.",
+            "updated": 1642565006804
+        }
+    ]
+}

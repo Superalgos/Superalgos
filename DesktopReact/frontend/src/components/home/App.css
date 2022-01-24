@@ -1,5 +1,13 @@
 .app {
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 98vh;
+    max-height: 98vh;
+}
+
+.appContainer{
+    /*justify-content: space-around;*/
 }
 
 .middleSection{

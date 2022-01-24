@@ -15,6 +15,11 @@
                 "updated": 1639253595335
             },
             {
+                "language": "RU",
+                "text": "Давайте начнем с определения процесса торговли и контекста, в котором эти идеи должны работать.",
+                "updated": 1640892165815
+            },
+            {
                 "language": "TR",
                 "text": "Özet: Ticaret sürecinin tanımıyla ve bu fikirlerin çalışması gereken bağlamla ilerleyeceğiz.",
                 "updated": 1640950911067
@@ -30,6 +35,11 @@
                     "language": "DE",
                     "text": "Handelsprozess: Da wir uns auf Trends in den 24-Stunden-Charts verlassen, wird dies eine Swing-Strategie sein, mit offenen Positionen - möglicherweise für mehrere Tage.",
                     "updated": 1639253609069
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый процесс: Поскольку мы полагаемся на тренды на 24-часовых графиках, это будет свинг-стратегия, с открытыми позициями - потенциально на несколько дней.",
+                    "updated": 1640892194310
                 },
                 {
                     "language": "TR",
@@ -48,6 +58,11 @@
                     "updated": 1639253621062
                 },
                 {
+                    "language": "RU",
+                    "text": "Контекст: Первая гипотеза предназначена для восходящих трендов на 24-часовом графике. Вторая - для нисходящих трендов и, вероятно, для колеблющихся рынков. Определение того, как определяются тренды, мы оставим на потом, когда вы познакомитесь с инструментами, доступными в Superalgos.",
+                    "updated": 1640892221691
+                },
+                {
                     "language": "TR",
                     "text": "Bağlam: İlk hipotez, 24 saatlik grafikteki yükseliş trendleri içindir. İkincisi, düşüş trendleri ve muhtemelen değişen pazarlar için. Superalgos'ta mevcut olan araçlara aşina olduğunuzda, trendlerin nasıl belirleneceğini daha sonra tanımlayacağız.",
                     "updated": 1640951767615
@@ -62,6 +77,11 @@
                     "language": "DE",
                     "text": "Das Ziel dieser Idee ist es, Bitcoin zu akkumulieren, indem man BTC verkauft, um sie zu einem günstigeren Preis wieder zu kaufen.",
                     "updated": 1639253628676
+                },
+                {
+                    "language": "RU",
+                    "text": "Цель идеи - накапливать биткоин, продавая BTC для повторной покупки по более дешевой цене.",
+                    "updated": 1640892237140
                 },
                 {
                     "language": "TR",

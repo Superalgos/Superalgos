@@ -24,6 +24,11 @@
                 "language": "DE",
                 "text": "Wir haben einen Lauf! Ich hoffe, Sie sind bereit, Ihr Trading System als nächstes in Aktion zu sehen!",
                 "updated": 1639497372330
+            },
+            {
+                "language": "TR",
+                "text": "Başlıyoruz! Umarım bundan sonra ticaret sisteminizi ( Trading System ) çalışırken görmeye hazırsınızdır!",
+                "updated": 1642595883980
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "DE",
                     "text": "Das nächste, was Sie mit den meisten Charts verbinden möchten, sind die Ergebnisse Ihrer Handelssitzungen. Im Großen und Ganzen ist dies dasselbe wie die Verbindung zu einer Data Mine. Es gibt nur ein paar Unterschiede, die ich Ihnen erläutern werde. Ein wesentlicher Unterschied besteht darin, dass jede Time Machine nur eine Trading Session referenzieren kann. Zum Beispiel eine Backtesting Session, die mit einem Trading System verbunden ist. Dies trägt dazu bei, dass Ihre Charts übersichtlich und lesbar bleiben. Es wäre verwirrend, Kaufaufträge von zwei verschiedenen Handelssystemen auf einmal zu sehen! Für das Verbinden eines Diagramms bedeutet dies, dass wir zwei Referenzen erstellen müssen, damit die Dinge funktionieren.",
                     "updated": 1639497542248
+                },
+                {
+                    "language": "TR",
+                    "text": "Çoğu çizelgeyle ilişkilendirmek isteyeceğiniz bir sonraki şey, işlem seanslarınızın sonuçlarıdır. Çoğunlukla bu, bir veri madenine (Data Mine ) bağlanmakla aynıdır. Size birkaç farklılıktan bahsedeceğim. Ana farklılıklardan biri, her zaman makinesinin ( Time Machine ) yalnızca bir işlem seansına atıfta bulunabilmesidir. Örneğin, bir ticaret oturumu ( Trading Session ) ilişkili bir geriye dönük test oturumu ( Backtesting Session ). Bu, diyagramlarınızı temiz ve okunabilir tutmanıza yardımcı olacaktır. Aynı anda iki farklı ticaret sisteminden ( Trading System ) satın alma emri görmek anlaşılmaz olurdu! Grafiği bağlamak için bu, her şeyin çalışması için iki bağlantı kurmamız gerektiği anlamına gelir.",
+                    "updated": 1642596301256
                 }
             ]
         }

@@ -158,9 +158,9 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 Episode Counters and Statistics update. Maintenance is done
                 once per simulation candle.
                 */
-                portfolioSystemModuleObject.mantain()
-                portfolioEpisodeModuleObject.mantain()
-                portfolioEngineModuleObject.mantain()
+                portfolioSystemModuleObject.maintain()
+                portfolioEpisodeModuleObject.maintain()
+                portfolioEngineModuleObject.maintain()
 
                 /* Reset Data Structures */
                 portfolioSystemModuleObject.reset()
@@ -174,7 +174,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     processIndex
                 )
                 /*
-                Run the Trading System logic.
+                Run the Portfolio System logic.
                 */
                 await portfolioSystemModuleObject.run()
                 /*

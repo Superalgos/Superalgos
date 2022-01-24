@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Der erste Eintrag sieht nicht gut aus, wenn ihr mich fragt! Lassen Sie uns das gleiche Spekulationsspiel mit dem zweiten potenziellen Einstieg fortsetzen!",
                 "updated": 1639391764529
+            },
+            {
+                "language": "TR",
+                "text": "Bana sorarsan ilk giriş pek iyi görünmüyor! Aynı spekülasyon oyununa ikinci potansiyel giriş ile devam edelim!",
+                "updated": 1641666257955
+            },
+            {
+                "language": "RU",
+                "text": "Первый вариант выглядит не лучшим образом, если вы спросите меня! Давайте продолжим ту же игру в спекуляции на второй потенциальной вход!",
+                "updated": 1642664713742
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Dies ist die nächste Instanz der Trigger Stage nach der Zeitspanne, die wir zuvor analysiert haben.",
                     "updated": 1639391774605
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu, daha önce analiz ettiğimiz süreden sonraki Tetik Aşamasının (trigger stage) bir sonraki örneğidir.",
+                    "updated": 1641666267672
+                },
+                {
+                    "language": "RU",
+                    "text": "Это следующий случай стадии срабатывания после временного диапазона, который мы анализировали ранее.",
+                    "updated": 1642664592908
                 }
             ]
         },
@@ -36,6 +56,16 @@
                     "language": "DE",
                     "text": "Sieht doch vielversprechender aus, oder? Es ist das Vorspiel zum Crash am 12. März, und es gibt gute Einstiegsmöglichkeiten davor!",
                     "updated": 1639391782222
+                },
+                {
+                    "language": "TR",
+                    "text": "Daha umut verici görünüyor, değil mi? Bu, 12 Mart'taki çöküşün başlangıcıdır ve bundan önce başlamak için iyi fırsatlar var!",
+                    "updated": 1641666277576
+                },
+                {
+                    "language": "RU",
+                    "text": "Выглядит гораздо более многообещающе, не так ли? Это прелюдия к краху 12 марта, и перед ним есть хорошие входы!",
+                    "updated": 1642664617784
                 }
             ]
         },
@@ -47,6 +77,16 @@
                     "language": "DE",
                     "text": "Der erste ist der Schluss der 15h-Kerze am 8. März. Der zweite beim Schluss der 8-Stunden-Kerze am 12. März. Das ist genau das, was wir bei der Analyse im zweiten Tutorial erwartet haben.",
                     "updated": 1639391789390
+                },
+                {
+                    "language": "TR",
+                    "text": "İlki, 8 Mart'ta saat 15:00 mumunun kapanışı. İkincisi, 12 Mart'ta 8 saatlik mumun kapanışında. İkinci öğreticide analiz ederken tam olarak beklediğimiz şey buydu.",
+                    "updated": 1641666286989
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая - на закрытии 15-часовой свечи 8 марта. Второй - на закрытии 8-часовой свечи 12 марта. Это именно то, чего мы ожидали от анализа, проведенного во втором уроке.",
+                    "updated": 1642664636671
                 }
             ]
         }

@@ -140,14 +140,14 @@ exports.newOpenStorageModulesOpenStorageClient = function newOpenStorageModulesO
 
             let storageContainer = storageContainerReference.referenceParent
 
-            switch (storageContainer.parentNode.type) {
-                case 'Github Storage': {
+            switch (storageContainer.type) {
+                case 'Github Storage Container': {
                     await SA.projects.openStorage.utilities.githubStorage.saveFile(fileName, filePath, encryptedFileContent, storageContainer)
                         .then(onFileSaved)
                         .catch(onFileNodeSaved)
                     break
                 }
-                case 'Superalgos Storage': {
+                case 'Superalgos Storage Container': {
                     // TODO Build the Superalgos Storage Provider
                     break
                 }

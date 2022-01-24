@@ -9,6 +9,16 @@
                 "language": "DE",
                 "text": "Mit diesem Schritt wird ein Video im Vollbildmodus abgespielt.",
                 "updated": 1639390470354
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu adım,videoyu tam ekran modunda oynatır.",
+                "updated": 1641664146354
+            },
+            {
+                "language": "RU",
+                "text": "Этот шаг позволит воспроизвести видео в полноэкранном режиме.",
+                "updated": 1642662367511
             }
         ]
     },

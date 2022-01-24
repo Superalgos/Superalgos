@@ -31,6 +31,11 @@
                 "language": "TR",
                 "text": "Geriye Dönük Test Oturumu ( Backtesting Session ) altındaki iki düğüme dikkat edin: Ticaret Sistemi Referansı ( Trading System Reference ) ve Ticaret Motoru Referansı ( Trading Engine Reference ). Neden bu düğümlere ihtiyacımız var?",
                 "updated": 1639485591800
+            },
+            {
+                "language": "RU",
+                "text": "Обратите внимание на два узла под Backtesting Session: Trading System Reference и Trading Engine Reference. Зачем нам нужны эти узлы?",
+                "updated": 1640869194213
             }
         ]
     },
@@ -61,6 +66,11 @@
                     "language": "TR",
                     "text": "Geriye Dönük Test Oturumunun, alım satım kurallarını alabilmesi için Ticaret Sistemine ( Trading System ) başvurması gerekir. Ayrıca, işlem oturumuyla ilgili bilgileri depolayabilmesi için İşlem Motoruna da (Trading Engine ) referans vermelidir. Ancak, bir düğüm yalnızca bir giden referans oluşturabilir!",
                     "updated": 1639485763127
+                },
+                {
+                    "language": "RU",
+                    "text": "Сессия бэктестинга должна ссылаться на торговую систему, чтобы получить правила для торговли. Она также должна ссылаться на торговый движок, чтобы он мог хранить информацию, относящуюся к торговой сессии. Но узел может установить только одну исходящую ссылку!",
+                    "updated": 1640869229159
                 }
             ]
         },
@@ -90,6 +100,11 @@
                     "language": "TR",
                     "text": "Bu düğümlerin var olmasının nedeni budur: Geriye Dönük Test Oturumu ( Backtesting Session )düğümüne yardımcı olurlar, böylece her biri bir düğüme başvurabilir!",
                     "updated": 1639485804632
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот почему эти узлы существуют: они являются вспомогательными для узла Backtesting Session, чтобы каждый из них мог ссылаться на один узел!",
+                    "updated": 1640869242136
                 }
             ]
         }

@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "В этом уроке я покажу вам, как работают слои торгового бота! Я имею в виду те, которые изображены на графиках, связанные со всеми типами торговых сессий!",
                 "updated": 1640543199664
+            },
+            {
+                "language": "TR",
+                "text": "Bu eğitimde size Trading Bot'un katmanlarının nasıl çalıştığını göstereceğim! Her türlü alım satım seansıyla ilişkili grafiklerde gösterilenleri kastediyorum!",
+                "updated": 1641717504580
             }
         ]
     },
@@ -39,6 +44,11 @@
                     "language": "RU",
                     "text": "Давайте приступим! Торговый бот выводит десятки продуктов, и все они представлены в трех отдельных менеджерах слоев Layer Manager:",
                     "updated": 1640543249899
+                },
+                {
+                    "language": "TR",
+                    "text": "Hadi devam edelim! Ticaret Botu (Trading Bot) düzinelerce ürün üretir ve bunların tümü üç ayrı Katman Yöneticisinde (Layer Managers) bulunur:",
+                    "updated": 1641717582828
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "RU",
                     "text": "Trading Engine: содержит слои, которые включают и выключают информирование о значениях узлов в иерархии Trading Engine.",
                     "updated": 1640543968756
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading Engine: Trading Engine hiyerarşisindeki düğümlerin değerlerinin raporlanmasını açan ve kapatan katmanlar içerir.",
+                    "updated": 1641717712023
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "RU",
                     "text": "Trading System: имеет уровни, которые включают и выключают несколько типов отчетов на уровне торговой системы.",
                     "updated": 1640544042964
+                },
+                {
+                    "language": "TR",
+                    "text": "Trading System: Alım Satım Sistemi düzeyinde birden fazla rapor türünü açan ve kapatan katmanlara sahiptir.",
+                    "updated": 1641717774994
                 }
             ]
         },
@@ -93,6 +113,11 @@
                     "language": "RU",
                     "text": "Simulation Objects: слои характеристик, которые влияют на отрисовку визуальной информации на графиках.",
                     "updated": 1640544028710
+                },
+                {
+                    "language": "TR",
+                    "text": "Simulation Objects: Grafikler üzerinde görsel bilgilerin oluşturulmasını etkileyen katmanları içerir.",
+                    "updated": 1641717820493
                 }
             ]
         }

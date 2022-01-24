@@ -13,6 +13,16 @@
                 "language": "DE",
                 "text": "Schauen Sie sich noch einmal die BB-Eigenschaften an! Zwei Standardabweichungen sind die Abweichungseigenschaft!",
                 "updated": 1639389424491
+            },
+            {
+                "language": "TR",
+                "text": "Özet: BB özelliklerine bir kez daha bakın! Varyans özelliği iki standart sapmadır!",
+                "updated": 1641662967312
+            },
+            {
+                "language": "RU",
+                "text": "Посмотрите на свойства BB еще раз! Два стандартных отклонения - это свойство deviation (отклонение)!",
+                "updated": 1642660797938
             }
         ]
     },
@@ -25,6 +35,16 @@
                     "language": "DE",
                     "text": "Das untere Band ist also der MA minus die Abweichung!",
                     "updated": 1639389432395
+                },
+                {
+                    "language": "TR",
+                    "text": "alt bant, MA eksi sapmadır!",
+                    "updated": 1641662978792
+                },
+                {
+                    "language": "RU",
+                    "text": "Таким образом, нижняя полоса - это МА минус deviation!",
+                    "updated": 1642660739361
                 }
             ]
         },
@@ -37,6 +57,16 @@
                     "language": "DE",
                     "text": "Können Sie die Bedingung mit diesen Informationen schreiben? Starten Sie einen Texteditor und versuchen Sie es!",
                     "updated": 1639389440288
+                },
+                {
+                    "language": "TR",
+                    "text": "Bu bilgilerle durumu yazabilir misiniz? Bir metin düzenleyici başlatın ve deneyin!",
+                    "updated": 1641662989804
+                },
+                {
+                    "language": "RU",
+                    "text": "Можете ли вы написать условие, используя эту информацию? Запустите текстовый редактор и попробуйте!",
+                    "updated": 1642660753106
                 }
             ]
         },
@@ -48,6 +78,16 @@
                     "language": "DE",
                     "text": "Der Schluss der Kerze im 1H-Chart ist kleiner als der gleitende Durchschnitt minus der Abweichung!",
                     "updated": 1639389448000
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: 1H grafiğindeki mumun kapanışı, hareketli ortalama eksi sapmadan daha küçüktür!",
+                    "updated": 1641662999422
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрытие свечи на графике 1H меньше, чем скользящая средняя минус отклонение!",
+                    "updated": 1642660783610
                 }
             ]
         }

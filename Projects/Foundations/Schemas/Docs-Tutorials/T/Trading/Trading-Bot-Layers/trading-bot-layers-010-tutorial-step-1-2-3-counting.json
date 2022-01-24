@@ -20,6 +20,11 @@
                 "language": "RU",
                 "text": "Давайте протестируем первый слой в Layer Manager торгового движка: \" Trading Episode Counters\".",
                 "updated": 1640545978777
+            },
+            {
+                "language": "TR",
+                "text": "Ticaret Motoru Katman Yöneticisindeki (Trading Engine Layer Manager) ilk Katmanı test edelim: \"Ticaret Bölüm Sayaçları\" (Trading Episode Counters)",
+                "updated": 1641909931604
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "RU",
                     "text": "Включите слой и проведите указателем мыши по графику от крайней левой до крайней правой части экрана!",
                     "updated": 1640545998049
+                },
+                {
+                    "language": "TR",
+                    "text": "Katmanı açın ve fare imlecinizi ekranınızın en solundan en sağına doğru grafiğin üzerine kaydırın!",
+                    "updated": 1641910223388
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "RU",
                     "text": "Посмотрите, что происходит с различными счетчиками на иерархии ниже... то есть, Periods, Strategies, Positions, и так далее! Вы должны увидеть нечто похожее на то, что я показываю в видео на следующем шаге...",
                     "updated": 1640546054732
+                },
+                {
+                    "language": "TR",
+                    "text": "Aşağıdaki hiyerarşideki çeşitli sayaçlara ne olduğunu görün... yani, Dönemler (Periods), Stratejiler (Strategies), Konumlar (Positions), vb! Bir sonraki adımda videoda gösterdiğime benzer bir şey görmelisiniz...",
+                    "updated": 1641910284428
                 }
             ]
         }

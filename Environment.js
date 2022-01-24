@@ -29,6 +29,7 @@ exports.newEnvironment = function () {
         PATH_TO_DEFAULT_WORKSPACE: path.join(basePath, './Projects/Foundations/Plugins/Workspaces'),
         PATH_TO_MY_WORKSPACES: path.join(basePath, './Platform/My-Workspaces'),
         PATH_TO_SECRETS: path.join(basePath, './My-Secrets'),
+        PATH_TO_MY_SOCIAL_TRADING_DATA: path.join(basePath, './My-Social-Trading-Data'),
         PATH_TO_FONTS: path.join(basePath, './Platform/WebServer/Fonts'),
         DESKTOP_APP_SIGNING_ACCOUNT: 'Social-Trading-Desktop-App-1',
         DESKTOP_APP_MAX_OUTGOING_PEERS: 1,
@@ -44,7 +45,9 @@ exports.newEnvironment = function () {
         DESKTOP_TARGET_NETWORK_TYPE: 'P2P Network',
         DESKTOP_TARGET_NETWORK_CODENAME: 'Testnet',
         TASK_SERVER_TARGET_NETWORK_TYPE: 'P2P Network',
-        TASK_SERVER_TARGET_NETWORK_CODENAME: 'Testnet'
+        TASK_SERVER_TARGET_NETWORK_CODENAME: 'Testnet',
+        DESKTOP_DEFAULT_SOCIAL_PERSONA: 'Social-Persona-1',
+        DESKTOP_DEFAULT_SOCIAL_TRADING_BOT: 'Social-Trading-Bot-1'
     }
 
     if (process.env.DATA_PATH) {

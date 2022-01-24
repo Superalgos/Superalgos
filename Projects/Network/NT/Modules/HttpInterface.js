@@ -1,7 +1,7 @@
 exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface() {
     /*
     This module represent the HTTP API of the           TODO: Implement that Trading Signals are also sent to other nodes.
-    Network Node. All HTTP request are processed        TODO: Implement mechanism to send only the trading signals to the guys that are following the emitter.
+    Network Node. All HTTP request are processed        TODO: Implement mechanism to send only the trading signals to the guys that are following the origin social entity.
     by this module.
     */
     let thisObject = {
@@ -41,8 +41,6 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                 node: undefined
             }
 
-            let messageHeader = JSON.parse(bodyString)
-    
             switch (endpointOrFile) {
                 case 'New-Message':
                     {
@@ -50,11 +48,50 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
 
                         async function processRequest(bodyString) {
                             try {
+
                                 if (bodyString === undefined) {
                                     return
                                 }
+                                let messageHeader = JSON.parse(bodyString)
+                                /*
+                                Validate the User App Signature
+                                */
+                                let userAppBlockchainAccount = web3.eth.accounts.recover(messageHeader.signature)
 
-                                let response = await thisObject.incomingSignals.newSignal(signal)
+                                if (userAppBlockchainAccount === undefined) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'User App Bad Signature.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
+
+                                let userProfile = SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.get(userAppBlockchainAccount)
+
+                                if (userProfile === undefined) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'User App Not Linked to User Profile.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
+                                /*
+                                We will check that if we are a node of a Permissioned Network, that whoever
+                                is connecting to us, has the permission to do so.
+                                */
+                                if (NT.networkApp.p2pNetworkNode.node.p2pNetworkReference.referenceParent.type === "Permissioned P2P Network") {
+                                    let userProfileWithPermission = SA.projects.network.globals.memory.maps.PERMISSIONS_GRANTED_BY_USER_PRFILE_ID.get(userProfile.id)
+                                    if (userProfileWithPermission === undefined) {
+                                        let response = {
+                                            result: 'Error',
+                                            message: 'User Profile Does Not Have Permission to This Permissioned P2P Network.'
+                                        }
+                                        SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                        return
+                                    }
+                                }
 
                                 switch (messageHeader.callerRole) {
                                     case 'Network Client': {
@@ -62,14 +99,12 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
                                                     response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                                    response.messageId = messageHeader.messageId
-                                                    caller.socket.send(JSON.stringify(response))
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
                                                     let response = {
                                                         result: 'Error',
                                                         message: 'Trading Signals Network Service Not Running.'
                                                     }
-                                                    response.messageId = messageHeader.messageId
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                     return
                                                 }
@@ -83,14 +118,12 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
                                                     response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
-                                                    response.messageId = messageHeader.messageId
-                                                    caller.socket.send(JSON.stringify(response))
+                                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
                                                     let response = {
                                                         result: 'Error',
                                                         message: 'Trading Signals Network Service Not Running.'
                                                     }
-                                                    response.messageId = messageHeader.messageId
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                     return
                                                 }
@@ -100,8 +133,6 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                         break
                                     }
                                 }
-
-                                SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
 
                             } catch (err) {
                                 console.log('[ERROR] P2P Node -> httpInterface -> Method call produced an error.')
@@ -124,7 +155,23 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                     break
                 case 'Ping':
                     {
-                        SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
+                        let networkService = unescape(requestPath[2])
+
+                        switch (networkService) {
+                            case 'Trading Signals': {
+                                if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent("Pong", httpResponse)
+                                } else {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Trading Signals Network Service Not Running.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
+                                break
+                            }
+                        }
                     }
                     break
                 case 'Stats':

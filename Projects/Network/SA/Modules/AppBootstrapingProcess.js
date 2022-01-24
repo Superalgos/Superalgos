@@ -4,7 +4,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
     
     This process will:
     
-    1. Load Appp Schemas.
+    1. Load App Schemas.
     2. Load User Profiles
     3. Identify all P2P Network Nodes.
     4. Identify the node representing the Identity of the current running App.
@@ -14,7 +14,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     */
     let thisObject = {
-        run: run 
+        run: run
     }
     return thisObject
 
@@ -22,7 +22,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
         let allNodesInPluginsMap = new Map()
 
-        await loadAppSchemas()
         await loadUserP2PNetworksPlugins()
         await loadUserProfilesPlugins()
 
@@ -36,48 +35,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
         extractInfoFromUserProfiles()
 
-        async function loadAppSchemas() {
-
-            let promise = new Promise((resolve, reject) => {
-
-                loadAppSchemasForProject('Network')
-                loadAppSchemasForProject('Governance')
-
-                function loadAppSchemasForProject(project) {
-
-                    let filePath = global.env.PATH_TO_PROJECTS + '/' + project + '/Schemas/'
-                    let folder = 'App-Schema'
-
-                    SA.projects.foundations.utilities.filesAndDirectories.getAllFilesInDirectoryAndSubdirectories(filePath + folder, onFilesReady)
-
-                    function onFilesReady(files) {
-
-                        for (let k = 0; k < files.length; k++) {
-                            let name = files[k]
-                            let nameSplitted = name.split(folder)
-                            let fileName = nameSplitted[1]
-                            for (let i = 0; i < 10; i++) {
-                                fileName = fileName.replace('\\', '/')
-                            }
-                            let fileToRead = filePath + folder + fileName
-
-                            let fileContent = SA.nodeModules.fs.readFileSync(fileToRead)
-                            let schemaDocument
-                            try {
-                                schemaDocument = JSON.parse(fileContent)
-                                SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.set(project + '-' + schemaDocument.type, schemaDocument)
-                            } catch (err) {
-                                console.log('[WARN] loadAppSchemas -> Error Parsing JSON File: ' + fileToRead + '. Error = ' + err.stack)
-                                return
-                            }
-                        }
-                        resolve()
-                    }
-                }
-            }
-            )
-            return promise
+        if (p2pNetworkClientIdentity.node === undefined) {
+            throw ('The Network Client Identity does not match any node at User Profiles Plugins.')
         }
+
+        setupPermissionedNetwork()
 
         async function loadUserP2PNetworksPlugins() {
             /*
@@ -103,6 +65,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     p2pNetworkPlugin,
                     allNodesInPluginsMap
                 )
+
+                if (p2pNetwork === undefined) {
+                    console.log('[WARN] P2P Network Plugin could not be loadded into memory: ' + p2pNetworkPlugin.name)
+                    continue
+                }
 
                 SA.projects.network.globals.memory.maps.P2P_NETWORKS_BY_ID.set(p2pNetwork.id, p2pNetwork)
             }
@@ -135,12 +102,17 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     allNodesInPluginsMap
                 )
 
+                if (userProfile === undefined) {
+                    console.log('[WARN] User Profile Plugin could not be loadded into memory: ' + userProfilePlugin.name)
+                    continue
+                }
+
                 SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, userProfile)
             }
         }
 
         async function setReferenceParentForNodeHierearchy(nodeHierearchyMap) {
-            let mapArray = Array.from(nodeHierearchyMap) 
+            let mapArray = Array.from(nodeHierearchyMap)
             for (let i = 0; i < mapArray.length; i++) {
                 let mapArrayItem = mapArray[i][1]
 
@@ -151,7 +123,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
             }
         }
 
-        async function extractInfoFromUserProfiles() {
+        function extractInfoFromUserProfiles() {
 
             let userProfiles = Array.from(SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID)
 
@@ -159,34 +131,12 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 let userProfile = userProfiles[i][1]
                 let signatureObject = userProfile.config.signature
                 let web3 = new SA.nodeModules.web3()
-                let blockchainAccount = web3.eth.accounts.recover(signatureObject)
-                let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
-                let userProfileId = userProfile.id
-                let userHandle = userProfile.config.signature.message
-                let userSocialProfile
+                userProfile.blockchainAccount = web3.eth.accounts.recover(signatureObject)
 
-                setupUserSocialProfiles()
+                let ranking = 0 // TODO: read the blockchain balance and transactions from the Treasury Account to calculate the profile ranking.
+
                 loadSigningAccounts()
                 loadStorageContainers()
-
-                function setupUserSocialProfiles() {
-                    /*
-                    Setting up the User Social Profile
-                    */
-                    userSocialProfile = SA.projects.socialTrading.modules.socialGraphUserProfile.newSocialTradingModulesSocialGraphUserProfile()
-                    userSocialProfile.initialize(
-                        userProfileId,
-                        userHandle,
-                        blockchainAccount,
-                        ranking
-                    )
-                    /*
-                    Store in memory all User Social Profiles
-                    */
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_ID.set(userProfileId, userSocialProfile)
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_USER_PROFILE_HANDLE.set(userHandle, userSocialProfile)
-                    SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
-                }
 
                 function loadSigningAccounts() {
                     /*
@@ -209,10 +159,10 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                         let web3 = new SA.nodeModules.web3()
                         let blockchainAccount = web3.eth.accounts.recover(signatureObject)
                         /*
-                        We will build a map of user profiles by blockchain account that we will when we receive messages signed
+                        We will build a map of user profiles by blockchain account that we will need when we receive messages signed
                         by different network clients.
                         */
-                        SA.projects.network.globals.memory.maps.USER_SOCIAL_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userSocialProfile)
+                        SA.projects.network.globals.memory.maps.USER_PROFILES_BY_BLOKCHAIN_ACCOUNT.set(blockchainAccount, userProfile)
 
                         loadP2PNetworkNodes()
                         setupNetworkClientIdentity()
@@ -233,7 +183,11 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                                 }
 
                                 let p2pNetworkNode = SA.projects.network.modules.p2pNetworkNode.newNetworkModulesP2PNetworkNode()
-                                let response = p2pNetworkNode.initialize(networkClient, userSocialProfile, blockchainAccount)
+                                let response = p2pNetworkNode.initialize(
+                                    networkClient,
+                                    userProfile,
+                                    blockchainAccount
+                                )
                                 if (response === true) {
                                     SA.projects.network.globals.memory.arrays.P2P_NETWORK_NODES.push(p2pNetworkNode)
                                 }
@@ -256,8 +210,8 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                             ) {
                                 if (p2pNetworkClientIdentity.initialize(
                                     networkClient,
-                                    blockchainAccount,
-                                    userSocialProfile
+                                    userProfile,
+                                    blockchainAccount
                                 ) === false) {
                                     throw ('Bad Configuration. P2P Network Node needs to have a Network Reference with a Reference Parent.')
                                 }
@@ -270,13 +224,42 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                     /*
                     Identify Storage Containers of each profiles and load them to memory.
                     */
-                    let storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Storage Container')
+                    let storageContainers
 
-                    for (let j = 0; j < storageContainers.length; j++) {
-                        let storageContainer = storageContainers[j]
-                        SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                    storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Github Storage Container')
+                    addContainersToMemoryMap()
+                    storageContainers = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(userProfile.userStorage, 'Superalgos Storage Container')
+                    addContainersToMemoryMap()
+
+                    function addContainersToMemoryMap() {
+                        for (let j = 0; j < storageContainers.length; j++) {
+                            let storageContainer = storageContainers[j]
+                            SA.projects.network.globals.memory.maps.STORAGE_CONTAINERS_BY_ID.set(storageContainer.id, storageContainer)
+                        }
                     }
                 }
+            }
+        }
+
+        function setupPermissionedNetwork() {
+            /*
+            If we are a P2P Network Node that is part of a Permissioned P2P Network,
+            then we will need to build a Map with all User Profiles that have access
+            to this network, in order to use it later to enforce these permissions
+            at the Network Interfaces.
+            */
+            if (p2pNetworkClientIdentity.node.type !== "P2P Network Node") { return }
+            if (p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent.type !== "Permissioned P2P Network") { return }
+
+            let petmissionGrantedArray = SA.projects.visualScripting.utilities.nodeFunctions.nodeBranchToArray(
+                p2pNetworkClientIdentity.node.p2pNetworkReference.referenceParent,
+                'Permission Granted'
+            )
+
+            for (let i = 0; i < petmissionGrantedArray.length; i++) {
+                let permissionGranted = petmissionGrantedArray[i]
+                if (permissionGranted.referenceParent === undefined) { continue }
+                SA.projects.network.globals.memory.maps.PERMISSIONS_GRANTED_BY_USER_PRFILE_ID.set(permissionGranted.referenceParent.id, permissionGranted.referenceParent)
             }
         }
     }

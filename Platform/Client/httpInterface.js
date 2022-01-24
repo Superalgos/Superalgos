@@ -251,6 +251,17 @@ exports.newHttpInterface = function newHttpInterface() {
                     }
                 }
                     break
+                case 'DEX':
+                    SA.projects.foundations.utilities.httpRequests.getRequestBodyAsync(httpRequest, httpResponse)
+                        .then(body => {
+                            let config = JSON.parse(body)
+                            //stuff
+                            console.log(config)
+                        })
+                        .catch (err => {
+                            console.error(err)
+                        })
+                    break
                 case 'Social-Bots':
                     switch (requestPath[2]) {
                         case 'Discord-Test-Message':

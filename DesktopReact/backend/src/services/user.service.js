@@ -159,7 +159,7 @@ const saveProfile =  async (body, res) => {
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY,
             profileData: JSON.stringify(body),
-            originSocialPersonaId: undefined
+            originSocialPersonaId: body.originSocialPersonaId
         }
 
         let query = {

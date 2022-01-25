@@ -5,6 +5,7 @@ import ReplyFeedView from "./ReplyFeedView";
 import {getPost, getReplies} from "../../api/post.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
+import {Skeleton} from "@mui/material";
 
 const ReplyFeed = () => {
     const [post, setPost] = useState({});
@@ -17,6 +18,11 @@ const ReplyFeed = () => {
         targetSocialPersonaId: urlSearchParams.get("user")
     }
 
+    const skeletons = [
+        <Skeleton key={0} variant="rectangular" width="100%" height="12rem"/>,
+        <Skeleton key={1} variant="rectangular" width="100%" height="12rem"/>
+    ]
+
     const goBack = () => navigate(-1); /* TODO improve this cause it breaks on multiple navigation*/
 
     const loadPost = async () => {
@@ -27,21 +33,26 @@ const ReplyFeed = () => {
     }
 
     const loadReplies = async () => {
-        let replies=[];
+        let replies = [];
         const {result, data} = await getReplies(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
             data.map((post, index) => {
                 replies.push(<Post key={post.originPostHash} id={post.originPostHash} postData={post}/>);
             })
         }
-        console.log({replies})
         setMappedReplies(replies);
     }
 
     useEffect(() => {
+        console.log("loading everything")
         loadPost();
         loadReplies();
-    }, []);
+        return () => {
+            console.log("destroying everything")
+            setMappedReplies([]);
+            setPost({});
+        }
+    }, [urlSearchParams]);
 
 
     return (

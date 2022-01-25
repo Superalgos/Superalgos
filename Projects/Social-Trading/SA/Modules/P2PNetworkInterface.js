@@ -52,9 +52,9 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
         function eventReceived(
             eventMessage,
             signature,
-    
+
         ) {
-    
+
             let eventReceived
             try {
                 eventReceived = JSON.parse(eventMessage)
@@ -128,10 +128,11 @@ exports.newSocialTradingModulesP2PNetworkInterface = function newSocialTradingMo
             let response = SA.projects.socialTrading.utilities.eventSignatureValidations.signatureValidations(eventReceived, signature)
             if (response !== undefined) { return response }
             /*
-            Add this event to the local map of events processed.
+            Add the timestamp of when this Event was received to the local map of events processed.
             */
-            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, true)
+            let timestamp = (new Date()).valueOf
+            SA.projects.socialTrading.globals.memory.maps.EVENTS.set(eventReceived.eventId, timestamp)
             eventReceivedCallbackFunction(eventReceived)
-        }        
+        }
     }
 }

@@ -10,6 +10,7 @@ exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = func
     }
     let portfolioManagedTradingBotsModuleObject
     let portfolioSystemModuleObject
+    let portfolioEngine
 
     return thisObject
 

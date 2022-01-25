@@ -34,7 +34,7 @@
     "title": [
         "Use Reference Parent"
     ],
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "addLeftIcons": true,
     "level": 3,
     "referencingRules": {

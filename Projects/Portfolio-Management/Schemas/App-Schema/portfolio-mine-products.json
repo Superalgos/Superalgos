@@ -32,7 +32,7 @@
     ],
     "addLeftIcons": true,
     "level": 3,
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "title": [
         "Use Reference Parent"
     ],

@@ -1,0 +1,34 @@
+{
+    "type": "Javascript Code",
+    "level": 4,
+    "propertyNameAtParent": "javascriptCode",
+    "editors": {
+        "code": true
+    },
+    "initialValues": {
+        "code": "// Type your code"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Condition->User Defined Code->User Defined Portfolio Code->"
+    },
+    "menuItems": [
+        {
+            "action": "Edit",
+            "actionFunction": "uiObject.codeEditor.activate",
+            "label": "Edit",
+            "iconPathOn": "javascript-code",
+            "iconPathOff": "javascript-code"
+        },
+        {
+            "action": "Delete UI Object",
+"actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "actionFunction": "payload.executeAction",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity"
+        }
+    ],
+    "addLeftIcons": true
+}

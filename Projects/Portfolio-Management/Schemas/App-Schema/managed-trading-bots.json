@@ -23,7 +23,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio Episode->"
+        "compatibleTypes": "->Portfolio Current->"
     },
     "propertyNameAtParent": "managedTradingBots",
     "childrenNodesProperties": [

@@ -241,6 +241,21 @@ nodeInstPromise.then(() => {
             usesSSH = true
           }
       }
+      
+      // Check that branches exist
+      let branchSumAll = await git.branchLocal().catch(errorResp)
+      let masterExists = false
+      let developExists = false
+      for (let i = 0; i < branchSumAll.all.length; i++) {
+          if (branchSumAll.all[i] === 'master') masterExists = true
+          else if (branchSumAll.all[i] === 'develop') developExists = true
+      }
+      if (!masterExists) await git.checkout('master', ['-B'])
+      if (!developExists) await git.checkout('develop', ['-B'])
+      // Check that a branch is checked out, otherwise checkout develop
+      branchSumAll = await git.branchLocal().catch(errorResp)
+      if (branchSumAll.current === '') await git.checkout('develop', ['-B'])
+
       if (repo !== "Superalgos" && origin && gitUser) await git.removeRemote('origin').catch(errorResp)
       if (repo !== "Superalgos" && gitUser) {
           let orURL

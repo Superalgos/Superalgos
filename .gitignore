@@ -22,3 +22,4 @@ package-lock.json
 dist
 /nbproject/private/
 Platform/WebServer/externalScripts
+*.backup

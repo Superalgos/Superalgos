@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Sebelum kamu menjalankan Live Trading Session, pastikan kamu memiliki saldo USDT spot yang cukup di exchange!",
                 "updated": 1640575421612
+            },
+            {
+                "language": "RU",
+                "text": "Прежде чем запустить торговую сессию, убедитесь, что у вас есть достаточный спотовый баланс USDT на бирже!",
+                "updated": 1642770642070
             }
         ]
     },
@@ -69,6 +74,11 @@
                     "language": "ID",
                     "text": "Lihatlah saldo kamu di exchange dan atur USDT yang cukup untuk sesi ini!",
                     "updated": 1640575452390
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на свой баланс на бирже и обеспечьте достаточное количество USDT для сессии!",
+                    "updated": 1642770663587
                 }
             ]
         },
@@ -102,6 +112,11 @@
                     "language": "ID",
                     "text": "Trading Bot akan menempatkan satu limit order untuk initialBalance, dan membatalkannya pada menit berikutnya jika tidak diisi, seperti yang dijelaskan sebelumnya.",
                     "updated": 1640575503592
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый бот разместит один лимитный ордер для initialBalance и отменит его в следующую минуту, если он не будет заполнен, как объяснялось ранее.",
+                    "updated": 1642770684092
                 }
             ]
         },
@@ -136,6 +151,11 @@
                     "language": "ID",
                     "text": "Terus lanjutkan bahkan jika kamu tidak siap untuk trade! Ini penting karena ada lebih banyak hal untuk dipelajari dalam tutorial!",
                     "updated": 1640575553876
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте, даже если вы еще не готовы торговать! Это важно, потому что в учебнике есть еще много интересного!",
+                    "updated": 1642770698237
                 }
             ]
         }

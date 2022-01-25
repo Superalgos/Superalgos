@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Kamu pikir aku akan membiarkan kamu memantau Live Trading Session dan menonton list order di exchange? Tidak mungkin!",
                 "updated": 1640596146921
+            },
+            {
+                "language": "RU",
+                "text": "Вы думали, что я позволю вам следить за ходом торговой сессии, наблюдая за списком ордеров на бирже? Ни за что!",
+                "updated": 1642771941525
             }
         ],
         "updated": 1640291830600
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Superalgos menghasilkan simulasi yang akan kamu cintai serta live sessions juga, secara realtime!",
                     "updated": 1640596334283
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos производит те ж�� симуляции, в которые вы влюбились, и для живых сессий, в реальном времени!",
+                    "updated": 1642771958690
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "ID",
                     "text": "Dapatkah kamu melihat beberapa buy orders pertama pada chart?",
                     "updated": 1640596368483
+                },
+                {
+                    "language": "RU",
+                    "text": "Видите ли вы на графике первые несколько ордеров на покупку?",
+                    "updated": 1642771971720
                 }
             ]
         },
@@ -137,6 +152,11 @@
                     "language": "ID",
                     "text": "Aku baru saja membawa kamu ke waktu sekarang, pada 1-minute chart. Kamu harus dapat melihat pembentukan candle terbaru dan beberapa orders sudah ada. Rate Scale dalam mode otomatis di kedua ujungnya. Jangan ragu untuk mengubah scales sesuai keinginanmu.",
                     "updated": 1640596463623
+                },
+                {
+                    "language": "RU",
+                    "text": "Я только что привел вас в настоящее время, на 1-минутном графике. Вы должны видеть, как формируется последняя свеча и уже есть несколько ордеров. Шкала цен находится в автоматическом режиме на обоих концах. Не стесняйтесь менять шкалы по своему вкусу.",
+                    "updated": 1642772032524
                 }
             ]
         }

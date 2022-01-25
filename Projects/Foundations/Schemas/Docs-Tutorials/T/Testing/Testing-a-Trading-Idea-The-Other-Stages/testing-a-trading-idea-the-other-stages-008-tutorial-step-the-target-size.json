@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Daha önce de belirtmiştim,borsada manuel sipariş verirken olduğu gibi - varlıkların herhangi birindeki büyüklüğü tanımlayabilirsiniz!",
                 "updated": 1641668302644
+            },
+            {
+                "language": "RU",
+                "text": "Я уже упоминал, что, как и при установке ручного ордера на бирже, вы можете определить размер в любом из активов!",
+                "updated": 1642777034934
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bahsetmediğim şey, iki tanımlama olamaz! Belirsizliği önlemek için sadece bir tanesine izin verilir!",
                     "updated": 1641668311699
+                },
+                {
+                    "language": "RU",
+                    "text": "Я не упомянул, что нельзя иметь два определения! Чтобы избежать двусмысленности, допускается только одно!",
+                    "updated": 1642777046115
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Boyutu temel varlıkta tanımlayacağız, bu nedenle Kote Edilen Varlıktaki Hedef Boyut ( Target Size In Quoted Asset ) düğümünü silin!",
                     "updated": 1641668328808
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы будем определять размер в базовом активе, поэтому удалите узел Target Size In Quoted Asset!",
+                    "updated": 1642777072869
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Bu düğümü de basit tutacağız. Şimdilik, oturum için mevcut tüm krediyi kullanacağız.",
                     "updated": 1641668351020
+                },
+                {
+                    "language": "RU",
+                    "text": "Здесь мы тоже будем действовать просто. На данный момент мы будем использовать весь баланс, доступный для сессии.",
+                    "updated": 1642777098664
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "İpucu: Bunu nasıl yapacağız? Birazdan göreceksin!",
                     "updated": 1641668361263
+                },
+                {
+                    "language": "RU",
+                    "text": "Как мы это сделаем? Вы это увидите!",
+                    "updated": 1642777128556
                 }
             ]
         }

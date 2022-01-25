@@ -36,6 +36,11 @@
                 "language": "ID",
                 "text": "Ada beberapa hal lagi yang ingin aku ceritakan sebelum aku membiarkan kamu pergi! Bersabarlah!",
                 "updated": 1640599954167
+            },
+            {
+                "language": "RU",
+                "text": "Есть еще несколько вещей, о которых я хочу рассказать вам, прежде чем позволю вам уйти! Потерпите!",
+                "updated": 1642774136586
             }
         ]
     },
@@ -71,6 +76,11 @@
                     "language": "ID",
                     "text": "Aku akan memberi kamu pengantar singkat tentang apa yang kami kerjakan untuk versi Superalgos yang akan datang! Aku menyebutkan Machine Learning algorithms, tetapi masih ada lagi! Lebih banyak lagi!",
                     "updated": 1640600007573
+                },
+                {
+                    "language": "RU",
+                    "text": "Я кратко расскажу вам о том, над чем мы работаем для будущих версий Superalgos! Я упомянул алгоритмы машинного обучения (Machine Learning), но это еще не все! Намного больше!",
+                    "updated": 1642774198773
                 }
             ]
         },
@@ -105,6 +115,11 @@
                     "language": "ID",
                     "text": "Aku juga ingin memberi tahu kamu bahwa — jika kamu menghargai apa yang kami lakukan — kamu dapat membantu! Puluhan ribu jam kerja keras telah dilakukan untuk membangun Superalgos dan membawanya ke kondisi saat ini. Aku harap kamu dapat mengambil beberapa menit dari waktumu untuk memberi kembali, dan aku akan dengan senang hati memberi tahu kamu di mana harus memulai!",
                     "updated": 1640600075612
+                },
+                {
+                    "language": "RU",
+                    "text": "Я также хочу сообщить вам, что если вы цените то, что мы делаем, вы можете помочь! Десятки тысяч часов напряженной работы ушли на создание Superalgos и доведение его до нынешнего состояния. Я надеюсь, что вы сможете уделить пару минут своего времени, чтобы помочь нам, и я буду рад рассказать вам, с чего начать!",
+                    "updated": 1642774222286
                 }
             ]
         },
@@ -139,6 +154,11 @@
                     "language": "ID",
                     "text": "Mari kita kesana!",
                     "updated": 1640600086753
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте приступим к делу!",
+                    "updated": 1642774229345
                 }
             ]
         }

@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Task Manager Server - это простой сервер для управления выполнением процессов Task Servers Node.js. Он отслеживает все экземпляры, запущенные в данный момент времени, и позволяет пользовательскому интерфейсу решать, когда запустить больше экземпляров или остановить любой из них.",
                 "updated": 1640930037741
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Görev Yöneticisi ( Task Manager ) Sunucusu, Görev Sunucuları Node.js işlemlerinin yürütülmesini yöneten basit bir sunucudur. Herhangi bir zamanda çalışan tüm örnekleri takip eder ve kullanıcı arayüzünün ne zaman daha fazla örnek çalıştıracağına veya çalışanlardan herhangi birini ne zaman durduracağına karar vermesine olanak tanır.",
+                "updated": 1643040147095
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Task Manager Server предоставляет следующие команды для пользовательского интерфейса:",
                     "updated": 1640930058186
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev Yöneticisi Sunucusu, kullanıcı arabirimi (UI) için aşağıdaki komutları sağlar:",
+                    "updated": 1643040171376
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Запустить задачу: Используется для запуска новой задачи, порождает форк-процесс Node.js, в котором запускается сервер задач Task Server.",
                     "updated": 1640930117281
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevi Çalıştır (Run Task): Yeni bir görevi başlatmak için kullanılır, Görev Sunucusunu çalıştıran bir Node.js çatal işlemi oluşturur.",
+                    "updated": 1643040184682
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Остановить задачу: Отправляет сообщение fork-process-message экземпляру сервера задач, который необходимо остановить.",
                     "updated": 1640930139371
+                },
+                {
+                    "language": "TR",
+                    "text": "Görevi Durdur (Stop Task): Durdurulması için görev sunucusu örneğine bir çatal-işlem-mesajı gönderir.",
+                    "updated": 1643040218632
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Статус задачи: Сообщает вызывающей стороне, соответствует ли предоставленный идентификатор задачи запущенной задаче или нет.",
                     "updated": 1640930157215
+                },
+                {
+                    "language": "TR",
+                    "text": "Görev Durumu (Task Status): Arayan kişiye, sağlanan görev kimliğinin çalışan görevle eşleşip eşleşmediğini söyler.",
+                    "updated": 1643040222282
                 }
             ]
         }

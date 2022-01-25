@@ -1,0 +1,18 @@
+{
+    "type": "Mobile Apps",
+    "definition": {
+        "text": "The Mobile Apps hierarchy holds the definitions of all mobile apps associated with the current User Profile.  ",
+        "updated": 1643077594143
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078308999
+        },
+        {
+            "style": "Text",
+            "text": "Mobile apps are used to access the Superalgos Peer to Peer network via a mobile device."
+        }
+    ]
+}

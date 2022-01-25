@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Seni az önce Açık Aşamadaki İlk Hedefler ( Initial Targets  ) düğümüne götürdüm. Başlamadan önce, netlik adına kısa bir not alalım!",
                 "updated": 1641668010444
+            },
+            {
+                "language": "RU",
+                "text": "Я только что привел вас к узлу Initial Targets на стадии открытия. Прежде чем мы начнем, давайте сделаем небольшое замечание для ясности!",
+                "updated": 1642776498677
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Önceki eğitimde kurduğunuz ticaret sisteminde değilsiniz! Bu yeni bir sistem!",
                     "updated": 1641668025279
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы находитесь не в той торговой системе, которую установили в предыдущем уроке! Это новая!",
+                    "updated": 1642776511079
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Not: Bu eğitim sırasında deneyiminizi daha iyi kontrol edebilmem için yeni bir ticaret sistemi kurdum ve BB Breakdown 2 adını verdim. Dikkat edin, önceki öğreticilerde sildiğiniz aşamaları geri yükledim. Tek yapmam gereken, İşlem Stratejisi menüsünden Eksik Aşamaları Ekle'yi seçmekti!",
                     "updated": 1641668035088
+                },
+                {
+                    "language": "RU",
+                    "text": "Я создал новую торговую систему и назвал ее BB Breakdown 2, чтобы лучше контролировать ваш опыт во время этого урока. Обратите внимание, что я воссоздал этапы, которые вы удалили в предыдущих уроках. Все, что мне нужно было сделать, это выбрать пункт Add Missing Stages в меню торговой стратегии!",
+                    "updated": 1642776575564
                 }
             ]
         }

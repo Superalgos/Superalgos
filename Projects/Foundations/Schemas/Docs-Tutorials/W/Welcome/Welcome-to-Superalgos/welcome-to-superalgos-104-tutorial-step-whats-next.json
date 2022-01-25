@@ -35,6 +35,11 @@
                 "language": "ID",
                 "text": "Ada banyak hal yang belum kita bahas, aku tahu! Lihat saja sekeliling! Begitu banyak hal untuk dilihat! Ini membingungkan.",
                 "updated": 1640596516101
+            },
+            {
+                "language": "RU",
+                "text": "Мы еще много о чем не рассказали, я знаю! Просто оглянитесь вокруг! Столько всего интересного! Это просто умопомрачительно.",
+                "updated": 1642772196636
             }
         ]
     },
@@ -70,6 +75,11 @@
                     "language": "ID",
                     "text": "Aku yakin kamu masih memiliki banyak pertanyaan yang mengambang di kepalamu... Bagaimana cara membangun strategiku sendiri? Bagaimana cara mengukur kinerja? Bagaimana cara membangun indikator? Bagaimana cara menggunakan trading farm? Bagaimana saya bisa berintegrasi dengan TradingView? Bagaimana cara mengatur Telegram announcements? Bagaimana cara mengambil data dari API lain?",
                     "updated": 1640596695647
+                },
+                {
+                    "language": "RU",
+                    "text": "Я уверен, что у вас в голове все еще плавают тонны вопросов... Как мне строить свои собственные стратегии? Как измерить эффективность? Как построить индикатор? Как развернуть торговую ферму? Как интегрироваться с TradingView? Как настроить уведомления в Telegram? Как получить данные из других API?",
+                    "updated": 1642772226524
                 }
             ]
         },
@@ -104,6 +114,11 @@
                     "language": "ID",
                     "text": "Jangan khawatir! kamu akan sampai di sana temanku! Ada lebih banyak tutorial dan banyak bahan bacaan yang tersedia! Mungkin itu ide yang baik untuk memberi kamu sekilas ke dalam sistem Dokumentasi bawaan sebelum aku mengucapkan selamat tinggal!",
                     "updated": 1640596773612
+                },
+                {
+                    "language": "RU",
+                    "text": "Не волнуйся! У тебя все получится, мой друг! Есть еще больше руководств и много материалов для чтения! Может быть, это хорошая идея, чтобы дать вам быстрый обзор встроенной системы документации, прежде чем я попрощаюсь с вами!",
+                    "updated": 1642772260920
                 }
             ]
         }

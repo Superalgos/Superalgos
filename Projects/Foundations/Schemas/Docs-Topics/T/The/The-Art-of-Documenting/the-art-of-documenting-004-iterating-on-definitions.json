@@ -1,0 +1,28 @@
+{
+    "topic": "The Art of Documenting",
+    "pageNumber": "4",
+    "type": "Iterating on Definitions",
+    "definition": {
+        "text": "Once you finish the first draft of all Definition Pages, you must run it through developers to get their feedback.",
+        "updated": 1643040927604
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Pretty much like code, documentation is a living organism that must evolve to become great. It is highly unlikely that the first version of anything you write is the best possible version. The truth is that writing the definition pages is part of your learning process.",
+            "updated": 1643040820966
+        },
+        {
+            "style": "Text",
+            "text": "The session you recorded with the devs will have made things clear enough for you to start writing. However, as you dive into the definition of each node, you will likely have questions or discover that there are details that you still don't grasp."
+        },
+        {
+            "style": "Callout",
+            "text": "As soon as you finish the first draft of the definition pages of each node, you should ask the developers to go through the definitions and obtain their feedback. You may need to fix or improve a few definitions, or even do extensive rewrites. Rest assured this is to be expected, particularly if you're documenting a new project."
+        },
+        {
+            "style": "Important",
+            "text": "It is of the utmost importance that you iterate on definitions until developers have nothing else to say about your write-up. Remember that these definitions will make up the better part of the overall documentation, so there's no point in rushing things to get to the next stage."
+        }
+    ]
+}

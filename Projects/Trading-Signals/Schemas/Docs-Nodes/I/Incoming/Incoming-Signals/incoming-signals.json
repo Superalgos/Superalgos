@@ -1,0 +1,26 @@
+{
+    "type": "Incoming Signals",
+    "definition": {
+        "text": "This node defines the location within a Trading System at which an incoming Signal will be made available.",
+        "updated": 1642908082390
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Three main types of signals can be received:",
+            "updated": 1642908497366
+        },
+        {
+            "style": "Text",
+            "text": "Event"
+        },
+        {
+            "style": "Text",
+            "text": "Function"
+        },
+        {
+            "style": "Text",
+            "text": "Candle Sync"
+        }
+    ]
+}

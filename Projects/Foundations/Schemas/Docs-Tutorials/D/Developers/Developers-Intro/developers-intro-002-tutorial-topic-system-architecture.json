@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Superalgos - это, по сути, приложение Node.js + веб-приложение.",
                 "updated": 1640929067288
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Superalgos aslında bir Node.js uygulaması + bir Web Uygulamasıdır.",
+                "updated": 1642886040922
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Общая идея заключается в том, что Superalgos работает на машинах пользователей. Продвинутые пользователи могут развернуть несколько узлов Superalgos в локальной сети и легко распределять задачи. В текущей версии эти узлы не готовы к выходу в Интернет. Когда-нибудь это произойдет, и со временем они смогут предоставлять услуги другим пользователям. Эти услуги могут включать в себя:",
                     "updated": 1640929122552
+                },
+                {
+                    "language": "TR",
+                    "text": "Genel fikir, Superalgos'un kullanıcıların makinelerinde çalışmasıdır. Gelişmiş kullanıcılar, bir LAN'da birden fazla Superalgos düğümü dağıtabilir ve görevleri kolayca dağıtabilir. Mevcut sürümde, bu düğümler İnternet'e maruz kalmaya hazır değil. Bir gün olacaklar ve sonunda diğer kullanıcılara hizmet sunabilecekler. Bu hizmetler şunları içerebilir:",
+                    "updated": 1642886096445
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Продукты данных: Предварительно рассчитанные индикаторы или исследования.",
                     "updated": 1640929164300
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri Ürünleri(Data Products): Önceden hesaplanmış göstergeler veya çalışmalar.",
+                    "updated": 1642886144377
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Выполнение бэктеста: Для расширения возможностей тестирования.",
                     "updated": 1640929196600
+                },
+                {
+                    "language": "TR",
+                    "text": "Backtest Yürütme:Test yeteneklerini ölçeklendirmek için.",
+                    "updated": 1642886215652
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Реальное исполнение торговых операций: Только при появлении доверенных организаций.",
                     "updated": 1640929207259
+                },
+                {
+                    "language": "TR",
+                    "text": "Canlı İşlem Yürütme (Live Trading Execution) : Yalnızca güvenilir kuruluşlar ortaya çıkarsa.",
+                    "updated": 1642886288454
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Выполнение обработки данных: Способность внешней обработки данных.",
                     "updated": 1640929234098
+                },
+                {
+                    "language": "TR",
+                    "text": "Veri İşleme Yürütme (Data Processing Execution): Harici veri işleme gücü.",
+                    "updated": 1642886340952
                 }
             ]
         },

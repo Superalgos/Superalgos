@@ -5,6 +5,11 @@
         "systemMenu": []
     },
     {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "systemMenu": []
+    },
+    {
         "name": "Portfolio-Management",
         "propertyName": "portfolioManagement",
         "systemMenu": []

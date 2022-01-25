@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Açık Yürütmeyle ( Open Execution ) ilgili bu ilk birkaç paragrafı okuyun, böylece tanımlar üzerinde çalışmaya başlayabiliriz.",
                 "updated": 1641746506818
+            },
+            {
+                "language": "RU",
+                "text": "Прочитайте эти первые несколько абзацев об Open Execution, чтобы затем мы могли начать работу над определениями.",
+                "updated": 1642779643028
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Ana nokta, Superalgos'un hem basit hem de karmaşık yürütme mantığını programlamanın bir yolu olarak, sırayla stratejilere yerleştirilen yürütme algoritmaları içinde oluşturulan siparişlerin ayrıntılı tanımlarını önermesidir.",
                     "updated": 1641746531047
+                },
+                {
+                    "language": "RU",
+                    "text": "Суть в том, что Superalgos предлагает гранулированные определения ордеров, установленных в алгоритмах исполнения, которые, в свою очередь, встроены в стратегии, как способ программирования как простой, так и сложной логики исполнения.",
+                    "updated": 1642779658421
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "İpucu: Bunları yapmadan önce biraz daha okuma yapacağız!",
                     "updated": 1641746555946
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы еще немного почитаем, прежде чем спустить все это на землю!",
+                    "updated": 1642779672453
                 }
             ]
         }

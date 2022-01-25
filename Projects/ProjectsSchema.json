@@ -162,6 +162,28 @@
         ]
     },
     {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Decentralized Exchanges Functions",
+                    "propertyName": "decentralizedExchangesFunctions",
+                    "functionName": "newFoundationsFunctionLibraryDecentralizedExchangesFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "SA":{},
+        "TS": {
+            "functionLibraries": [],
+            "botModules": []
+        },
+        "plugins": [],
+        "tasks": []
+    },
+    {
         "name": "Portfolio-Management",
         "propertyName": "portfolioManagement",
         "UI": {

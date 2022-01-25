@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Test dönemi turumuz sırasında gözlemlediğimiz unsurlara dayalı farklı bir analiz deneyelim.",
                 "updated": 1641809959212
+            },
+            {
+                "language": "RU",
+                "text": "Давайте попробуем провести более тонкий анализ, используя элементы, наблюдаемые во время нашей экскурсии по тестируемому периоду.",
+                "updated": 1642945685468
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Potansiyel isabetler(Potential hits): Yedi başarısızlıktan ikisi isabet alabilirdi veya en azından ticareti yönetmiş olsaydık ve daha önce, takip eden bir stop loss, kısmi kar alma veya başka bir uygun risk yönetimi stratejisi ile çıkış yapmış olsaydık.",
                     "updated": 1641810567020
+                },
+                {
+                    "language": "RU",
+                    "text": "Потенциальные удачи: Две из семи неудачных сделок могли бы стать удачными или, по крайней мере, безубыточными, если бы мы управляли сделкой и вышли из нее раньше, либо с помощью трейлинг-стоп-лосса, частичной фиксации прибыли или любой другой подходящей стратегии управления рисками.",
+                    "updated": 1642945745617
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "İşlemi Durdurun(Halt trading): Pozisyon alma olay koşullarına temel bir volatilite zarfı yerleştirmiş olsaydık, başarısızlıklardan biri muhtemelen önlenebilirdi.",
                     "updated": 1641810614345
+                },
+                {
+                    "language": "RU",
+                    "text": "Прекращение торговли: Одной из неудач можно было бы избежать, если бы мы включили базовый критерий волатильности в условия события открытия позиции.",
+                    "updated": 1642945804357
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "O zaman %100 kar potansiyeli olan 4 başarısızlık, belki başabaş ve 3 isabetimiz olurdu. Bu nüans sizin için ilginç mi?",
                     "updated": 1641810702444
+                },
+                {
+                    "language": "RU",
+                    "text": "Таким образом, у нас останется 4 провала, возможно, один безубыток, и 3 успеха с потенциальной 100% прибылью. Подходит ли вам этот нюанс?",
+                    "updated": 1642945832341
                 }
             ]
         }

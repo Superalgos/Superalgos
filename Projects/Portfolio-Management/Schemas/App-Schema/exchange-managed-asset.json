@@ -2,21 +2,6 @@
    "type": "Exchange Managed Asset",
    "menuItems": [
       {
-         "action": "Configure",
-         "actionFunction": "uiObject.configEditor.activate",
-         "label": "Configure",
-         "iconPathOn": "configuration",
-         "iconPathOff": "configuration"
-      },
-      {
-          "action": "Add UI Object",
-          "label": "Add Exchange Asset Balance",
-          "relatedUiObject": "Exchange Asset Balance",
-          "actionFunction": "payload.executeAction",
-          "actionProject": "Visual-Scripting",
-          "relatedUiObjectProject": "Portfolio-Management"
-      },
-      {
          "action": "Delete UI Object",
          "actionProject": "Visual-Scripting",
          "askConfirmation": true,
@@ -27,19 +12,39 @@
          "actionFunction": "payload.executeAction"
       }
    ],
-   "isTitleAllwaysVisible": true,
+   "isTitleAllwaysVisible": false,
    "addLeftIcons": true,
    "level": 4,
-   "editors": {
-      "config": true
-   },
-   "initialValues": {
-      "config": "{ \n\"initialBalance\": 0, \n \"free\": 0, \n \"locked\": 0, \n \"total\": 0 \n }"
-   },
    "attachingRules": {
       "compatibleTypes": "->Exchange Managed Assets->"
    },
    "propertyNameAtParent": "exchangeManagedAsset",
+   "childrenNodesProperties": [
+       {
+           "name": "assetInitialBalance",
+           "type": "node",
+           "childType": "Asset Initial Balance",
+           "autoAdd": true
+       },
+       {
+           "name": "assetFreeBalance",
+           "type": "node",
+           "childType": "Asset Free Balance",
+           "autoAdd": true
+       },
+       {
+           "name": "assetLockedBalance",
+           "type": "node",
+           "childType": "Asset Locked Balance",
+           "autoAdd": true
+       },
+       {
+           "name": "assetTotalBalance",
+           "type": "node",
+           "childType": "Asset Total Balance",
+           "autoAdd": true
+       }
+   ],
    "alternativeIcons": [
       {
          "codeName": "ADA",

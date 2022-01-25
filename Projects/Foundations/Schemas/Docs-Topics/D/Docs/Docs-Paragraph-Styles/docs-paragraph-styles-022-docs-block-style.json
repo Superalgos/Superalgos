@@ -38,19 +38,15 @@
         },
         {
             "style": "Text",
-            "text": "Use block paragraphs to define blocks of content with any number of paragraphs. A block starts with the paragraph that is assigned the Docs Block Style and ends on the last paragraph before the next paragraph with a Docs Block Style, or where the page ends."
-        },
-        {
-            "style": "Callout",
             "text": "To start a new block, write the name of the block in a new paragraph and apply the Docs Block Style."
         },
         {
-            "style": "Text",
+            "style": "Callout",
             "text": "Once you apply the Docs Block Style, the paragraph seems to disappear. It doesn't though. What happens is that the paragraph gets assigned a CSS style that makes invisible the name you wrote, and displays a faint triangle pointing downwards that is highlighted upon mouseover. The triangle now marks the start of the block.",
             "updated": 1642950503111
         },
         {
-            "style": "Callout",
+            "style": "Text",
             "text": "To end a block, create a new block after it. If you don't, then the block ends wherever the page ends."
         },
         {

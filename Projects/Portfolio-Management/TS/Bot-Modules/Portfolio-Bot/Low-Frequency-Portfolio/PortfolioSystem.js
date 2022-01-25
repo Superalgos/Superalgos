@@ -145,8 +145,8 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
         if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
             for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
-                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = sessionParameters.managedAssets.managedAsset[i].referenceParent.config.codeName;
-                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.initialBalance = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.free = sessionParameters.managedAssets.managedAsset[i].config.initialBalance;
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = sessionParameters.managedAssets.managedAsset[i].referenceParent.config.codeName;
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = sessionParameters.managedAssets.managedAsset[i].config.initialBalance;
             }
         } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
             fetchBalances(initFlag = true);
@@ -185,9 +185,11 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     function maintain() {
         // Move Current to Last:
         for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.free = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.locked = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.locked
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.total = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.total
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free;
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked;
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total;
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance;
+            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name;
         }
     }
 
@@ -243,31 +245,34 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
         if (balances) {
             for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
-                // Set the balances at the trading engine:
+                // Set the node name and balances at the trading engine:
                 let assetBalToSet = sessionParameters.managedAssets.managedAsset[i].referenceParent.config.codeName;
-                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].name = assetBalToSet;
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = assetBalToSet;
 
                 // Needs error checks: 
-                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free = balances[assetBalToSet].free
-                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.locked = balances[assetBalToSet].used
-                portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.total = balances[assetBalToSet].total
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = balances[assetBalToSet].free;
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked = balances[assetBalToSet].used;
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total = balances[assetBalToSet].total;
+                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.intitialBalance = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance;
             }
         }
 
         if (init) {
             for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
-                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.initialBalance = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.initialBalance = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free
-                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].name
+                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free;
+                
+                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name;
             }
         }
     }
 
     function fetchLastBalances() {
-        for (let i = 0; i < portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset.length; i++) {
-            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name
-            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.free = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.free;
-            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.locked = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.locked;
-            portfolioEngine.portfolioCurrent.portfolioEpisode.exchangeManagedAssets.exchangeManagedAsset[i].config.total = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].config.total;
+        for (let i = 0; i < sessionParameters.managedAssets.managedAsset.length; i++) {
+            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance;
+            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name;
+            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free;
+            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked;
+            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total;
         }
     }
 

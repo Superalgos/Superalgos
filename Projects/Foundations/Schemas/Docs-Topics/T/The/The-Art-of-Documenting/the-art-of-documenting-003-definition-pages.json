@@ -3,14 +3,19 @@
     "pageNumber": "3",
     "type": "Definition Pages",
     "definition": {
-        "text": "A definition page is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
-        "updated": 1642949952423
+        "text": "A definition page, also known as Docs Node Page, is the page that describes what a node is or represents in any given hierarchy, how it works, and how it interacts with other nodes. It's the page users access when clicking the help (?) button on a node's menu.",
+        "updated": 1643045362437
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This page is the main source of information about the particular node. Think of definition pages as the place where people should find all the details about the behavior of the node, including its configuration.",
             "updated": 1642949968941
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Node Page->Content",
+            "updated": 1643045336873
         },
         {
             "style": "Title",
@@ -62,12 +67,17 @@
         },
         {
             "style": "Include",
-            "text": "Foundations->Topic->Docs Block Style->Content",
-            "updated": 1642950296962
+            "text": "Foundations->Topic->Docs Block Style->Definition",
+            "updated": 1642959663822
+        },
+        {
+            "style": "Include",
+            "text": "Foundations->Topic->Docs Block Style->Content"
         },
         {
             "style": "Note",
-            "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Content block. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block."
+            "text": "Everything above this paragraph belongs to the Docs Block Style page, in particular, to the Definition and Content blocks. Notice how you can't edit the paragraph above. To edit the content that is included in a page, you must edit the source, not the included block.",
+            "updated": 1642959851690
         },
         {
             "style": "Warning",

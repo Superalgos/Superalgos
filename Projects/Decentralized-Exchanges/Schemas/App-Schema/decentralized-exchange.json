@@ -1,0 +1,83 @@
+{
+    "type": "Decentralized Exchange",
+    "menuItems": [
+        {
+            "action": "Configure This",
+            "actionFunction": "uiObject.configEditor.activate",
+            "label": "Configure",
+            "iconPathOn": "configuration",
+            "iconPathOff": "configuration"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "swapPairs",
+            "label": "Add Swap Pairs",
+            "relatedUiObject": "Swap Pairs",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Add UI Object",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "defiWallets",
+            "label": "Add DeFi Wallets",
+            "relatedUiObject": "DeFi Wallets",
+            "actionFunction": "payload.executeAction",
+            "actionProject": "Visual-Scripting",
+            "relatedUiObjectProject": "Decentralized-Exchanges"
+        },
+        {
+            "action": "Delete UI Object",
+            "actionProject": "Visual-Scripting",
+            "askConfirmation": true,
+            "confirmationLabel": "Confirm to Delete",
+            "label": "Delete",
+            "iconPathOn": "delete-entity",
+            "iconPathOff": "delete-entity",
+            "actionFunction": "payload.executeAction"
+        }
+    ],
+    "isTitleAllwaysVisible": true,
+    "addLeftIcons": true,
+    "level": 2,
+    "editors": {
+        "config": true
+    },
+    "initialValues": {
+        "config": "{\n\t\"codeName\": \"Type the name of the exchange\"\n}"
+    },
+    "attachingRules": {
+        "compatibleTypes": "->Crypto Exchanges->"
+    },
+    "propertyNameAtParent": "decentralizedExchanges",
+    "childrenNodesProperties": [
+        {
+            "name": "swapPairs",
+            "type": "node",
+            "childType": "Swap Pairs",
+            "autoAdd": true
+        },
+        {
+            "name": "defiWallets",
+            "type": "node",
+            "childType": "DeFi Wallets",
+            "autoAdd": true
+        }
+    ],
+    "alternativeIcons": [
+        {
+            "codeName": "pancakeswap",
+            "iconName": "pancakeswap"
+        },
+        {
+            "codeName": "biswap",
+            "iconName": "biswap"
+        },
+        {
+            "codeName": "1inch",
+            "iconName": "1inch"
+        }
+    ]
+}

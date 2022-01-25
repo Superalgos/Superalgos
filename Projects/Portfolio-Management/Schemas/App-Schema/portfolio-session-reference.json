@@ -38,7 +38,7 @@
             "actionFunction": "payload.executeAction"
         }
     ],
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "title": [
         "Use Reference Parent",
         "Use Reference Parent Type",

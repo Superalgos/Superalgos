@@ -23,14 +23,15 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Portfolio Episode->Portfolio Last->"
+        "compatibleTypes": "->Portfolio Current->Portfolio Last->"
     },
     "propertyNameAtParent": "exchangeManagedAssets",
     "childrenNodesProperties": [
         {
             "name": "exchangeManagedAsset",
             "type": "array",
-            "childType": "Exchange Managed Asset"
+            "childType": "Exchange Managed Asset",
+            "autoAdd": true
         }
     ]
 }

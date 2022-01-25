@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Большая часть действий происходит на анимации HTML 5 Canvas. Остальное - чистый HTML + CSS, больше ничего.",
                 "updated": 1640930621919
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Eylemin çoğu bir HTML 5 Canvas animasyonunda gerçekleşir. Gerisi saf HTML + CSS, başka bir şey değil.",
+                "updated": 1643040412495
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Основной объект приложения Canvas называется холстом. По сути, это коллекция различных пространственных объектов:",
                     "updated": 1640930639721
+                },
+                {
+                    "language": "TR",
+                    "text": "Bir Canvas uygulamasının ana nesnesine tuval denir. Esasen, farklı uzamsal nesnelerin bir koleksiyonudur:",
+                    "updated": 1643040425172
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Charting Space: Где отображаются графики.",
                     "updated": 1640930660372
+                },
+                {
+                    "language": "TR",
+                    "text": "Grafik Alanı (Charting Space): Grafiklerin görüntülendiği yer,",
+                    "updated": 1643040456233
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Design Space: Где сохраняются определения.",
                     "updated": 1640930671870
+                },
+                {
+                    "language": "TR",
+                    "text": "Tasarım Alanı (Design Space): Tanımların korunduğu yer.",
+                    "updated": 1643040465130
                 }
             ]
         },
@@ -58,6 +78,11 @@
                     "language": "RU",
                     "text": "Floating Space: Включает визуальное создание сценариев.",
                     "updated": 1640930683465
+                },
+                {
+                    "language": "TR",
+                    "text": "Floating Space (Floating Space): Görsel kodlamayı etkinleştirir.",
+                    "updated": 1643040473493
                 }
             ]
         },
@@ -69,6 +94,11 @@
                     "language": "RU",
                     "text": "Side Space: В настоящее время селектор рабочего пространства.",
                     "updated": 1640930695794
+                },
+                {
+                    "language": "TR",
+                    "text": "Yan Boşluk (Side Space): Şu anda, çalışma alanı seçicisi.",
+                    "updated": 1643040483736
                 }
             ]
         },
@@ -80,6 +110,11 @@
                     "language": "RU",
                     "text": "Docs Space: Документация в приложении.",
                     "updated": 1640930707087
+                },
+                {
+                    "language": "TR",
+                    "text": "Dokümanlar Alanı (Docs Space): Uygulama içi dokümantasyon.",
+                    "updated": 1643040496344
                 }
             ]
         },
@@ -91,6 +126,11 @@
                     "language": "RU",
                     "text": "Tutorial Space: Включает учебные пособия, подобные этому.",
                     "updated": 1640930718642
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğretici Alanı (Tutorial Space): Bunun gibi eğitimleri etkinleştirir.",
+                    "updated": 1643040505371
                 }
             ]
         },
@@ -102,6 +142,11 @@
                     "language": "RU",
                     "text": "Panel Space: Где находятся панели плоттера.",
                     "updated": 1640930730144
+                },
+                {
+                    "language": "TR",
+                    "text": "Panel Alanı (Panel Space): Plotter panellerinin bulunduğu yerdir.",
+                    "updated": 1643040515131
                 }
             ]
         },
@@ -113,6 +158,11 @@
                     "language": "RU",
                     "text": "Cockpit Space: В настоящее время - слайдер.",
                     "updated": 1640930746581
+                },
+                {
+                    "language": "TR",
+                    "text": "Kokpit Alanı (Cockpit Space): Şu anda kaydırıcı.",
+                    "updated": 1643040525991
                 }
             ]
         },
@@ -124,6 +174,11 @@
                     "language": "RU",
                     "text": "Top Space: В настоящее время верхняя панель с логотипом.",
                     "updated": 1640930759568
+                },
+                {
+                    "language": "TR",
+                    "text": "Üst Boşluk (Top Space): Şu anda logolu üst çubuk.",
+                    "updated": 1643040540682
                 }
             ]
         }

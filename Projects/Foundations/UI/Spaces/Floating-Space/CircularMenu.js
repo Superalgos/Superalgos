@@ -51,9 +51,6 @@ function newCircularMenu() {
     }
 
     function initialize(menuItemsInitialValues, payload) {
-        if (payload.node.id === "c784c8f4-f0e7-4e87-9042-d16dfaa9dcf2") {
-            let a = 1
-        }
         /* Create the array of Menu Items */
         let iconAndTextArray = []
         let iconOnlyArray

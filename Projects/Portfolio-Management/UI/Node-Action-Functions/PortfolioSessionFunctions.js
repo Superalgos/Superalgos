@@ -135,7 +135,9 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             'Portfolio Engine->' +
             'Portfolio Current->Portfolio Last->' +
             'Portfolio Episode->' +
-            'Exchange Managed Assets->Exchange Managed Asset->'
+            'Exchange Managed Assets->Exchange Managed Asset->' +
+            'Asset Initial Balance->Asset Free Balance->Asset Locked Balance->Asset Total Balance->' +
+            'Managed Trading Bots->Managed Trading Bot->Managed Trading Bot Engine->' +
             'Portfolio Episode Counters->Portfolio Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->User Defined Counter->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
@@ -161,9 +163,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             'Serial Number->Identifier->Begin->End->Begin Rate->End Rate->Strategy Name->Status->Exit Type->' +
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' +
-            'User Defined Variables->User Defined Variable->' +
-            'Asset Initial Balance->Asset Free Balance->Asset Locked Balance->Asset Total Balance->' +
-            'Managed Trading Bots->Managed Trading Bot->Managed Trading Bot Engine->'
+            'User Defined Variables->User Defined Variable->'
 
         let portfolioEngine = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node.portfolioEngineReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

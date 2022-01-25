@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Bu, referansı oluşturmanız gereken düğümdür: Piyasa Satın Alma Emri #1 ( Market Buy Order ).",
                 "updated": 1641797215998
+            },
+            {
+                "language": "RU",
+                "text": "Это узел, на который нужно создать ссылку: Market Buy Order #1.",
+                "updated": 1642943426217
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Yolculuk için püf noktalarını ezberleyin!",
                     "updated": 1641797228941
+                },
+                {
+                    "language": "RU",
+                    "text": "Запомните эти приемы на время поездки!",
+                    "updated": 1642943479371
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Düğümden düğüme yolunuzu bulmak için tasarım alanı haritasını gerektiği kadar kullanın.",
                     "updated": 1641797241902
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте карту пространства проектирования столько раз, сколько потребуется, чтобы найти путь от узла к узлу.",
+                    "updated": 1642943491857
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Tasarım alanı haritasındaki yönü kontrol etmek için herhangi bir noktada serbest bırakabilmeniz için tasarım alanında taşınacak düğümü sabitleyin.",
                     "updated": 1641797251031
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел, который вы собираетесь перемещать по пространству проектирования, так, чтобы вы могли опустить его в любой момент, чтобы проверить карту пространства проектирования на предмет направления.",
+                    "updated": 1642943509915
                 }
             ]
         },
@@ -83,6 +103,11 @@
                     "language": "TR",
                     "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın kullanın. Düğmeleri basılı tutun ve düğüm uçsun!",
                     "updated": 1641797264584
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте клавиши Ctrl / Command + стрелки для перетаскивания узла по экрану после щелчка по нему мышью. Удерживайте клавиши нажатыми, и узел полетит!",
+                    "updated": 1642943539688
                 }
             ]
         },
@@ -99,6 +124,11 @@
                     "language": "TR",
                     "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra sabitlemeyi kapatın.",
                     "updated": 1641797272808
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
+                    "updated": 1642943548964
                 }
             ]
         }

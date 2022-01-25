@@ -440,7 +440,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let pullRequestFile = filesChanged[0]
                                 fileContentUrl = pullRequestFile.raw_url
 
-                                if (fileContentUrl.indexOf('Plugins/Governance/User-Profiles') < 0) {
+                                if (fileContentUrl.indexOf('User-Profiles') < 0) {
                                     /*
                                     If it is not a user profile then there is no need to auto merge.
                                     */

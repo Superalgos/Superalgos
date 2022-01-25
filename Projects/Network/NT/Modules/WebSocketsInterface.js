@@ -16,6 +16,7 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
         networkClients: undefined,
         networkPeers: undefined,
         callersMap: undefined,
+        broadcastSignalsToClients: broadcastSignalsToClients, 
         initialize: initialize,
         finalize: finalize
     }
@@ -642,6 +643,21 @@ exports.newNetworkModulesWebSocketsInterface = function newNetworkModulesWebSock
             return true
         } catch (err) {
             console.log('[ERROR] Web Sockets Interface -> broadcastToClients -> err.stack = ' + err.stack)
+        }
+    }
+
+    function broadcastSignalsToClients(socketMessage) {
+        /*
+        TODO: Replace this function with a mechanism to broadcast signals only to Followers.
+        */
+        try {
+            for (let i = 0; i < thisObject.networkClients.length; i++) {
+                let networkClient = thisObject.networkClients[i]
+                networkClient.socket.send(JSON.stringify(socketMessage))
+            }
+            return true
+        } catch (err) {
+            console.log('[ERROR] Web Sockets Interface -> broadcastSignalsToClients -> err.stack = ' + err.stack)
         }
     }
 }

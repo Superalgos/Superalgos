@@ -62,7 +62,7 @@
     "title": [
         "Use Reference Parent"
     ],
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "propertyNameAtParent": "portfolioMineTasks",
     "childrenNodesProperties": [
         {

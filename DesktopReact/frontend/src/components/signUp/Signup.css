@@ -12,6 +12,7 @@
     min-width: 20rem;
     max-width: 40rem;
     width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 .signupCardContent{
@@ -40,7 +41,7 @@
 }
 
 .signupInputBoxesContainer{ /* if the content of the inputBox changes the height, uncomment this */
-    /*height: 90px;*/
+    /*height: 5.625rem;*/
 }
 
 .signupFormControl{

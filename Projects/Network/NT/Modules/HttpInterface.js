@@ -52,11 +52,11 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                 if (bodyString === undefined) {
                                     return
                                 }
-                                let messageHeader = JSON.parse(bodyString)
+                                let socketMessage = JSON.parse(bodyString)
                                 /*
                                 Validate the User App Signature
                                 */
-                                let userAppBlockchainAccount = web3.eth.accounts.recover(messageHeader.signature)
+                                let userAppBlockchainAccount = web3.eth.accounts.recover(socketMessage.signature)
 
                                 if (userAppBlockchainAccount === undefined) {
                                     let response = {
@@ -77,6 +77,26 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                     return
                                 }
+                                let payload
+                                try {
+                                    payload = JSON.parse(socketMessage.payload)
+                                } catch (err) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Payload Not Correct JSON Format.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
+
+                                if (payload.networkService === undefined) {
+                                    let response = {
+                                        result: 'Error',
+                                        message: 'Network Service Undifined.'
+                                    }
+                                    SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
+                                    return
+                                }
                                 /*
                                 We will check that if we are a node of a Permissioned Network, that whoever
                                 is connecting to us, has the permission to do so.
@@ -93,12 +113,12 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                     }
                                 }
 
-                                switch (messageHeader.callerRole) {
+                                switch (socketMessage.callerRole) {
                                     case 'Network Client': {
-                                        switch (messageHeader.networkService) {
+                                        switch (socketMessage.networkService) {
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
-                                                    response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response = await NT.networkApp.tradingSignalsNetworkService.clientInterface.messageReceived(payload, socketMessage)
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
                                                     let response = {
@@ -114,10 +134,10 @@ exports.newNetworkModulesHttpInterface = function newNetworkModulesHttpInterface
                                         break
                                     }
                                     case 'Network Peer': {
-                                        switch (messageHeader.networkService) {
+                                        switch (socketMessage.networkService) {
                                             case 'Trading Signals': {
                                                 if (NT.networkApp.tradingSignalsNetworkService !== undefined) {
-                                                    response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(messageHeader.payload, caller.userProfile)
+                                                    response = await NT.networkApp.tradingSignalsNetworkService.peerInterface.messageReceived(socketMessage.payload, caller.userProfile)
                                                     SA.projects.foundations.utilities.httpResponses.respondWithContent(JSON.stringify(response), httpResponse)
                                                 } else {
                                                     let response = {

@@ -234,7 +234,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 }
                 if (eventMessage.originSocialTradingBotId !== undefined) {
                     let socialEntityId = eventMessage.originSocialTradingBotId
-                    socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_PERSONAS_BY_ID.get(socialEntityId)
+                    socialEntity = SA.projects.socialTrading.globals.memory.maps.SOCIAL_TRADING_BOTS_BY_ID.get(socialEntityId)
                 }
                 /*
                 Some Validations
@@ -292,7 +292,7 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                 */
                 let response = {
                     result: 'Ok',
-                    message: 'Web App Interface Event Processed.',
+                    message: 'Event Processed.',
                     data: await thisObject.socialGraphNetworkServiceProxy.sendMessage(JSON.stringify(messageHeader))
                 }
                 return response

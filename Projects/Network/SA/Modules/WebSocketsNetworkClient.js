@@ -329,13 +329,21 @@ exports.newNetworkModulesWebSocketsNetworkClient = function newNetworkModulesWeb
                         thisObject.p2pNetworkClient.socialGraphNetworkServiceClient.p2pNetworkInterface.messageReceived(
                             messageHeader.payload,
                             thisObject.p2pNetworkClient.eventReceivedCallbackFunction
-                            )
+                        )
                     } else {
                         console.log('[WARN] Web Sockets Network Client -> Social Graph Network Service Client Not Running')
                     }
                     break
                 }
                 case 'Trading Signals': {
+                    if (thisObject.p2pNetworkClient.tradingSignalsNetworkServiceClient !== undefined) {
+                        thisObject.p2pNetworkClient.tradingSignalsNetworkServiceClient.p2pNetworkInterface.messageReceived(
+                            messageHeader.payload,
+                            thisObject.p2pNetworkClient.eventReceivedCallbackFunction
+                        )
+                    } else {
+                        console.log('[WARN] Web Sockets Network Client -> Trading Signals Network Service Client Not Running')
+                    }
                     break
                 }
                 default: {

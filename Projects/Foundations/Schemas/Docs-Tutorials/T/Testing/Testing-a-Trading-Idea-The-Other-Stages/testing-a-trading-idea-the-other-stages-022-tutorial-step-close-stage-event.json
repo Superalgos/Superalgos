@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Ayrıca Aşamayı Kapat Etkinliğini ( Close Stage Event ) de kullanmayacağız, o yüzden onu da silin!",
                 "updated": 1641747022710
+            },
+            {
+                "language": "RU",
+                "text": "Мы не собираемся использовать событие Close Stage Event, поэтому удалите и его!",
+                "updated": 1642941297394
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Açık Aşama, hedef boyuta ulaşıldığında veya Zarar Durdur veya Kâr Al hedeflerine ulaşıldığında otomatik olarak kapatılır. Bizim durumumuzda, pozisyonu almak için tek bir piyasa emri kullandığımız için birincisinin olmasını bekliyoruz ve Pozisyon Al olayı tetiklenir tetiklenmez yerleştirilecektir. Siparişin hemen yerine getirileceği varsayılabilir.",
                     "updated": 1641747036413
+                },
+                {
+                    "language": "RU",
+                    "text": "Этап открытия закрывается автоматически после заполнения целевого размера или при достижении целей стоп-лосс или тейк-профит. В нашем случае мы ожидаем, что произойдет именно первое, поскольку мы используем один рыночный ордер для взятия позиции, и он размещается сразу после того, как срабатывает событие взятия позиции. Можно с уверенностью предположить, что ордер будет исполнен немедленно.",
+                    "updated": 1642941327609
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Aşamayı Kapat etkinliği (close stage) - bir kez daha - ek bir kontrol seviyesi sunuyor! Örneğin, birden fazla emirle pozisyon devralınmışsa, belirli koşullar altında emir vermeyi durdurabilirsiniz.",
                     "updated": 1641747049186
+                },
+                {
+                    "language": "RU",
+                    "text": "Событие этапа закрытия предлагает - опять же - дополнительный уровень контроля! Например, когда позиция занята несколькими ордерами, вы можете захотеть прекратить размещение ордеров при определенных обстоятельствах.",
+                    "updated": 1642941367529
                 }
             ]
         }

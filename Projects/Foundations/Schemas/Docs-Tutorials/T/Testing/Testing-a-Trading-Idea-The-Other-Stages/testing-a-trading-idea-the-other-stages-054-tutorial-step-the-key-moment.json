@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu, deneme süresindeki en önemli an. Mart 2020'de büyük bir piyasa çöküşüyle ​​sona eren net bir düşüş eğilimi vardı!",
                 "updated": 1641803017164
+            },
+            {
+                "language": "RU",
+                "text": "Это ключевой момент в тестируемом периоде. В марте 2020 года наблюдался явный нисходящий тренд, который закончился огромным обвалом рынка!",
+                "updated": 1642945212392
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "İyi haber şu ki, önceki öğreticide gördüğümüz gibi, tanımladığımız çok basit kuralları kullanarak iki iyi giriş çöküşü öngördü. Bana sorarsanız umut verici görünüyor, ancak kendiniz karar verin!",
                     "updated": 1641803028344
+                },
+                {
+                    "language": "RU",
+                    "text": "Хорошая новость заключается в том, что, как мы видели в предыдущем руководстве, две хорошие записи предвосхитили крах, используя очень простые правила, которые мы определили. Как по мне, это выглядит многообещающе, но судите сами!",
+                    "updated": 1642945234257
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Bu pozisyonları denemek için biraz zaman ayırın! Bu işlemleri nasıl yönetebileceğinizi düşünün.",
                     "updated": 1641803045133
+                },
+                {
+                    "language": "RU",
+                    "text": "Найдите время, чтобы поработать с этими позициями! Начните думать о том, как вы можете управлять этими сделками.",
+                    "updated": 1642945246003
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "İpucu: Göz kamaştırıcı işiniz bittiğinde, test edilen sürenin geri kalanına hızlıca göz atacağız!",
                     "updated": 1641803055380
+                },
+                {
+                    "language": "RU",
+                    "text": "Как только вы закончите пировать глазами, мы бросим беглый взгляд на остальной протестированный период!",
+                    "updated": 1642945262564
                 }
             ]
         }

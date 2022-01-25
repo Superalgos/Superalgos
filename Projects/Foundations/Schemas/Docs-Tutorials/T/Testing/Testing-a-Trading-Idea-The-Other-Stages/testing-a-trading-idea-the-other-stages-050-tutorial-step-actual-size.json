@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "İşin gerçek oranı, hedef orandan farklıysa ne olur? Botun bazı hesaplamalar yapmasının zamanı geldi!",
                 "updated": 1641802566457
+            },
+            {
+                "language": "RU",
+                "text": "Что произойдет, если фактическая ставка ордера будет отличаться от ставки, установленной в качестве целевой? Пора боту заняться вычислениями!",
+                "updated": 1642944820928
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Ticaret botu bir emirdeki bir değişkeni ayarladığında, daha fazla ayarlamayla birlikte bir dalgalanma etkisi olur.",
                     "updated": 1641802576288
+                },
+                {
+                    "language": "RU",
+                    "text": "Когда торговый бот корректирует переменную в ордере, возникает эффект пульсации от дальнейших корректировок.",
+                    "updated": 1642944752137
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Farenizi 28 Şubat'taki ikinci uyarının üzerine getirin ve okuyun!",
                     "updated": 1641802586036
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор на второе предупреждение от 28 февраля и читайте!",
+                    "updated": 1642944766314
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Not: Açık aşama için hedef boyutu temel varlıkta tanımladık. Ancak sistem her iki varlıktaki değişkenleri de takip etmelidir! Emir oranı ayarlandığı için, kote varlıktaki emir büyüklüğü de ayarlanmalıdır!",
                     "updated": 1641802595738
+                },
+                {
+                    "language": "RU",
+                    "text": "Для стадии открытия мы определили целевой размер в базовом активе. Однако система должна отслеживать переменные в обоих активах! Поскольку ставка ордера была скорректирована, размер ордера в котируемом активе тоже должен быть скорректирован!",
+                    "updated": 1642944800069
                 }
             ]
         }

@@ -1,5 +1,6 @@
 .feed {
     width: 40rem;
+    height: 100vh;
     min-width: 20rem;
     max-width: 40rem;
     overflow: auto;

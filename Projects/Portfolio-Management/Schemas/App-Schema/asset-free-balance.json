@@ -19,7 +19,7 @@
          "actionFunction": "payload.executeAction"
       }
    ],
-   "isTitleAllwaysVisible": true,
+   "isTitleAllwaysVisible": false,
    "addLeftIcons": true,
    "level": 4,
    "editors": {

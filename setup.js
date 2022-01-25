@@ -250,11 +250,11 @@ nodeInstPromise.then(() => {
           if (branchSumAll.all[i] === 'master') masterExists = true
           else if (branchSumAll.all[i] === 'develop') developExists = true
       }
-      if (!masterExists) await git.checkout('master', ['-B'])
-      if (!developExists) await git.checkout('develop', ['-B'])
+      if (!masterExists) await git.checkout(['-B', 'master'])
+      if (!developExists) await git.checkout(['-B', 'develop'])
       // Check that a branch is checked out, otherwise checkout develop
       branchSumAll = await git.branchLocal().catch(errorResp)
-      if (branchSumAll.current === '') await git.checkout('develop', ['-B'])
+      if (branchSumAll.current === '') await git.checkout(['-B', 'develop'])
 
       if (repo !== "Superalgos" && origin && gitUser) await git.removeRemote('origin').catch(errorResp)
       if (repo !== "Superalgos" && gitUser) {

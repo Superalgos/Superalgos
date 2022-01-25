@@ -38,6 +38,11 @@ const saveProfile = async (req, res) => {
   res.send(result);
 };
 
+const getSocialPersonaId = async (req, res) => {
+  const result = await userService.getSocialPersonaId();
+  res.send(result);
+};
+
 
 module.exports = {
   getProfiles,
@@ -46,7 +51,8 @@ module.exports = {
   editProfile,
   getProfile,
   loadProfile,
-  saveProfile
+  saveProfile,
+  getSocialPersonaId
 };
 
 

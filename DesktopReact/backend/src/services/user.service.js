@@ -24,6 +24,23 @@ const getProfiles = async (req, res) => {
     }
 };
 
+const getSocialPersonaId = async (req,res)=>{
+    let response = {};
+    try {
+        let socialPersona = SA.secrets.signingAccountSecrets.map.get(global.env.DESKTOP_DEFAULT_SOCIAL_PERSONA);
+        response.nodeCodeName = socialPersona.nodeCodeName;
+        response.nodeId = socialPersona.nodeId;
+        response.blockchainAccount = socialPersona.blockchainAccount;
+        response.userProfileId = socialPersona.userProfileId;
+        response.userProfileHandle = socialPersona.userProfileHandle;
+    } catch (error) {
+        console.log(error);
+        response = { error: "Could not fetch Social Persona"}
+    }
+    return response;
+    
+}
+
 const paginateProfiles = async (initialIndex, pagination, res) => {
     try {
         const queryMessage = {
@@ -187,6 +204,7 @@ module.exports = {
     editProfile,
     getProfile,
     loadProfile,
-    saveProfile
+    saveProfile,
+    getSocialPersonaId
 };
 

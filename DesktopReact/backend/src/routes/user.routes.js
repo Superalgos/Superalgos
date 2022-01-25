@@ -7,6 +7,11 @@ router
   .route('/profiles')
   .get(userController.getProfiles);
 
+
+  router
+  .route('/social-persona')
+  .get(userController.getSocialPersonaId);
+
 router
   .route('/follow')
   .post(userController.follow);

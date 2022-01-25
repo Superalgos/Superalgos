@@ -1,14 +1,30 @@
 {
     "type": "Task Server App",
     "definition": {
-        "text": "This node allows a user to define a Signing Account for a Task Server. This allows the user to connect an instance of the Superalgos Platform to the Superalgos peer to peer network.",
-        "updated": 1642822124350
+        "text": "The Task Server App node allows a user to define an identity for a Task Server.",
+        "updated": 1643078111479
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643078288954
+        },
+        {
+            "style": "Text",
+            "text": "Defining an identity for a task server allows the current User Profile to connect an instance of the Superalgos Platform to the Superalgos Peer to Peer Network."
+        },
+        {
+            "style": "Note",
+            "text": "This is achieved through the creation of a Signing Account."
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
             "style": "Title",
-            "text": "Properties",
-            "updated": 1642822255172
+            "text": "Properties"
         },
         {
             "style": "List",

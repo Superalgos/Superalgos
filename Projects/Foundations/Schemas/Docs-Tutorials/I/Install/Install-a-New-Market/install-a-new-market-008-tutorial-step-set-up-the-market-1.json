@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Özet: Menüdeki borsa ( Market ) Ekle seçeneğini kullanarak yeni bir borsa ( add Market ) düğümü ekleyin.",
                 "updated": 1642145216720
+            },
+            {
+                "language": "RU",
+                "text": "Добавьте новый узел Market, используя опцию Add Market в меню.",
+                "updated": 1643090486611
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "TR",
                     "text": "İpucu: İki kollu bir borsa düğümü eklenmelidir: bir piyasa temelli varlık ( Market Base Asset ) ve bir piyasada kote varlık ( Market Quoted Asset ).",
                     "updated": 1642145422430
+                },
+                {
+                    "language": "RU",
+                    "text": "Необходимо добавить узел Market с двумя потомками: Market Base Asset и Market Quoted Asset.",
+                    "updated": 1643090499296
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "TR",
                     "text": "Önemli: Devam etmeden önce, hangisinin dayanak varlık ve hangisinin borsada listelenen varlık olduğundan emin olun. Tipik olarak, dayanak varlık çiftin adında ilk sırada yer alır, ancak bu her borsada uygulanmaz, bu nedenle dikkatli olun.",
                     "updated": 1642147508299
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем продолжить, убедитесь, какой актив является базовым, а какой - котируемым в листинге биржи. Обычно базовый актив является первым в названии пары, но это соблюдается не на всех биржах, поэтому будьте внимательны.",
+                    "updated": 1643090522027
                 }
             ]
         }

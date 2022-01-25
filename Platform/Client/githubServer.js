@@ -236,7 +236,7 @@ exports.newGithubServer = function newGithubServer() {
             return await processOpenPullRequests()
 
             async function processOpenPullRequests() {
-                await doGithub()
+                await doGithub('Governance-Plugins')
                 if (error !== undefined) {
 
                     let docs = {
@@ -255,7 +255,7 @@ exports.newGithubServer = function newGithubServer() {
                 }
             }
 
-            async function doGithub(repo='Superalgos') {
+            async function doGithub(repo='Governance-Plugins') {
                 try {
                     const owner = 'Superalgos'
                     const { Octokit } = SA.nodeModules.octokit

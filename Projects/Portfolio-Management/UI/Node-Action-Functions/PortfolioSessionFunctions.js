@@ -127,7 +127,8 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         'Size In Base Asset->Size In Quoted Asset->Position Rate->Formula->' +
         'Situation->Condition->Javascript Code->' +
         'Market Order->Limit Order->' +
-        'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->'
+        'Simulated Exchange Events->Simulated Partial Fill->Simulated Actual Rate->Simulated Fees Paid->Formula->' +
+        'User Defined Portfolio Code->Javascript Code->'
 
         let portfolioSystem = UI.projects.visualScripting.nodeActionFunctions.protocolNode.getProtocolNode(node.portfolioSystemReference.payload.referenceParent, false, true, true, false, false, lightingPath)
 

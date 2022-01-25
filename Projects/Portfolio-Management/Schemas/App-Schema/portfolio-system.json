@@ -22,6 +22,16 @@
             "actionProject": "Visual-Scripting"
         },
         {
+            "action": "Add UI Object",
+            "label": "Add User Defined Code",
+            "disableIfPropertyIsDefined": true,
+            "propertyToCheckFor": "userDefinedPortfolioCode",
+            "relatedUiObject": "User Defined Portfolio Code",
+            "actionFunction": "payload.executeAction",
+            "relatedUiObjectProject": "Portfolio-Management",
+            "actionProject": "Visual-Scripting"
+        },
+        {
             "action": "Delete UI Object",
             "actionProject": "Visual-Scripting",
             "askConfirmation": true,
@@ -48,6 +58,13 @@
             "type": "node",
             "childType": "Formulas Manager",
             "autoAdd": true,
+            "project": "Portfolio-Management"
+        },
+        {
+            "name": "userDefinedPortfolioCode",
+            "type": "node",
+            "childType": "User Defined Portfolio Code",
+            "autoAdd": false,
             "project": "Portfolio-Management"
         }
     ]

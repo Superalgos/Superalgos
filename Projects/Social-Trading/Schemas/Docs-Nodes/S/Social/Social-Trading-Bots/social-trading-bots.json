@@ -1,8 +1,8 @@
 {
     "type": "Social Trading Bots",
     "definition": {
-        "text": "This node house all the Social Trading Bot nodes associated with this User Profile.",
-        "updated": 1642907439944
+        "text": "The Social Trading Bots node house all the Social Trading Bot definitions associated with this User Profile.",
+        "updated": 1643080325777
     },
     "paragraphs": [
         {

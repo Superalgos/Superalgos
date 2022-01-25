@@ -133,10 +133,10 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
 
         lightingPath = '' +
             'Portfolio Engine->' +
-            'Dynamic Indicators->Indicator Function->' +
-            'Portfolio Current->Portfolio Last->Previous->' +
+            'Portfolio Current->Portfolio Last->' +
             'Portfolio Episode->' +
-            'Episode Base Asset->Episode Quoted Asset->Portfolio Episode Counters->Portfolio Episode Statistics->' +
+            'Exchange Managed Assets->Exchange Managed Asset->'
+            'Portfolio Episode Counters->Portfolio Episode Statistics->' +
             'Strategies->Positions->Orders->Hits->Fails->User Defined Counter->' +
             'Profit Loss->Hit Ratio->Hit Fail->Days->ROI->Annualized Rate Of Return->User Defined Statistic->' +
             'Candle->Cycle->' +
@@ -147,13 +147,8 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             'Strategy->' +
             'Strategy Counters->' +
             'Position->' +
-            'Entry Target Rate->Exit Target Rate->' +
-            'Stop Loss->Stop Loss Phase->Stop Loss Position->Begin->End->Initial Value->Final Value->' +
-            'Take Profit->Take Profit Phase->Take Profit Position->Begin->End->Initial Value->Final Value->' +
             'Position Counters->' +
             'Position Statistics->Days->User Defined Statistic->' +
-            'Position Base Asset->Position Quoted Asset->Entry Target Size->Exit Target Size->' +
-            'Profit Loss->ROI->Hit Fail->' +
             'Exchange Orders->Market Buy Orders->Market Sell Orders->Limit Buy Orders->Limit Sell Orders->' +
             'Market Order->Limit Order->' +
             'Exchange Id->Rate->Order Name->Algorithm Name->Lock->' +
@@ -167,7 +162,6 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
             'Balance->Begin Balance->End Balance->' +
             'Index->Situation Name->Formula->Periods->' +
             'User Defined Variables->User Defined Variable->' +
-            'Exchange Managed Assets->Exchange Managed Asset->' +
             'Asset Initial Balance->Asset Free Balance->Asset Locked Balance->Asset Total Balance->' +
             'Managed Trading Bots->Managed Trading Bot->Managed Trading Bot Engine->'
 

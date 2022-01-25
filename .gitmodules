@@ -22,3 +22,6 @@
 [submodule "Plugins/Data-Mining"]
 	path = Plugins/Data-Mining
 	url = https://github.com/Superalgos/Data-Mining-Plugins.git
+[submodule "Plugins/Network"]
+	path = Plugins/Network
+	url = https://github.com/isysd-mirror/Network-Plugins.git

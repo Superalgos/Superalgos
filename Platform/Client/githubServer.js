@@ -236,7 +236,7 @@ exports.newGithubServer = function newGithubServer() {
             return await processOpenPullRequests()
 
             async function processOpenPullRequests() {
-                await doGithub()
+                await doGithub('Governance-Plugins')
                 if (error !== undefined) {
 
                     let docs = {
@@ -255,7 +255,7 @@ exports.newGithubServer = function newGithubServer() {
                 }
             }
 
-            async function doGithub(repo='Superalgos') {
+            async function doGithub(repo='Governance-Plugins') {
                 try {
                     const owner = 'Superalgos'
                     const { Octokit } = SA.nodeModules.octokit
@@ -440,7 +440,7 @@ exports.newGithubServer = function newGithubServer() {
                                 let pullRequestFile = filesChanged[0]
                                 fileContentUrl = pullRequestFile.raw_url
 
-                                if (fileContentUrl.indexOf('Plugins/Governance/User-Profiles') < 0) {
+                                if (fileContentUrl.indexOf('User-Profiles') < 0) {
                                     /*
                                     If it is not a user profile then there is no need to auto merge.
                                     */

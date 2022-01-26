@@ -13,8 +13,9 @@
                 "language": "DE",
                 "text": "Verwaltet das Kernkonzept der Knoten, die, wenn sie miteinander verbunden werden, umfangreiche Definitionen bilden können, die von den Benutzern leicht erstellt und gepflegt werden können.",
                 "updated": 1641735783104
-        },
-        {                "language": "RU",
+            },
+            {
+                "language": "RU",
                 "text": "Управляет основной схемой узлов, которые, будучи присоединенными друг к другу, могут образовывать обширные определения, легко создаваемые и поддерживаемые пользователями.",
                 "updated": 1640931112373
             }
@@ -29,8 +30,9 @@
                     "language": "DE",
                     "text": "Das System verfügt über eine Datei namens App Schema, die die Regeln für die vorhandenen Knotentypen enthält, welche Knoten das Kind anderer Knoten sein können und welche Knoten auf andere Knoten verweisen können. Sie definiert auch die Menüpunkte der Knoten. All diese Regeln werden im Design Space durchgesetzt.",
                     "updated": 1641735800885
-        },
-        {                    "language": "RU",
+                },
+                {           
+                    "language": "RU",
                     "text": "В системе имеется файл под названием App Schema, который содержит правила о существующих типах узлов, о том, какие узлы могут быть дочерними по отношению к другим узлам, какие узлы могут ссылаться на другие узлы, а какие нет. Он также определяет пункты меню узлов. Все эти правила применяются в пространстве проектирования (Design Space).",
                     "updated": 1640931154257
                 }
@@ -44,8 +46,9 @@
                     "language": "DE",
                     "text": "Benutzer können dann Knoten anhängen, Verweise zwischen Knoten herstellen, Menüpunkte auswählen und vieles mehr...",
                     "updated": 1641735807974
-        },
-        {                    "language": "RU",
+                },
+                {    
+                    "language": "RU",
                     "text": "Пользователи могут присоединять узлы, устанавливать ссылки между узлами, выбирать пункты меню и многое другое...",
                     "updated": 1640931176660
                 }
@@ -59,8 +62,9 @@
                     "language": "DE",
                     "text": "Der Design Space ist eng mit dem Floating Space gekoppelt.",
                     "updated": 1641735814787
-        },
-        {                    "language": "RU",
+                },
+                {           
+                    "language": "RU",
                     "text": "Design Space тесно связано с Floating Space.",
                     "updated": 1640931199401
                 }

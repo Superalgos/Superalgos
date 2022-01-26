@@ -16,8 +16,8 @@ import "./UserProfileModal.css"
 import {CloseOutlined, Input} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
 
-const UserProfileModalView = ( props ) => {
-    const { 
+const UserProfileModalView = (props) => {
+    const {
         userInfo,
         handleChange,
         selectProfilePic,
@@ -25,13 +25,13 @@ const UserProfileModalView = ( props ) => {
         saveProfile,
         isEquals,
         errorState,
-        close 
+        close
     } = props;
     const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
     const Input = styled('input')({
         display: 'none',
     });
-    
+
     const formHeader = () => {
         return (
             <div className="editProfileHeader">
@@ -49,57 +49,56 @@ const UserProfileModalView = ( props ) => {
 
     const setBanner = () => {
         const cardProps = {
-            className:"banner", 
-            component:"img", 
-            src: userInfo.bannerPic ? `${userInfo.bannerPic}` : null,
-            image: pfp ? pfp : null,
-            alt:"PP"
+            className: "banner",
+            component: "img",
+            src: userInfo.bannerPic ? `${userInfo.bannerPic}` : pfp,
+            alt: "PP"
         }
-        return <CardMedia   {... cardProps}/>         
+        return <CardMedia   {...cardProps}/>
     }
 
     const profilePicSetter = () => {
-        return  <div className="profilePicBG">
-                    <CardMedia 
-                        className= 'profileAvatar'
-                        alt='ProfilePic'
-                        image= {pfp ? pfp : null }
-                        src= {userInfo.profilePiC ? `${userInfo.profilePic}` : null}
-                        component= 'img'/>
-                </div>
+        return <div className="profilePicBG">
+            <CardMedia
+                className='profileAvatar'
+                alt='ProfilePic'
+                image={pfp ? pfp : null}
+                src={userInfo.profilePic ? `${userInfo.profilePic}` : null}
+                component='img'/>
+        </div>
     }
 
     const profilePic = () => {
-        return  <label htmlFor="profilePic">
-                    <Input className="input" accept="image/*" id="profilePic" multiple type="file"
-                        onChange={selectProfilePic}
-                    />
-                    <Button variant="outlined" component="span">
-                        Upload Profile Picture
-                    </Button>
-                </label>
+        return <label htmlFor="profilePic">
+            <Input className="input" accept="image/*" id="profilePic" multiple type="file"
+                   onChange={selectProfilePic}
+            />
+            <Button variant="outlined" component="span">
+                Upload Profile Picture
+            </Button>
+        </label>
     }
 
     const bannerPic = () => {
-        return  <div>
-                    <label htmlFor="bannerPic">
-                        <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
-                            onChange={selectBannerPic}/>
-                        <Button variant="outlined" component="span">
-                            Upload Banner Picture
-                        </Button>
-                    </label>
-                </div>
+        return <div>
+            <label htmlFor="bannerPic">
+                <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
+                       onChange={selectBannerPic}/>
+                <Button variant="outlined" component="span">
+                    Upload Banner Picture
+                </Button>
+            </label>
+        </div>
     }
 
     const avatarContainer = () => {
-        return  <div className="editAvatar">
-                    <div className="profileCard">
-                        { profilePicSetter() }
-                        { profilePic() }
-                        { bannerPic() }
-                    </div>
-                </div>  
+        return <div className="editAvatar">
+            <div className="profileCard">
+                {profilePicSetter()}
+                {profilePic()}
+                {bannerPic()}
+            </div>
+        </div>
     }
 
     const formFields = () => {
@@ -112,7 +111,7 @@ const UserProfileModalView = ( props ) => {
                         value={userInfo.name}
                         onChange={handleChange}
                         label="Name"
-                        inputProps={{ maxLength: inputCharLimit[0].name }}
+                        inputProps={{maxLength: inputCharLimit[0].name}}
                     />
                     {errorState ? (
                         <FormHelperText id="name-error">Name can't be blank</FormHelperText>
@@ -125,7 +124,7 @@ const UserProfileModalView = ( props ) => {
                         value={userInfo.bio}
                         onChange={handleChange}
                         label="Bio"
-                        inputProps={{ maxLength: inputCharLimit[0].bio }}
+                        inputProps={{maxLength: inputCharLimit[0].bio}}
                     />
                 </FormControl>
                 <FormControl className="editProfile">
@@ -135,7 +134,7 @@ const UserProfileModalView = ( props ) => {
                         value={userInfo.location}
                         onChange={handleChange}
                         label="Location"
-                        inputProps={{ maxLength: inputCharLimit[0].location }}
+                        inputProps={{maxLength: inputCharLimit[0].location}}
                     />
                 </FormControl>
                 <FormControl className="editProfile">
@@ -145,7 +144,7 @@ const UserProfileModalView = ( props ) => {
                         value={userInfo.web}
                         onChange={handleChange}
                         label="Web"
-                        inputProps={{ maxLength: inputCharLimit[0].web }}
+                        inputProps={{maxLength: inputCharLimit[0].web}}
                     />
                 </FormControl>
             </div>
@@ -156,7 +155,7 @@ const UserProfileModalView = ( props ) => {
         return (
             <div className="editProfileFooter">
                 <Button disabled={errorState || isEquals()} onClick={saveProfile}
-                    variant="outlined">Save
+                        variant="outlined">Save
                 </Button>
             </div>
         )
@@ -167,12 +166,12 @@ const UserProfileModalView = ( props ) => {
                onClose={close}>
             <Box className="editUserBox" component="form" noValidate autoComplete="off">
                 <CardContent className="userSection">
-                    { formHeader() }
+                    {formHeader()}
                     <div className="editBannerAvatarContainer">
-                        { setBanner()}
-                        { avatarContainer() }
-                        { formFields() }
-                        { formSaveButton() }                    
+                        {setBanner()}
+                        {avatarContainer()}
+                        {formFields()}
+                        {formSaveButton()}
                     </div>
                 </CardContent>
             </Box>

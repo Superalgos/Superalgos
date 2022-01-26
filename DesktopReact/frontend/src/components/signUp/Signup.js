@@ -107,35 +107,16 @@ const Signup = () => {
                         </div>
                     </div>
                     <div>
-                        {userInfo.bannerPic ?
-                            (
-                                <CardMedia className="banner"
-                                           component="img"
-                                           src={`${userInfo.bannerPic}`}
-                                           alt="PP"/>
-                            ) :
-                            (
-                                <CardMedia className="banner"
-                                           component="img"
-                                           image={pfp}
-                                           alt="PP"
-                                />
-                            )}
+                        <CardMedia className="banner"
+                                   component="img"
+                                   src={user.bannerPic ? `${user.bannerPic}` : pfp}
+                                   alt="PP"/>
                         <div className="profileCard">
                             <div className="profilePicBG">
-                                {userInfo.profilePic ?
-                                    (
-                                        <CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   src={`${userInfo.profilePic}`}
-                                                   alt="ProfilePic"/>
-                                    ) :
-                                    (
-                                        <CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   image={pfp}
-                                                   alt="ProfilePic"/>
-                                    )}
+                                <CardMedia className="profileAvatar"
+                                           component="img"
+                                           src={user.profilePic ? `${user.profilePic}` : pfp}
+                                           alt="ProfilePic"/>
                             </div>
                             <label htmlFor="profilePic">
                                 <Input className="input" accept="image/*" id="profilePic" multiple type="file"

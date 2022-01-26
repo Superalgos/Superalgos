@@ -7,23 +7,19 @@ import "./SidebarUserProfile.css"
 const SidebarUserProfile = () => {
     const user = useSelector(state => state.profile.actualUser);
 
+    function getUserPic() {
+        return <CardMedia className="sidebarProfileAvatar"
+                          component="img"
+                          src={user.profilePic ? `${user.profilePic}` : pfp}
+                          alt="ProfilePic"/>
+    }
+
     return <Card className="sidebarProfileCard" variant="outlined">
-        {user.profilePic ?
-            (
-                <CardMedia className="sidebarProfileAvatar"
-                           component="img"
-                           src={`${user.profilePic}`}
-                           alt="ProfilePic"/>
-            ) :
-            (
-                <CardMedia className="sidebarProfileAvatar"
-                           component="img"
-                           image={pfp}
-                           alt="ProfilePic"/>
-            )}
+        {getUserPic()}
 
         <CardContent sx={{
-            display: {xs: 'none', sm: 'none', md: 'none', lg: 'block'}}}
+            display: {xs: 'none', sm: 'none', md: 'none', lg: 'block'}
+        }}
                      className="sidebarProfileCardContent">
             {/*TODO name should not exceed certain length */}
             <Typography className="username" variant="body1">{user.name}</Typography>

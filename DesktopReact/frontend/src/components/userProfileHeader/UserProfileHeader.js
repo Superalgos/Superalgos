@@ -16,26 +16,18 @@ const UserProfileHeader = () => {
 
     return (
         <div className="profileSection">
-            {user.bannerPic ? (<CardMedia className="banner"
-                                          component="img"
-                                          src={`${user.bannerPic}`}
-                                          alt="PP"
-            />) : (<CardMedia className="banner"
-                              component="img"
-                              image={pfp}
-                              alt="PP"
-            />)}
+            <CardMedia className="banner"
+                       component="img"
+                       src={user.bannerPic ? `${user.bannerPic}` : pfp}
+                       alt="PP"
+            />
             <div className="profileCard">
                 <div className="profilePicBG">
-                    {user.profilePic ? (<CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   src={`${user.profilePic}`}
-                                                   alt="ProfilePic"
-                    />) : (<CardMedia className="profileAvatar"
-                                      component="img"
-                                      image={pfp}
-                                      alt="ProfilePic"
-                    />)}
+                    <CardMedia className="profileAvatar"
+                               component="img"
+                               src={user.profilePic ? `${user.profilePic}` : pfp}
+                               alt="ProfilePic"
+                    />
                 </div>
                 <Button className="editProfileButton"
                         variant="outlined"

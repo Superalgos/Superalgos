@@ -99,36 +99,17 @@ const UserProfileModal = ({user, close}) => {
                         </div>
                     </div>
                     <div className="editBannerAvatarContainer">
-                        {userInfo.bannerPic ?
-                            (
-                                <CardMedia className="banner"
-                                           component="img"
-                                           src={`${userInfo.bannerPic}`}
-                                           alt="PP"/>
-                            ) :
-                            (
-                                <CardMedia className="banner"
-                                           component="img"
-                                           image={pfp}
-                                           alt="PP"
-                                />
-                            )}
+                        <CardMedia className="banner"
+                                   component="img"
+                                   src={user.bannerPic ? `${user.bannerPic}` : pfp}
+                                   alt="PP"/>
                         <div className="editAvatar">
                             <div className="profileCard">
                                 <div className="profilePicBG">
-                                    {userInfo.profilePic ?
-                                        (
-                                            <CardMedia className="profileAvatar"
-                                                       component="img"
-                                                       src={`${userInfo.profilePic}`}
-                                                       alt="ProfilePic"/>
-                                        ) :
-                                        (
-                                            <CardMedia className="profileAvatar"
-                                                       component="img"
-                                                       image={pfp}
-                                                       alt="ProfilePic"/>
-                                        )}
+                                    <CardMedia className="profileAvatar"
+                                               component="img"
+                                               src={user.profilePic ? `${user.profilePic}` : pfp}
+                                               alt="ProfilePic"/>
                                 </div>
                                 <label htmlFor="profilePic">
                                     <Input className="input" accept="image/*" id="profilePic" multiple type="file"
@@ -156,7 +137,7 @@ const UserProfileModal = ({user, close}) => {
                                     value={userInfo.name}
                                     onChange={handleChange}
                                     label="Name"
-                                    inputProps={{ maxLength: inputCharLimit[0].name }}
+                                    inputProps={{maxLength: inputCharLimit[0].name}}
                                 />
                                 {errorState ? (
                                     <FormHelperText id="name-error">Name can't be blank</FormHelperText>
@@ -169,7 +150,7 @@ const UserProfileModal = ({user, close}) => {
                                     value={userInfo.bio}
                                     onChange={handleChange}
                                     label="Bio"
-                                    inputProps={{ maxLength: inputCharLimit[0].bio }}
+                                    inputProps={{maxLength: inputCharLimit[0].bio}}
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -179,7 +160,7 @@ const UserProfileModal = ({user, close}) => {
                                     value={userInfo.location}
                                     onChange={handleChange}
                                     label="Location"
-                                    inputProps={{ maxLength: inputCharLimit[0].location }}
+                                    inputProps={{maxLength: inputCharLimit[0].location}}
                                 />
                             </FormControl>
                             <FormControl className="editProfile">
@@ -189,7 +170,7 @@ const UserProfileModal = ({user, close}) => {
                                     value={userInfo.web}
                                     onChange={handleChange}
                                     label="Web"
-                                    inputProps={{ maxLength: inputCharLimit[0].web }}
+                                    inputProps={{maxLength: inputCharLimit[0].web}}
                                 />
                             </FormControl></div>
                         <div className="editProfileFooter">

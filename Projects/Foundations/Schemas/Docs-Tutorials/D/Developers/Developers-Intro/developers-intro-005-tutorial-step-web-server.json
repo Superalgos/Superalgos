@@ -13,8 +13,8 @@
                 "language": "DE",
                 "text": "Der Webserver hat zwei Hauptziele: Er liefert alle JS-Dateien, die die Webanwendung bilden, und alle Datendateien, die in den Diagrammen gezeichnet werden sollen, an den Browser, der die Benutzeroberfläche ausführt.",
                 "updated": 1641729528371
-                },
-                {
+            },
+            {
                 "language": "RU",
                 "text": "У веб-сервера две основные задачи: он обслуживает все JS-файлы, формирующие веб-приложение, и все файлы данных для построения графиков в браузере, в котором запущен пользовательский интерфейс.",
                 "updated": 1640929553664

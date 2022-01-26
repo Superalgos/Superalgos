@@ -44,8 +44,9 @@
                     "language": "DE",
                     "text": "Market Files: Für Zeitrahmen von 1 Stunde und mehr ist es praktisch, eine einzige Datei mit allen Daten des gesamten Marktes zu haben.",
                     "updated": 1641736760116
-        },
-        {                    "language": "RU",
+                },
+                {            
+                    "language": "RU",
                     "text": "Market Files: Для тайм-фреймов от 1 часа и выше удобно иметь один файл со всеми данными всего рынка.",
                     "updated": 1640932002246
                 }

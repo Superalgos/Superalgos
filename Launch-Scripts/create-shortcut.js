@@ -46,7 +46,7 @@ if (os.platform() == "win32") {
 // Linux Shortcuts
 } else if (os.platform() == "linux") {
     // Paths and Icon for linux shortcuts
-    //Note that this is not exclusively for Ubuntu, but also for mos (all?) distros and most Desktop Managers (KDE, Gnome, LXDE, etc)
+    //Note that this is not exclusively for Ubuntu, but also for most (all?) distros and most Desktop Managers (KDE, Gnome, LXDE, etc)
     
     let icon = path.join( __dirname,"..", "/Projects/Foundations/Icons/superalgos.png");
     // Create .desktop shortcut file

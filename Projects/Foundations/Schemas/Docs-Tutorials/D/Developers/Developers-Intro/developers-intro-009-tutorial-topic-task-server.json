@@ -13,8 +13,8 @@
                 "language": "DE",
                 "text": "Der Task-Server ist ein Node.js-Fork-Prozess des Clients, der die Definition des Tasks, der ausgeführt werden soll, von der Benutzeroberfläche erhält.",
                 "updated": 1641729950857
-                },
-                {
+            },
+            {
                 "language": "RU",
                 "text": "Task Server - это Node.js форк процесса Client, который получает определение задачи, которую нужно запустить, из пользовательского интерфейса.",
                 "updated": 1640930213490

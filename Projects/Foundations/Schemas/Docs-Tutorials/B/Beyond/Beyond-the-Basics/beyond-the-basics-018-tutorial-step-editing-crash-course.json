@@ -42,56 +42,56 @@
     "paragraphs": [
         {
             "style": "Subtitle",
-            "text": "This is an H1... H2 is smaller!",
+            "text": "This is an H1... H2 is smaller.",
             "updated": 1616880079733,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Esto es un H1... H2 es mas pequeño!",
+                    "text": "Esto es un H1... H2 es mas pequeño.",
                     "updated": 1628189607019,
                     "style": "Subtitle"
                 },
                 {
                     "language": "DE",
-                    "text": "Dies ist eine H1 Überschrift... H2 ist kleiner!",
+                    "text": "Dies ist eine H1 Überschrift... H2 ist kleiner.",
                     "updated": 1635149095321
                 },
                 {
                     "language": "RU",
-                    "text": "Это H1... H2 меньше!",
+                    "text": "Это H1... H2 меньше.",
                     "updated": 1640161612660
                 },
                 {
                     "language": "TR",
-                    "text": "Bu başlık bir H1... H2 daha küçüktür!",
+                    "text": "Bu başlık bir H1... H2 daha küçüktür.",
                     "updated": 1640610460431
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Ab|: creates bullet lists like this one!",
+            "text": "Ab|: creates bullet lists like this one.",
             "updated": 1616880058110,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ab|: crea elenchi puntati come questo!",
+                    "text": "Ab|: crea elenchi puntati come questo.",
                     "updated": 1619636137132,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Ab|: erstellt Aufzählungslisten wie diese hier!",
+                    "text": "Ab|: erstellt Aufzählungslisten wie diese hier.",
                     "updated": 1635149117453
                 },
                 {
                     "language": "RU",
-                    "text": "Ab|: создавайте списки, подобные этому!",
+                    "text": "Ab|: создавайте списки, подобные этому.",
                     "updated": 1640161624921
                 },
                 {
                     "language": "TR",
-                    "text": "Ab|: Bunun gibi madde işareti listeleri oluşturur!",
+                    "text": "Ab|: Bunun gibi madde işareti listeleri oluşturur.",
                     "updated": 1640610448673
                 }
             ]
@@ -155,34 +155,34 @@
         },
         {
             "style": "Text",
-            "text": "Abc| turns the paragraph back to plain text. That should be enough to make your review look great! I'll explain the rest of the menu at a later time!",
+            "text": "Abc| turns the paragraph back to plain text. That should be enough to make your review look great! I'll explain the rest of the menu at a later time.",
             "updated": 1616880538943,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Abc| trasforma il paragrafo in testo normale. Dovrebbe essere abbastanza per la tua recensione! Ti spiegherò il resto più avanti!",
+                    "text": "Abc| trasforma il paragrafo in testo normale. Dovrebbe essere abbastanza per la tua recensione! Ti spiegherò il resto più avanti.",
                     "updated": 1619636897153,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Abc| convierte el párrafo en texto sin formato. ¡Eso debería ser suficiente para que tu reseña se vea genial! ¡Explicaré el resto del menú más adelante!",
+                    "text": "Abc| convierte el párrafo en texto sin formato. ¡Eso debería ser suficiente para que tu reseña se vea genial! ¡Explicaré el resto del menú más adelante.",
                     "updated": 1628189894586,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Abc| verwandelt den Absatz wieder in reinen Text. Das sollte ausreichen, um Ihre Rezension großartig aussehen zu lassen! Den Rest des Menüs erkläre ich zu einem späteren Zeitpunkt!",
+                    "text": "Abc| verwandelt den Absatz wieder in reinen Text. Das sollte ausreichen, um Ihre Rezension großartig aussehen zu lassen! Den Rest des Menüs erkläre ich zu einem späteren Zeitpunkt.",
                     "updated": 1635149165714
                 },
                 {
                     "language": "RU",
-                    "text": "Abc| превращает абзац обратно в обычный текст. Этого должно быть достаточно, чтобы ваш обзор выглядел великолепно! Остальное меню я объясню позже!",
+                    "text": "Abc| превращает абзац обратно в обычный текст. Этого должно быть достаточно, чтобы ваш обзор выглядел великолепно! Остальное меню я объясню позже.",
                     "updated": 1640161675024
                 },
                 {
                     "language": "TR",
-                    "text": "Abc| paragrafı düz metne döndürür. İncelemenizin harika görünmesi için bu yeterli olmalı! Menünün geri kalanını daha sonra açıklayacağım!",
+                    "text": "Abc| paragrafı düz metne döndürür. İncelemenizin harika görünmesi için bu yeterli olmalı! Menünün geri kalanını daha sonra açıklayacağım.",
                     "updated": 1640610795195
                 }
             ]

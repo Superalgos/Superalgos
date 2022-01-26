@@ -40,16 +40,16 @@
         },
         {
             "style": "Callout",
-            "text": "Our confirmation is a second consecutive breakdown in the 1H chart!",
+            "text": "Our confirmation is a second consecutive breakdown in the 1H chart.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Unsere Bestätigung ist ein zweiter Durchbruch in Folge im 1H-Chart!",
+                    "text": "Unsere Bestätigung ist ein zweiter Durchbruch in Folge im 1H-Chart.",
                     "updated": 1639253669972
                 },
                 {
                     "language": "TR",
-                    "text": "Onayımız 1H grafiğinde art arda ikinci bir arızadır!",
+                    "text": "Onayımız 1H grafiğinde art arda ikinci bir arızadır.",
                     "updated": 1640952400804
                 }
             ]

@@ -7,11 +7,11 @@
             "name": "Close\\close-stage",
             "project": "Foundations"
         },
-        "text": "Let's do some quick reading about the Close Stage! Take a look at this page!",
+        "text": "Let's do some quick reading about the Close Stage! Take a look at this page.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Lesen wir schnell etwas über die Close Stage! Werfen Sie einen Blick auf diese Seite!",
+                "text": "Lesen wir schnell etwas über die Close Stage! Werfen Sie einen Blick auf diese Seite.",
                 "updated": 1639417649529
             }
         ]
@@ -41,11 +41,11 @@
         },
         {
             "style": "Note",
-            "text": "Also, think about what type of order we should use!",
+            "text": "Also, think about what type of order we should use.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie auch darüber nach, welche Art von Auftrag wir verwenden sollten!",
+                    "text": "Denken Sie auch darüber nach, welche Art von Auftrag wir verwenden sollten.",
                     "updated": 1639417685330
                 }
             ]

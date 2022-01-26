@@ -3,7 +3,7 @@
     "pageNumber": 8,
     "type": "Tutorial Step - Trigger On",
     "definition": {
-        "text": "Reserve some funds!",
+        "text": "Reserve some funds.",
         "icon": {
             "name": "trigger-on",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Reserviere Geldmittel!",
+                "text": "Reserviere Geldmittel.",
                 "updated": 1622978638588,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Reserva algunos fondos!",
+                "text": "¡Reserva algunos fondos.",
                 "updated": 1629349159115
             },
             {
                 "language": "IT",
-                "text": "Mettiamoci dei soldi!",
+                "text": "Mettiamoci dei soldi.",
                 "updated": 1639077184428
             },
             {
                 "language": "TR",
-                "text": "Bir miktar para ayırın!",
+                "text": "Bir miktar para ayırın.",
                 "updated": 1640616811367
             },
             {
                 "language": "RU",
-                "text": "Запаситесь некоторыми средствами!",
+                "text": "Запаситесь некоторыми средствами.",
                 "updated": 1640854887853
             }
         ]

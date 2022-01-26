@@ -7,38 +7,38 @@
             "name": "Time\\time-frame-scale",
             "project": "Foundations"
         },
-        "text": "News-flash about the Time Frame Scale: there is no automatic mode!",
+        "text": "News-flash about the Time Frame Scale: there is no automatic mode.",
         "translations": [
             {
                 "language": "IT",
-                "text": "Notizia lampo sulla Time Frame Scale: non esiste una modalità automatica!",
+                "text": "Notizia lampo sulla Time Frame Scale: non esiste una modalità automatica.",
                 "updated": 1614894147285,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Noticias de última hora sobre el Time Frame Scale: ¡no hay modo automático!",
+                "text": "Noticias de última hora sobre el Time Frame Scale: ¡no hay modo automático.",
                 "updated": 1624407844642,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Kurzmeldung zur Time Frame Scale: Es gibt keinen automatischen Modus!",
+                "text": "Kurzmeldung zur Time Frame Scale: Es gibt keinen automatischen Modus.",
                 "updated": 1634217396808
             },
             {
                 "language": "TR",
-                "text": "Zaman Çerçevesi Ölçeği ( Time Frame Scale ) hakkında flaş haber: otomatik mod yok!",
+                "text": "Zaman Çerçevesi Ölçeği ( Time Frame Scale ) hakkında flaş haber: otomatik mod yok.",
                 "updated": 1636095177127
             },
             {
                 "language": "RU",
-                "text": "Новости о Time Frame Scale: автоматического режима - нет!",
+                "text": "Новости о Time Frame Scale: автоматического режима - нет.",
                 "updated": 1636560925509
             },
             {
                 "language": "ID",
-                "text": "Berita-terkini tentang Time Frame Scale: tidak ada mode otomatis!",
+                "text": "Berita-terkini tentang Time Frame Scale: tidak ada mode otomatis.",
                 "updated": 1639586122486
             }
         ]

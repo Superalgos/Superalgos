@@ -20,11 +20,11 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Because the trigger on event determines which strategy is selected to trade, the definition of the context of our hypothesis should be the main thing to consider!",
+            "text": "Because the trigger on event determines which strategy is selected to trade, the definition of the context of our hypothesis should be the main thing to consider.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Da das Trigger-On-Ereignis bestimmt, welche Strategie für den Handel ausgewählt wird, sollte die Definition des Kontextes unserer Hypothese der wichtigste Punkt sein, den es zu berücksichtigen gilt!",
+                    "text": "Da das Trigger-On-Ereignis bestimmt, welche Strategie für den Handel ausgewählt wird, sollte die Definition des Kontextes unserer Hypothese der wichtigste Punkt sein, den es zu berücksichtigen gilt.",
                     "updated": 1639261844410
                 }
             ]
@@ -42,11 +42,11 @@
         },
         {
             "style": "Success",
-            "text": "Our job is to write a set of conditions that mathematically describe the market situation of a downtrend in the 24H chart!",
+            "text": "Our job is to write a set of conditions that mathematically describe the market situation of a downtrend in the 24H chart.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Unsere Aufgabe ist es, eine Reihe von Bedingungen zu schreiben, die die Marktsituation eines Abwärtstrends im 24-Stunden-Chart mathematisch beschreiben!",
+                    "text": "Unsere Aufgabe ist es, eine Reihe von Bedingungen zu schreiben, die die Marktsituation eines Abwärtstrends im 24-Stunden-Chart mathematisch beschreiben.",
                     "updated": 1639261865002
                 }
             ]

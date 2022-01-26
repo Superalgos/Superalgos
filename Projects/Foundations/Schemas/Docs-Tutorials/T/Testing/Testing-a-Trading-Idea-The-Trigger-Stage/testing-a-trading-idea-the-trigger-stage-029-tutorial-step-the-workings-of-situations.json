@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner!",
+        "text": "This is a key concept that you must understand so that you may organize logic in the proper manner.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Dies ist ein Schlüsselkonzept, das Sie verstehen müssen, damit Sie die Logik auf die richtige Weise organisieren können!",
+                "text": "Dies ist ein Schlüsselkonzept, das Sie verstehen müssen, damit Sie die Logik auf die richtige Weise organisieren können.",
                 "updated": 1639265748621
             }
         ]
@@ -30,11 +30,11 @@
         },
         {
             "style": "List",
-            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered!",
+            "text": "An event validates true when either of the situations within validates true. It is as if situations within an event were bound by the || (or) operator! If any of the situations is true at a certain point in time, then the event is triggered.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Ein Ereignis gilt als wahr, wenn eine der Situationen innerhalb des Ereignisses als wahr gilt. Es ist so, als ob Situationen innerhalb eines Ereignisses durch den Operator || (or) gebunden wären! Wenn eine der Situationen zu einem bestimmten Zeitpunkt wahr ist, dann wird das Ereignis ausgelöst!",
+                    "text": "Ein Ereignis gilt als wahr, wenn eine der Situationen innerhalb des Ereignisses als wahr gilt. Es ist so, als ob Situationen innerhalb eines Ereignisses durch den Operator || (or) gebunden wären! Wenn eine der Situationen zu einem bestimmten Zeitpunkt wahr ist, dann wird das Ereignis ausgelöst.",
                     "updated": 1639265804598
                 }
             ]

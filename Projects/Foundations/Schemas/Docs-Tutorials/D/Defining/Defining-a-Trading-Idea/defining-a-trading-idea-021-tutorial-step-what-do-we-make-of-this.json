@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "We can't arrive at universal conclusions by analyzing a single case, but we can propose a hypothesis to test!",
+        "text": "We can't arrive at universal conclusions by analyzing a single case, but we can propose a hypothesis to test.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir können keine allgemeingültigen Schlussfolgerungen aus der Analyse eines einzelnen Falles ziehen, aber wir können eine Hypothese aufstellen, die wir testen können!",
+                "text": "Wir können keine allgemeingültigen Schlussfolgerungen aus der Analyse eines einzelnen Falles ziehen, aber wir können eine Hypothese aufstellen, die wir testen können.",
                 "updated": 1639253047676
             },
             {
                 "language": "TR",
-                "text": "Tek bir vakayı analiz ederek evrensel sonuçlara varamayız, ancak test etmek için bir varsayım önerebiliriz!",
+                "text": "Tek bir vakayı analiz ederek evrensel sonuçlara varamayız, ancak test etmek için bir varsayım önerebiliriz.",
                 "updated": 1640948562830
             }
         ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Note",
-            "text": "Let's save this hypothesis for later and look into one other case!",
+            "text": "Let's save this hypothesis for later and look into one other case.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Heben wir uns diese Hypothese für später auf und untersuchen wir einen anderen Fall!",
+                    "text": "Heben wir uns diese Hypothese für später auf und untersuchen wir einen anderen Fall.",
                     "updated": 1639253078632
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Bu varsayımı sonraya saklayalım ve başka bir duruma bakalım!",
+                    "text": "Not: Bu varsayımı sonraya saklayalım ve başka bir duruma bakalım.",
                     "updated": 1640948619803
                 }
             ]

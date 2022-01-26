@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "take-position-event"
         },
-        "text": "Let's move on and start working on the definition of the Take Position Event!",
+        "text": "Let's move on and start working on the definition of the Take Position Event.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Machen wir weiter und beginnen wir mit der Definition des Take Position Event!",
+                "text": "Machen wir weiter und beginnen wir mit der Definition des Take Position Event.",
                 "updated": 1639389035613
             }
         ]
@@ -30,11 +30,11 @@
         },
         {
             "style": "Callout",
-            "text": "This is the page documenting the Candles Volumes indicator. Scroll down to the Products & Properties > Candles section and read!",
+            "text": "This is the page documenting the Candles Volumes indicator. Scroll down to the Products & Properties > Candles section and read.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies ist die Seite, die den Candles Volumes Indikator dokumentiert. Scrollen Sie nach unten zum Abschnitt Products & Properties > Candles und lesen Sie!",
+                    "text": "Dies ist die Seite, die den Candles Volumes Indikator dokumentiert. Scrollen Sie nach unten zum Abschnitt Products & Properties > Candles und lesen Sie.",
                     "updated": 1639389221442
                 }
             ]

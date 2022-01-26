@@ -3,7 +3,7 @@
     "pageNumber": 16,
     "type": "Tutorial Step - Backtest",
     "definition": {
-        "text": "Make sure Parameters are in place!",
+        "text": "Make sure Parameters are in place.",
         "updated": 1614267651634,
         "icon": {
             "name": "backtesting-session",
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Stelle sicher, dass alle Parameter korrekt sind!",
+                "text": "Stelle sicher, dass alle Parameter korrekt sind.",
                 "updated": 1622980368660,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Asegurarte que los Parameters están en su lugar!",
+                "text": "¡Asegurarte que los Parameters están en su lugar.",
                 "updated": 1629577782178
             },
             {
                 "language": "IT",
-                "text": "Assicurati che i Parameters siano corretti!",
+                "text": "Assicurati che i Parameters siano corretti.",
                 "updated": 1640110797351
             },
             {
                 "language": "TR",
-                "text": "Parametrelerin yerinde olduğundan emin olun!",
+                "text": "Parametrelerin yerinde olduğundan emin olun.",
                 "updated": 1640618152585
             },
             {
                 "language": "RU",
-                "text": "Убедитесь, что параметры установлены!",
+                "text": "Убедитесь, что параметры установлены.",
                 "updated": 1640857393649
             }
         ]
@@ -172,33 +172,33 @@
         },
         {
             "style": "Important",
-            "text": "Are you ready? Run the backtest!",
+            "text": "Are you ready? Run the backtest.",
             "updated": 1614267899321,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Bist du bereit? Führe (\"Run\") den Backtest aus!",
+                    "text": "Bist du bereit? Führe (\"Run\") den Backtest aus.",
                     "updated": 1622980556540,
                     "style": "Important"
                 },
                 {
                     "language": "ES",
-                    "text": "¿Estás listo? ¡Ejecuta el backtest!",
+                    "text": "¿Estás listo? ¡Ejecuta el backtest.",
                     "updated": 1629578196637
                 },
                 {
                     "language": "IT",
-                    "text": "Sei pronto? Fai partire il backtest!",
+                    "text": "Sei pronto? Fai partire il backtest.",
                     "updated": 1640110995079
                 },
                 {
                     "language": "TR",
-                    "text": "Önemli: Hazır mısınız? Geri testi çalıştırın!",
+                    "text": "Önemli: Hazır mısınız? Geri testi çalıştırın.",
                     "updated": 1640618407506
                 },
                 {
                     "language": "RU",
-                    "text": "Вы готовы? Запускаем бэктест!",
+                    "text": "Вы готовы? Запускаем бэктест.",
                     "updated": 1640857519428
                 }
             ]

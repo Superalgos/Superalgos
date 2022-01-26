@@ -3,7 +3,7 @@
     "pageNumber": 28,
     "type": "Tutorial Step - Make the Connection",
     "definition": {
-        "text": "You got this. Creating references is a piece of cake. Let's make the connection!",
+        "text": "You got this. Creating references is a piece of cake. Let's make the connection.",
         "icon": {
             "name": "delink-node",
             "project": "Foundations"
@@ -12,17 +12,17 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Crear referencias es pan comido. ¡Hagamos la conexión!",
+                "text": "Crear referencias es pan comido. ¡Hagamos la conexión.",
                 "updated": 1628724876371
             },
             {
                 "language": "RU",
-                "text": "Ты получил это. Создание ссылок - это кусок пирога. Давайте сделаем связь!",
+                "text": "Ты получил это. Создание ссылок - это кусок пирога. Давайте сделаем связь.",
                 "updated": 1639078956290
             },
             {
                 "language": "DE",
-                "text": "Sie haben es erfasst. Das Erstellen von Referenzen ist ein Kinderspiel. Lassen Sie uns die Verbindung herstellen!",
+                "text": "Sie haben es erfasst. Das Erstellen von Referenzen ist ein Kinderspiel. Lassen Sie uns die Verbindung herstellen.",
                 "updated": 1639275952869
             }
         ]

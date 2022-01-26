@@ -29,42 +29,42 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Expand the trading system node... Let's see what it may teach us!",
+            "text": "Expand the trading system node... Let's see what it may teach us.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Expande el nodo del Trading System ... ¡Veamos qué nos puede enseñar!",
+                    "text": "Expande el nodo del Trading System ... ¡Veamos qué nos puede enseñar.",
                     "updated": 1629590784815
                 },
                 {
                     "language": "DE",
-                    "text": "Erweitern Sie den Knoten des Trading Systems... Mal sehen, was es uns lehren kann!",
+                    "text": "Erweitern Sie den Knoten des Trading Systems... Mal sehen, was es uns lehren kann.",
                     "updated": 1639147897648
                 },
                 {
                     "language": "TR",
-                    "text": "Ticaret sistemi düğümünü genişletin... Bakalım bize neler öğretecek!",
+                    "text": "Ticaret sistemi düğümünü genişletin... Bakalım bize neler öğretecek.",
                     "updated": 1640700549413
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "I told you! You may have as many strategies as you wish under the same trading system! Well... there you are!",
+            "text": "I told you! You may have as many strategies as you wish under the same trading system! Well... there you are.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Te dije! ¡Puedes tener tantas estrategias como desees bajo el mismo Trading System! Bueno ... ¡ahí estás!",
+                    "text": "¡Te dije! ¡Puedes tener tantas estrategias como desees bajo el mismo Trading System! Bueno ... ¡ahí estás.",
                     "updated": 1629590821468
                 },
                 {
                     "language": "DE",
-                    "text": "Ich habe es Ihnen gesagt! Sie können so viele Strategien unter demselben Trading System haben, wie Sie wollen! Nun... da haben Sie es!",
+                    "text": "Ich habe es Ihnen gesagt! Sie können so viele Strategien unter demselben Trading System haben, wie Sie wollen! Nun... da haben Sie es.",
                     "updated": 1639147910142
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Söylemiştim! Aynı ticaret sistemi altında dilediğiniz kadar stratejiye sahip olabilirsiniz! Peki... işte buradasın!",
+                    "text": "Not: Söylemiştim! Aynı ticaret sistemi altında dilediğiniz kadar stratejiye sahip olabilirsiniz! Peki... işte buradasın.",
                     "updated": 1640700579767
                 }
             ],

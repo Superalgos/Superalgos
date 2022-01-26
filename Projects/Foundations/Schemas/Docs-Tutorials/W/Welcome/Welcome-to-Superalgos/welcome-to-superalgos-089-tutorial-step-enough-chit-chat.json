@@ -174,7 +174,7 @@
         },
         {
             "style": "Note",
-            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going. You will at least learn how things work!",
+            "text": "If you are not ready to do some live trading for whatever reason, no worries, just keep going. You will at least learn how things work.",
             "updated": 1622232287190,
             "translations": [
                 {
@@ -185,23 +185,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Si no estás listo para operar en vivo por cualquier motivo, simplemente continúa. ¡Al menos aprenderás cómo funcionan las cosas!",
+                    "text": "Si no estás listo para operar en vivo por cualquier motivo, simplemente continúa. ¡Al menos aprenderás cómo funcionan las cosas.",
                     "updated": 1624496689859,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie aus irgendeinem Grund noch nicht bereit sind, live zu handeln, machen Sie einfach weiter. Sie werden auf jeden Fall lernen, wie die Dinge funktionieren!",
+                    "text": "Wenn Sie aus irgendeinem Grund noch nicht bereit sind, live zu handeln, machen Sie einfach weiter. Sie werden auf jeden Fall lernen, wie die Dinge funktionieren.",
                     "updated": 1634226835104
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir nedenle canlı ticaret yapmaya hazır değilseniz, endişelenmeyin, devam edin. En azından işlerin nasıl yürüdüğünü öğreneceksin!",
+                    "text": "Herhangi bir nedenle canlı ticaret yapmaya hazır değilseniz, endişelenmeyin, devam edin. En azından işlerin nasıl yürüdüğünü öğreneceksin.",
                     "updated": 1636403901281
                 },
                 {
                     "language": "ID",
-                    "text": "Jika kamu tidak siap untuk melakukan  live trading dengan alasan apa pun, jangan khawatir, teruskan saja. Kamu setidaknya akan belajar cara kerjanya!",
+                    "text": "Jika kamu tidak siap untuk melakukan  live trading dengan alasan apa pun, jangan khawatir, teruskan saja. Kamu setidaknya akan belajar cara kerjanya.",
                     "updated": 1640574747735
                 }
             ]

@@ -46,11 +46,11 @@
         },
         {
             "style": "Callout",
-            "text": "Go ahead and edit the formula with the above syntax!",
+            "text": "Go ahead and edit the formula with the above syntax.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Bearbeiten Sie die Formel mit der obigen Syntax!",
+                    "text": "Bearbeiten Sie die Formel mit der obigen Syntax.",
                     "updated": 1639395526472
                 }
             ]

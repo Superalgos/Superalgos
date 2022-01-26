@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a look at the price action a few candles earlier!",
+            "text": "Take a look at the price action a few candles earlier.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Werfen Sie einen Blick auf die Kursentwicklung ein paar Kerzen zuvor!",
+                    "text": "Werfen Sie einen Blick auf die Kursentwicklung ein paar Kerzen zuvor.",
                     "updated": 1639252848647
                 },
                 {
                     "language": "TR",
-                    "text": "Birkaç mum öncesi fiyat hareketine bir bakın!",
+                    "text": "Birkaç mum öncesi fiyat hareketine bir bakın.",
                     "updated": 1640947810515
                 }
             ]

@@ -19,12 +19,12 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Access the node's menu and click on the \"Copy Node Path\" button!",
+            "text": "Access the node's menu and click on the \"Copy Node Path\" button.",
             "updated": 1622547599361,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Rufen Sie das Menü des Knotens auf und klicken Sie auf die Schaltfläche \"Copy Node Path\"!",
+                    "text": "Rufen Sie das Menü des Knotens auf und klicken Sie auf die Schaltfläche \"Copy Node Path\".",
                     "updated": 1639398312564
                 }
             ]

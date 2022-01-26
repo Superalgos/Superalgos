@@ -31,24 +31,24 @@
         },
         {
             "style": "Callout",
-            "text": "Check the warning on the Rate node!",
+            "text": "Check the warning on the Rate node.",
             "updated": 1612715013397,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Prüfen Sie die Warnung auf dem Knoten Rate!",
+                    "text": "Prüfen Sie die Warnung auf dem Knoten Rate.",
                     "updated": 1639418583132
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "The slippage configured as a parameter of the trading session was subtracted from the order rate. This resulted in a lower actual rate. All good! The same message appears on the Slippage parameter of the trading session too... check it out!",
+            "text": "The slippage configured as a parameter of the trading session was subtracted from the order rate. This resulted in a lower actual rate. All good! The same message appears on the Slippage parameter of the trading session too... check it out.",
             "updated": 1612715035149,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Der als Parameter der Handelssitzung konfigurierte Slippage wurde vom Auftragskurs abgezogen. Dies führte zu einer niedrigeren tatsächlichen Rate. Alles gut! Die gleiche Meldung erscheint auch beim Parameter Slippage der Handelssitzung... sehen Sie sich das an!",
+                    "text": "Der als Parameter der Handelssitzung konfigurierte Slippage wurde vom Auftragskurs abgezogen. Dies führte zu einer niedrigeren tatsächlichen Rate. Alles gut! Die gleiche Meldung erscheint auch beim Parameter Slippage der Handelssitzung... sehen Sie sich das an.",
                     "updated": 1639418596060
                 }
             ]

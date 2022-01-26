@@ -3,7 +3,7 @@
     "pageNumber": 31,
     "type": "Tutorial Step - It’s Alive!",
     "definition": {
-        "text": "Let's take a look at your new working chart.  I hope you are as excited as I am!",
+        "text": "Let's take a look at your new working chart.  I hope you are as excited as I am.",
         "updated": 1619024389980,
         "icon": {
             "name": "trading-system",
@@ -12,17 +12,17 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "Echemos un vistazo a tu nueva tabla de trabajo. ¡Espero que estés tan emocionado como yo!",
+                "text": "Echemos un vistazo a tu nueva tabla de trabajo. ¡Espero que estés tan emocionado como yo.",
                 "updated": 1628725847421
             },
             {
                 "language": "RU",
-                "text": "Давайте посмотрим на ваш новый рабочий график. Надеюсь, вы так же рады, как и я!",
+                "text": "Давайте посмотрим на ваш новый рабочий график. Надеюсь, вы так же рады, как и я.",
                 "updated": 1639079985455
             },
             {
                 "language": "DE",
-                "text": "Werfen wir einen Blick auf Ihre neues Arbeitschart. Ich hoffe, Sie sind genauso begeistert wie ich!",
+                "text": "Werfen wir einen Blick auf Ihre neues Arbeitschart. Ich hoffe, Sie sind genauso begeistert wie ich.",
                 "updated": 1639453565952
             }
         ]

@@ -7,47 +7,47 @@
             "name": "Mouse\\hand-drag",
             "project": "Foundations"
         },
-        "text": "I want to show you something while the data mining operation progresses. I'll teach you how to walk... in two seconds!",
+        "text": "I want to show you something while the data mining operation progresses. I'll teach you how to walk... in two seconds.",
         "translations": [
             {
                 "language": "IT",
-                "text": "Voglio mostrarti qualcosa, mentre l'operazione di data mining è in corso. Ti insegnerò a camminare nel giro di un attimo!",
+                "text": "Voglio mostrarti qualcosa, mentre l'operazione di data mining è in corso. Ti insegnerò a camminare nel giro di un attimo.",
                 "updated": 1614788444726,
                 "style": "Definition"
             },
             {
                 "language": "ID",
-                "text": "Akan kuperlihatkan sesuatu sembari memproses data mining operation. Aku akan melajarkanmu cara berjalan dalam dua detik!",
+                "text": "Akan kuperlihatkan sesuatu sembari memproses data mining operation. Aku akan melajarkanmu cara berjalan dalam dua detik.",
                 "updated": 1616698440258,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Quiero enseñarte algo mientras avanza la operación de Data Mining. Te enseñaré a moverte... ¡En solo unos segundos!",
+                "text": "Quiero enseñarte algo mientras avanza la operación de Data Mining. Te enseñaré a moverte... ¡En solo unos segundos.",
                 "updated": 1624227902845,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet. Ich bringe Ihnen bei, wie man läuft... in zwei Sekunden!",
+                "text": "Ich möchte Ihnen etwas zeigen, während die Data-Mining-Operation fortschreitet. Ich bringe Ihnen bei, wie man läuft... in zwei Sekunden.",
                 "updated": 1634163512229,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Ik wil je iets laten zien terwijl de datamining operatie bezig is. Ik zal je leren hoe je moet lopen... in twee seconden!",
+                "text": "Ik wil je iets laten zien terwijl de datamining operatie bezig is. Ik zal je leren hoe je moet lopen... in twee seconden.",
                 "updated": 1634926689787,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Я хочу показать Вам кое-что, пока операция data mining в процессе. Я научу Вас передвигаться... за 2 секунды!",
+                "text": "Я хочу показать Вам кое-что, пока операция data mining в процессе. Я научу Вас передвигаться... за 2 секунды.",
                 "updated": 1635596573723,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Veri madenciliği işlemi devam ederken size bir şey göstermek istiyorum. Sana yürümeyi öğreteceğim... iki saniyede!",
+                "text": "Veri madenciliği işlemi devam ederken size bir şey göstermek istiyorum. Sana yürümeyi öğreteceğim... iki saniyede.",
                 "updated": 1635944955783
             }
         ]
@@ -55,17 +55,17 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Just click and drag with your mouse!",
+            "text": "Just click and drag with your mouse.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "É facile: clicca e trascina usando il mouse!",
+                    "text": "É facile: clicca e trascina usando il mouse.",
                     "updated": 1614788236203,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Cukup click dan drag mouse-mu!",
+                    "text": "Cukup click dan drag mouse-mu.",
                     "updated": 1616698465027,
                     "style": "Callout"
                 },
@@ -77,19 +77,19 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken und ziehen Sie einfach mit Ihrer Maus!",
+                    "text": "Klicken und ziehen Sie einfach mit Ihrer Maus.",
                     "updated": 1634163520213,
                     "style": "Callout"
                 },
                 {
                     "language": "NL",
-                    "text": "Gewoon klikken en slepen met je muis!",
+                    "text": "Gewoon klikken en slepen met je muis.",
                     "updated": 1634926782434,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Просто нажмите на мышку и потащите!",
+                    "text": "Просто нажмите на мышку и потащите.",
                     "updated": 1635607627239,
                     "style": "Callout"
                 },

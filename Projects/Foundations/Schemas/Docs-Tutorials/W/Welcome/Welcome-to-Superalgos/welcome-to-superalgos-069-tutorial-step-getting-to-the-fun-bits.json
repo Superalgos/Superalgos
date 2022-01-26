@@ -84,38 +84,38 @@
         },
         {
             "style": "Callout",
-            "text": "Look around and decide for yourself!",
+            "text": "Look around and decide for yourself.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Guardati intorno e decidilo tu!",
+                    "text": "Guardati intorno e decidilo tu.",
                     "updated": 1618060965103,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Mira a tu alrededor y decide por ti mismo!",
+                    "text": "¡Mira a tu alrededor y decide por ti mismo.",
                     "updated": 1624454989293,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen Sie sich um und entscheiden Sie selbst!",
+                    "text": "Schauen Sie sich um und entscheiden Sie selbst.",
                     "updated": 1634222649291
                 },
                 {
                     "language": "TR",
-                    "text": "Etrafınıza bakın ve kendiniz karar verin!",
+                    "text": "Etrafınıza bakın ve kendiniz karar verin.",
                     "updated": 1636181015871
                 },
                 {
                     "language": "RU",
-                    "text": "Оглянитесь вокруг и решайте сами!",
+                    "text": "Оглянитесь вокруг и решайте сами.",
                     "updated": 1636931122923
                 },
                 {
                     "language": "ID",
-                    "text": "Lihatlah ke sekeliling dan putuskan sendiri!",
+                    "text": "Lihatlah ke sekeliling dan putuskan sendiri.",
                     "updated": 1639748452562
                 }
             ]

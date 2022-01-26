@@ -79,34 +79,34 @@
         },
         {
             "style": "Callout",
-            "text": "This string holds the path to that piece of information in the data structure of the Trading Engine hierarchy! Can you find the Exit Target Rate node? Expand the hierarchy and follow the breadcrumb trail!",
+            "text": "This string holds the path to that piece of information in the data structure of the Trading Engine hierarchy! Can you find the Exit Target Rate node? Expand the hierarchy and follow the breadcrumb trail.",
             "updated": 1616429836465,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Questa stringa contiene il percorso a quel dato nel contesto della struttura della gerarchia del Trading Engine! Riesci a trovare il nodo dell'Exit Target Rate? Espandi la gerarchia e seguila!",
+                    "text": "Questa stringa contiene il percorso a quel dato nel contesto della struttura della gerarchia del Trading Engine! Riesci a trovare il nodo dell'Exit Target Rate? Espandi la gerarchia e seguila.",
                     "updated": 1618067490282,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Esta cadena contiene la ruta a esa pieza de información en la estructura de datos de la jerarquia Trading Engine! ¿Puedes encontrar el nodo Exit Target Rate? ¡Expande la jerarquía y sigue el rastro de migas de pan!",
+                    "text": "Esta cadena contiene la ruta a esa pieza de información en la estructura de datos de la jerarquia Trading Engine! ¿Puedes encontrar el nodo Exit Target Rate? ¡Expande la jerarquía y sigue el rastro de migas de pan.",
                     "updated": 1624461765098,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Dieser String enthält den Pfad zu dieser Information in der Datenstruktur der Trading Engine Hierarchie! Können Sie den Knoten Exit Target Rate finden? Erweitern Sie die Hierarchie und folgen Sie dem Brotkrumen-Pfad!",
+                    "text": "Dieser String enthält den Pfad zu dieser Information in der Datenstruktur der Trading Engine Hierarchie! Können Sie den Knoten Exit Target Rate finden? Erweitern Sie die Hierarchie und folgen Sie dem Brotkrumen-Pfad.",
                     "updated": 1634226148267
                 },
                 {
                     "language": "TR",
-                    "text": "Bu dizi, Trading Engine hiyerarşisinin veri yapısındaki o bilgi parçasının yolunu tutar! Çıkış Hedef Hızı ( Exit Target Rate ) düğümünü bulabilir misiniz? Hiyerarşiyi genişletin ve izini takip edin!",
+                    "text": "Bu dizi, Trading Engine hiyerarşisinin veri yapısındaki o bilgi parçasının yolunu tutar! Çıkış Hedef Hızı ( Exit Target Rate ) düğümünü bulabilir misiniz? Hiyerarşiyi genişletin ve izini takip edin.",
                     "updated": 1636211761179
                 },
                 {
                     "language": "ID",
-                    "text": "String ini memegang jalur ke informasi itu dalam data structure dari Trading Engine hierarchy! Bisakah kamu menemukan  Exit Target Rate node? Expand hierarki dan ikuti breadcrumb trail!",
+                    "text": "String ini memegang jalur ke informasi itu dalam data structure dari Trading Engine hierarchy! Bisakah kamu menemukan  Exit Target Rate node? Expand hierarki dan ikuti breadcrumb trail.",
                     "updated": 1640567181383
                 }
             ]

@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "Let's shift the mouse pointer to the next candle, on February 26th!",
+        "text": "Let's shift the mouse pointer to the next candle, on February 26th.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bewegen wir den Mauszeiger auf die nächste Kerze, den 26. Februar!",
+                "text": "Bewegen wir den Mauszeiger auf die nächste Kerze, den 26. Februar.",
                 "updated": 1639267100411
             }
         ]
@@ -30,11 +30,11 @@
         },
         {
             "style": "Important",
-            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times!",
+            "text": "Remember, each candle is evaluated only after it has closed! Every property of every product of every indicator refers to closed candles! This is crucial information, in particular when you are working with multiple time frames. I'll expand on this later on, but keep it in mind at all times.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie daran, dass jede Kerze erst ausgewertet wird, nachdem sie geschlossen wurde! Jede Eigenschaft eines jeden Produktes eines jeden Indikators bezieht sich auf geschlossene Kerzen! Dies ist eine wichtige Information, insbesondere wenn Sie mit mehreren Zeitrahmen arbeiten. Ich werde später noch darauf eingehen, aber denken Sie immer daran!",
+                    "text": "Denken Sie daran, dass jede Kerze erst ausgewertet wird, nachdem sie geschlossen wurde! Jede Eigenschaft eines jeden Produktes eines jeden Indikators bezieht sich auf geschlossene Kerzen! Dies ist eine wichtige Information, insbesondere wenn Sie mit mehreren Zeitrahmen arbeiten. Ich werde später noch darauf eingehen, aber denken Sie immer daran.",
                     "updated": 1639267117530
                 }
             ]

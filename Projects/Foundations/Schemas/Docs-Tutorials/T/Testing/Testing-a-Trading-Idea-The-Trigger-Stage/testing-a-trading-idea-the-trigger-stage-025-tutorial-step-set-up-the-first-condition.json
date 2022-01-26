@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "javascript-code"
         },
-        "text": "I brought you to the definition of the Trigger On Event so that you may set up the first condition!",
+        "text": "I brought you to the definition of the Trigger On Event so that you may set up the first condition.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Ich habe Sie zur Definition des Trigger On Event  gebracht, damit Sie die erste Bedingung einrichten können!",
+                "text": "Ich habe Sie zur Definition des Trigger On Event  gebracht, damit Sie die erste Bedingung einrichten können.",
                 "updated": 1639265227898
             }
         ]
@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Paste the condition on the Javascript Code node!",
+            "text": "Paste the condition on the Javascript Code node.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Fügen Sie die Bedingung in den Javascript Code Knoten ein!",
+                    "text": "Fügen Sie die Bedingung in den Javascript Code Knoten ein.",
                     "updated": 1639265336381
                 }
             ]

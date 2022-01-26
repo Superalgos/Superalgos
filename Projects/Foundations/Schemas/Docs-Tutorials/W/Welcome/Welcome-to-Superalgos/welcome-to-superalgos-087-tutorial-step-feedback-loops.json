@@ -7,33 +7,33 @@
             "name": "Limit-Order\\limit-buy-order",
             "project": "Foundations"
         },
-        "text": "Lets take a look at another example to let the notion of the constant feedback loop sink in before we move on!",
+        "text": "Lets take a look at another example to let the notion of the constant feedback loop sink in before we move on.",
         "translations": [
             {
                 "language": "IT",
-                "text": "Diamo un'occhiata a un altro esempio per assorbire bene la nozione di \"constant feedback loop\" prima di proseguire!",
+                "text": "Diamo un'occhiata a un altro esempio per assorbire bene la nozione di \"constant feedback loop\" prima di proseguire.",
                 "updated": 1618068120939,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Echemos un vistazo a otro ejemplo para dejar que la noción del ciclo de retroalimentación constante se entienda antes de continuar!",
+                "text": "¡Echemos un vistazo a otro ejemplo para dejar que la noción del ciclo de retroalimentación constante se entienda antes de continuar.",
                 "updated": 1624463986592,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Zusammenfassung: Schauen wir uns ein weiteres Beispiel an, um den Begriff der konstanten Rückkopplungsschleife zu verinnerlichen, bevor wir weitermachen!",
+                "text": "Zusammenfassung: Schauen wir uns ein weiteres Beispiel an, um den Begriff der konstanten Rückkopplungsschleife zu verinnerlichen, bevor wir weitermachen.",
                 "updated": 1634226654216
             },
             {
                 "language": "TR",
-                "text": "Devam etmeden önce sabit geri besleme döngüsü kavramının anlaşılması için başka bir örneğe bakalım!",
+                "text": "Devam etmeden önce sabit geri besleme döngüsü kavramının anlaşılması için başka bir örneğe bakalım.",
                 "updated": 1636403007502
             },
             {
                 "language": "ID",
-                "text": "Mari kita lihat contoh lain untuk membiarkan constant feedback loop dipahami sebelum kita melanjutkan!",
+                "text": "Mari kita lihat contoh lain untuk membiarkan constant feedback loop dipahami sebelum kita melanjutkan.",
                 "updated": 1640574155481
             }
         ]

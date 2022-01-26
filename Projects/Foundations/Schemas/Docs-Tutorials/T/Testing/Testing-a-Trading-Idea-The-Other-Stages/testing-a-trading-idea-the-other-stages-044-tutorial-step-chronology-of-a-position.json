@@ -42,11 +42,11 @@
         },
         {
             "style": "Note",
-            "text": "One hour later? Yes! Remember we are running the simulation on the 1H time frame! We'll discuss this matter in depth later on!",
+            "text": "One hour later? Yes! Remember we are running the simulation on the 1H time frame! We'll discuss this matter in depth later on.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Eine Stunde später? Ja! Denken Sie daran, dass wir die Simulation auf dem Zeitrahmen von 1 Stunde laufen lassen! Wir werden diese Angelegenheit später noch eingehend besprechen!",
+                    "text": "Eine Stunde später? Ja! Denken Sie daran, dass wir die Simulation auf dem Zeitrahmen von 1 Stunde laufen lassen! Wir werden diese Angelegenheit später noch eingehend besprechen.",
                     "updated": 1639418407571
                 }
             ]

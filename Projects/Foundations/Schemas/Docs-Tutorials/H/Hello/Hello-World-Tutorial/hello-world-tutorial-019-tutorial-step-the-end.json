@@ -3,7 +3,7 @@
     "pageNumber": 19,
     "type": "Tutorial Step - The End",
     "definition": {
-        "text": "This is the final step in this tutorial but a first big step for you!",
+        "text": "This is the final step in this tutorial but a first big step for you.",
         "updated": 1614270786500,
         "icon": {
             "name": "hits",
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Dies ist der letzte Schritt in diesem Tutorial, aber ein erster großer Schritt für dich!",
+                "text": "Dies ist der letzte Schritt in diesem Tutorial, aber ein erster großer Schritt für dich.",
                 "updated": 1622980855701,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Este es el paso final de este tutorial, ¡pero un primer gran paso para ti!",
+                "text": "Este es el paso final de este tutorial, ¡pero un primer gran paso para ti.",
                 "updated": 1629578693755
             },
             {
                 "language": "IT",
-                "text": "Sei arrivato alla fine di questo tutorial!",
+                "text": "Sei arrivato alla fine di questo tutorial.",
                 "updated": 1640111747286
             },
             {
                 "language": "TR",
-                "text": "Bu eğitimdeki son adımdır, ancak sizin için ilk büyük adımdır!",
+                "text": "Bu eğitimdeki son adımdır, ancak sizin için ilk büyük adımdır.",
                 "updated": 1640618657018
             },
             {
                 "language": "RU",
-                "text": "Это последний шаг в данном руководстве, но для вас это первый большой шаг!",
+                "text": "Это последний шаг в данном руководстве, но для вас это первый большой шаг.",
                 "updated": 1640857775385
             }
         ]

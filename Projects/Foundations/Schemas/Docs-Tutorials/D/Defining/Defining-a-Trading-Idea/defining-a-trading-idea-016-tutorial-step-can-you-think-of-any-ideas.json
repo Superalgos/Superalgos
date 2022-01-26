@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a few minutes roaming around this chart and see if you can come up with something!",
+            "text": "Take a few minutes roaming around this chart and see if you can come up with something.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um in diesem Diagramm herumzustöbern und sehen Sie, ob Ihnen etwas einfällt!",
+                    "text": "Nehmen Sie sich ein paar Minuten Zeit, um in diesem Diagramm herumzustöbern und sehen Sie, ob Ihnen etwas einfällt.",
                     "updated": 1639252544363
                 },
                 {
                     "language": "TR",
-                    "text": "Bu çizelgede birkaç dakika dolaşın ve bir şeyler bulabilecek misiniz bir bakın!",
+                    "text": "Bu çizelgede birkaç dakika dolaşın ve bir şeyler bulabilecek misiniz bir bakın.",
                     "updated": 1640947545847
                 }
             ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Success",
-            "text": "The idea we will discuss next has to do with breakouts! But that is just one of the four or five popular ideas using this indicator!",
+            "text": "The idea we will discuss next has to do with breakouts! But that is just one of the four or five popular ideas using this indicator.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Idee, die wir als nächstes besprechen werden, hat mit Ausbrüchen zu tun! Aber das ist nur eine der vier oder fünf beliebten Ideen, die dieser Indikator liefert!",
+                    "text": "Die Idee, die wir als nächstes besprechen werden, hat mit Ausbrüchen zu tun! Aber das ist nur eine der vier oder fünf beliebten Ideen, die dieser Indikator liefert.",
                     "updated": 1639252562061
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Daha sonra tartışacağımız fikir, kırılmalarla ilgili! Ancak bu, bu göstergeyi kullanan dört veya beş popüler fikirden yalnızca biri!",
+                    "text": "İpucu: Daha sonra tartışacağımız fikir, kırılmalarla ilgili! Ancak bu, bu göstergeyi kullanan dört veya beş popüler fikirden yalnızca biri.",
                     "updated": 1640947587516
                 }
             ]

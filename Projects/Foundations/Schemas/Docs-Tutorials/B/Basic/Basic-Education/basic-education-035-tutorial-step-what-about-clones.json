@@ -37,24 +37,24 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Read this page carefully!",
+            "text": "Read this page carefully.",
             "updated": 1615839024514,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Leggi attentamente questa pagina!",
+                    "text": "Leggi attentamente questa pagina.",
                     "updated": 1619545792048,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Lee esta página con atención!",
+                    "text": "¡Lee esta página con atención.",
                     "updated": 1626617702879,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diese Seite aufmerksam!",
+                    "text": "Lesen Sie diese Seite aufmerksam.",
                     "updated": 1634586264863
                 },
                 {
@@ -152,29 +152,29 @@
         },
         {
             "style": "Success",
-            "text": "Feel free to take the time to test the Clones feature on your own! We'll move on to other topics without further ado!",
+            "text": "Feel free to take the time to test the Clones feature on your own! We'll move on to other topics without further ado.",
             "updated": 1622374462370,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Prenditi pure del tempo per testare la funzionalità dei cloni! Poi ci muoveremo ad altri argomenti!",
+                    "text": "Prenditi pure del tempo per testare la funzionalità dei cloni! Poi ci muoveremo ad altri argomenti.",
                     "updated": 1619546030194,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Siéntate libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos!",
+                    "text": "Siéntate libre de tomarte el tiempo para probar las característica de los Clones por tu cuenta! ¡Pasaremos a otros temas sin más preámbulos.",
                     "updated": 1626617964519,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich die Zeit, die Funktion Clones selbst zu testen! Wir gehen ohne weiteres zu anderen Themen über!",
+                    "text": "Nehmen Sie sich die Zeit, die Funktion Clones selbst zu testen! Wir gehen ohne weiteres zu anderen Themen über.",
                     "updated": 1634586287700
                 },
                 {
                     "language": "TR",
-                    "text": "Klonlar ( Clones ) özelliğini kendi başınıza test etmek için zaman ayırın! Lafı fazla uzatmadan diğer konulara geçelim!",
+                    "text": "Klonlar ( Clones ) özelliğini kendi başınıza test etmek için zaman ayırın! Lafı fazla uzatmadan diğer konulara geçelim.",
                     "updated": 1639734380620
                 }
             ]

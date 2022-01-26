@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Remember the tricks for the trip!",
+            "text": "Remember the tricks for the trip.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Merken Sie sich die Tricks für die Reise!",
+                    "text": "Merken Sie sich die Tricks für die Reise.",
                     "updated": 1639418054977
                 }
             ]
@@ -52,11 +52,11 @@
         },
         {
             "style": "List",
-            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies!",
+            "text": "Use Ctrl / Command + arrow keys to drag the node across the screen after clicking on it with the mouse. Keep keys pressed and the node flies.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt!",
+                    "text": "Ziehen Sie den Knoten mit <kbd>Strg</kbd> / Befehl + Pfeiltasten über den Bildschirm, nachdem Sie ihn mit der Maus angeklickt haben. Halten Sie die Tasten gedrückt und der Knoten fliegt.",
                     "updated": 1639418096221
                 }
             ]

@@ -3,7 +3,7 @@
     "pageNumber": 6,
     "type": "Tutorial Step - Trading System",
     "definition": {
-        "text": "Trading System is already set up. Let's have a look!",
+        "text": "Trading System is already set up. Let's have a look.",
         "icon": {
             "name": "trading-system-reference",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Das Trading System ist bereits aufgesetzt. Lass es uns anschauen!",
+                "text": "Das Trading System ist bereits aufgesetzt. Lass es uns anschauen.",
                 "updated": 1622978283268,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Trading System ya está configurado. ¡Echemos un vistazo!",
+                "text": "Trading System ya está configurado. ¡Echemos un vistazo.",
                 "updated": 1629348173186
             },
             {
                 "language": "IT",
-                "text": "Il Trading System è già impostato. Diamo un'occhiata!",
+                "text": "Il Trading System è già impostato. Diamo un'occhiata.",
                 "updated": 1639075033970
             },
             {
                 "language": "TR",
-                "text": "Ticaret Sistemi ( Trading System ) çoktan kuruldu. Hadi kontrol edelim!",
+                "text": "Ticaret Sistemi ( Trading System ) çoktan kuruldu. Hadi kontrol edelim.",
                 "updated": 1640616471688
             },
             {
                 "language": "RU",
-                "text": "Торговая система уже настроена. Давайте посмотрим!",
+                "text": "Торговая система уже настроена. Давайте посмотрим.",
                 "updated": 1640854450217
             }
         ]
@@ -41,33 +41,33 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The strategy is already deployed. So let's have a look around to understand it!",
+            "text": "The strategy is already deployed. So let's have a look around to understand it.",
             "updated": 1614243171735,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "ie Strategie ist bereits umgesetzt. Schauen wir sie uns einmal an, um sie zu verstehen!",
+                    "text": "ie Strategie ist bereits umgesetzt. Schauen wir sie uns einmal an, um sie zu verstehen.",
                     "updated": 1622978294304,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "La estrategia ya está desplegada. ¡Así que echemos un vistazo para entenderlo!",
+                    "text": "La estrategia ya está desplegada. ¡Así que echemos un vistazo para entenderlo.",
                     "updated": 1629348191210
                 },
                 {
                     "language": "IT",
-                    "text": "Ho già proveduto a settare l'occorrente e la strategia è già implementata. Diamo un'occhiata in giro!",
+                    "text": "Ho già proveduto a settare l'occorrente e la strategia è già implementata. Diamo un'occhiata in giro.",
                     "updated": 1639075146492
                 },
                 {
                     "language": "TR",
-                    "text": "Strateji çoktan uygulandı. Bunu anlamak için etrafa bir göz atalım!",
+                    "text": "Strateji çoktan uygulandı. Bunu anlamak için etrafa bir göz atalım.",
                     "updated": 1640616484894
                 },
                 {
                     "language": "RU",
-                    "text": "Стратегия уже развернута. Так что давайте осмотримся, чтобы понять ее!",
+                    "text": "Стратегия уже развернута. Так что давайте осмотримся, чтобы понять ее.",
                     "updated": 1640854463200
                 }
             ]
@@ -172,22 +172,22 @@
         },
         {
             "style": "Success",
-            "text": "This tutorial doesn't cover definitions or concepts used in SA. This tutorial is only about how to deploy a strategy!",
+            "text": "This tutorial doesn't cover definitions or concepts used in SA. This tutorial is only about how to deploy a strategy.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dieses Tutorial behandelt keine Definitionen oder Konzepte, die in SA verwendet werden. In diesem Tutorial geht es nur darum, wie man eine Strategie einsetzt!",
+                    "text": "Dieses Tutorial behandelt keine Definitionen oder Konzepte, die in SA verwendet werden. In diesem Tutorial geht es nur darum, wie man eine Strategie einsetzt.",
                     "updated": 1622978385419,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Este tutorial no cubre definiciones o conceptos usados ​​en SA. ¡Este tutorial solo trata sobre cómo implementar una estrategia!",
+                    "text": "Este tutorial no cubre definiciones o conceptos usados ​​en SA. ¡Este tutorial solo trata sobre cómo implementar una estrategia.",
                     "updated": 1629348296182
                 },
                 {
                     "language": "IT",
-                    "text": "Questo tutorial non copre definizioni o concetti utilizzati in SA. Questo tutorial riguarda solo come implementare una strategia!",
+                    "text": "Questo tutorial non copre definizioni o concetti utilizzati in SA. Questo tutorial riguarda solo come implementare una strategia.",
                     "updated": 1639075281490
                 },
                 {
@@ -197,7 +197,7 @@
                 },
                 {
                     "language": "RU",
-                    "text": "В этом учебнике не рассматриваются определения или концепции, используемые в Superalgos. Этот учебник посвящен только тому, как развернуть стратегию!",
+                    "text": "В этом учебнике не рассматриваются определения или концепции, используемые в Superalgos. Этот учебник посвящен только тому, как развернуть стратегию.",
                     "updated": 1640854608376
                 }
             ]

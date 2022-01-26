@@ -7,35 +7,35 @@
             "project": "Foundations",
             "name": "full-board"
         },
-        "text": "I'll get you up to speed with moving around and browsing the charting space in no time... Let's deal with the slider first!",
+        "text": "I'll get you up to speed with moving around and browsing the charting space in no time... Let's deal with the slider first.",
         "translations": [
             {
                 "language": "IT",
-                "text": "Ti insegnerò a muoverti e navigare nel Charting Space in un attimo...occupiamoci prima dello slider!",
+                "text": "Ti insegnerò a muoverti e navigare nel Charting Space in un attimo...occupiamoci prima dello slider.",
                 "updated": 1614846929188,
                 "style": "Definition"
             },
             {
                 "language": "ID",
-                "text": "Aku akan mempercepat gerakmu dalam berkeliling dan menelusuri charting space dengan cepat... Mari coba slider duluan!",
+                "text": "Aku akan mempercepat gerakmu dalam berkeliling dan menelusuri charting space dengan cepat... Mari coba slider duluan.",
                 "updated": 1616932890422,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Te pondré al día para moverte y navegar por el Charting Space en poco tiempo ... ¡Primero tratemos con el control deslizante!",
+                "text": "Te pondré al día para moverte y navegar por el Charting Space en poco tiempo ... ¡Primero tratemos con el control deslizante.",
                 "updated": 1624380106206,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich bringe Sie in kürzester Zeit dazu, sich im Charting Space zu bewegen und zu blättern... Kümmern wir uns zuerst um den Schieberegler!",
+                "text": "Ich bringe Sie in kürzester Zeit dazu, sich im Charting Space zu bewegen und zu blättern... Kümmern wir uns zuerst um den Schieberegler.",
                 "updated": 1634205702474,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Hiç vakit kaybetmeden dolaşarak ve çizelge alanına göz atarak sizi hızlandıracağım... Önce kaydırıcıyı ele alalım!",
+                "text": "Hiç vakit kaybetmeden dolaşarak ve çizelge alanına göz atarak sizi hızlandıracağım... Önce kaydırıcıyı ele alalım.",
                 "updated": 1636034139286
             },
             {
@@ -53,11 +53,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Click it and drag it down to close the design space and open the charting space. Do the opposite for the reversed effect. To do it with the keyboard, hit Ctrl + Shift + ↓. Try ↑ ← →  too!",
+            "text": "Click it and drag it down to close the design space and open the charting space. Do the opposite for the reversed effect. To do it with the keyboard, hit Ctrl + Shift + ↓. Try ↑ ← →  too.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Clicca lo slider e trascinalo verso il basso per chiudere il design space e aprire lo charting space. Trascinalo verso l'alto per ottenere il risultato opposto. Per farlo con la tastiera, usa Ctrl + Shift + ↓. Prova anche con ↑ ← → !",
+                    "text": "Clicca lo slider e trascinalo verso il basso per chiudere il design space e aprire lo charting space. Trascinalo verso l'alto per ottenere il risultato opposto. Per farlo con la tastiera, usa Ctrl + Shift + ↓. Prova anche con ↑ ← → .",
                     "updated": 1614847060275,
                     "style": "Callout"
                 },
@@ -69,7 +69,7 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Haz clic en él y arrástralo hacia abajo para cerrar el Desing Space y abrir el Charting Space. Haz lo contrario para el efecto inverso. Para hacerlo con el teclado, ¡presiona tambien Ctrl + Shift + ↓. Prueba ↑ ← → !",
+                    "text": "Haz clic en él y arrástralo hacia abajo para cerrar el Desing Space y abrir el Charting Space. Haz lo contrario para el efecto inverso. Para hacerlo con el teclado, ¡presiona tambien Ctrl + Shift + ↓. Prueba ↑ ← → .",
                     "updated": 1627304209765,
                     "style": "Callout"
                 },
@@ -81,17 +81,17 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Tasarım alanını kapatmak ve grafik alanını açmak için turkuaz bölgeyi tıklayarak aşağıya çekin. Kapatmak için tersini yapabilirsiniz. Bunu klavyeyle yapmak için Ctrl + Shift + ↓ tuşlarına basın. ↑ ← →.. Diğer yön tuşlarını da deneyin!",
+                    "text": "Tasarım alanını kapatmak ve grafik alanını açmak için turkuaz bölgeyi tıklayarak aşağıya çekin. Kapatmak için tersini yapabilirsiniz. Bunu klavyeyle yapmak için Ctrl + Shift + ↓ tuşlarına basın. ↑ ← →.. Diğer yön tuşlarını da deneyin.",
                     "updated": 1636034296397
                 },
                 {
                     "language": "RU",
-                    "text": "Щелкните по нему левой кнопкой мыши и перетащите вниз, чтобы закрыть область проектирования и открыть область построения графиков. Вернитесь в исходное положение. Чтобы сделать это с помощью клавиатуры, нажмите Ctrl + Shift + ↓. Попробуйте также ↑ ← → !",
+                    "text": "Щелкните по нему левой кнопкой мыши и перетащите вниз, чтобы закрыть область проектирования и открыть область построения графиков. Вернитесь в исходное положение. Чтобы сделать это с помощью клавиатуры, нажмите Ctrl + Shift + ↓. Попробуйте также ↑ ← → .",
                     "updated": 1636198484982
                 },
                 {
                     "language": "NL",
-                    "text": "Klik en sleep de balk naar beneden om de design space te sluiten en de charting space te openen. Andersom heeft het omgekeerde effect. Met het keyboard druk op: Ctrl + Shift + ↓. Probeer ↑ ← → ook!",
+                    "text": "Klik en sleep de balk naar beneden om de design space te sluiten en de charting space te openen. Andersom heeft het omgekeerde effect. Met het keyboard druk op: Ctrl + Shift + ↓. Probeer ↑ ← → ook.",
                     "updated": 1638781947765
                 }
             ]

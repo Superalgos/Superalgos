@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "initial-targets"
         },
-        "text": "For the target rate, we can use the same principle as earlier: chart.at01hs.candle.close Use it for the formula!",
+        "text": "For the target rate, we can use the same principle as earlier: chart.at01hs.candle.close Use it for the formula.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Für den Zielkurs können wir das gleiche Prinzip wie zuvor verwenden: chart.at01hs.candle.close Verwenden Sie es für die Formel!",
+                "text": "Für den Zielkurs können wir das gleiche Prinzip wie zuvor verwenden: chart.at01hs.candle.close Verwenden Sie es für die Formel.",
                 "updated": 1639417705751
             }
         ]
@@ -52,11 +52,11 @@
         },
         {
             "style": "Callout",
-            "text": "Consider the above and pay a visit to the Trading Engine. Find the nodes that store the information we need and try to come up with a formula for the target size!",
+            "text": "Consider the above and pay a visit to the Trading Engine. Find the nodes that store the information we need and try to come up with a formula for the target size.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Berücksichtigen Sie die oben genannten Punkte und besuchen Sie die Trading Engine. Suchen Sie die Knoten, die die benötigten Informationen speichern, und versuchen Sie, eine Formel für die Zielgröße zu finden!",
+                    "text": "Berücksichtigen Sie die oben genannten Punkte und besuchen Sie die Trading Engine. Suchen Sie die Knoten, die die benötigten Informationen speichern, und versuchen Sie, eine Formel für die Zielgröße zu finden.",
                     "updated": 1639417738121
                 }
             ]

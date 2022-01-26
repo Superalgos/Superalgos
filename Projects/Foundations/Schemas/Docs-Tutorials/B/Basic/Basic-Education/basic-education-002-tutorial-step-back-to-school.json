@@ -3,7 +3,7 @@
     "pageNumber": 2,
     "type": "Tutorial Step - Back to School!",
     "definition": {
-        "text": "I hear my friend the Welcome tutorial showed you around and mesmerized you with a few cheap tricks... What a show-off!",
+        "text": "I hear my friend the Welcome tutorial showed you around and mesmerized you with a few cheap tricks... What a show-off.",
         "updated": 1615310208456,
         "icon": {
             "name": "Tutorial\\tutorial",
@@ -11,20 +11,26 @@
         },
         "translations": [
             {
+                "language": "FR",
+                "text": "Semble-t-il que mon ami le tutoriel de Bienvenue t'as montre pleins d'astuces ingenieuses... Bah, il avait besoin d'attention!",
+                "updated": 1619458689320,
+                "style": "Definition"
+            },
+            {
                 "language": "IT",
-                "text": "Ho sentito che il mio amico, Welcome Tutorial, ti ha fatto fare un giro e stupito con qualche banale trucchetto...che esibizionista!",
+                "text": "Ho sentito che il mio amico, Welcome Tutorial, ti ha fatto fare un giro e stupito con qualche banale trucchetto...che esibizionista.",
                 "updated": 1619458689320,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Escuché que mi amigo el Welcome Tutorial te mostró todo y te hipnotizó con algunos trucos baratos... ¡Qué presumido!",
+                "text": "Escuché que mi amigo el Welcome Tutorial te mostró todo y te hipnotizó con algunos trucos baratos... ¡Qué presumido.",
                 "updated": 1625934965685,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich habe gehört, dass mein Freund, das Willkommens-Tutorial, dich herumgeführt und mit ein paar billigen Tricks hypnotisiert hat... Was für eine Angeber!",
+                "text": "Ich habe gehört, dass mein Freund, das Willkommens-Tutorial, dich herumgeführt und mit ein paar billigen Tricks hypnotisiert hat... Was für eine Angeber.",
                 "updated": 1634296891537
             },
             {
@@ -34,7 +40,7 @@
             },
             {
                 "language": "ID",
-                "text": "Aku mendengar temanku  Welcome to Superalgos Tutorial menunjukkan kamu sekeliling bot serta memperkenalkan beberapa trik mudah... Pertunjukan yang luar biasa bukan!",
+                "text": "Aku mendengar temanku  Welcome to Superalgos Tutorial menunjukkan kamu sekeliling bot serta memperkenalkan beberapa trik mudah... Pertunjukan yang luar biasa bukan.",
                 "updated": 1641093078598
             }
         ]
@@ -42,34 +48,40 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "Well, now it's time to work!",
-            "updated": 1615310150633,
+            "text": "Well, now it's time to get to work.",
+            "updated": 1643170927659,
             "translations": [
                 {
+                    "language": "FR",
+                    "text": "Peu importe, maintenant c'est le temps de passer aux choses serieuses",
+                    "updated": 1619458717851,
+                    "style": "Note"
+                },
+                {
                     "language": "IT",
-                    "text": "Beh, ora è il momento di fare sul serio!",
+                    "text": "Beh, ora è il momento di fare sul serio.",
                     "updated": 1619458717851,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "Bueno, ¡ahora es el momento de trabajar!",
+                    "text": "Bueno, ¡ahora es el momento de trabajar.",
                     "updated": 1625934949953,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Nun, jetzt ist es an der Zeit zu arbeiten!",
+                    "text": "Nun, jetzt ist es an der Zeit zu arbeiten.",
                     "updated": 1634296898849
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdi çalışma zamanı!",
+                    "text": "Şimdi çalışma zamanı.",
                     "updated": 1636698045347
                 },
                 {
                     "language": "ID",
-                    "text": "Nah, sekarang saatnya untuk kita bekerja!",
+                    "text": "Nah, sekarang saatnya untuk kita bekerja.",
                     "updated": 1641092624533
                 }
             ]
@@ -78,6 +90,12 @@
             "style": "Text",
             "text": "Learning Superalgos is quite an endeavor! Not because it's difficult, but because the system is vast, extremely flexible, and is built on a new paradigm that is not obvious in the beginning...",
             "translations": [
+                {
+                    "language": "FR",
+                    "text": "Apprendre Superalgos est toute une entreprise! Not because it's difficult, but because the system is vast, extremely flexible, and is built on a new paradigm that is not obvious in the beginning...",
+                    "updated": 1619458791004,
+                    "style": "Text"
+                },
                 {
                     "language": "IT",
                     "text": "Imparare Superalgos è impegantivo! Non perchè sia difficile, ma perchè il sistema è vasto, molto flessibile e costruito secondo un nuovo paradigma che non è scontato all'inizio...",
@@ -109,34 +127,40 @@
         },
         {
             "style": "Callout",
-            "text": "But don't worry! If you pay attention and do all available tutorials, you will be able to tackle the learning curve like a champ! Still, be warned... most people do tutorials more than once!",
+            "text": "But don't worry! If you pay attention and do all available tutorials, you will be able to tackle the learning curve like a champ! Still, be warned... most people do tutorials more than once.",
             "updated": 1616241028048,
             "translations": [
                 {
+                    "language": "FR",
+                    "text": "Mais ne t'en fait pas! En portant attention a toutes les lecons, tu arriveras a maitriser l'environement comme un champion!, Sache quand meme que plusieurs personnes refont les tutoriels plus d'une fois",
+                    "updated": 1619458852073,
+                    "style": "Callout"
+                },
+                {
                     "language": "IT",
-                    "text": "Ma non preoccuparti! Se presti attenzione e segui i tutorial, imparerai tutto in un battibaleno! In ogni caso, sappi che molte persone rileggono i tutorial più di una volta!",
+                    "text": "Ma non preoccuparti! Se presti attenzione e segui i tutorial, imparerai tutto in un battibaleno! In ogni caso, sappi che molte persone rileggono i tutorial più di una volta.",
                     "updated": 1619458852073,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Pero no te preocupes! Si prestas atención y haces todos los tutoriales disponibles, ¡podrás afrontar la curva de aprendizaje como un campeón! Aún así, ten cuidado... ¡la mayoría de la gente hace los tutoriales más de una vez!",
+                    "text": "¡Pero no te preocupes! Si prestas atención y haces todos los tutoriales disponibles, ¡podrás afrontar la curva de aprendizaje como un campeón! Aún así, ten cuidado... ¡la mayoría de la gente hace los tutoriales más de una vez.",
                     "updated": 1625935125952,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Aber keine Sorge! Wenn Sie aufmerksam sind und alle verfügbaren Tutorials absolvieren, werden Sie die Lernkurve wie ein Champion meistern! Aber seien Sie gewarnt... die meisten Leute machen die Tutorials mehr als einmal!",
+                    "text": "Aber keine Sorge! Wenn Sie aufmerksam sind und alle verfügbaren Tutorials absolvieren, werden Sie die Lernkurve wie ein Champion meistern! Aber seien Sie gewarnt... die meisten Leute machen die Tutorials mehr als einmal.",
                     "updated": 1634296988459
                 },
                 {
                     "language": "TR",
-                    "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır!",
+                    "text": "Ama endişelenme! Dikkatinizi verir ve mevcut tüm eğitimleri yaparsanız, bir şampiyon gibi öğrenme eğrisinin üstesinden gelebileceksiniz! Yine de uyaralım... Çoğu insan öğreticileri bir kereden fazla kullanır.",
                     "updated": 1636698446384
                 },
                 {
                     "language": "ID",
-                    "text": "Tapi jangan khawatir! Jika kamu memperhatikan dan mengikuti semua tutorial yang ada, Kamu akan dapat mengatasi kesulitan dengan mudah! Tetap harus diperhatikan... kebanyakan orang melakukan tutorial lebih dari sekali!",
+                    "text": "Tapi jangan khawatir! Jika kamu memperhatikan dan mengikuti semua tutorial yang ada, Kamu akan dapat mengatasi kesulitan dengan mudah! Tetap harus diperhatikan... kebanyakan orang melakukan tutorial lebih dari sekali.",
                     "updated": 1641092815981
                 }
             ]

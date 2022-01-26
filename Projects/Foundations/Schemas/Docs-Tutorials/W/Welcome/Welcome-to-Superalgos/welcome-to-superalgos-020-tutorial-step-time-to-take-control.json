@@ -7,35 +7,35 @@
             "name": "Key\\key-ctrl",
             "project": "Foundations"
         },
-        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space!",
+        "text": "Yes! You may use your keyboard too! You are going to love this for long-distance travel on the design space.",
         "translations": [
             {
                 "language": "IT",
-                "text": "Oh sì! Puoi usare anche la tastiera! Fidati, la adorerai per gli spostamenti a lunga distanza nel Design Space!",
+                "text": "Oh sì! Puoi usare anche la tastiera! Fidati, la adorerai per gli spostamenti a lunga distanza nel Design Space.",
                 "updated": 1614789336258,
                 "style": "Definition"
             },
             {
                 "language": "ID",
-                "text": "Kamu juga bisa menggunakan Keyboard! Kamu akan sangat suka dengan hal yang memudahkanmu ini!",
+                "text": "Kamu juga bisa menggunakan Keyboard! Kamu akan sangat suka dengan hal yang memudahkanmu ini.",
                 "updated": 1616698667228,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Sí, también puede utilizar su teclado. ¡Te encantara para los desplazamientos de larga distancia en el Desing Space!",
+                "text": "Sí, también puede utilizar su teclado. ¡Te encantara para los desplazamientos de larga distancia en el Desing Space.",
                 "updated": 1624285512726,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ja! Sie können auch Ihre Tastatur benutzen! Sie werden es lieben, wenn Sie lange Strecken im Design Space zurücklegen!",
+                "text": "Ja! Sie können auch Ihre Tastatur benutzen! Sie werden es lieben, wenn Sie lange Strecken im Design Space zurücklegen.",
                 "updated": 1634164018809,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor lange reizen op de ontwerpruimte!",
+                "text": "Jazeker! je mag je keyboard ook gebruiken! Je gaat dit geweldig vinden voor lange reizen op de ontwerpruimte.",
                 "updated": 1634927272967,
                 "style": "Definition"
             },
@@ -103,30 +103,30 @@
         },
         {
             "style": "Note",
-            "text": "Notice that keeping the keys pressed makes you fly!",
+            "text": "Notice that keeping the keys pressed makes you fly.",
             "updated": 1610614056593,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Tenere premuti i tasti ti farà volare!",
+                    "text": "Tenere premuti i tasti ti farà volare.",
                     "updated": 1614788606698,
                     "style": "Note"
                 },
                 {
                     "language": "ID",
-                    "text": "Mengingat shortcut ini akan memudahkan jalanmu!",
+                    "text": "Mengingat shortcut ini akan memudahkan jalanmu.",
                     "updated": 1616698784809,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Fíjate como mantener las teclas pulsadas te hará volar!",
+                    "text": "¡Fíjate como mantener las teclas pulsadas te hará volar.",
                     "updated": 1624285662132,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn du die Tasten gedrückt hältst, fliegst du!",
+                    "text": "Wenn du die Tasten gedrückt hältst, fliegst du.",
                     "updated": 1634164099969,
                     "style": "Note"
                 },
@@ -138,13 +138,13 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Обратите внимание, что удержание нажатых клавиш заставляет Вас летать!",
+                    "text": "Обратите внимание, что удержание нажатых клавиш заставляет Вас летать.",
                     "updated": 1635608711456,
                     "style": "Note"
                 },
                 {
                     "language": "TR",
-                    "text": "Tuşları basılı tutmanın sizi uçurucağına dikkat edin!",
+                    "text": "Tuşları basılı tutmanın sizi uçurucağına dikkat edin.",
                     "updated": 1635945760749
                 }
             ]

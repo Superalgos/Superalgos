@@ -75,11 +75,11 @@
         },
         {
             "style": "Text",
-            "text": "We'll give it a few minutes to catch up with the present time. Remember, all indicators must get to 100% before we can start trading!",
+            "text": "We'll give it a few minutes to catch up with the present time. Remember, all indicators must get to 100% before we can start trading.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Aspettiamo un paio di minuti perchè si aggiorni alla data e ora correnti. Ricorda che tutti gli indicatori devono essere a 100% prima che iniziamo a fare trading!",
+                    "text": "Aspettiamo un paio di minuti perchè si aggiorni alla data e ora correnti. Ricorda che tutti gli indicatori devono essere a 100% prima che iniziamo a fare trading.",
                     "updated": 1618071103032,
                     "style": "Text"
                 },
@@ -91,17 +91,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wir geben der Maschine ein paar Minuten Zeit, um sich an die aktuelle Zeit anzupassen. Denken Sie daran, dass alle Indikatoren auf 100 % stehen müssen, bevor wir mit dem Handel beginnen können!",
+                    "text": "Wir geben der Maschine ein paar Minuten Zeit, um sich an die aktuelle Zeit anzupassen. Denken Sie daran, dass alle Indikatoren auf 100 % stehen müssen, bevor wir mit dem Handel beginnen können.",
                     "updated": 1634244605109
                 },
                 {
                     "language": "TR",
-                    "text": "Şu ana kadar olan veriyi indirebilmesi için ona birkaç dakika vereceğiz. Ticarete başlayabilmemiz için tüm göstergelerin %100'e ulaşması gerektiğini unutmayın!",
+                    "text": "Şu ana kadar olan veriyi indirebilmesi için ona birkaç dakika vereceğiz. Ticarete başlayabilmemiz için tüm göstergelerin %100'e ulaşması gerektiğini unutmayın.",
                     "updated": 1636571904392
                 },
                 {
                     "language": "ID",
-                    "text": "Kita akan tunggu beberapa menit untuk mengejar ketinggalan timeframe dengan waktu sekarang. Ingat, semua indicators harus mencapai 100% sebelum kita dapat memulai trading!",
+                    "text": "Kita akan tunggu beberapa menit untuk mengejar ketinggalan timeframe dengan waktu sekarang. Ingat, semua indicators harus mencapai 100% sebelum kita dapat memulai trading.",
                     "updated": 1640576297818
                 }
             ]

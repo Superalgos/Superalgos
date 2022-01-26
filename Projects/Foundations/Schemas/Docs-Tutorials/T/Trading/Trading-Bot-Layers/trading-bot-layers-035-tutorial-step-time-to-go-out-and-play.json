@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "play"
         },
-        "text": "That's all folks! We've covered it all! Now it's time to go out and play! Have fun!",
+        "text": "That's all folks! We've covered it all! Now it's time to go out and play! Have fun.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Das war's, Leute! Wir haben alles besprochen! Jetzt ist es an der Zeit, rauszugehen und zu spielen! Habt Spaß!",
+                "text": "Das war's, Leute! Wir haben alles besprochen! Jetzt ist es an der Zeit, rauszugehen und zu spielen! Habt Spaß.",
                 "updated": 1639146094367
             },
             {
                 "language": "RU",
-                "text": "Вот и все, друзья! Мы рассказали обо всем! Теперь пора выходить и поиграть! Развлекайтесь!",
+                "text": "Вот и все, друзья! Мы рассказали обо всем! Теперь пора выходить и поиграть! Развлекайтесь.",
                 "updated": 1640631960463
             }
         ]
@@ -57,16 +57,16 @@
         },
         {
             "style": "Success",
-            "text": "Drop by the documentation for more info!",
+            "text": "Drop by the documentation for more info.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schauen Sie in der Dokumentation nach, um mehr zu erfahren!",
+                    "text": "Schauen Sie in der Dokumentation nach, um mehr zu erfahren.",
                     "updated": 1639146184287
                 },
                 {
                     "language": "RU",
-                    "text": "Загляните в документацию для получения дополнительной информации!",
+                    "text": "Загляните в документацию для получения дополнительной информации.",
                     "updated": 1640632113660
                 }
             ]

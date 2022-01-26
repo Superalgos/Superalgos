@@ -7,11 +7,11 @@
             "name": "Layer\\layer",
             "project": "Foundations"
         },
-        "text": "Remember the Feb 28th case we analyzed in the previous tutorial? This is it! This is the position we got from the rules defined!",
+        "text": "Remember the Feb 28th case we analyzed in the previous tutorial? This is it! This is the position we got from the rules defined.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Erinnern Sie sich an den Fall vom 28. Februar, den wir im vorigen Lehrgang analysiert haben? Das ist er! Dies ist die Position, die wir durch die definierten Regeln erhalten haben!",
+                "text": "Erinnern Sie sich an den Fall vom 28. Februar, den wir im vorigen Lehrgang analysiert haben? Das ist er! Dies ist die Position, die wir durch die definierten Regeln erhalten haben.",
                 "updated": 1639418325323
             }
         ]
@@ -19,22 +19,22 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Take a moment to study what the simulation object layers show!",
+            "text": "Take a moment to study what the simulation object layers show.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Nehmen Sie sich einen Moment Zeit, um zu sehen, was die Simulationsobjektebenen zeigen!",
+                    "text": "Nehmen Sie sich einen Moment Zeit, um zu sehen, was die Simulationsobjektebenen zeigen.",
                     "updated": 1639418340766
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Let's turn on a few more Simulation Object layers: Trigger, Open, Manage, and Close Stages!",
+            "text": "Let's turn on a few more Simulation Object layers: Trigger, Open, Manage, and Close Stages.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schalten wir ein paar weitere Simulationsobjektebenen ein: Trigger, Open, Manage, und Close Stages!",
+                    "text": "Schalten wir ein paar weitere Simulationsobjektebenen ein: Trigger, Open, Manage, und Close Stages.",
                     "updated": 1639418349269
                 }
             ]

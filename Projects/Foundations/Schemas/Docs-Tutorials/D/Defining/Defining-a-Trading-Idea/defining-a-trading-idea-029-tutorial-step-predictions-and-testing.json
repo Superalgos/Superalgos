@@ -7,16 +7,16 @@
             "name": "User\\user-defined-statistic",
             "project": "Foundations"
         },
-        "text": "It's not like we're trying to divine the future and will get graded on our accuracy! The prediction is more like an expectation!",
+        "text": "It's not like we're trying to divine the future and will get graded on our accuracy! The prediction is more like an expectation.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Es ist nicht so, dass wir versuchen, die Zukunft vorherzusagen und nach unserer Genauigkeit benotet werden! Die Vorhersage ist eher eine Erwartung!",
+                "text": "Es ist nicht so, dass wir versuchen, die Zukunft vorherzusagen und nach unserer Genauigkeit benotet werden! Die Vorhersage ist eher eine Erwartung.",
                 "updated": 1639253706435
             },
             {
                 "language": "TR",
-                "text": "Özet: Geleceği tahmin etmeye çalışmıyoruz ve doğruluğumuza göre derecelendirileceğiz! Tahmin, daha çok bir beklenti gibidir!",
+                "text": "Özet: Geleceği tahmin etmeye çalışmıyoruz ve doğruluğumuza göre derecelendirileceğiz! Tahmin, daha çok bir beklenti gibidir.",
                 "updated": 1640952477553
             }
         ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Note",
-            "text": "Remember! This doesn't mean that is how we would manage the positions! It's just to evaluate the entry points!",
+            "text": "Remember! This doesn't mean that is how we would manage the positions! It's just to evaluate the entry points.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie daran! Das bedeutet nicht, dass wir die Positionen so verwalten würden! Es geht nur darum, die Einstiegspunkte zu bewerten!",
+                    "text": "Denken Sie daran! Das bedeutet nicht, dass wir die Positionen so verwalten würden! Es geht nur darum, die Einstiegspunkte zu bewerten.",
                     "updated": 1639253736278
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Unutma! Bu, pozisyonları böyle yöneteceğimiz anlamına gelmez! Sadece giriş noktalarını değerlendirmek için!",
+                    "text": "Not: Unutma! Bu, pozisyonları böyle yöneteceğimiz anlamına gelmez! Sadece giriş noktalarını değerlendirmek için.",
                     "updated": 1640952778819
                 }
             ]

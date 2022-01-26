@@ -3,7 +3,7 @@
     "pageNumber": 12,
     "type": "Tutorial Step - Let's Switch Already!",
     "definition": {
-        "text": "Now that everything's clear, let's do the switch and get ready for what comes next!",
+        "text": "Now that everything's clear, let's do the switch and get ready for what comes next.",
         "icon": {
             "name": "Docs\\docs-success-style",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ora che è tutto chiaro, cambiamo branch e prepariamoci per i prossimi step!",
+                "text": "Ora che è tutto chiaro, cambiamo branch e prepariamoci per i prossimi step.",
                 "updated": 1619634720704,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Ahora que todo está claro, ¡hagamos el cambio y prepárete para lo que viene a continuación!",
+                "text": "Ahora que todo está claro, ¡hagamos el cambio y prepárete para lo que viene a continuación.",
                 "updated": 1628127987969,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Jetzt, wo alles klar ist, können wir den Wechsel vornehmen und uns auf das vorbereiten, was als nächstes kommt!",
+                "text": "Jetzt, wo alles klar ist, können wir den Wechsel vornehmen und uns auf das vorbereiten, was als nächstes kommt.",
                 "updated": 1635147821432
             },
             {
                 "language": "RU",
-                "text": "Теперь, когда все ясно, давайте сделаем переключение и подготовимся к тому, что будет дальше!",
+                "text": "Теперь, когда все ясно, давайте сделаем переключение и подготовимся к тому, что будет дальше.",
                 "updated": 1640158571387
             },
             {
                 "language": "TR",
-                "text": "Artık her şeyi hallettiğimize göre, geçiş yapalım ve bundan sonra olacaklara hazırlanalım!",
+                "text": "Artık her şeyi hallettiğimize göre, geçiş yapalım ve bundan sonra olacaklara hazırlanalım.",
                 "updated": 1640419466455
             }
         ]
@@ -173,12 +173,12 @@
         },
         {
             "style": "List",
-            "text": "Find the Beyond the Basics Tutorial in the bottom-right corner of the workspace and select \"Resume\" on the menu! If \"Resume\" doesn't work, find the \"Welcome Back!\" step under the Branches Topic and click \"Play\" on the menu!",
+            "text": "Find the Beyond the Basics Tutorial in the bottom-right corner of the workspace and select \"Resume\" on the menu! If \"Resume\" doesn't work, find the \"Welcome Back!\" step under the Branches Topic and click \"Play\" on the menu.",
             "updated": 1622389621077,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Cerca il Beyond the Basics Tutorial nell'angolo in basso a destra del Workspace e premi Resume! Se non funziona, cerca lo step \"Welcome Back!\" sotto il Branches Topic e premi Play sul menù!",
+                    "text": "Cerca il Beyond the Basics Tutorial nell'angolo in basso a destra del Workspace e premi Resume! Se non funziona, cerca lo step \"Welcome Back!\" sotto il Branches Topic e premi Play sul menù.",
                     "updated": 1619634936378,
                     "style": "List"
                 },
@@ -190,17 +190,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Suchen Sie das Beyond the Basics Tutorial in der unteren rechten Ecke des Arbeitsbereichs und wählen Sie \"Resume\" im Menü! Wenn \"Fortsetzen\" nicht funktioniert, suchen Sie den Schritt \"Welcome Back!\" unter dem Thema Zweige und klicken Sie im Menü auf \"Abspielen\"!",
+                    "text": "Suchen Sie das Beyond the Basics Tutorial in der unteren rechten Ecke des Arbeitsbereichs und wählen Sie \"Resume\" im Menü! Wenn \"Fortsetzen\" nicht funktioniert, suchen Sie den Schritt \"Welcome Back!\" unter dem Thema Zweige und klicken Sie im Menü auf \"Abspielen\".",
                     "updated": 1635147950486
                 },
                 {
                     "language": "RU",
-                    "text": "Найдите учебник Beyond the Basics в правом нижнем углу рабочего пространства и выберите \"Resume\" в меню! Если \"Resume\" не работает, найдите шаг \"Welcome Back!\" в разделе Branches Topic и нажмите \"Play\" в меню!",
+                    "text": "Найдите учебник Beyond the Basics в правом нижнем углу рабочего пространства и выберите \"Resume\" в меню! Если \"Resume\" не работает, найдите шаг \"Welcome Back!\" в разделе Branches Topic и нажмите \"Play\" в меню.",
                     "updated": 1640158754087
                 },
                 {
                     "language": "TR",
-                    "text": "Çalışma alanının sağ alt köşesinde Beyond The Basics Tutorial Eğitimini bulun ve menüden Resune'u (Devam Et) seçin! Resum (Devam Et) çalışmıyorsa, \"Welcome Back!\" Butonunu bulun. Branches Konusu'nun altına girin ve menüden \"Oynat\"a tıklayın!",
+                    "text": "Çalışma alanının sağ alt köşesinde Beyond The Basics Tutorial Eğitimini bulun ve menüden Resune'u (Devam Et) seçin! Resum (Devam Et) çalışmıyorsa, \"Welcome Back!\" Butonunu bulun. Branches Konusu'nun altına girin ve menüden \"Oynat\"a tıklayın.",
                     "updated": 1640424871004
                 }
             ]

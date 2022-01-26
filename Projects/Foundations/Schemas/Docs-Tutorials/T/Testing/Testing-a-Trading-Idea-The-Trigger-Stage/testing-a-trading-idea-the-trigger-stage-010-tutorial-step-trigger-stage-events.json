@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "trigger-stage"
         },
-        "text": "In a way, strategies are defined as a collection of events. The events that trigger a Trading Strategy are the first to consider!",
+        "text": "In a way, strategies are defined as a collection of events. The events that trigger a Trading Strategy are the first to consider.",
         "translations": [
             {
                 "language": "DE",
-                "text": "In gewisser Weise sind Strategien als eine Sammlung von Ereignissen definiert. Die Ereignisse, die eine Trading Strategy auslösen, sind die ersten, die zu berücksichtigen sind!",
+                "text": "In gewisser Weise sind Strategien als eine Sammlung von Ereignissen definiert. Die Ereignisse, die eine Trading Strategy auslösen, sind die ersten, die zu berücksichtigen sind.",
                 "updated": 1639261510759
             },
             {
                 "language": "TR",
-                "text": "Bir bakıma stratejiler bir olaylar topluluğu olarak tanımlanır. Bir Ticaret Stratejisini ( Trading Strategy ) tetikleyen olaylar, ilk dikkate alınanlardır!",
+                "text": "Bir bakıma stratejiler bir olaylar topluluğu olarak tanımlanır. Bir Ticaret Stratejisini ( Trading Strategy ) tetikleyen olaylar, ilk dikkate alınanlardır.",
                 "updated": 1641064952762
             }
         ]
@@ -73,17 +73,17 @@
         },
         {
             "style": "Callout",
-            "text": "If you haven't yet, please read this page to get up to speed with these concepts! If you've read this page before, a refresher wouldn't hurt!",
+            "text": "If you haven't yet, please read this page to get up to speed with these concepts! If you've read this page before, a refresher wouldn't hurt.",
             "updated": 1617190236835,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie diese Seite noch nicht gelesen haben, sollten Sie sich mit diesen Konzepten vertraut machen! Wenn Sie diese Seite bereits gelesen haben, kann eine Auffrischung nicht schaden!",
+                    "text": "Wenn Sie diese Seite noch nicht gelesen haben, sollten Sie sich mit diesen Konzepten vertraut machen! Wenn Sie diese Seite bereits gelesen haben, kann eine Auffrischung nicht schaden.",
                     "updated": 1639261608485
                 },
                 {
                     "language": "TR",
-                    "text": "Henüz yapmadıysanız, bu kavramları hızlandırmak için lütfen bu sayfayı okuyun! Bu sayfayı daha önce okuduysanız, bilginizi tazelemekten zarar gelmez!",
+                    "text": "Henüz yapmadıysanız, bu kavramları hızlandırmak için lütfen bu sayfayı okuyun! Bu sayfayı daha önce okuduysanız, bilginizi tazelemekten zarar gelmez.",
                     "updated": 1641065124395
                 }
             ]

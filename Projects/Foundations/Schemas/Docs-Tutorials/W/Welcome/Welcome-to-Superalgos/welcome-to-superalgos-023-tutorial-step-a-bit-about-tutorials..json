@@ -55,60 +55,60 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "In brief, you're the boss!",
+            "text": "In brief, you're the boss.",
             "updated": 1616415192952,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per farla breve, sei tu il capo!",
+                    "text": "Per farla breve, sei tu il capo.",
                     "updated": 1618646159860,
                     "style": "Success"
                 },
                 {
                     "language": "ID",
-                    "text": "Secara singkat: Kamu adalah Bossnya!",
+                    "text": "Secara singkat: Kamu adalah Bossnya.",
                     "updated": 1616766454759,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "En resumen, ¡tu eres el Jefe!",
+                    "text": "En resumen, ¡tu eres el Jefe.",
                     "updated": 1627303058091,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Kurz gesagt: Sie sind der Boss!",
+                    "text": "Kurz gesagt: Sie sind der Boss.",
                     "updated": 1634165360945,
                     "style": "Success"
                 },
                 {
                     "language": "NL",
-                    "text": "In het kort: Jij bent de baas!",
+                    "text": "In het kort: Jij bent de baas.",
                     "updated": 1635181400130,
                     "style": "Success"
                 },
                 {
                     "language": "RU",
-                    "text": "Вкратце, Вы - главный!",
+                    "text": "Вкратце, Вы - главный.",
                     "updated": 1635610786071,
                     "style": "Success"
                 },
                 {
                     "language": "TR",
-                    "text": "Kısacası patron sensin!",
+                    "text": "Kısacası patron sensin.",
                     "updated": 1635952544111
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom section of the design space. Select Resume on the menu to start where you left, or on the first step you  skipped. Select Play to start from the beginning!",
+            "text": "You may stop a tutorial and skip steps—or entire topics—at any point. Once you're ready to pick up the lesson again, find us on the bottom section of the design space. Select Resume on the menu to start where you left, or on the first step you  skipped. Select Play to start from the beginning.",
             "updated": 1616415232478,
             "translations": [
                 {
                     "language": "ID",
-                    "text": " Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal!",
+                    "text": " Kamu dapat mematikan tutorial atau skip step disetiap topik dan point. Setelah kamu siap untuk belajar lagi, temukan kami dipojok kiri-bawah design space. Pilih Resume di menu untuk memulai yang kamu tinggalkan, atau step pertama yang diskip. Pilih Play untuk memulai dari awal.",
                     "updated": 1616766476966,
                     "style": "Text"
                 },
@@ -120,25 +120,25 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sie können ein Tutorial jederzeit unterbrechen und Schritte - oder ganze Themen - überspringen. Wenn Sie bereit sind, die Lektion fortzusetzen, finden Sie uns im unteren Bereich der Designfläche. Wählen Sie im Menü Resume , um dort anzufangen, wo Sie aufgehört haben, oder beim ersten Schritt, den Sie übersprungen haben. Wählen Sie Play , um von vorne zu beginnen!",
+                    "text": "Sie können ein Tutorial jederzeit unterbrechen und Schritte - oder ganze Themen - überspringen. Wenn Sie bereit sind, die Lektion fortzusetzen, finden Sie uns im unteren Bereich der Designfläche. Wählen Sie im Menü Resume , um dort anzufangen, wo Sie aufgehört haben, oder beim ersten Schritt, den Sie übersprungen haben. Wählen Sie Play , um von vorne zu beginnen.",
                     "updated": 1634165366034,
                     "style": "Text"
                 },
                 {
                     "language": "NL",
-                    "text": "Je kunt een tutorial onderbreken en stappen, of hele onderwerpen, op elk gewenst moment overslaan. Als je er klaar voor bent om de les weer op te pakken, vind je ons in het onderste deel van de ontwerpruimte. Klik op Resume in het menu om verder te gaan waar je was gebleven, of bij de eerste stap die je hebt overgeslagen. Klik op Play om vanaf het begin te beginnen!",
+                    "text": "Je kunt een tutorial onderbreken en stappen, of hele onderwerpen, op elk gewenst moment overslaan. Als je er klaar voor bent om de les weer op te pakken, vind je ons in het onderste deel van de ontwerpruimte. Klik op Resume in het menu om verder te gaan waar je was gebleven, of bij de eerste stap die je hebt overgeslagen. Klik op Play om vanaf het begin te beginnen.",
                     "updated": 1635181613391,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Вы можете остановиться в изучении учебного пособия и пропустить шаги или полные темы в любой момент. Как только Вы будете готовы снова приступить к изучению материала, найдите меня, Tutorial, в нижней части пространства дизайна. Выберите Resume в меню, чтобы начать с того места, где Вы остановились, или с первого шага, который Вы пропустили. Выберите Play, чтобы начать с самого начала!",
+                    "text": "Вы можете остановиться в изучении учебного пособия и пропустить шаги или полные темы в любой момент. Как только Вы будете готовы снова приступить к изучению материала, найдите меня, Tutorial, в нижней части пространства дизайна. Выберите Resume в меню, чтобы начать с того места, где Вы остановились, или с первого шага, который Вы пропустили. Выберите Play, чтобы начать с самого начала.",
                     "updated": 1635611174272,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü seçin. Baştan başlamak için Oynat'ı seçin!",
+                    "text": "Herhangi bir noktada bir öğreticiyi durdurabilir ve adımları veya tüm konuları atlayabilirsiniz. Dersi tekrar almaya hazır olduğunuzda, tasarım alanının alt kısmında bizi bulun. Kaldığınız yerden veya atladığınız ilk adımdan başlamak için menüde Sürdür'ü seçin. Baştan başlamak için Oynat'ı seçin.",
                     "updated": 1635952588337
                 }
             ]

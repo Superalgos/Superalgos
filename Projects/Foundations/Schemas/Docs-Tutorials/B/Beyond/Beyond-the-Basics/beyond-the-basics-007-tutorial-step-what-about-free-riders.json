@@ -3,7 +3,7 @@
     "pageNumber": 7,
     "type": "Tutorial Step - What About Free Riders?",
     "definition": {
-        "text": "Free-riding is not cool! We know that once you start contributing, you will inspire more people to follow your lead!",
+        "text": "Free-riding is not cool! We know that once you start contributing, you will inspire more people to follow your lead.",
         "updated": 1619786483852,
         "icon": {
             "name": "Bullet\\bullet-error",
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il free-riding non è bello! Siamo certi che, una volta che inizierai a contribuire, ispirerai più persone a seguire il tuo esempio! Warning!!!",
+                "text": "Il free-riding non è bello! Siamo certi che, una volta che inizierai a contribuire, ispirerai più persone a seguire il tuo esempio! Warning!!.",
                 "updated": 1619786662350,
                 "style": "Definition"
             },
@@ -24,17 +24,17 @@
             },
             {
                 "language": "DE",
-                "text": "Trittbrettfahren ist nicht cool! Wir wissen, dass Sie, sobald Sie einen Beitrag leisten, mehr Leute dazu inspirieren werden, Ihrem Beispiel zu folgen!",
+                "text": "Trittbrettfahren ist nicht cool! Wir wissen, dass Sie, sobald Sie einen Beitrag leisten, mehr Leute dazu inspirieren werden, Ihrem Beispiel zu folgen.",
                 "updated": 1634820436879
             },
             {
                 "language": "TR",
-                "text": "Superalgos'u sadece kullanmak asla havalı değil! Bir kez katkıda bulunmaya başladığınızda, daha fazla kişiye ulaşarak, liderliğinizi takip etmeleri için onlara fırsat vereceğinizi ve Superalgos'a katkıda bulunmaları için cesaretlendireceğinizi biliyoruz!",
+                "text": "Superalgos'u sadece kullanmak asla havalı değil! Bir kez katkıda bulunmaya başladığınızda, daha fazla kişiye ulaşarak, liderliğinizi takip etmeleri için onlara fırsat vereceğinizi ve Superalgos'a katkıda bulunmaları için cesaretlendireceğinizi biliyoruz.",
                 "updated": 1639869188287
             },
             {
                 "language": "RU",
-                "text": "Фрирайдинг - это не круто! Мы знаем, что как только вы начнете вносить свой вклад, вы вдохновите еще больше людей последовать вашему примеру!",
+                "text": "Фрирайдинг - это не круто! Мы знаем, что как только вы начнете вносить свой вклад, вы вдохновите еще больше людей последовать вашему примеру.",
                 "updated": 1640155387123
             }
         ]
@@ -42,34 +42,34 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The project has implemented a powerful incentives scheme to promote the desired behavior and to foster a culture of collaboration. We are distributing the Superalgos (SA) token exclusively among contributors!",
+            "text": "The project has implemented a powerful incentives scheme to promote the desired behavior and to foster a culture of collaboration. We are distributing the Superalgos (SA) token exclusively among contributors.",
             "updated": 1616872270381,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il progetto ha implementato un buon incentivo per promuovere il contributo, verso una collaborazione globale. Stiamo distribuendo il Superalgos SA Token, in esclusiva, a chi contribuisce al progetto!",
+                    "text": "Il progetto ha implementato un buon incentivo per promuovere il contributo, verso una collaborazione globale. Stiamo distribuendo il Superalgos SA Token, in esclusiva, a chi contribuisce al progetto.",
                     "updated": 1619633002722,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "El proyecto ha implementado un poderoso esquema de incentivos para promover el comportamiento deseado y fomentar una cultura de colaboración. ¡Estamos distribuyendo el token de Superalgos (SA) exclusivamente entre los contribuyentes!",
+                    "text": "El proyecto ha implementado un poderoso esquema de incentivos para promover el comportamiento deseado y fomentar una cultura de colaboración. ¡Estamos distribuyendo el token de Superalgos (SA) exclusivamente entre los contribuyentes.",
                     "updated": 1628121558894,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Das Projekt hat ein starkes Anreizsystem eingeführt, um das gewünschte Verhalten zu fördern und eine Kultur der Zusammenarbeit zu unterstützen. Wir verteilen den Superalgos (SA) Token ausschließlich an Mitwirkende!",
+                    "text": "Das Projekt hat ein starkes Anreizsystem eingeführt, um das gewünschte Verhalten zu fördern und eine Kultur der Zusammenarbeit zu unterstützen. Wir verteilen den Superalgos (SA) Token ausschließlich an Mitwirkende.",
                     "updated": 1634820476632
                 },
                 {
                     "language": "TR",
-                    "text": "Proje, katkı sağlayabilecek insanları bir araya getirebilmek,bu davranışı teşvik etmek ve bir işbirliği kültürünü geliştirmek için güçlü bir teşvik planı uygular. Superalgos (SA) jetonunu yalnızca katkıda bulunanlar arasında dağıtır!",
+                    "text": "Proje, katkı sağlayabilecek insanları bir araya getirebilmek,bu davranışı teşvik etmek ve bir işbirliği kültürünü geliştirmek için güçlü bir teşvik planı uygular. Superalgos (SA) jetonunu yalnızca katkıda bulunanlar arasında dağıtır.",
                     "updated": 1639869321051
                 },
                 {
                     "language": "RU",
-                    "text": "В проекте реализована мощная система поощрений для стимулирования желаемого поведения и формирования культуры сотрудничества. Мы распространяем токен Superalgos (SA) исключительно среди участников проекта!",
+                    "text": "В проекте реализована мощная система поощрений для стимулирования желаемого поведения и формирования культуры сотрудничества. Мы распространяем токен Superalgos (SA) исключительно среди участников проекта.",
                     "updated": 1640155406805
                 }
             ]
@@ -87,24 +87,24 @@
         },
         {
             "style": "Success",
-            "text": "We combat free-riding with incentives!",
+            "text": "We combat free-riding with incentives.",
             "updated": 1616872334799,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Combattiamo il free-riding con incentivi!",
+                    "text": "Combattiamo il free-riding con incentivi.",
                     "updated": 1619633037700,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Combatimos el free-riding con incentivos!",
+                    "text": "¡Combatimos el free-riding con incentivos.",
                     "updated": 1628121572845,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Wir bekämpfen Trittbrettfahren mit Anreizen!",
+                    "text": "Wir bekämpfen Trittbrettfahren mit Anreizen.",
                     "updated": 1634820484905
                 },
                 {
@@ -114,41 +114,41 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Мы боремся с фрирайдерством с помощью стимулов!",
+                    "text": "Мы боремся с фрирайдерством с помощью стимулов.",
                     "updated": 1640155437390
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Let's get your first contribution rolling! First, I'll teach you how to switch branches!",
+            "text": "Let's get your first contribution rolling! First, I'll teach you how to switch branches.",
             "updated": 1616872424219,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Occupiamoci del tuo primo contributo! Prima di tutto, ti insegnerò come cambiare branches!",
+                    "text": "Occupiamoci del tuo primo contributo! Prima di tutto, ti insegnerò come cambiare branches.",
                     "updated": 1619633070799,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Pongamos en marcha tu primera contribución! ¡Primero, te enseñaré cómo cambiar de rama!",
+                    "text": "¡Pongamos en marcha tu primera contribución! ¡Primero, te enseñaré cómo cambiar de rama.",
                     "updated": 1628121589878,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Lassen Sie uns Ihren ersten Beitrag ins Rollen bringen! Zuerst zeige ich Ihnen, wie Sie den Zweig wechseln können!",
+                    "text": "Lassen Sie uns Ihren ersten Beitrag ins Rollen bringen! Zuerst zeige ich Ihnen, wie Sie den Zweig wechseln können.",
                     "updated": 1634820492671
                 },
                 {
                     "language": "TR",
-                    "text": "Haydi ilk katkınızı yayınlayalım! İlk önce, sana dalları ( Branches ) nasıl değiştireceğini öğreteceğim!",
+                    "text": "Haydi ilk katkınızı yayınlayalım! İlk önce, sana dalları ( Branches ) nasıl değiştireceğini öğreteceğim.",
                     "updated": 1639869434737
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте сделаем ваш первый вклад! Сначала я научу вас, как переключать ветки!",
+                    "text": "Давайте сделаем ваш первый вклад! Сначала я научу вас, как переключать ветки.",
                     "updated": 1640155450271
                 }
             ]

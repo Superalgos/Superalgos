@@ -3,7 +3,7 @@
     "pageNumber": 17,
     "type": "Tutorial Step - Breaking Up The Command",
     "definition": {
-        "text": "Before you get on with writing your awesome review, let me parse the command so that you understand what you just did!",
+        "text": "Before you get on with writing your awesome review, let me parse the command so that you understand what you just did.",
         "icon": {
             "name": "copy-path",
             "project": "Foundations"
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Prima che tu scriva la tua fantastica recensione, analizziamo il comando in dettaglio per capire cosa hai fatto esattamente!",
+                "text": "Prima che tu scriva la tua fantastica recensione, analizziamo il comando in dettaglio per capire cosa hai fatto esattamente.",
                 "updated": 1619635779531,
                 "style": "Definition"
             },
@@ -24,17 +24,17 @@
             },
             {
                 "language": "DE",
-                "text": "Bevor Sie mit dem Schreiben Ihrer tollen Rezension weitermachen, lassen Sie mich den Befehl zerlegen, damit Sie verstehen, was Sie gerade getan haben!",
+                "text": "Bevor Sie mit dem Schreiben Ihrer tollen Rezension weitermachen, lassen Sie mich den Befehl zerlegen, damit Sie verstehen, was Sie gerade getan haben.",
                 "updated": 1635148901086
             },
             {
                 "language": "RU",
-                "text": "Прежде чем вы приступите к написанию своего потрясающего обзора, позвольте мне описать эту команду, чтобы вы поняли, что вы только что сделали!",
+                "text": "Прежде чем вы приступите к написанию своего потрясающего обзора, позвольте мне описать эту команду, чтобы вы поняли, что вы только что сделали.",
                 "updated": 1640160619289
             },
             {
                 "language": "TR",
-                "text": "Müthiş incelemenizi yazmaya başlamadan önce, ne yaptığınızı anlamanız için komutu incelememe izin verin!",
+                "text": "Müthiş incelemenizi yazmaya başlamadan önce, ne yaptığınızı anlamanız için komutu incelememe izin verin.",
                 "updated": 1640609570442
             }
         ]

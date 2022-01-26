@@ -7,17 +7,17 @@
             "name": "Market/market",
             "project": "Foundations"
         },
-        "text": "You finished the setup required to install the market! The rest is fully automated!",
+        "text": "You finished the setup required to install the market! The rest is fully automated.",
         "updated": 1617212322242,
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Terminaste la configuración requerida para instalar el mercado! ¡El resto está completamente automatizado!",
+                "text": "¡Terminaste la configuración requerida para instalar el mercado! ¡El resto está completamente automatizado.",
                 "updated": 1629247436746
             },
             {
                 "language": "DE",
-                "text": "Sie haben die für die Installation des Marktes erforderliche Einrichtung abgeschlossen! Der Rest ist vollständig automatisiert!",
+                "text": "Sie haben die für die Installation des Marktes erforderliche Einrichtung abgeschlossen! Der Rest ist vollständig automatisiert.",
                 "updated": 1636093926793
             }
         ]

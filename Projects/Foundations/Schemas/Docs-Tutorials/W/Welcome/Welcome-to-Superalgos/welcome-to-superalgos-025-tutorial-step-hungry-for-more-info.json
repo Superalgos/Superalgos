@@ -286,46 +286,46 @@
         },
         {
             "style": "Callout",
-            "text": "Click the help button on the Data Tasks node!",
+            "text": "Click the help button on the Data Tasks node.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Clicca il pulsante di help sul nodo Data Tasks!",
+                    "text": "Clicca il pulsante di help sul nodo Data Tasks.",
                     "updated": 1614791129195,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Click tombol help di Data Tasks node!",
+                    "text": "Click tombol help di Data Tasks node.",
                     "updated": 1616770003646,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Haz clic en el boton de ayuda en el nodo de Data Tasks!",
+                    "text": "¡Haz clic en el boton de ayuda en el nodo de Data Tasks.",
                     "updated": 1627303592815,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf die Schaltfläche \"Hilfe\" auf dem Knoten \" Data Tasks\"!",
+                    "text": "Klicken Sie auf die Schaltfläche \"Hilfe\" auf dem Knoten \" Data Tasks\".",
                     "updated": 1634165943580,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Нажмите кнопку на узле Data Tasks!",
+                    "text": "Нажмите кнопку на узле Data Tasks.",
                     "updated": 1635627454333,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Veri Görevleri ( Data Tasks ) düğümündeki yardım düğmesine tıklayın!",
+                    "text": "Veri Görevleri ( Data Tasks ) düğümündeki yardım düğmesine tıklayın.",
                     "updated": 1636013020909
                 },
                 {
                     "language": "NL",
-                    "text": "Klik op help in het menu van de Data Tasks node!",
+                    "text": "Klik op help in het menu van de Data Tasks node.",
                     "updated": 1636977849517
                 }
             ]

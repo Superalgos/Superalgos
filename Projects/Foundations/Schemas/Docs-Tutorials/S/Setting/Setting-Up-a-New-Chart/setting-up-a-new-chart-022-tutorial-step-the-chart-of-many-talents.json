@@ -52,7 +52,7 @@
         },
         {
             "style": "Important",
-            "text": "When we connect Data Products to the Layers held by a layer manager, we gain access to that data within our chart!",
+            "text": "When we connect Data Products to the Layers held by a layer manager, we gain access to that data within our chart.",
             "updated": 1617637222752,
             "translations": [
                 {
@@ -62,7 +62,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn wir Data Products mit den Layers eines Ebenenmanager verbinden, erhalten wir Zugriff auf diese Daten in unserem Diagramm!",
+                    "text": "Wenn wir Data Products mit den Layers eines Ebenenmanager verbinden, erhalten wir Zugriff auf diese Daten in unserem Diagramm.",
                     "updated": 1639152973211
                 }
             ]

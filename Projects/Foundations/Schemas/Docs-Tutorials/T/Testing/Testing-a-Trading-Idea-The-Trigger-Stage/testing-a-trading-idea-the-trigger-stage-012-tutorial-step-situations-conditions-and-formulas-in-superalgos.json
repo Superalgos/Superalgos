@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "situation"
         },
-        "text": "Before we get to write definitions for the trigger on event, you need to get the basic education on these fundamental topics!",
+        "text": "Before we get to write definitions for the trigger on event, you need to get the basic education on these fundamental topics.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bevor wir uns mit den Definitionen für den Auslöser eines Ereignisses befassen, müssen Sie sich mit diesen grundlegenden Themen vertraut machen!",
+                "text": "Bevor wir uns mit den Definitionen für den Auslöser eines Ereignisses befassen, müssen Sie sich mit diesen grundlegenden Themen vertraut machen.",
                 "updated": 1639261749362
             }
         ]
@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "If you haven't yet, please read this page outlining the concepts of situations, conditions, and formulas. These are the key concepts that make up most definitions in a strategy!",
+            "text": "If you haven't yet, please read this page outlining the concepts of situations, conditions, and formulas. These are the key concepts that make up most definitions in a strategy.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Falls Sie das noch nicht getan haben, lesen Sie bitte diese Seite, auf der die Konzepte von Situationen, Bedingungen und Formeln erläutert werden. Dies sind die Schlüsselkonzepte, die die meisten Definitionen in einer Strategie ausmachen!",
+                    "text": "Falls Sie das noch nicht getan haben, lesen Sie bitte diese Seite, auf der die Konzepte von Situationen, Bedingungen und Formeln erläutert werden. Dies sind die Schlüsselkonzepte, die die meisten Definitionen in einer Strategie ausmachen.",
                     "updated": 1639261759493
                 }
             ]

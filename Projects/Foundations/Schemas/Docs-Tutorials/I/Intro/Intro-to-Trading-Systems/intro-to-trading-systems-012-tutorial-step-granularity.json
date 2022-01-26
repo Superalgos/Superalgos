@@ -41,32 +41,32 @@
         },
         {
             "style": "Callout",
-            "text": "Splitting complex logic into multiple strategies helps in keeping strategies simple and understandable. It makes strategies easier to debug and to maintain!",
+            "text": "Splitting complex logic into multiple strategies helps in keeping strategies simple and understandable. It makes strategies easier to debug and to maintain.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Aufteilung komplexer Logik in mehrere Strategien hilft dabei, Strategien einfach und verständlich zu halten. So lassen sich Strategien leichter debuggen und warten!",
+                    "text": "Die Aufteilung komplexer Logik in mehrere Strategien hilft dabei, Strategien einfach und verständlich zu halten. So lassen sich Strategien leichter debuggen und warten.",
                     "updated": 1639148161537
                 },
                 {
                     "language": "TR",
-                    "text": "Karmaşık mantığı birden çok stratejiye bölmek, stratejilerin basit ve anlaşılır tutulmasına yardımcı olur. Bu, stratejilerin hata ayıklamasını ve bakımını kolaylaştırır!",
+                    "text": "Karmaşık mantığı birden çok stratejiye bölmek, stratejilerin basit ve anlaşılır tutulmasına yardımcı olur. Bu, stratejilerin hata ayıklamasını ve bakımını kolaylaştırır.",
                     "updated": 1640782237916
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Whenever you can, keep it simple!",
+            "text": "Whenever you can, keep it simple.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wann immer Sie können, halten Sie es einfach!",
+                    "text": "Wann immer Sie können, halten Sie es einfach.",
                     "updated": 1639148168274
                 },
                 {
                     "language": "TR",
-                    "text": "Mümkün olduğunca, basit tutun!",
+                    "text": "Mümkün olduğunca, basit tutun.",
                     "updated": 1640782275823
                 }
             ]

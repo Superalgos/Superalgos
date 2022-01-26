@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "That means that this first position is a fail!",
+            "text": "That means that this first position is a fail.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das bedeutet, dass diese erste Position ein Fehlschlag ist!",
+                    "text": "Das bedeutet, dass diese erste Position ein Fehlschlag ist.",
                     "updated": 1639418728911
                 }
             ]
@@ -41,11 +41,11 @@
         },
         {
             "style": "Success",
-            "text": "Let's take a little tour along the period tested and make a quick assessment of the rest of the positions taken!",
+            "text": "Let's take a little tour along the period tested and make a quick assessment of the rest of the positions taken.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Machen wir einen kleinen Rundgang durch den getesteten Zeitraum und nehmen wir eine kurze Bewertung der übrigen eingegangenen Positionen vor!",
+                    "text": "Machen wir einen kleinen Rundgang durch den getesteten Zeitraum und nehmen wir eine kurze Bewertung der übrigen eingegangenen Positionen vor.",
                     "updated": 1639418747752
                 }
             ]

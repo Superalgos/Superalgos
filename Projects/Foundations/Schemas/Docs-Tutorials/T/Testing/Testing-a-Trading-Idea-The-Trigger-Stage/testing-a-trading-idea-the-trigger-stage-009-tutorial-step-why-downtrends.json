@@ -7,16 +7,16 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "If you paid attention to the first tutorial in the series on trading systems, you must know the answer to the above question!",
+        "text": "If you paid attention to the first tutorial in the series on trading systems, you must know the answer to the above question.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wenn Sie das erste Tutorial der Serie über Trading Systeme aufmerksam verfolgt haben, kennen Sie die Antwort auf die obige Frage sicher!",
+                "text": "Wenn Sie das erste Tutorial der Serie über Trading Systeme aufmerksam verfolgt haben, kennen Sie die Antwort auf die obige Frage sicher.",
                 "updated": 1639261270294
             },
             {
                 "language": "TR",
-                "text": "Ticaret sistemleri serisindeki ilk öğreticiye dikkat ettiyseniz, yukarıdaki sorunun cevabını biliyor olmalısınız!",
+                "text": "Ticaret sistemleri serisindeki ilk öğreticiye dikkat ettiyseniz, yukarıdaki sorunun cevabını biliyor olmalısınız.",
                 "updated": 1641064736718
             }
         ]
@@ -40,32 +40,32 @@
         },
         {
             "style": "Callout",
-            "text": "Those are two distinct ideas and should be treated as different strategies because they will handle similar logic, but not the same!",
+            "text": "Those are two distinct ideas and should be treated as different strategies because they will handle similar logic, but not the same.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das sind zwei verschiedene Ideen und sollten als unterschiedliche Strategien behandelt werden, da sie eine ähnliche Logik verfolgen, aber nicht dieselbe!",
+                    "text": "Das sind zwei verschiedene Ideen und sollten als unterschiedliche Strategien behandelt werden, da sie eine ähnliche Logik verfolgen, aber nicht dieselbe.",
                     "updated": 1639261393124
                 },
                 {
                     "language": "TR",
-                    "text": "Bunlar iki farklı fikirdir ve farklı stratejiler olarak ele alınmalıdır, çünkü benzer mantığı ele alacaklardır, ancak aynı değildir!",
+                    "text": "Bunlar iki farklı fikirdir ve farklı stratejiler olarak ele alınmalıdır, çünkü benzer mantığı ele alacaklardır, ancak aynı değildir.",
                     "updated": 1641064822434
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "We'll focus in the Downtrend strategy first, because I feel it's the most promising one!",
+            "text": "We'll focus in the Downtrend strategy first, because I feel it's the most promising one.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wir werden uns zunächst auf die Abwärtstrend-Strategie konzentrieren, weil ich sie für die vielversprechendste halte!",
+                    "text": "Wir werden uns zunächst auf die Abwärtstrend-Strategie konzentrieren, weil ich sie für die vielversprechendste halte.",
                     "updated": 1639261415074
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Önce Düşüş trendi (Downtrend) stratejisine odaklanacağız, çünkü bunun en umut verici olanı olduğunu düşünüyorum!",
+                    "text": "Not: Önce Düşüş trendi (Downtrend) stratejisine odaklanacağız, çünkü bunun en umut verici olanı olduğunu düşünüyorum.",
                     "updated": 1641064884297
                 }
             ]

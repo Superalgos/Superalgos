@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "help"
         },
-        "text": "In our first backtest, the strategy triggered after the daily Feb 26th candle closes. That shouldn't change on this one!",
+        "text": "In our first backtest, the strategy triggered after the daily Feb 26th candle closes. That shouldn't change on this one.",
         "translations": [
             {
                 "language": "DE",
-                "text": "In unserem ersten Backtest wurde die Strategie ausgelöst, nachdem die Tageskerze vom 26. Februar geschlossen wurde. Das sollte sich auch dieses Mal nicht ändern!",
+                "text": "In unserem ersten Backtest wurde die Strategie ausgelöst, nachdem die Tageskerze vom 26. Februar geschlossen wurde. Das sollte sich auch dieses Mal nicht ändern.",
                 "updated": 1639390509550
             }
         ]
@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a look! The strategy is triggered as soon as the last hourly candle of Feb 26th closes!",
+            "text": "Take a look! The strategy is triggered as soon as the last hourly candle of Feb 26th closes.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schauen Sie nach! Die Strategie wird ausgelöst, sobald die letzte stündliche Kerze des 26. Februar schließt!",
+                    "text": "Schauen Sie nach! Die Strategie wird ausgelöst, sobald die letzte stündliche Kerze des 26. Februar schließt.",
                     "updated": 1639390516723
                 }
             ]

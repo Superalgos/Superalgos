@@ -7,12 +7,12 @@
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
-        "text": "I see three warning signs on Feb 28th at the 9 hs candle. We should take a look and see what the warnings are about!",
+        "text": "I see three warning signs on Feb 28th at the 9 hs candle. We should take a look and see what the warnings are about.",
         "updated": 1612712860187,
         "translations": [
             {
                 "language": "DE",
-                "text": "Ich sehe drei Warnzeichen am 28. Februar bei der 9-Stunden-Kerze. Wir sollten einen Blick darauf werfen und sehen, worum es bei den Warnungen geht!",
+                "text": "Ich sehe drei Warnzeichen am 28. Februar bei der 9-Stunden-Kerze. Wir sollten einen Blick darauf werfen und sehen, worum es bei den Warnungen geht.",
                 "updated": 1639418492593
             }
         ]
@@ -20,12 +20,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Like with errors, the number and size of bullets indicate the sequence in which warnings where recorded!",
+            "text": "Like with errors, the number and size of bullets indicate the sequence in which warnings where recorded.",
             "updated": 1612713206057,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wie bei den Fehlern zeigen die Anzahl und Größe der Kugeln die Reihenfolge an, in der die Warnungen aufgezeichnet wurden!",
+                    "text": "Wie bei den Fehlern zeigen die Anzahl und Größe der Kugeln die Reihenfolge an, in der die Warnungen aufgezeichnet wurden.",
                     "updated": 1639418505817
                 }
             ]

@@ -7,17 +7,17 @@
             "name": "Trading/trading-engine",
             "project": "Foundations"
         },
-        "text": "You are familiar with the concept of the Trading Engine, right? I will teach you which layers affect which sections of the hierarchy so that you may access the info!",
+        "text": "You are familiar with the concept of the Trading Engine, right? I will teach you which layers affect which sections of the hierarchy so that you may access the info.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Du bist mit dem Konzept der Trading Engine vertraut, richtig? Ich werde dir beibringen, welche Layer welche Bereiche der Hierarchie beeinflussen, damit du auf die Informationen zugreifen kannst!",
+                "text": "Du bist mit dem Konzept der Trading Engine vertraut, richtig? Ich werde dir beibringen, welche Layer welche Bereiche der Hierarchie beeinflussen, damit du auf die Informationen zugreifen kannst.",
                 "updated": 1623012463880,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Вы знакомы с концепцией Trading Engine, верно? Я научу вас, какие слои влияют на те или иные разделы иерархии, чтобы вы могли получить доступ к информации!",
+                "text": "Вы знакомы с концепцией Trading Engine, верно? Я научу вас, какие слои влияют на те или иные разделы иерархии, чтобы вы могли получить доступ к информации.",
                 "updated": 1640545674022
             }
         ]
@@ -59,17 +59,17 @@
         },
         {
             "style": "Text",
-            "text": "Let's take a closer look!",
+            "text": "Let's take a closer look.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schauen wir uns das mal genauer an!",
+                    "text": "Schauen wir uns das mal genauer an.",
                     "updated": 1623012425935,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Давайте посмотрим поближе!",
+                    "text": "Давайте посмотрим поближе.",
                     "updated": 1640545835549
                 }
             ]

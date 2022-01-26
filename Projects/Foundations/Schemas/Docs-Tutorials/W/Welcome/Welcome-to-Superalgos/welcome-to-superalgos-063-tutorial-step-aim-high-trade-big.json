@@ -86,24 +86,24 @@
         },
         {
             "style": "Callout",
-            "text": "Superalgos supports distributing and coordinating tasks across networks of nodes running the Client! This enables smart and scalable operations. Any machine running the GUI may control the enterprise!",
+            "text": "Superalgos supports distributing and coordinating tasks across networks of nodes running the Client! This enables smart and scalable operations. Any machine running the GUI may control the enterprise.",
             "updated": 1616693637435,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Superalgos permette di distribuire e coordinare tasks attraverso una rete di macchine che eseguono il Client! Questo permette di eseguire operazioni avanzate e scalabili. Qualsiasi macchina che esegue la GUI può controllare il tutto!",
+                    "text": "Superalgos permette di distribuire e coordinare tasks attraverso una rete di macchine che eseguono il Client! Questo permette di eseguire operazioni avanzate e scalabili. Qualsiasi macchina che esegue la GUI può controllare il tutto.",
                     "updated": 1618057957707,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Superalgos soporta la distribución y coordinación de tareas a través de redes de nodos que ejecutan el Client! Esto permite operaciones inteligentes y escalables. ¡Cualquier máquina que ejecute la GUI puede controlar el trabajo!",
+                    "text": "¡Superalgos soporta la distribución y coordinación de tareas a través de redes de nodos que ejecutan el Client! Esto permite operaciones inteligentes y escalables. ¡Cualquier máquina que ejecute la GUI puede controlar el trabajo.",
                     "updated": 1624415389550,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos unterstützt die Verteilung und Koordinierung von Aufgaben über Netzwerke von Knoten, auf denen der Client läuft! Dies ermöglicht intelligente und skalierbare Operationen. Jeder Rechner, auf dem die GUI läuft, kann das Unternehmen steuern!",
+                    "text": "Superalgos unterstützt die Verteilung und Koordinierung von Aufgaben über Netzwerke von Knoten, auf denen der Client läuft! Dies ermöglicht intelligente und skalierbare Operationen. Jeder Rechner, auf dem die GUI läuft, kann das Unternehmen steuern.",
                     "updated": 1634220039839
                 },
                 {
@@ -113,12 +113,12 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Superalgos поддерживает распределения и координацию задач между сетями узлов, на которых работает Client! Это обеспечивает интеллектуальные и масштабные операции. Любая машина, на которой работает графический интерфейс, может управлять предприятием!",
+                    "text": "Superalgos поддерживает распределения и координацию задач между сетями узлов, на которых работает Client! Это обеспечивает интеллектуальные и масштабные операции. Любая машина, на которой работает графический интерфейс, может управлять предприятием.",
                     "updated": 1636747776256
                 },
                 {
                     "language": "ID",
-                    "text": "Superalgos mendukung pendistribusian dan koordinasi tugas di seluruh jaringan node yang menjalankan Client! Hal ini memungkinkan operasi yang cerdas dan terukur. Setiap mesin yang menjalankan GUI dapat mengontrol perusahaan!",
+                    "text": "Superalgos mendukung pendistribusian dan koordinasi tugas di seluruh jaringan node yang menjalankan Client! Hal ini memungkinkan operasi yang cerdas dan terukur. Setiap mesin yang menjalankan GUI dapat mengontrol perusahaan.",
                     "updated": 1639712035776
                 }
             ]

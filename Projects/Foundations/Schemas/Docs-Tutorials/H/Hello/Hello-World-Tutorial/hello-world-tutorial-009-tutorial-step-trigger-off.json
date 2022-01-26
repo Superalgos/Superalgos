@@ -3,7 +3,7 @@
     "pageNumber": 9,
     "type": "Tutorial Step - Trigger Off",
     "definition": {
-        "text": "If you do not need a condition just set it to False or True!",
+        "text": "If you do not need a condition just set it to False or True.",
         "icon": {
             "name": "trigger-off",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Wenn du keine Bedingung benötigst setze es einfach auf „False“ oder „True“!",
+                "text": "Wenn du keine Bedingung benötigst setze es einfach auf „False“ oder „True“.",
                 "updated": 1622978946854,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Si no necesitas una condición, configúrela en False o True!",
+                "text": "Si no necesitas una condición, configúrela en False o True.",
                 "updated": 1629352241171
             },
             {
                 "language": "IT",
-                "text": "Se non hai bisogno di una condizione, impostala su False o True!",
+                "text": "Se non hai bisogno di una condizione, impostala su False o True.",
                 "updated": 1639077650052
             },
             {
                 "language": "TR",
-                "text": "Bir koşula ihtiyacınız yoksa, onu Yanlış (false) veya Doğru (true) olarak ayarlamanız yeterlidir!",
+                "text": "Bir koşula ihtiyacınız yoksa, onu Yanlış (false) veya Doğru (true) olarak ayarlamanız yeterlidir.",
                 "updated": 1640617057356
             },
             {
                 "language": "RU",
-                "text": "Если вам не нужно условие, просто установите его в False или True!",
+                "text": "Если вам не нужно условие, просто установите его в False или True.",
                 "updated": 1640855968420
             }
         ]

@@ -7,11 +7,11 @@
             "name": "Record\\record-property",
             "project": "Foundations"
         },
-        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas!",
+        "text": "This section of the documentation of each indicator features the information you need to use the indicator in conditions and formulas.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden!",
+                "text": "Dieser Abschnitt der Dokumentation jedes Indikators enthält die Informationen, die Sie benötigen, um den Indikator in Bedingungen und Formeln zu verwenden.",
                 "updated": 1639263355926
             }
         ]
@@ -63,11 +63,11 @@
         },
         {
             "style": "Callout",
-            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property!",
+            "text": "Read this section carefully so that we can go back to the charts and decide how we are going to use the slope property.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen!",
+                    "text": "Lesen Sie diesen Abschnitt sorgfältig durch, damit Sie sich anhand der Diagramme entscheiden können, wie Sie die Eigenschaft \"Neigung\" verwenden wollen.",
                     "updated": 1639263536175
                 }
             ]

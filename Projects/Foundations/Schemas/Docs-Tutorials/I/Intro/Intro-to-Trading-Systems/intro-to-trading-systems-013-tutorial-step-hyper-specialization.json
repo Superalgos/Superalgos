@@ -7,16 +7,16 @@
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "Specialization is a very interesting concept that may lead to designing more efficient trading systems!",
+        "text": "Specialization is a very interesting concept that may lead to designing more efficient trading systems.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Spezialisierung ist ein sehr interessantes Konzept, das zur Entwicklung effizienterer Handelssysteme führen kann!",
+                "text": "Spezialisierung ist ein sehr interessantes Konzept, das zur Entwicklung effizienterer Handelssysteme führen kann.",
                 "updated": 1639148192010
             },
             {
                 "language": "TR",
-                "text": "Özet: Uzmanlık, daha verimli ticaret sistemleri tasarlamaya yol açabilecek çok ilginç bir kavramdır!",
+                "text": "Özet: Uzmanlık, daha verimli ticaret sistemleri tasarlamaya yol açabilecek çok ilginç bir kavramdır.",
                 "updated": 1640782402866
             }
         ]
@@ -56,16 +56,16 @@
         },
         {
             "style": "Success",
-            "text": "Instead of designing a strategy to evaluate a range of market conditions, keep them focused!",
+            "text": "Instead of designing a strategy to evaluate a range of market conditions, keep them focused.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Entwickeln Sie eine Strategie nicht, um eine Reihe von Marktbedingungen zu bewerten, sondern konzentrieren Sie sich auf diese!",
+                    "text": "Entwickeln Sie eine Strategie nicht, um eine Reihe von Marktbedingungen zu bewerten, sondern konzentrieren Sie sich auf diese.",
                     "updated": 1639148217709
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bir dizi piyasa koşulunu değerlendirmek için bir strateji tasarlamak yerine, odaklanmalarını sağlayın!",
+                    "text": "İpucu: Bir dizi piyasa koşulunu değerlendirmek için bir strateji tasarlamak yerine, odaklanmalarını sağlayın.",
                     "updated": 1640782482786
                 }
             ]

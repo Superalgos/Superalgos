@@ -193,17 +193,17 @@
         },
         {
             "style": "Callout",
-            "text": "Go out and check those nodes and their menus!",
+            "text": "Go out and check those nodes and their menus.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Dai un'occhiata a quei nodi e ai loro menu!",
+                    "text": "Dai un'occhiata a quei nodi e ai loro menu.",
                     "updated": 1614791842750,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Pergilah dan periksa node-node tersebut dan menunya!",
+                    "text": "Pergilah dan periksa node-node tersebut dan menunya.",
                     "updated": 1616771060371,
                     "style": "Callout"
                 },
@@ -215,24 +215,24 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Schauen Sie sich diese Knoten und ihre Menüs an!",
+                    "text": "Schauen Sie sich diese Knoten und ihre Menüs an.",
                     "updated": 1634167662675,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Выйдите и проверьте эти узлы и их меню!",
+                    "text": "Выйдите и проверьте эти узлы и их меню.",
                     "updated": 1635630414259,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Şimdi bu düğümleri ve menülerini kontrol edin!",
+                    "text": "Şimdi bu düğümleri ve menülerini kontrol edin.",
                     "updated": 1636014827396
                 },
                 {
                     "language": "NL",
-                    "text": "Verken de nodes en hun menu's maar eens!",
+                    "text": "Verken de nodes en hun menu's maar eens.",
                     "updated": 1636979384554
                 }
             ]

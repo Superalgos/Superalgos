@@ -7,7 +7,7 @@
             "name": "crypto-exchange",
             "project": "Foundations"
         },
-        "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange!",
+        "text": "Before you run the Live Trading Session, make sure you have enough spot USDT balance at the exchange.",
         "translations": [
             {
                 "language": "IT",
@@ -23,17 +23,17 @@
             },
             {
                 "language": "DE",
-                "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
+                "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session.",
                 "updated": 1634243867885
             },
             {
                 "language": "TR",
-                "text": "Canlı İşlem Oturumunu ( Live Trading Session ) çalıştırmadan önce, borsada yeterli miktarda USDT bakiyeniz olduğundan emin olun!",
+                "text": "Canlı İşlem Oturumunu ( Live Trading Session ) çalıştırmadan önce, borsada yeterli miktarda USDT bakiyeniz olduğundan emin olun.",
                 "updated": 1636552555684
             },
             {
                 "language": "ID",
-                "text": "Sebelum kamu menjalankan Live Trading Session, pastikan kamu memiliki saldo USDT spot yang cukup di exchange!",
+                "text": "Sebelum kamu menjalankan Live Trading Session, pastikan kamu memiliki saldo USDT spot yang cukup di exchange.",
                 "updated": 1640575421612
             }
         ]
@@ -41,33 +41,33 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a look at your balance at the exchange and arrange for enough USDT for the session!",
+            "text": "Take a look at your balance at the exchange and arrange for enough USDT for the session.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Controlla il tuo saldo sull'exchange e prepara abbastanza USDT per la sessione!",
+                    "text": "Controlla il tuo saldo sull'exchange e prepara abbastanza USDT per la sessione.",
                     "updated": 1618070327486,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Eche un vistazo a su saldo en el exchange y organiza suficientes USDT para la sesión!",
+                    "text": "¡Eche un vistazo a su saldo en el exchange y organiza suficientes USDT para la sesión.",
                     "updated": 1624471291732,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session!",
+                    "text": "Werfen Sie einen Blick auf Ihren Kontostand an der Börse und sorgen Sie für genügend USDT für die Session.",
                     "updated": 1634243896032
                 },
                 {
                     "language": "TR",
-                    "text": "Borsadaki bakiyenize bir göz atın ve seans için yeterli USDT'yi ayarlayın!",
+                    "text": "Borsadaki bakiyenize bir göz atın ve seans için yeterli USDT'yi ayarlayın.",
                     "updated": 1636552569147
                 },
                 {
                     "language": "ID",
-                    "text": "Lihatlah saldo kamu di exchange dan atur USDT yang cukup untuk sesi ini!",
+                    "text": "Lihatlah saldo kamu di exchange dan atur USDT yang cukup untuk sesi ini.",
                     "updated": 1640575452390
                 }
             ]
@@ -107,7 +107,7 @@
         },
         {
             "style": "Note",
-            "text": "Keep going even if you are not ready to trade! It's important because there are more things to learn in the tutorial!",
+            "text": "Keep going even if you are not ready to trade! It's important because there are more things to learn in the tutorial.",
             "updated": 1622232501088,
             "translations": [
                 {
@@ -118,23 +118,23 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Continúa incluso si no estás listo para la sesión! ¡Es importante porque hay más cosas que aprender en el tutorial!",
+                    "text": "¡Continúa incluso si no estás listo para la sesión! ¡Es importante porque hay más cosas que aprender en el tutorial.",
                     "updated": 1624471521635,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Machen Sie weiter, auch wenn Sie nicht bereit sind zu handeln! Das ist wichtig, denn es gibt noch mehr Dinge im Tutorial zu lernen!",
+                    "text": "Machen Sie weiter, auch wenn Sie nicht bereit sind zu handeln! Das ist wichtig, denn es gibt noch mehr Dinge im Tutorial zu lernen.",
                     "updated": 1634243912421
                 },
                 {
                     "language": "TR",
-                    "text": "Ticarete hazır olmasanız bile devam edin! Bu önemli çünkü öğreticide öğrenilecek daha çok şey var!",
+                    "text": "Ticarete hazır olmasanız bile devam edin! Bu önemli çünkü öğreticide öğrenilecek daha çok şey var.",
                     "updated": 1636552643669
                 },
                 {
                     "language": "ID",
-                    "text": "Terus lanjutkan bahkan jika kamu tidak siap untuk trade! Ini penting karena ada lebih banyak hal untuk dipelajari dalam tutorial!",
+                    "text": "Terus lanjutkan bahkan jika kamu tidak siap untuk trade! Ini penting karena ada lebih banyak hal untuk dipelajari dalam tutorial.",
                     "updated": 1640575553876
                 }
             ]

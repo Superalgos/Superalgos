@@ -3,7 +3,7 @@
     "pageNumber": 16,
     "type": "Tutorial Step - Did It Work?",
     "definition": {
-        "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below!",
+        "text": "If you didn't mess up the command, you should get a new page with the title you set, an invitation to write a summary, and more instructions below.",
         "icon": {
             "name": "Docs\\docs-action-edit-paragraph",
             "project": "Foundations"
@@ -12,7 +12,7 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Se il comando era giusto, dovresti ottenere una nuova pagina con il tuo titolo, un invito a scrivere un sommario e altre istruzioni in fondo!",
+                "text": "Se il comando era giusto, dovresti ottenere una nuova pagina con il tuo titolo, un invito a scrivere un sommario e altre istruzioni in fondo.",
                 "updated": 1619635581995,
                 "style": "Definition"
             },
@@ -24,17 +24,17 @@
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie den Befehl richtig ausgeführt haben, sollten Sie eine neue Seite mit dem von Ihnen festgelegten Titel, einer Aufforderung zum Schreiben einer Zusammenfassung und weiteren Anweisungen unten erhalten!",
+                "text": "Wenn Sie den Befehl richtig ausgeführt haben, sollten Sie eine neue Seite mit dem von Ihnen festgelegten Titel, einer Aufforderung zum Schreiben einer Zusammenfassung und weiteren Anweisungen unten erhalten.",
                 "updated": 1635148788232
             },
             {
                 "language": "RU",
-                "text": "Если вы не перепутали команду, вы должны получить новую страницу с заданным вами заголовком, приглашением написать краткое изложение и дальнейшими инструкциями ниже!",
+                "text": "Если вы не перепутали команду, вы должны получить новую страницу с заданным вами заголовком, приглашением написать краткое изложение и дальнейшими инструкциями ниже.",
                 "updated": 1640159615603
             },
             {
                 "language": "TR",
-                "text": "Komutu yanlış yazmadıysanız, belirlediğiniz başlığı, bir özet yazma daveti ve aşağıda daha fazla talimat içeren yeni bir sayfa görmelisiniz!",
+                "text": "Komutu yanlış yazmadıysanız, belirlediğiniz başlığı, bir özet yazma daveti ve aşağıda daha fazla talimat içeren yeni bir sayfa görmelisiniz.",
                 "updated": 1640555422367
             }
         ]
@@ -42,29 +42,29 @@
     "paragraphs": [
         {
             "style": "Note",
-            "text": "If you got an error message, read it and fix the problem! It's likely about the syntax in the command. You may always go back a step to recover the original command!",
+            "text": "If you got an error message, read it and fix the problem! It's likely about the syntax in the command. You may always go back a step to recover the original command.",
             "updated": 1616875472251,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se hai ricevuto un errore, leggilo e sistema il problema! Probabilmente è la sintassi del comando. Puoi sempre fare andare indietro di uno step e recuperare il comando originale!",
+                    "text": "Se hai ricevuto un errore, leggilo e sistema il problema! Probabilmente è la sintassi del comando. Puoi sempre fare andare indietro di uno step e recuperare il comando originale.",
                     "updated": 1619635652289,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "Si recibes un mensaje de error, léelo y soluciona el problema. Es probable que se trate de la sintaxis del comando. ¡Siempre puedes retroceder un paso para recuperar el comando original!",
+                    "text": "Si recibes un mensaje de error, léelo y soluciona el problema. Es probable que se trate de la sintaxis del comando. ¡Siempre puedes retroceder un paso para recuperar el comando original.",
                     "updated": 1628187419945,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie eine Fehlermeldung erhalten haben, lesen Sie sie und beheben Sie das Problem! Es handelt sich wahrscheinlich um einen Fehler in der Syntax des Befehls. Sie können jederzeit einen Schritt zurückgehen, um den ursprünglichen Befehl wiederherzustellen!",
+                    "text": "Wenn Sie eine Fehlermeldung erhalten haben, lesen Sie sie und beheben Sie das Problem! Es handelt sich wahrscheinlich um einen Fehler in der Syntax des Befehls. Sie können jederzeit einen Schritt zurückgehen, um den ursprünglichen Befehl wiederherzustellen.",
                     "updated": 1635148795437
                 },
                 {
                     "language": "RU",
-                    "text": "Если вы получили сообщение об ошибке, прочитайте его и устраните проблему! Скорее всего, дело в синтаксисе команды. Вы всегда можете вернуться на шаг назад, чтобы восстановить исходную команду!",
+                    "text": "Если вы получили сообщение об ошибке, прочитайте его и устраните проблему! Скорее всего, дело в синтаксисе команды. Вы всегда можете вернуться на шаг назад, чтобы восстановить исходную команду.",
                     "updated": 1640159633942
                 },
                 {
@@ -76,12 +76,12 @@
         },
         {
             "style": "Success",
-            "text": "In the next step, we'll analyze how the command works!",
+            "text": "In the next step, we'll analyze how the command works.",
             "updated": 1616875421406,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Nel prossimo step, analizzeremo come funziona il comando!",
+                    "text": "Nel prossimo step, analizzeremo come funziona il comando.",
                     "updated": 1619635672214,
                     "style": "Success"
                 },
@@ -93,17 +93,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Im nächsten Schritt werden wir analysieren, wie der Befehl funktioniert!",
+                    "text": "Im nächsten Schritt werden wir analysieren, wie der Befehl funktioniert.",
                     "updated": 1635148801960
                 },
                 {
                     "language": "RU",
-                    "text": "В следующем шаге мы проанализируем, как работает эта команда!",
+                    "text": "В следующем шаге мы проанализируем, как работает эта команда.",
                     "updated": 1640159648023
                 },
                 {
                     "language": "TR",
-                    "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz!",
+                    "text": "Bir sonraki adımda, komutun nasıl çalıştığını analiz edeceğiz.",
                     "updated": 1640555531810
                 }
             ]

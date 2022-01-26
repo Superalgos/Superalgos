@@ -7,17 +7,17 @@
             "project": "Foundations",
             "name": "stop-loss"
         },
-        "text": "I've got something to tell you before we move on, but I'm struggling to find the right words... I just wouldn't want to come across as a control freak!",
+        "text": "I've got something to tell you before we move on, but I'm struggling to find the right words... I just wouldn't want to come across as a control freak.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Ich habe dir noch etwas zu sagen, bevor wir weitermachen, aber ich finde nicht die richtigen Worte... Ich möchte einfach nicht wie ein Kontrollfreak rüberkommen!",
+                "text": "Ich habe dir noch etwas zu sagen, bevor wir weitermachen, aber ich finde nicht die richtigen Worte... Ich möchte einfach nicht wie ein Kontrollfreak rüberkommen.",
                 "updated": 1622985341980,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Я хочу кое-что сказать тебе, прежде чем мы продолжим, но я с трудом подбираю слова... Я просто не хочу показаться помешанным на контроле!",
+                "text": "Я хочу кое-что сказать тебе, прежде чем мы продолжим, но я с трудом подбираю слова... Я просто не хочу показаться помешанным на контроле.",
                 "updated": 1640544202541
             }
         ]
@@ -42,17 +42,17 @@
         },
         {
             "style": "Callout",
-            "text": "Don't fool around too much unless I tell you to! I mean, you may look around, but don't make a mess! Fine! Do what you want! If you ever feel I lost you, just start over with a fresh workspace!",
+            "text": "Don't fool around too much unless I tell you to! I mean, you may look around, but don't make a mess! Fine! Do what you want! If you ever feel I lost you, just start over with a fresh workspace.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Na schön! Mach, was du willst! Wenn du jemals das Gefühl hast, dass ich dich abgehängt habe, fang einfach mit einem neuen Workspace an!",
+                    "text": "Na schön! Mach, was du willst! Wenn du jemals das Gefühl hast, dass ich dich abgehängt habe, fang einfach mit einem neuen Workspace an.",
                     "updated": 1622985372686,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Не шалите слишком много, пока я вам не скажу! То есть, ты можешь осмотреться, но не устраивай беспорядок! Ладно! Делай, что хочешь! Если вдруг почувствуешь, что я тебя потерял, просто начни заново, с чистого рабочего пространства!",
+                    "text": "Не шалите слишком много, пока я вам не скажу! То есть, ты можешь осмотреться, но не устраивай беспорядок! Ладно! Делай, что хочешь! Если вдруг почувствуешь, что я тебя потерял, просто начни заново, с чистого рабочего пространства.",
                     "updated": 1640544532040
                 }
             ]

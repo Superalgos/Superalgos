@@ -3,7 +3,7 @@
     "pageNumber": 32,
     "type": "Tutorial Step - Back It Up Again!",
     "definition": {
-        "text": "I told you I was going to hammer home this topic! Let's try the second example!",
+        "text": "I told you I was going to hammer home this topic! Let's try the second example.",
         "updated": 1615827182099,
         "icon": {
             "name": "backup-entity",
@@ -12,24 +12,24 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Sarò pedante su questo topic! Ora proviamo il secondo esempio!",
+                "text": "Sarò pedante su questo topic! Ora proviamo il secondo esempio.",
                 "updated": 1619502967378,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Te dije que iba a insistir en este tema! ¡Probemos el segundo ejemplo!",
+                "text": "¡Te dije que iba a insistir en este tema! ¡Probemos el segundo ejemplo.",
                 "updated": 1626614763096,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich habe Ihnen gesagt, dass ich dieses Thema mit dem Hammer bearbeiten werde! Lassen Sie uns das zweite Beispiel ausprobieren!",
+                "text": "Ich habe Ihnen gesagt, dass ich dieses Thema mit dem Hammer bearbeiten werde! Lassen Sie uns das zweite Beispiel ausprobieren.",
                 "updated": 1634585921922
             },
             {
                 "language": "TR",
-                "text": "İkinci örneği deneyelim!",
+                "text": "İkinci örneği deneyelim.",
                 "updated": 1639603129746
             }
         ]
@@ -37,12 +37,12 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Take a backup of the Lightning Strike trading system! Restore the backup without deleting the original. Then repeat the restore operation but deleting the original trading system first!",
+            "text": "Take a backup of the Lightning Strike trading system! Restore the backup without deleting the original. Then repeat the restore operation but deleting the original trading system first.",
             "updated": 1616244614576,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Fai un backup del nodo Trading System! Ripristina il backup senza cancellare l'originale. Poi ripristinalo di nuovo, ma questa volta cancellando prima il nodo originale!",
+                    "text": "Fai un backup del nodo Trading System! Ripristina il backup senza cancellare l'originale. Poi ripristinalo di nuovo, ma questa volta cancellando prima il nodo originale.",
                     "updated": 1619503042022,
                     "style": "Callout"
                 },
@@ -54,52 +54,52 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Machen Sie ein Backup des Lightning Strike Handelssystems! Stellen Sie das Backup wieder her, ohne das Original zu löschen. Wiederholen Sie dann den Wiederherstellungsvorgang, aber löschen Sie zuerst das ursprüngliche Handelssystem!",
+                    "text": "Machen Sie ein Backup des Lightning Strike Handelssystems! Stellen Sie das Backup wieder her, ohne das Original zu löschen. Wiederholen Sie dann den Wiederherstellungsvorgang, aber löschen Sie zuerst das ursprüngliche Handelssystem.",
                     "updated": 1634585943896
                 },
                 {
                     "language": "TR",
-                    "text": "Lightning Strike Trading System düğümünün yedeğini alın! Orijinali silmeden yedeği geri yükleyin. Ardından geri yükleme işlemini tekrarlayın, ancak önce orijinal ticaret sistemini silin!",
+                    "text": "Lightning Strike Trading System düğümünün yedeğini alın! Orijinali silmeden yedeği geri yükleyin. Ardından geri yükleme işlemini tekrarlayın, ancak önce orijinal ticaret sistemini silin.",
                     "updated": 1639603462583
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Verify how the incoming references are preserved only in the second case!",
+            "text": "Verify how the incoming references are preserved only in the second case.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Verifica che le references in ingresso sono mantenute solo nel secondo caso!",
+                    "text": "Verifica che le references in ingresso sono mantenute solo nel secondo caso.",
                     "updated": 1619503065417,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Verifica cómo se conservan las referencias entrantes solo en el segundo caso!",
+                    "text": "¡Verifica cómo se conservan las referencias entrantes solo en el segundo caso.",
                     "updated": 1626615039104,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Überprüfen Sie, wie die eingehenden Referenzen nur im zweiten Fall erhalten bleiben!",
+                    "text": "Überprüfen Sie, wie die eingehenden Referenzen nur im zweiten Fall erhalten bleiben.",
                     "updated": 1634585949205
                 },
                 {
                     "language": "TR",
-                    "text": "İkinci durumda (orjinal düğümü silip düğümü geri yüklediğinizde) gelen referansların ( Incoming references ) nasıl korunduğunu gözlemleyin!",
+                    "text": "İkinci durumda (orjinal düğümü silip düğümü geri yüklediğinizde) gelen referansların ( Incoming references ) nasıl korunduğunu gözlemleyin.",
                     "updated": 1639603967310
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Remember that, for incoming references to be preserved, you must delete the original structure of nodes before restoring the backup!",
+            "text": "Remember that, for incoming references to be preserved, you must delete the original structure of nodes before restoring the backup.",
             "updated": 1615827931407,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ricorda che, per mantenere le reference in entrata, devi cancellare la struttura originale prima di ripristinare il backup!",
+                    "text": "Ricorda che, per mantenere le reference in entrata, devi cancellare la struttura originale prima di ripristinare il backup.",
                     "updated": 1619503100070,
                     "style": "Success"
                 },
@@ -111,12 +111,12 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Damit die eingehenden Referenzen erhalten bleiben, müssen Sie die ursprüngliche Struktur der Knoten löschen, bevor Sie die Sicherung wiederherstellen!",
+                    "text": "Damit die eingehenden Referenzen erhalten bleiben, müssen Sie die ursprüngliche Struktur der Knoten löschen, bevor Sie die Sicherung wiederherstellen.",
                     "updated": 1634585956756
                 },
                 {
                     "language": "TR",
-                    "text": "Unutmayın, gelen referansların korunması için yedeği geri yüklemeden önce düğümlerin orijinal yapısını silmeniz gerekir!",
+                    "text": "Unutmayın, gelen referansların korunması için yedeği geri yüklemeden önce düğümlerin orijinal yapısını silmeniz gerekir.",
                     "updated": 1639603997353
                 }
             ]

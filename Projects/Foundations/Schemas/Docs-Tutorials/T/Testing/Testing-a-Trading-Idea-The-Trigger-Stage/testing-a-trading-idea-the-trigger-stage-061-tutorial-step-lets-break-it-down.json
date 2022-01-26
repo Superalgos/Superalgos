@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "condition"
         },
-        "text": "We will go through the statement step and step and put it into proper syntax!",
+        "text": "We will go through the statement step and step and put it into proper syntax.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen!",
+                "text": "Wir werden die Anweisung Schritt für Schritt durchgehen und sie in die richtige Syntax bringen.",
                 "updated": 1639389564281
             }
         ]
@@ -24,7 +24,7 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm!",
+                    "text": "Denken Sie daran, dass die Zeit zuerst kommt: im 1H-Diagramm.",
                     "updated": 1639389574772
                 }
             ]

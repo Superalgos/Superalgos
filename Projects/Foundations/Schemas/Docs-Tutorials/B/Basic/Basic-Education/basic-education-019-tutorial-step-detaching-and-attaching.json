@@ -3,7 +3,7 @@
     "pageNumber": 19,
     "type": "Tutorial Step - Detaching and Attaching",
     "definition": {
-        "text": "Now follow my lead! We are not really going to test the strategy with different parameters... we are just simulating a use case!",
+        "text": "Now follow my lead! We are not really going to test the strategy with different parameters... we are just simulating a use case.",
         "icon": {
             "name": "detach-node",
             "project": "Foundations"
@@ -12,24 +12,24 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Forza, seguimi! Non testeremo davvero la strategia con i diversi parametri...stiamo solo simulando uno scenario d'uso!",
+                "text": "Forza, seguimi! Non testeremo davvero la strategia con i diversi parametri...stiamo solo simulando uno scenario d'uso.",
                 "updated": 1619466373155,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Ahora sigue mi ejemplo! Realmente no vamos a probar la estrategia con diferentes parámetros ... ¡solo estamos simulando un caso de uso!",
+                "text": "¡Ahora sigue mi ejemplo! Realmente no vamos a probar la estrategia con diferentes parámetros ... ¡solo estamos simulando un caso de uso.",
                 "updated": 1626354471956,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Jetzt folgen Sie meinem Beispiel! Wir werden die Strategie nicht wirklich mit verschiedenen Parametern testen... wir simulieren nur einen Anwendungsfall!",
+                "text": "Jetzt folgen Sie meinem Beispiel! Wir werden die Strategie nicht wirklich mit verschiedenen Parametern testen... wir simulieren nur einen Anwendungsfall.",
                 "updated": 1634333486436
             },
             {
                 "language": "TR",
-                "text": "Şimdi beni takip et! Stratejiyi farklı parametrelerle gerçekten test etmeyeceğiz... sadece bir kullanım senaryosunu simüle ediyoruz!",
+                "text": "Şimdi beni takip et! Stratejiyi farklı parametrelerle gerçekten test etmeyeceğiz... sadece bir kullanım senaryosunu simüle ediyoruz.",
                 "updated": 1636790394665
             }
         ]
@@ -66,29 +66,29 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and double-click the Detach Node button. The node separates from the hierarchy! You may now move it to the side!",
+            "text": "Go to the Trading Parameters node that is currently in use — the one attached to the Backtesting Session node — and double-click the Detach Node button. The node separates from the hierarchy! You may now move it to the side.",
             "updated": 1620493528546,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Apri il menù del nodo Trading Parameters in uso (quello attaccato al nodo Backtesting Session) e clicca il pulsante Detach Node. Il nodo si separerà dalla gerarchia, e potrai metterlo da parte!",
+                    "text": "Apri il menù del nodo Trading Parameters in uso (quello attaccato al nodo Backtesting Session) e clicca il pulsante Detach Node. Il nodo si separerà dalla gerarchia, e potrai metterlo da parte.",
                     "updated": 1619466659809,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Ve al nodo Trading Parameters que está actualmente en uso —  el adjunto al nodo Backtesting Session — y haz doble clic en el botón Detach Node. ¡El nodo se separa de la jerarquía! ¡Ahora puedes moverlo hacia un lado!",
+                    "text": "Ve al nodo Trading Parameters que está actualmente en uso —  el adjunto al nodo Backtesting Session — y haz doble clic en el botón Detach Node. ¡El nodo se separa de la jerarquía! ¡Ahora puedes moverlo hacia un lado.",
                     "updated": 1626356259481,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zu dem derzeit verwendeten Knoten Trading Parameters, der mit dem Knoten Backtesting Session verbunden ist, und doppelklicken Sie auf die Schaltfläche Detach Node. Der Knoten wird von der Hierarchie getrennt! Sie können ihn nun zur Seite schieben!",
+                    "text": "Gehen Sie zu dem derzeit verwendeten Knoten Trading Parameters, der mit dem Knoten Backtesting Session verbunden ist, und doppelklicken Sie auf die Schaltfläche Detach Node. Der Knoten wird von der Hierarchie getrennt! Sie können ihn nun zur Seite schieben.",
                     "updated": 1634333522271
                 },
                 {
                     "language": "TR",
-                    "text": "Şu anda kullanımda olan - Geri Test Oturumu düğümüne ( Backtesting Session Node ) bağlı olan - İşlem Parametreleri ( Trading Parameter ) düğümüne gidin ve Düğümü Ayır ( Detach Node ) düğmesine çift tıklayın. Düğüm hiyerarşiden ayrılıyor! Şimdi yana kaydırabilirsiniz!",
+                    "text": "Şu anda kullanımda olan - Geri Test Oturumu düğümüne ( Backtesting Session Node ) bağlı olan - İşlem Parametreleri ( Trading Parameter ) düğümüne gidin ve Düğümü Ayır ( Detach Node ) düğmesine çift tıklayın. Düğüm hiyerarşiden ayrılıyor! Şimdi yana kaydırabilirsiniz.",
                     "updated": 1636790630805
                 }
             ]

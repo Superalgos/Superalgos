@@ -3,7 +3,7 @@
     "pageNumber": 46,
     "type": "Tutorial Step - Starting From a Plugin",
     "definition": {
-        "text": "Let's look into the first scenario: a typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup!",
+        "text": "Let's look into the first scenario: a typical case is when you wish to introduce changes to a strategy shipping with the system to start with a proven setup.",
         "icon": {
             "name": "trading-system",
             "project": "Algorithmic-Trading"
@@ -24,12 +24,12 @@
             },
             {
                 "language": "DE",
-                "text": "Schauen wir uns das erste Szenario an: Ein typischer Fall ist, dass Sie Änderungen an einer Strategie vornehmen möchten, die mit dem System ausgeliefert wird, um mit einem bewährten Setup zu beginnen!",
+                "text": "Schauen wir uns das erste Szenario an: Ein typischer Fall ist, dass Sie Änderungen an einer Strategie vornehmen möchten, die mit dem System ausgeliefert wird, um mit einem bewährten Setup zu beginnen.",
                 "updated": 1634589005531
             },
             {
                 "language": "TR",
-                "text": "İlk senaryoyu inceleyelim: Bu tipik bir durumdur, daha önce denenmiş bir kurulumla başlayarak denemek ya da bu kurulumda değişiklik yapmak istediğinizde ortaya çıkar!",
+                "text": "İlk senaryoyu inceleyelim: Bu tipik bir durumdur, daha önce denenmiş bir kurulumla başlayarak denemek ya da bu kurulumda değişiklik yapmak istediğinizde ortaya çıkar.",
                 "updated": 1639817762221
             }
         ]
@@ -66,12 +66,12 @@
         },
         {
             "style": "Success",
-            "text": "Delete the Plugin File node corresponding to the Trading System and restore the original plugin file (in the \\Plugins\\Trading-Systems folder) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it!",
+            "text": "Delete the Plugin File node corresponding to the Trading System and restore the original plugin file (in the \\Plugins\\Trading-Systems folder) as if it was a backup: drag the file and drop it on the Design Space! The strategy now lives in the workspace and you may modify and save it.",
             "updated": 1629908649650,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space!",
+                    "text": "In questi casi, devi cancellare il nodo Plugin File corrispondente al Trading System e ripristinare l'originle presente in \\Plugins\\Trading-Systems come fosse un backup: trascina il file e rilascialo nel Design Space.",
                     "updated": 1619590641442,
                     "style": "Success"
                 },
@@ -83,12 +83,12 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Löschen Sie den Knoten der Plugin File, die dem Trading System entspricht, und stellen Sie die ursprüngliche Plugin-Datei (im Ordner \\Plugins\\Trading-Systems) wieder her, als ob es sich um eine Sicherungskopie handeln würde: Ziehen Sie die Datei und legen Sie sie im Design Space ab! Die Strategie befindet sich nun im Workspace und Sie können sie ändern und speichern!",
+                    "text": "Löschen Sie den Knoten der Plugin File, die dem Trading System entspricht, und stellen Sie die ursprüngliche Plugin-Datei (im Ordner \\Plugins\\Trading-Systems) wieder her, als ob es sich um eine Sicherungskopie handeln würde: Ziehen Sie die Datei und legen Sie sie im Design Space ab! Die Strategie befindet sich nun im Workspace und Sie können sie ändern und speichern.",
                     "updated": 1634589037277
                 },
                 {
                     "language": "TR",
-                    "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz!",
+                    "text": "Plugin Trading System düğümünde Plugin file düğümünü silin ve orijinal eklenti dosyasını (\\Plugins\\Trading-Systems klasöründe) (sanki bir yedekmiş gibi) geri yükleyin: dosyayı sürükleyin ve Tasarım Alanına bırakın! Strateji artık çalışma alanına yüklendi, onu değiştirebilir ve kaydedebilirsiniz.",
                     "updated": 1639818432673
                 }
             ]

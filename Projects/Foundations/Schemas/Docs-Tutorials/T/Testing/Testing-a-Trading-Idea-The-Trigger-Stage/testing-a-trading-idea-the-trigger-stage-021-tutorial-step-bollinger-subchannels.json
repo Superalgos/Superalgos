@@ -7,11 +7,11 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "The slope provides an indication of how steep the MA curve is... that is, how pronounced is the decline or ascent of the MA!",
+        "text": "The slope provides an indication of how steep the MA curve is... that is, how pronounced is the decline or ascent of the MA.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Steigung gibt an, wie steil die MA-Kurve ist... das heißt, wie ausgeprägt der Rückgang oder Anstieg des MA ist!",
+                "text": "Die Steigung gibt an, wie steil die MA-Kurve ist... das heißt, wie ausgeprägt der Rückgang oder Anstieg des MA ist.",
                 "updated": 1639263150888
             }
         ]

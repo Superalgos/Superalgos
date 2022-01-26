@@ -3,7 +3,7 @@
     "pageNumber": 31,
     "type": "Tutorial Step - Hammering Backups Home",
     "definition": {
-        "text": "Let's go over the same examples that you just read about so that you learn this by heart!",
+        "text": "Let's go over the same examples that you just read about so that you learn this by heart.",
         "icon": {
             "name": "backup-entity",
             "project": "Foundations"
@@ -12,24 +12,24 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Proviamo gli esempi che hai appena letto, così da imparare bene!",
+                "text": "Proviamo gli esempi che hai appena letto, così da imparare bene.",
                 "updated": 1619502744066,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Repasemos los mismos ejemplos sobre los que acabas de leer para que te los aprendas de memoria!",
+                "text": "¡Repasemos los mismos ejemplos sobre los que acabas de leer para que te los aprendas de memoria.",
                 "updated": 1626613958881,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Gehen wir noch einmal die Beispiele durch, die Sie gerade gelesen haben, damit Sie das auswendig lernen!",
+                "text": "Gehen wir noch einmal die Beispiele durch, die Sie gerade gelesen haben, damit Sie das auswendig lernen.",
                 "updated": 1634585727295
             },
             {
                 "language": "TR",
-                "text": "Bunu iyice pekiştirmek için az önce okuduğunuz örneklerin üzerinden geçelim!",
+                "text": "Bunu iyice pekiştirmek için az önce okuduğunuz örneklerin üzerinden geçelim.",
                 "updated": 1639602759421
             }
         ]
@@ -90,29 +90,29 @@
         },
         {
             "style": "Success",
-            "text": "Remember that outgoing references are always preserved!",
+            "text": "Remember that outgoing references are always preserved.",
             "updated": 1615826789684,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ricorda che le references in uscita sono sempre mantenute!",
+                    "text": "Ricorda che le references in uscita sono sempre mantenute.",
                     "updated": 1619502874482,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Recuerda que las referencias salientes siempre se conservan!",
+                    "text": "¡Recuerda que las referencias salientes siempre se conservan.",
                     "updated": 1626614674572,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Denken Sie daran, dass ausgehende Referenzen immer erhalten bleiben!",
+                    "text": "Denken Sie daran, dass ausgehende Referenzen immer erhalten bleiben.",
                     "updated": 1634585756386
                 },
                 {
                     "language": "TR",
-                    "text": "Giden referansların her zaman korunduğunu unutmayın!",
+                    "text": "Giden referansların her zaman korunduğunu unutmayın.",
                     "updated": 1639602969456
                 }
             ]

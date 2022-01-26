@@ -7,16 +7,16 @@
             "name": "Trading\\trading-system",
             "project": "Foundations"
         },
-        "text": "This is the trading system we will use, virtually as it comes right out of the box!",
+        "text": "This is the trading system we will use, virtually as it comes right out of the box.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Dies ist das Trading System, das wir verwenden werden, praktisch so, wie es direkt aus der Box kommt!",
+                "text": "Dies ist das Trading System, das wir verwenden werden, praktisch so, wie es direkt aus der Box kommt.",
                 "updated": 1639261221764
             },
             {
                 "language": "TR",
-                "text": "Özet: Bu, neredeyse kutudan çıktığı gibi kullanacağımız ticaret sistemidir!",
+                "text": "Özet: Bu, neredeyse kutudan çıktığı gibi kullanacağımız ticaret sistemidir.",
                 "updated": 1641064528800
             }
         ]
@@ -40,16 +40,16 @@
         },
         {
             "style": "Callout",
-            "text": "Expand the hierarchy and look around! Notice the Downtrends strategy... Expand each of the nodes corresponding to the four stages, one by one, and take a good look inside!",
+            "text": "Expand the hierarchy and look around! Notice the Downtrends strategy... Expand each of the nodes corresponding to the four stages, one by one, and take a good look inside.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Erweitern Sie die Hierarchie und sehen Sie sich um! Beachten Sie die Downtrends-Strategie... Erweitern Sie jeden der Knoten, die den vier Phasen entsprechen, einen nach dem anderen, und sehen Sie sich das Innere genau an!",
+                    "text": "Erweitern Sie die Hierarchie und sehen Sie sich um! Beachten Sie die Downtrends-Strategie... Erweitern Sie jeden der Knoten, die den vier Phasen entsprechen, einen nach dem anderen, und sehen Sie sich das Innere genau an.",
                     "updated": 1639261237430
                 },
                 {
                     "language": "TR",
-                    "text": "Hiyerarşiyi genişletin ve etrafınıza bakın! Downtrends stratejisine dikkat edin... Dört aşamaya karşılık gelen düğümlerin her birini tek tek genişletin ve içeriye iyi bakın!",
+                    "text": "Hiyerarşiyi genişletin ve etrafınıza bakın! Downtrends stratejisine dikkat edin... Dört aşamaya karşılık gelen düğümlerin her birini tek tek genişletin ve içeriye iyi bakın.",
                     "updated": 1641064634947
                 }
             ]

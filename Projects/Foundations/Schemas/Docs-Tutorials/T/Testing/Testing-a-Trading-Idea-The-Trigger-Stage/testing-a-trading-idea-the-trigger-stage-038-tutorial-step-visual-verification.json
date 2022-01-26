@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "Let's do a quick visual check on the simulation to understand if the strategy was triggered on and off as expected!",
+        "text": "Let's do a quick visual check on the simulation to understand if the strategy was triggered on and off as expected.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Lassen Sie uns eine schnelle visuelle Überprüfung der Simulation durchführen, um zu verstehen, ob die Strategie wie erwartet ein- und ausgeschaltet wurde!",
+                "text": "Lassen Sie uns eine schnelle visuelle Überprüfung der Simulation durchführen, um zu verstehen, ob die Strategie wie erwartet ein- und ausgeschaltet wurde.",
                 "updated": 1639267047467
             }
         ]
@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Make sure the Bollinger SubChannels Object layer is on along with the layer's panel!",
+            "text": "Make sure the Bollinger SubChannels Object layer is on along with the layer's panel.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Vergewissern Sie sich, dass der Layer Bollinger SubChannels Object zusammen mit dem Panel des Layers aktiviert ist!",
+                    "text": "Vergewissern Sie sich, dass der Layer Bollinger SubChannels Object zusammen mit dem Panel des Layers aktiviert ist.",
                     "updated": 1639267060984
                 }
             ]

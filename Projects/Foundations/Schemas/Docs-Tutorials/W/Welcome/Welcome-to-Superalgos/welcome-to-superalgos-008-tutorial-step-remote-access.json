@@ -137,7 +137,7 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een \"restricted Local Area Network\". Als je ervoor kiest om de client in de cloud te draaien, moet je jouw eigen beveiliging implementeren!",
+                    "text": "Op dit moment implementeert Superalgos nog geen enkele vorm van beveiliging. Gebruik het systeem alleen in een \"restricted Local Area Network\". Als je ervoor kiest om de client in de cloud te draaien, moet je jouw eigen beveiliging implementeren.",
                     "updated": 1633854469540,
                     "style": "Warning"
                 },

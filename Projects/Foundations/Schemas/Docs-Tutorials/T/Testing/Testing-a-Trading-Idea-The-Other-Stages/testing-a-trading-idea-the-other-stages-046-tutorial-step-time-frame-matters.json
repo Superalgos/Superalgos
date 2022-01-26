@@ -7,11 +7,11 @@
             "name": "Time\\time-frame",
             "project": "Foundations"
         },
-        "text": "The Time Frame of the trading session determines how often the trading bot does what it does!",
+        "text": "The Time Frame of the trading session determines how often the trading bot does what it does.",
         "translations": [
             {
                 "language": "DE",
-                "text": "\"Der Zeitrahmen \" Time Frame \" der Trading-Session bestimmt, wie oft der Trading-Bot tut, was er tut!",
+                "text": "\"Der Zeitrahmen \" Time Frame \" der Trading-Session bestimmt, wie oft der Trading-Bot tut, was er tut.",
                 "updated": 1639418462057
             }
         ]
@@ -19,11 +19,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Read this page about the time frame carefully!",
+            "text": "Read this page about the time frame carefully.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diese Seite über den Zeitrahmen sorgfältig durch!",
+                    "text": "Lesen Sie diese Seite über den Zeitrahmen sorgfältig durch.",
                     "updated": 1639418470216
                 }
             ]

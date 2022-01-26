@@ -7,16 +7,16 @@
             "name": "Bullet/bullet-market-sell-order",
             "project": "Foundations"
         },
-        "text": "You're familiar with the visualization of limit orders from the Welcome tutorial. It's time for market orders to shine!",
+        "text": "You're familiar with the visualization of limit orders from the Welcome tutorial. It's time for market orders to shine.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Sie sind mit der Visualisierung von Limit-Orders aus dem Willkommenstutorial vertraut. Jetzt ist es an der Zeit, dass Market Orders zum Zuge kommen!",
+                "text": "Sie sind mit der Visualisierung von Limit-Orders aus dem Willkommenstutorial vertraut. Jetzt ist es an der Zeit, dass Market Orders zum Zuge kommen.",
                 "updated": 1639144530656
             },
             {
                 "language": "RU",
-                "text": "Вы знакомы с визуализацией лимитных ордеров из учебника Welcome to Superalgos Tutorial. Пришло время для рыночных ордеров!",
+                "text": "Вы знакомы с визуализацией лимитных ордеров из учебника Welcome to Superalgos Tutorial. Пришло время для рыночных ордеров.",
                 "updated": 1640629739499
             }
         ]
@@ -40,17 +40,17 @@
         },
         {
             "style": "Callout",
-            "text": "Find the \"Market Buy Orders\" and \"Market Sell Orders\" layers and turn them on!",
+            "text": "Find the \"Market Buy Orders\" and \"Market Sell Orders\" layers and turn them on.",
             "updated": 1622541873433,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Suchen Sie die Ebenen \"Market Buy Orders\" und \"Market Sell Orders\" und aktivieren Sie sie!",
+                    "text": "Suchen Sie die Ebenen \"Market Buy Orders\" und \"Market Sell Orders\" und aktivieren Sie sie.",
                     "updated": 1639144566762
                 },
                 {
                     "language": "RU",
-                    "text": "Найдите слои \"Market Buy Orders\" и \"Market Sell Orders\" и включите их!",
+                    "text": "Найдите слои \"Market Buy Orders\" и \"Market Sell Orders\" и включите их.",
                     "updated": 1640629825625
                 }
             ]

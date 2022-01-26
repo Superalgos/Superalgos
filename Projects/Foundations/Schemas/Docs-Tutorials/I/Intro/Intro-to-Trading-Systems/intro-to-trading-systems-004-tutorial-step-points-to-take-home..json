@@ -92,42 +92,42 @@
         },
         {
             "style": "List",
-            "text": "Precedence is given by the order in which strategies are defined around the Trading System node. You may change the order, of course!",
+            "text": "Precedence is given by the order in which strategies are defined around the Trading System node. You may change the order, of course.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "La precedencia viene dada por el orden en el que se definen las estrategias alrededor del nodo Trading System. ¡Puedes cambiar el orden!",
+                    "text": "La precedencia viene dada por el orden en el que se definen las estrategias alrededor del nodo Trading System. ¡Puedes cambiar el orden.",
                     "updated": 1629588262008
                 },
                 {
                     "language": "DE",
-                    "text": "Der Vorrang ergibt sich aus der Reihenfolge, in der die Strategien um den Knoten Trading System herum definiert sind. Sie können die Reihenfolge natürlich ändern!",
+                    "text": "Der Vorrang ergibt sich aus der Reihenfolge, in der die Strategien um den Knoten Trading System herum definiert sind. Sie können die Reihenfolge natürlich ändern.",
                     "updated": 1639147480926
                 },
                 {
                     "language": "TR",
-                    "text": "Öncelik, Ticaret Sistemi ( Trading System ) düğümü etrafında stratejilerin tanımlandığı sırayla verilir. Elbette sırayı değiştirebilirsin!",
+                    "text": "Öncelik, Ticaret Sistemi ( Trading System ) düğümü etrafında stratejilerin tanımlandığı sırayla verilir. Elbette sırayı değiştirebilirsin.",
                     "updated": 1640695499601
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "You are probably asking why? Do these rules sound arbitrary? They are, for good reason!",
+            "text": "You are probably asking why? Do these rules sound arbitrary? They are, for good reason.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Probablemente te estés preguntando.. ¿por qué estas reglas suenan arbitrarias? ¡Lo son!",
+                    "text": "Probablemente te estés preguntando.. ¿por qué estas reglas suenan arbitrarias? ¡Lo son.",
                     "updated": 1629588865354
                 },
                 {
                     "language": "DE",
-                    "text": "Sie fragen sich wahrscheinlich, warum? Klingen diese Regeln willkürlich? Das sind sie, und zwar aus gutem Grund!",
+                    "text": "Sie fragen sich wahrscheinlich, warum? Klingen diese Regeln willkürlich? Das sind sie, und zwar aus gutem Grund.",
                     "updated": 1639147490934
                 },
                 {
                     "language": "TR",
-                    "text": "Not: Muhtemelen nedenini soruyorsundur? Bu kurallar, keyfi mi? İyi bir sebepten dolayı öyle!",
+                    "text": "Not: Muhtemelen nedenini soruyorsundur? Bu kurallar, keyfi mi? İyi bir sebepten dolayı öyle.",
                     "updated": 1640695584520
                 }
             ]

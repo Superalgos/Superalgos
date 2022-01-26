@@ -7,41 +7,41 @@
             "project": "Foundations",
             "name": "network-node"
         },
-        "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now!",
+        "text": "If you are accessing the Client from the same machine, you may click Next and skip this step now.",
         "translations": [
             {
                 "language": "ID",
-                "text": "Jika kamu menjalankan Client ini di mesin yang sama, saranku click Next dan skip step ini segera!",
+                "text": "Jika kamu menjalankan Client ini di mesin yang sama, saranku click Next dan skip step ini segera.",
                 "updated": 1614426991691,
                 "style": "Definition"
             },
             {
                 "language": "IT",
-                "text": "Se sei collegato al Client dalla stessa macchina, puoi cliccare Next e saltare questo step!",
+                "text": "Se sei collegato al Client dalla stessa macchina, puoi cliccare Next e saltare questo step.",
                 "updated": 1614718112355,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Si estas accediendo al cliente desde el mismo Equipo, puedes saltarte este paso!",
+                "text": "Si estas accediendo al cliente desde el mismo Equipo, puedes saltarte este paso.",
                 "updated": 1618433417604,
                 "style": "Definition"
             },
             {
                 "language": "FR",
-                "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant!",
+                "text": "Si vous accédez au Client à partir de la même machine, vous pouvez cliquer sur Suivant et passer cette étape maintenant.",
                 "updated": 1623958262097,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Als je de Client benaderd vanaf hetzelfde apparaat, klik dan op Next en sla deze stap over!",
+                "text": "Als je de Client benaderd vanaf hetzelfde apparaat, klik dan op Next en sla deze stap over.",
                 "updated": 1633886528639,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen!",
+                "text": "Wenn Sie von demselben Rechner aus auf den Client zugreifen, können Sie auf Weiter klicken und diesen Schritt überspringen.",
                 "updated": 1634161773115,
                 "style": "Definition"
             },
@@ -52,7 +52,7 @@
             },
             {
                 "language": "TR",
-                "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz!",
+                "text": "İstemciye ( Client ) aynı makineden erişiyorsanız, İleri'ye tıklayıp bu adımı şimdi atlayabilirsiniz.",
                 "updated": 1635579026048
             }
         ]
@@ -246,17 +246,17 @@
         },
         {
             "style": "List",
-            "text": "Now close the editor. If the configuration is correct, the error message should disappear in a minute!",
+            "text": "Now close the editor. If the configuration is correct, the error message should disappear in a minute.",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Sekarang tutup editor. Jika konfigurasinya benar, pesan error akan hilang dengan cepat!",
+                    "text": "Sekarang tutup editor. Jika konfigurasinya benar, pesan error akan hilang dengan cepat.",
                     "updated": 1640568845885,
                     "style": "List"
                 },
                 {
                     "language": "IT",
-                    "text": "Esci dalla configurazione spostando il puntatore del mouse dalla bolla! Se i parametri sono corretti, il messaggio di errore nel Network Node dovrebbe scomparire nel giro di un minuto!",
+                    "text": "Esci dalla configurazione spostando il puntatore del mouse dalla bolla! Se i parametri sono corretti, il messaggio di errore nel Network Node dovrebbe scomparire nel giro di un minuto.",
                     "updated": 1614718314979,
                     "style": "List"
                 },
@@ -268,25 +268,25 @@
                 },
                 {
                     "language": "FR",
-                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
+                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute .",
                     "updated": 1623958550219,
                     "style": "List"
                 },
                 {
                     "language": "FR",
-                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute !",
+                    "text": "Quittez la configuration en retirant le pointeur de la bulle de configuration ! Si la configuration est correcte, le message d'erreur dans le Network Node devrait disparaître en moins d'une minute .",
                     "updated": 1623958550219,
                     "style": "List"
                 },
                 {
                     "language": "NL",
-                    "text": "Sluit de configuratie door de muis buiten de configuratie cirkel te bewegen! Als de configuratie correct is aangepast, zou de foutmelding in de Network Node binnen een minuut verdwijnen!",
+                    "text": "Sluit de configuratie door de muis buiten de configuratie cirkel te bewegen! Als de configuratie correct is aangepast, zou de foutmelding in de Network Node binnen een minuut verdwijnen.",
                     "updated": 1633887318246,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden!",
+                    "text": "Beenden Sie die Konfiguration, indem Sie den Mauszeiger aus der Konfigurationsblase bewegen! Wenn die Konfiguration korrekt ist, sollte die Fehlermeldung im Netzwerkknoten in einer Minute verschwinden.",
                     "updated": 1634161900103,
                     "style": "List"
                 },
@@ -297,7 +297,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır!",
+                    "text": "Fare işaretçisini yapılandırma balonundan kaldırarak yapılandırmadan çıkın! Yapılandırma doğruysa, Ağ Düğümü'ndeki hata mesajı bir dakika içinde kaybolmalıdır.",
                     "updated": 1635579204588
                 }
             ],

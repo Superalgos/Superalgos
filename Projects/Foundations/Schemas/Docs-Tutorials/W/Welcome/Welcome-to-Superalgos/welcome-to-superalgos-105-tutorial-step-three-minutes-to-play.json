@@ -3,7 +3,7 @@
     "pageNumber": 105,
     "type": "Tutorial Step - Three Minutes to Play",
     "definition": {
-        "text": "I'll give you a few minutes to play around with your live session, and when you are ready, we'll move on to other things!",
+        "text": "I'll give you a few minutes to play around with your live session, and when you are ready, we'll move on to other things.",
         "icon": {
             "name": "live-trading-session",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Ti lascio qualche minuto per divertirti con la tua live session, e quando sarai pronto passeremo ad altre cose!",
+                "text": "Ti lascio qualche minuto per divertirti con la tua live session, e quando sarai pronto passeremo ad altre cose.",
                 "updated": 1618071992282,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Te daré unos minutos para que juegues con tu sesión en vivo, y cuando estés listo, ¡pasaremos a otras cosas!",
+                "text": "Te daré unos minutos para que juegues con tu sesión en vivo, y cuando estés listo, ¡pasaremos a otras cosas.",
                 "updated": 1624485287716,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Ich gebe Ihnen ein paar Minuten Zeit, um mit Ihrer Live-Sitzung herumzuspielen, und wenn Sie bereit sind, gehen wir zu anderen Dingen über!",
+                "text": "Ich gebe Ihnen ein paar Minuten Zeit, um mit Ihrer Live-Sitzung herumzuspielen, und wenn Sie bereit sind, gehen wir zu anderen Dingen über.",
                 "updated": 1634245629094
             },
             {
                 "language": "TR",
-                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda başka şeylere geçeceğiz!",
+                "text": "Canlı oturumunuzla oynamanız için size birkaç dakika vereceğim ve hazır olduğunuzda başka şeylere geçeceğiz.",
                 "updated": 1636633146523
             },
             {
                 "language": "ID",
-                "text": "Aku akan memberi kamu beberapa menit untuk bermain-main dengan  live session-mu, dan ketika kamu siap, kita akan beralih ke hal-hal lain!",
+                "text": "Aku akan memberi kamu beberapa menit untuk bermain-main dengan  live session-mu, dan ketika kamu siap, kita akan beralih ke hal-hal lain.",
                 "updated": 1640597996644
             }
         ]
@@ -76,68 +76,68 @@
         },
         {
             "style": "Important",
-            "text": "Once you are ready to move on, feel free to stop the Live Trading Session and Data Tasks. You may leave the session running if you wish, but I wouldn't trust my hard-earned cash to the demo strategy indefinitely!",
+            "text": "Once you are ready to move on, feel free to stop the Live Trading Session and Data Tasks. You may leave the session running if you wish, but I wouldn't trust my hard-earned cash to the demo strategy indefinitely.",
             "updated": 1610647503331,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Una volta che sei pronto a proseguire, sentiti libero di fermare Live Trading Session e Data Tasks. Puoi lasciarle proseguire se preferisci, ma io non affiderei a tempo indefinito i miei sudati soldi alla strategia demo!",
+                    "text": "Una volta che sei pronto a proseguire, sentiti libero di fermare Live Trading Session e Data Tasks. Puoi lasciarle proseguire se preferisci, ma io non affiderei a tempo indefinito i miei sudati soldi alla strategia demo.",
                     "updated": 1618072064872,
                     "style": "Important"
                 },
                 {
                     "language": "ES",
-                    "text": "Una vez que esté listo para seguir adelante, siéntase libre de detener el Live Trading Session y Data Tasks. Puede dejar la sesión activa si lo desea, ¡pero no confiaría indefinidamente el dinero que tanto me costó ganar en la estrategia de demostración!",
+                    "text": "Una vez que esté listo para seguir adelante, siéntase libre de detener el Live Trading Session y Data Tasks. Puede dejar la sesión activa si lo desea, ¡pero no confiaría indefinidamente el dinero que tanto me costó ganar en la estrategia de demostración.",
                     "updated": 1624485377425,
                     "style": "Important"
                 },
                 {
                     "language": "DE",
-                    "text": "Das ist wichtig: Wenn Sie bereit sind, weiterzumachen, können Sie die Live Trading Session und die Data Tasks beenden. Sie können die Sitzung weiterlaufen lassen, wenn Sie möchten, aber ich würde mein hart verdientes Geld nicht auf unbestimmte Zeit der Demostrategie anvertrauen!",
+                    "text": "Das ist wichtig: Wenn Sie bereit sind, weiterzumachen, können Sie die Live Trading Session und die Data Tasks beenden. Sie können die Sitzung weiterlaufen lassen, wenn Sie möchten, aber ich würde mein hart verdientes Geld nicht auf unbestimmte Zeit der Demostrategie anvertrauen.",
                     "updated": 1634245651095
                 },
                 {
                     "language": "TR",
-                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu ( Live Trading Session ) ve Veri Görevlerini ( Data Tasks ) durdurmaktan çekinmeyin. İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak zor kazanılmış paramı süresiz olarak demo stratejisine emanet etmem!",
+                    "text": "Devam etmeye hazır olduğunuzda, Canlı İşlem Oturumunu ( Live Trading Session ) ve Veri Görevlerini ( Data Tasks ) durdurmaktan çekinmeyin. İsterseniz oturumu çalışır durumda bırakabilirsiniz, ancak zor kazanılmış paramı süresiz olarak demo stratejisine emanet etmem.",
                     "updated": 1636633220202
                 },
                 {
                     "language": "ID",
-                    "text": "Setelah kamu siap untuk melanjutkan, jangan ragu untuk menghentikan Live Trading Session dan Data Tasks. Kamu dapat membiarkan session berjalan jika kamu mau, tetapi aku tidak akan mempercayai uang hasil jerih payahku untuk strategi demo tanpa batas!",
+                    "text": "Setelah kamu siap untuk melanjutkan, jangan ragu untuk menghentikan Live Trading Session dan Data Tasks. Kamu dapat membiarkan session berjalan jika kamu mau, tetapi aku tidak akan mempercayai uang hasil jerih payahku untuk strategi demo tanpa batas.",
                     "updated": 1640598134026
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "There's still a few more things I want to show you before I let you go! Bear with me!",
+            "text": "There's still a few more things I want to show you before I let you go! Bear with me.",
             "updated": 1610711032226,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ci sono ancora un paio di cose che voglio mostrarti prima di concludere! Tieni duro!",
+                    "text": "Ci sono ancora un paio di cose che voglio mostrarti prima di concludere! Tieni duro.",
                     "updated": 1618072086072,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Todavía hay algunas cosas más que quiero mostrarte antes de dejarte ir! ¡Ten paciencia!",
+                    "text": "¡Todavía hay algunas cosas más que quiero mostrarte antes de dejarte ir! ¡Ten paciencia.",
                     "updated": 1625929416826,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Es gibt noch ein paar Dinge, die ich Ihnen zeigen möchte, bevor ich Sie gehen lasse! Haben Sie Geduld mit mir!",
+                    "text": "Es gibt noch ein paar Dinge, die ich Ihnen zeigen möchte, bevor ich Sie gehen lasse! Haben Sie Geduld mit mir.",
                     "updated": 1634245657922
                 },
                 {
                     "language": "TR",
-                    "text": "Gitmene izin vermeden önce sana göstermek istediğim birkaç şey daha var!",
+                    "text": "Gitmene izin vermeden önce sana göstermek istediğim birkaç şey daha var.",
                     "updated": 1636633248352
                 },
                 {
                     "language": "ID",
-                    "text": "Masih ada beberapa hal lagi yang ingin aku tunjukkan sebelum aku membiarkan kamu pergi! Bersabarlah!",
+                    "text": "Masih ada beberapa hal lagi yang ingin aku tunjukkan sebelum aku membiarkan kamu pergi! Bersabarlah.",
                     "updated": 1640598171441
                 }
             ]

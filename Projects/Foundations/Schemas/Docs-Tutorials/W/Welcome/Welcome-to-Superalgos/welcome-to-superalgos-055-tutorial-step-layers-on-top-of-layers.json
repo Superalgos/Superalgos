@@ -87,68 +87,68 @@
         },
         {
             "style": "Callout",
-            "text": "To turn layers on and off, left-click on them!",
+            "text": "To turn layers on and off, left-click on them.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Per attivare e disattivare i layers, cliccaci sopra!",
+                    "text": "Per attivare e disattivare i layers, cliccaci sopra.",
                     "updated": 1615963587655,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Para activar y desactivar las capas, haz clic izquierdo en ellas!",
+                    "text": "¡Para activar y desactivar las capas, haz clic izquierdo en ellas.",
                     "updated": 1624495289554,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Um Ebenen ein- und auszuschalten, klicken Sie mit der linken Maustaste auf sie!",
+                    "text": "Um Ebenen ein- und auszuschalten, klicken Sie mit der linken Maustaste auf sie.",
                     "updated": 1634221550537
                 },
                 {
                     "language": "TR",
-                    "text": "Katmanları açmak ve kapatmak için üzerlerine mouse'un sol tuşuyla tıklayın!",
+                    "text": "Katmanları açmak ve kapatmak için üzerlerine mouse'un sol tuşuyla tıklayın.",
                     "updated": 1636096510159
                 },
                 {
                     "language": "RU",
-                    "text": "Чтобы включать и выключать слои, щелкните по ним левой кнопкой мыши!",
+                    "text": "Чтобы включать и выключать слои, щелкните по ним левой кнопкой мыши.",
                     "updated": 1636566368102
                 },
                 {
                     "language": "ID",
-                    "text": "Untuk menghidupkan dan mematikan layer, klik kiri pada mereka!",
+                    "text": "Untuk menghidupkan dan mematikan layer, klik kiri pada mereka.",
                     "updated": 1639587352062
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Superalgos ships with many more indicators, but they are not configured in this Workspace. You will learn about them later!",
+            "text": "Superalgos ships with many more indicators, but they are not configured in this Workspace. You will learn about them later.",
             "updated": 1610622819519,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Superalgos è provvisto di molti più indicatori, ma non sono configurati in questo Workspace. Ne parleremo più tardi!",
+                    "text": "Superalgos è provvisto di molti più indicatori, ma non sono configurati in questo Workspace. Ne parleremo più tardi.",
                     "updated": 1615963772691,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Work Space. ¡Aprenderás sobre ellos más tarde!",
+                    "text": "Superalgos conecta con muchos más indicadores, pero no están configurados en este Work Space. ¡Aprenderás sobre ellos más tarde.",
                     "updated": 1624409780086,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos wird mit vielen weiteren Indikatoren ausgeliefert, die jedoch in diesem Workspace nicht konfiguriert sind. Sie werden sie später kennenlernen!",
+                    "text": "Superalgos wird mit vielen weiteren Indikatoren ausgeliefert, die jedoch in diesem Workspace nicht konfiguriert sind. Sie werden sie später kennenlernen.",
                     "updated": 1634217927340,
                     "style": "Note"
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz!",
+                    "text": "Superalgos daha birçok göstergeyle birlikte gelir, ancak bunlar bu Çalışma Alanında yapılandırılmamıştır. Onları daha sonra öğreneceksiniz.",
                     "updated": 1636096525958
                 },
                 {
@@ -158,7 +158,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Superalgos berkerja dengan lebih banyak indikator, tetapi tidak dikonfigurasi di Workspace ini. Kamu akan belajar tentang mereka nanti!",
+                    "text": "Superalgos berkerja dengan lebih banyak indikator, tetapi tidak dikonfigurasi di Workspace ini. Kamu akan belajar tentang mereka nanti.",
                     "updated": 1639587415189
                 }
             ]

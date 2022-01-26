@@ -37,12 +37,12 @@
     "paragraphs": [
         {
             "style": "Important",
-            "text": "The current implementation of this feature is not optimal, and the behavior of some of the options is hard to predict. If you are a developer, this may be a great opportunity to iterate on the existing code and take this feature to a more usable state!",
+            "text": "The current implementation of this feature is not optimal, and the behavior of some of the options is hard to predict. If you are a developer, this may be a great opportunity to iterate on the existing code and take this feature to a more usable state.",
             "updated": 1615493927202,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "L'implementazione attuale di questa proprietà non è ottimale. Se sei uno sviluppatore, questa potrebbe essere una grande opportunità per analizzare il codice esistente e rendere più utilizzabile questa funzionalità!",
+                    "text": "L'implementazione attuale di questa proprietà non è ottimale. Se sei uno sviluppatore, questa potrebbe essere una grande opportunità per analizzare il codice esistente e rendere più utilizzabile questa funzionalità.",
                     "updated": 1619461465723,
                     "style": "Important"
                 },
@@ -54,24 +54,24 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die derzeitige Implementierung dieser Funktion ist nicht optimal, und das Verhalten einiger der Optionen ist schwer vorhersehbar. Wenn Sie ein Entwickler sind, könnte dies eine gute Gelegenheit sein, den bestehenden Code zu überarbeiten und diese Funktion in einen brauchbareren Zustand zu bringen!",
+                    "text": "Die derzeitige Implementierung dieser Funktion ist nicht optimal, und das Verhalten einiger der Optionen ist schwer vorhersehbar. Wenn Sie ein Entwickler sind, könnte dies eine gute Gelegenheit sein, den bestehenden Code zu überarbeiten und diese Funktion in einen brauchbareren Zustand zu bringen.",
                     "updated": 1634333057384
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özelliğin mevcut uygulaması optimal değildir ve bazı seçeneklerin davranışını tahmin etmek zordur. Bir geliştiriciyseniz, mevcut kodu tekrarlamak ve bu özelliği daha kullanılabilir bir duruma getirmek için bu harika bir fırsat olabilir!",
+                    "text": "Bu özelliğin mevcut uygulaması optimal değildir ve bazı seçeneklerin davranışını tahmin etmek zordur. Bir geliştiriciyseniz, mevcut kodu tekrarlamak ve bu özelliği daha kullanılabilir bir duruma getirmek için bu harika bir fırsat olabilir.",
                     "updated": 1636752636392
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Feel free to try this feature, but you will most likely want to go back to the default setting!",
+            "text": "Feel free to try this feature, but you will most likely want to go back to the default setting.",
             "updated": 1615493850572,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Sperimenta pure con questa funzionalità, ma probabilmente vorrai tornare alla proprietà di default!",
+                    "text": "Sperimenta pure con questa funzionalità, ma probabilmente vorrai tornare alla proprietà di default.",
                     "updated": 1619461498671,
                     "style": "Callout"
                 },
@@ -83,12 +83,12 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sie können diese Funktion gerne ausprobieren, aber Sie werden höchstwahrscheinlich zur Standardeinstellung zurückkehren wollen!",
+                    "text": "Sie können diese Funktion gerne ausprobieren, aber Sie werden höchstwahrscheinlich zur Standardeinstellung zurückkehren wollen.",
                     "updated": 1634333066060
                 },
                 {
                     "language": "TR",
-                    "text": "Bu özelliği denemekten çekinmeyin, ancak büyük olasılıkla varsayılan ayara geri dönmek isteyeceksiniz!",
+                    "text": "Bu özelliği denemekten çekinmeyin, ancak büyük olasılıkla varsayılan ayara geri dönmek isteyeceksiniz.",
                     "updated": 1636752653398
                 }
             ]

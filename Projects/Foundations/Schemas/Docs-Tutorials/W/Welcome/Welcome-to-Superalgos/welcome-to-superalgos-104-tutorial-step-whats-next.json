@@ -11,7 +11,7 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare!",
+                "text": "Lo so, ci sono migliaia di cose che non abbiamo trattato o approfondito! C'è così tanto da vedere e imparare.",
                 "updated": 1618072213077,
                 "style": "Definition"
             },
@@ -75,34 +75,34 @@
         },
         {
             "style": "Success",
-            "text": "Don't worry! You'll get there my friend! There are more tutorials and a lot of reading material available! Maybe it's a good idea to give you a quick glimpse into the built-in Documentation system before I say goodbye!",
+            "text": "Don't worry! You'll get there my friend! There are more tutorials and a lot of reading material available! Maybe it's a good idea to give you a quick glimpse into the built-in Documentation system before I say goodbye.",
             "updated": 1611579231884,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Non preoccuparti! Imparerai tutto! Ci sono altri tutorial e tonnellate di materiale da leggere! Penso sia una buona idea mostrarti velocemente il sistema di documentazione prima di salutarci!",
+                    "text": "Non preoccuparti! Imparerai tutto! Ci sono altri tutorial e tonnellate di materiale da leggere! Penso sia una buona idea mostrarti velocemente il sistema di documentazione prima di salutarci.",
                     "updated": 1618072351473,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡No te preocupes! ¡Llegarás, amigo mío! ¡Hay más tutoriales y mucho material de lectura disponible! ¡Quizás sea una buena idea darle un vistazo rápido al sistema de documentación integrado antes de despedirme!",
+                    "text": "¡No te preocupes! ¡Llegarás, amigo mío! ¡Hay más tutoriales y mucho material de lectura disponible! ¡Quizás sea una buena idea darle un vistazo rápido al sistema de documentación integrado antes de despedirme.",
                     "updated": 1624485842059,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Don't worry! Du schaffst das schon, mein Freund! Es gibt noch mehr Tutorials und jede Menge Lesestoff! Vielleicht ist es eine gute Idee, Ihnen einen kurzen Einblick in das integrierte Dokumentationssystem zu geben, bevor ich mich verabschiede!",
+                    "text": "Don't worry! Du schaffst das schon, mein Freund! Es gibt noch mehr Tutorials und jede Menge Lesestoff! Vielleicht ist es eine gute Idee, Ihnen einen kurzen Einblick in das integrierte Dokumentationssystem zu geben, bevor ich mich verabschiede.",
                     "updated": 1634245783429
                 },
                 {
                     "language": "TR",
-                    "text": "Merak etme! Tüm bunları öğreneceksin arkadaşım! Daha fazla öğretici ve birçok okuma materyali mevcut! Belki de hoşçakal demeden önce yerleşik Dokümantasyon sistemine bir göz atmak iyi bir fikirdir!",
+                    "text": "Merak etme! Tüm bunları öğreneceksin arkadaşım! Daha fazla öğretici ve birçok okuma materyali mevcut! Belki de hoşçakal demeden önce yerleşik Dokümantasyon sistemine bir göz atmak iyi bir fikirdir.",
                     "updated": 1636638320357
                 },
                 {
                     "language": "ID",
-                    "text": "Jangan khawatir! kamu akan sampai di sana temanku! Ada lebih banyak tutorial dan banyak bahan bacaan yang tersedia! Mungkin itu ide yang baik untuk memberi kamu sekilas ke dalam sistem Dokumentasi bawaan sebelum aku mengucapkan selamat tinggal!",
+                    "text": "Jangan khawatir! kamu akan sampai di sana temanku! Ada lebih banyak tutorial dan banyak bahan bacaan yang tersedia! Mungkin itu ide yang baik untuk memberi kamu sekilas ke dalam sistem Dokumentasi bawaan sebelum aku mengucapkan selamat tinggal.",
                     "updated": 1640596773612
                 }
             ]

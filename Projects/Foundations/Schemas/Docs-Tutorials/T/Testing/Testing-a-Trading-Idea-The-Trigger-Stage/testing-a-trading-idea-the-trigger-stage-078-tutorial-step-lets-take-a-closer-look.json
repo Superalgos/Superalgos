@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "bot-data-dependencies"
         },
-        "text": "We're going to take a few minutes to unpack everything we see on the chart so that you may fully understand how this works!",
+        "text": "We're going to take a few minutes to unpack everything we see on the chart so that you may fully understand how this works.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert!",
+                "text": "Wir werden uns ein paar Minuten Zeit nehmen, um alles, was wir auf dem Chart sehen, auszupacken, damit Sie verstehen, wie das funktioniert.",
                 "updated": 1639391418728
             }
         ]
@@ -45,18 +45,18 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen!",
+                    "text": "Das Take Position Event Ereignis gilt ebenfalls für jede dieser Kerzen.",
                     "updated": 1639391468626
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "This also means that the strategy is triggering and taking the position on the same candle! Let's go and verify if all this is true!",
+            "text": "This also means that the strategy is triggering and taking the position on the same candle! Let's go and verify if all this is true.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft!",
+                    "text": "Dies bedeutet auch, dass die Strategie bei derselben Kerze ausgelöst wird und die Position einnimmt! Überprüfen wir nun, ob dies alles zutrifft.",
                     "updated": 1639391474980
                 }
             ]

@@ -48,7 +48,7 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Matching the aspect ratio of your time machines to the aspect ratio of your screen is crucial for charts to fit your screen tightly while zooming in!",
+            "text": "Matching the aspect ratio of your time machines to the aspect ratio of your screen is crucial for charts to fit your screen tightly while zooming in.",
             "translations": [
                 {
                     "language": "IT",
@@ -58,30 +58,30 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Mencocokkan aspect ratiotime machines kamu dengan aspect ratio layar sangat penting agar charts pas dengan layarmu saat memperbesar!",
+                    "text": "Mencocokkan aspect ratiotime machines kamu dengan aspect ratio layar sangat penting agar charts pas dengan layarmu saat memperbesar.",
                     "updated": 1639745608931,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Hacer coincidir la relación de aspecto de tus máquinas del tiempo con la relación de aspecto de su pantalla es crucial para que los gráficos se ajusten perfectamente a tu pantalla al hacer zoom!",
+                    "text": "¡Hacer coincidir la relación de aspecto de tus máquinas del tiempo con la relación de aspecto de su pantalla es crucial para que los gráficos se ajusten perfectamente a tu pantalla al hacer zoom.",
                     "updated": 1624494074907,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Die Anpassung des Seitenverhältnisses Ihrer Zeitmaschinen an das Seitenverhältnis Ihres Bildschirms ist entscheidend dafür, dass die Diagramme beim Heranzoomen genau auf Ihren Bildschirm passen!",
+                    "text": "Die Anpassung des Seitenverhältnisses Ihrer Zeitmaschinen an das Seitenverhältnis Ihres Bildschirms ist entscheidend dafür, dass die Diagramme beim Heranzoomen genau auf Ihren Bildschirm passen.",
                     "updated": 1634206368643,
                     "style": "Text"
                 },
                 {
                     "language": "TR",
-                    "text": "Zaman makinelerinizin en boy oranını ekranınızın en boy oranıyla eşleştirmek, yakınlaştırırken grafiklerin ekranınıza sığabilmesi için çok önemlidir!",
+                    "text": "Zaman makinelerinizin en boy oranını ekranınızın en boy oranıyla eşleştirmek, yakınlaştırırken grafiklerin ekranınıza sığabilmesi için çok önemlidir.",
                     "updated": 1636035504803
                 },
                 {
                     "language": "RU",
-                    "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба!",
+                    "text": "Соответствие соотношения сторон Ваших машин времени с соотношению сторон Вашего экрана, имеет решающее значение, т.к. необходимо, чтобы диаграммы плотно прилегали к Вашему экрану при увеличении масштаба.",
                     "updated": 1636202715136
                 }
             ],
@@ -89,7 +89,7 @@
         },
         {
             "style": "Callout",
-            "text": "Direct your mouse at one of the time machines and hit Ctrl + Shift + Alt + Key-A. Do the same with the other one!",
+            "text": "Direct your mouse at one of the time machines and hit Ctrl + Shift + Alt + Key-A. Do the same with the other one.",
             "updated": 1630943771557,
             "translations": [
                 {
@@ -100,25 +100,25 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Arahkan mouse ke salah satu time machines dan tekan Ctrl + Shift + Alt + Key-A. Lakukan hal yang sama dengan yang lain!",
+                    "text": "Arahkan mouse ke salah satu time machines dan tekan Ctrl + Shift + Alt + Key-A. Lakukan hal yang sama dengan yang lain.",
                     "updated": 1639745642461,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Dirije tu mouse a una de las máquinas del tiempo y presiona Ctrl + Shift + Key-A. ¡Haz lo mismo con la otra!",
+                    "text": "Dirije tu mouse a una de las máquinas del tiempo y presiona Ctrl + Shift + Key-A. ¡Haz lo mismo con la otra.",
                     "updated": 1624383472672,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Richten Sie Ihre Maus auf eine der Time Machines und drücken Sie Ctrl + Shift + Alt + Key-A. Machen Sie dasselbe mit der anderen Maschine!",
+                    "text": "Richten Sie Ihre Maus auf eine der Time Machines und drücken Sie Ctrl + Shift + Alt + Key-A. Machen Sie dasselbe mit der anderen Maschine.",
                     "updated": 1634206401027,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın. Aynısını diğeriyle yapın!",
+                    "text": "Farenizi zaman makinelerinden birine yönlendirin ve Ctrl + Shift + Alt + Key-A tuşlarına basın. Aynısını diğeriyle yapın.",
                     "updated": 1636035527567
                 },
                 {
@@ -130,30 +130,30 @@
         },
         {
             "style": "Success",
-            "text": "Leave the two time machines matching the aspect ratio of your screen. from now on!",
+            "text": "Leave the two time machines matching the aspect ratio of your screen. from now on.",
             "updated": 1610622263656,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "D'ora in poi, lascia le due time machines con lo stesso aspect ratio del tuo schermo!",
+                    "text": "D'ora in poi, lascia le due time machines con lo stesso aspect ratio del tuo schermo.",
                     "updated": 1614848186502,
                     "style": "Success"
                 },
                 {
                     "language": "ID",
-                    "text": "Biarkan dua time machine cocok dengan rasio aspek layarmu. dari sekarang!",
+                    "text": "Biarkan dua time machine cocok dengan rasio aspek layarmu. dari sekarang.",
                     "updated": 1616936619368,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla de ahora en adelante!",
+                    "text": "¡Deja que las dos máquinas del tiempo coincidan con la relación de aspecto de tu pantalla de ahora en adelante.",
                     "updated": 1624383547817,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Lassen Sie die beiden Time Machines von nun an auf das Seitenverhältnis Ihres Bildschirms abgestimmt!",
+                    "text": "Lassen Sie die beiden Time Machines von nun an auf das Seitenverhältnis Ihres Bildschirms abgestimmt.",
                     "updated": 1634206411265,
                     "style": "Success"
                 },

@@ -3,7 +3,7 @@
     "pageNumber": 20,
     "type": "Tutorial Step - Don't Forget to Save!",
     "definition": {
-        "text": "Before you get to a novel-length kind of write-up, make sure you save the page every once in a while! No need to risk your prose!",
+        "text": "Before you get to a novel-length kind of write-up, make sure you save the page every once in a while! No need to risk your prose.",
         "icon": {
             "name": "under-construction",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Prima di lanciarti in una scrittura sfrenata, assicurati di salvare la pagina una volta ogni tanto! Non rischiare il tuo romanzo!",
+                "text": "Prima di lanciarti in una scrittura sfrenata, assicurati di salvare la pagina una volta ogni tanto! Non rischiare il tuo romanzo.",
                 "updated": 1619636603159,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Antes de escribir un artículo de tamaño novedoso, ¡asegúrate de guardar la página de vez en cuando! ¡No hay necesidad de arriesgar tu prosa!",
+                "text": "Antes de escribir un artículo de tamaño novedoso, ¡asegúrate de guardar la página de vez en cuando! ¡No hay necesidad de arriesgar tu prosa.",
                 "updated": 1628190493254,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Bevor Sie einen romanartigen Text verfassen, sollten Sie die Seite ab und zu speichern! Kein Grund, Ihre Prosa zu riskieren!",
+                "text": "Bevor Sie einen romanartigen Text verfassen, sollten Sie die Seite ab und zu speichern! Kein Grund, Ihre Prosa zu riskieren.",
                 "updated": 1635150216506
             },
             {
                 "language": "RU",
-                "text": "Прежде чем приступить к написанию произведений длиной в роман, не забудьте время от времени сохранять страницу! Не нужно рисковать своей прозой!",
+                "text": "Прежде чем приступить к написанию произведений длиной в роман, не забудьте время от времени сохранять страницу! Не нужно рисковать своей прозой.",
                 "updated": 1640161925967
             },
             {
                 "language": "TR",
-                "text": "Roman uzunluğunda bir yazı yazmadan önce, arada bir sayfayı kaydettiğinizden emin olun! Yazdıklarınızıı riske atmaya gerek yok!",
+                "text": "Roman uzunluğunda bir yazı yazmadan önce, arada bir sayfayı kaydettiğinizden emin olun! Yazdıklarınızıı riske atmaya gerek yok.",
                 "updated": 1640611553238
             }
         ]
@@ -80,34 +80,34 @@
         },
         {
             "style": "Success",
-            "text": "If for any reason you lose sight of the page, run the docs.reindex command and search for the title you gave it while adding it! You may also use the BACK button on the footer of the page!",
+            "text": "If for any reason you lose sight of the page, run the docs.reindex command and search for the title you gave it while adding it! You may also use the BACK button on the footer of the page.",
             "updated": 1610983878542,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se per qualche ragione perdi di vista la pagina, lancia il comando docs.reindex e cercala col titolo che le hai dato aggiungendola! Puoi anche usare il pulsante BACK sul footer della pagina!",
+                    "text": "Se per qualche ragione perdi di vista la pagina, lancia il comando docs.reindex e cercala col titolo che le hai dato aggiungendola! Puoi anche usare il pulsante BACK sul footer della pagina.",
                     "updated": 1619636726170,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": "Si por alguna razón pierdes de vista la página, ejecuta el comando docs.reindex y busca el título que le diste al agregarlo. ¡También puedes usar el botón BACK en el pie de página!",
+                    "text": "Si por alguna razón pierdes de vista la página, ejecuta el comando docs.reindex y busca el título que le diste al agregarlo. ¡También puedes usar el botón BACK en el pie de página.",
                     "updated": 1628191460990,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Sollten Sie die Seite aus irgendeinem Grund aus den Augen verlieren, führen Sie den Befehl docs.reindex aus und suchen Sie nach dem Titel, den Sie ihr beim Hinzufügen gegeben haben! Sie können auch die Schaltfläche BACK in der Fußzeile der Seite verwenden!",
+                    "text": "Sollten Sie die Seite aus irgendeinem Grund aus den Augen verlieren, führen Sie den Befehl docs.reindex aus und suchen Sie nach dem Titel, den Sie ihr beim Hinzufügen gegeben haben! Sie können auch die Schaltfläche BACK in der Fußzeile der Seite verwenden.",
                     "updated": 1635150232008
                 },
                 {
                     "language": "RU",
-                    "text": "Если по какой-то причине вы потеряли страницу из виду, запустите команду docs.reindex и найдите название, которое вы дали ей при добавлении! Вы также можете воспользоваться кнопкой BACK в нижнем колонтитуле страницы!",
+                    "text": "Если по какой-то причине вы потеряли страницу из виду, запустите команду docs.reindex и найдите название, которое вы дали ей при добавлении! Вы также можете воспользоваться кнопкой BACK в нижнем колонтитуле страницы.",
                     "updated": 1640161980093
                 },
                 {
                     "language": "TR",
-                    "text": "Herhangi bir nedenle sayfayı gözden kaybederseniz, docs.reindex komutunu çalıştırın ve eklerken verdiğiniz başlığı arayın! Ayrıca sayfanın alt kısmındaki GERİ düğmesini de kullanabilirsiniz!",
+                    "text": "Herhangi bir nedenle sayfayı gözden kaybederseniz, docs.reindex komutunu çalıştırın ve eklerken verdiğiniz başlığı arayın! Ayrıca sayfanın alt kısmındaki GERİ düğmesini de kullanabilirsiniz.",
                     "updated": 1640611894985
                 }
             ]

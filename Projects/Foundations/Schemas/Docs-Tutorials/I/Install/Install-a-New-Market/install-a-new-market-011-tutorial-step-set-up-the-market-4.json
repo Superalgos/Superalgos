@@ -42,16 +42,16 @@
         },
         {
             "style": "Success",
-            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity. These labels may be used by other nodes!",
+            "text": "Keeping a tidy Workspace with proper labels for significant nodes helps in managing large operations and administering complexity. These labels may be used by other nodes.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Manteniendo un ordenado Workspace con etiquetas adecuadas para nodos importantes, ayuda a gestionar grandes operaciones y a administrar la complejidad. ¡Estas etiquetas pueden ser utilizadas por otros nodos!",
+                    "text": "Manteniendo un ordenado Workspace con etiquetas adecuadas para nodos importantes, ayuda a gestionar grandes operaciones y a administrar la complejidad. ¡Estas etiquetas pueden ser utilizadas por otros nodos.",
                     "updated": 1629247073143
                 },
                 {
                     "language": "DE",
-                    "text": "Ein aufgeräumter Workspace mit den richtigen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung großer Vorgänge und der Beherrschung der Komplexität. Diese Bezeichnungen können von anderen Knoten verwendet werden!",
+                    "text": "Ein aufgeräumter Workspace mit den richtigen Bezeichnungen für wichtige Knoten hilft bei der Verwaltung großer Vorgänge und der Beherrschung der Komplexität. Diese Bezeichnungen können von anderen Knoten verwendet werden.",
                     "updated": 1636093838222
                 }
             ]

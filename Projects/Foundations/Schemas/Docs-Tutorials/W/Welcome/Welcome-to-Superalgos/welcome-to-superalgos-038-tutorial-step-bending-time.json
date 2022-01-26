@@ -89,40 +89,40 @@
         },
         {
             "style": "Callout",
-            "text": "Cool! Now, left-click the frame and pull!",
+            "text": "Cool! Now, left-click the frame and pull.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Forte! Ora cliccalo con il tasto sinistro e tira!",
+                    "text": "Forte! Ora cliccalo con il tasto sinistro e tira.",
                     "updated": 1614847870184,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Keren! Sekarang, click-kiri bingkai dan tarik!",
+                    "text": "Keren! Sekarang, click-kiri bingkai dan tarik.",
                     "updated": 1616936445152,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Genial! ¡Ahora, haz clic izquierdo en el marco y tira!",
+                    "text": "¡Genial! ¡Ahora, haz clic izquierdo en el marco y tira.",
                     "updated": 1624382849082,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Sehr gut! Klicken Sie nun mit der linken Maustaste auf den Rahmen und ziehen Sie!",
+                    "text": "Sehr gut! Klicken Sie nun mit der linken Maustaste auf den Rahmen und ziehen Sie.",
                     "updated": 1634206263662,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Güzel! Şimdi çerçeveye tıklayın ve çekin!",
+                    "text": "Güzel! Şimdi çerçeveye tıklayın ve çekin.",
                     "updated": 1636035404981
                 },
                 {
                     "language": "RU",
-                    "text": "Отлично! Теперь щелкните по рамке левой кнопкой мыши и потяните!",
+                    "text": "Отлично! Теперь щелкните по рамке левой кнопкой мыши и потяните.",
                     "updated": 1636202014634
                 }
             ]

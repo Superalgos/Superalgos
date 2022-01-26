@@ -7,6 +7,12 @@
         "updated": 1616697309196,
         "translations": [
             {
+                "language": "FR",
+                "text": "Ce tutoriel complemente l'information revue dans le tutoriel de bienvenue, et une emphase sera portee sur le menu des Nodes, la sauvegarde, les clones et partages, les Workspaces, References et plus encore.",
+                "updated": 1628897004689,
+                "style": "Definition"
+            },
+            {
                 "language": "ES",
                 "text": "Este tutorial complementa la información entregada en el Welcome to Superalgos Tutorial, centrándose en el Nodes Menu, Backups, Clones y Shares, Plugins, Workspaces, References, y más.",
                 "updated": 1628897004689,
@@ -35,6 +41,11 @@
             "text": "About This Tutorial",
             "updated": 1617111489986,
             "translations": [
+                {
+                    "language": "FR",
+                    "text": "A propos de ce tutoriel",
+                    "updated": 1634585391510
+                },
                 {
                     "language": "DE",
                     "text": "Über dieses Tutorial",

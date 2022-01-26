@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance!",
+        "text": "Before we get to run this first backtest, I need to acknowledge something of great importance.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken!",
+                "text": "Bevor wir diesen ersten Backtest durchführen, muss ich etwas sehr Wichtiges anmerken.",
                 "updated": 1639266038745
             }
         ]

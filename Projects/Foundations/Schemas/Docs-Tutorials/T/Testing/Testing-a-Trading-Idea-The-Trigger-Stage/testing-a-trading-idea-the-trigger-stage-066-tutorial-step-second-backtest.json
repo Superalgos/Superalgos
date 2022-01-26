@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "backtesting-session"
         },
-        "text": "Now that we have implemented statements involving the 1H chart, we need to revise our testing parameters!",
+        "text": "Now that we have implemented statements involving the 1H chart, we need to revise our testing parameters.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Nachdem wir nun Aussagen zum 1H-Chart implementiert haben, müssen wir unsere Testparameter überarbeiten!",
+                "text": "Nachdem wir nun Aussagen zum 1H-Chart implementiert haben, müssen wir unsere Testparameter überarbeiten.",
                 "updated": 1639390052067
             }
         ]

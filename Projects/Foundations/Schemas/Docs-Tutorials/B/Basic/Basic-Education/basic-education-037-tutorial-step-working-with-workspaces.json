@@ -3,7 +3,7 @@
     "pageNumber": 37,
     "type": "Tutorial Step - Working with Workspaces",
     "definition": {
-        "text": "You may think of a workspace as a stage in a theatre. It is the setting on which something will play out!",
+        "text": "You may think of a workspace as a stage in a theatre. It is the setting on which something will play out.",
         "icon": {
             "name": "workspace",
             "project": "Foundations"
@@ -12,19 +12,19 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Puoi vedere il Workspace come il palco di un teatro. È il luogo dove qualcosa andrà in scena!",
+                "text": "Puoi vedere il Workspace come il palco di un teatro. È il luogo dove qualcosa andrà in scena.",
                 "updated": 1619546463150,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Puede pensar en un espacio de trabajo como en el escenario de un teatro. ¡Es el escenario en el que se desarrollará algo!",
+                "text": "Puede pensar en un espacio de trabajo como en el escenario de un teatro. ¡Es el escenario en el que se desarrollará algo.",
                 "updated": 1626618738205,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Sie können sich einen Workspace wie eine Bühne im Theater vorstellen. Er ist der Rahmen, auf dem sich etwas abspielt!",
+                "text": "Sie können sich einen Workspace wie eine Bühne im Theater vorstellen. Er ist der Rahmen, auf dem sich etwas abspielt.",
                 "updated": 1634587175719
             },
             {

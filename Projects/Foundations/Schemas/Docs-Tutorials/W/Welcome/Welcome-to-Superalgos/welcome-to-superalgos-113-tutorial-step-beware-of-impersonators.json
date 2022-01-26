@@ -3,7 +3,7 @@
     "pageNumber": 113,
     "type": "Tutorial Step - Beware of Impersonators!",
     "definition": {
-        "text": "Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first!",
+        "text": "Superalgos Admins, the Core Team, and Community Mods will never contact you directly unless you contact them first.",
         "icon": {
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
@@ -24,17 +24,17 @@
             },
             {
                 "language": "DE",
-                "text": "Die Superalgos-Admins, das Core Team und die Community Mods werden Sie niemals direkt kontaktieren, es sei denn, Sie kontaktieren sie zuerst!",
+                "text": "Die Superalgos-Admins, das Core Team und die Community Mods werden Sie niemals direkt kontaktieren, es sei denn, Sie kontaktieren sie zuerst.",
                 "updated": 1634247837275
             },
             {
                 "language": "TR",
-                "text": "Superalgos Yöneticileri, Çekirdek Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmedikçe sizinle asla doğrudan iletişime geçmeyecektir!",
+                "text": "Superalgos Yöneticileri, Çekirdek Ekip ve Topluluk Modları, önce siz onlarla iletişime geçmedikçe sizinle asla doğrudan iletişime geçmeyecektir.",
                 "updated": 1636663081508
             },
             {
                 "language": "ID",
-                "text": "Superalgos Admins, the Core Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu!",
+                "text": "Superalgos Admins, the Core Team, and Community Mods tidak akan pernah menghubungi kamu secara langsung kecuali kamu menghubungi mereka terlebih dahulu.",
                 "updated": 1640600512829
             }
         ]

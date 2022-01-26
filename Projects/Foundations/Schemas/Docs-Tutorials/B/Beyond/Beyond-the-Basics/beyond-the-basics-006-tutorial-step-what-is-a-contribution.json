@@ -3,7 +3,7 @@
     "pageNumber": 6,
     "type": "Tutorial Step - What is a Contribution?",
     "definition": {
-        "text": "The project will succeed if it manages to foster global collaboration. We welcome contributions of all sorts so that everyone may give back!",
+        "text": "The project will succeed if it manages to foster global collaboration. We welcome contributions of all sorts so that everyone may give back.",
         "icon": {
             "name": "execution-algorithm",
             "project": "Foundations"
@@ -12,19 +12,19 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Il progetto avrà successo se riusciremo a promuovere una collaborazione globale: sono importanti contributi di ogni tipo!",
+                "text": "Il progetto avrà successo se riusciremo a promuovere una collaborazione globale: sono importanti contributi di ogni tipo.",
                 "updated": 1619632436237,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "El proyecto tendrá éxito si logra fomentar la colaboración global. ¡Damos la bienvenida a contribuciones de todo tipo para que todos puedan retribuir!",
+                "text": "El proyecto tendrá éxito si logra fomentar la colaboración global. ¡Damos la bienvenida a contribuciones de todo tipo para que todos puedan retribuir.",
                 "updated": 1628118496073,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Das Projekt wird erfolgreich sein, wenn es gelingt, die globale Zusammenarbeit zu fördern. Wir freuen uns über alle Arten von Beiträgen, damit jeder etwas zurückgeben kann!",
+                "text": "Das Projekt wird erfolgreich sein, wenn es gelingt, die globale Zusammenarbeit zu fördern. Wir freuen uns über alle Arten von Beiträgen, damit jeder etwas zurückgeben kann.",
                 "updated": 1634820280449
             },
             {
@@ -34,7 +34,7 @@
             },
             {
                 "language": "RU",
-                "text": "Проект будет успешным, если ему удастся наладить глобальное сотрудничество. Мы приветствуем всевозможные пожертвования, чтобы каждый мог получить отдачу!",
+                "text": "Проект будет успешным, если ему удастся наладить глобальное сотрудничество. Мы приветствуем всевозможные пожертвования, чтобы каждый мог получить отдачу.",
                 "updated": 1640154907740
             }
         ]
@@ -42,34 +42,34 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "In short, everything that adds value is good!",
+            "text": "In short, everything that adds value is good.",
             "updated": 1610822442723,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Qualunque cosa aggiunga valore al progetto è gradita!",
+                    "text": "Qualunque cosa aggiunga valore al progetto è gradita.",
                     "updated": 1619632572571,
                     "style": "Success"
                 },
                 {
                     "language": "ES",
-                    "text": " ¡todo lo que aporta valor es bueno!",
+                    "text": " ¡todo lo que aporta valor es bueno.",
                     "updated": 1628118567325,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Kurz gesagt, alles, was einen Mehrwert bringt, ist gut!",
+                    "text": "Kurz gesagt, alles, was einen Mehrwert bringt, ist gut.",
                     "updated": 1634820289080
                 },
                 {
                     "language": "TR",
-                    "text": "Kısacası değer katan her şey güzeldir!",
+                    "text": "Kısacası değer katan her şey güzeldir.",
                     "updated": 1639868533886
                 },
                 {
                     "language": "RU",
-                    "text": "Короче говоря, все, что добавляет ценность, это хорошо!",
+                    "text": "Короче говоря, все, что добавляет ценность, это хорошо.",
                     "updated": 1640154943935
                 }
             ]
@@ -245,34 +245,34 @@
         },
         {
             "style": "List",
-            "text": "Sharing a Data Mine or a Trading System!",
+            "text": "Sharing a Data Mine or a Trading System.",
             "updated": 1610716257080,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Condividere un Data Mine o un Trading System!",
+                    "text": "Condividere un Data Mine o un Trading System.",
                     "updated": 1619632784995,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Compartiendo un Data Mine o un Trading System!",
+                    "text": "¡Compartiendo un Data Mine o un Trading System.",
                     "updated": 1628119096734,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Eine Data Mine oder ein Trading System teilen!",
+                    "text": "Eine Data Mine oder ein Trading System teilen.",
                     "updated": 1634820355611
                 },
                 {
                     "language": "TR",
-                    "text": "Bir Veri Madeni ( Data Mine ) veya Ticaret Sistemini ( Trading System ) Paylaşmak!",
+                    "text": "Bir Veri Madeni ( Data Mine ) veya Ticaret Sistemini ( Trading System ) Paylaşmak.",
                     "updated": 1639868821518
                 },
                 {
                     "language": "RU",
-                    "text": "Распространение Data Mine или торговой системы (Trading System)!",
+                    "text": "Распространение Data Mine или торговой системы (Trading System).",
                     "updated": 1640155183174
                 }
             ]

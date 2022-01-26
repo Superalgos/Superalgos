@@ -7,11 +7,11 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Even when you are getting the results you expect, you may still have errors lurking around!",
+        "text": "Even when you are getting the results you expect, you may still have errors lurking around.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Selbst wenn Sie die erwarteten Ergebnisse erhalten, können sich noch Fehler einschleichen!",
+                "text": "Selbst wenn Sie die erwarteten Ergebnisse erhalten, können sich noch Fehler einschleichen.",
                 "updated": 1639267285566
             }
         ]
@@ -30,12 +30,12 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Trading System layer manager and turn on the \"Trading System Errors\" layer!",
+            "text": "Go to the Trading System layer manager and turn on the \"Trading System Errors\" layer.",
             "updated": 1622488220992,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Layer-Manager Trading System und schalten Sie den Layer \"Trading System Errors\" ein!",
+                    "text": "Gehen Sie zum Layer-Manager Trading System und schalten Sie den Layer \"Trading System Errors\" ein.",
                     "updated": 1639267310481
                 }
             ]

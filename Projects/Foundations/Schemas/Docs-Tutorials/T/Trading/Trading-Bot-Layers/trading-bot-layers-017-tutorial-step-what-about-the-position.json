@@ -25,35 +25,35 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Scroll down the Simulation Objects layer manager and turn on the \"Position Base Asset\" layer!",
+            "text": "Scroll down the Simulation Objects layer manager and turn on the \"Position Base Asset\" layer.",
             "updated": 1622541528562,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Scrolle im Simulationsobjekte Layer-Manager nach unten und schalte den Layer \"Position Base Asset\" ein!",
+                    "text": "Scrolle im Simulationsobjekte Layer-Manager nach unten und schalte den Layer \"Position Base Asset\" ein.",
                     "updated": 1623014685669,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Прокрутите вниз менеджер слоев объектов Simulation Objects и включите слой \"Position Base Asset\"!",
+                    "text": "Прокрутите вниз менеджер слоев объектов Simulation Objects и включите слой \"Position Base Asset\".",
                     "updated": 1640628234334
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Nice! A green triangle means that the position was a hit! It would be red otherwise!",
+            "text": "Nice! A green triangle means that the position was a hit! It would be red otherwise.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sehr schön! Ein grünes Dreieck bedeutet, dass die Position ein Treffer war! Sonst wäre es rot!",
+                    "text": "Sehr schön! Ein grünes Dreieck bedeutet, dass die Position ein Treffer war! Sonst wäre es rot.",
                     "updated": 1623014705334,
                     "style": "Text"
                 },
                 {
                     "language": "RU",
-                    "text": "Отлично! Зеленый треугольник означает, что позиция была удачной! В противном случае он был бы красным!",
+                    "text": "Отлично! Зеленый треугольник означает, что позиция была удачной! В противном случае он был бы красным.",
                     "updated": 1640547198546
                 }
             ]

@@ -7,53 +7,53 @@
             "name": "tutorial",
             "project": "Education"
         },
-        "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first!",
+        "text": "Tutorials are defined within the system, so you may create more of us if you wish! But we'll discuss that God-like power later on. Let's focus on the basics first.",
         "translations": [
             {
                 "language": "ID",
-                "text": "Tutorial ini dibuat oleh system, jadi kamu juga bisa membuat tutorial berbeda jika ingin! Tapi kita bahas hal besar itu nanti saja. Untuk sekarang fokus saja ke hal yang basic!",
+                "text": "Tutorial ini dibuat oleh system, jadi kamu juga bisa membuat tutorial berbeda jika ingin! Tapi kita bahas hal besar itu nanti saja. Untuk sekarang fokus saja ke hal yang basic.",
                 "updated": 1614417905988,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Los tutoriales se definen dentro del sistema, así que puedes crear más como yo si lo deseas. Pero ya hablaremos de ese poder divino más adelante. ¡Centrémonos primero en lo básico!",
+                "text": "Los tutoriales se definen dentro del sistema, así que puedes crear más como yo si lo deseas. Pero ya hablaremos de ese poder divino más adelante. ¡Centrémonos primero en lo básico.",
                 "updated": 1618431969376,
                 "style": "Definition"
             },
             {
                 "language": "IT",
-                "text": "I tutorial sono definiti all'interno del sistema, quindi puoi creare altri di noi se lo vuoi! Ma parleremo di questo potere divino più avanti. Prima concentriamoci sulle basi!",
+                "text": "I tutorial sono definiti all'interno del sistema, quindi puoi creare altri di noi se lo vuoi! Ma parleremo di questo potere divino più avanti. Prima concentriamoci sulle basi.",
                 "updated": 1614712747107,
                 "style": "Definition"
             },
             {
                 "language": "FR",
-                "text": "Les tutoriels sont définis a l'interieur du système, et vous pouvez en créer d'autres si vous le souhaitez ! Mais nous parlerons de ces facilitées plus tard. Concentrez-vous d'abord sur les bases !",
+                "text": "Les tutoriels sont définis a l'interieur du système, et vous pouvez en créer d'autres si vous le souhaitez ! Mais nous parlerons de ces facilitées plus tard. Concentrez-vous d'abord sur les bases .",
                 "updated": 1623950810074,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Öğreticiler sistem içinde tanımlanmıştır, böylece dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım!",
+                "text": "Öğreticiler sistem içinde tanımlanmıştır, böylece dilerseniz daha fazlasını oluşturabilirsiniz! Ama bu Tanrısal gücü daha sonra tartışacağız. Önce temellere odaklanalım.",
                 "updated": 1633121322983,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Tutorials zijn gedefinieerd binnen in het systeem, je mag er meer maken als je wilt! Maar die \"goddelijke macht\" bespreken we later. Laten we ons eerst richten op de basis!",
+                "text": "Tutorials zijn gedefinieerd binnen in het systeem, je mag er meer maken als je wilt! Maar die \"goddelijke macht\" bespreken we later. Laten we ons eerst richten op de basis.",
                 "updated": 1633760912101,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Tutorien werden innerhalb des Systems definiert, Sie können also mehrere von uns erstellen, wenn Sie möchten! Aber wir werden diese Fähigkeit später besprechen. Konzentrieren wir uns erst einmal auf die Grundlagen!",
+                "text": "Tutorien werden innerhalb des Systems definiert, Sie können also mehrere von uns erstellen, wenn Sie möchten! Aber wir werden diese Fähigkeit später besprechen. Konzentrieren wir uns erst einmal auf die Grundlagen.",
                 "updated": 1634070459015,
                 "style": "Definition"
             },
             {
                 "language": "RU",
-                "text": "Учебное пособие устанавливается через систему, поэтому Вы можете создать больше нас, если Вы этого пожелаете. Но мы обсудим эти детали позднее. Давайте сначала сосредоточимся на базовых шагах!",
+                "text": "Учебное пособие устанавливается через систему, поэтому Вы можете создать больше нас, если Вы этого пожелаете. Но мы обсудим эти детали позднее. Давайте сначала сосредоточимся на базовых шагах.",
                 "updated": 1635450888939
             }
         ]
@@ -115,59 +115,59 @@
         },
         {
             "style": "Callout",
-            "text": "Hover your mouse pointer over the Tutorial node and see what happens! Wow! Cool right? That's a lot of buttons!",
+            "text": "Hover your mouse pointer over the Tutorial node and see what happens! Wow! Cool right? That's a lot of buttons.",
             "updated": 1611075799669,
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Dekatkan pointer mousemu ke node Tutorial dan lihat apa yang terjadi!, Keren bukan? Banyak sekali tombol disana!",
+                    "text": "Dekatkan pointer mousemu ke node Tutorial dan lihat apa yang terjadi!, Keren bukan? Banyak sekali tombol disana.",
                     "updated": 1614424765045,
                     "style": "Callout"
                 },
                 {
                     "language": "IT",
-                    "text": "Sposta il cursore del mouse sul nodo Tutorial e guarda cosa succede! Wow! Forte, vero? Ci sono un sacco di pulsanti!",
+                    "text": "Sposta il cursore del mouse sul nodo Tutorial e guarda cosa succede! Wow! Forte, vero? Ci sono un sacco di pulsanti.",
                     "updated": 1614717176134,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Pasa el puntero del mouse sobre el node Tutorial y ve lo que ocurre. ¡Wow! Genial, ¿verdad? ¡Son un montón de botones!",
+                    "text": "Pasa el puntero del mouse sobre el node Tutorial y ve lo que ocurre. ¡Wow! Genial, ¿verdad? ¡Son un montón de botones.",
                     "updated": 1627239702475,
                     "style": "Callout"
                 },
                 {
                     "language": "FR",
-                    "text": "Passez le pointeur de votre souris sur le nœud \"Tutorial\", et voyez ce qui se passe ! Ouh... C'est cool, non ? Ça fait beaucoup de boutons !",
+                    "text": "Passez le pointeur de votre souris sur le nœud \"Tutorial\", et voyez ce qui se passe ! Ouh... C'est cool, non ? Ça fait beaucoup de boutons .",
                     "updated": 1623951096410,
                     "style": "Callout"
                 },
                 {
                     "language": "FR",
-                    "text": "Passez le pointeur de votre souris sur le nœud \"Tutorial\", et voyez ce qui se passe ! Ouh... C'est cool, non ? Ça fait beaucoup de boutons !",
+                    "text": "Passez le pointeur de votre souris sur le nœud \"Tutorial\", et voyez ce qui se passe ! Ouh... C'est cool, non ? Ça fait beaucoup de boutons .",
                     "updated": 1623951096410,
                     "style": "Callout"
                 },
                 {
                     "language": "NL",
-                    "text": "Beweeg je muis over het Tutorial knooppunt en kijk wat er gebeurt! Wow! Cool toch? Dat zijn een heleboel knoppen!",
+                    "text": "Beweeg je muis over het Tutorial knooppunt en kijk wat er gebeurt! Wow! Cool toch? Dat zijn een heleboel knoppen.",
                     "updated": 1633761113014,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Bewegen Sie Ihren Mauszeiger über den Knoten Tutorial und sehen Sie, was passiert! Wahnsinn! Cool, oder? Das sind eine Menge Knöpfe!",
+                    "text": "Bewegen Sie Ihren Mauszeiger über den Knoten Tutorial und sehen Sie, was passiert! Wahnsinn! Cool, oder? Das sind eine Menge Knöpfe.",
                     "updated": 1634070500067,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Наведите курсор мыши на узел Tutorial и посмотрите, что произойдет! Ух ты! Круто, правда? Так много кнопок!",
+                    "text": "Наведите курсор мыши на узел Tutorial и посмотрите, что произойдет! Ух ты! Круто, правда? Так много кнопок.",
                     "updated": 1635451952870
                 },
                 {
                     "language": "TR",
-                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme!",
+                    "text": "Fare imlecinizi Eğitim \" Tutorial \" düğümünün üzerine getirin ve ne olduğunu görün! Vay! Güzel değil mi?Daha fazla düğme.",
                     "updated": 1635577498974
                 }
             ]

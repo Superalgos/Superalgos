@@ -7,7 +7,7 @@
             "project": "Foundations",
             "name": "indicator-process-instance"
         },
-        "text": "Resistances and Supports Multi-Time-Frame-Daily to the left is the last of the processes to finish, so keep an eye on it!",
+        "text": "Resistances and Supports Multi-Time-Frame-Daily to the left is the last of the processes to finish, so keep an eye on it.",
         "updated": 1622233213694,
         "translations": [
             {
@@ -18,23 +18,23 @@
             },
             {
                 "language": "ES",
-                "text": "Resistances and Supports Multi-Time-Frame-Daily a la izquierda está el último de los procesos en terminar, ¡así que mantén un ojo en él!",
+                "text": "Resistances and Supports Multi-Time-Frame-Daily a la izquierda está el último de los procesos en terminar, ¡así que mantén un ojo en él.",
                 "updated": 1624483264968,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Resistenzen und Unterstützungen Multi-Time-Frame-Daily auf der linken Seite ist der letzte der Prozesse zu beenden, so behalten Sie sie im Auge!",
+                "text": "Resistenzen und Unterstützungen Multi-Time-Frame-Daily auf der linken Seite ist der letzte der Prozesse zu beenden, so behalten Sie sie im Auge.",
                 "updated": 1634244857267
             },
             {
                 "language": "TR",
-                "text": "işlemlerin en son aşaması olan Dirençler ve Destekler (Resistance And Support) bittiğinde hazır olacağız. Bu yüzden gözünüz üzerinde olsun!",
+                "text": "işlemlerin en son aşaması olan Dirençler ve Destekler (Resistance And Support) bittiğinde hazır olacağız. Bu yüzden gözünüz üzerinde olsun.",
                 "updated": 1636573001616
             },
             {
                 "language": "ID",
-                "text": "Resistances dan Supports Multi-Time-Frame-Daily di kiri adalah yang terakhir dari proses yang harus diselesaikan, jadi awasi itu!",
+                "text": "Resistances dan Supports Multi-Time-Frame-Daily di kiri adalah yang terakhir dari proses yang harus diselesaikan, jadi awasi itu.",
                 "updated": 1640576393304
             }
         ]
@@ -75,33 +75,33 @@
         },
         {
             "style": "Note",
-            "text": "Either way, nothing catastrophic happens if you attempt to run a Live Trading Session when the required indicators are not up to date. There would be an error, and you'd be notified of the reason. So, no big deal!",
+            "text": "Either way, nothing catastrophic happens if you attempt to run a Live Trading Session when the required indicators are not up to date. There would be an error, and you'd be notified of the reason. So, no big deal.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Ad ogni modo, non succede niente di catastrofico se tenti di lanciare una Live Trading Session quando gl indicatori non sono pronti. Ti viene semplicemente notificato un errore. Nessun problema quindi!",
+                    "text": "Ad ogni modo, non succede niente di catastrofico se tenti di lanciare una Live Trading Session quando gl indicatori non sono pronti. Ti viene semplicemente notificato un errore. Nessun problema quindi.",
                     "updated": 1618071277306,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "De cualquier manera, no ocurre nada catastrófico si intenta ejecutar una sesión de negociación en vivo cuando los indicadores requeridos no están actualizados. Habría un error y se le notificará el motivo. ¡Así que no es gran cosa!",
+                    "text": "De cualquier manera, no ocurre nada catastrófico si intenta ejecutar una sesión de negociación en vivo cuando los indicadores requeridos no están actualizados. Habría un error y se le notificará el motivo. ¡Así que no es gran cosa.",
                     "updated": 1624483313088,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "In jedem Fall passiert nichts Schlimmes, wenn Sie versuchen, eine Live Trading Session zu starten, während die erforderlichen Indikatoren nicht auf dem neuesten Stand sind. Es würde ein Fehler auftreten, und Sie würden über den Grund informiert werden. Also, keine große Sache!",
+                    "text": "In jedem Fall passiert nichts Schlimmes, wenn Sie versuchen, eine Live Trading Session zu starten, während die erforderlichen Indikatoren nicht auf dem neuesten Stand sind. Es würde ein Fehler auftreten, und Sie würden über den Grund informiert werden. Also, keine große Sache.",
                     "updated": 1634244877404
                 },
                 {
                     "language": "TR",
-                    "text": "Gerekli göstergeler güncel olmadan Canlı İşlem Oturumu ( Live Trading Session ) çalıştırmayı denerseniz, felaketle sonuçlanan hiçbir şey olmaz. Bir hata olur ve nedeni size bildirilir. Yani, önemli değil!",
+                    "text": "Gerekli göstergeler güncel olmadan Canlı İşlem Oturumu ( Live Trading Session ) çalıştırmayı denerseniz, felaketle sonuçlanan hiçbir şey olmaz. Bir hata olur ve nedeni size bildirilir. Yani, önemli değil.",
                     "updated": 1636573076891
                 },
                 {
                     "language": "ID",
-                    "text": "Adapun, tidak ada masalah yang terjadi jika kamu mencoba untuk menjalankan Live Trading Session ketika indikator yang diperlukan tidak up to date. Akan ada kesalahan, dan kamu akan diberitahu alasannya. Jadi, bukan masalah besar!",
+                    "text": "Adapun, tidak ada masalah yang terjadi jika kamu mencoba untuk menjalankan Live Trading Session ketika indikator yang diperlukan tidak up to date. Akan ada kesalahan, dan kamu akan diberitahu alasannya. Jadi, bukan masalah besar.",
                     "updated": 1640576516923
                 }
             ]

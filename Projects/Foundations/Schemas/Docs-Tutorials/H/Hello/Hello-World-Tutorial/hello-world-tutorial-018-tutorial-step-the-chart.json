@@ -3,7 +3,7 @@
     "pageNumber": 18,
     "type": "Tutorial Step - The Chart",
     "definition": {
-        "text": "Enjoy your backtest!",
+        "text": "Enjoy your backtest.",
         "icon": {
             "name": "charting-space",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Viel Spaß mit deinem Backtest!",
+                "text": "Viel Spaß mit deinem Backtest.",
                 "updated": 1622980702656,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Disfruta tu backtest!",
+                "text": "¡Disfruta tu backtest.",
                 "updated": 1629578516025
             },
             {
                 "language": "IT",
-                "text": "Goditi il backtest!",
+                "text": "Goditi il backtest.",
                 "updated": 1640111170974
             },
             {
                 "language": "TR",
-                "text": "Backtest'in tadını çıkarın!",
+                "text": "Backtest'in tadını çıkarın.",
                 "updated": 1640618527650
             },
             {
                 "language": "RU",
-                "text": "Наслаждайтесь бэктестом!",
+                "text": "Наслаждайтесь бэктестом.",
                 "updated": 1640857620372
             }
         ]

@@ -40,32 +40,32 @@
         },
         {
             "style": "List",
-            "text": "Going long and short: designing a strategy that goes both long and short is probably not a good idea. Split the logic and build one strategy for going long and another for going short!",
+            "text": "Going long and short: designing a strategy that goes both long and short is probably not a good idea. Split the logic and build one strategy for going long and another for going short.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Long und Short: Eine Strategie zu entwickeln, die sowohl long als auch short geht, ist wahrscheinlich keine gute Idee. Trennen Sie die Logik und entwickeln Sie eine Strategie für Long-Positionen und eine andere für Short-Positionen!",
+                    "text": "Long und Short: Eine Strategie zu entwickeln, die sowohl long als auch short geht, ist wahrscheinlich keine gute Idee. Trennen Sie die Logik und entwickeln Sie eine Strategie für Long-Positionen und eine andere für Short-Positionen.",
                     "updated": 1639148339985
                 },
                 {
                     "language": "TR",
-                    "text": "Uzun ve kısa: hem uzun hem de kısa olan bir strateji geliştirmek muhtemelen iyi bir fikir değildir. Mantığı ayırın ve uzun pozisyonlar için bir strateji ve kısa pozisyonlar için başka bir strateji geliştirin!",
+                    "text": "Uzun ve kısa: hem uzun hem de kısa olan bir strateji geliştirmek muhtemelen iyi bir fikir değildir. Mantığı ayırın ve uzun pozisyonlar için bir strateji ve kısa pozisyonlar için başka bir strateji geliştirin.",
                     "updated": 1640783506574
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Remember the KISS principle!",
+            "text": "Remember the KISS principle.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Denken Sie an das KISS-Prinzip!",
+                    "text": "Denken Sie an das KISS-Prinzip.",
                     "updated": 1639148350647
                 },
                 {
                     "language": "TR",
-                    "text": " İpucu: KISS ilkesini unutmayın!",
+                    "text": " İpucu: KISS ilkesini unutmayın.",
                     "updated": 1640783268317
                 }
             ]

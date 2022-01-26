@@ -7,7 +7,7 @@
             "name": "telegram-bot",
             "project": "Social-Bots"
         },
-        "text": "Drop by to say hi, get help, and meet the Community! You may join the new Discord Server or the original Telegram groups below, where it all started!",
+        "text": "Drop by to say hi, get help, and meet the Community! You may join the new Discord Server or the original Telegram groups below, where it all started.",
         "updated": 1638914541602,
         "translations": [
             {
@@ -18,23 +18,23 @@
             },
             {
                 "language": "ES",
-                "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> o los grupos originales de Telegram a continuación, ¡donde comenzó todo!",
+                "text": "Pasa para saludar, obtener ayuda y conocer a la Community! Puedes unirte al nuevo <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> o los grupos originales de Telegram a continuación, ¡donde comenzó todo.",
                 "updated": 1624488526215,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Komm vorbei, um Hallo zu sagen, Hilfe zu bekommen und die Community kennenzulernen! Ihr könnt dem neuen <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> oder den ursprünglichen Telegram-Gruppen unten beitreten, wo alles begann!",
+                "text": "Komm vorbei, um Hallo zu sagen, Hilfe zu bekommen und die Community kennenzulernen! Ihr könnt dem neuen <a href=\"https://discord.gg/CGeKC6WQQb\" target=\"_blank\" style=\"color: blue;\">Discord-Server</a> oder den ursprünglichen Telegram-Gruppen unten beitreten, wo alles begann.",
                 "updated": 1634247458200
             },
             {
                 "language": "TR",
-                "text": "Merhaba demek, yardım almak ve Toplulukla ( Community ) tanışmak için uğrayın! Her şeyin başladığı yeni Discord Sunucusuna veya aşağıdaki orijinal Telegram gruplarına katılabilirsiniz!",
+                "text": "Merhaba demek, yardım almak ve Toplulukla ( Community ) tanışmak için uğrayın! Her şeyin başladığı yeni Discord Sunucusuna veya aşağıdaki orijinal Telegram gruplarına katılabilirsiniz.",
                 "updated": 1638913840643
             },
             {
                 "language": "ID",
-                "text": "Mampir untuk menyapa, mendapatkan bantuan, dan bertemu Komunitas! Kamu dapat bergabung dengan Discord Server baru atau grup Telegram asli di bawah ini, di mana semuanya dimulai!",
+                "text": "Mampir untuk menyapa, mendapatkan bantuan, dan bertemu Komunitas! Kamu dapat bergabung dengan Discord Server baru atau grup Telegram asli di bawah ini, di mana semuanya dimulai.",
                 "updated": 1640600271999
             }
         ]
@@ -42,71 +42,71 @@
     "paragraphs": [
         {
             "style": "List",
-            "text": "Announcements Channel — Get official news first!",
+            "text": "Announcements Channel — Get official news first.",
             "updated": 1630944704472,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Community Group — ¡Hablemos de Superalgos!",
+                    "text": "Community Group — ¡Hablemos de Superalgos.",
                     "updated": 1624488546430,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Announcements Channel - Erfahre offizielle Neuigkeiten zuerst!",
+                    "text": "Announcements Channel - Erfahre offizielle Neuigkeiten zuerst.",
                     "updated": 1634247467965
                 },
                 {
                     "language": "TR",
-                    "text": "Duyurular Kanalı ( Announcements Channel ) — Önce resmi haberleri alın!",
+                    "text": "Duyurular Kanalı ( Announcements Channel ) — Önce resmi haberleri alın.",
                     "updated": 1638913886098
                 },
                 {
                     "language": "ID",
-                    "text": "Announcements Channel — Dapatkan berita resmi lebih awal!",
+                    "text": "Announcements Channel — Dapatkan berita resmi lebih awal.",
                     "updated": 1640600306704
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Community Group — Let's talk Superalgos!",
+            "text": "Community Group — Let's talk Superalgos.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Community Group - Lasst uns über Superalgos reden!",
+                    "text": "Community Group - Lasst uns über Superalgos reden.",
                     "updated": 1634247474003
                 },
                 {
                     "language": "TR",
-                    "text": "Topluluk Grubu ( Community Group ) — Haydi Superalgos hakkında konuşalım!",
+                    "text": "Topluluk Grubu ( Community Group ) — Haydi Superalgos hakkında konuşalım.",
                     "updated": 1638914076141
                 },
                 {
                     "language": "ID",
-                    "text": "Community Group — Mari biacara tentang Superalgos!",
+                    "text": "Community Group — Mari biacara tentang Superalgos.",
                     "updated": 1640600316779
                 }
             ]
         },
         {
             "style": "List",
-            "text": "Develop Group — Meet other developers!",
+            "text": "Develop Group — Meet other developers.",
             "updated": 1630944360229,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Develop Group - Triff andere Entwickler!",
+                    "text": "Develop Group - Triff andere Entwickler.",
                     "updated": 1634247481455
                 },
                 {
                     "language": "TR",
-                    "text": "Geliştiriciler Grubu ( Develop Group ) — Diğer geliştiricilerle tanışın!",
+                    "text": "Geliştiriciler Grubu ( Develop Group ) — Diğer geliştiricilerle tanışın.",
                     "updated": 1638914087853
                 },
                 {
                     "language": "ID",
-                    "text": "Develop Group — Bertemu dengan developers lainnya!",
+                    "text": "Develop Group — Bertemu dengan developers lainnya.",
                     "updated": 1640600339329
                 }
             ]
@@ -135,22 +135,22 @@
         },
         {
             "style": "List",
-            "text": "Token Group — Let's talk Governance and the token!",
+            "text": "Token Group — Let's talk Governance and the token.",
             "updated": 1630944580226,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Token Group - Reden wir über Governance und den Token!",
+                    "text": "Token Group - Reden wir über Governance und den Token.",
                     "updated": 1634247507289
                 },
                 {
                     "language": "TR",
-                    "text": "Token Grubu ( Token Group ) — Yönetim ve Token hakkında konuşalım!",
+                    "text": "Token Grubu ( Token Group ) — Yönetim ve Token hakkında konuşalım.",
                     "updated": 1638914218979
                 },
                 {
                     "language": "ID",
-                    "text": "Token Group — mari bicara tentang Governance dan token!",
+                    "text": "Token Group — mari bicara tentang Governance dan token.",
                     "updated": 1640600372583
                 }
             ]
@@ -179,50 +179,50 @@
         },
         {
             "style": "List",
-            "text": "Docs Group — Helps us improve the Docs!",
+            "text": "Docs Group — Helps us improve the Docs.",
             "updated": 1630944624658,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Docs Group - Helfen Sie uns, die Docs zu verbessern!",
+                    "text": "Docs Group - Helfen Sie uns, die Docs zu verbessern.",
                     "updated": 1634247519287
                 },
                 {
                     "language": "TR",
-                    "text": "Dokümanlar Grubu ( Docs Group ) — Dokümanları iyileştirmemize yardımcı olabilirsin!",
+                    "text": "Dokümanlar Grubu ( Docs Group ) — Dokümanları iyileştirmemize yardımcı olabilirsin.",
                     "updated": 1638914389026
                 },
                 {
                     "language": "ID",
-                    "text": "Docs Group — Bantu kami mengembangkan Docs!",
+                    "text": "Docs Group — Bantu kami mengembangkan Docs.",
                     "updated": 1640600445662
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Click to find the invite link in the Docs panel!",
+            "text": "Click to find the invite link in the Docs panel.",
             "updated": 1630944807940,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Unisciti agli Announcements Channel per essere sempre al corrente di nuove release, hot fix e aggiornamenti importanti!",
+                    "text": "Unisciti agli Announcements Channel per essere sempre al corrente di nuove release, hot fix e aggiornamenti importanti.",
                     "updated": 1618073910521,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf den Einladungslink im Docs-Panel!",
+                    "text": "Klicken Sie auf den Einladungslink im Docs-Panel.",
                     "updated": 1634247545426
                 },
                 {
                     "language": "TR",
-                    "text": "Dokümanlar panelinde davet bağlantısını bulmak için tıklayın!",
+                    "text": "Dokümanlar panelinde davet bağlantısını bulmak için tıklayın.",
                     "updated": 1638914459181
                 },
                 {
                     "language": "ID",
-                    "text": "Klik untuk menemukan tautan undangan di panel Docs !",
+                    "text": "Klik untuk menemukan tautan undangan di panel Docs .",
                     "updated": 1640600471322
                 }
             ]

@@ -7,16 +7,16 @@
             "name": "Data\\dataset-definition",
             "project": "Foundations"
         },
-        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way!",
+        "text": "We will cover several topics! Let's make a quick list to use as a guide along the way.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wir werden mehrere Themen behandeln! Lassen Sie uns eine kurze Liste erstellen, die Ihnen als Leitfaden dient!",
+                "text": "Wir werden mehrere Themen behandeln! Lassen Sie uns eine kurze Liste erstellen, die Ihnen als Leitfaden dient.",
                 "updated": 1639254529126
             },
             {
                 "language": "TR",
-                "text": "Özet: Birkaç konuyu ele alacağız! Yol boyunca rehber olarak kullanmak için hızlı bir liste yapalım!",
+                "text": "Özet: Birkaç konuyu ele alacağız! Yol boyunca rehber olarak kullanmak için hızlı bir liste yapalım.",
                 "updated": 1641062340210
             }
         ]
@@ -100,16 +100,16 @@
         },
         {
             "style": "Success",
-            "text": "Have you read about these topics? No worries... you will!",
+            "text": "Have you read about these topics? No worries... you will.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Haben Sie schon über diese Themen gelesen? Keine Sorge... das werden Sie!",
+                    "text": "Haben Sie schon über diese Themen gelesen? Keine Sorge... das werden Sie.",
                     "updated": 1639254609348
                 },
                 {
                     "language": "TR",
-                    "text": " İpucu: Bu konular hakkında bir şeyler okudunuz mu? Endişeye... Yapacaksınız!",
+                    "text": " İpucu: Bu konular hakkında bir şeyler okudunuz mu? Endişeye... Yapacaksınız.",
                     "updated": 1641062721859
                 }
             ]

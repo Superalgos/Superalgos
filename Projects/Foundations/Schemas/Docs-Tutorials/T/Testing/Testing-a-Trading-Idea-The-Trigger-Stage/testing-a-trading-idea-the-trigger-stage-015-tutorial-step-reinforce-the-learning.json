@@ -7,11 +7,11 @@
             "name": "Learning\\learning-bot",
             "project": "Foundations"
         },
-        "text": "Let's do a quick recap on the matter of the syntax! I'll push this until you learn it!",
+        "text": "Let's do a quick recap on the matter of the syntax! I'll push this until you learn it.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Lassen Sie uns eine kurze Wiederholung der Syntax machen! Ich werde das so lange vorantreiben, bis Sie es gelernt haben!",
+                "text": "Lassen Sie uns eine kurze Wiederholung der Syntax machen! Ich werde das so lange vorantreiben, bis Sie es gelernt haben.",
                 "updated": 1639261940684
             }
         ]
@@ -41,11 +41,11 @@
         },
         {
             "style": "List",
-            "text": "THIRD: Product name and property name are determined by the indicator you are using. No need to memorize them, as you may copy and paste them from the docs when you need them!",
+            "text": "THIRD: Product name and property name are determined by the indicator you are using. No need to memorize them, as you may copy and paste them from the docs when you need them.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "DRITTENS: Produktname und Eigenschaftsname werden durch den verwendeten Indikator bestimmt. Sie müssen sie nicht auswendig lernen, denn Sie können sie aus den Dokumenten kopieren und einfügen, wenn Sie sie brauchen!",
+                    "text": "DRITTENS: Produktname und Eigenschaftsname werden durch den verwendeten Indikator bestimmt. Sie müssen sie nicht auswendig lernen, denn Sie können sie aus den Dokumenten kopieren und einfügen, wenn Sie sie brauchen.",
                     "updated": 1639262007009
                 }
             ]

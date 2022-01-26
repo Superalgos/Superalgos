@@ -3,7 +3,7 @@
     "pageNumber": 11,
     "type": "Tutorial Step - Open Stage",
     "definition": {
-        "text": "The Open Stage is where bot take position!",
+        "text": "The Open Stage is where bot take position.",
         "icon": {
             "name": "open-stage",
             "project": "Foundations"
@@ -12,28 +12,28 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Die Open Stage ist der Zeitpunkt, an dem der Bot die Position einnimmt!",
+                "text": "Die Open Stage ist der Zeitpunkt, an dem der Bot die Position einnimmt.",
                 "updated": 1622979315892,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "El Open Stage es donde el bot toma posición!",
+                "text": "El Open Stage es donde el bot toma posición.",
                 "updated": 1629356240122
             },
             {
                 "language": "IT",
-                "text": "Nell'Open Stage il bot prende posizione!",
+                "text": "Nell'Open Stage il bot prende posizione.",
                 "updated": 1639078616544
             },
             {
                 "language": "TR",
-                "text": "Açık sahne ( Open Stage ), botun pozisyon aldığı yerdir!",
+                "text": "Açık sahne ( Open Stage ), botun pozisyon aldığı yerdir.",
                 "updated": 1640617312499
             },
             {
                 "language": "RU",
-                "text": "Open Stage - это место, где бот занимает позицию!",
+                "text": "Open Stage - это место, где бот занимает позицию.",
                 "updated": 1640856530548
             }
         ]

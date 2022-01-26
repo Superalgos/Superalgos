@@ -3,7 +3,7 @@
     "pageNumber": 2,
     "type": "Tutorial Step - Pick Your Language",
     "definition": {
-        "text": "Users are contributing translations so that you may choose your preferred language! This Community is awesome!",
+        "text": "Users are contributing translations so that you may choose your preferred language! This Community is awesome.",
         "updated": 1619801502482,
         "icon": {
             "name": "Languages\\EN",
@@ -12,31 +12,31 @@
         "translations": [
             {
                 "language": "FR",
-                "text": "Les utilisateurs contribuent aux traductions afin que vous puissiez choisir votre langue préférée ! Cette communauté est géniale !",
+                "text": "Les utilisateurs contribuent aux traductions afin que vous puissiez choisir votre langue préférée ! Cette communauté est géniale .",
                 "updated": 1623947311364,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Los usuarios están contribuyendo con traducciones para que puedas elegir tu idioma preferido! ¡Esta comunidad es increíble!",
+                "text": "¡Los usuarios están contribuyendo con traducciones para que puedas elegir tu idioma preferido! ¡Esta comunidad es increíble.",
                 "updated": 1625927584664,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Kullanıcılar, tercih ettiğiniz dili seçebilmeniz için çevirilere katkıda bulunuyor! Bu Topluluk harika!",
+                "text": "Kullanıcılar, tercih ettiğiniz dili seçebilmeniz için çevirilere katkıda bulunuyor! Bu Topluluk harika.",
                 "updated": 1633120577362,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Gebruikers voegen vertalingen toe, zodat je jouw voorkeurstaal kan kiezen! Deze Community is geweldig!",
+                "text": "Gebruikers voegen vertalingen toe, zodat je jouw voorkeurstaal kan kiezen! Deze Community is geweldig.",
                 "updated": 1633850957963,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Die Übersetzungen werden von Unterstützern aus der Community beigetragen, so dass Sie Ihre bevorzugte Sprache wählen können! Diese Community ist großartig!",
+                "text": "Die Übersetzungen werden von Unterstützern aus der Community beigetragen, so dass Sie Ihre bevorzugte Sprache wählen können! Diese Community ist großartig.",
                 "updated": 1634159799660,
                 "style": "Definition"
             },
@@ -47,7 +47,7 @@
             },
             {
                 "language": "ID",
-                "text": "Pengguna saling berkontribusi dalam menerjemahkan sehingga kamu dapat memilih bahasa pilihanmu! Community ini luarbiasa!",
+                "text": "Pengguna saling berkontribusi dalam menerjemahkan sehingga kamu dapat memilih bahasa pilihanmu! Community ini luarbiasa.",
                 "updated": 1639582383650
             }
         ]
@@ -55,12 +55,12 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "This is how it works: the default language is English. If you choose any other language and there is a translation for the current page, then you get it in the selected language. Otherwise, you get it in English!",
+            "text": "This is how it works: the default language is English. If you choose any other language and there is a translation for the current page, then you get it in the selected language. Otherwise, you get it in English.",
             "updated": 1619801342624,
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Voici comment cela fonctionne : la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'il existe sa traduction, vous l'obtenez, sinon, elle apparaitra en anglais !",
+                    "text": "Voici comment cela fonctionne : la langue par défaut est l'anglais. Si vous choisissez une autre langue et qu'il existe sa traduction, vous l'obtenez, sinon, elle apparaitra en anglais .",
                     "updated": 1623947447536,
                     "style": "Text"
                 },
@@ -78,13 +78,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Dit is hoe het werkt: de standaardtaal is Engels. Als je een andere taal kiest en er is een vertaling voor de huidige pagina, dan krijgt je deze te zien in de gekozen taal, anders zie je de pagina in het Engels!",
+                    "text": "Dit is hoe het werkt: de standaardtaal is Engels. Als je een andere taal kiest en er is een vertaling voor de huidige pagina, dan krijgt je deze te zien in de gekozen taal, anders zie je de pagina in het Engels.",
                     "updated": 1633851093585,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "So funktioniert es: Standard ist Englisch. Wenn Sie eine andere Sprache wählen und es eine Übersetzung für die aktuelle Seite gibt, erhalten Sie diese in der gewählten Sprache. Andernfalls erhalten Sie die Seite auf Englisch!",
+                    "text": "So funktioniert es: Standard ist Englisch. Wenn Sie eine andere Sprache wählen und es eine Übersetzung für die aktuelle Seite gibt, erhalten Sie diese in der gewählten Sprache. Andernfalls erhalten Sie die Seite auf Englisch.",
                     "updated": 1634159943189,
                     "style": "Text"
                 },
@@ -95,19 +95,19 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Begini cara kerjanya: bahasa utama adalah bahasa Inggris. Jika kamu pilih bahasa lain dan ada terjemahannya, maka kamu sudah berada di bahasa yang diinginkan. Jika tidak, Kamu akan membacanya dalam bahasa Inggris!",
+                    "text": "Begini cara kerjanya: bahasa utama adalah bahasa Inggris. Jika kamu pilih bahasa lain dan ada terjemahannya, maka kamu sudah berada di bahasa yang diinginkan. Jika tidak, Kamu akan membacanya dalam bahasa Inggris.",
                     "updated": 1639582032428
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Use the mouse wheel to scroll the page on the right downwards. Click on a flag to change the preferred language, if so you wish!",
+            "text": "Use the mouse wheel to scroll the page on the right downwards. Click on a flag to change the preferred language, if so you wish.",
             "updated": 1619803411650,
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Utilisez la molette de la souris pour faire défiler la page de droite vers le bas. Cliquez sur un drapeau pour changer la langue préférée, si vous le souhaitez !",
+                    "text": "Utilisez la molette de la souris pour faire défiler la page de droite vers le bas. Cliquez sur un drapeau pour changer la langue préférée, si vous le souhaitez .",
                     "updated": 1623947515076,
                     "style": "Callout"
                 },
@@ -119,13 +119,13 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Sayfayı aşağı kaydırmak için fare tekerleğini kullanın. Dilerseniz tercih ettiğiniz dili değiştirmek için bir bayrağa tıklayın!",
+                    "text": "Sayfayı aşağı kaydırmak için fare tekerleğini kullanın. Dilerseniz tercih ettiğiniz dili değiştirmek için bir bayrağa tıklayın.",
                     "updated": 1633120795496,
                     "style": "Callout"
                 },
                 {
                     "language": "NL",
-                    "text": "Gebruik je muiswiel om de pagina aan de rechterkant naar beneden te scrollen. Als je het wilt, klik op een vlaggetje om de voorkeurstaal te wijzigen!",
+                    "text": "Gebruik je muiswiel om de pagina aan de rechterkant naar beneden te scrollen. Als je het wilt, klik op een vlaggetje om de voorkeurstaal te wijzigen.",
                     "updated": 1633851203889,
                     "style": "Callout"
                 },
@@ -142,43 +142,43 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Gunakan mouse wheel untuk menggulir halaman di kanan bawah. Click bendera sesuai bahasa yang kamu inginkan!",
+                    "text": "Gunakan mouse wheel untuk menggulir halaman di kanan bawah. Click bendera sesuai bahasa yang kamu inginkan.",
                     "updated": 1639582298058
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "Only the Docs and tutorials may be translated, not the interface, nor titles!",
+            "text": "Only the Docs and tutorials may be translated, not the interface, nor titles.",
             "updated": 1619804204225,
             "translations": [
                 {
                     "language": "FR",
-                    "text": "Note : Seuls les docs et les tutoriels peuvent être traduits, pas l'interface, ni les titres !",
+                    "text": "Note : Seuls les docs et les tutoriels peuvent être traduits, pas l'interface, ni les titres .",
                     "updated": 1623947561329,
                     "style": "Note"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Solo se pueden traducir los documentos y los tutoriales, no la interfaz ni los títulos!",
+                    "text": "¡Solo se pueden traducir los documentos y los tutoriales, no la interfaz ni los títulos.",
                     "updated": 1625928204688,
                     "style": "Note"
                 },
                 {
                     "language": "TR",
-                    "text": "Arayüz veya başlıklar değil, yalnızca Dokümanlar ve öğreticiler çevrilebilir!",
+                    "text": "Arayüz veya başlıklar değil, yalnızca Dokümanlar ve öğreticiler çevrilebilir.",
                     "updated": 1633121237275,
                     "style": "Note"
                 },
                 {
                     "language": "NL",
-                    "text": "Alleen de Docs en de tutorials mogen worden vertaald niet de interface en de titels!",
+                    "text": "Alleen de Docs en de tutorials mogen worden vertaald niet de interface en de titels.",
                     "updated": 1633851259089,
                     "style": "Note"
                 },
                 {
                     "language": "DE",
-                    "text": "Nur die Docs und Tutorials dürfen übersetzt werden, nicht aber das Interface oder die Titel!",
+                    "text": "Nur die Docs und Tutorials dürfen übersetzt werden, nicht aber das Interface oder die Titel.",
                     "updated": 1634070001415,
                     "style": "Note"
                 },
@@ -189,7 +189,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Hanya Docs dan tutorials yang akan diterjemahkan, bukan interface, ataupun titles!",
+                    "text": "Hanya Docs dan tutorials yang akan diterjemahkan, bukan interface, ataupun titles.",
                     "updated": 1639582361956
                 }
             ]

@@ -61,11 +61,11 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Go ahead and click the expand button!",
+            "text": "Go ahead and click the expand button.",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Ayo coba dengan men-click tombol expand tersebut!",
+                    "text": "Ayo coba dengan men-click tombol expand tersebut.",
                     "updated": 1614424924865,
                     "style": "Callout"
                 },
@@ -77,31 +77,31 @@
                 },
                 {
                     "language": "IT",
-                    "text": "Prova a cliccare il bottone per espandere!",
+                    "text": "Prova a cliccare il bottone per espandere.",
                     "updated": 1614713217883,
                     "style": "Callout"
                 },
                 {
                     "language": "FR",
-                    "text": "Allez-y et cliquez sur le bouton d'expansion !",
+                    "text": "Allez-y et cliquez sur le bouton d'expansion .",
                     "updated": 1623951533708,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Devam edin ve genişlet düğmesine tıklayın!",
+                    "text": "Devam edin ve genişlet düğmesine tıklayın.",
                     "updated": 1633267545525,
                     "style": "Callout"
                 },
                 {
                     "language": "NL",
-                    "text": "Klik maar op de \"expand\" knop en vouw het knooppunt uit!",
+                    "text": "Klik maar op de \"expand\" knop en vouw het knooppunt uit.",
                     "updated": 1633852949878,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Klicken Sie einfach auf die Schaltfläche \"Erweitern\"!",
+                    "text": "Klicken Sie einfach auf die Schaltfläche \"Erweitern\".",
                     "updated": 1634160281971,
                     "style": "Callout"
                 },
@@ -114,29 +114,29 @@
         },
         {
             "style": "Text",
-            "text": "The Tutorial node has several offspring, and these have several more offspring. That's why it's a hierarchy!",
+            "text": "The Tutorial node has several offspring, and these have several more offspring. That's why it's a hierarchy.",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Node Tutorial memiliki beberapa turunan, dan setiap turunan mempunyai turunannya lagi. Itulah hirarki!",
+                    "text": "Node Tutorial memiliki beberapa turunan, dan setiap turunan mempunyai turunannya lagi. Itulah hirarki.",
                     "updated": 1614425111632,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "El nodo Tutorial tiene varios subnodos, y éstos tienen varios subnodos más. ¡Por eso es una jerarquía!",
+                    "text": "El nodo Tutorial tiene varios subnodos, y éstos tienen varios subnodos más. ¡Por eso es una jerarquía.",
                     "updated": 1613595290969,
                     "style": "Text"
                 },
                 {
                     "language": "IT",
-                    "text": "Il nodo Tutorial ha diversi discendenti, e questi ne hanno altri a loro volta. Ecco perché é una gerarchia!",
+                    "text": "Il nodo Tutorial ha diversi discendenti, e questi ne hanno altri a loro volta. Ecco perché é una gerarchia.",
                     "updated": 1614713286305,
                     "style": "Text"
                 },
                 {
                     "language": "FR",
-                    "text": "Le noeud Tutorial contient plusieurs ramifications, et celles-ci possedent a leur tour plusieurs autres ramifications. C'est pourquoi il s'agit d'une hiérarchie !",
+                    "text": "Le noeud Tutorial contient plusieurs ramifications, et celles-ci possedent a leur tour plusieurs autres ramifications. C'est pourquoi il s'agit d'une hiérarchie .",
                     "updated": 1623951690741,
                     "style": "Text"
                 },
@@ -148,13 +148,13 @@
                 },
                 {
                     "language": "NL",
-                    "text": "Het Tutorial knooppunt heeft meerdere sub knooppunten, en deze hebben weer meerdere knooppunten. Daarom is het een hiërarchie!",
+                    "text": "Het Tutorial knooppunt heeft meerdere sub knooppunten, en deze hebben weer meerdere knooppunten. Daarom is het een hiërarchie.",
                     "updated": 1633853126300,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Der Knoten Tutorial hat mehrere Unterknoten, und diese haben wiederum mehrere Unterknoten. Das ist der Grund, warum es eine Hierarchie ist!",
+                    "text": "Der Knoten Tutorial hat mehrere Unterknoten, und diese haben wiederum mehrere Unterknoten. Das ist der Grund, warum es eine Hierarchie ist.",
                     "updated": 1634160340549,
                     "style": "Text"
                 },

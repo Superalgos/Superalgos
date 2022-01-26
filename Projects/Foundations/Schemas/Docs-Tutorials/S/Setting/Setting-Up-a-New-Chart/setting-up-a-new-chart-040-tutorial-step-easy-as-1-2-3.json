@@ -3,7 +3,7 @@
     "pageNumber": 40,
     "type": "Tutorial Step - Easy as 1, 2, 3",
     "definition": {
-        "text": "You did it! I knew you could. You have successfully added your first custom chart. I hope you had as much fun as I did!",
+        "text": "You did it! I knew you could. You have successfully added your first custom chart. I hope you had as much fun as I did.",
         "icon": {
             "name": "charting-space",
             "project": "Foundations"
@@ -12,17 +12,17 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Lo hiciste! Sabía que podías. Has agregado correctamente su primer gráfico personalizado. ¡Espero que te hayas divertido tanto como yo!",
+                "text": "¡Lo hiciste! Sabía que podías. Has agregado correctamente su primer gráfico personalizado. ¡Espero que te hayas divertido tanto como yo.",
                 "updated": 1628732594182
             },
             {
                 "language": "RU",
-                "text": "Ты сделал это! Я знал, что ты можешь. Вы успешно добавили свой первый пользовательский график. Надеюсь, вам было так же весело, как и мне!",
+                "text": "Ты сделал это! Я знал, что ты можешь. Вы успешно добавили свой первый пользовательский график. Надеюсь, вам было так же весело, как и мне.",
                 "updated": 1639084604572
             },
             {
                 "language": "DE",
-                "text": "Du hast es geschafft! Ich wusste, dass Sie es können. Sie haben erfolgreich Ihren ersten benutzerdefinierte Chart erstellt. Ich hoffe, Sie hatten genauso viel Spaß wie ich!",
+                "text": "Du hast es geschafft! Ich wusste, dass Sie es können. Sie haben erfolgreich Ihren ersten benutzerdefinierte Chart erstellt. Ich hoffe, Sie hatten genauso viel Spaß wie ich.",
                 "updated": 1639500375357
             }
         ]

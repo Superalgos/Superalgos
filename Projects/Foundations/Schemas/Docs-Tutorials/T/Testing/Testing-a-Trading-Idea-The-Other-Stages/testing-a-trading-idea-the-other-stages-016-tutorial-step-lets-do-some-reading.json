@@ -30,11 +30,11 @@
         },
         {
             "style": "Success",
-            "text": "We'll do some more reading before we bring all this down to Earth!",
+            "text": "We'll do some more reading before we bring all this down to Earth.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen!",
+                    "text": "Wir werden noch etwas mehr lesen, bevor wir das alles auf den Boden der Tatsachen bringen.",
                     "updated": 1639398502617
                 }
             ]

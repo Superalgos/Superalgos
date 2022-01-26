@@ -20,11 +20,11 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "... it would affect us if we were working with uptrends!",
+            "text": "... it would affect us if we were working with uptrends.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "... würde er uns betreffen, wenn wir mit Aufwärtstrends arbeiten würden!",
+                    "text": "... würde er uns betreffen, wenn wir mit Aufwärtstrends arbeiten würden.",
                     "updated": 1639388427688
                 }
             ]
@@ -42,11 +42,11 @@
         },
         {
             "style": "Success",
-            "text": "Trading automation requires many pieces of information to fit together like in a Swiss watch. You will make errors building strats. Deal with 'em!",
+            "text": "Trading automation requires many pieces of information to fit together like in a Swiss watch. You will make errors building strats. Deal with 'em.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Beim automatisierten Trading müssen viele Informationen wie bei einem Schweizer Uhrwerk zusammenpassen. Sie werden beim Erstellen von Strategien Fehler machen. Gehen Sie mit ihnen um!",
+                    "text": "Beim automatisierten Trading müssen viele Informationen wie bei einem Schweizer Uhrwerk zusammenpassen. Sie werden beim Erstellen von Strategien Fehler machen. Gehen Sie mit ihnen um.",
                     "updated": 1639388479624
                 }
             ]

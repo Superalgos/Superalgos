@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "javascript-code"
         },
-        "text": "Two consecutive closes means that the current and the previous candle close below the lower band!",
+        "text": "Two consecutive closes means that the current and the previous candle close below the lower band.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wo aufeinanderfolgende Schlusskurse bedeuten, dass die aktuelle und die vorherige Kerze unterhalb der unteren Bandbreite schließen!",
+                "text": "Wo aufeinanderfolgende Schlusskurse bedeuten, dass die aktuelle und die vorherige Kerze unterhalb der unteren Bandbreite schließen.",
                 "updated": 1639389956813
             }
         ]
@@ -36,12 +36,12 @@
         },
         {
             "style": "Callout",
-            "text": "Create a new condition under the same situation and use the code above!",
+            "text": "Create a new condition under the same situation and use the code above.",
             "updated": 1610471548093,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Erstellen Sie eine neue Bedingung unter der gleichen Situation und verwenden Sie den obigen Code!",
+                    "text": "Erstellen Sie eine neue Bedingung unter der gleichen Situation und verwenden Sie den obigen Code.",
                     "updated": 1639389985428
                 }
             ]

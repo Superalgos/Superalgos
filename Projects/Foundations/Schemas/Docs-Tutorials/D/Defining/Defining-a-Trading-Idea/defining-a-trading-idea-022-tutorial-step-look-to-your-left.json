@@ -24,16 +24,16 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "You're looking at the March 12-13th, 2020 ~50% pandemic market crash! Spend a few minutes analyzing the daily chart!",
+            "text": "You're looking at the March 12-13th, 2020 ~50% pandemic market crash! Spend a few minutes analyzing the daily chart.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Sie schauen auf den 12-13 März 2020 ~50% pandemischen Marktcrash! Nehmen Sie sich ein paar Minuten Zeit und analysieren Sie den Tages-Chart!",
+                    "text": "Sie schauen auf den 12-13 März 2020 ~50% pandemischen Marktcrash! Nehmen Sie sich ein paar Minuten Zeit und analysieren Sie den Tages-Chart.",
                     "updated": 1639253128723
                 },
                 {
                     "language": "TR",
-                    "text": "12-13 Mart 2020 ~%50 pandemik piyasa çöküşüne bakıyorsunuz! Günlük grafiği analiz etmek için birkaç dakika ayırın!",
+                    "text": "12-13 Mart 2020 ~%50 pandemik piyasa çöküşüne bakıyorsunuz! Günlük grafiği analiz etmek için birkaç dakika ayırın.",
                     "updated": 1640948725727
                 }
             ]
@@ -56,11 +56,11 @@
         },
         {
             "style": "Success",
-            "text": "Take a look at the lower time frames too!",
+            "text": "Take a look at the lower time frames too.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Werfen Sie auch einen Blick auf die unteren Zeitrahmen!",
+                    "text": "Werfen Sie auch einen Blick auf die unteren Zeitrahmen.",
                     "updated": 1639253156624
                 },
                 {

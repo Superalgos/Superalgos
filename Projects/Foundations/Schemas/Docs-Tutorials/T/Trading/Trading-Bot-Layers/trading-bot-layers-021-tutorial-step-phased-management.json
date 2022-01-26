@@ -24,17 +24,17 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn on the \"Stop Loss\" and the \"Take Profit\" layers in the Simulation Objects layer manager!",
+            "text": "Turn on the \"Stop Loss\" and the \"Take Profit\" layers in the Simulation Objects layer manager.",
             "updated": 1622541793215,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schalten Sie die Ebenen \"Stop Loss\" und \"Take Profit\" im Ebenenmanager der Simulationsobjekte ein!",
+                    "text": "Schalten Sie die Ebenen \"Stop Loss\" und \"Take Profit\" im Ebenenmanager der Simulationsobjekte ein.",
                     "updated": 1639144058572
                 },
                 {
                     "language": "RU",
-                    "text": "Включите слои \"Stop Loss\" и \"Take Profit\" в менеджере слоев объектов симуляции (Simulation Objects)!",
+                    "text": "Включите слои \"Stop Loss\" и \"Take Profit\" в менеджере слоев объектов симуляции (Simulation Objects).",
                     "updated": 1640628140797
                 }
             ]
@@ -57,16 +57,16 @@
         },
         {
             "style": "Success",
-            "text": "This is a fantastic feature when designing strategies, as you can literally see what the formula does, and how phases change!",
+            "text": "This is a fantastic feature when designing strategies, as you can literally see what the formula does, and how phases change.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies ist eine fantastische Funktion bei der Entwicklung von Strategien, da Sie buchstäblich sehen können, was die Formel tut und wie sich die Phasen ändern!",
+                    "text": "Dies ist eine fantastische Funktion bei der Entwicklung von Strategien, da Sie buchstäblich sehen können, was die Formel tut und wie sich die Phasen ändern.",
                     "updated": 1639144226306
                 },
                 {
                     "language": "RU",
-                    "text": "Это фантастическая возможность при разработке стратегий, так как вы можете буквально видеть, что делает формула и как меняются фазы!",
+                    "text": "Это фантастическая возможность при разработке стратегий, так как вы можете буквально видеть, что делает формула и как меняются фазы.",
                     "updated": 1640628433075
                 }
             ]

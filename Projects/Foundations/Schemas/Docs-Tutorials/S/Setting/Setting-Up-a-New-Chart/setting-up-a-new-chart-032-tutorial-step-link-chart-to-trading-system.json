@@ -3,7 +3,7 @@
     "pageNumber": 32,
     "type": "Tutorial Step - Link Chart to Trading System",
     "definition": {
-        "text": "We are on a roll! I hope you are ready to see your Trading System in action next!",
+        "text": "We are on a roll! I hope you are ready to see your Trading System in action next.",
         "icon": {
             "name": "chart-points",
             "project": "Foundations"
@@ -12,17 +12,17 @@
         "translations": [
             {
                 "language": "ES",
-                "text": "¡Estamos en una buena racha! Espero que estés listo para ver tu Trading System en acción a continuación!",
+                "text": "¡Estamos en una buena racha! Espero que estés listo para ver tu Trading System en acción a continuación.",
                 "updated": 1628726073887
             },
             {
                 "language": "RU",
-                "text": "Мы в ударе! Надеюсь, вы готовы увидеть свою торговую систему (Trading System) в действии дальше!",
+                "text": "Мы в ударе! Надеюсь, вы готовы увидеть свою торговую систему (Trading System) в действии дальше.",
                 "updated": 1639080261066
             },
             {
                 "language": "DE",
-                "text": "Wir haben einen Lauf! Ich hoffe, Sie sind bereit, Ihr Trading System als nächstes in Aktion zu sehen!",
+                "text": "Wir haben einen Lauf! Ich hoffe, Sie sind bereit, Ihr Trading System als nächstes in Aktion zu sehen.",
                 "updated": 1639497372330
             }
         ]

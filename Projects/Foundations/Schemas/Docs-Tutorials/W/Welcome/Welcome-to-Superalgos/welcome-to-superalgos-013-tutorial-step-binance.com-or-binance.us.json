@@ -55,17 +55,17 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "If you trade at binance.com or don't trade with Binance at all, then you may skip this step and the next!",
+            "text": "If you trade at binance.com or don't trade with Binance at all, then you may skip this step and the next.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se fai trading su binance.com o non usi proprio Binance, puoi saltare questo step e anche il prossimo!",
+                    "text": "Se fai trading su binance.com o non usi proprio Binance, puoi saltare questo step e anche il prossimo.",
                     "updated": 1614719681526,
                     "style": "Text"
                 },
                 {
                     "language": "ID",
-                    "text": "Jika kamu trading di binance.com atau tidak menggunakan Binance sama sekali, sebaiknya melewati step ini dan Next!",
+                    "text": "Jika kamu trading di binance.com atau tidak menggunakan Binance sama sekali, sebaiknya melewati step ini dan Next.",
                     "updated": 1616352636966,
                     "style": "Text"
                 },
@@ -83,7 +83,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie bei binance.com oder gar nicht mit Binance handeln, dann können Sie diesen und den nächsten Schritt überspringen!",
+                    "text": "Wenn Sie bei binance.com oder gar nicht mit Binance handeln, dann können Sie diesen und den nächsten Schritt überspringen.",
                     "updated": 1634162370036,
                     "style": "Text"
                 },
@@ -94,54 +94,54 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Binance.com'da işlem yapıyorsanız veya Binance ile hiç işlem yapmıyorsanız, bu ve sonraki adımı atlayabilirsiniz!",
+                    "text": "Binance.com'da işlem yapıyorsanız veya Binance ile hiç işlem yapmıyorsanız, bu ve sonraki adımı atlayabilirsiniz.",
                     "updated": 1635582549143
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "If you trade at binance.us you need to configure the Binance node to the right! The video on the next step shows you how!",
+            "text": "If you trade at binance.us you need to configure the Binance node to the right! The video on the next step shows you how.",
             "updated": 1611076107190,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se fai trading su binance.us allora devi configurare il nodo Binance qui a destra! Il video nel prossimo step ti mostrerà come!",
+                    "text": "Se fai trading su binance.us allora devi configurare il nodo Binance qui a destra! Il video nel prossimo step ti mostrerà come.",
                     "updated": 1614719789690,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "JIka kamu trading di binance.us kamu harus mengkonfigurasi Binance node disamping! Video selanjutnya akan memberitahukan caranya!",
+                    "text": "JIka kamu trading di binance.us kamu harus mengkonfigurasi Binance node disamping! Video selanjutnya akan memberitahukan caranya.",
                     "updated": 1616352712406,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo!",
+                    "text": "¡Si utilizas binance.us necesitarás configurar el nodo de Binance a la derecha! ¡El video en el siguiente paso le muestra cómo.",
                     "updated": 1624491042411,
                     "style": "Callout"
                 },
                 {
                     "language": "NL",
-                    "text": "Handel je op binance.us dan moet je nu het Binance knooppunt aan de rechterkant configureren. De video in de volgende stap laat je zien hoe dit moet!",
+                    "text": "Handel je op binance.us dan moet je nu het Binance knooppunt aan de rechterkant configureren. De video in de volgende stap laat je zien hoe dit moet.",
                     "updated": 1633890111836,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn Sie bei binance.us handeln, konfigurieren Sie den Binance-Knoten auf der rechten Seite! Das Video im nächsten Schritt zeigt Ihnen wie!",
+                    "text": "Wenn Sie bei binance.us handeln, konfigurieren Sie den Binance-Knoten auf der rechten Seite! Das Video im nächsten Schritt zeigt Ihnen wie.",
                     "updated": 1634162445222,
                     "style": "Callout"
                 },
                 {
                     "language": "RU",
-                    "text": "Если Вы торгуете на binance.us, то необходимо настроить узел Binance справа! Видео на следующем шаге покажет Вам как это сделать!",
+                    "text": "Если Вы торгуете на binance.us, то необходимо настроить узел Binance справа! Видео на следующем шаге покажет Вам как это сделать.",
                     "updated": 1635584907910
                 },
                 {
                     "language": "TR",
-                    "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımdaki video size nasıl olduğunu gösteriyor!",
+                    "text": "Binance.us'ta işlem yapıyorsanız, Binance düğümünü (sağda) yapılandırmanız gerekir! Bir sonraki adımdaki video size nasıl olduğunu gösteriyor.",
                     "updated": 1635582592953
                 }
             ]

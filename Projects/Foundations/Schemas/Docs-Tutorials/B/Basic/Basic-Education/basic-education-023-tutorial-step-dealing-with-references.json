@@ -3,7 +3,7 @@
     "pageNumber": 23,
     "type": "Tutorial Step - Dealing with References",
     "definition": {
-        "text": "References are how a node may obtain information about another otherwise unrelated node. This is a crucial concept so pay attention!",
+        "text": "References are how a node may obtain information about another otherwise unrelated node. This is a crucial concept so pay attention.",
         "updated": 1615797468978,
         "icon": {
             "name": "delink-node",
@@ -12,24 +12,24 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Le References sono il modo in cui i nodi ottengono dati da altri nodi. È un concetto cruciale, quindi fai attenzione!",
+                "text": "Le References sono il modo in cui i nodi ottengono dati da altri nodi. È un concetto cruciale, quindi fai attenzione.",
                 "updated": 1619500676047,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "References son cómo un nodo puede obtener información sobre otro nodo no relacionado. Este es un concepto crucial, ¡así que presta atención!",
+                "text": "References son cómo un nodo puede obtener información sobre otro nodo no relacionado. Este es un concepto crucial, ¡así que presta atención.",
                 "updated": 1626374249599,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Durch Verweise kann ein Knoten Informationen über einen anderen, nicht verwandten Knoten erhalten. Dies ist ein wichtiges Konzept, also passen Sie auf!",
+                "text": "Durch Verweise kann ein Knoten Informationen über einen anderen, nicht verwandten Knoten erhalten. Dies ist ein wichtiges Konzept, also passen Sie auf.",
                 "updated": 1634334022751
             },
             {
                 "language": "TR",
-                "text": "Referanslar, bir düğümün, alakasız başka bir düğüm hakkında nasıl bilgi edinebileceğini göstermenin bir yoludur. Bu çok önemli bir kavramdır, bu yüzden dikkat edin!",
+                "text": "Referanslar, bir düğümün, alakasız başka bir düğüm hakkında nasıl bilgi edinebileceğini göstermenin bir yoludur. Bu çok önemli bir kavramdır, bu yüzden dikkat edin.",
                 "updated": 1639485293172
             }
         ]
@@ -37,12 +37,12 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Read this page carefully! If you are not a developer, you may want to read it twice until it sinks in!",
+            "text": "Read this page carefully! If you are not a developer, you may want to read it twice until it sinks in.",
             "updated": 1615797106813,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Leggi attentamente questa pagina! Se non sei uno sviluppatore, potresti volerla rileggere finchè non hai afferrato bene i concetti!",
+                    "text": "Leggi attentamente questa pagina! Se non sei uno sviluppatore, potresti volerla rileggere finchè non hai afferrato bene i concetti.",
                     "updated": 1619500726572,
                     "style": "Callout"
                 },
@@ -54,12 +54,12 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diese Seite sorgfältig! Wenn Sie kein Entwickler sind, sollten Sie sie vielleicht zweimal lesen, bis Sie sie verstanden haben!",
+                    "text": "Lesen Sie diese Seite sorgfältig! Wenn Sie kein Entwickler sind, sollten Sie sie vielleicht zweimal lesen, bis Sie sie verstanden haben.",
                     "updated": 1634334030518
                 },
                 {
                     "language": "TR",
-                    "text": "Bu sayfayı dikkatlice okuyun! Eğer bir geliştirici değilseniz, işin içine girene kadar iki kez okumak isteyebilirsiniz!",
+                    "text": "Bu sayfayı dikkatlice okuyun! Eğer bir geliştirici değilseniz, işin içine girene kadar iki kez okumak isteyebilirsiniz.",
                     "updated": 1639485321908
                 }
             ]
@@ -157,7 +157,7 @@
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Il concetto di scope di una Reference è cruciale per comprendere la differenza tra backups e cloni!",
+                    "text": "Il concetto di scope di una Reference è cruciale per comprendere la differenza tra backups e cloni.",
                     "updated": 1619500844066,
                     "style": "Note"
                 },

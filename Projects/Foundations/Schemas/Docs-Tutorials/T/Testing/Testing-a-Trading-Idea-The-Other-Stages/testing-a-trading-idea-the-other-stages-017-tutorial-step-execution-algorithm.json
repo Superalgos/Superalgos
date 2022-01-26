@@ -7,12 +7,12 @@
             "project": "Foundations",
             "name": "execution-algorithm"
         },
-        "text": "Take a look at this page about the Execution Algorithm! Read the Configuration section too!",
+        "text": "Take a look at this page about the Execution Algorithm! Read the Configuration section too.",
         "updated": 1617197894850,
         "translations": [
             {
                 "language": "DE",
-                "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration!",
+                "text": "Werfen Sie einen Blick auf diese Seite über den \" Execution Algorithm \"! Lesen Sie auch den Abschnitt über die Konfiguration.",
                 "updated": 1639398534498
             }
         ]
@@ -31,11 +31,11 @@
         },
         {
             "style": "Callout",
-            "text": "Once you finish reading, take a look at the configuration of the algorithm!",
+            "text": "Once you finish reading, take a look at the configuration of the algorithm.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus!",
+                    "text": "Wenn Sie mit dem Lesen fertig sind, werfen Sie einen Blick auf die Konfiguration des Algorithmus.",
                     "updated": 1639398548509
                 }
             ]
@@ -53,11 +53,11 @@
         },
         {
             "style": "Success",
-            "text": "This is the first instance in which the target size we defined earlier comes into the scene!",
+            "text": "This is the first instance in which the target size we defined earlier comes into the scene.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt!",
+                    "text": "Dies ist der erste Fall, in dem die Zielgröße, die wir zuvor definiert haben, zum Tragen kommt.",
                     "updated": 1639398562678
                 }
             ]

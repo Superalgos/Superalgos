@@ -3,7 +3,7 @@
     "pageNumber": 23,
     "type": "Tutorial Step - GitHub.com Authentication",
     "definition": {
-        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first!",
+        "text": "For the app.contribute command to work, you need to authenticate at two different levels. We'll deal with GiHub.com first.",
         "icon": {
             "name": "github-api",
             "project": "Foundations"
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Perchè il comando app.contribute funzioni, dovrai autenticarti a due livelli differenti. Concentriamoci prima su GitHub.com!",
+                "text": "Perchè il comando app.contribute funzioni, dovrai autenticarti a due livelli differenti. Concentriamoci prima su GitHub.com.",
                 "updated": 1619641609528,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com!",
+                "text": "Para el app.contribute comando para que funcione, debe autenticarse en dos niveles diferentes. ¡Primero trataremos con GiHub.com.",
                 "updated": 1628194149826,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Damit der Befehl app.contribute funktioniert, müssen Sie sich auf zwei verschiedenen Ebenen authentifizieren. Wir befassen uns zuerst mit GiHub.com!",
+                "text": "Damit der Befehl app.contribute funktioniert, müssen Sie sich auf zwei verschiedenen Ebenen authentifizieren. Wir befassen uns zuerst mit GiHub.com.",
                 "updated": 1635150651730
             },
             {
                 "language": "RU",
-                "text": "Чтобы команда app.contribute работала, вам необходимо пройти аутентификацию на двух разных уровнях. Сначала мы разберемся с GiHub.com!",
+                "text": "Чтобы команда app.contribute работала, вам необходимо пройти аутентификацию на двух разных уровнях. Сначала мы разберемся с GiHub.com.",
                 "updated": 1640162342611
             },
             {
                 "language": "TR",
-                "text": "app.contribute komutunun çalışması için iki farklı düzeyde kimlik doğrulaması yapmanız gerekir. Önce GiHub.com ile ilgileneceğiz!",
+                "text": "app.contribute komutunun çalışması için iki farklı düzeyde kimlik doğrulaması yapmanız gerekir. Önce GiHub.com ile ilgileneceğiz.",
                 "updated": 1640629205391
             }
         ]

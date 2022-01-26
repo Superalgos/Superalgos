@@ -50,7 +50,7 @@
         },
         {
             "style": "List",
-            "text": "This is where you will find the workspaces you may have saved earlier. If the folder is empty or doesn't exist, it means you haven't saved any workspaces yet!",
+            "text": "This is where you will find the workspaces you may have saved earlier. If the folder is empty or doesn't exist, it means you haven't saved any workspaces yet.",
             "updated": 1629895377178,
             "translations": [
                 {
@@ -67,12 +67,12 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Hier finden Sie die Workspaces, die Sie möglicherweise zuvor gespeichert haben. Wenn der Ordner leer ist oder nicht existiert, bedeutet dies, dass Sie noch keine Workspaces gespeichert haben!",
+                    "text": "Hier finden Sie die Workspaces, die Sie möglicherweise zuvor gespeichert haben. Wenn der Ordner leer ist oder nicht existiert, bedeutet dies, dass Sie noch keine Workspaces gespeichert haben.",
                     "updated": 1634587301340
                 },
                 {
                     "language": "TR",
-                    "text": "Daha önce kaydetmiş olabileceğiniz çalışma alanlarını burada bulabilirsiniz. Klasör boşsa veya mevcut değilse, henüz herhangi bir çalışma alanı kaydetmemişsiniz demektir!",
+                    "text": "Daha önce kaydetmiş olabileceğiniz çalışma alanlarını burada bulabilirsiniz. Klasör boşsa veya mevcut değilse, henüz herhangi bir çalışma alanı kaydetmemişsiniz demektir.",
                     "updated": 1639765864958
                 }
             ]
@@ -83,12 +83,12 @@
         },
         {
             "style": "List",
-            "text": "In this folder, you will find Plugin Workspaces shipping with Superalgos. You may want to read the \"Community Workspaces\" topic in the Docs to learn what each of them is about!",
+            "text": "In this folder, you will find Plugin Workspaces shipping with Superalgos. You may want to read the \"Community Workspaces\" topic in the Docs to learn what each of them is about.",
             "updated": 1622375468421,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Qui troverai i Plugin Workspaces originali di Superalgos. Per imparare cosa fa ognuno di essi, leggi il relativo topic nella documentazione!",
+                    "text": "Qui troverai i Plugin Workspaces originali di Superalgos. Per imparare cosa fa ognuno di essi, leggi il relativo topic nella documentazione.",
                     "updated": 1619553810915,
                     "style": "List"
                 },
@@ -100,7 +100,7 @@
                 },
                 {
                     "language": "DE",
-                    "text": "In diesem Ordner finden Sie die Plugin Workspaces, die mit Superalgos ausgeliefert werden. Vielleicht möchten Sie das Thema \"Community Workspaces\" in den Docs lesen, um zu erfahren, worum es bei den einzelnen Workspaces geht!",
+                    "text": "In diesem Ordner finden Sie die Plugin Workspaces, die mit Superalgos ausgeliefert werden. Vielleicht möchten Sie das Thema \"Community Workspaces\" in den Docs lesen, um zu erfahren, worum es bei den einzelnen Workspaces geht.",
                     "updated": 1634587316991
                 },
                 {

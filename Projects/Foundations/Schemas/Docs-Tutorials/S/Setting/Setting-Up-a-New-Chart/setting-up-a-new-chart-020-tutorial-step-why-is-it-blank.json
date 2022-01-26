@@ -79,39 +79,39 @@
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No importa cuánto te desplaces, no pasa nada. ¡No te preocupes, no hay nada roto! Simplemente no lo hemos conectado a ninguno de sus datos. ¡Cambiemos eso!",
+                    "text": "No importa cuánto te desplaces, no pasa nada. ¡No te preocupes, no hay nada roto! Simplemente no lo hemos conectado a ninguno de sus datos. ¡Cambiemos eso.",
                     "updated": 1628647017081
                 },
                 {
                     "language": "RU",
-                    "text": "Как бы вы ни старались, ничего не происходит, не так ли? Не волнуйтесь, ничего не сломано! Мы просто не подключили его к вашим данным. Давайте изменим это!",
+                    "text": "Как бы вы ни старались, ничего не происходит, не так ли? Не волнуйтесь, ничего не сломано! Мы просто не подключили его к вашим данным. Давайте изменим это.",
                     "updated": 1638176090746
                 },
                 {
                     "language": "DE",
-                    "text": "Auch wenn Sie noch so viel blättern, es passiert nichts, oder? Keine Sorge, es ist nichts kaputt! Wir haben es nur noch nicht mit Ihren Daten verknüpft. Das wollen wir ändern!",
+                    "text": "Auch wenn Sie noch so viel blättern, es passiert nichts, oder? Keine Sorge, es ist nichts kaputt! Wir haben es nur noch nicht mit Ihren Daten verknüpft. Das wollen wir ändern.",
                     "updated": 1639151933412
                 }
             ]
         },
         {
             "style": "Note",
-            "text": "A Layer Manager inherits the name from its Timeline Chart. That's why a short name was best!",
+            "text": "A Layer Manager inherits the name from its Timeline Chart. That's why a short name was best.",
             "updated": 1620555102768,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Un Layer Manager hereda el nombre de su Timeline Chart. ¡Por eso era mejor un nombre corto!",
+                    "text": "Un Layer Manager hereda el nombre de su Timeline Chart. ¡Por eso era mejor un nombre corto.",
                     "updated": 1628647051230
                 },
                 {
                     "language": "RU",
-                    "text": "Менеджер слоев (Layer Manager) наследует имя от своей временной диаграммы (Timeline Chart). Вот почему короткое имя было лучшим!",
+                    "text": "Менеджер слоев (Layer Manager) наследует имя от своей временной диаграммы (Timeline Chart). Вот почему короткое имя было лучшим.",
                     "updated": 1638176175990
                 },
                 {
                     "language": "DE",
-                    "text": "Ein Layer Manager erbt den Namen von seinem Timeline Chart. Deshalb ist ein kurzer Name am besten!",
+                    "text": "Ein Layer Manager erbt den Namen von seinem Timeline Chart. Deshalb ist ein kurzer Name am besten.",
                     "updated": 1639152044645
                 }
             ]

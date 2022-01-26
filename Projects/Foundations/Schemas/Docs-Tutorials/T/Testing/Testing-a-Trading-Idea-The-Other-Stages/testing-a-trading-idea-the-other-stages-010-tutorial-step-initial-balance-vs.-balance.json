@@ -7,11 +7,11 @@
             "project": "Foundations",
             "name": "balance"
         },
-        "text": "As you can see, the initialBalance is defined in the Session Base Asset. This is just a matter of choice!",
+        "text": "As you can see, the initialBalance is defined in the Session Base Asset. This is just a matter of choice.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wie Sie sehen, ist der initialBalance in der Session Base Asset definiert. Das ist einfach eine Frage der Wahl!",
+                "text": "Wie Sie sehen, ist der initialBalance in der Session Base Asset definiert. Das ist einfach eine Frage der Wahl.",
                 "updated": 1639397987476
             }
         ]
@@ -41,11 +41,11 @@
         },
         {
             "style": "Text",
-            "text": "The target size we define is valid for each position the strategy will take. If it was the initialBalance and we lost some bitcoin in the first position, we would get an error in the second position, as&mdash;by then&mdash;we wouldn't have that much bitcoin any more!",
+            "text": "The target size we define is valid for each position the strategy will take. If it was the initialBalance and we lost some bitcoin in the first position, we would get an error in the second position, as&mdash;by then&mdash;we wouldn't have that much bitcoin any more.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Die Zielgröße, die wir festlegen, gilt für jede Position, die die Strategie einnimmt. Wäre es der initialBalance und wir würden in der ersten Position einige Bitcoin verlieren, würden wir in der zweiten Position einen Fehler erhalten, da wir dann nicht mehr so viele Bitcoin hätten!",
+                    "text": "Die Zielgröße, die wir festlegen, gilt für jede Position, die die Strategie einnimmt. Wäre es der initialBalance und wir würden in der ersten Position einige Bitcoin verlieren, würden wir in der zweiten Position einen Fehler erhalten, da wir dann nicht mehr so viele Bitcoin hätten.",
                     "updated": 1639398043359
                 }
             ]

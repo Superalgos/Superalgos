@@ -19,23 +19,23 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages!",
+            "text": "Discard the chain of strategies that follow, as those are a by-product of not defining the rest of the stages.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Verwerfen Sie die Kette von Strategien, die darauf folgen, da diese ein Nebenprodukt der Nichtdefinition der restlichen Phasen sind!",
+                    "text": "Verwerfen Sie die Kette von Strategien, die darauf folgen, da diese ein Nebenprodukt der Nichtdefinition der restlichen Phasen sind.",
                     "updated": 1639391671496
                 }
             ]
         },
         {
             "style": "Callout",
-            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't!",
+            "text": "Go to the Candles Data layer panel and turn on the plotter panel of the Candles layer in case it isn't.",
             "updated": 1622490115400,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Panel der Kerzen-Datenebene und schalten Sie das Plotter-Panel der Kerzen-Ebene ein, falls es noch nicht aktiviert ist!",
+                    "text": "Gehen Sie zum Panel der Kerzen-Datenebene und schalten Sie das Plotter-Panel der Kerzen-Ebene ein, falls es noch nicht aktiviert ist.",
                     "updated": 1639391677929
                 }
             ]

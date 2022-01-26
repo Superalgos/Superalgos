@@ -3,7 +3,7 @@
     "pageNumber": 4,
     "type": "Tutorial Step - Free For Everyone?",
     "definition": {
-        "text": "Superalgos is a Community project! We make the software available to everyone free-of-charge, but we do ask for something in return... your help!",
+        "text": "Superalgos is a Community project! We make the software available to everyone free-of-charge, but we do ask for something in return... your help.",
         "updated": 1610713937383,
         "icon": {
             "name": "help",
@@ -12,29 +12,29 @@
         "translations": [
             {
                 "language": "IT",
-                "text": "Superalgos è un progetto basato sulla Community! Rendiamo il software disponibile a tutti gratuitamente, ma chiediamo qualcosa in cambio...il tuo aiuto!",
+                "text": "Superalgos è un progetto basato sulla Community! Rendiamo il software disponibile a tutti gratuitamente, ma chiediamo qualcosa in cambio...il tuo aiuto.",
                 "updated": 1619631895640,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "¡Superalgos es un proyecto comunitario! Ponemos el software a disposición de todos de forma gratuita, pero pedimos algo a cambio ... ¡Tu ayuda!",
+                "text": "¡Superalgos es un proyecto comunitario! Ponemos el software a disposición de todos de forma gratuita, pero pedimos algo a cambio ... ¡Tu ayuda.",
                 "updated": 1628114247399,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Superalgos ist ein Community-Projekt! Wir stellen die Software für jeden kostenlos zur Verfügung, aber wir bitten um eine Gegenleistung... Ihre Hilfe!",
+                "text": "Superalgos ist ein Community-Projekt! Wir stellen die Software für jeden kostenlos zur Verfügung, aber wir bitten um eine Gegenleistung... Ihre Hilfe.",
                 "updated": 1634819982808
             },
             {
                 "language": "TR",
-                "text": "Superalgos bir Topluluk ( Coımmunity ) projesidir! Yazılımı ücretsiz olarak herkesin kullanımına sunuyoruz, ancak karşılığında bir şey istiyoruz... yardımınız!",
+                "text": "Superalgos bir Topluluk ( Coımmunity ) projesidir! Yazılımı ücretsiz olarak herkesin kullanımına sunuyoruz, ancak karşılığında bir şey istiyoruz... yardımınız.",
                 "updated": 1639861662982
             },
             {
                 "language": "RU",
-                "text": "Superalgos - это проект сообщества! Мы предоставляем программное обеспечение всем желающим бесплатно, но мы просим кое-что взамен... вашу помощь!",
+                "text": "Superalgos - это проект сообщества! Мы предоставляем программное обеспечение всем желающим бесплатно, но мы просим кое-что взамен... вашу помощь.",
                 "updated": 1640154468349
             }
         ]
@@ -76,34 +76,34 @@
         },
         {
             "style": "Callout",
-            "text": "Superalgos started with a group of friends joining forces to automate their crypto trading!",
+            "text": "Superalgos started with a group of friends joining forces to automate their crypto trading.",
             "updated": 1611594348026,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Superalgos è iniziato con un gruppo di amici che hanno unito le forze per automatizzare il loro trading di crypto!",
+                    "text": "Superalgos è iniziato con un gruppo di amici che hanno unito le forze per automatizzare il loro trading di crypto.",
                     "updated": 1619631952862,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Superalgos comenzó con un grupo de amigos que unieron fuerzas para automatizar crypto trading!",
+                    "text": "¡Superalgos comenzó con un grupo de amigos que unieron fuerzas para automatizar crypto trading.",
                     "updated": 1628114508545,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Superalgos begann mit einer Gruppe von Freunden, die sich zusammentaten, um ihren Kryptohandel zu automatisieren!",
+                    "text": "Superalgos begann mit einer Gruppe von Freunden, die sich zusammentaten, um ihren Kryptohandel zu automatisieren.",
                     "updated": 1634820005138
                 },
                 {
                     "language": "TR",
-                    "text": "Superalgos, kripto ticaretini otomatikleştirmek için bir grup arkadaşın güçlerini birleştirmesiyle başladı!",
+                    "text": "Superalgos, kripto ticaretini otomatikleştirmek için bir grup arkadaşın güçlerini birleştirmesiyle başladı.",
                     "updated": 1639861707759
                 },
                 {
                     "language": "RU",
-                    "text": "Компания Superalgos началась с того, что группа друзей объединила усилия для автоматизации торговли криптовалютами!",
+                    "text": "Компания Superalgos началась с того, что группа друзей объединила усилия для автоматизации торговли криптовалютами.",
                     "updated": 1640154520613
                 }
             ]

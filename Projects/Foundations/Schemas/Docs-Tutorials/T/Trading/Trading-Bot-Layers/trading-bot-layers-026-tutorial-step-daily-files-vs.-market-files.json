@@ -42,32 +42,32 @@
         },
         {
             "style": "Text",
-            "text": "As a result, when working in time frames below one hour, events that span multiple days generate multiple objects: one per day!",
+            "text": "As a result, when working in time frames below one hour, events that span multiple days generate multiple objects: one per day.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies hat zur Folge, dass bei der Arbeit in Zeitrahmen unter einer Stunde Ereignisse, die sich über mehrere Tage erstrecken, mehrere Objekte erzeugen: eines pro Tag!",
+                    "text": "Dies hat zur Folge, dass bei der Arbeit in Zeitrahmen unter einer Stunde Ereignisse, die sich über mehrere Tage erstrecken, mehrere Objekte erzeugen: eines pro Tag.",
                     "updated": 1639145079480
                 },
                 {
                     "language": "RU",
-                    "text": "В результате, при работе с таймфреймами менее одного часа, события, охватывающие несколько дней, генерируют несколько таких объектов: по одному на день!",
+                    "text": "В результате, при работе с таймфреймами менее одного часа, события, охватывающие несколько дней, генерируют несколько таких объектов: по одному на день.",
                     "updated": 1640630525432
                 }
             ]
         },
         {
             "style": "Important",
-            "text": "This means that, when working in low time frames, you may run into multiple objects per concept or event, each showing the data corresponding to the close of the day!",
+            "text": "This means that, when working in low time frames, you may run into multiple objects per concept or event, each showing the data corresponding to the close of the day.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Dies bedeutet, dass Sie bei der Arbeit in niedrigen Zeitrahmen auf mehrere Objekte pro Konzept oder Ereignis stoßen können, die jeweils die Daten des Tagesschlusses anzeigen!",
+                    "text": "Dies bedeutet, dass Sie bei der Arbeit in niedrigen Zeitrahmen auf mehrere Objekte pro Konzept oder Ereignis stoßen können, die jeweils die Daten des Tagesschlusses anzeigen.",
                     "updated": 1639145082140
                 },
                 {
                     "language": "RU",
-                    "text": "Это означает, что при работе с небольшими таймфреймами вы можете столкнуться с несколькими объектами для каждого понятия или события, каждый из которых показывает данные, соответствующие закрытию дня!",
+                    "text": "Это означает, что при работе с небольшими таймфреймами вы можете столкнуться с несколькими объектами для каждого понятия или события, каждый из которых показывает данные, соответствующие закрытию дня.",
                     "updated": 1640630608144
                 }
             ]

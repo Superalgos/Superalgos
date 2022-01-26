@@ -29,21 +29,21 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "Before answering the burning question, let's take a look at a couple of examples. Take a look at the two strategies within the Weak-hands Buster (WHB v2) trading system!",
+            "text": "Before answering the burning question, let's take a look at a couple of examples. Take a look at the two strategies within the Weak-hands Buster (WHB v2) trading system.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "Antes de responder a la pregunta candente, echemos un vistazo a un par de ejemplos. ¡Echa un vistazo a las dos estrategias dentro del Tradiing System Weak-Hands Buster (WHB v2)!",
+                    "text": "Antes de responder a la pregunta candente, echemos un vistazo a un par de ejemplos. ¡Echa un vistazo a las dos estrategias dentro del Tradiing System Weak-Hands Buster (WHB v2).",
                     "updated": 1629598150880
                 },
                 {
                     "language": "DE",
-                    "text": "Bevor wir diese brennende Frage beantworten, wollen wir uns ein paar Beispiele ansehen. Werfen Sie einen Blick auf die beiden Strategien innerhalb des Weak-hands Buster (WHB v2) Trading Systems!",
+                    "text": "Bevor wir diese brennende Frage beantworten, wollen wir uns ein paar Beispiele ansehen. Werfen Sie einen Blick auf die beiden Strategien innerhalb des Weak-hands Buster (WHB v2) Trading Systems.",
                     "updated": 1639147593633
                 },
                 {
                     "language": "TR",
-                    "text": "Can alıcı soruyu cevaplamadan önce, birkaç örneğe bakalım. Tradeing System Weak-Hands Buster (WHB v2) içindeki iki stratejiye bir göz atın!",
+                    "text": "Can alıcı soruyu cevaplamadan önce, birkaç örneğe bakalım. Tradeing System Weak-Hands Buster (WHB v2) içindeki iki stratejiye bir göz atın.",
                     "updated": 1640781477384
                 }
             ]
@@ -71,21 +71,21 @@
         },
         {
             "style": "Success",
-            "text": "There's a hint in the name of each strategy!",
+            "text": "There's a hint in the name of each strategy.",
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Hay una pista en el nombre de cada estrategia!",
+                    "text": "¡Hay una pista en el nombre de cada estrategia.",
                     "updated": 1629598225693
                 },
                 {
                     "language": "DE",
-                    "text": "Im Namen jeder Strategie ist ein Hinweis enthalten!",
+                    "text": "Im Namen jeder Strategie ist ein Hinweis enthalten.",
                     "updated": 1639147581203
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Her stratejinin adında bir ipucu var!",
+                    "text": "İpucu: Her stratejinin adında bir ipucu var.",
                     "updated": 1640698040386
                 }
             ]

@@ -41,44 +41,44 @@
     "paragraphs": [
         {
             "style": "Text",
-            "text": "The initialBalance is defined in the configuration of the Session Quoted Asset. Check it out and decide for yourself if you wish to change it!",
+            "text": "The initialBalance is defined in the configuration of the Session Quoted Asset. Check it out and decide for yourself if you wish to change it.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "initialBalance è definito nella configurazione del Session Quoted Asset. Esaminalo e decidi pure se preferisci cambiarlo!",
+                    "text": "initialBalance è definito nella configurazione del Session Quoted Asset. Esaminalo e decidi pure se preferisci cambiarlo.",
                     "updated": 1618069983048,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "El balance inicial se define en la configuración del Session Quoted Asset. ¡Compruébalo y decide por ti mismo si deseas cambiarlo!",
+                    "text": "El balance inicial se define en la configuración del Session Quoted Asset. ¡Compruébalo y decide por ti mismo si deseas cambiarlo.",
                     "updated": 1624470828900,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Die initialBalance wird in der Konfiguration des Session Quoted Asset definiert. Prüfen Sie sie und entscheiden Sie selbst, ob Sie sie ändern möchten!",
+                    "text": "Die initialBalance wird in der Konfiguration des Session Quoted Asset definiert. Prüfen Sie sie und entscheiden Sie selbst, ob Sie sie ändern möchten.",
                     "updated": 1634227039328
                 },
                 {
                     "language": "TR",
-                    "text": "initialBalance, Session Quoted Asset yapılandırmasında tanımlanır. Kontrol edin ve değiştirmek isteyip istemediğinize kendiniz karar verin!",
+                    "text": "initialBalance, Session Quoted Asset yapılandırmasında tanımlanır. Kontrol edin ve değiştirmek isteyip istemediğinize kendiniz karar verin.",
                     "updated": 1636404734897
                 },
                 {
                     "language": "ID",
-                    "text": "Saldo awal initialBalance didefinisikan dalam konfigurasi Session Quoted Asset. Lihat dan putuskan sendiri jika kamu ingin mengubahnya!",
+                    "text": "Saldo awal initialBalance didefinisikan dalam konfigurasi Session Quoted Asset. Lihat dan putuskan sendiri jika kamu ingin mengubahnya.",
                     "updated": 1640575114280
                 }
             ]
         },
         {
             "style": "Success",
-            "text": "Binance defines the minimum transaction size in BTC, so the requirement in USDT varies a lot with time. I set the amount to 100 USDT just to ensure you don't run into errors. You are free to try with a smaller amount. You will get errors if it's too small but may try again as many times as needed. Just stop the task, change the initialBalance in the Session Quoted Asset, and try again!",
+            "text": "Binance defines the minimum transaction size in BTC, so the requirement in USDT varies a lot with time. I set the amount to 100 USDT just to ensure you don't run into errors. You are free to try with a smaller amount. You will get errors if it's too small but may try again as many times as needed. Just stop the task, change the initialBalance in the Session Quoted Asset, and try again.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Binance definisce il valore minimo di una transazione in BTC, quindi il corrispondente valore in USDT varia molto nel tempo. Sei libero di provare con un importo minore dei 100 USDT iniziali. Riceverai un errore se l'importo è troppo piccolo, ma puoi provare di nuovo quante volte vuoi. Basta fermare la task, cambiare initialBalance nel Session Quoted Asset e riprovare!",
+                    "text": "Binance definisce il valore minimo di una transazione in BTC, quindi il corrispondente valore in USDT varia molto nel tempo. Sei libero di provare con un importo minore dei 100 USDT iniziali. Riceverai un errore se l'importo è troppo piccolo, ma puoi provare di nuovo quante volte vuoi. Basta fermare la task, cambiare initialBalance nel Session Quoted Asset e riprovare.",
                     "updated": 1618070211585,
                     "style": "Success"
                 },
@@ -90,17 +90,17 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Binance definiert die Mindesttransaktionsgröße in BTC, so dass die Anforderung in USDT mit der Zeit stark variiert. Ich habe den Betrag auf 100 USDT festgelegt, um sicherzustellen, dass Sie keine Fehler machen. Es steht Ihnen frei, es mit einem kleineren Betrag zu versuchen. Sie werden Fehler erhalten, wenn der Betrag zu klein ist, aber Sie können es so oft wie nötig erneut versuchen. Stoppen Sie einfach die Aufgabe, ändern Sie den initialBalance in der Session Quoted Asset, und versuchen Sie es erneut!",
+                    "text": "Binance definiert die Mindesttransaktionsgröße in BTC, so dass die Anforderung in USDT mit der Zeit stark variiert. Ich habe den Betrag auf 100 USDT festgelegt, um sicherzustellen, dass Sie keine Fehler machen. Es steht Ihnen frei, es mit einem kleineren Betrag zu versuchen. Sie werden Fehler erhalten, wenn der Betrag zu klein ist, aber Sie können es so oft wie nötig erneut versuchen. Stoppen Sie einfach die Aufgabe, ändern Sie den initialBalance in der Session Quoted Asset, und versuchen Sie es erneut.",
                     "updated": 1634227048102
                 },
                 {
                     "language": "TR",
-                    "text": "Binance, minimum işlem boyutunu BTC olarak tanımlar. (İlerleyen zamanlarda USDT yada diğer pair'ler ile de işlem yapmayı öğreneceğiz) Bu nedenle USDT'deki gereksinim zamanla çok değişir. Hatalarla karşılaşmamanız için tutarı 100 USDT olarak belirledim. Daha küçük bir miktarla denemekte özgürsünüz. Çok küçükse hata alırsınız, ancak gerektiği kadar tekrar deneyebilirsiniz. Görevi durdurun, Session Quoted Asset başlangıç değerini değiştirin ve yeniden deneyin!",
+                    "text": "Binance, minimum işlem boyutunu BTC olarak tanımlar. (İlerleyen zamanlarda USDT yada diğer pair'ler ile de işlem yapmayı öğreneceğiz) Bu nedenle USDT'deki gereksinim zamanla çok değişir. Hatalarla karşılaşmamanız için tutarı 100 USDT olarak belirledim. Daha küçük bir miktarla denemekte özgürsünüz. Çok küçükse hata alırsınız, ancak gerektiği kadar tekrar deneyebilirsiniz. Görevi durdurun, Session Quoted Asset başlangıç değerini değiştirin ve yeniden deneyin.",
                     "updated": 1636404699851
                 },
                 {
                     "language": "ID",
-                    "text": "Binance menentukan ukuran transaksi minimum dalam BTC, sehingga persyaratan dalam USDT sangat bervariasi seiring waktu. Saya mengatur jumlahnya menjadi 100 USDT hanya untuk memastikan kamu tidak mengalami kesalahan. Kamu bebas mencoba dengan jumlah yang lebih kecil. kamu akan mendapatkan kesalahan jika terlalu kecil tetapi dapat mencoba lagi sebanyak yang diperlukan. Hentikan saja taskmya, ubah initialBalance dalam Session Quoted Asset, dan coba lagi!",
+                    "text": "Binance menentukan ukuran transaksi minimum dalam BTC, sehingga persyaratan dalam USDT sangat bervariasi seiring waktu. Saya mengatur jumlahnya menjadi 100 USDT hanya untuk memastikan kamu tidak mengalami kesalahan. Kamu bebas mencoba dengan jumlah yang lebih kecil. kamu akan mendapatkan kesalahan jika terlalu kecil tetapi dapat mencoba lagi sebanyak yang diperlukan. Hentikan saja taskmya, ubah initialBalance dalam Session Quoted Asset, dan coba lagi.",
                     "updated": 1640575200976
                 }
             ]

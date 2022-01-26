@@ -25,18 +25,18 @@
     "paragraphs": [
         {
             "style": "Success",
-            "text": "You are almost done with these references!",
+            "text": "You are almost done with these references.",
             "updated": 1640709313365,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "¡Ya casi has terminado con estas referencias!",
+                    "text": "¡Ya casi has terminado con estas referencias.",
                     "updated": 1629166084110,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Sie sind mit diesen Referenzen fast fertig!",
+                    "text": "Sie sind mit diesen Referenzen fast fertig.",
                     "updated": 1635832357018
                 }
             ]

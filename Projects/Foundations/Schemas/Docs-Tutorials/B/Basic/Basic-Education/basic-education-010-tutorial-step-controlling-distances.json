@@ -172,29 +172,29 @@
         },
         {
             "style": "Text",
-            "text": "Let's say that you choose the green option. The distance from the node to its parent will be the same distance that separates the parent node from its parent!",
+            "text": "Let's say that you choose the green option. The distance from the node to its parent will be the same distance that separates the parent node from its parent.",
             "updated": 1615475003479,
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Se scegliamo l'opzione verde, la distanza del nodo dal padre sarà la stessa che separa il nodo padre dal proprio nodo padre!",
+                    "text": "Se scegliamo l'opzione verde, la distanza del nodo dal padre sarà la stessa che separa il nodo padre dal proprio nodo padre.",
                     "updated": 1619460620886,
                     "style": "Text"
                 },
                 {
                     "language": "ES",
-                    "text": "Digamos que eliges la opción green. ¡La distancia del nodo a su padre será la misma distancia que separa el nodo padre de su padre!",
+                    "text": "Digamos que eliges la opción green. ¡La distancia del nodo a su padre será la misma distancia que separa el nodo padre de su padre.",
                     "updated": 1625957497706,
                     "style": "Text"
                 },
                 {
                     "language": "DE",
-                    "text": "Nehmen wir an, Sie wählen die grüne Option. Der Abstand des Knotens zu seinem übergeordneten Knoten ist derselbe Abstand, der den übergeordneten Knoten von seinem übergeordneten Knoten trennt!",
+                    "text": "Nehmen wir an, Sie wählen die grüne Option. Der Abstand des Knotens zu seinem übergeordneten Knoten ist derselbe Abstand, der den übergeordneten Knoten von seinem übergeordneten Knoten trennt.",
                     "updated": 1634332187256
                 },
                 {
                     "language": "TR",
-                    "text": "Diyelim ki yeşil seçeneği seçtiniz. Düğümden ebeveynine olan mesafe, ebeveyn düğümünden ayıran mesafeyle aynı olacaktır!",
+                    "text": "Diyelim ki yeşil seçeneği seçtiniz. Düğümden ebeveynine olan mesafe, ebeveyn düğümünden ayıran mesafeyle aynı olacaktır.",
                     "updated": 1636749146092
                 }
             ]

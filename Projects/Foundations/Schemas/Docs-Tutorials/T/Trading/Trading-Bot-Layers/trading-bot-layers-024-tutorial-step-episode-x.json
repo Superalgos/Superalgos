@@ -25,17 +25,17 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Turn the \"Episodes\" layer on!",
+            "text": "Turn the \"Episodes\" layer on.",
             "updated": 1622542043043,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schalten Sie die Ebene \"Episodes\" ein!",
+                    "text": "Schalten Sie die Ebene \"Episodes\" ein.",
                     "updated": 1639144873296
                 },
                 {
                     "language": "RU",
-                    "text": "Включите слой \"Episodes\"!",
+                    "text": "Включите слой \"Episodes\".",
                     "updated": 1640630183428
                 }
             ]

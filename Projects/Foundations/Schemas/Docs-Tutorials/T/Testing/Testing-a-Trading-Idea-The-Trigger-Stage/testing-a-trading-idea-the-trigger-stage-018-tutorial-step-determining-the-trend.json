@@ -7,11 +7,11 @@
             "name": "Layer\\layer-trends",
             "project": "Foundations"
         },
-        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective!",
+        "text": "There are probably as many ways to determine a trend as traders inhabit planet Earth! It's a matter of style and mostly subjective.",
         "translations": [
             {
                 "language": "DE",
-                "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv!",
+                "text": " Es gibt wahrscheinlich so viele Möglichkeiten, einen Trend zu bestimmen, wie Händler den Planeten Erde bewohnen! Es ist eine Frage des Stils und meist subjektiv.",
                 "updated": 1639262329481
             }
         ]
@@ -30,12 +30,12 @@
         },
         {
             "style": "Callout",
-            "text": "Go to the Bollinger Data Layer Manager and turn on the \"Bollinger Channels Objects\" Layer!",
+            "text": "Go to the Bollinger Data Layer Manager and turn on the \"Bollinger Channels Objects\" Layer.",
             "updated": 1622480213561,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\"!",
+                    "text": "Gehen Sie zum Bollinger Data Layer Manager und aktivieren Sie den Layer \"Bollinger Channels Objects\".",
                     "updated": 1639262459995
                 }
             ]

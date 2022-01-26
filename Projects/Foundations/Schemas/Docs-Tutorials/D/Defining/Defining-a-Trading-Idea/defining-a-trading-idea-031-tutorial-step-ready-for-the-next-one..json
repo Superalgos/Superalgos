@@ -40,16 +40,16 @@
         },
         {
             "style": "Success",
-            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready!",
+            "text": "Click Next to finish this tutorial, and select Play in the next one when you are ready.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Klicken Sie auf \"Next\", um dieses Tutorial zu beenden, und wählen Sie \"Play\" im nächsten Tutorial, wenn Sie bereit sind!",
+                    "text": "Klicken Sie auf \"Next\", um dieses Tutorial zu beenden, und wählen Sie \"Play\" im nächsten Tutorial, wenn Sie bereit sind.",
                     "updated": 1639253837290
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Bu öğreticiyi bitirmek için İleri'ye tıklayın ve hazır olduğunuzda bir sonraki öğreticide Oynat'ı seçin!",
+                    "text": "İpucu: Bu öğreticiyi bitirmek için İleri'ye tıklayın ve hazır olduğunuzda bir sonraki öğreticide Oynat'ı seçin.",
                     "updated": 1640953581708
                 }
             ]

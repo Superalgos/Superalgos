@@ -41,11 +41,11 @@
         },
         {
             "style": "Success",
-            "text": "Read these first few paragraphs about the open stage!",
+            "text": "Read these first few paragraphs about the open stage.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Lesen Sie diese ersten Absätze über die Open Stage!",
+                    "text": "Lesen Sie diese ersten Absätze über die Open Stage.",
                     "updated": 1639395032743
                 }
             ]

@@ -7,11 +7,11 @@
             "name": "Bullet\\bullet-error",
             "project": "Foundations"
         },
-        "text": "Whenever you are working on and testing definitions in a trading system, you should be in troubleshooting mode!",
+        "text": "Whenever you are working on and testing definitions in a trading system, you should be in troubleshooting mode.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Wann immer Sie an einem Trading System arbeiten und Definitionen testen, sollten Sie auf Fehlersuche gehen!",
+                "text": "Wann immer Sie an einem Trading System arbeiten und Definitionen testen, sollten Sie auf Fehlersuche gehen.",
                 "updated": 1639267237424
             }
         ]
@@ -41,11 +41,11 @@
         },
         {
             "style": "Text",
-            "text": "It's not likely that a data set is calculated with errors. However, if you haven't calculated the data set by running the corresponding data task, you will get errors!",
+            "text": "It's not likely that a data set is calculated with errors. However, if you haven't calculated the data set by running the corresponding data task, you will get errors.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Es ist unwahrscheinlich, dass ein Datensatz mit Fehlern berechnet wird. Wenn Sie jedoch den Datensatz nicht durch Ausführen der entsprechenden Datenaufgabe berechnet haben, werden Sie Fehler erhalten!",
+                    "text": "Es ist unwahrscheinlich, dass ein Datensatz mit Fehlern berechnet wird. Wenn Sie jedoch den Datensatz nicht durch Ausführen der entsprechenden Datenaufgabe berechnet haben, werden Sie Fehler erhalten.",
                     "updated": 1639267258612
                 }
             ]

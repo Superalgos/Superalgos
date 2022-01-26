@@ -143,23 +143,23 @@
         },
         {
             "style": "List",
-            "text": "Use the data to trade by consuming related indicators from within trading systems!",
+            "text": "Use the data to trade by consuming related indicators from within trading systems.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Usa i dati per fare trading utilizzando i relativi indicatori dal tuo trading system!",
+                    "text": "Usa i dati per fare trading utilizzando i relativi indicatori dal tuo trading system.",
                     "updated": 1618073540467,
                     "style": "List"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Utilizar los datos para comerciar consumiendo indicadores relacionados desde dentro de los sistemas de trading!",
+                    "text": "¡Utilizar los datos para comerciar consumiendo indicadores relacionados desde dentro de los sistemas de trading.",
                     "updated": 1624487724120,
                     "style": "List"
                 },
                 {
                     "language": "DE",
-                    "text": "Nutzen Sie die Daten für den Handel, indem Sie die entsprechenden Indikatoren aus den Handelssystemen verwenden!",
+                    "text": "Nutzen Sie die Daten für den Handel, indem Sie die entsprechenden Indikatoren aus den Handelssystemen verwenden.",
                     "updated": 1634246841374
                 },
                 {
@@ -169,7 +169,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Gunakan data untuk trade dengan menggunakan indikator terkait dari dalam trading systems!",
+                    "text": "Gunakan data untuk trade dengan menggunakan indikator terkait dari dalam trading systems.",
                     "updated": 1640598452709
                 }
             ]

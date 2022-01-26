@@ -7,7 +7,7 @@
             "name": "Bullet\\bullet-warning",
             "project": "Foundations"
         },
-        "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers!",
+        "text": "When running the frontend, use Chrome, or Safari on Mac! We are not testing on any other browsers.",
         "updated": 1610612226890,
         "translations": [
             {
@@ -24,31 +24,31 @@
             },
             {
                 "language": "IT",
-                "text": "Quando esegui il front-end usa Chrome, oppure Safari sul Mac! Al momento non stiamo testando altri browser!",
+                "text": "Quando esegui il front-end usa Chrome, oppure Safari sul Mac! Al momento non stiamo testando altri browser.",
                 "updated": 1614712122833,
                 "style": "Definition"
             },
             {
                 "language": "FR",
-                "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs !",
+                "text": "Lorsque vous exécutez le frontend, utilisez Chrome, ou Safari sur Mac, nous ne faisons pas de tests sur d'autres navigateurs .",
                 "updated": 1623950198517,
                 "style": "Definition"
             },
             {
                 "language": "TR",
-                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcılarda çalıştırmıyoruz!",
+                "text": "Superalgos'u çalıştırırken Chrome'u veya Mac'te Safari'yi kullanın! Şu anda başka tarayıcılarda çalıştırmıyoruz.",
                 "updated": 1639118223952,
                 "style": "Definition"
             },
             {
                 "language": "NL",
-                "text": "Als je het frontend draait, gebruik dan Chrome, of Safari op de Mac! We testen niet met andere browsers!",
+                "text": "Als je het frontend draait, gebruik dan Chrome, of Safari op de Mac! We testen niet met andere browsers.",
                 "updated": 1633849729343,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Wenn Sie das Frontend ausführen, verwenden Sie Chrome oder Safari auf dem Mac! Wir testen es nicht mit anderen Browsern!",
+                "text": "Wenn Sie das Frontend ausführen, verwenden Sie Chrome oder Safari auf dem Mac! Wir testen es nicht mit anderen Browsern.",
                 "updated": 1634070256991,
                 "style": "Definition"
             },
@@ -223,7 +223,7 @@
         },
         {
             "style": "List",
-            "text": "open Chrome/Safari and paste the URL; the tutorial should be open on this step when you come back!",
+            "text": "open Chrome/Safari and paste the URL; the tutorial should be open on this step when you come back.",
             "updated": 1611086617811,
             "translations": [
                 {
@@ -234,31 +234,31 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Abre Chrome/Safari y pega la URL; ¡El tutorial debería estar abierto en este paso cuando vuelvas!",
+                    "text": "Abre Chrome/Safari y pega la URL; ¡El tutorial debería estar abierto en este paso cuando vuelvas.",
                     "updated": 1624490526585,
                     "style": "List"
                 },
                 {
                     "language": "IT",
-                    "text": "apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step!",
+                    "text": "apri Chrome/Safari e incolla l'URL: il tutorial dovrebbe aprirsi su questo step.",
                     "updated": 1614717129520,
                     "style": "List"
                 },
                 {
                     "language": "FR",
-                    "text": "Ouvrez Chrome/Safari et coller l'URL ; le tutoriel devrait apparaître à cette étape une fois chargé !",
+                    "text": "Ouvrez Chrome/Safari et coller l'URL ; le tutoriel devrait apparaître à cette étape une fois chargé .",
                     "updated": 1623950524635,
                     "style": "List"
                 },
                 {
                     "language": "TR",
-                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır!",
+                    "text": "Chrome/Safari'yi açın ve URL'yi yapıştırın; Geri döndüğünüzde bu adımda öğretici açık olmalıdır.",
                     "updated": 1633119977867,
                     "style": "List"
                 },
                 {
                     "language": "NL",
-                    "text": "open Chrome/Safari en plak de URL; de tutorial hoort te openen op deze stap bij terugkomst!",
+                    "text": "open Chrome/Safari en plak de URL; de tutorial hoort te openen op deze stap bij terugkomst.",
                     "updated": 1633850034853,
                     "style": "List"
                 },
@@ -270,18 +270,18 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Откройте Chrome/Safari и вставьте URL-адрес; учебное пособие должно быть открыто на этом шаге, когда Вы вернетесь!",
+                    "text": "Откройте Chrome/Safari и вставьте URL-адрес; учебное пособие должно быть открыто на этом шаге, когда Вы вернетесь.",
                     "updated": 1635450715330
                 }
             ]
         },
         {
             "style": "Warning",
-            "text": "We offer online support, but we can't help you with any other browser!",
+            "text": "We offer online support, but we can't help you with any other browser.",
             "translations": [
                 {
                     "language": "ID",
-                    "text": "Kami memberikan bantuan online, namun tidak bisa membantu jika browser berbeda!",
+                    "text": "Kami memberikan bantuan online, namun tidak bisa membantu jika browser berbeda.",
                     "updated": 1616696117144,
                     "style": "Warning"
                 },
@@ -293,37 +293,37 @@
                 },
                 {
                     "language": "IT",
-                    "text": "Offriamo supporto online, ma non possiamo aiutarti con altri browsers!",
+                    "text": "Offriamo supporto online, ma non possiamo aiutarti con altri browsers.",
                     "updated": 1614712645613,
                     "style": "Warning"
                 },
                 {
                     "language": "FR",
-                    "text": "Nous offrons une assistance en ligne, mais nous ne pouvons pas vous aider avec un autre navigateur !",
+                    "text": "Nous offrons une assistance en ligne, mais nous ne pouvons pas vous aider avec un autre navigateur .",
                     "updated": 1623950564757,
                     "style": "Warning"
                 },
                 {
                     "language": "TR",
-                    "text": "Çevrimiçi destek sunuyoruz, ancak başka bir tarayıcıyla size yardımcı olamayız!",
+                    "text": "Çevrimiçi destek sunuyoruz, ancak başka bir tarayıcıyla size yardımcı olamayız.",
                     "updated": 1633120004286,
                     "style": "Warning"
                 },
                 {
                     "language": "NL",
-                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere browser!",
+                    "text": "We bieden online support, maar kunnen je niet helpen bij het gebruik van een andere browser.",
                     "updated": 1633885540625,
                     "style": "Warning"
                 },
                 {
                     "language": "DE",
-                    "text": "Wir bieten Online-Support, aber wir können Ihnen mit keinem anderen Browser helfen!",
+                    "text": "Wir bieten Online-Support, aber wir können Ihnen mit keinem anderen Browser helfen.",
                     "updated": 1634070371187,
                     "style": "Warning"
                 },
                 {
                     "language": "RU",
-                    "text": "Мы предлагаем online поддержку, но мы не можем помочь Вам в работе с каким-либо другим браузером!",
+                    "text": "Мы предлагаем online поддержку, но мы не можем помочь Вам в работе с каким-либо другим браузером.",
                     "updated": 1635450697046
                 }
             ]

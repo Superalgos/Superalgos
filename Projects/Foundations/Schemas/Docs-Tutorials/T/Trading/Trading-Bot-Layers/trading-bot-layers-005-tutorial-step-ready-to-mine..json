@@ -42,18 +42,18 @@
         },
         {
             "style": "Warning",
-            "text": "If you have data on this market / exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going!",
+            "text": "If you have data on this market / exchange but on a different time range, this may affect your data! Read the sensor bot documentation to learn how! If the data you have is not important, feel free to keep going.",
             "updated": 1617181661074,
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wenn du Daten auf diesem Markt/Börse hast, aber in einem anderen Zeitbereich, kann dies deine Daten beeinflussen! Lies die Dokumentation des Sensor-Bots, um zu erfahren wie! Wenn die Daten, die in deinem System vorhanden sind, nicht wichtig sind, kannst du gerne weitermachen!",
+                    "text": "Wenn du Daten auf diesem Markt/Börse hast, aber in einem anderen Zeitbereich, kann dies deine Daten beeinflussen! Lies die Dokumentation des Sensor-Bots, um zu erfahren wie! Wenn die Daten, die in deinem System vorhanden sind, nicht wichtig sind, kannst du gerne weitermachen.",
                     "updated": 1623011859309,
                     "style": "Warning"
                 },
                 {
                     "language": "RU",
-                    "text": "Если у вас есть данные по этому рынку / бирже, но в другом временном диапазоне, это может повлиять на ваши данные! Прочтите документацию по сенсорному боту, чтобы узнать, как это сделать! Если данные, которые у вас есть, не важны, не бойтесь двигаться дальше!",
+                    "text": "Если у вас есть данные по этому рынку / бирже, но в другом временном диапазоне, это может повлиять на ваши данные! Прочтите документацию по сенсорному боту, чтобы узнать, как это сделать! Если данные, которые у вас есть, не важны, не бойтесь двигаться дальше.",
                     "updated": 1640544916873
                 }
             ]

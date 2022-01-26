@@ -7,16 +7,16 @@
             "name": "Nodes\\nodes-highlights",
             "project": "Foundations"
         },
-        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations!",
+        "text": "Let's recover our previous hypothesis and come up with a new one for the most recent observations.",
         "translations": [
             {
                 "language": "DE",
-                "text": "Lassen Sie uns unsere vorherige Hypothese wiederherstellen und eine neue Hypothese für die jüngsten Beobachtungen aufstellen!",
+                "text": "Lassen Sie uns unsere vorherige Hypothese wiederherstellen und eine neue Hypothese für die jüngsten Beobachtungen aufstellen.",
                 "updated": 1639253454746
             },
             {
                 "language": "TR",
-                "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım!",
+                "text": "Özet: Önceki varsayımımızı geri yükleyelim ve son gözlemler için yeni bir tane bulalım.",
                 "updated": 1640949719690
             }
         ]

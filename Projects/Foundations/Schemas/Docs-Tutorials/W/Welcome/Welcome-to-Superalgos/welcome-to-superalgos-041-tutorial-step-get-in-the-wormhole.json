@@ -88,47 +88,47 @@
         },
         {
             "style": "Callout",
-            "text": "With the wheel of the mouse! Try it!",
+            "text": "With the wheel of the mouse! Try it.",
             "translations": [
                 {
                     "language": "IT",
-                    "text": "Con la rotella del mouse! Provaci!",
+                    "text": "Con la rotella del mouse! Provaci.",
                     "updated": 1614892781701,
                     "style": "Callout"
                 },
                 {
                     "language": "ID",
-                    "text": "Dengan mouse wheelmu! Cobalah!",
+                    "text": "Dengan mouse wheelmu! Cobalah.",
                     "updated": 1616948707864,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "¡Con la rueda del mouse! ¡Intentalo!",
+                    "text": "¡Con la rueda del mouse! ¡Intentalo.",
                     "updated": 1624384207479,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Mit dem Rad der Maus! Probieren Sie es aus!",
+                    "text": "Mit dem Rad der Maus! Probieren Sie es aus.",
                     "updated": 1634207215883,
                     "style": "Callout"
                 },
                 {
                     "language": "TR",
-                    "text": "Farenin tekerleği ile! Dene!",
+                    "text": "Farenin tekerleği ile! Dene.",
                     "updated": 1636036095610
                 },
                 {
                     "language": "RU",
-                    "text": "С помощью колесика мыши! Пробуйте!",
+                    "text": "С помощью колесика мыши! Пробуйте.",
                     "updated": 1636204160214
                 }
             ]
         },
         {
             "style": "Text",
-            "text": "Exactly! Just like in Google Maps! Pointing the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out!",
+            "text": "Exactly! Just like in Google Maps! Pointing the mouse to the area of interest, then roll the wheel of the mouse forwards to zoom in, and backwards to zoom out.",
             "updated": 1634207261588,
             "translations": [
                 {
@@ -157,7 +157,7 @@
                 },
                 {
                     "language": "TR",
-                    "text": "Aynen öyle! Tıpkı Google Haritalar'daki gibi! Fareyi ilgilenilen alana doğrultun, ardından yakınlaştırmak için farenin tekerleğini ileri, uzaklaştırmak için geri çevirin!",
+                    "text": "Aynen öyle! Tıpkı Google Haritalar'daki gibi! Fareyi ilgilenilen alana doğrultun, ardından yakınlaştırmak için farenin tekerleğini ileri, uzaklaştırmak için geri çevirin.",
                     "updated": 1636036116439
                 },
                 {

@@ -192,7 +192,7 @@
         },
         {
             "style": "Callout",
-            "text": "When all processes are up to date, select \"Stop All Tasks\" in the Market Data Tasks node. Notice that we can stop the tasks from a different node than the one we used to start them!",
+            "text": "When all processes are up to date, select \"Stop All Tasks\" in the Market Data Tasks node. Notice that we can stop the tasks from a different node than the one we used to start them.",
             "translations": [
                 {
                     "language": "IT",
@@ -202,19 +202,19 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Ketika semua proses terupdate, pilih \"Stop All Tasks\" di node Market Data Tasks. Perhatikan bahwa kita dapat menghentikan tasks dari node yang berbeda dari node yang kita gunakan untuk memulai!",
+                    "text": "Ketika semua proses terupdate, pilih \"Stop All Tasks\" di node Market Data Tasks. Perhatikan bahwa kita dapat menghentikan tasks dari node yang berbeda dari node yang kita gunakan untuk memulai.",
                     "updated": 1639745135081,
                     "style": "Callout"
                 },
                 {
                     "language": "ES",
-                    "text": "Cuando los procesos estén actualizados, selecciona \"Stop All Tasks\" en  Market Data Tasks. ¡Podemos detener las tareas desde un nodo diferente al que usamos para iniciarlas!",
+                    "text": "Cuando los procesos estén actualizados, selecciona \"Stop All Tasks\" en  Market Data Tasks. ¡Podemos detener las tareas desde un nodo diferente al que usamos para iniciarlas.",
                     "updated": 1624376414764,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Wenn alle Prozesse auf dem neuesten Stand sind, wählen Sie \"Stop All Tasks\" im Knoten Market Data Tasks. Beachten Sie, dass die Tasks auch von einem anderen Knoten aus gestoppt werden können als von dem aus, mit dem sie gestartet wurden!",
+                    "text": "Wenn alle Prozesse auf dem neuesten Stand sind, wählen Sie \"Stop All Tasks\" im Knoten Market Data Tasks. Beachten Sie, dass die Tasks auch von einem anderen Knoten aus gestoppt werden können als von dem aus, mit dem sie gestartet wurden.",
                     "updated": 1634172843262,
                     "style": "Callout"
                 },
@@ -225,12 +225,12 @@
                 },
                 {
                     "language": "RU",
-                    "text": "Когда все процессы будут обновлены, выберите \"Stop All Tasks\" в узле Market Data Tasks. Обратите внимание, что мы можем остановить задачи с другого узла, чем тот, который мы использовали для их запуска!",
+                    "text": "Когда все процессы будут обновлены, выберите \"Stop All Tasks\" в узле Market Data Tasks. Обратите внимание, что мы можем остановить задачи с другого узла, чем тот, который мы использовали для их запуска.",
                     "updated": 1636196044706
                 },
                 {
                     "language": "NL",
-                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. We stoppen de taken vanuit een andere node dan we ze starten!",
+                    "text": "Als alle processen up to date zijn, klik op \"Stop All Tasks\" in de Market Data Tasks node. We stoppen de taken vanuit een andere node dan we ze starten.",
                     "updated": 1638780188048
                 }
             ],

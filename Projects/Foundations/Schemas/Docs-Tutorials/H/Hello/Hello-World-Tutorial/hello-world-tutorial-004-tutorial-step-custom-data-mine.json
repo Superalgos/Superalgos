@@ -106,11 +106,11 @@
         },
         {
             "style": "Success",
-            "text": "In SA data mines can be added and removed but the data saved on your hard disk will not be deleted if you remove an indicator!",
+            "text": "In SA data mines can be added and removed but the data saved on your hard disk will not be deleted if you remove an indicator.",
             "translations": [
                 {
                     "language": "DE",
-                    "text": "In SA können Data Mines hinzugefügt und entfernt werden, aber die auf der Festplatte gespeicherten Daten werden nicht gelöscht, wenn du einen Indikator entfernst!",
+                    "text": "In SA können Data Mines hinzugefügt und entfernt werden, aber die auf der Festplatte gespeicherten Daten werden nicht gelöscht, wenn du einen Indikator entfernst.",
                     "updated": 1622977843713,
                     "style": "Success"
                 },
@@ -121,17 +121,17 @@
                 },
                 {
                     "language": "IT",
-                    "text": "In SA anche i Data Mine possono essere aggiunti o rimossi ma ricorda che i dati salvati sul disco rigido non verranno eliminati se si rimuove un indicatore!",
+                    "text": "In SA anche i Data Mine possono essere aggiunti o rimossi ma ricorda che i dati salvati sul disco rigido non verranno eliminati se si rimuove un indicatore.",
                     "updated": 1639073315071
                 },
                 {
                     "language": "TR",
-                    "text": "İpucu: Sa veri madenleri eklenebilir ve kaldırılabilir, ancak bir göstergeyi kaldırırsanız sabit diskinize kaydedilen veriler silinmez!",
+                    "text": "İpucu: Sa veri madenleri eklenebilir ve kaldırılabilir, ancak bir göstergeyi kaldırırsanız sabit diskinize kaydedilen veriler silinmez.",
                     "updated": 1640616179214
                 },
                 {
                     "language": "RU",
-                    "text": "В Superalgos источники данных можно добавлять и удалять, но данные, сохраненные на жестком диске, не будут удалены, если вы удалите индикатор!",
+                    "text": "В Superalgos источники данных можно добавлять и удалять, но данные, сохраненные на жестком диске, не будут удалены, если вы удалите индикатор.",
                     "updated": 1640633531680
                 }
             ]

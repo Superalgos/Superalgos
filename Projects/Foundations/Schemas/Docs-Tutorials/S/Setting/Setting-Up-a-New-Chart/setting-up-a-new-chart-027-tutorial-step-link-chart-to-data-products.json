@@ -3,7 +3,7 @@
     "pageNumber": 27,
     "type": "Tutorial Step - Link Chart to Data Products",
     "definition": {
-        "text": "Now let's get your Time Machine in position to connect to some Data Products!",
+        "text": "Now let's get your Time Machine in position to connect to some Data Products.",
         "icon": {
             "name": "data-mine-products",
             "project": "Foundations"
@@ -17,12 +17,12 @@
             },
             {
                 "language": "RU",
-                "text": "Теперь давайте приведем вашу машину времени (Time Machine) в состояние, позволяющее подключиться к некоторым продуктам данных!",
+                "text": "Теперь давайте приведем вашу машину времени (Time Machine) в состояние, позволяющее подключиться к некоторым продуктам данных.",
                 "updated": 1639076402163
             },
             {
                 "language": "DE",
-                "text": "Bringen wir Ihre Time Machine nun in die Lage, sich mit einigen Data Products zu verbinden!",
+                "text": "Bringen wir Ihre Time Machine nun in die Lage, sich mit einigen Data Products zu verbinden.",
                 "updated": 1639275243947
             }
         ]
@@ -74,22 +74,22 @@
         },
         {
             "style": "Success",
-            "text": "Don't forget Ctrl + ← → ↑ ↓. It's a bit of a trek!",
+            "text": "Don't forget Ctrl + ← → ↑ ↓. It's a bit of a trek.",
             "updated": 1617841738597,
             "translations": [
                 {
                     "language": "ES",
-                    "text": "No olvides Ctrl + ← → ↑ ↓. ¡Es una como una caminata!",
+                    "text": "No olvides Ctrl + ← → ↑ ↓. ¡Es una como una caminata.",
                     "updated": 1628724523333
                 },
                 {
                     "language": "RU",
-                    "text": "Не забывайте Ctrl + ← → ↑ ↓. Это как прогулка!",
+                    "text": "Не забывайте Ctrl + ← → ↑ ↓. Это как прогулка.",
                     "updated": 1639076636555
                 },
                 {
                     "language": "DE",
-                    "text": "Vergessen Sie nicht <kbd>Strg</kbd> + ← → ↑ ↓. Das ist ein bisschen anstrengend!",
+                    "text": "Vergessen Sie nicht <kbd>Strg</kbd> + ← → ↑ ↓. Das ist ein bisschen anstrengend.",
                     "updated": 1639275768268
                 }
             ]

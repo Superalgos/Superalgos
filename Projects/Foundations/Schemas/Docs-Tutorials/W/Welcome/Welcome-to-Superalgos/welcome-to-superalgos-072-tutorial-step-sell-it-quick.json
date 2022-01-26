@@ -7,38 +7,38 @@
             "name": "Bullet\\bullet-limit-sell-order",
             "project": "Foundations"
         },
-        "text": "I'm sure you noted there are no more limit buy orders after the order got filled. Instead, sell orders start popping up!",
+        "text": "I'm sure you noted there are no more limit buy orders after the order got filled. Instead, sell orders start popping up.",
         "translations": [
             {
                 "language": "IT",
-                "text": "Sicuramente hai notato che non ci sono più limit buy orders: al loro posto, cominciano ad apparire i sell orders!",
+                "text": "Sicuramente hai notato che non ci sono più limit buy orders: al loro posto, cominciano ad apparire i sell orders.",
                 "updated": 1618061675585,
                 "style": "Definition"
             },
             {
                 "language": "ES",
-                "text": "Estoy seguro de que haz notado que no hay más Limit Buy Order después de que se completó la orden. En cambio, ¡las órdenes de venta comienzan a aparecer!",
+                "text": "Estoy seguro de que haz notado que no hay más Limit Buy Order después de que se completó la orden. En cambio, ¡las órdenes de venta comienzan a aparecer.",
                 "updated": 1624456933199,
                 "style": "Definition"
             },
             {
                 "language": "DE",
-                "text": "Sicherlich haben Sie bemerkt, dass es keine limitierten Kaufaufträge mehr gibt, nachdem der Auftrag ausgeführt wurde. Stattdessen tauchen jetzt Verkaufsaufträge auf!",
+                "text": "Sicherlich haben Sie bemerkt, dass es keine limitierten Kaufaufträge mehr gibt, nachdem der Auftrag ausgeführt wurde. Stattdessen tauchen jetzt Verkaufsaufträge auf.",
                 "updated": 1634224422014
             },
             {
                 "language": "TR",
-                "text": "Sipariş doldurulduktan sonra artık limit satın alma emri olmadığını fark etmişsinizdir. Bunun yerine, satış emirleri ortaya çıkmaya başlar!",
+                "text": "Sipariş doldurulduktan sonra artık limit satın alma emri olmadığını fark etmişsinizdir. Bunun yerine, satış emirleri ortaya çıkmaya başlar.",
                 "updated": 1636203864365
             },
             {
                 "language": "RU",
-                "text": "Я уверен, Вы заметили, что после того, как заказ был размещен, не осталось лимитных ордеров на покупку. Вместо этого начинают появляться заказы на продажу!",
+                "text": "Я уверен, Вы заметили, что после того, как заказ был размещен, не осталось лимитных ордеров на покупку. Вместо этого начинают появляться заказы на продажу.",
                 "updated": 1637595913971
             },
             {
                 "language": "ID",
-                "text": "Aku yakin kamu mengetahui tidak ada lagi limit buy orders setelah pesanan terisi. Sebaliknya, sell orders mulai hadir!",
+                "text": "Aku yakin kamu mengetahui tidak ada lagi limit buy orders setelah pesanan terisi. Sebaliknya, sell orders mulai hadir.",
                 "updated": 1640562963215
             }
         ]
@@ -46,7 +46,7 @@
     "paragraphs": [
         {
             "style": "Callout",
-            "text": "Notice how the first Limit Sell Order is placed at 00:22 AM, the minute after the buy order filled!",
+            "text": "Notice how the first Limit Sell Order is placed at 00:22 AM, the minute after the buy order filled.",
             "translations": [
                 {
                     "language": "IT",
@@ -56,18 +56,18 @@
                 },
                 {
                     "language": "ES",
-                    "text": "¡Observa cómo se coloca la primera Limit Sell Order a las 00:22 a.m., el minuto después de que se completó la orden de compra!",
+                    "text": "¡Observa cómo se coloca la primera Limit Sell Order a las 00:22 a.m., el minuto después de que se completó la orden de compra.",
                     "updated": 1627313892474,
                     "style": "Callout"
                 },
                 {
                     "language": "DE",
-                    "text": "Beachten Sie, dass der erste Limit Sell Order um 00:22 Uhr platziert wird, eine Minute nachdem der Kaufauftrag ausgeführt wurde!",
+                    "text": "Beachten Sie, dass der erste Limit Sell Order um 00:22 Uhr platziert wird, eine Minute nachdem der Kaufauftrag ausgeführt wurde.",
                     "updated": 1634224435222
                 },
                 {
                     "language": "TR",
-                    "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 AM'de nasıl verildiğine dikkat edin!",
+                    "text": "İlk Limitli Satış Emrinin ( Limit Sell Order ), alış emrinin doldurulmasından bir dakika sonra 00:22 AM'de nasıl verildiğine dikkat edin.",
                     "updated": 1636203947395
                 },
                 {
@@ -77,7 +77,7 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Perhatikan bagaimana Limit Sell Order pertama dipasang pada 00:22 AM, beberapa menit setelah buy order terisi!",
+                    "text": "Perhatikan bagaimana Limit Sell Order pertama dipasang pada 00:22 AM, beberapa menit setelah buy order terisi.",
                     "updated": 1640562980011
                 }
             ]

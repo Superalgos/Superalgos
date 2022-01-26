@@ -124,7 +124,7 @@
         },
         {
             "style": "Success",
-            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too!",
+            "text": "Go to the My-Workspaces folder to verify the new file is there. Find it in the workspaces tab too.",
             "updated": 1622635421285,
             "translations": [
                 {
@@ -135,13 +135,13 @@
                 },
                 {
                     "language": "ES",
-                    "text": "Ve a la carpeta My-Workspaces para verificar que el nuevo archivo está allí. ¡Encuéntralo también en la pestaña de espacios de trabajo!",
+                    "text": "Ve a la carpeta My-Workspaces para verificar que el nuevo archivo está allí. ¡Encuéntralo también en la pestaña de espacios de trabajo.",
                     "updated": 1626622475717,
                     "style": "Success"
                 },
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zum Ordner My-Workspaces , um zu überprüfen, ob die neue Datei dort vorhanden ist. Sie finden sie auch auf der Registerkarte Workspaces !",
+                    "text": "Gehen Sie zum Ordner My-Workspaces , um zu überprüfen, ob die neue Datei dort vorhanden ist. Sie finden sie auch auf der Registerkarte Workspaces .",
                     "updated": 1634587938906
                 },
                 {

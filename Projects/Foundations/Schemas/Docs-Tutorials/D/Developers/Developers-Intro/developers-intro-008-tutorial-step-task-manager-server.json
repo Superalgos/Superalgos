@@ -13,8 +13,8 @@
                 "language": "DE",
                 "text": "Der Task Manager Server ist ein einfacher Server, der die Ausführung von Task Server Node.js Prozessen verwaltet. Er behält den Überblick über alle Instanzen, die zu einem bestimmten Zeitpunkt laufen, und ermöglicht es der Benutzeroberfläche, zu entscheiden, wann weitere Instanzen ausgeführt oder eine der laufenden Instanzen gestoppt werden soll.",
                 "updated": 1641729859188
-                },
-                {
+            },
+            {
                 "language": "RU",
                 "text": "Task Manager Server - это простой сервер для управления выполнением процессов Task Servers Node.js. Он отслеживает все экземпляры, запущенные в данный момент времени, и позволяет пользовательскому интерфейсу решать, когда запустить больше экземпляров или остановить любой из них.",
                 "updated": 1640930037741

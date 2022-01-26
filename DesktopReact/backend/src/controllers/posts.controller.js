@@ -42,6 +42,15 @@ const getReplies = async (req, res) => {
     }
 };
 
+const postReactions = async (req, res) => {
+    try {
+        const result = await postService.postReactions(req.body);
+        res.send(result);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 
 module.exports = {
     getPosts,
@@ -49,5 +58,6 @@ module.exports = {
     getFeed,
     getReplies,
     createReply,
-    getPost
+    getPost,
+    postReactions
 };

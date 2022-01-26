@@ -1,29 +1,3 @@
-const getProfiles = async (req, res) => {
-
-    try {
-        let queryMessage = {
-            queryType: SA.projects.socialTrading.globals.queryTypes.UNFOLLOWED_SOCIAL_PERSONAS,
-            originSocialPersonaId: undefined,
-            initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_FIRST,
-            amountRequested: 3,
-            direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_UP
-        }
-
-        let query = {
-            networkService: 'Social Graph',
-            requestType: 'Query',
-            queryMessage: JSON.stringify(queryMessage)
-        }
-
-        return await webAppInterface.sendMessage(
-            JSON.stringify(query)
-        );
-    } catch (e) {
-        console.log(e);
-        return [];
-    }
-};
-
 const getSocialPersonaId = async (req,res)=>{
     let response = {};
     try {
@@ -70,7 +44,6 @@ const paginateProfiles = async (initialIndex, pagination, res) => {
 
 }
 
-
 const followProfile = async (userProfileId, eventType, res) => {
     try {
         let eventMessage = {
@@ -95,57 +68,6 @@ const followProfile = async (userProfileId, eventType, res) => {
     }
 };
 
-
-const editProfile = async (body, res) => {
-
-    try {
-        let eventMessage = {
-            eventType: SA.projects.socialTrading.globals.profileTypes.SAVE_SOCIAL_ENTITY,
-            originSocialPersonaId: undefined,
-            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-            body: body,
-            timestamp: (new Date()).valueOf()
-        }
-
-        let query = {
-            networkService: 'Social Graph',
-            requestType: 'Event',
-            eventMessage: JSON.stringify(eventMessage)
-        }
-
-        return await webAppInterface.sendMessage(
-            JSON.stringify(query)
-        )
-
-    } catch (error) {
-        console.log(error);
-    }
-};
-
-const getProfile = async (socialPersonaId, res) => {
-
-    try {
-        let profileMessage = {
-            queryType: SA.projects.socialTrading.globals.profileTypes.LOAD_SOCIAL_ENTITY,
-            originSocialPersonaId:socialPersonaId
-            }
-
-        let query = {
-            networkService: 'Social Graph',
-            requestType: 'Profile',
-            profileMessage: JSON.stringify(profileMessage)
-        }
-
-        const result = await webAppInterface.sendMessage(
-            JSON.stringify(query)
-        )
-        return result
-
-    } catch (error) {
-        console.log(error);
-    }
-};
-
 const loadProfile =  async (socialPersonaId, res) => {
 
     try {
@@ -163,7 +85,12 @@ const loadProfile =  async (socialPersonaId, res) => {
         const result = await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
-        return result
+
+        let response =  {}
+        response.data = result.profileData;
+        response.result = result.result;
+
+        return response
 
     } catch (error) {
         console.log(error);
@@ -198,11 +125,8 @@ const saveProfile =  async (body, res) => {
 
 
 module.exports = {
-    getProfiles,
     followProfile,
     paginateProfiles,
-    editProfile,
-    getProfile,
     loadProfile,
     saveProfile,
     getSocialPersonaId

@@ -13,8 +13,8 @@
                 "language": "DE",
                 "text": "Dies ist eine einfache Implementierung eines Web-Sockets-Servers. Er ermöglicht es der Benutzeroberfläche oder anderen Diensten, über WS mit dem Eventserver zu kommunizieren.",
                 "updated": 1641729694113
-                },
-                {
+            },
+            {
                 "language": "RU",
                 "text": "Это простая реализация сервера веб-сокетов. Он позволяет пользовательскому интерфейсу или любой другой службе взаимодействовать с сервером событий (Events Server) через WS.",
                 "updated": 1640929765459

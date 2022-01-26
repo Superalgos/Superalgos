@@ -13,8 +13,8 @@
                 "language": "DE",
                 "text": "Ist eine Sammlung von Servern, die auf einem einzigen Node.js-Prozess laufen.",
                 "updated": 1641729279193
-                },
-                {
+            },
+            {
                 "language": "RU",
                 "text": "Это набор серверов, работающих на одном процессе Node.js.",
                 "updated": 1640929257887

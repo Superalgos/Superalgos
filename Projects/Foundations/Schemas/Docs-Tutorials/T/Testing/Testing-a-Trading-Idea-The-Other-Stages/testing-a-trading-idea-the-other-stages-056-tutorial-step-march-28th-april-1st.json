@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Mart sonu ve Nisan başında iki başarısızlığımız daha var. Bununla ilgili ne söyleyebiliriz?",
                 "updated": 1641803967876
+            },
+            {
+                "language": "RU",
+                "text": "У нас есть еще два провала на конец марта и начало апреля. Что мы можем сказать о них?",
+                "updated": 1642945359140
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "28 Mart'taki ilk pozisyon, %10 hedefine ulaşılamamasına rağmen iyi bir giriş olmuş gibi görünüyor. Bir süre kârda kaldı ve 30 Mart gece yarısı yaklaşık %7'ye ulaştı. İkinci pozisyon açık bir başarısızlıktır",
                     "updated": 1641804047796
+                },
+                {
+                    "language": "RU",
+                    "text": "Первая позиция от 28-го числа кажется достойным входом, несмотря на то, что цель в 10% не была достигнута. Она действительно оставалась в прибыли некоторое время и достигла около 7% 30 марта на 0 hs. Вторая позиция - явный провал!",
+                    "updated": 1642945375946
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "24 saatlik zaman dilimindeki bağlama bakın! Ne düşünüyorsun?",
                     "updated": 1641804074542
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте контекст на таймфрейме 24H! Что вы думаете?",
+                    "updated": 1642945400913
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Not: Benim için, kısa sürede mantıklı bir bağlam gibi görünüyor?",
                     "updated": 1641805567334
+                },
+                {
+                    "language": "RU",
+                    "text": "На мой взгляд, это выглядит как разумный контекст для входа в короткую позицию, но что я могу знать?!",
+                    "updated": 1642945442004
                 }
             ]
         }

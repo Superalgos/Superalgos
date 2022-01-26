@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Unutmayın, \"pozisyon al\" olayı onaylandıktan sonra 1h Mumunu kapatmak için pozisyon alacağız.",
                 "updated": 1641668233874
+            },
+            {
+                "language": "RU",
+                "text": "Помните, что мы берем позицию на закрытии свечи 1H, когда событие взятия позиции становится истинным.",
+                "updated": 1642776955600
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "O zaman makul bir oran ne olurdu?",
                     "updated": 1641668255791
+                },
+                {
+                    "language": "RU",
+                    "text": "Какова же будет разумная ставка?",
+                    "updated": 1642776963856
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Pekala... Mumun kapanışındaki kur iyi bir seçim olur, değil mi? O zaman hedef oran formülünüz şöyle olacaktır:",
                     "updated": 1641668265525
+                },
+                {
+                    "language": "RU",
+                    "text": "Ну... хорошим выбором будет ставка на момент закрытия свечи, верно? Тогда наша формула целевой ставки будет выглядеть следующим образом:",
+                    "updated": 1642776978088
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "TR",
                     "text": "Yukarıdaki sözdizimini kullanarak formülü düzenleyin",
                     "updated": 1641668275856
+                },
+                {
+                    "language": "RU",
+                    "text": "Продолжайте редактировать формулу с помощью приведенного выше синтаксиса!",
+                    "updated": 1642776986711
                 }
             ]
         }

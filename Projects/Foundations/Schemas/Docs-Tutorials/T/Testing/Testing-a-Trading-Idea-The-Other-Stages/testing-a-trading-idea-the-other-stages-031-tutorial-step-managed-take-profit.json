@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Artık sabit bir Zarar Durdur hedefi için bir formülümüz olduğuna göre, Kâr Al hedefinin formülünü bulmak zor olmamalı",
                 "updated": 1641795598190
+            },
+            {
+                "language": "RU",
+                "text": "Теперь, когда у нас есть формула для фиксированной цели стоп-лосс, не должно быть трудно придумать формулу для цели тейк-профит!",
+                "updated": 1642942048030
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Sadece giriş hedef oranı düğümünün değerinden %10 çıkarmamız gerekiyor:",
                     "updated": 1641795914500
+                },
+                {
+                    "language": "RU",
+                    "text": "Нам просто нужно вычесть 10% из значения узла целевой ставки входа:",
+                    "updated": 1642942060461
                 }
             ]
         },
@@ -57,6 +67,11 @@
                     "language": "TR",
                     "text": "Bunu 1. Aşama ( Phase ) Kâr Al formülü için kullanın",
                     "updated": 1641795928028
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте для формулы тейк-профита Phase #1!",
+                    "updated": 1642942075650
                 }
             ]
         },
@@ -74,6 +89,11 @@
                     "language": "TR",
                     "text": "İpucu: Aşamayı Yönet ( Manage Stage ) ile işimiz bitti",
                     "updated": 1641795937839
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы закончили этап управления (Manage Stage)!",
+                    "updated": 1642942092425
                 }
             ]
         }

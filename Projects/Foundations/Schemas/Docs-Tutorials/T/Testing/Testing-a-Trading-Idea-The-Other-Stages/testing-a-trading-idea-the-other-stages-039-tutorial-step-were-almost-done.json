@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Bu sefer, tüm aşamalarda eksiksiz tanımlarla yeni bir geriye dönük test çalıştırmaya neredeyse hazırız",
                 "updated": 1641797299912
+            },
+            {
+                "language": "RU",
+                "text": "Мы практически готовы запустить новый бэктест, на этот раз с полными определениями на всех этапах!",
+                "updated": 1642943579552
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Bunu yapmadan önce Close Stage Event'i de kullanmayacağımız için silmeliyiz",
                     "updated": 1641797314910
+                },
+                {
+                    "language": "RU",
+                    "text": "Прежде чем мы это сделаем, давайте удалим событие Close Stage Event, поскольку мы не собираемся его использовать!",
+                    "updated": 1642943592068
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "İpucu: İşte bu! O kadar zor olmadı, değil mi? Bu temel ayar, basit ticaret fikirlerini test etmek için uygun. Sonraki birkaç eğitimde daha ayrıntılı yönetim ve yürütme kurulumlarını inceleyeceğiz",
                     "updated": 1641797323873
+                },
+                {
+                    "language": "RU",
+                    "text": "Вот и все! Это было совсем не сложно, верно? Эта базовая настройка подходит для тестирования простых торговых идей. В следующих нескольких уроках мы рассмотрим более сложные настройки управления и исполнения!",
+                    "updated": 1642943606876
                 }
             ]
         }

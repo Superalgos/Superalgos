@@ -32,6 +32,18 @@
             "type": "node",
             "childType": "Portfolio Episode",
             "autoAdd": true
+        },
+        {
+            "name": "exchangeManagedAssets",
+            "type": "node",
+            "childType": "Exchange Managed Assets",
+            "autoAdd": true
+        },
+        {
+            "name": "managedTradingBots",
+            "type": "node",
+            "childType": "Managed Trading Bots",
+            "autoAdd": true
         }
     ]
 }

@@ -12,6 +12,11 @@
                 "language": "EL",
                 "text": "Η ιεραρχία των πρόσθετων καθορίζει ποιά πρόσθετα θα συμπεριληφθούν στον τρέχοντα χώρο εργασίας. Στο πλαίσιο αυτής της ιεραρχίας, τα πρόσθετα είναι αρχεία JSON που διαθέτουν την περιγραφή μιας ιεραρχίας όπως ένα εξορυκτήριο δεδομένων, ένα εξορυκτήριο συναλλαγών, μια μηχανή συναλλαγών ή ένα σύστημα συναλλαγών.",
                 "updated": 1641828795260
+            },
+            {
+                "language": "DE",
+                "text": "Die Plugin-Hierarchie definiert, welche Plugins in den aktuellen Arbeitsbereich aufgenommen werden sollen. Im Kontext dieser Hierarchie sind Plugins JSON-Dateien mit der Beschreibung einer Hierarchie, z. B. einer Data Mine, Trading Mine, Trading Engine oder eines Trading Systems.",
+                "updated": 1641764838784
             }
         ]
     },
@@ -28,6 +33,11 @@
                     "language": "EL",
                     "text": "Στο πλαίσιο ενός έργου που βασίζεται σε κοινότητα, ένα πρόσθετο είναι μια συσκευή που χρησιμεύει για τη διανομή πληροφοριών που δημιουργείται από την κοινότητα. Το έργο διανέμει πολλά πρόσθετα που συνεισφέρει η κοινότητα.",
                     "updated": 1641828813002
+                },
+                {
+                    "language": "DE",
+                    "text": "Im Kontext eines community-gesteuerten Projekts ist ein Plugin ein Gerät, das dazu dient, von der Community generierte Intelligenz zu verbreiten. Das Projekt vertreibt mehrere Plugins, die von der Community beigesteuert werden.",
+                    "updated": 1641764929240
                 }
             ]
         },
@@ -45,6 +55,11 @@
                     "language": "RU",
                     "text": "Иерархии (Hierarchies), включенные в рабочее пространство как плагины, не сохраняются на уровне рабочего пространства. Таким образом, изменения, внесенные в эти иерархии, не сохраняются. Если вы хотите изменить плагин и продолжить работу с измененной версией в будущем, вы должны либо клонировать, либо сделать резервную копию плагина и вместо этого работать с полученной копией.",
                     "updated": 1639552903709
+                },
+                {
+                    "language": "DE",
+                    "text": "Hierarchien, die als Plugins in den Arbeitsbereich eingebunden sind, werden nicht auf Arbeitsbereichsebene gespeichert. Änderungen, die in diesen Hierarchien vorgenommen werden, bleiben daher nicht erhalten. Wenn Sie ein Plugin ändern und in Zukunft mit der geänderten Version weiterarbeiten möchten, müssen Sie das Plugin entweder klonen oder sichern und stattdessen mit der resultierenden Kopie arbeiten.",
+                    "updated": 1641764949101
                 }
             ]
         }

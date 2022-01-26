@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "İlk Hedefler ( Initial Targets ) altındaki düğümlere bir göz atın. Bunun ne olabileceğine dair bir fikriniz var mı?",
                 "updated": 1641668066965
+            },
+            {
+                "language": "RU",
+                "text": "Посмотрите на узлы в разделе Initial Targets. Есть ли у вас интуиция относительно того, о чем они могут быть?",
+                "updated": 1642776623430
             }
         ]
     },
@@ -30,6 +35,11 @@
                     "language": "TR",
                     "text": "Gerekli olan ilk birkaç temel tanım şunlardır:",
                     "updated": 1641668082790
+                },
+                {
+                    "language": "RU",
+                    "text": "Это первые несколько необходимых базовых определений:",
+                    "updated": 1642776633938
                 }
             ]
         },
@@ -46,6 +56,11 @@
                     "language": "TR",
                     "text": "Hedef oran ( Target Rate ) bir referans orandır. Bunu pozisyona girmek istediğiniz bir rota olarak düşünün. Bu kavram çok daha derine iner, ancak basitleştirmek bu noktada bize daha fazla yardımcı olur.",
                     "updated": 1641668095313
+                },
+                {
+                    "language": "RU",
+                    "text": "Target Rate - это базовая ставка. Считайте, что это ориентировочная ставка, по которой вы хотите войти в позицию. Эта концепция имеет гораздо более глубокий смысл, но упрощение служит нам хорошим подспорьем на данном этапе.",
+                    "updated": 1642776671589
                 }
             ]
         },
@@ -62,6 +77,11 @@
                     "language": "TR",
                     "text": "Temel Varlıkta Hedef Boyut ( Target Size In Base Asset ) düğümü ve onun kardeşi, listelenen varlıktaki hedef boyut, pozisyonun ulaşması gereken maksimum boyutun tanımıdır.",
                     "updated": 1641668104424
+                },
+                {
+                    "language": "RU",
+                    "text": "Target Size In Base Asset и его собрат, Target Size In Quoted Asset, - это определение максимального размера, которого должна достичь позиция.",
+                    "updated": 1642777155121
                 }
             ]
         },
@@ -78,6 +98,11 @@
                     "language": "TR",
                     "text": "Not: Nihai oranlar ve boyut, Yürütme Algoritmasının ( Execution Algorithm ) tanımlarında daha sonra belirlenir.",
                     "updated": 1641668114593
+                },
+                {
+                    "language": "RU",
+                    "text": "Окончательные ставки и размер определяются позже, в определениях алгоритмах Execution Algorithm.",
+                    "updated": 1642776806129
                 }
             ]
         }

@@ -52,20 +52,29 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                         .then(githubSaysOK)
                         .catch(githubError)
                 } else {
-                    await octokit.repos.createOrUpdateFileContents({
-                        owner: owner,
-                        repo: repo,
-                        path: completePath,
-                        message: message,
-                        content: content,
-                        branch: branch,
-                    })
-                        .then(githubSaysOK)
-                        .catch(githubError)
+                    createNewFile()
                 }
 
-            } catch (error) {
-                console.log("New file");
+            } catch (err) {
+                if (err.status === 404) {
+                    createNewFile()
+                } else {
+                    console.log('[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                    reject(err)
+                }
+            }
+
+            async function createNewFile() {
+                await octokit.repos.createOrUpdateFileContents({
+                    owner: owner,
+                    repo: repo,
+                    path: completePath,
+                    message: message,
+                    content: content,
+                    branch: branch,
+                })
+                    .then(githubSaysOK)
+                    .catch(githubError)
             }
 
             function githubSaysOK() {
@@ -73,7 +82,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             }
 
             function githubError(err) {
-                console.log('[ERROR] Github Storage -> saveFile -> err = ' + err)
+                console.log('[ERROR] Github Storage -> saveFile -> err.stack = ' + err.stack)
                 reject()
             }
         }

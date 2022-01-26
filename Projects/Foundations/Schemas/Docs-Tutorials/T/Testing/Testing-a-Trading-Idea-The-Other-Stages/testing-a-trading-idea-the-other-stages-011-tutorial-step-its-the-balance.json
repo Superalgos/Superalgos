@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "İhtiyacımız olan şey denge ( Balance )! Hangi denge? Bir dakikanızı ayırın ve tartışmanın yarım kalan taraflarını birleştirmeye çalışın",
                 "updated": 1641746042634
+            },
+            {
+                "language": "RU",
+                "text": "Нам нужен баланс! Какой баланс? Уделите минуту и попробуйте связать концы с концами!",
+                "updated": 1642778319849
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Başlangıç dengesini ( initialBalance ) temel sistemde tanımladık ve temel sistemde hedef değeri tanımlayacağız...",
                     "updated": 1641746053918
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы определили initialBalance в базовом активе и определим целевой размер в базовом активе...",
+                    "updated": 1642778332351
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Temel varlığın cari dengesine ihtiyacımız var! Ticaret motorunda ( Trading Engine ) bu tam değeri içeren düğümü bulabilir misiniz?",
                     "updated": 1641746065997
+                },
+                {
+                    "language": "RU",
+                    "text": "Нам нужен текущий баланс базового актива! Можете ли вы найти узел в Trading Engine, который хранит именно это значение?",
+                    "updated": 1642779218212
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "TR",
                     "text": "İpucu: İşlem Akımı ( Trading Current ) (değerlendirme sırasında bakiyeye ihtiyacımız var!)> İşlem Bölümü ( Trading Episode ) (çünkü tüm seans boyunca tutulan bakiyedir)> ... başka ne var?",
                     "updated": 1641746096945
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Current (нам нужен баланс на момент оценки!) > Trading Episode (потому что это баланс, хранящийся в течение всей сессии) >... что еще?",
+                    "updated": 1642779267515
                 }
             ]
         }

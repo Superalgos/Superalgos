@@ -1,0 +1,30 @@
+{
+    "type": "Outgoing Signals",
+    "definition": {
+        "text": "This node defines the location within a Trading System from which a signal can be composed to be sent.",
+        "updated": 1642908629248
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Three main types of signals can be sent:",
+            "updated": 1642908677439
+        },
+        {
+            "style": "Text",
+            "text": ""
+        },
+        {
+            "style": "Text",
+            "text": "Event"
+        },
+        {
+            "style": "Text",
+            "text": "Function"
+        },
+        {
+            "style": "Text",
+            "text": "Candle Sync"
+        }
+    ]
+}

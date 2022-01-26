@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Ticaret seansının zaman çerçevesi ( Time Frame ), ticaret botunun yaptığı şeyi ne sıklıkta yapacağını belirler",
                 "updated": 1641802309302
+            },
+            {
+                "language": "RU",
+                "text": "Таймфрейм торговой сессии определяет, как часто торговый бот делает то, что он делает!",
+                "updated": 1642944127180
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Zaman çerçevesi hakkında bu sayfayı dikkatlice okuyun",
                     "updated": 1641802321790
+                },
+                {
+                    "language": "RU",
+                    "text": "Внимательно прочитайте эту страницу о таймфрейме (Time Frame)!",
+                    "updated": 1642944184415
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Not: Sonraki eğitimlerden birinde, geriye dönük test oturumlarının bu olumsuz yönünü canlı oturumlardan farklı bir zaman diliminde aşmak için kullanabileceğiniz bir numara göstereceğim.",
                     "updated": 1641802331029
+                },
+                {
+                    "language": "RU",
+                    "text": "В одном из следующих уроков я расскажу вам, как преодолеть этот негативный аспект проведения бэктестинга на таймфрейме, отличном от реального времени.",
+                    "updated": 1642944227384
                 }
             ]
         }

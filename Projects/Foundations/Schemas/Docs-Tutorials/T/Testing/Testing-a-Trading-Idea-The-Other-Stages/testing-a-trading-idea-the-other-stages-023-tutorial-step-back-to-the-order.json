@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: Yönetim Aşamasındaki tanımlara geçmeden önce, ilgilenmemiz gereken bir şey daha var",
                 "updated": 1641747075526
+            },
+            {
+                "language": "RU",
+                "text": "Есть еще одна вещь, о которой нам нужно позаботиться, прежде чем мы перейдем к определениям на этапе управления!",
+                "updated": 1642941384534
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Ticaret botu ( Trading Bot ) her siparişi her zaman takip eder ve ilgili bilgileri ticaret motorundaki ( Trading Engine ) belirli bir düğüm yapısında kaydeder.",
                     "updated": 1641747087980
+                },
+                {
+                    "language": "RU",
+                    "text": "Торговый бот постоянно отслеживает каждый ордер и сохраняет соответствующую информацию в определенной структуре узлов в Trading Engine.",
+                    "updated": 1642941411695
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Piyasa Satış Emri ( Market Sell Order ) #1 düğümünü genişletin ve içeriye bir göz atın.",
                     "updated": 1641747101176
+                },
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Market Sell Order #1 и загляните внутрь.",
+                    "updated": 1642941425340
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Not: Her işin kendine ait bir ömrü olduğundan, bot her bir iş hakkındaki bilgileri her iş için bir tane olmak üzere ayrı düğüm yapılarında saklar.",
                     "updated": 1641747110517
+                },
+                {
+                    "language": "RU",
+                    "text": "Поскольку каждый ордер живет своей жизнью, бот хранит информацию о каждом ордере в отдельных структурах узлов, по одному на каждый ордер.",
+                    "updated": 1642941448355
                 }
             ]
         }

@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Formülümüzde referans verebilmemiz için düğümün adresini nasıl çıkaracağınızı hatırlıyor musunuz?",
                 "updated": 1641746281986
+            },
+            {
+                "language": "RU",
+                "text": "Помните ли вы, как извлечь адрес узла, чтобы мы могли ссылаться на него из нашей формулы?",
+                "updated": 1642779376602
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Düğümün menüsüne gidin ve \"Düğüm Yolunu Kopyala\" ( Copy Node Path ) düğmesine tıklayın",
                     "updated": 1641746298359
+                },
+                {
+                    "language": "RU",
+                    "text": "Войдите в меню узла и нажмите на кнопку \"Copy Node Path\"!",
+                    "updated": 1642779392706
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Aşağıdaki dize panonuza gelmiş olmalıdır:",
                     "updated": 1641746323334
+                },
+                {
+                    "language": "RU",
+                    "text": "Следующая строка должна оказаться в вашем буфере обмена:",
+                    "updated": 1642779402696
                 }
             ]
         },
@@ -75,6 +90,11 @@
                     "language": "TR",
                     "text": "Not: yola bir göz atın ... bunun ne kadar yararlı olduğunu görüyor musunuz?",
                     "updated": 1641746332670
+                },
+                {
+                    "language": "RU",
+                    "text": "Посмотрите на путь... видите, какой в нем смысл?",
+                    "updated": 1642779445561
                 }
             ]
         }

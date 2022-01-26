@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Bu, Strateji Açık Aşamasının ( Strategy Open Stage ) Aşama Kote Varlık ( Stage Quoted Asset ) bitidir. Gerçek boyut ( Size ) değişirse, Yerleştirilen Boyuta ne olur?",
                 "updated": 1641802744284
+            },
+            {
+                "language": "RU",
+                "text": "Это кусочек Stage Quoted Asset этапа Strategy Open. Если фактический размер меняется, что происходит с Size Placed?",
+                "updated": 1642944853200
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "28 Şubat'taki üçüncü hataya dokunun ve okuyun",
                     "updated": 1641802763541
+                },
+                {
+                    "language": "RU",
+                    "text": "Выберите третью ошибку 28 февраля и прочитайте!",
+                    "updated": 1642944867444
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Not: Açık sahne veya kapalı sahne bağlamında, yerleştirilen boyut, sahne sırasında yerleştirilen toplam boyutu toplayan bir değişkendir, bu nedenle de ayarlanması gerekir",
                     "updated": 1641802773676
+                },
+                {
+                    "language": "RU",
+                    "text": "В контексте стадии открытия или стадии закрытия, размещенный размер - это переменная, которая накапливает общий размер, размещенный во время этой стадии, поэтому она также должна быть скорректирована!",
+                    "updated": 1642944920373
                 }
             ]
         }

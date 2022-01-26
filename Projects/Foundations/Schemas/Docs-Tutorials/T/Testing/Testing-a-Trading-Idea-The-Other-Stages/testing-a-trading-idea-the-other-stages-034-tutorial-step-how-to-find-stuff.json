@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Özet: size ticaret motorunda ( Trading Engine ) ihtiyacınız olan bilgileri nasıl bulacağınızı açıklamama izin verin.",
                 "updated": 1641796303371
+            },
+            {
+                "language": "RU",
+                "text": "Позвольте мне провести вас через рассуждения, чтобы найти необходимую информацию в Trading Engine",
+                "updated": 1642942249006
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Ticaret Akımı - işlem akımı ( Trading Current ) > Strateji Açık Aşaması ( Strategy Open Stage ) > Aşamalı Kote Varlık ( Stage Quoted Asset section ) bölümündeyiz. Bunun nedeni:",
                     "updated": 1641796324299
+                },
+                {
+                    "language": "RU",
+                    "text": "Мы находимся в разделе Trading Current > Strategy Open Stage > Stage Quoted Asset. Вот почему:",
+                    "updated": 1642942284526
                 }
             ]
         },
@@ -53,6 +63,11 @@
                     "language": "TR",
                     "text": "Ticaret Akımı - işlem akımı(Trading Current) : Her şey mevcut pozisyonla ilgilidir.",
                     "updated": 1641796452062
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Current: здесь все о текущей позиции.",
+                    "updated": 1642942321682
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Strateji Açık Aşama(Strategy Open Stage): pozisyona girme işlemi bu aşamada gerçekleştiği için. Ne kadar USDT aldığımızı bilmek istiyoruz",
                     "updated": 1641796466681
+                },
+                {
+                    "language": "RU",
+                    "text": "Strategy Open Stage: так как на этом этапе произошла транзакция по входу в позицию. Мы хотим знать, сколько USDT мы получили!",
+                    "updated": 1642942338889
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "TR",
                     "text": "Aşamalı Kote Varlık (Stage Quoted Asset): çünkü temel varlığı sattık ve kote varlığı elde ettik ve bu, yakın aşamada kurtulmak istediğimiz kote varlık! Soru, bunun ne kadar olduğu",
                     "updated": 1641796478499
+                },
+                {
+                    "language": "RU",
+                    "text": "Stage Quoted Asset: поскольку мы продали базовый актив и получили котируемый актив, и именно от котируемого актива мы хотим избавиться на этапе закрытия! Вопрос в том, сколько именно!",
+                    "updated": 1642942364747
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Formül için herhangi bir fikriniz var mı?",
                     "updated": 1641796488115
+                },
+                {
+                    "language": "RU",
+                    "text": "Есть идеи по поводу формулы?",
+                    "updated": 1642942370719
                 }
             ]
         }

@@ -19,6 +19,11 @@
                 "language": "TR",
                 "text": "Özet: Referans oluşturmak çok kolay! Buradaki tek zorluk, başvurulacak düğümün oluşturucudan uzak olmasıdır.",
                 "updated": 1641747275101
+            },
+            {
+                "language": "RU",
+                "text": "Создание ссылки - это детская забава! Единственная \"сложность\" здесь заключается в том, что узел, на который нужно сослаться, находится далеко от создателя.",
+                "updated": 1642941647985
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "TR",
                     "text": "Bu kullanıcı arabirimi ( UI ) püf noktaları hayatınızı kolaylaştırabilir:",
                     "updated": 1641747288126
+                },
+                {
+                    "language": "RU",
+                    "text": "Эти приемы пользовательского интерфейса могут облегчить вам жизнь:",
+                    "updated": 1642941658710
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "Bir düğümden diğerine yolunuzu bulmak için tasarım alanı haritasını gerektiği kadar kullanın.",
                     "updated": 1641747299780
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте карту пространства проектирования столько раз, сколько потребуется, чтобы найти путь от узла к узлу.",
+                    "updated": 1642941669022
                 }
             ]
         },
@@ -68,6 +83,11 @@
                     "language": "TR",
                     "text": "Tasarım alanı haritasındaki yönü kontrol etmek ve herhangi bir noktada serbest bırakabilmeniz için tasarım alanında taşınacak düğümü sabitleyin.",
                     "updated": 1641747396829
+                },
+                {
+                    "language": "RU",
+                    "text": "Закрепите узел, который вы собираетесь перемещать по пространству проектирования, так, чтобы вы могли отпустить его в любой момент, чтобы проверить карту пространства проектирования на предмет направления.",
+                    "updated": 1642941704410
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "TR",
                     "text": "Düğümü fareyle tıkladıktan sonra ekran boyunca sürüklemek için Ctrl / Command (Pencere) + ok tuşlarını kullanın. Düğmelere basılı tutun ve düğüm uçsun",
                     "updated": 1641747364521
+                },
+                {
+                    "language": "RU",
+                    "text": "Используйте клавиши Ctrl / Command + стрелки для перетаскивания узла по экрану после щелчка по нему мышью. Удерживайте клавиши нажатыми, и узел полетит!",
+                    "updated": 1642941716006
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Düğümün yerine geri dönmesi için referans oluşturulduktan sonra sabitlemeyi kapatın.",
                     "updated": 1641747419430
+                },
+                {
+                    "language": "RU",
+                    "text": "Удалите штифт после установления ссылки, чтобы узел вернулся на свое место.",
+                    "updated": 1642941723937
                 }
             ]
         }

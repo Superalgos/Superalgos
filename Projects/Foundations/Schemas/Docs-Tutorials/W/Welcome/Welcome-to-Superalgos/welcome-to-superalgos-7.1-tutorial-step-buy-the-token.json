@@ -14,6 +14,11 @@
                 "language": "ID",
                 "text": "Jika kamu ingin mendukung orang-orang yang membangun Superalgos, membeli beberapa token di PancakeSwap adalah cara yang harus ditempuh! Inilah sebabnya...",
                 "updated": 1640599300653
+            },
+            {
+                "language": "RU",
+                "text": "Если вы хотите поддержать людей, создающих Superalgos, то покупка токенов в PancakeSwap - это то, что вам нужно! Вот почему...",
+                "updated": 1642773631008
             }
         ]
     },
@@ -27,6 +32,11 @@
                     "language": "ID",
                     "text": "Superalgos adalah proyek crypto milik masyarakat. Token asli digunakan untuk memberi insentif pada kontribusi, yang berarti bahwa proyek mendistribusikan token secara eksklusif di antara para kontributor. Setiap dolar yang kamu habiskan untuk membeli Superalgos SA Token langsung ke orang-orang yang membawakan kamu software yang luar biasa ini",
                     "updated": 1640599360537
+                },
+                {
+                    "language": "RU",
+                    "text": "Superalgos - это криптопроект, принадлежащий сообществу. Собственный токен используется для стимулирования вкладов, что означает, что проект распределяет токены исключительно среди вкладчиков. Каждый доллар, который вы потратите на покупку токена Superalgos SA, пойдет непосредственно тем, кто создал это потрясающее программное обеспечение!",
+                    "updated": 1642773662355
                 }
             ]
         },

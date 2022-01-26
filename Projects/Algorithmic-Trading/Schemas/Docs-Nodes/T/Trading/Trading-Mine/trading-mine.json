@@ -17,6 +17,11 @@
                 "language": "EL",
                 "text": "Ένα εξορυκτήριο συναλλαγών είναι μια ιεραρχία που περιέχει ορισμούς των ρομπότ συναλλαγών και των σχεδιογράφων τους. Αυτοί οι ορισμοί αποτελούν τα πραγματικά προγράμματα τέτοιων ρομπότ - τον πηγαίο κώδικα.",
                 "updated": 1641828114919
+            },
+            {
+                "language": "DE",
+                "text": "Eine Trading Mine ist eine Hierarchie, die Definitionen von Trading Bots und deren Plotter enthält. Diese Definitionen bilden die eigentlichen Programme solcher Bots - den Quellcode.",
+                "updated": 1641762683041
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "EL",
                     "text": "Αν και το Superalgos ξεκινά με ένα μόνο ρομπότ συναλλαγών, το σύστημα είναι έτοιμο να διαθέτει τόσα ρομπότ συναλλαγών όσα είναι πρόθυμοι να δημιουργήσουν οι προγραμματιστές. Ως εκ τούτου, ένα εξορυκτήριο συναλλαγών είναι ένας κατάλογος ρομπότ συναλλαγών.",
                     "updated": 1641828159193
+                },
+                {
+                    "language": "DE",
+                    "text": "Obwohl Superalgos mit einem einzigen Trading Bot startet, ist das System darauf vorbereitet, so viele Trading Bots zu enthalten, wie Entwickler bereit sind zu erstellen. Eine Trading Mine ist also ein Katalog von Trading Bots.",
+                    "updated": 1641762799037
                 }
             ]
         },
@@ -55,6 +65,11 @@
                     "language": "EL",
                     "text": "Παρατηρήστε ότι, στο πλαίσιο του Superalgos, ένα bot συναλλαγών δεν έχει καμία σχέση με τη λογική των συναλλαγών. Σκεφτείτε τη λογική των συναλλαγών ως τους επιχειρηματικούς κανόνες που —στο Superalgos— ορίζονται στα συστήματα συναλλαγών. Οποιοσδήποτε μπορεί να δημιουργήσει ένα Trading System (Σύστημα Συναλλαγών), που σημαίνει ότι η δημιουργία συστημάτων συναλλαγών και των στρατηγικών των συναλλαγών εντός, δεν απαιτεί κωδικοποίηση",
                     "updated": 1641828249128
+                },
+                {
+                    "language": "DE",
+                    "text": "Beachten Sie, dass im Kontext von Superalgos ein Trading-Bot nichts mit der Handelslogik zu tun hat. Stellen Sie sich die Handelslogik als die Geschäftsregeln vor, die in Superalgos in Trading Systems definiert sind. Jeder kann ein Trading-System erstellen, was bedeutet, dass die Erstellung von Trading-Systemen und den darin enthaltenen Trading-Strategien keine Kodierung erfordert.",
+                    "updated": 1641762809287
                 }
             ]
         },
@@ -71,6 +86,11 @@
                     "language": "EL",
                     "text": "Τα Trading mines (εξορυκτήρια Συναλλαγών) λειτουργούν παρόμοια με τα εξορυκτήρια δεδομένων με την έννοια ότι παρέχουν το ίδιο είδος εργαλείων για τη δομή των ορισμών των ρομπότ, συμπεριλαμβανομένων των ορισμών διαδικασίας, των ορισμών προϊόντων και των σχεδιογράφων.",
                     "updated": 1641828289276
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Mines funktionieren ähnlich wie Data Mines in dem Sinne, dass sie die gleiche Art von Werkzeugen zur Strukturierung der Definitionen von Bots bereitstellen, einschließlich Prozessdefinitionen, Produktdefinitionen und Plotter.",
+                    "updated": 1641762819358
                 }
             ]
         },
@@ -87,6 +107,11 @@
                     "language": "RU",
                     "text": "Настройка Trading Mine",
                     "updated": 1638338789550
+                },
+                {
+                    "language": "DE",
+                    "text": "Trading Mine Konfiguration",
+                    "updated": 1641762839499
                 }
             ]
         }

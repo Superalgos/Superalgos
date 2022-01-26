@@ -9,22 +9,21 @@
         },
         "text": "We are going to go through the simulation and see if the definition we came up with has the expected results!",
         "translations": [
-            {
                 {
-                "language": "DE",
-                "text": "Wir werden nun die Simulation durchlaufen und sehen, ob die von uns erstellte Definition die erwarteten Ergebnisse bringt!",
-                "updated": 1641763341271
+                    "language": "DE",
+                    "text": "Wir werden nun die Simulation durchlaufen und sehen, ob die von uns erstellte Definition die erwarteten Ergebnisse bringt!",
+                    "updated": 1641763341271
                 },
                 {
-                "language": "TR",
-                "text": "Simülasyonu gözden geçireceğiz ve ortaya çıkan tanımın beklenen sonuçlara sahip olup olmadığına bakacağız!",
-                "updated": 1641655373874
+                    "language": "TR",
+                    "text": "Simülasyonu gözden geçireceğiz ve ortaya çıkan tanımın beklenen sonuçlara sahip olup olmadığına bakacağız!",
+                    "updated": 1641655373874
                 },
                 {
-                "language": "RU",
-                "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты!",
-                "updated": 1642655108942
-            }
+                    "language": "RU",
+                    "text": "Мы собираемся провести симуляцию и посмотреть, дает ли определение, которое мы придумали, ожидаемые результаты!",
+                    "updated": 1642655108942
+                }
         ]
     },
     "paragraphs": [

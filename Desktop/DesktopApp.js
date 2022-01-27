@@ -25,12 +25,12 @@ exports.newDesktopApp = function newDesktopApp() {
         await setupNetwork()
         await finalSetupInterfaces()
 
-        /*
+        
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
             storageProviderName: 'Github',
-            storageProviderUsername: 'Luis-Fernando-Molina-XXX',
-            storageProviderToken: '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',
+            storageProviderUsername: 'Luis-Fernando-Molina',
+            storageProviderToken: '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',
             userAppType: 'Social Trading Desktop App'
         }
 
@@ -42,7 +42,7 @@ exports.newDesktopApp = function newDesktopApp() {
         
         let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
         console.log(response)
-        */
+        
         
         async function initialSetupInterfaces() {
             /*

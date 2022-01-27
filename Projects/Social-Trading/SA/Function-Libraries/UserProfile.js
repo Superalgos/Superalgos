@@ -1,11 +1,15 @@
 exports.newSocialTradingFunctionLibrariesUserProfile = function () {
 
     let thisObject = {
+        getUserProfileInfo: getUserProfileInfo,
         createUserProfile: createUserProfile
     }
 
     return thisObject
 
+    async function getUserProfileInfo(profileMessage) {
+
+    }
 
     async function createUserProfile(profileMessage) {
 
@@ -320,12 +324,17 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 /*
                 We will save a file to a special git ignored folder.
                 */
-                let filePath = global.env.PATH_TO_MY_SOCIAL_TRADING_DATA + '/'
-                let fileName = "AppData.json"
+                let filePath = global.env.PATH_TO_SECRETS + '/'
+                let fileName = profileMessage.userAppType.replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','') + ".json"
                 let fileContent = {
                     userProfile: {
                         id: userProfile.id,
-                        name: userProfile.name
+                        codeName: JSON.parse(userProfile.config).codeName
+                    },
+                    storageProvider: {
+                        name: profileMessage.storageProviderName,
+                        userName: profileMessage.storageProviderUsername,
+                        token: profileMessage.storageProviderToken,
                     }
                 }
                 SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)

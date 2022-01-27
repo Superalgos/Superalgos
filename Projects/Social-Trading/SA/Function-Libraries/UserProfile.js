@@ -107,7 +107,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             if (response.result === 'Error') { return }
             await pushProfileAndPullRequest()
             if (response.result === 'Error') { return }
-            saveUserProfile()
+            saveUserAppFile()
 
             resolve(response)
 
@@ -320,7 +320,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            function saveUserProfile() {
+            function saveUserAppFile() {
                 /*
                 We will save a file to a special git ignored folder.
                 */

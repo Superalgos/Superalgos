@@ -34,7 +34,7 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                 const { data: { sha } } = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}', {
                     owner: owner,
                     repo: repo,
-                    branch: 'develop',
+                    branch: 'master',
                     file_path: completePath
                 });
                 if (sha) {
@@ -44,7 +44,7 @@ exports.newPluginsUtilitiesPluginsAtGithub = function () {
                         path: completePath,
                         message: 'Plugin Update',
                         content: content,
-                        branch: 'develop',
+                        branch: 'master',
                         sha: sha
                     })
                         .then(githubSaysOK)

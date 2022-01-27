@@ -86,6 +86,9 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 auth: profileMessage.storageProviderToken,
                 userAgent: 'Superalgos ' + SA.version
             })
+            let storageProviderName
+            let storageProviderUsername
+            let storageProviderToken
             let userProfile
             let targetNode
             let targetNodeTypeCount
@@ -93,9 +96,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 result: 'Ok'
             }
 
+            loadUserAppFile()
+            if (response.result === 'Error') { return }
             await checkCreateFork()
             if (response.result === 'Error') { return }
-            await checkCreateUserProfile()
+            await loadUserProfileFromStorage()
             if (response.result === 'Error') { return }
             addUserApps()
             if (response.result === 'Error') { return }
@@ -103,9 +108,30 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             if (response.result === 'Error') { return }
             await pushProfileAndPullRequest()
             if (response.result === 'Error') { return }
-            saveUserProfile()
+            saveUserAppFile()
 
             resolve(response)
+
+            function loadUserAppFile() {
+                /*
+                We will load the user profile file for this type of User App.
+                */
+                try {
+                    let filePath = global.env.PATH_TO_SECRETS + '/'
+                    let fileName = profileMessage.userAppType.replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '').replace(' ', '') + ".json"
+                    let fileContent = JSON.parse(SA.nodeModules.fs.readFileSync(filePath + '/' + fileName))
+
+                    storageProviderName = fileContent.storageProvider.name
+                    storageProviderUsername = fileContent.storageProvider.userName
+                    storageProviderToken = fileContent.storageProvider.token
+                } catch (err) {
+                    response = {
+                        result: 'Error',
+                        message: 'Error loading User Profile File.',
+                        stack: err.stack
+                    }
+                }
+            }
 
             async function checkCreateFork() {
                 /*
@@ -167,7 +193,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
             }
 
-            async function checkCreateUserProfile() {
+            async function loadUserProfileFromStorage() {
                 /*
                 We will check for the User Profile and read that file if exists. 
                 */
@@ -316,7 +342,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
             }
 
-            function saveUserProfile() {
+            function saveUserAppFile() {
                 /*
                 We will save a file to a special git ignored folder.
                 */

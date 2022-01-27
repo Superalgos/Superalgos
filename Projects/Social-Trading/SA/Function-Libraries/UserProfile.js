@@ -105,7 +105,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             if (response.result === 'Error') { return }
             await addSigningAccounts()
             if (response.result === 'Error') { return }
-            await pushProfileAndPullRequest()
+            await pushUserProfileAndPullRequest()
             if (response.result === 'Error') { return }
             saveUserAppFile()
 
@@ -297,7 +297,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 if (response.result === 'Error') { resolve(response) }
             }
 
-            async function pushProfileAndPullRequest() {
+            async function pushUserProfileAndPullRequest() {
 
                 await SA.projects.communityPlugins.utilities.pluginsAtGithub.pushPluginFileAndPullRequest(
                     JSON.stringify(userProfile, undefined, 4),

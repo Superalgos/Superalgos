@@ -35,31 +35,31 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             /*
             Message Properties Validations
             */
-            if (profileMessage.storageProviderName === undefined) {
+            if (profileMessage.socialEntityHandle === undefined) {
                 let response = {
                     result: 'Error',
-                    message: 'storageProviderName is Undefined.'
+                    message: 'socialEntityHandle is Undefined.'
                 }
                 resolve(JSON.stringify(response))
             }
-            if (profileMessage.storageProviderName !== 'Github') {
+            if (profileMessage.socialEntityHandle.length > 25) {
                 let response = {
                     result: 'Error',
-                    message: 'storageProviderName Not Supported.'
+                    message: 'socialEntityHandle.length > 25.'
                 }
                 resolve(JSON.stringify(response))
             }
-            if (profileMessage.storageProviderUsername === undefined) {
+            if (profileMessage.socialEntityType === undefined) {
                 let response = {
                     result: 'Error',
-                    message: 'storageProviderUsername is Undefined.'
+                    message: 'socialEntityType is Undefined.'
                 }
                 resolve(JSON.stringify(response))
-            }
-            if (profileMessage.storageProviderToken === undefined) {
+            }            
+            if (profileMessage.socialEntityType !== 'Social Persona' && profileMessage.socialEntityType !== 'Social Trading Bot') {
                 let response = {
                     result: 'Error',
-                    message: 'storageProviderToken is Undefined.'
+                    message: 'socialEntityType Not Supported.'
                 }
                 resolve(JSON.stringify(response))
             }
@@ -109,9 +109,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             if (response.result === 'Error') { return }
             addAvailableStorageNodes()
             if (response.result === 'Error') { return }            
-            await pushProfileAndPullRequest()
+            await pushUserProfileAndPullRequest()
             if (response.result === 'Error') { return }
-            saveUserAppFile()
 
             resolve(response)
 
@@ -341,15 +340,15 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 targetNode.availableStorage.storageContainerReferences.push(StorageContainerReference)
             }
 
-            async function pushProfileAndPullRequest() {
+            async function pushUserProfileAndPullRequest() {
 
                 await SA.projects.communityPlugins.utilities.pluginsAtGithub.pushPluginFileAndPullRequest(
                     JSON.stringify(userProfile, undefined, 4),
-                    profileMessage.storageProviderToken,
+                    storageProviderToken,
                     GOVERNANCE_PLUGINS_REPO_NAME,
-                    profileMessage.storageProviderUsername,
+                    storageProviderUsername,
                     'User-Profiles',
-                    profileMessage.storageProviderUsername
+                    storageProviderUsername
                 )
                     .then()
                     .catch(profileNotPushed)
@@ -362,22 +361,6 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     }
                     resolve(response)
                 }
-            }
-
-            function saveUserAppFile() {
-                /*
-                We will save a file to a special git ignored folder.
-                */
-                let filePath = global.env.PATH_TO_MY_SOCIAL_TRADING_DATA + '/'
-                let fileName = "AppData.json"
-                let fileContent = {
-                    userProfile: {
-                        id: userProfile.id,
-                        name: userProfile.name
-                    }
-                }
-                SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)
-                SA.nodeModules.fs.writeFileSync(filePath + '/' + fileName, JSON.stringify(fileContent, undefined, 4))
             }
         }
     }

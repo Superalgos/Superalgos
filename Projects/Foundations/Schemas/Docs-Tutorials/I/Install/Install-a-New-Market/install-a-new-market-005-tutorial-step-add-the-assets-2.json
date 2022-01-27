@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Özet: codeName özelliğinde (değişim tarafından listelendiği gibi) ticker'a dahil edilecek tüm yeni varlıkların yapılandırmasını düzenleyin.",
                 "updated": 1642085731875
+            },
+            {
+                "language": "RU",
+                "text": "Отредактируйте конфигурацию каждого из новых активов, указав тикер (как указано на бирже) в свойстве codeName.",
+                "updated": 1643090342706
             }
         ]
     },
@@ -43,6 +48,11 @@
                     "language": "TR",
                     "text": "Örneğin:",
                     "updated": 1642085749932
+                },
+                {
+                    "language": "RU",
+                    "text": "Например:",
+                    "updated": 1643090349356
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "TR",
                     "text": " Not: Yapılandırılan varlıkların simgesi görüntü kitaplığında varsa, varsayılan simge otomatik olarak değiştirilir.",
                     "updated": 1642085926380
+                },
+                {
+                    "language": "RU",
+                    "text": "Если значок для настроенных активов существует в библиотеке изображений, значок по умолчанию заменяется автоматически.",
+                    "updated": 1643090361608
                 }
             ]
         }

@@ -23,9 +23,9 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     let portfolioSessionsFoundAtWorkspace
     let learningSessionsFoundAtWorkspace
     let tutorialsToPlay
-    
+
     return thisObject
-    
+
     function getNodeById(nodeId) {
         return mapOfNodes.get(nodeId)
     }
@@ -37,7 +37,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
     function deleteNodeFromMap(nodeId) {
         mapOfNodes.delete(nodeId)
     }
-    
+
     function recreateWorkspace(node, callBackFunction) {
         mapOfNodes = new Map()
         mapOfReferenceChildren = new Map()
@@ -370,7 +370,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
                     // Reestablish based on Id
                     //node.payload.referenceParent = mapOfNodes.get(node.savedPayload.referenceParent.id)
                     let referenceParent = await mapOfNodes.get(node.savedPayload.referenceParent.id)
-                    
+
                     if (referenceParent !== undefined) {
                         if (referenceParent.cleaned !== true) {
                             UI.projects.visualScripting.nodeActionFunctions.attachDetach.referenceAttachNode(node, referenceParent)
@@ -671,6 +671,11 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
 
         let parentSchemaDocument
         /* Resolve Initial Values */
+        if ((object.type === 'Task Manager' || object.type === 'Task') && project == 'Portfolio-Management') {
+            object.project = 'Foundations';
+        } else if (object.type === 'Portfolio Bot Instance') {
+            object.project = 'Portfolio-Management';
+        }
         let schemaDocument = getSchemaDocument(object, project)
 
         if (schemaDocument === undefined) {
@@ -1056,7 +1061,7 @@ function newVisualScritingFunctionLibraryUiObjectsFromNodes() {
         } else {
             nodes = UI.projects.visualScripting.utilities.branches.nodeBranchToArray(topNode)
         }
-        
+
         for (const node of nodes) {
             if (node.payload !== undefined) {
                 if (node.payload.referenceChildren !== undefined) {

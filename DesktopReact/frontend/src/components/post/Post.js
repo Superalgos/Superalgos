@@ -4,10 +4,10 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
-import { getUserSocialPersona } from '../../api/profile.httpService'
+import { getUserSocialPersona, getProfile } from '../../api/profile.httpService'
 import { setSocialPersona } from '../../store/slices/Profile.slice'
 import PostFooter from "../postFooter/PostFooter";
-import { setSelectedPost } from "../../store/slices/post.slice";
+import { setPostList, setSelectedPost } from "../../store/slices/post.slice";
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
@@ -15,6 +15,7 @@ const Post = ({postData}) => {
     const dispatch = useDispatch();
     const socialPersona = useSelector(state => state.profile.socialPersona);
     const [collapse, setCollapse] = useState(true);
+    const [postUser, setPostUser] = useState({})
     const ToggleCollapse = () => setCollapse(!collapse);
     console.log(postData)
 
@@ -24,15 +25,22 @@ const Post = ({postData}) => {
         reactions,
         originPostHash
     } = postData;
+    console.log(postData)
 
     const {
         userProfileHandle
     } = socialPersona
 
     useEffect( async () => {
-        if(!socialPersona.userProfileId) {
+        if (!socialPersona.userProfileId) {
             const userSocialPersona = await getUserSocialPersona().then(response => response.json())
             dispatch( setSocialPersona(userSocialPersona) );
+        }
+        if (postData.originPost && socialPersona.userProfileId !== postData.originPost.originSocialPersonaId) {
+            const {profileData} = await getProfile( {socialPersonaId: postData.originPost.originSocialPersonaId} )
+                .then(response => response.json())
+            console.log(profileData)
+            setPostUser(profileData);
         }
     },[])
 
@@ -52,7 +60,7 @@ const Post = ({postData}) => {
                         <Avatar src={pic} className="avatar"/>
                     </div>
                     <Typography className="postUserName">
-                        {userProfileHandle} {/* TODO use name */}
+                        {postUser.name? postUser.name : userProfileHandle} {/* TODO use name */}
                     </Typography>
                 </Stack>
                 <div className="postBody">

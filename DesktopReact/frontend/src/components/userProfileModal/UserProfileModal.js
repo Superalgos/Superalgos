@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import {setActualProfile} from "../../store/slices/Profile.slice";
 import {updateProfile} from "../../api/profile.httpService";
 import UserProfileModalView from './UserProfileModalView'
+import {STATUS_OK} from "../../api/httpConfig";
 
 const UserProfileModal = ({user, close}) => {
     const dispatch = useDispatch();

@@ -101,7 +101,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             if (response.result === 'Error') { return }
             await checkCreateUserProfile()
             if (response.result === 'Error') { return }
-            addUserApps()
+            addUserAppsNodes()
             if (response.result === 'Error') { return }
             await addSigningAccounts()
             if (response.result === 'Error') { return }
@@ -228,7 +228,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            function addUserApps() {
+            function addUserAppsNodes() {
                 if (userProfile.userApps === undefined) {
                     userProfile.userApps = {
                         type: 'User Apps',

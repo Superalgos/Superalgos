@@ -16,20 +16,20 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             /*
             These are the properties at the message that we expect here:
     
-            storageProviderName             Must be "Github" for now, because it is the only storage provider we are currently working with.        
-            storageProviderUsername         Must be the Github username, not email or anything else.
-            storageProviderToken            Must be a valid Github Token.
             userAppType                     Possible values for this field are: "Social Trading Desktop App", "Social Trading Mobile App"
-                  
+            socialEntityType                "Social Persona" or "Social Trading Bot"
+            socialEntityHandle              A string of 20 characters max.
+            
             At this function we are going to:
     
-            1. We will check if the storageProviderName has a fork of Superalgos already created. If not, we will create the fork.
-            2. We will check for the User Profile and read that file if exists. 
-            3. If the user profile file does not exist, then we are going to create it. Create a walleet and sign the User Profile.
-            4. Add to the User Profile the User App based on userAppType.
-            5. Create a Storage Container for "My-Social-Trading-Data".
-            6. Create the Signing Accounts and sign them.
+            1. Load from the user app file the info regarding of where the User Profile is stored, including the token to access it.
+            2. Load the user profile from storage. 
+            3. Add the social entity to the User Profile.
+            4. Create the Signing Account for the Social Entity.
+            5. Create a Storage Container for the new Social Entity.
+            6. Save the updated User Profile to it's storage location.
     
+            TODO: We need to check that the socialEntityHandle is unique among all Social Entities that currently exist.
             */
 
             /*
@@ -100,7 +100,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             if (response.result === 'Error') { return }
             await loadUserProfileFromStorage()
             if (response.result === 'Error') { return }
-            addUserApps()
+            addSocialEntitiesNodes()
             if (response.result === 'Error') { return }
             await addSigningAccounts()
             if (response.result === 'Error') { return }
@@ -160,63 +160,62 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         result: 'Error',
                         message: 'Error loading User Profile File.',
                         stack: err.stack
+                    }
                 }
             }
 
-            function addUserApps() {
-                if (userProfile.userApps === undefined) {
-                    userProfile.userApps = {
-                        type: 'User Apps',
-                        name: 'New User Apps',
-                        project: 'User-Apps',
-                        id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                        config: '{}'
-                    }
-                }
+            function addSocialEntitiesNodes() {
 
-                switch (profileMessage.userAppType) {
-                    case "Social Trading Desktop App": {
-                        if (userProfile.userApps.desktopApps === undefined) {
-                            userProfile.userApps.desktopApps = {
-                                type: 'Desktop Apps',
-                                name: 'New Desktop Apps',
-                                project: 'User-Apps',
+                switch (profileMessage.socialEntityType) {
+                    case "Social Persona": {
+                        if (userProfile.socialPersonas === undefined) {
+                            userProfile.socialPersonas = {
+                                type: 'Social Personas',
+                                name: 'New Social Personas',
+                                project: 'Social-Trading',
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                config: '{}',
-                                socialTradingDesktopApps: []
+                                config: '{}'
                             }
                         }
                         targetNode = {
-                            type: 'Social Trading Desktop App',
-                            name: 'New Social Trading Desktop App',
-                            project: 'User-Apps',
+                            type: 'Social Persona',
+                            name: 'New Social Persona',
+                            project: 'Social-Trading',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}',
+                            config: JSON.stringify({handle: profileMessage.socialEntityHandle}),
                         }
-                        userProfile.userApps.desktopApps.socialTradingDesktopApps.push(targetNode)
-                        targetNodeTypeCount = userProfile.userApps.desktopApps.socialTradingDesktopApps.length
+                        userProfile.socialPersonas.socialPersonas.push(targetNode)
+                        targetNodeTypeCount = userProfile.socialPersonas.socialPersonas.length                        
                         break
                     }
-                    case "Social Trading Mobile App": {
-                        if (userProfile.userApps.mobilepApps === undefined) {
-                            userProfile.userApps.mobilepApps = {
-                                type: 'Mobile Apps',
-                                name: 'New Mobile Apps',
-                                project: 'User-Apps',
+                    case "Social Trading Bot": {
+                        if (userProfile.userBots === undefined) {
+                            userProfile.userBots = {
+                                type: 'User Bots',
+                                name: 'New User Bots',
+                                project: 'Governance',
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                config: '{}',
-                                socialTradingDesktopApps: []
+                                config: '{}'
+                            }
+                        }
+                        if (userProfile.userBots.socialTradingBots === undefined) {
+                            userProfile.userBots.socialTradingBots = {
+                                type: 'Social Trading Bots',
+                                name: 'New Social Trading Bots',
+                                project: 'Social-Trading',
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                config: '{}'
                             }
                         }
                         targetNode = {
-                            type: 'Social Trading Mobile App',
-                            name: 'New Social Trading Mobile App',
-                            project: 'User-Apps',
+                            type: 'Social Trading Bot',
+                            name: 'New Social Trading Bot',
+                            project: 'Social-Trading',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}',
+                            config: JSON.stringify({handle: profileMessage.socialEntityHandle}),
                         }
-                        userProfile.userApps.mobilepApps.socialTradingDesktopApps.push(targetNode)
-                        targetNodeTypeCount = userProfile.userApps.mobilepApps.socialTradingDesktopApps.length
+                        userProfile.userBots.socialTradingBots.socialTradingBots.push(targetNode)
+                        targetNodeTypeCount = userProfile.userBots.socialTradingBots.socialTradingBots.length                          
                         break
                     }
                 }

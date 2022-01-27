@@ -190,5 +190,6 @@
             "project": "User-Apps"
         }
     ],
-    "propertyNameAtParent": "tasks"
+    "propertyNameAtParent": "tasks",
+    "project": "Foundations"
 }

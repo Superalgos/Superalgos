@@ -89,7 +89,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             let storageProviderName
             let storageProviderUsername
             let storageProviderToken
-            let storageContainerId
+            let storageContainer
             let userProfile
             let targetNode
             let targetNodeTypeCount
@@ -107,6 +107,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             if (response.result === 'Error') { return }
             addOpenStorageNodes()
             if (response.result === 'Error') { return }
+            addAvailableStorageNodes()
+            if (response.result === 'Error') { return }            
             await pushProfileAndPullRequest()
             if (response.result === 'Error') { return }
             saveUserAppFile()
@@ -292,7 +294,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 githubStorageContainers: []
                             }
                         }
-                        let storageContainer = {
+                        storageContainer = {
                             type: 'Github Storage Container',
                             name: 'New Github Storage Container',
                             project: 'Open-Storage',
@@ -306,9 +308,37 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             )
                         }
                         userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
-                        storageContainerId = storageContainer.id
                     }
                 }
+            }
+
+            function addAvailableStorageNodes() {
+
+                targetNode.availableStorage = {
+                    type: 'Available Storage',
+                    name: 'New Available Storage',
+                    project: 'Open-Storage',
+                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    storageContainerReferences: [],
+                    config: '{}'
+                }
+
+                let StorageContainerReference = {
+                    type: 'Storage Container Reference',
+                    name: 'New Storage Container Reference',
+                    project: 'Open-Storage',
+                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                    config: '{}',
+                    savedPayload: {
+                        referenceParent: {
+                            type: storageContainer.type,
+                            name: storageContainer.name,
+                            id: storageContainer.id
+                        }
+                    }
+                }
+
+                targetNode.availableStorage.storageContainerReferences.push(StorageContainerReference)
             }
 
             async function pushProfileAndPullRequest() {

@@ -27,7 +27,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             3. Add the social entity to the User Profile.
             4. Create the Signing Account for the Social Entity.
             5. Create a Storage Container for the new Social Entity.
-            6. Save the updated User Profile to it's storage location.
+            6. Adding the Available Storage to the Social Entity.
+            7. Save the updated User Profile to it's storage location.
     
             TODO: We need to check that the socialEntityHandle is unique among all Social Entities that currently exist.
             */

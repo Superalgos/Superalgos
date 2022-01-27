@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Позволяет запускать учебные пособия. Он основан не на HTML canvas, а на HTML + CSS.",
                 "updated": 1640931706945
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Eğiticilerin çalıştırılmasını sağlar. HTML tuvalini değil, HTML + CSS'yi temel alır.",
+                "updated": 1643203358071
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Tutorial Space - это самый верхний уровень всей системы, поскольку оно отображается выше всего остального. Оно может манипулировать другими пространствами на основе конфигурации каждой темы и шага обучения.",
                     "updated": 1640931783169
+                },
+                {
+                    "language": "TR",
+                    "text": "Eğitim Alanı ( Tutorial Space ) , her şeyin üzerinde oluşturulduğundan beri tüm sistemin en üst düzey katmanıdır. Her öğretici konu ve adımın yapılandırmasına göre diğer alanları değiştirebilir.",
+                    "updated": 1643203410540
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Учебники могут не только перемещать пользователя по пользовательскому интерфейсу, но и выполнять большинство действий, которые могут выполнять сами пользователи, например, запускать задачи любого рода.",
                     "updated": 1640931801687
+                },
+                {
+                    "language": "TR",
+                    "text": "Öğreticiler yalnızca kullanıcıyı kullanıcı arayüzünde ( UI ) hareket ettirmekle kalmaz, aynı zamanda, örneğin herhangi bir türdeki görevleri çalıştırmak gibi, kullanıcıların kendilerinin gerçekleştirebilecekleri çoğu eylemi de gerçekleştirebilir.",
+                    "updated": 1643203456751
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Пространство учебников (Tutorial Space) - это новое дополнение к системе. По этой причине на сегодняшний день существует мало учебных пособий, но мы ожидаем, что в будущем ситуация изменится.",
                     "updated": 1640931833127
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Eğitim Alanı sisteme yeni bir eklemedir. Bu nedenle, bugün birkaç öğretici ( Tutorial ) var, ancak bunun gelecekte değişmesini bekliyoruz.",
+                    "updated": 1643203523090
                 }
             ]
         }

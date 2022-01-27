@@ -20,9 +20,14 @@ function updateProfile(profileData) {
     return httpRequest('/users/profile', POST, profileData)
 }
 
+function getUserSocialPersona() {
+    return httpRequest('/users/social-persona', GET);
+}
+
 export {
     getProfiles,
     getProfile,
     updateProfile,
-    getPaginationProfiles
+    getPaginationProfiles,
+    getUserSocialPersona
 }

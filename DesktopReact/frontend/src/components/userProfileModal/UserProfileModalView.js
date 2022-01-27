@@ -74,7 +74,7 @@ const UserProfileModalView = ( props ) => {
                     <Input className="input" accept="image/*" id="profilePic" multiple type="file"
                         onChange={selectProfilePic}
                     />
-                    <Button variant="outlined" component="span">
+                    <Button className="profilePicButtons" variant="outlined" component="span">
                         Upload Profile Picture
                     </Button>
                 </label>
@@ -85,7 +85,7 @@ const UserProfileModalView = ( props ) => {
                     <label htmlFor="bannerPic">
                         <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
                             onChange={selectBannerPic}/>
-                        <Button variant="outlined" component="span">
+                        <Button className="profilePicButtons" variant="outlined" component="span">
                             Upload Banner Picture
                         </Button>
                     </label>
@@ -119,7 +119,7 @@ const UserProfileModalView = ( props ) => {
                     ) : null}
                 </FormControl>
                 <FormControl className="editProfile">
-                    <InputLabel htmlFor="bio">bio</InputLabel>
+                    <InputLabel htmlFor="bio">Bio</InputLabel>
                     <OutlinedInput
                         id="bio"
                         value={userInfo.bio}
@@ -129,7 +129,7 @@ const UserProfileModalView = ( props ) => {
                     />
                 </FormControl>
                 <FormControl className="editProfile">
-                    <InputLabel htmlFor="location">location</InputLabel>
+                    <InputLabel htmlFor="location">Location</InputLabel>
                     <OutlinedInput
                         id="location"
                         value={userInfo.location}

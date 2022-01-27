@@ -10,6 +10,11 @@
                 "language": "DE",
                 "text": "Zu den in der Alpha-Datenmine erstellten Indikatoren gehören Average True Range (ATR), Rate of Change (ROC) und Stochastic.",
                 "updated": 1641914227904
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Alfa veri madeninde oluşturulan göstergeler arasında Ortalama Gerçek Aralık (ATR), Değişim Oranı (ROC) ve Stokastik bulunur.",
+                "updated": 1643291932952
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "DE",
                     "text": "Die Alpha-Datenmine wird Ihnen präsentiert von...",
                     "updated": 1641914238756
+                },
+                {
+                    "language": "TR",
+                    "text": "Alfa veri madeni tarafından sizlere sunulmuştur...",
+                    "updated": 1643291944607
                 }
             ]
         },
@@ -39,6 +49,11 @@
                     "language": "DE",
                     "text": "Arbeiten Sie mit dieser Datenmine zusammen und melden Sie Probleme direkt an das Repository der Mitwirkenden.",
                     "updated": 1641914649557
+                },
+                {
+                    "language": "TR",
+                    "text": "İpucu: Bu veri madeni ile işbirliği yapın ve sorunları doğrudan katkıda bulunanlar havuzuna bildirin.",
+                    "updated": 1643291957268
                 }
             ]
         }

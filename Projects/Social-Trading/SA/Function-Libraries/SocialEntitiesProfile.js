@@ -18,7 +18,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
     
             userAppType                     Possible values for this field are: "Social Trading Desktop App", "Social Trading Mobile App"
             socialEntityType                "Social Persona" or "Social Trading Bot"
-            socialEntityHandle              A string of 20 characters max.
+            socialEntityHandle              A string of 25 characters max.
             
             At this function we are going to:
     
@@ -89,6 +89,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             let storageProviderName
             let storageProviderUsername
             let storageProviderToken
+            let storageContainerId
             let userProfile
             let targetNode
             let targetNodeTypeCount
@@ -103,6 +104,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             addSocialEntitiesNodes()
             if (response.result === 'Error') { return }
             await addSigningAccounts()
+            if (response.result === 'Error') { return }
+            addOpenStorageNodes()
             if (response.result === 'Error') { return }
             await pushProfileAndPullRequest()
             if (response.result === 'Error') { return }
@@ -231,6 +234,83 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 if (response.result === 'Error') { resolve(response) }
             }
 
+            async function addOpenStorageNodes() {
+
+                const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.type +"-Data"
+                /*
+                Create this repository at Github 
+                */
+                await octokit.rest.repos.createForAuthenticatedUser({
+                    name: SOCIAL_TRADING_REPO_NAME,
+                    private: false
+                })
+                    .then(repositoryCreated)
+                    .catch(repositoryNotCreated)
+        
+                function repositoryCreated() {
+                    addNodes()
+                }
+        
+                function repositoryNotCreated(err) {
+                    if (err.status === 422) {
+                        /*
+                        Repo already existed, so no need to create it. 
+                        */
+                        addNodes()
+                    } else {
+                        response = {
+                            result: 'Error',
+                            message: 'Error creating Repo at Github.',
+                            stack: err.stack
+                        }
+                        resolve(response)
+                    }
+                }
+        
+                function addNodes() {
+                    /*
+                    Add the User Storage nodes to the User Profile
+                    */
+                    if (userProfile.userStorage === undefined) {
+                        userProfile.userStorage = {
+                            type: 'User Storage',
+                            name: 'New User Storage',
+                            project: 'Open-Storage',
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            config: '{}'
+                        }
+                    }
+        
+                    if (storageProviderName === "Github") {
+                        if (userProfile.userStorage.githubStorage === undefined) {
+                            userProfile.userStorage.githubStorage = {
+                                type: 'Github Storage',
+                                name: 'New Github Storage',
+                                project: 'Open-Storage',
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                config: '{}',
+                                githubStorageContainers: []
+                            }
+                        }
+                        let storageContainer = {
+                            type: 'Github Storage Container',
+                            name: 'New Github Storage Container',
+                            project: 'Open-Storage',
+                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                            config: JSON.stringify(
+                                {
+                                    codeName: SOCIAL_TRADING_REPO_NAME,
+                                    githubUserName: storageProviderUsername,
+                                    repositoryName: SOCIAL_TRADING_REPO_NAME
+                                }
+                            )
+                        }
+                        userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
+                        storageContainerId = storageContainer.id
+                    }
+                }
+            }
+
             async function pushProfileAndPullRequest() {
 
                 await SA.projects.communityPlugins.utilities.pluginsAtGithub.pushPluginFileAndPullRequest(
@@ -278,80 +358,6 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
     async function listSocialEntities() {
 
-    }
-
-    async function addOpenStorage() {
-
-        const SOCIAL_TRADING_REPO_NAME = "My-Social-Trading-Data"
-        /*
-        Create this repository at Github 
-        */
-        await octokit.rest.repos.createForAuthenticatedUser({
-            name: SOCIAL_TRADING_REPO_NAME,
-            private: false
-        })
-            .then(repositoryCreated)
-            .catch(repositoryNotCreated)
-
-        function repositoryCreated() {
-            addNodes()
-        }
-
-        function repositoryNotCreated(err) {
-            if (err.status === 422) {
-                /*
-                Repo already existed, so no need to create it. 
-                */
-                addNodes()
-            } else {
-                response = {
-                    result: 'Error',
-                    message: 'Error creating Repo at Github.',
-                    stack: err.stack
-                }
-                resolve(response)
-            }
-        }
-
-        function addNodes() {
-            /*
-            Add the User Storage nodes to the User Profile
-            */
-            if (userProfile.userStorage === undefined) {
-                userProfile.userStorage = {
-                    type: 'User Storage',
-                    name: 'New User Storage',
-                    project: 'Open-Storage',
-                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    config: '{}'
-                }
-            }
-
-            if (userProfile.userStorage.githubStorage === undefined) {
-                userProfile.userStorage.githubStorage = {
-                    type: 'Github Storage',
-                    name: 'New Github Storage',
-                    project: 'Open-Storage',
-                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                    config: '{}',
-                    githubStorageContainers: []
-                }
-            }
-            let storageContainer = {
-                type: 'Github Storage Container',
-                name: 'New Github Storage Container',
-                project: 'Open-Storage',
-                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                config: JSON.stringify(
-                    {
-                        codeName: SOCIAL_TRADING_REPO_NAME,
-                        githubUserName: profileMessage.storageProviderUsername,
-                        repositoryName: SOCIAL_TRADING_REPO_NAME
-                    }
-                )
-            }
-            userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
-        }
     }
 }
 

@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Tebrikler... Bu eğitimin sonuna geldiniz!",
                 "updated": 1642164236434
+            },
+            {
+                "language": "RU",
+                "text": "Поздравляем... вы дошли до конца этого руководства!",
+                "updated": 1643091529294
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "İpucu: Bu öğreticiyi istediğiniz zaman tekrar ziyaret edebilirsiniz. Menüden Oynat seçeneğini seçerseniz, en baştan başlarsınız. Bunun yerine Sürdür seçeneğini belirlerseniz, en son kaldığınız yerden veya en son atladığınız adım'dan başlarsınız.",
                     "updated": 1642164304986
+                },
+                {
+                    "language": "RU",
+                    "text": "Вы можете вернуться к этому уроку в любой момент. Если вы выберете в меню опцию Play, вы начнете с самого начала. Если вы выберете опцию Resume, то начнете с того места, где остановились в последний раз или пропустили шаг.",
+                    "updated": 1643091555511
                 }
             ]
         }

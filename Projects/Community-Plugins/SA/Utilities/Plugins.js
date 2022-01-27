@@ -10,6 +10,9 @@ exports.newPluginsUtilitiesPlugins = function () {
     async function getPluginFileNames(project, folder) {
 
         return new Promise((resolve, reject) => {
+            if (global.env.PROJECT_PLUGIN_MAP[project] === undefined) {
+                resolve([])
+            }
             let pluginName = global.env.PROJECT_PLUGIN_MAP[project].dir || project
             let path = global.env.PATH_TO_PLUGINS + '/' + pluginName + '/' + folder
 

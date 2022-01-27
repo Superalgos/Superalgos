@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Özet: Marketi kurmak için gerekli konfigürasyonu tamamladınız! Gerisi tamamen otomatik!",
                 "updated": 1642151003650
+            },
+            {
+                "language": "RU",
+                "text": "Вы завершили настройку, необходимую для установки рынка! Остальное полностью автоматизировано!",
+                "updated": 1643090622827
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "TR",
                     "text": "Kurulumu yeni tamamladığınız Market düğümündeki Market'i (Install Market button) Yükle düğmesini tıklayın. Market kurulduğuna göre, yüklemek sadece bir tık uzağınızda.",
                     "updated": 1642151142341
+                },
+                {
+                    "language": "RU",
+                    "text": "Нажмите кнопку Install Market (Установить Маркет) на узле Market, который вы только что закончили настраивать. Теперь, когда рынок настроен, установить его можно одним щелчком мыши.",
+                    "updated": 1643090651401
                 }
             ]
         },
@@ -68,6 +78,11 @@
                     "language": "TR",
                     "text": "İpucu: Borsayı Yükle işlevi( Install Market), yerel Ağ Düğümünde (local Network Node) ve Grafik Alanında (Charting Space) birçok veri yapısını yapılandırır. Aşağıdaki eğitim adımları, yüklemeye aşina olmanıza yardımcı olacaktır.",
                     "updated": 1642151362357
+                },
+                {
+                    "language": "RU",
+                    "text": "Функция Install Market устанавливает множество структур данных в локальном узле сети и в пространстве графиков. Следующие несколько шагов в учебнике помогут вам ознакомиться с установкой.",
+                    "updated": 1643090676476
                 }
             ]
         }

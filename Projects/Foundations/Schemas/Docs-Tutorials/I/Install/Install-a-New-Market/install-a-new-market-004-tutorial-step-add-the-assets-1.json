@@ -25,6 +25,11 @@
                 "language": "TR",
                 "text": "Exchange Varlıkları ( Exchange Assets )  düğüm menüsünü açın ve gerekli varlıkları eklemek için Varlık Ekle ( Add Asset ) düğmesini kullanın.",
                 "updated": 1642085543704
+            },
+            {
+                "language": "RU",
+                "text": "Откройте меню узла Exchange Assets и используйте кнопку Add Asset для добавления необходимых активов.",
+                "updated": 1643090281146
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "TR",
                     "text": "Önemli: Exchange Varlıkları ( Exchange Assets ) altındaki varlıklar çoğaltılamaz. İlgilendiğiniz varlıkların tanımları zaten mevcutsa, yenilerini oluşturmak yerine bunları yeniden kullanabilirsiniz. Öyleyse,borsa'yı( Market ) kurmanız gerekene kadar sonraki birkaç adımı atlayın.",
                     "updated": 1642085674999
+                },
+                {
+                    "language": "RU",
+                    "text": "Активы в разделе Exchange Assets не могут дублироваться. Если определения для интересующих вас активов уже существуют, вы можете использовать их вместо создания новых. В этом случае просто пропустите следующие несколько шагов, пока не потребуется настройка рынка.",
+                    "updated": 1643090317117
                 }
             ]
         }

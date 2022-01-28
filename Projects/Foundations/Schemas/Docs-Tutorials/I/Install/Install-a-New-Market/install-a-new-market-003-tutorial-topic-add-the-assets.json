@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Özet: Çalışmak istediğiniz varlıklar Exchange Varlıkları ( Exchange Assets ) altında listelenmiyorsa, önce bunları ekleyip yapılandırmanız gerekir.",
                 "updated": 1642085426458
+            },
+            {
+                "language": "RU",
+                "text": "Если активы, с которыми вы хотите работать, не перечислены в разделе Exchange Assets, вы должны сначала добавить и настроить их.",
+                "updated": 1643090228970
             }
         ]
     },
@@ -48,6 +53,11 @@
                     "language": "TR",
                     "text": "Eğitimin bu bölümünde, hangi varlıklarla çalışmak istediğinizi tanımlamayı öğreneceksiniz.",
                     "updated": 1642085440738
+                },
+                {
+                    "language": "RU",
+                    "text": "В этом разделе учебника вы научитесь определять, с какими активами вы хотите работать.",
+                    "updated": 1643090238384
                 }
             ]
         },
@@ -70,6 +80,11 @@
                     "language": "TR",
                     "text": "İpucu: Her borsa yüzlerce varlık listeleyebilir, ancak yalnızca birkaçıyla ilgilenebilirsiniz. Bazı otomatik işlemler tanımlarınızı besleyebilir, bu nedenle onları diğerlerinden ayrı tutmak her zaman iyi bir fikirdir.",
                     "updated": 1642085528723
+                },
+                {
+                    "language": "RU",
+                    "text": "На каждой бирже могут быть представлены сотни активов, однако вас, скорее всего, будут интересовать лишь некоторые из них. Некоторые автоматизированные операции могут питаться вашими определениями, поэтому держать их свободными от мусора - всегда хорошая идея.",
+                    "updated": 1643090267732
                 }
             ]
         }

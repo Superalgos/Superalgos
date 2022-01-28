@@ -13,8 +13,9 @@
                 "language": "DE",
                 "text": "Kapselt verschiedene Datenanbieter, die in der Lage sind, auf unterschiedliche Weise organisierte Datensätze zu lesen.",
                 "updated": 1641736740604
-        },
-        {                "language": "RU",
+            },
+            {       
+                "language": "RU",
                 "text": "Охватывает различные поставщики данных, способные читать наборы данных, организованные различными способами.",
                 "updated": 1640931972681
             },
@@ -34,8 +35,9 @@
                     "language": "DE",
                     "text": "Das System definiert diese Arten von Datenanbietern:",
                     "updated": 1641736749444
-        },
-        {                    "language": "RU",
+                },
+                {           
+                    "language": "RU",
                     "text": "Система определяет эти типы поставщиков данных:",
                     "updated": 1640931983253
                 },
@@ -75,8 +77,9 @@
                     "language": "DE",
                     "text": "Daily Files: Für Zeitrahmen unter 1 Stunde, bis zu 1 Minute, ist es sinnvoll, die Marktdaten in eine Datei pro Tag aufzuteilen.",
                     "updated": 1641736768188
-        },
-        {                    "language": "RU",
+                },
+                {   
+                    "language": "RU",
                     "text": "Daily Files: Для тайм-фреймов менее 1 часа, вплоть до 1 минуты, удобно разбивать рыночные данные на один файл в день.",
                     "updated": 1640932020478
                 },
@@ -95,8 +98,9 @@
                     "language": "DE",
                     "text": "Single File: Manchmal kann ein Prozess eine einzige Datei erzeugen, unabhängig vom Zeitrahmen.",
                     "updated": 1641736776487
-        },
-        {                    "language": "RU",
+                },
+                {           
+                    "language": "RU",
                     "text": "Single File: Sиногда процесс может генерировать один файл независимо от таймфрейма.",
                     "updated": 1640932041402
                 },
@@ -136,8 +140,9 @@
                     "language": "DE",
                     "text": "Tägliche Dateien werden von einem Dateicursor verwaltet, der dynamisch die Dateien eines Tages und seiner Nachfolgetage lädt.",
                     "updated": 1641736822077
-        },
-        {                    "language": "RU",
+                },
+                {           
+                    "language": "RU",
                     "text": "Daily Files управляются File Cursor, который динамически загружает файлы одного дня и соседних с ним дней.",
                     "updated": 1640932087275
                 },

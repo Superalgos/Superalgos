@@ -25,6 +25,8 @@ exports.newDesktopApp = function newDesktopApp() {
         await setupNetwork()
         await finalSetupInterfaces()
 
+        /*
+        Test Message
         
         let profileMessage = {
             profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
@@ -38,6 +40,7 @@ exports.newDesktopApp = function newDesktopApp() {
             requestType: 'Profile',
             profileMessage: JSON.stringify(profileMessage)
         }
+        */
         
         let response = await thisObject.webAppInterface.sendMessage(JSON.stringify(testMessage))
         console.log(response)

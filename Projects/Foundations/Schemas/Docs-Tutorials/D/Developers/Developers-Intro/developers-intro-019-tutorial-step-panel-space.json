@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Panel Space - это место, где существуют все панели, определенные плоттерами. Пространство имеет свой собственный физический движок, который управляет тем, как пользователи взаимодействуют с панелями, а панели - с другими панелями.",
                 "updated": 1640931881651
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Panel Alanı, çiziciler tarafından tanımlanan tüm panellerin bulunduğu yerdir. Alanın, kullanıcıların panellerle ve panellerin diğer panellerle etkileşimini yöneten kendi fizik motoru vardır.",
+                "updated": 1643203584996
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "Панели ограничены границами пространства панелей (Panel Space), которое совпадает с границами пространства Charting Space.",
                     "updated": 1640931922223
+                },
+                {
+                    "language": "TR",
+                    "text": "Paneller, Grafik Alanının ( Charting Space ) sınırlarıyla eşleşen Panel Alanı sınırları içinde sınırlandırılmıştır.",
+                    "updated": 1643203633521
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Хотя пространство панелей существует с момента создания проекта, оно все еще довольно слабо развито, и есть много возможностей для его улучшения.",
                     "updated": 1640931957540
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Panel alanı, projenin başlangıcından beri var olmasına rağmen, hala oldukça az gelişmiş durumda ve onu geliştirmek için çok yer var.",
+                    "updated": 1643203666327
                 }
             ]
         }

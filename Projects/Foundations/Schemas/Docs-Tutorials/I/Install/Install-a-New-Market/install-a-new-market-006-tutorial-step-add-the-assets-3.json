@@ -24,6 +24,11 @@
                 "language": "TR",
                 "text": "Özet: Varlıkları, kullanım kolaylığı için madeni paranın veya jetonun açıklayıcı adıyla etiketleyin. Örneğin: Eter.",
                 "updated": 1642143792944
+            },
+            {
+                "language": "RU",
+                "text": "Пометьте активы описательным названием монеты или токена для удобства использования. Например: Ether.",
+                "updated": 1643090384126
             }
         ]
     },
@@ -47,6 +52,11 @@
                     "language": "TR",
                     "text": "Adım: Düğümleri etiketleyin",
                     "updated": 1642143906796
+                },
+                {
+                    "language": "RU",
+                    "text": "Шаг 3: Маркировка узлов",
+                    "updated": 1643090403296
                 }
             ]
         },
@@ -69,6 +79,11 @@
                     "language": "TR",
                     "text": "İpucu: Anahtar düğümler için uygun etiketlere sahip düzenli bir çalışma alanı ( Workspace ), büyük operasyonların ve karmaşıklığın yönetilmesine yardımcı olur.",
                     "updated": 1642144011452
+                },
+                {
+                    "language": "RU",
+                    "text": "Поддержание опрятного рабочего пространства с соответствующими метками для значимых узлов помогает в управлении большими операциями и администрировании сложностей.",
+                    "updated": 1643090419182
                 }
             ]
         }

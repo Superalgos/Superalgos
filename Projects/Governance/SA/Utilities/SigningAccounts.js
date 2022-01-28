@@ -66,7 +66,6 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         */
         targetNode.name = targetNode.type + " #" + targetNodeTypeCount
         let codeName = targetNode.type.replaceAll(' ', '-') + "-" + targetNodeTypeCount
-        let handle = userProfileHandle + '-' + codeName
         /*
         We store at the Config the Signed userProfileHandle
         */
@@ -89,12 +88,6 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
             config: JSON.stringify(config)
         }
         targetNode.signingAccount = signingAccount
-        /*
-        For Social Entities, we will automatically create a default handle
-        */
-        if (targetNode.type === "Social Persona" || targetNode.type === "Social Trading Bot") {
-            SA.projects.visualScripting.utilities.nodeConfiguration.saveConfigProperty(targetNode, 'handle', handle)
-        }
         /*
         Deal with secrets
         */

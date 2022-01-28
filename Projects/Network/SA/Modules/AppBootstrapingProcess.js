@@ -20,8 +20,6 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
 
     async function run(userAppCodeName, p2pNetworkClientIdentity) {
 
-        let allNodesInPluginsMap = new Map()
-
         await loadUserP2PNetworksPlugins()
         await loadUserProfilesPlugins()
 
@@ -62,8 +60,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 let p2pNetworkPlugin = JSON.parse(pluginFileContent)
 
                 let p2pNetwork = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
-                    p2pNetworkPlugin,
-                    allNodesInPluginsMap
+                    p2pNetworkPlugin
                 )
 
                 if (p2pNetwork === undefined) {
@@ -98,8 +95,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 Here we will turn the saved plugin into an in-memory node structure with parent nodes and reference parents.
                 */
                 let userProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
-                    userProfilePlugin,
-                    allNodesInPluginsMap
+                    userProfilePlugin
                 )
 
                 if (userProfile === undefined) {
@@ -117,8 +113,7 @@ exports.newNetworkModulesAppBootstrapingProcess = function newNetworkModulesAppB
                 let mapArrayItem = mapArray[i][1]
 
                 SA.projects.communityPlugins.utilities.nodes.fromInMemoryStructureToStructureWithReferenceParents(
-                    mapArrayItem,
-                    allNodesInPluginsMap
+                    mapArrayItem
                 )
             }
         }

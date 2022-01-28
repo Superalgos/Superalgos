@@ -254,7 +254,7 @@ nodeInstPromise.then(() => {
       if (!developExists) await git.checkout(['-B', 'develop'])
       // Check that a branch is checked out, otherwise checkout develop
       branchSumAll = await git.branchLocal().catch(errorResp)
-      if (branchSumAll.current === '') await git.checkout(['-B', 'develop'])
+      if (branchSumAll.current === '' || branchSumAll.current === 'master') await git.checkout(['-B', 'develop'])
 
       if (repo !== "Superalgos" && origin && gitUser) await git.removeRemote('origin').catch(errorResp)
       if (repo !== "Superalgos" && gitUser) {

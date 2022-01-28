@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Gösterge, aşağıdaki dönemler için üç ürün içerir: 9, 32, 76.",
                 "updated": 1643292393030
+            },
+            {
+                "language": "RU",
+                "text": "Индикатор имеет три продукта для следующих периодов: 9, 32, 76.",
+                "updated": 1643348379507
             }
         ]
     },
@@ -49,6 +54,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre, \\\"Değişim oranı (ROC), bir değişkenin belirli bir süre boyunca değişme hızıdır.\\\" Sınırsız bir momentum göstergesi ve uzun vadeli eğilimleri tespit etmek için iyi bir araçtır. Bu gösterge kendi başına bir sinyal olarak kullanılmamalıdır, ancak diğer sinyallerin doğrulanmasına yardımcı olabilir.",
                     "updated": 1643292602614
+                },
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"Скорость изменения (ROC) - это скорость, с которой переменная изменяется за определенный период времени\". Это индикатор неограниченного импульса и хороший инструмент для выявления долгосрочных тенденций. Этот индикатор не следует использовать в качестве самостоятельного сигнала, но он может помочь подтвердить другие сигналы.",
+                    "updated": 1643348722916
                 }
             ]
         },
@@ -74,6 +84,11 @@
                     "language": "TR",
                     "text": "Matematiksel olarak, ROC, mevcut kapanış fiyatının önceki bir döneme göre kapanış fiyatına yüzde değişimini tanımlar.",
                     "updated": 1643292619466
+                },
+                {
+                    "language": "RU",
+                    "text": "Математически ROC описывает процентное изменение текущей цены закрытия по отношению к цене закрытия за более ранний период.",
+                    "updated": 1643348736827
                 }
             ]
         },
@@ -90,6 +105,11 @@
                     "language": "TR",
                     "text": "Alpha veri madeni, 76, 32 ve 9 periyotlarına sahip 3 ROC göstergesi sağlar. Değişim Oranı, fiyat hareketiyle yakından bağlantılıdır. Fiyat yükseldiğinde ROC değeri sıfır çizgisinin üzerinde ve fiyat düştüğünde ROC değeri sıfır çizgisinin altında olma eğilimindedir.",
                     "updated": 1643292632581
+                },
+                {
+                    "language": "RU",
+                    "text": "Alpha data-mine предоставляет 3 индикатора ROC с периодами 76, 32 и 9. Показатель изменения тесно связан с ценовым действием. Когда цена растет, значение ROC стремится быть выше нулевой линии, а когда цена падает, значение ROC стремится быть ниже нулевой линии.",
+                    "updated": 1643348763974
                 }
             ]
         },
@@ -106,6 +126,11 @@
                     "language": "TR",
                     "text": "Değişim Oranı Ürünler ve Özellikler",
                     "updated": 1643292654953
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукт и свойства ROC",
+                    "updated": 1643348811847
                 }
             ]
         },
@@ -122,6 +147,11 @@
                     "language": "TR",
                     "text": "Farklı zaman dilimlerine göre üç ürün mevcuttur. Yalnızca bir değeri olan basit bir göstergedir: önceki döneme göre değişim yüzdesi.",
                     "updated": 1643292667779
+                },
+                {
+                    "language": "RU",
+                    "text": "Имеется три продукта, основанных на различных периодах. Это простой показатель, который имеет только одно значение: процент изменения к предыдущему периоду.",
+                    "updated": 1643348825838
                 }
             ]
         },
@@ -155,6 +185,11 @@
                     "language": "TR",
                     "text": "Örnek:",
                     "updated": 1643292718732
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643348832793
                 }
             ]
         },
@@ -176,6 +211,11 @@
                     "language": "TR",
                     "text": "Değişim Oranının ( Rate ) sıfır trend çizgisinin üzerinde olup olmadığını ve yukarı doğru hareket edip etmediğini kontrol edin.",
                     "updated": 1643292755460
+                },
+                {
+                    "language": "RU",
+                    "text": "Проверьте, находится ли Rate of Change выше нулевой линии тренда и движется ли он вверх.",
+                    "updated": 1643348845125
                 }
             ]
         }

@@ -8,8 +8,7 @@ exports.newPluginsUtilitiesNodes = function () {
     return thisObject
 
     function fromSavedPluginToInMemoryStructure(
-        pluginFile,
-        allNodesInPluginsMap
+        pluginFile
         ) {
         /*
         This function scans a plugin file as saved from the UI and turn it
@@ -71,7 +70,7 @@ exports.newPluginsUtilitiesNodes = function () {
                 }
             }
 
-            allNodesInPluginsMap.set(currentObject.id, currentObject)
+            SA.projects.network.globals.memory.maps.NODES_IN_PLUGINS_FILES.set(currentObject.id, currentObject)
 
             /* We scan through this node children */
             if (schemaDocument.childrenNodesProperties !== undefined) {
@@ -100,8 +99,7 @@ exports.newPluginsUtilitiesNodes = function () {
     }
 
     function fromInMemoryStructureToStructureWithReferenceParents(
-        rootObject,
-        allNodesInPluginsMap
+        rootObject
     ){
         /*
         This function scans an in memory node structure and add the reference parents
@@ -118,7 +116,7 @@ exports.newPluginsUtilitiesNodes = function () {
             if (
                 currentObject.referenceParent !== undefined
             ) {
-                currentObject.referenceParent = allNodesInPluginsMap.get(currentObject.referenceParent)
+                currentObject.referenceParent = SA.projects.network.globals.memory.maps.NODES_IN_PLUGINS_FILES.get(currentObject.referenceParent)
             }
 
             /* We scan through this node children */

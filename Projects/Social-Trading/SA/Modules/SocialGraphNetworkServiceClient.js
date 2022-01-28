@@ -315,6 +315,11 @@ exports.newSocialTradingModulesSocialGraphNetworkServiceClient = function newSoc
                             profileMessage
                         )
                     }
+                    case SA.projects.socialTrading.globals.profileTypes.GET_USER_PROFILE_INFO: {
+                        return await SA.projects.socialTrading.functionLibraries.userProfile.getUserProfileInfo(
+                            profileMessage
+                        )
+                    }
                     case SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY: {
                         return await SA.projects.socialTrading.functionLibraries.socialEntitiesProfile.createSocialEntity(
                             profileMessage

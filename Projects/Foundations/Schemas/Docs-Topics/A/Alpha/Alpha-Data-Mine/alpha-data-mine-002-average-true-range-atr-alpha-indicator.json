@@ -15,6 +15,11 @@
                 "language": "TR",
                 "text": "Özet: Gösterge 2 farklı yumuşatma işlevine sahiptir: ATR - SMA (basit hareketli ortalama) / ATR - RMA (üssel hareketli ortalama).",
                 "updated": 1643292078332
+            },
+            {
+                "language": "RU",
+                "text": "Индикатор имеет 2 различные функции сглаживания: ATR - SMA (простая скользящая средняя) / ATR - RMA (экспоненциальная скользящая средняя).",
+                "updated": 1643348066844
             }
         ]
     },
@@ -33,6 +38,11 @@
                     "language": "TR",
                     "text": "Grafiklerde Ortalama Gerçek Aralık",
                     "updated": 1643292119358
+                },
+                {
+                    "language": "RU",
+                    "text": "Average True Range (Средний истинный диапазон) на графиках",
+                    "updated": 1643348103256
                 }
             ]
         },
@@ -50,6 +60,11 @@
                     "language": "TR",
                     "text": "Investopedia'ya göre, \\\"Ortalama Gerçek Aralık (ATR), o dönem için bir varlık fiyatının tüm aralığını ayrıştırarak piyasa oynaklığını ölçen teknik bir analiz göstergesidir.\\\" ATR, fiyat hareketinin yönünü göstermez, ancak hareketin gücünü ölçer.",
                     "updated": 1643292136942
+                },
+                {
+                    "language": "RU",
+                    "text": "Согласно Investopedia, \"Average True Range (ATR) - это индикатор технического анализа, который измеряет волатильность рынка путем разложения всего диапазона цены актива за данный период\". ATR не указывает направление движения цены, но измеряет силу движения.",
+                    "updated": 1643348125854
                 }
             ]
         },
@@ -72,6 +87,11 @@
                     "language": "TR",
                     "text": "True Range (TR), cari dönemin en yüksek/düşük değeri ile önceki dönem kapanışı arasındaki aralığın mutlak değerini hesaplar. Mutlak değerler kullanıldığından, True Range yalnızca önceki döneme göre volatilite değişimini gösteren pozitif sayılara sahiptir. Gerçek aralığın sonucu, Ortalama Gerçek Aralık (ATR) tarafından düzeltilir. Alpha veri madeni, 2 farklı yumuşatma işlevine sahip ATR göstergeleri sağlar: ATR - SMA (basit hareketli ortalama) / ATR - RMA (üssel hareketli ortalama)",
                     "updated": 1643292152630
+                },
+                {
+                    "language": "RU",
+                    "text": "Истинный диапазон - True Range (TR) - рассчитывает абсолютное значение диапазона между максимумом/минимумом текущего периода и закрытием предыдущего периода. Поскольку используются абсолютные значения, истинный диапазон имеет только положительные числа, указывающие на изменение волатильности по сравнению с предыдущим периодом. Результат истинного диапазона сглаживается средним истинным диапазоном (ATR). Alpha data mine предоставляет индикаторы ATR с 2 различными функциями сглаживания: ATR - SMA (простая скользящая средняя) / ATR - RMA (экспоненциальная скользящая средняя).",
+                    "updated": 1643348204800
                 }
             ]
         },
@@ -88,6 +108,11 @@
                     "language": "TR",
                     "text": "Bu göstergenin grafiği, farklı dönemlerden (2, 3, 14) 3 satır ATR değerini gösterir. Daha yüksek ATR değerleri, fiyat hareket yönünden bağımsız olarak daha yüksek piyasa oynaklığını gösterir. alt satır, minimum değer olarak sıfırdır. Daha uzun dönem, mevcut piyasa oynaklığına daha genel bir bakış sağlar ve daha düşük dönemler, kısa vadeli hareketlere tepki verir.",
                     "updated": 1643292167429
+                },
+                {
+                    "language": "RU",
+                    "text": "На графике этого индикатора показаны 3 линии значений ATR за разные периоды (2, 3, 14). Более высокие значения ATR указывают на более высокую волатильность рынка, не зависящую от направления ценового действия. Нижняя линия - это ноль как минимальное значение. Более длительный период дает более общее представление о текущей волатильности рынка, а более низкие периоды реагируют на краткосрочные движения.",
+                    "updated": 1643348242147
                 }
             ]
         },
@@ -104,6 +129,11 @@
                     "language": "TR",
                     "text": "Bilgi paneli, katmandaki her ATR değeri için sayısal değeri gösterir.",
                     "updated": 1643292179825
+                },
+                {
+                    "language": "RU",
+                    "text": "На информационной панели отображается числовое значение для каждого значения ATR в слое.",
+                    "updated": 1643348252841
                 }
             ]
         },
@@ -120,6 +150,11 @@
                     "language": "TR",
                     "text": "Ortalama True Range Ürünleri ve Özellikleri",
                     "updated": 1643292192704
+                },
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства среднего истинного диапазона",
+                    "updated": 1643348279462
                 }
             ]
         },
@@ -136,6 +171,11 @@
                     "language": "TR",
                     "text": "Her biri farklı yumuşatma işlevlerine ve farklı dönem konfigürasyonlarına sahip iki ürün mevcuttur:",
                     "updated": 1643292205766
+                },
+                {
+                    "language": "RU",
+                    "text": "Имеются два продукта, каждый из которых имеет различные функции сглаживания и различные конфигурации периодов:",
+                    "updated": 1643348295813
                 }
             ]
         },
@@ -153,6 +193,11 @@
                     "language": "TR",
                     "text": "| Ürün Adı    | Ürün Değişkeni | Özellikler |\n| ATR - SMA | atrSMA | atr2, atr3, atr14 |\n| ATR - RMA | atrRMA | atr2, atr3, atr14 |",
                     "updated": 1643292242824
+                },
+                {
+                    "language": "RU",
+                    "text": "| Product name | Product variable | Properties |\n| ATR - SMA | atrSMA | atr2, atr3, atr14 |\n| ATR - RMA | atrRMA | atr2, atr3, atr14 |",
+                    "updated": 1643348898645
                 }
             ]
         },
@@ -170,6 +215,11 @@
                     "language": "TR",
                     "text": "Örnek:",
                     "updated": 1643292259614
+                },
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643348342526
                 }
             ]
         },
@@ -191,6 +241,11 @@
                     "language": "TR",
                     "text": "Daha yavaş ATR (ATR-14) değerinin üzerinde daha hızlı ATR (ATR-3) değeri kısa vadeli harekette daha yüksek oynaklığa işaret eder.",
                     "updated": 1643292315604
+                },
+                {
+                    "language": "RU",
+                    "text": "Более быстрое значение ATR (ATR-3) над более медленным значением ATR (ATR-14) указывает на более высокую волатильность краткосрочного движения.",
+                    "updated": 1643348355475
                 }
             ]
         },
@@ -212,6 +267,11 @@
                     "language": "TR",
                     "text": "Yukarıdakiyle aynı örnek ancak yumuşatma işlevi olarak RMA (Üssel Hareketli Ortalama - Exponential Moving Average) ile.",
                     "updated": 1643292329998
+                },
+                {
+                    "language": "RU",
+                    "text": "Тот же пример, что и выше, но с RMA (экспоненциальное скользящее среднее) в качестве функции сглаживания.",
+                    "updated": 1643348366524
                 }
             ]
         }

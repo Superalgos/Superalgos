@@ -45,6 +45,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderName is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.storageProviderName !== 'Github') {
                 let response = {
@@ -52,6 +53,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderName Not Supported.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.storageProviderUsername === undefined) {
                 let response = {
@@ -59,6 +61,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderUsername is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.storageProviderToken === undefined) {
                 let response = {
@@ -66,6 +69,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderToken is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.userAppType === undefined) {
                 let response = {
@@ -73,6 +77,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'userAppType is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.userAppType !== 'Social Trading Desktop App' && profileMessage.userAppType !== 'Social Trading Mobile App') {
                 let response = {
@@ -80,6 +85,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'userAppType Not Supported.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
 
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
@@ -98,15 +104,30 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             }
 
             await checkCreateFork()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             await checkCreateUserProfile()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             addUserAppsNodes()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             await addSigningAccounts()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             await pushUserProfileAndPullRequest()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             saveUserAppFile()
 
             resolve(response)

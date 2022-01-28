@@ -46,6 +46,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'socialEntityHandle is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.socialEntityHandle.length > 25) {
                 let response = {
@@ -53,6 +54,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'socialEntityHandle.length > 25.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.socialEntityHandle.indexOf(' ') !== -1) { // TODO : check for all other characters not wanted at the handle.
                 let response = {
@@ -60,6 +62,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'socialEntityHandle cannot include spaces.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.socialEntityType === undefined) {
                 let response = {
@@ -67,6 +70,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'socialEntityType is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.socialEntityType !== 'Social Persona' && profileMessage.socialEntityType !== 'Social Trading Bot') {
                 let response = {
@@ -74,6 +78,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'socialEntityType Not Supported.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.userAppType === undefined) {
                 let response = {
@@ -81,6 +86,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'userAppType is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.userAppType !== 'Social Trading Desktop App' && profileMessage.userAppType !== 'Social Trading Mobile App') {
                 let response = {
@@ -88,6 +94,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     message: 'userAppType Not Supported.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
 
             let storageProviderName
@@ -102,7 +109,10 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             }
 
             loadUserAppFile()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
 
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
             const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
@@ -114,17 +124,35 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             })
 
             await loadUserProfileFromStorage()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             addSocialEntitiesNodes()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             await addSigningAccounts()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             await addOpenStorageNodes()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             addAvailableStorageNodes()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
             await pushUserProfileAndPullRequest()
-            if (response.result === 'Error') { resolve(response) }
+            if (response.result === 'Error') {
+                resolve(response)
+                return
+            }
 
             resolve(response)
 
@@ -458,18 +486,18 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             }
 
             loadUserAppFile()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             await loadUserProfileFromMemory()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
             listSocialEntities()
-            if (response.result === 'Error') { 
-                resolve(response) 
+            if (response.result === 'Error') {
+                resolve(response)
                 return
             }
 

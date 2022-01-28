@@ -1,11 +1,15 @@
 exports.newSocialTradingFunctionLibrariesUserProfile = function () {
 
     let thisObject = {
+        getUserProfileInfo: getUserProfileInfo,
         createUserProfile: createUserProfile
     }
 
     return thisObject
 
+    async function getUserProfileInfo(profileMessage) {
+
+    }
 
     async function createUserProfile(profileMessage) {
 
@@ -41,6 +45,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderName is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.storageProviderName !== 'Github') {
                 let response = {
@@ -48,6 +53,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderName Not Supported.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.storageProviderUsername === undefined) {
                 let response = {
@@ -55,6 +61,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderUsername is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.storageProviderToken === undefined) {
                 let response = {
@@ -62,6 +69,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'storageProviderToken is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.userAppType === undefined) {
                 let response = {
@@ -69,6 +77,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'userAppType is Undefined.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
             if (profileMessage.userAppType !== 'Social Trading Desktop App' && profileMessage.userAppType !== 'Social Trading Mobile App') {
                 let response = {
@@ -76,6 +85,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     message: 'userAppType Not Supported.'
                 }
                 resolve(JSON.stringify(response))
+                return
             }
 
             const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
@@ -94,16 +104,40 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             }
 
             await checkCreateFork()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             await checkCreateUserProfile()
-            if (response.result === 'Error') { return }
-            addUserApps()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
+            addUserAppsNodes()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             await addSigningAccounts()
-            if (response.result === 'Error') { return }
-            await pushProfileAndPullRequest()
-            if (response.result === 'Error') { return }
-            saveUserProfile()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
+            await pushUserProfileAndPullRequest()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
+            updateInMemoryUserProfile()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
+            saveUserAppFile()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
 
             resolve(response)
 
@@ -224,7 +258,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            function addUserApps() {
+            function addUserAppsNodes() {
                 if (userProfile.userApps === undefined) {
                     userProfile.userApps = {
                         type: 'User Apps',
@@ -293,7 +327,7 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 if (response.result === 'Error') { resolve(response) }
             }
 
-            async function pushProfileAndPullRequest() {
+            async function pushUserProfileAndPullRequest() {
 
                 await SA.projects.communityPlugins.utilities.pluginsAtGithub.pushPluginFileAndPullRequest(
                     JSON.stringify(userProfile, undefined, 4),
@@ -316,16 +350,37 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 }
             }
 
-            function saveUserProfile() {
+            function updateInMemoryUserProfile(){
+                
+                let inMemoryUserProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
+                    userProfile
+                )
+                if (userProfile === undefined) {
+                    response = {
+                        result: 'Error',
+                        message: 'Update User Profile could not be loadded into memory.'
+                    }
+                    return
+                }
+
+                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
+            }
+
+            function saveUserAppFile() {
                 /*
                 We will save a file to a special git ignored folder.
                 */
-                let filePath = global.env.PATH_TO_MY_SOCIAL_TRADING_DATA + '/'
-                let fileName = "AppData.json"
+                let filePath = global.env.PATH_TO_SECRETS + '/'
+                let fileName = profileMessage.userAppType.replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','').replace(' ','') + ".json"
                 let fileContent = {
                     userProfile: {
                         id: userProfile.id,
-                        name: userProfile.name
+                        codeName: JSON.parse(userProfile.config).codeName
+                    },
+                    storageProvider: {
+                        name: profileMessage.storageProviderName,
+                        userName: profileMessage.storageProviderUsername,
+                        token: profileMessage.storageProviderToken,
                     }
                 }
                 SA.projects.foundations.utilities.filesAndDirectories.createNewDir(filePath)

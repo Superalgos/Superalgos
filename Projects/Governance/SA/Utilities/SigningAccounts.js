@@ -66,7 +66,6 @@ exports.newGovernanceUtilitiesSigningAccounts = function newGovernanceUtilitiesS
         */
         targetNode.name = targetNode.type + " #" + targetNodeTypeCount
         let codeName = targetNode.type.replaceAll(' ', '-') + "-" + targetNodeTypeCount
-        let handle = userProfileHandle + '-' + codeName
         /*
         We store at the Config the Signed userProfileHandle
         */

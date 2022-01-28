@@ -565,7 +565,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 switch (profileMessage.socialEntityType) {
                     case "Social Persona": {
                         if (userProfile.socialPersonas !== undefined) {
-                            for (i = 0; i < userProfile.socialPersonas.socialPersonas.length; i++) {
+                            for (let i = 0; i < userProfile.socialPersonas.socialPersonas.length; i++) {
                                 let socialPersona = userProfile.socialPersonas.socialPersonas[i]
                                 let config = socialPersona.config
                                 let socialEntity = {
@@ -581,7 +581,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     case "Social Trading Bot": {
                         if (userProfile.userBots !== undefined) {
                             if (userProfile.userBots.socialTradingBots !== undefined) {
-                                for (i = 0; i < userProfile.userBots.socialTradingBots.socialTradingBots.length; i++) {
+                                for (let i = 0; i < userProfile.userBots.socialTradingBots.socialTradingBots.length; i++) {
                                     let socialTradingBot = userProfile.userBots.socialTradingBots.socialTradingBots[i]
                                     let config = socialTradingBot.config
                                     let socialEntity = {

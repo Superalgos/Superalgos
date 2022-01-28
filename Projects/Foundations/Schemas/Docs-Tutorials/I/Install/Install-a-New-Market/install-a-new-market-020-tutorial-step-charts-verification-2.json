@@ -23,6 +23,11 @@
                 "language": "TR",
                 "text": "Özet: Oluşturulan zaman makinelerinin grafik alanında görünüp görünmediğini kontrol edin...",
                 "updated": 1642163970972
+            },
+            {
+                "language": "RU",
+                "text": "Убедитесь, что созданные машины времени отображаются в пространстве графиков... вы должны найти...",
+                "updated": 1643091443206
             }
         ]
     },
@@ -45,6 +50,11 @@
                     "language": "TR",
                     "text": "Ticaret Görevlerini Test Etme'de ( Testing Trading Tasks ) oluşturulan her ticaret seansı için bir Zaman Makinesi ( Time Machine ).",
                     "updated": 1642164032106
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Machine для каждой торговой сессии, созданной в Testing Trading Tasks.",
+                    "updated": 1643091471855
                 }
             ]
         },
@@ -66,6 +76,11 @@
                     "language": "TR",
                     "text": "Üretim Ticareti Görevlerinde ( Production Trading Tasks ) oluşturulan her ticaret seansı için bir Zaman Makinesi ( Time Machine ).",
                     "updated": 1642164108788
+                },
+                {
+                    "language": "RU",
+                    "text": "Time Machine для каждой торговой сессии, созданной в Production Trading Tasks.",
+                    "updated": 1643091492506
                 }
             ]
         },
@@ -87,6 +102,11 @@
                     "language": "TR",
                     "text": "İpucu: Hangi Crypto Exchange ve borsa'nın ( Market ) içerdiğini görmek için farenizi bir grafiğin üzerine getirin.",
                     "updated": 1642164209250
+                },
+                {
+                    "language": "RU",
+                    "text": "Наведите курсор мыши на график, чтобы узнать, какая криптовалютная биржа (Crypto Exchange) и рынок (Market) на нем представлены.",
+                    "updated": 1643091519022
                 }
             ]
         }

@@ -18,6 +18,11 @@
                 "language": "RU",
                 "text": "Это как низкоуровневая часть Design Space. Она включает в себя физический движок, который управляет физическим взаимодействием плавающих объектов.",
                 "updated": 1640931222172
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bu, Tasarım Alanının ( Design Space ) alt düzey kısmı gibidir. Yüzen cisimlerin fiziksel etkileşimlerini yöneten bir fizik motoruna sahiptir.",
+                "updated": 1643202622055
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "RU",
                     "text": "Во время работы программы каждый узел в пространстве проектирования ведет себя как молекула, состоящая из трех атомов, работающих вместе: первый называется Floating Object и принадлежит пространству Design Space, которое управляет его положением и физикой, связанной с столкновениями; второй - UiObject, который живет в пространстве Design Space и управляет пользовательским интерфейсом узла, включая меню, ярлык и т.д.; третий - Node, который по сути является информацией, содержащейся в этом узле.",
                     "updated": 1640931306861
+                },
+                {
+                    "language": "TR",
+                    "text": "Program çalışırken, tasarım alanındaki ( Design Space ) her bir düğüm, birlikte çalışan üç atomdan oluşan bir molekül gibi davranır: ilki, Yüzen Nesne olarak adlandırılır ve konumunu ve çarpışmayla ilgili fiziği kontrol eden Tasarım Alanına ( Design Space ) aittir; ikincisi, Tasarım Alanında yaşayan menüler, kısayollar vb. dahil olmak üzere düğümün kullanıcı arabirimini ( UI ) yöneten bir UiObject'dir; üçüncüsü, esasen o düğümde yer alan içinde bilgiler olan Düğümdür.",
+                    "updated": 1643202861362
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "RU",
                     "text": "При сохранении рабочего пространства (Workspace), плавающие объекты (Floating Objects) и UIOBjects отделяются от узлов и сохраняются как большой JSON-объект, содержащий только свои данные.",
                     "updated": 1640931361889
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Çalışma Alanı ( Workspace ) kaydedilirken, Yüzen Nesneler ve UIOBject'ler düğümlerden ayrılır ve yalnızca verilerini içeren büyük bir JSON nesnesi olarak kaydedilir.",
+                    "updated": 1643202999827
                 }
             ]
         }

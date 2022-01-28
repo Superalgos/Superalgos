@@ -17,6 +17,11 @@
         {                "language": "RU",
                 "text": "Это раздел слева, доступ к которому осуществляется нажатием кнопки вкладки. На сегодняшний день в нем имеется селектор рабочего пространства, позволяющий пользователям переключаться между различными рабочими пространствами.",
                 "updated": 1640931391812
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Bir sekme düğmesi tıklanarak erişilen soldaki bölümdür. Bugün itibariyle, kullanıcıların farklı çalışma alanları arasında geçiş yapabilmeleri için bir Çalışma Alanı ( Workspace ) seçicisine sahiptir.",
+                "updated": 1643203066898
             }
         ]
     },
@@ -33,6 +38,11 @@
         {                    "language": "RU",
                     "text": "В Side Space пользователи могут:",
                     "updated": 1640931409319
+                },
+                {
+                    "language": "TR",
+                    "text": "Yan Alanda kullanıcılar şunları yapabilir:",
+                    "updated": 1643203094780
                 }
             ]
         },
@@ -48,6 +58,11 @@
         {                    "language": "RU",
                     "text": "Выбрать встроенное рабочее пространство: Система поставляется с одним или несколькими встроенными рабочими пространствами, которые служат в качестве примеров или тематических исследований.",
                     "updated": 1640931516752
+                },
+                {
+                    "language": "TR",
+                    "text": "Dahil edilen bir çalışma alanı seçin: Sistem, örnekler veya vaka çalışmaları olarak hizmet veren bir veya daha fazla dahil edilmiş çalışma alanıyla birlikte gelir.",
+                    "updated": 1643203117902
                 }
             ]
         },
@@ -63,6 +78,11 @@
         {                    "language": "RU",
                     "text": "Выбрать собственные рабочие пространства: Путем переименования любого встроенного рабочего пространства пользователь может создать свое рабочее пространство и переключать рабочие пространства с помощью Side Space.",
                     "updated": 1640931578292
+                },
+                {
+                    "language": "TR",
+                    "text": "Kendi çalışma alanlarınızı seçin: Kullanıcı, dahil edilen herhangi bir çalışma alanını yeniden adlandırarak bir çalışma alanı oluşturabilir ve Yan Boşluğu kullanarak çalışma alanlarını değiştirebilir.",
+                    "updated": 1643203136878
                 }
             ]
         },
@@ -78,6 +98,11 @@
         {                    "language": "RU",
                     "text": "Ожидается, что функциональность Side Space будет расти в будущем.",
                     "updated": 1640931588087
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Yan Alanın gelecekte işlevsellik açısından büyümesi bekleniyor.",
+                    "updated": 1643203160236
                 }
             ]
         }

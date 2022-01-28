@@ -153,6 +153,11 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(response)
                 return
             }
+            updateInMemoryUserProfile()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
 
             resolve(response)
 
@@ -355,7 +360,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                         /*
                         Return the id of the node just created.
                         */
-                        reponse.socialEntityId = targetNode.id
+                        response.socialEntityId = targetNode.id
                         resolve()
                     }
                 }
@@ -411,6 +416,22 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     }
                     resolve(response)
                 }
+            }
+
+            function updateInMemoryUserProfile() {
+
+                let inMemoryUserProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
+                    userProfile
+                )
+                if (userProfile === undefined) {
+                    response = {
+                        result: 'Error',
+                        message: 'Update User Profile could not be loadded into memory.'
+                    }
+                    return
+                }
+
+                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
             }
         }
     }

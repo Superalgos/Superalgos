@@ -128,7 +128,16 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                 resolve(response) 
                 return
             }
+            updateInMemoryUserProfile()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
             saveUserAppFile()
+            if (response.result === 'Error') { 
+                resolve(response) 
+                return
+            }
 
             resolve(response)
 
@@ -339,6 +348,22 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
                     }
                     resolve(response)
                 }
+            }
+
+            function updateInMemoryUserProfile(){
+                
+                let inMemoryUserProfile = SA.projects.communityPlugins.utilities.nodes.fromSavedPluginToInMemoryStructure(
+                    userProfile
+                )
+                if (userProfile === undefined) {
+                    response = {
+                        result: 'Error',
+                        message: 'Update User Profile could not be loadded into memory.'
+                    }
+                    return
+                }
+
+                SA.projects.network.globals.memory.maps.USER_PROFILES_BY_ID.set(userProfile.id, inMemoryUserProfile)
             }
 
             function saveUserAppFile() {

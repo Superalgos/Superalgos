@@ -4,25 +4,32 @@ import {Outlet, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import UsersSidebar from "../userSideBar/UsersSidebar";
-import {getSocialPersona} from "../../api/profile.httpService";
-import {setActualProfile} from "../../store/slices/Profile.slice";
+import {getProfile, getSocialPersona} from "../../api/profile.httpService";
+import {setActualProfile, setSocialPersona} from "../../store/slices/Profile.slice";
+import {STATUS_OK} from "../../api/httpConfig";
 
 function App() {
     const dispatch = useDispatch();
     const loadedUser = useSelector(state => state.profile.actualUser);
+    const loadedSocialPersona = useSelector(state => state.profile.socialPersona)
     let navigate = useNavigate();
 
     const loadUser = async () => {
-        console.log({loadedUser})
-        if (loadedUser) return;
-        let user = await getSocialPersona().then(response => response.json());
+        if (loadedUser && loadedSocialPersona) return;
+        let socialPersona = await getSocialPersona().then(response => response.json());
         if (user.error) return;
+        dispatch(setSocialPersona(socialPersona))
         /* TODO refactor
                 if (data) {
                     navigate("/signUp")
                 }
         */
-        dispatch(setActualProfile(user))
+
+        let {profileData, result} = await getProfile().then(response => response.json())
+        if (result === STATUS_OK) {
+            dispatch(setActualProfile(profileData))
+        }
+
     }
 
     useEffect(() => {

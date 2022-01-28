@@ -18,14 +18,14 @@ const UserProfileHeader = () => {
         <div className="profileSection">
             <CardMedia className="banner"
                        component="img"
-                       src={user.bannerPic ? `${user.bannerPic}` : pfp}
+                       src={user.bannerPic || pfp}
                        alt="PP"
             />
             <div className="profileCard">
                 <div className="profilePicBG">
                     <CardMedia className="profileAvatar"
                                component="img"
-                               src={user.profilePic ? `${user.profilePic}` : pfp}
+                               src={user.profilePic || pfp}
                                alt="ProfilePic"
                     />
                 </div>
@@ -41,7 +41,7 @@ const UserProfileHeader = () => {
                 <CardContent className="userSection">
                     {user.name ? (<Typography className="username" variant="h5">{user.name}</Typography>) : null}
                     <Typography className="userHandle" variant="subtitle2">
-                        @{user.username}
+                        @{user.userProfileHandle}
                     </Typography>
                     {user.web ? (<Typography className="stats" variant="subtitle2">
                         {user.web}

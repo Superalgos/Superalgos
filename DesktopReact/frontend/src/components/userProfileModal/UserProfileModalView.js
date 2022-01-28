@@ -48,13 +48,10 @@ const UserProfileModalView = (props) => {
     }
 
     const setBanner = () => {
-        const cardProps = {
-            className: "banner",
-            component: "img",
-            src: userInfo.bannerPic ? `${userInfo.bannerPic}` : pfp,
-            alt: "PP"
-        }
-        return <CardMedia   {...cardProps}/>
+        return <CardMedia className='banner'
+                          alt='banner'
+                          src={userInfo.bannerPic ? `${userInfo.bannerPic}` : pfp}
+                          component='img'/>
     }
 
     const profilePicSetter = () => {
@@ -62,33 +59,32 @@ const UserProfileModalView = (props) => {
             <CardMedia
                 className='profileAvatar'
                 alt='ProfilePic'
-                image={pfp ? pfp : null}
-                src={userInfo.profilePic ? `${userInfo.profilePic}` : null}
+                src={userInfo.profilePic ? `${userInfo.profilePic}` : pfp}
                 component='img'/>
         </div>
     }
 
     const profilePic = () => {
-        return  <label htmlFor="profilePic">
-                    <Input className="input" accept="image/*" id="profilePic" multiple type="file"
-                        onChange={selectProfilePic}
-                    />
-                    <Button className="profilePicButtons" variant="outlined" component="span">
-                        Upload Profile Picture
-                    </Button>
-                </label>
+        return <label htmlFor="profilePic">
+            <Input className="input" accept="image/*" id="profilePic" multiple type="file"
+                   onChange={selectProfilePic}
+            />
+            <Button className="profilePicButtons" variant="outlined" component="span">
+                Upload Profile Picture
+            </Button>
+        </label>
     }
 
     const bannerPic = () => {
-        return  <div>
-                    <label htmlFor="bannerPic">
-                        <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
-                            onChange={selectBannerPic}/>
-                        <Button className="profilePicButtons" variant="outlined" component="span">
-                            Upload Banner Picture
-                        </Button>
-                    </label>
-                </div>
+        return <div>
+            <label htmlFor="bannerPic">
+                <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
+                       onChange={selectBannerPic}/>
+                <Button className="profilePicButtons" variant="outlined" component="span">
+                    Upload Banner Picture
+                </Button>
+            </label>
+        </div>
     }
 
     const avatarContainer = () => {

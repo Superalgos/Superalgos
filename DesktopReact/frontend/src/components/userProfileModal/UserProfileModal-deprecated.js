@@ -101,14 +101,14 @@ const UserProfileModal = ({user, close}) => {
                     <div className="editBannerAvatarContainer">
                         <CardMedia className="banner"
                                    component="img"
-                                   src={user.bannerPic ? `${user.bannerPic}` : pfp}
+                                   src={user.bannerPic || pfp}
                                    alt="PP"/>
                         <div className="editAvatar">
                             <div className="profileCard">
                                 <div className="profilePicBG">
                                     <CardMedia className="profileAvatar"
                                                component="img"
-                                               src={user.profilePic ? `${user.profilePic}` : pfp}
+                                               src={user.profilePic || pfp}
                                                alt="ProfilePic"/>
                                 </div>
                                 <label htmlFor="profilePic">

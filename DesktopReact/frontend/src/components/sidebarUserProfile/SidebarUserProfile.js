@@ -10,7 +10,7 @@ const SidebarUserProfile = () => {
     function getUserPic() {
         return <CardMedia className="sidebarProfileAvatar"
                           component="img"
-                          src={user.profilePic ? `${user.profilePic}` : pfp}
+                          src={user.profilePic || pfp}
                           alt="ProfilePic"/>
     }
 
@@ -24,7 +24,7 @@ const SidebarUserProfile = () => {
             {/*TODO name should not exceed certain length */}
             <Typography className="username" variant="body1">{user.name}</Typography>
             <Typography className="userHandle" variant="subtitle2">
-                @{user.username}
+                @{user.userProfileHandle}
             </Typography>
         </CardContent>
     </Card>;

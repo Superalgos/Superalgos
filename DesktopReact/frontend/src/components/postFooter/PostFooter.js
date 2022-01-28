@@ -70,6 +70,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const [badgeValues, setBadgeValues] = useState([])
     const [likeBadgeValue, setLikeBadgeValue] = useState()
     const [replyModal, setReplyModal] = useState(false)
+    const [speedDialIsOpened, setSpeedDialIsOpened] = useState(false)
     // const dispatch = useDispatch();
     const BadgeCounterValue = () => {
         // setLikeBadgeValue(reactions[0][1]) // need an callback
@@ -104,6 +105,10 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         //console.log(`click on button ${name}, id ${id}`)
     }
 
+    const toggle = () => {
+        setSpeedDialIsOpened(!speedDialIsOpened);
+    }
+
     const getIcon = (icon) => {
         switch (icon) {
             case "FavoriteBorder":
@@ -127,7 +132,7 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
         return <SpeedDialAction
             key={id}
             id={id}
-            FabProps={{style: {...dialStyle}}} /*Changes the position of the reactions icons, but not the div container*/
+            FabProps={{style: {...dialStyle}}}
             icon={
                 <StyledBadge
                     badgeContent={badgeCounter} /*need pass the index of the id reaction*/
@@ -144,12 +149,13 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
 
     return (
         <div className="postFooterContainer">
-            <Stack className="postFooterContainerStack" direction="row">
                 <div className="postFooterContainerSpeedDial">
                     <SpeedDial
                         FabProps={{ /*Access to props of SpeedDial*/
                             style: {...dialStyle}
                         }}
+                        onOpen={toggle}
+                        onClose={toggle}
                         color="secondary"
                         ariaLabel="SpeedDial"
                         icon={<StyledBadge
@@ -161,11 +167,11 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                                 onClick={handleReactions}>
                             </ThumbUp>
                         </StyledBadge>}
-                        direction="right"> {/* todo direction of the reactions, changing this breaks the layout bad...*/}
-                        {actionsNav.map(e => {
-                            const {id, name, badgeCounter, icon} = e;
-                            return FooterButton(String(id), name, icon, badgeCounter) /* todo need populate the reactions bar with the new array */
-                        })}
+                        direction="right">
+                        {speedDialIsOpened && (actionsNav.map(e => {
+                                const {id, name, badgeCounter, icon} = e;
+                                return FooterButton(String(id), name, icon, badgeCounter)
+                            }))}
                     </SpeedDial>
                 </div>
                 <div className="footerCommentContainer">
@@ -186,7 +192,6 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                         </IconButton>
                     </div>
                 </div>
-            </Stack>
         </div>
     );
 };

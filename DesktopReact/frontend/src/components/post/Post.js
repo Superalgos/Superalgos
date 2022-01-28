@@ -28,8 +28,7 @@ const Post = ({postData}) => {
     return (
         <div className="postWrapper">
             <div className="post">
-                {/* TODO remove stacks inside of stacks*/}
-                <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
+                <Stack direction="row" onClick={handlePostClick}>
                     <div className="postAvatarContainer">
                         <Avatar src={pic} className="avatar"/>
                     </div>

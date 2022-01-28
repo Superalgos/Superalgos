@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setActualProfile} from "../../store/slices/Profile.slice";
 import {updateProfile} from "../../api/profile.httpService";
 import UserProfileModalView from './UserProfileModalView'
+import {STATUS_OK} from "../../api/httpConfig";
 
 const UserProfileModal = ({user, close}) => {
+    const loadedSocialPersona = useSelector(state => state.profile.socialPersona)
     const dispatch = useDispatch();
     const [errorState, setErrorState] = useState(false);
     const [userInfo, setUserInfo] = useState(user);
@@ -25,7 +27,7 @@ const UserProfileModal = ({user, close}) => {
         if (profilePic) {
             let newInfo = {...userInfo};
             newInfo.profilePic = await toBase64(profilePic);
-            setUserInfo(newInfo)
+            setUserInfo(newInfo);
         }
     }
 
@@ -49,7 +51,7 @@ const UserProfileModal = ({user, close}) => {
     }
 
     const saveProfile = async () => {
-        let {result} = await updateProfile(userInfo).then( response => response.json() );
+        let {result} = await updateProfile({...userInfo, originSocialPersonaId: loadedSocialPersona.nodeId}).then( response => response.json() );
         if (result === STATUS_OK) {
             dispatch( setActualProfile(userInfo) );
             close();
@@ -69,7 +71,7 @@ const UserProfileModal = ({user, close}) => {
         saveProfile = {saveProfile}
         isEquals = {isEquals}
         errorState = {errorState}
-        close = {close} 
+        close = {close}
      />
 }
 

@@ -1,33 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import "./Signup.css"
-import {
-    Button,
-    Card,
-    CardContent, CardMedia,
-    FormControl,
-    FormHelperText,
-    InputLabel,
-    OutlinedInput,
-    Typography
-} from "@mui/material";
-import {LoginOutlined} from "@mui/icons-material";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {updateProfile} from "../../api/profile.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 import {setActualProfile} from "../../store/slices/Profile.slice";
-import pfp from "../../images/superalgos.png";
-import styled from "@emotion/styled";
+import SignupView from "./SignupView";
 
 const Signup = () => {
-    const Input = styled('input')({
-        display: 'none',
-    });
-
     const [errorState, setErrorState] = useState(true);
     const [inputCharNumber, setInputCharNumber] = useState(false);
-    const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
     const [userInfo, setUserInfo] = useState(useSelector(state => state.profile.actualUser));
+    // Stepper Component
+    const steps = ['Enter your username', 'Additional profile data'];
+    const [activeStep, setActiveStep] = React.useState(0);
+    const [skipped, setSkipped] = React.useState(new Set());
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -68,7 +55,6 @@ const Signup = () => {
         }
     }
 
-
     const handleChange = (event) => { // todo the name field must not be empty, and if reached max chars give warning message/indicator
         let newValue = event.target.value;
         let field = event.target.id;
@@ -92,131 +78,66 @@ const Signup = () => {
         }
     }
 
+    const isStepOptional = (step) => {
+        return step === 1;
+    };
 
-    return (
-        <div className="signupContainer">
-            <Card className="signupCardContainer">
-                <CardContent className="signupCardContent">
-                    <div>
-                        <div className="signupHeader">
-                            <div className="signupTitleContainer">
-                                <Typography className="signupTitle" variant="h5">
-                                    Sign up today
-                                </Typography>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        {userInfo.bannerPic ?
-                            (
-                                <CardMedia className="banner"
-                                           component="img"
-                                           src={`${userInfo.bannerPic}`}
-                                           alt="PP"/>
-                            ) :
-                            (
-                                <CardMedia className="banner"
-                                           component="img"
-                                           image={pfp}
-                                           alt="PP"
-                                />
-                            )}
-                        <div className="profileCard">
-                            <div className="profilePicBG">
-                                {userInfo.profilePic ?
-                                    (
-                                        <CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   src={`${userInfo.profilePic}`}
-                                                   alt="ProfilePic"/>
-                                    ) :
-                                    (
-                                        <CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   image={pfp}
-                                                   alt="ProfilePic"/>
-                                    )}
-                            </div>
-                            <label htmlFor="profilePic">
-                                <Input className="input" accept="image/*" id="profilePic" multiple type="file"
-                                       onChange={selectProfilePic}/>
-                                <Button variant="outlined" component="span">
-                                    Upload Profile Picture
-                                </Button>
-                            </label>
-                            <div>
-                                <label htmlFor="bannerPic">
-                                    <Input className="input" accept="image/*" id="bannerPic" multiple type="file"
-                                           onChange={selectBannerPic}/>
-                                    <Button variant="outlined" component="span">
-                                        Upload Banner Picture
-                                    </Button>
-                                </label>
-                            </div>
-                        </div>
-                        <div className="signupInputBoxesContainer">
-                            <FormControl className="signupFormControl"
-                                         required
-                                         error={errorState}
-                            >
-                                <InputLabel htmlFor="name">Name</InputLabel>
-                                <OutlinedInput
-                                    id="name"
-                                    value={userInfo.name}
-                                    onChange={handleChange}
-                                    label="Name"
-                                    inputProps={{maxLength: inputCharLimit[0].name}}
-                                    error={inputCharNumber === inputCharLimit[0].name}
-                                />
-                                {errorState ? (
-                                    <FormHelperText id="name-error">Name can't be blank</FormHelperText>
-                                ) : null}
-                            </FormControl>
-                            <FormControl className="signupFormControl">
-                                <InputLabel htmlFor="bio">bio</InputLabel>
-                                <OutlinedInput
-                                    id="bio"
-                                    value={userInfo.bio}
-                                    onChange={handleChange}
-                                    label="Bio"
-                                    inputProps={{maxLength: inputCharLimit[0].bio}}
-                                />
-                            </FormControl>
-                            <FormControl className="signupFormControl">
-                                <InputLabel htmlFor="location">location</InputLabel>
-                                <OutlinedInput
-                                    id="location"
-                                    value={userInfo.location}
-                                    onChange={handleChange}
-                                    label="Location"
-                                    inputProps={{maxLength: inputCharLimit[0].location}}
-                                />
-                            </FormControl>
-                            <FormControl className="signupFormControl">
-                                <InputLabel htmlFor="web">Web</InputLabel>
-                                <OutlinedInput
-                                    id="web"
-                                    value={userInfo.web}
-                                    onChange={handleChange}
-                                    label="Web"
-                                    inputProps={{maxLength: inputCharLimit[0].web}}
-                                />
-                            </FormControl></div>
-                        <div className="signupFooter">
-                            <Button
-                                variant="outlined"
-                                startIcon={<LoginOutlined/>}
-                                disabled={errorState}
-                                onClick={saveProfile}
-                            >
-                                Sign up
-                            </Button>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
-    );
+    const isStepSkipped = (step) => {
+        return skipped.has(step);
+    };
+
+    const handleNext = () => {
+        let newSkipped = skipped;
+        if (isStepSkipped(activeStep)) {
+            newSkipped = new Set(newSkipped.values());
+            newSkipped.delete(activeStep);
+        }
+
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setSkipped(newSkipped);
+    };
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const handleSkip = () => {
+        if (!isStepOptional(activeStep)) {
+            // You probably want to guard against something like this,
+            // it should never occur unless someone's actively trying to break something.
+            throw new Error("You can't skip a step that isn't optional.");
+        }
+
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setSkipped((prevSkipped) => {
+            const newSkipped = new Set(prevSkipped.values());
+            newSkipped.add(activeStep);
+            return newSkipped;
+        });
+    };
+
+    const handleReset = () => {
+        setActiveStep(0);
+    };
+
+    return <SignupView
+        errorState={errorState}
+        inputCharNumber={inputCharNumber}
+        userInfo={userInfo}
+        selectProfilePic={selectProfilePic}
+        selectBannerPic={selectBannerPic}
+        handleChange={handleChange}
+        saveProfile={saveProfile}
+        steps={steps}
+        activeStep={activeStep}
+        skipped={skipped}
+        isStepOptional={isStepOptional}
+        isStepSkipped={isStepSkipped}
+        handleNext={handleNext}
+        handleBack={handleBack}
+        handleSkip={handleSkip}
+        handleReset={handleReset}
+    />
 };
 
 export default Signup;

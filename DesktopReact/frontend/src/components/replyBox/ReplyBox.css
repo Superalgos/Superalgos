@@ -7,6 +7,7 @@
     margin: 0 0.5rem !important;
     width: 7rem;
     max-height: 1.5rem;
+    border-radius: 20px !important;
 }
 
 .avatar {

@@ -1,0 +1,1287 @@
+{
+    "type": "User Profile",
+    "name": "gonzalocatrina",
+    "config": "{\"signature\":{\"message\":\"gonzalocatrina\",\"messageHash\":\"0x0e3fa6cf7ffc35362d6483f2f64d95a7fdd64204135dcf37eee36df9fdcc8312\",\"v\":\"0x1b\",\"r\":\"0xdf049badc87978ae97daebba68ac99f08a838cca5a41ba88b250dd77dccebfa5\",\"s\":\"0x1e03eaaebcc529789a5ef2aafc8f76bd0aa95b109859e4cef8b88fe501b5c34e\",\"signature\":\"0xdf049badc87978ae97daebba68ac99f08a838cca5a41ba88b250dd77dccebfa51e03eaaebcc529789a5ef2aafc8f76bd0aa95b109859e4cef8b88fe501b5c34e1b\"},\"codeName\":\"gonzalocatrina\"}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "onboardingPrograms": {
+            "type": "Onboarding Programs",
+            "name": "New Onboarding Programs",
+            "config": "{}",
+            "project": "Governance",
+            "airdropProgram": {
+                "type": "Airdrop Program",
+                "name": "New Airdrop Program",
+                "config": "{}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "f6ec7798-98c6-4dc5-a181-7d1b4fb21780",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25300,
+                            "y": 37100
+                        },
+                        "targetPosition": {
+                            "x": 25300,
+                            "y": 37400
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "d6ca49f6-eb2b-47a7-b471-4c642eeddc9d",
+                "savedPayload": {
+                    "position": {
+                        "x": 25300,
+                        "y": 37400
+                    },
+                    "targetPosition": {
+                        "x": 25300,
+                        "y": 37700
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "fd6d53cc-5e6b-4f66-8ba7-b54a8bfd890c",
+            "savedPayload": {
+                "position": {
+                    "x": 25300,
+                    "y": 37700
+                },
+                "targetPosition": {
+                    "x": 25300,
+                    "y": 38000
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "communityBuildingPrograms": {
+            "type": "Community Building Programs",
+            "name": "New Community Building Programs",
+            "config": "{\"percentage\":0}",
+            "project": "Governance",
+            "id": "3d19eb1f-6a9b-4800-b451-83d8622dc14a",
+            "savedPayload": {
+                "position": {
+                    "x": 25600,
+                    "y": 38000
+                },
+                "targetPosition": {
+                    "x": 25300,
+                    "y": 38000
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Claim Votes Switch",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "Loui-Molina Desktop Team Token Pool Desktop Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "8e20f42f-2f22-43e3-975e-f8ae3a9c8c0d",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 26079.422863406,
+                                                "y": 37850
+                                            },
+                                            "targetPosition": {
+                                                "x": 26079.422863406,
+                                                "y": 38150
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                                "id": "0b57fa74-4cf0-4e46-940c-84d48cfeea9b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "Loui-Molina",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Desktop Team Token Pool Desktop Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "nicanormoreno Desktop Team Token Pool Desktop Team PoW Report",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "60c82ca1-8380-4a70-849b-24fd4ab8a8fa",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 26339.23048454133,
+                                                "y": 38300
+                                            },
+                                            "targetPosition": {
+                                                "x": 26079.422863406,
+                                                "y": 38150
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                                "id": "8b3ca183-d09f-4b1b-a9e0-f0ee8d02bc63"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "nicanormoreno",
+                                                    "User Profile"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder"
+                                                ],
+                                                [
+                                                    "Desktop Team Token Pool Desktop Team PoW Report",
+                                                    "Position Contribution Claim"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "bf1a2e3f-9c29-4a6f-8430-233272b300fc",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 26079.422863406,
+                                        "y": 38150
+                                    },
+                                    "targetPosition": {
+                                        "x": 25819.615242270665,
+                                        "y": 38300
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    }
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "c73703e9-5db7-42ba-92fb-3662da03940a",
+                        "savedPayload": {
+                            "position": {
+                                "x": 25819.615242270665,
+                                "y": 38300
+                            },
+                            "targetPosition": {
+                                "x": 25559.807621135333,
+                                "y": 38450
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "1bfc6fe6-f718-4ede-aa9b-832ab2cdc0ad",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25559.807621135333,
+                            "y": 38750
+                        },
+                        "targetPosition": {
+                            "x": 25559.807621135333,
+                            "y": 38450
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "e4bc7ddc-7df2-48b7-8cf6-ef08dee17cb6",
+                "savedPayload": {
+                    "position": {
+                        "x": 25559.807621135333,
+                        "y": 38450
+                    },
+                    "targetPosition": {
+                        "x": 25300,
+                        "y": 38300
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "claimsProgram": {
+                "type": "Claims Program",
+                "name": "New Claims Program",
+                "config": "{\r\n    \"percentage\": 100\r\n}",
+                "project": "Governance",
+                "assetClaimsFolders": [],
+                "featureClaimsFolders": [],
+                "positionClaimsFolders": [
+                    {
+                        "type": "Position Claims Folder",
+                        "name": "New Position Claims Folder",
+                        "config": "{\r\n    \"percentage\": 62\r\n}",
+                        "project": "Governance",
+                        "positionClaimsFolders": [],
+                        "positionContributionClaims": [
+                            {
+                                "type": "Position Contribution Claim",
+                                "name": "Desktop Team Token Pool Desktop Team PoW Report",
+                                "config": "{}",
+                                "project": "Governance",
+                                "id": "2cc3c007-2617-4167-bfc9-48e680010c3f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 25040.192378864667,
+                                        "y": 39050
+                                    },
+                                    "targetPosition": {
+                                        "x": 25040.192378864667,
+                                        "y": 38750
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position",
+                                        "name": "Desktop Team Token Pool",
+                                        "id": "12890416-8f7f-49a1-b78d-d2d28722ab94"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "Teams of Contributors",
+                                            "Positions"
+                                        ],
+                                        [
+                                            "Teams @ Dec 2021",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Teams With PoW Reports",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Desktop Team PoW Report",
+                                            "Position Class"
+                                        ],
+                                        [
+                                            "Desktop Team Token Pool",
+                                            "Position"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "54995e63-b7c5-4fda-bc86-cdc8c18d3bb5",
+                        "savedPayload": {
+                            "position": {
+                                "x": 25040.192378864667,
+                                "y": 38750
+                            },
+                            "targetPosition": {
+                                "x": 25040.192378864667,
+                                "y": 38450
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "ecdbdf70-9309-47c2-ade8-1bb2b3145492",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24780.384757729335,
+                            "y": 38300
+                        },
+                        "targetPosition": {
+                            "x": 25040.192378864667,
+                            "y": 38450
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "9eb286d9-2f91-435d-9637-fb1c975a2555",
+                "savedPayload": {
+                    "position": {
+                        "x": 25040.192378864667,
+                        "y": 38450
+                    },
+                    "targetPosition": {
+                        "x": 25300,
+                        "y": 38300
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "bbdfa3d9-fb4c-4706-8ff1-1d62782c05d7",
+            "savedPayload": {
+                "position": {
+                    "x": 25300,
+                    "y": 38300
+                },
+                "targetPosition": {
+                    "x": 25300,
+                    "y": 38000
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "6e3724eb-9f86-4cfb-a6b1-3addc95cd909",
+        "savedPayload": {
+            "position": {
+                "x": 25300,
+                "y": 38000
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": true,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "ad1f6a79-032d-40ee-af28-0784cd425e98",
+        "savedPayload": {
+            "position": {
+                "x": 25187.04694055762,
+                "y": 38234.549444740405
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "userApps": {
+        "type": "User Apps",
+        "name": "New User Apps",
+        "config": "{}",
+        "project": "User-Apps",
+        "desktopApps": {
+            "type": "Desktop Apps",
+            "name": "New Desktop Apps",
+            "config": "{}",
+            "project": "User-Apps",
+            "socialTradingDesktopApps": [
+                {
+                    "type": "Social Trading Desktop App",
+                    "name": "Social Trading Desktop App #1",
+                    "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"33248\",\n    \"webSocketsPort\": \"17042\"\n}",
+                    "project": "User-Apps",
+                    "signingAccount": {
+                        "type": "Signing Account",
+                        "name": "New Signing Account",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"gonzalocatrina\",\n        \"messageHash\": \"0x0e3fa6cf7ffc35362d6483f2f64d95a7fdd64204135dcf37eee36df9fdcc8312\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x94ea68508d09343027c0db352c745c0bbadeac0a6361bf5c7aa9251470d79413\",\n        \"s\": \"0x7d16863d86915692eeaf5b7d6927215a75a8ec5c9e31d3adb9ac4ff8b5f85c62\",\n        \"signature\": \"0x94ea68508d09343027c0db352c745c0bbadeac0a6361bf5c7aa9251470d794137d16863d86915692eeaf5b7d6927215a75a8ec5c9e31d3adb9ac4ff8b5f85c621c\"\n    }\n}",
+                        "project": "Governance",
+                        "id": "9d5dcdf9-54ab-4a74-9223-b0a359cbe88b",
+                        "savedPayload": {
+                            "position": {
+                                "x": 24821.731159439314,
+                                "y": 38829.43512096365
+                            },
+                            "targetPosition": {
+                                "x": 24799.731159439314,
+                                "y": 38877.43512096365
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "0beb0bbe-151b-4a70-9ccb-7da6a188cf85",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24799.731159439314,
+                            "y": 38877.43512096365
+                        },
+                        "targetPosition": {
+                            "x": 24866.48743962621,
+                            "y": 38584.9567473091
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "algoTradesPlatformApp": [],
+            "id": "25117729-5ed0-4986-b7c4-b33f97c317b6",
+            "savedPayload": {
+                "position": {
+                    "x": 24866.48743962621,
+                    "y": 38584.9567473091
+                },
+                "targetPosition": {
+                    "x": 24933.243719813105,
+                    "y": 38292.47837365455
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "8a5daa27-7d61-4b06-9073-752d3ff47582",
+        "savedPayload": {
+            "position": {
+                "x": 24933.243719813105,
+                "y": 38292.47837365455
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": true,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "socialPersonas": {
+        "type": "Social Personas",
+        "name": "New Social Personas",
+        "config": "{}",
+        "project": "Social-Trading",
+        "socialPersonas": [
+            {
+                "type": "Social Persona",
+                "name": "Social Persona #1",
+                "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"handle\": \"gonzalocatrina-Social-Persona-1\"\n}",
+                "project": "Social-Trading",
+                "signingAccount": {
+                    "type": "Signing Account",
+                    "name": "New Signing Account",
+                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"gonzalocatrina\",\n        \"messageHash\": \"0x0e3fa6cf7ffc35362d6483f2f64d95a7fdd64204135dcf37eee36df9fdcc8312\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xd8635b8cef53f7f2796e322a8beaff219bcc15f83ac81a4eb272217d1422d3d0\",\n        \"s\": \"0x06e3ab2759a744ef2115b790ccdde11a7b12a958f95508e6b4b7f21b01d8db39\",\n        \"signature\": \"0xd8635b8cef53f7f2796e322a8beaff219bcc15f83ac81a4eb272217d1422d3d006e3ab2759a744ef2115b790ccdde11a7b12a958f95508e6b4b7f21b01d8db391c\"\n    }\n}",
+                    "project": "Governance",
+                    "id": "e9f5428e-5f1d-4b48-81fa-91c356c85b8d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24436.999651182618,
+                            "y": 38559.491382624896
+                        },
+                        "targetPosition": {
+                            "x": 24459.418679258546,
+                            "y": 38260.33024347054
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "availableStorage": {
+                    "type": "Available Storage",
+                    "name": "New Available Storage",
+                    "config": "{}",
+                    "project": "Open-Storage",
+                    "storageContainerReferences": [
+                        {
+                            "type": "Storage Container Reference",
+                            "name": "Github Storage Container",
+                            "config": "{}",
+                            "project": "Open-Storage",
+                            "id": "aa6fbedb-e874-4148-933e-0b961a61186c",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 23963.67541466895,
+                                    "y": 37922.33820863237
+                                },
+                                "targetPosition": {
+                                    "x": 24211.547046963748,
+                                    "y": 38091.334226051455
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 1,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                },
+                                "referenceParent": {
+                                    "type": "Github Storage Container",
+                                    "name": "New Github Storage Container",
+                                    "id": "074a1481-7c1b-4fcb-b988-9e9a4abb7ff5"
+                                },
+                                "referenceParentCombinedNodePath": [
+                                    [
+                                        "gonzalocatrina",
+                                        "User Profile"
+                                    ],
+                                    [
+                                        "New User Storage",
+                                        "User Storage"
+                                    ],
+                                    [
+                                        "New Github Storage",
+                                        "Github Storage"
+                                    ],
+                                    [
+                                        "New Github Storage Container",
+                                        "Github Storage Container"
+                                    ]
+                                ]
+                            }
+                        }
+                    ],
+                    "id": "6b968210-3023-4771-ad88-6543dad70548",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24211.547046963748,
+                            "y": 38091.334226051455
+                        },
+                        "targetPosition": {
+                            "x": 24459.418679258546,
+                            "y": 38260.33024347054
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "0fb3ff8c-eff3-4b84-b088-cdbdd9740056",
+                "savedPayload": {
+                    "position": {
+                        "x": 24459.418679258546,
+                        "y": 38260.33024347054
+                    },
+                    "targetPosition": {
+                        "x": 24729.709339629273,
+                        "y": 38130.16512173527
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            }
+        ],
+        "id": "af7cfbd2-94cf-4d3a-b895-d19f4439e5b4",
+        "savedPayload": {
+            "position": {
+                "x": 24729.709339629273,
+                "y": 38130.16512173527
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "p2pNetworkNodes": {
+        "type": "P2P Network Nodes",
+        "name": "New P2P Network Nodes",
+        "config": "{}",
+        "project": "Network",
+        "p2pNetworkNodes": [
+            {
+                "type": "P2P Network Node",
+                "name": "P2P Network Node #1",
+                "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"host\": \"localhost\",\n    \"webPort\": \"31248\",\n    \"webSocketsPort\": \"18042\"\n}",
+                "project": "Network",
+                "signingAccount": {
+                    "type": "Signing Account",
+                    "name": "New Signing Account",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"gonzalocatrina\",\n        \"messageHash\": \"0x0e3fa6cf7ffc35362d6483f2f64d95a7fdd64204135dcf37eee36df9fdcc8312\",\n        \"v\": \"0x1b\",\n        \"r\": \"0x55446138b05a704a8239e54b3bc8eb1030337d9577e2afffb2535a2e5368601c\",\n        \"s\": \"0x12e1be1a61e78ae2d8b7e63997efa1bb42065bf73971a826dc1ab12627aad8f9\",\n        \"signature\": \"0x55446138b05a704a8239e54b3bc8eb1030337d9577e2afffb2535a2e5368601c12e1be1a61e78ae2d8b7e63997efa1bb42065bf73971a826dc1ab12627aad8f91b\"\n    }\n}",
+                    "project": "Governance",
+                    "id": "6fe340c3-ea75-42a3-b5e2-e997f0b3e5c9",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24329.25355752328,
+                            "y": 38009.96041690018
+                        },
+                        "targetPosition": {
+                            "x": 24459.418679258546,
+                            "y": 37739.66975652946
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "p2pNetworkReference": {
+                    "type": "P2P Network Reference",
+                    "name": "Testnet",
+                    "project": "Network",
+                    "id": "c1692701-30de-4f82-995f-f79091f66207",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24189.12801888782,
+                            "y": 37609.50463479419
+                        },
+                        "targetPosition": {
+                            "x": 24459.418679258546,
+                            "y": 37739.66975652946
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "P2P Network",
+                            "name": "Testnet",
+                            "id": "8cf3c984-f2ce-4ed5-9bfe-49255ed8a9e3"
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Testnet",
+                                "P2P Network"
+                            ]
+                        ]
+                    }
+                },
+                "networkServices": {
+                    "type": "Network Services",
+                    "name": "New Network Services",
+                    "config": "{}",
+                    "project": "Network",
+                    "socialGraph": {
+                        "type": "Social Graph",
+                        "name": "New Social Graph",
+                        "config": "{}",
+                        "project": "Network",
+                        "id": "4ff24de8-c8ff-4871-ae0a-ca13fbfcb193",
+                        "savedPayload": {
+                            "position": {
+                                "x": 24719.74892272908,
+                                "y": 37199.08843578801
+                            },
+                            "targetPosition": {
+                                "x": 24589.583800993812,
+                                "y": 37469.37909615874
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    },
+                    "id": "3f3de6be-8e47-4131-9e61-84e9bdac7b9d",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24589.583800993812,
+                            "y": 37469.37909615874
+                        },
+                        "targetPosition": {
+                            "x": 24459.418679258546,
+                            "y": 37739.66975652946
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "c4205c1b-2e06-40af-be9e-64b7daf44c66",
+                "savedPayload": {
+                    "position": {
+                        "x": 24459.418679258546,
+                        "y": 37739.66975652946
+                    },
+                    "targetPosition": {
+                        "x": 24729.709339629273,
+                        "y": 37869.83487826473
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            }
+        ],
+        "id": "02c89397-3c04-4f04-b728-b941d16016b5",
+        "savedPayload": {
+            "position": {
+                "x": 24729.709339629273,
+                "y": 37869.83487826473
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "permissionedP2PNetworks": {
+        "type": "Permissioned P2P Networks",
+        "name": "New Permissioned P2P Networks",
+        "config": "{}",
+        "project": "Network",
+        "permissionedP2PNetworks": [
+            {
+                "type": "Permissioned P2P Network",
+                "name": "New Permissioned P2P Network",
+                "config": "{ \n\"codeName\": \"\"\n}",
+                "project": "Network",
+                "permissionGroups": [
+                    {
+                        "type": "Permission Group",
+                        "name": "New Permission Group",
+                        "config": "{ \n\"codeName\": \"\"\n}",
+                        "project": "Network",
+                        "permissionGroups": [],
+                        "permissionsGranted": [
+                            {
+                                "type": "Permission Granted",
+                                "name": "gonzalocatrina",
+                                "config": "{}",
+                                "project": "Network",
+                                "id": "17a589a7-38cd-4b7f-ac67-339675a2bcaf",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 24732.97487925242,
+                                        "y": 36830.0865053818
+                                    },
+                                    "targetPosition": {
+                                        "x": 24799.731159439314,
+                                        "y": 37122.56487903635
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "User Profile",
+                                        "name": "gonzalocatrina",
+                                        "id": "47755ece-7bb3-4624-8ab3-dacf97efa0ab"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "gonzalocatrina",
+                                            "User Profile"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "id": "4138f53f-0e9a-4292-bdab-c7a8f47849fa",
+                        "savedPayload": {
+                            "position": {
+                                "x": 24799.731159439314,
+                                "y": 37122.56487903635
+                            },
+                            "targetPosition": {
+                                "x": 24866.48743962621,
+                                "y": 37415.0432526909
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "id": "2b7039f7-29c8-4c09-914c-6c72f240770b",
+                "savedPayload": {
+                    "position": {
+                        "x": 24866.48743962621,
+                        "y": 37415.0432526909
+                    },
+                    "targetPosition": {
+                        "x": 24933.243719813105,
+                        "y": 37707.52162634545
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            }
+        ],
+        "id": "74134561-2b97-4845-89fa-7bd4ca6d364f",
+        "savedPayload": {
+            "position": {
+                "x": 24933.243719813105,
+                "y": 37707.52162634545
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": true,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "userStorage": {
+        "type": "User Storage",
+        "name": "New User Storage",
+        "config": "{}",
+        "project": "Open-Storage",
+        "githubStorage": {
+            "type": "Github Storage",
+            "name": "New Github Storage",
+            "config": "{}",
+            "project": "Open-Storage",
+            "githubStorageContainers": [
+                {
+                    "type": "Github Storage Container",
+                    "name": "New Github Storage Container",
+                    "config": "{\n    \"codeName\": \"47755ece-7bb3-4624-8ab3-dacf97efa0ab\",\n    \"githubUserName\": \"gonzalocatrina\",\n    \"repositoryName\": \"My-Social-Trading-Data\"\n}",
+                    "project": "Open-Storage",
+                    "id": "074a1481-7c1b-4fcb-b988-9e9a4abb7ff5",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25561.140821672856,
+                            "y": 37296.35166577876
+                        },
+                        "targetPosition": {
+                            "x": 25374.093881115237,
+                            "y": 37530.901110519175
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "461227c3-1f9d-4711-8ceb-ff8221150060",
+            "savedPayload": {
+                "position": {
+                    "x": 25374.093881115237,
+                    "y": 37530.901110519175
+                },
+                "targetPosition": {
+                    "x": 25187.04694055762,
+                    "y": 37765.45055525959
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "0b865f1c-3252-4da9-8ca3-17c744c89c0c",
+        "savedPayload": {
+            "position": {
+                "x": 25187.04694055762,
+                "y": 37765.45055525959
+            },
+            "targetPosition": {
+                "x": 25000,
+                "y": 38000
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": true,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "47755ece-7bb3-4624-8ab3-dacf97efa0ab",
+    "savedPayload": {
+        "position": {
+            "x": 25000,
+            "y": 38000
+        },
+        "targetPosition": {
+            "x": 25000,
+            "y": 38000
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

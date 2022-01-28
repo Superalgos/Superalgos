@@ -3,9 +3,9 @@ const userController = require('../controllers/users.controller');
 
 const router = express.Router();
 
-router
-  .route('/profiles')
-  .get(userController.getProfiles);
+  router
+  .route('/social-persona')
+  .get(userController.getSocialPersonaId);
 
 router
   .route('/follow')

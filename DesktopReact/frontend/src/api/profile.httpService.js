@@ -1,5 +1,10 @@
 import {GET, httpRequest, POST} from './httpConfig'
 
+
+function getSocialPersona() {
+    return httpRequest('/users/social-persona', GET)
+}
+
 function getProfiles() {
     return httpRequest('/users/profiles', GET);
 }
@@ -24,5 +29,6 @@ export {
     getProfiles,
     getProfile,
     updateProfile,
-    getPaginationProfiles
+    getPaginationProfiles,
+    getSocialPersona
 }

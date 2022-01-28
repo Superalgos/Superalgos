@@ -4,8 +4,10 @@ import {Alert, Avatar, Button, Snackbar, Stack, TextField, Typography} from "@mu
 import pic from "../../images/superalgos.png"
 import {STATUS_OK} from "../../api/httpConfig";
 import {createPost} from "../../api/post.httpService"
+import {useSelector} from "react-redux";
 
 const PostPlaceholder = ({reloadPostCallback}) => {
+    const {profilePic} = useSelector(state => state.profile.actualUser);
     const [postText, setPostText] = useState(undefined);
     const [open, setOpen] = useState(false);
 
@@ -42,7 +44,7 @@ const PostPlaceholder = ({reloadPostCallback}) => {
                     spacing={1}
                     justify="flex-end">
                     <div className="postPlaceholderAvatar">
-                        <Avatar src={pic}/>
+                        <Avatar src={profilePic || pic}/>
                     </div>
                     <Stack className="postPlaceholderTextField">
                         <Typography gutterBottom variant="subtitle1" component="div">

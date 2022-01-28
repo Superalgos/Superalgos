@@ -20,7 +20,7 @@ const UserCard = ({name, userId}) => {
         <Card className="userCard" variant="outlined">
             <CardMedia className="avatar"
                        component="img"
-                       image={pic}
+                       image={pic} /* TODO */
                        alt="PP"
 
             />

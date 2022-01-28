@@ -8,7 +8,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
     return thisObject
 
-    async function createSocialEntity() {
+    async function createSocialEntity(profileMessage) {
         return new Promise(userProfileCreatingProcess)
 
         async function userProfileCreatingProcess(resolve, reject) {
@@ -50,13 +50,20 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 }
                 resolve(JSON.stringify(response))
             }
+            if (profileMessage.socialEntityHandle.indexOf(' ') !== -1) { // TODO : check for all other characters not wanted at the handle.
+                let response = {
+                    result: 'Error',
+                    message: 'socialEntityHandle cannot include spaces.'
+                }
+                resolve(JSON.stringify(response))
+            }
             if (profileMessage.socialEntityType === undefined) {
                 let response = {
                     result: 'Error',
                     message: 'socialEntityType is Undefined.'
                 }
                 resolve(JSON.stringify(response))
-            }            
+            }
             if (profileMessage.socialEntityType !== 'Social Persona' && profileMessage.socialEntityType !== 'Social Trading Bot') {
                 let response = {
                     result: 'Error',
@@ -79,14 +86,6 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                 resolve(JSON.stringify(response))
             }
 
-            const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
-            const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
-            const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
-            const { Octokit } = SA.nodeModules.octokit
-            const octokit = new Octokit({
-                auth: profileMessage.storageProviderToken,
-                userAgent: 'Superalgos ' + SA.version
-            })
             let storageProviderName
             let storageProviderUsername
             let storageProviderToken
@@ -100,16 +99,26 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
 
             loadUserAppFile()
             if (response.result === 'Error') { return }
+    
+            const SUPERALGOS_ORGANIZATION_NAME = 'Superalgos'
+            const GOVERNANCE_PLUGINS_REPO_NAME = 'Governance-Plugins'
+            const GOVERNANCE_PLUGINS_REPO_BRANCH = 'develop'
+            const { Octokit } = SA.nodeModules.octokit
+            const octokit = new Octokit({
+                auth: storageProviderToken,
+                userAgent: 'Superalgos ' + SA.version
+            })    
+    
             await loadUserProfileFromStorage()
             if (response.result === 'Error') { return }
             addSocialEntitiesNodes()
             if (response.result === 'Error') { return }
             await addSigningAccounts()
             if (response.result === 'Error') { return }
-            addOpenStorageNodes()
+            await addOpenStorageNodes()
             if (response.result === 'Error') { return }
             addAvailableStorageNodes()
-            if (response.result === 'Error') { return }            
+            if (response.result === 'Error') { return }
             await pushUserProfileAndPullRequest()
             if (response.result === 'Error') { return }
 
@@ -148,7 +157,7 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                     '/' +
                     GOVERNANCE_PLUGINS_REPO_BRANCH +
                     '/User-Profiles/' +
-                    profileMessage.storageProviderUsername +
+                    storageProviderUsername +
                     '.json'
 
                 await SA.projects.foundations.utilities.webAccess.fetchAPIDataFile(userProfileUrl)
@@ -187,10 +196,10 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             name: 'New Social Persona',
                             project: 'Social-Trading',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: JSON.stringify({handle: profileMessage.socialEntityHandle}),
+                            config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
                         }
                         userProfile.socialPersonas.socialPersonas.push(targetNode)
-                        targetNodeTypeCount = userProfile.socialPersonas.socialPersonas.length                        
+                        targetNodeTypeCount = userProfile.socialPersonas.socialPersonas.length
                         break
                     }
                     case "Social Trading Bot": {
@@ -217,10 +226,10 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                             name: 'New Social Trading Bot',
                             project: 'Social-Trading',
                             id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: JSON.stringify({handle: profileMessage.socialEntityHandle}),
+                            config: JSON.stringify({ handle: profileMessage.socialEntityHandle }),
                         }
                         userProfile.userBots.socialTradingBots.socialTradingBots.push(targetNode)
-                        targetNodeTypeCount = userProfile.userBots.socialTradingBots.socialTradingBots.length                          
+                        targetNodeTypeCount = userProfile.userBots.socialTradingBots.socialTradingBots.length
                         break
                     }
                 }
@@ -237,77 +246,81 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
             }
 
             async function addOpenStorageNodes() {
+                return new Promise(promiseWork)
 
-                const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.type +"-Data"
-                /*
-                Create this repository at Github 
-                */
-                await octokit.rest.repos.createForAuthenticatedUser({
-                    name: SOCIAL_TRADING_REPO_NAME,
-                    private: false
-                })
-                    .then(repositoryCreated)
-                    .catch(repositoryNotCreated)
-        
-                function repositoryCreated() {
-                    addNodes()
-                }
-        
-                function repositoryNotCreated(err) {
-                    if (err.status === 422) {
-                        /*
-                        Repo already existed, so no need to create it. 
-                        */
-                        addNodes()
-                    } else {
-                        response = {
-                            result: 'Error',
-                            message: 'Error creating Repo at Github.',
-                            stack: err.stack
-                        }
-                        resolve(response)
-                    }
-                }
-        
-                function addNodes() {
+                async function promiseWork(resolve, reject) {
+                    const SOCIAL_TRADING_REPO_NAME = profileMessage.socialEntityHandle + "-" + profileMessage.socialEntityType.replace(' ','-') + "-Data"
                     /*
-                    Add the User Storage nodes to the User Profile
+                    Create this repository at Github 
                     */
-                    if (userProfile.userStorage === undefined) {
-                        userProfile.userStorage = {
-                            type: 'User Storage',
-                            name: 'New User Storage',
-                            project: 'Open-Storage',
-                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: '{}'
+                    await octokit.rest.repos.createForAuthenticatedUser({
+                        name: SOCIAL_TRADING_REPO_NAME,
+                        private: false
+                    })
+                        .then(repositoryCreated)
+                        .catch(repositoryNotCreated)
+
+                    function repositoryCreated() {
+                        addNodes()
+                    }
+
+                    function repositoryNotCreated(err) {
+                        if (err.status === 422) {
+                            /*
+                            Repo already existed, so no need to create it. 
+                            */
+                            addNodes()
+                        } else {
+                            response = {
+                                result: 'Error',
+                                message: 'Error creating Repo at Github.',
+                                stack: err.stack
+                            }
+                            resolve(response)
                         }
                     }
-        
-                    if (storageProviderName === "Github") {
-                        if (userProfile.userStorage.githubStorage === undefined) {
-                            userProfile.userStorage.githubStorage = {
-                                type: 'Github Storage',
-                                name: 'New Github Storage',
+
+                    function addNodes() {
+                        /*
+                        Add the User Storage nodes to the User Profile
+                        */
+                        if (userProfile.userStorage === undefined) {
+                            userProfile.userStorage = {
+                                type: 'User Storage',
+                                name: 'New User Storage',
                                 project: 'Open-Storage',
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                config: '{}',
-                                githubStorageContainers: []
+                                config: '{}'
                             }
                         }
-                        storageContainer = {
-                            type: 'Github Storage Container',
-                            name: 'New Github Storage Container',
-                            project: 'Open-Storage',
-                            id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                            config: JSON.stringify(
-                                {
-                                    codeName: SOCIAL_TRADING_REPO_NAME,
-                                    githubUserName: storageProviderUsername,
-                                    repositoryName: SOCIAL_TRADING_REPO_NAME
+
+                        if (storageProviderName === "Github") {
+                            if (userProfile.userStorage.githubStorage === undefined) {
+                                userProfile.userStorage.githubStorage = {
+                                    type: 'Github Storage',
+                                    name: 'New Github Storage',
+                                    project: 'Open-Storage',
+                                    id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                    config: '{}',
+                                    githubStorageContainers: []
                                 }
-                            )
+                            }
+                            storageContainer = {
+                                type: 'Github Storage Container',
+                                name: 'New Github Storage Container',
+                                project: 'Open-Storage',
+                                id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+                                config: JSON.stringify(
+                                    {
+                                        codeName: SOCIAL_TRADING_REPO_NAME,
+                                        githubUserName: storageProviderUsername,
+                                        repositoryName: SOCIAL_TRADING_REPO_NAME
+                                    }
+                                )
+                            }
+                            userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
                         }
-                        userProfile.userStorage.githubStorage.githubStorageContainers.push(storageContainer)
+                        resolve()
                     }
                 }
             }

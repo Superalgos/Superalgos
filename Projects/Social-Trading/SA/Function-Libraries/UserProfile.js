@@ -98,15 +98,15 @@ exports.newSocialTradingFunctionLibrariesUserProfile = function () {
             }
 
             await checkCreateFork()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { resolve(response) }
             await checkCreateUserProfile()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { resolve(response) }
             addUserAppsNodes()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { resolve(response) }
             await addSigningAccounts()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { resolve(response) }
             await pushUserProfileAndPullRequest()
-            if (response.result === 'Error') { return }
+            if (response.result === 'Error') { resolve(response) }
             saveUserAppFile()
 
             resolve(response)

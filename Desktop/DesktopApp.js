@@ -27,8 +27,7 @@ exports.newDesktopApp = function newDesktopApp() {
 
         
         let profileMessage = {
-            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
-            socialEntityHandle: 'Pepe',
+            profileType: SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES,
             socialEntityType: 'Social Persona',
             userAppType: 'Social Trading Desktop App'
         }

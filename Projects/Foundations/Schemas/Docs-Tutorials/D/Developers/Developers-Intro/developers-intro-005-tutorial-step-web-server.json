@@ -10,6 +10,11 @@
         "text": "The Web Server has two main goals: it serves all the JS files that form the Web App and all the data files to be plotted at the charts to the browser that is running the UI.",
         "translations": [
             {
+                "language": "DE",
+                "text": "Der Webserver hat zwei Hauptziele: Er liefert alle JS-Dateien, die die Webanwendung bilden, und alle Datendateien, die in den Diagrammen gezeichnet werden sollen, an den Browser, der die Benutzeroberfläche ausführt.",
+                "updated": 1641729528371
+            },
+            {
                 "language": "RU",
                 "text": "У веб-сервера две основные задачи: он обслуживает все JS-файлы, формирующие веб-приложение, и все файлы данных для построения графиков в браузере, в котором запущен пользовательский интерфейс.",
                 "updated": 1640929553664
@@ -27,6 +32,11 @@
             "text": "The complete list Web Server uses is:",
             "translations": [
                 {
+                    "language": "DE",
+                    "text": "Die vollständige Liste, die der Web Server verwendet, lautet:",
+                    "updated": 1641729540947
+                },
+                {
                     "language": "RU",
                     "text": "Полный список, который использует Web Server, следующий:",
                     "updated": 1640929564156
@@ -42,6 +52,11 @@
             "style": "List",
             "text": "JS Files: Enables the Web App to run on a browser.",
             "translations": [
+                {
+                    "language": "DE",
+                    "text": "JS-Dateien: Ermöglicht die Ausführung der Webanwendung in einem Browser.",
+                    "updated": 1641729549011
+                },
                 {
                     "language": "RU",
                     "text": "JS-файлы: Позволяет веб-приложению работать в браузере.",
@@ -59,6 +74,11 @@
             "text": "JSON Data Files: Allows the UI to access data to plot.",
             "translations": [
                 {
+                    "language": "DE",
+                    "text": "JSON Data Files: Ermöglicht der UI den Zugriff auf die zu plottenden Daten.",
+                    "updated": 1641729562486
+                },
+                {
                     "language": "RU",
                     "text": "Файлы данных JSON: Позволяет пользовательскому интерфейсу получить доступ к данным для построения графика.",
                     "updated": 1640929594454
@@ -74,6 +94,11 @@
             "style": "List",
             "text": "Images: Images used on the UI are served from the Web Server.",
             "translations": [
+                {
+                    "language": "DE",
+                    "text": "Bilder: Die auf der Benutzeroberfläche verwendeten Bilder werden vom Webserver bereitgestellt.",
+                    "updated": 1641729576069
+                },
                 {
                     "language": "RU",
                     "text": "Изображения: Изображения, используемые в пользовательском интерфейсе, передаются с веб-сервера.",
@@ -91,6 +116,11 @@
             "text": "JSON Workspaces Files: Allow users to create definitions on different Workspaces.",
             "translations": [
                 {
+                    "language": "DE",
+                    "text": "JSON Workspaces-Dateien: Ermöglichen es den Benutzern, Definitionen für verschiedene Workspaces zu erstellen.",
+                    "updated": 1641729586701
+                },
+                {
                     "language": "RU",
                     "text": "Файлы JSON рабочих пространств: Позволяет пользователям создавать определения на разных рабочих пространствах.",
                     "updated": 1640929655619
@@ -106,6 +136,11 @@
             "style": "List",
             "text": "JSON Plugin Files: Files that are automatically included on Workspaces for convenience.",
             "translations": [
+                {
+                    "language": "DE",
+                    "text": "JSON-Plugin-Dateien: Dateien, die der Einfachheit halber automatisch in die Workspaces aufgenommen werden.",
+                    "updated": 1641729597034
+                },
                 {
                     "language": "RU",
                     "text": "Файлы JSON плагинов: Файлы, которые автоматически включаются в рабочие пространства для удобства.",

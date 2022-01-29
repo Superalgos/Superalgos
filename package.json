@@ -46,7 +46,7 @@
     "telegraf": "^4.4.2",
     "twitter-api-v2": "^1.7.1",
     "util": "^0.12.4",
-    "web3": "^1.6.1",
+    "web3": "^1.2.6",
     "workbox-webpack-plugin": "5.1.4",
     "ws": "^8.4.0"
   },

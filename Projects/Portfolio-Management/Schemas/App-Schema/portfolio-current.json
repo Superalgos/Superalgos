@@ -40,13 +40,6 @@
             "childType": "Exchange Managed Assets",
             "project": "Portfolio-Management",
             "autoAdd": true
-        },
-        {
-            "name": "managedTradingBots",
-            "type": "node",
-            "childType": "Managed Trading Bots",
-            "project": "Portfolio-Management",
-            "autoAdd": true
         }
     ]
 }

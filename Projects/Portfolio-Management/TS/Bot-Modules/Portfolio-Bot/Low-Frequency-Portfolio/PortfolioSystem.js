@@ -142,15 +142,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
                 return false
             }
         }
-
-        if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
-            for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = sessionParameters.managedAssets.managedAssets[i].referenceParent.config.codeName;
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = sessionParameters.managedAssets.managedAssets[i].config.initialBalance;
-            }
-        } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
-            fetchBalances(initFlag = true);
-        }
     }
 
     function finalize() {
@@ -218,12 +209,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     async function run() {
         try {
-            // update balances:
-            if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
-                await fetchBalances();
-            } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
-                fetchLastBalances();
-            }
+            await fetchBalances()
 
         } catch (err) {
             /*
@@ -241,6 +227,14 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
     }
 
     async function fetchBalances(init) {
+
+            // update balances:
+            if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
+                
+            } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
+                fetchLastBalances();
+            }
+
         let balances = await exchangeAPIModuleObject.fetchBalance();
 
         if (balances) {

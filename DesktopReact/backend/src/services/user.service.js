@@ -121,6 +121,32 @@ const saveProfile =  async (body, res) => {
     }
 }
 
+const createProfile =  async (body, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_USER_PROFILE,
+            storageProviderName: "Github",
+            storageProviderUsername: body.username,
+            storageProviderToken: body.token,
+            userAppType:"Social Trading Desktop App"
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
 
 module.exports = {
@@ -128,6 +154,7 @@ module.exports = {
     paginateProfiles,
     loadProfile,
     saveProfile,
-    getSocialPersonaId
+    getSocialPersonaId,
+    createProfile
 };
 

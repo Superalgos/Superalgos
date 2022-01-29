@@ -29,12 +29,20 @@ const getSocialPersonaId = async (req, res) => {
 };
 
 
+const createProfile = async (req, res) => {
+  const result = await userService.createProfile(req.body);
+  res.send(result);
+};
+createProfile
+
+
 module.exports = {
   follow,
   paginateProfiles,
   loadProfile,
   saveProfile,
-  getSocialPersonaId
+  getSocialPersonaId,
+  createProfile
 };
 
 

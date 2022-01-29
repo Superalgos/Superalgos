@@ -7,7 +7,7 @@
             "relatedUiObject": "Portfolio Parameters",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "relatedUiObjectProject": "Portfolio-Management"
         },
         {
             "action": "Delete UI Object",

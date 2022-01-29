@@ -7,7 +7,7 @@
             "relatedUiObject": "Exchange Portfolio Products",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Foundations"
+            "relatedUiObjectProject": "Portfolio-Management"
         },
         {
             "action": "Add Missing Exchange Portfolio Products",
@@ -47,7 +47,8 @@
         {
             "name": "exchangePortfolioProducts",
             "type": "array",
-            "childType": "Exchange Portfolio Products"
+            "childType": "Exchange Portfolio Products",
+            "project": "Portfolio-Management"
         }
     ]
 }

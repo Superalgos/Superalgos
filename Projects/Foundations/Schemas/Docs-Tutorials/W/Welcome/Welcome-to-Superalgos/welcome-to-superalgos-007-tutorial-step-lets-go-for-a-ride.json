@@ -102,8 +102,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Die Netzwerkhierarchie ist der Kontrollraum des Systems. Von hier aus steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Tasks.",
-                    "updated": 1634160438707,
+                    "text": "Die LAN Netzwerkhierarchie ist der Kontrollraum des Systems. Hier steuern Sie Ihre Data Tasks, Testing Trading Tasks und Production Trading Aufgaben.",
+                    "updated": 1642149600351,
                     "style": "Text"
                 },
                 {

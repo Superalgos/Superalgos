@@ -112,10 +112,9 @@ const saveProfile =  async (body, res) => {
             profileMessage: JSON.stringify(profileMessage)
         }
 
-        const result = await webAppInterface.sendMessage(
+        return await webAppInterface.sendMessage(
             JSON.stringify(query)
         )
-        return result
 
     } catch (error) {
         console.log(error);

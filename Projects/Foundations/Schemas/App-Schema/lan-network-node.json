@@ -43,7 +43,7 @@
                     "relatedUiObject": "Testing Trading Tasks",
                     "actionFunction": "payload.executeAction",
                     "actionProject": "Visual-Scripting",
-                    "relatedUiObjectProject": "Portfolio-Management"
+                    "relatedUiObjectProject": "Foundations"
                 },
                 {
                     "action": "Add UI Object",
@@ -53,7 +53,7 @@
                     "relatedUiObject": "Production Trading Tasks",
                     "actionFunction": "payload.executeAction",
                     "actionProject": "Visual-Scripting",
-                    "relatedUiObjectProject": "Portfolio-Management"
+                    "relatedUiObjectProject": "Foundations"
                 },
                 {
                     "action": "Add UI Object",

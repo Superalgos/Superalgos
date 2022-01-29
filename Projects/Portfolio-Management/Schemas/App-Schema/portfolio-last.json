@@ -31,6 +31,7 @@
             "name": "exchangeManagedAssets",
             "type": "node",
             "childType": "Exchange Managed Assets",
+            "project": "Portfolio-Management",
             "autoAdd": true
         }
     ]

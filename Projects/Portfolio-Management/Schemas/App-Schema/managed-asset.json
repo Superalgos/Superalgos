@@ -4,6 +4,7 @@
       {
          "action": "Configure",
          "actionFunction": "uiObject.configEditor.activate",
+         "actionProject": "Foundations",
          "label": "Configure",
          "iconPathOn": "configuration",
          "iconPathOff": "configuration"
@@ -37,6 +38,6 @@
    "title": [
        "Use Reference Parent"
    ],
-   "propertyNameAtParent": "managedAsset",
+   "propertyNameAtParent": "managedAssets",
    "alternativeIcons": "Use Reference Parent"
 }

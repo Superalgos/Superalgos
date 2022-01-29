@@ -1,0 +1,14 @@
+{
+    "type": "Github Storage",
+    "definition": {
+        "text": "The Github Storage node contains definitions of all public github repositories set up as Open Storage locations on the Superalgos Peer to Peer network for the current User Profile.",
+        "updated": 1643398297750
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Each child Github Storage Container node identifies a particular public github repository as an Open Storage location. ",
+            "updated": 1643398451558
+        }
+    ]
+}

@@ -1,30 +1,81 @@
 {
     "type": "Outgoing Signals",
     "definition": {
-        "text": "This node defines the location within a Trading System from which a signal can be composed to be sent.",
-        "updated": 1642908629248
+        "text": "The Outgoing Signals node defines the location within a Trading System from which a signal can be composed to be sent.",
+        "updated": 1643404994527
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643406159352
+        },
+        {
             "style": "Text",
-            "text": "Three main types of signals can be sent:",
-            "updated": 1642908677439
+            "text": "What this means is that an Outgoing Signal node captures and then tells the system where to send signal information. This is achieved by adding a child Outgoing Signal Reference node.",
+            "updated": 1643406587670
+        },
+        {
+            "style": "Title",
+            "text": "Types of Signals",
+            "updated": 1643406148598
+        },
+        {
+            "style": "Text",
+            "text": "There are three main types of signals that can be sent:"
         },
         {
             "style": "Text",
             "text": ""
         },
         {
-            "style": "Text",
-            "text": "Event"
+            "style": "Subtitle",
+            "text": "Candle Sync Signals",
+            "updated": 1643425661140
         },
         {
             "style": "Text",
-            "text": "Function"
+            "text": "Keeping the bots of provider and recipient on the same candle is vital for trading signals to actually be useful. Therefore, Candle Sync signals are the foundational use of the Outgoing Signal node. It communicates the candle on which the current signal belongs. This allows the recipient’s bots to identify the exact same candle and stay in sync with the provider’s bots.",
+            "updated": 1643425213425
         },
         {
             "style": "Text",
-            "text": "Candle Sync"
+            "text": "Candle sync signals are established by attaching an Outgoing Signal node to a Trading System node. Then adding a child Outgoing Signal Reference node. Then establishing a reference from the Outgoing Signal Reference node to the Trading System Signal node held under the Social Trading Bot of the provider.",
+            "updated": 1643425432904
+        },
+        {
+            "style": "Subtitle",
+            "text": "Event Signals",
+            "updated": 1643425667662
+        },
+        {
+            "style": "Text",
+            "text": "Event signals allow the signal provider to send information concerning trading system events. Examples of such events are the Trigger On Event, Trigger Off Event, Take Position Event, etc.",
+            "updated": 1643426918248
+        },
+        {
+            "style": "Text",
+            "text": "Creating event signals is very straightforward. First find the event which you would like to include in your signal. Then add an Outgoing Signal node to the Event node. After that attach a child Outgoing Signal Reference node. Finally establish a reference from the Outgoing Signal Reference node to the appropriate Trading Strategy Signals node.",
+            "updated": 1643426717064
+        },
+        {
+            "style": "Subtitle",
+            "text": "Formula Signals",
+            "updated": 1643426795012
+        },
+        {
+            "style": "Text",
+            "text": "Formula signals allow the signal provider to send information coming out of trading system formulas. Examples of such formulas are, Target Rate, Order Rate, Target Size In Base Asset, etc.",
+            "updated": 1643427806063
+        },
+        {
+            "style": "Text",
+            "text": "Creating a formula signal is the same as establishing an event signal."
+        },
+        {
+            "style": "Text",
+            "text": "There is however one added layer of complexity. A standard formula signal sends the result of its associated formula. So for example the resulting Order Rate of an order rate formula. A signal provider can also set up a Signal Context Formula node. This node allows the provider to send additional information coming out of the trading system.  This can be values used to help calculate the current formula, values from the Trading Engine or any other available variables.",
+            "updated": 1643428990646
         }
     ]
 }

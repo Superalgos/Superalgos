@@ -109,6 +109,11 @@
                     "language": "RU",
                     "text": "Розовый: 0,25X",
                     "updated": 1640866526964
+                },
+                {
+                    "language": "ID",
+                    "text": "Merah Muda: 0.25X",
+                    "updated": 1643473780922
                 }
             ]
         },
@@ -131,6 +136,11 @@
                     "language": "RU",
                     "text": "Оранжевый: 0.5X",
                     "updated": 1640866535036
+                },
+                {
+                    "language": "ID",
+                    "text": "Oranye: 0.5X",
+                    "updated": 1643473807651
                 }
             ]
         },
@@ -158,6 +168,11 @@
                     "language": "RU",
                     "text": "Зеленый: 1X",
                     "updated": 1640866542121
+                },
+                {
+                    "language": "ID",
+                    "text": "Hijau: 1X",
+                    "updated": 1643473851575
                 }
             ]
         },
@@ -185,6 +200,11 @@
                     "language": "RU",
                     "text": "Синий: 1.5X",
                     "updated": 1640866548819
+                },
+                {
+                    "language": "ID",
+                    "text": "Biru: 1.5X",
+                    "updated": 1643473858691
                 }
             ]
         },
@@ -212,6 +232,11 @@
                     "language": "RU",
                     "text": "Красный: 2X",
                     "updated": 1640866555783
+                },
+                {
+                    "language": "ID",
+                    "text": "Merah: 2X",
+                    "updated": 1643473865965
                 }
             ]
         },
@@ -249,8 +274,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Katakan jika kamu memilih warna Green (hijau). Jarak dari node ke parent-nya akan sama dengan jarak yang memisahkan parent node dengan parentn-nya!",
-                    "updated": 1643353133416
+                    "text": "Katakan jika kamu memilih warna Hijau. Jarak dari node ke parent-nya akan sama dengan jarak yang memisahkan parent node dengan parent-nya!",
+                    "updated": 1643473885338
                 }
             ]
         }

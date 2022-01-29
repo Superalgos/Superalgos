@@ -39,8 +39,8 @@
             },
             {
                 "language": "ID",
-                "text": "Ketika semua offspring node diatur ke sudut 180 derajat, setiap node mengambil tempat disekeliling yang mencakup 180 derajat, normal untuk parentnya.",
-                "updated": 1643336720938
+                "text": "Ketika semua turunan node diatur ke sudut 180 derajat, setiap node mengambil tempat disekeliling yang mencakup 180 derajat, normal untuk parentnya.",
+                "updated": 1643473595168
             }
         ]
     },
@@ -79,8 +79,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Tetapi apa yang terjadi jika salah satu offspring nodes memiliki pengaturan Angle to Parent yang berbeda? Mari kita tes!",
-                    "updated": 1643336741435
+                    "text": "Tetapi apa yang terjadi jika salah satu turunan node memiliki pengaturan Angle to Parent yang berbeda? Mari kita tes!",
+                    "updated": 1643473612431
                 }
             ]
         },

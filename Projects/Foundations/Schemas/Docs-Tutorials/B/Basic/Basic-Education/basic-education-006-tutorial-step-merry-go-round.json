@@ -39,8 +39,8 @@
             },
             {
                 "language": "ID",
-                "text": "Secara default, node terkunci ke rotational symmetry di sekitaran node induknya. symmetry ini dapat menjangkau 360 derajat atau kurang, tergantung dari pengaturannya!",
-                "updated": 1643336246271
+                "text": "Secara umum, node terkunci ke simetris rotational di sekitaran node induknya. simetris ini dapat menjangkau 360 derajat atau kurang, tergantung dari pengaturannya!",
+                "updated": 1643473526505
             }
         ]
     },
@@ -79,8 +79,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Ketika kamu mengklik tombol Angle to Parent node, kamu berputar di antara lima pengaturan berbeda: 360, 180, 90, dan 45 derajat, ditambah opsi untuk menonaktifkan rotational symmetry.",
-                    "updated": 1643336266502
+                    "text": "Ketika kamu mengklik tombol Angle to Parent node, kamu berputar di antara lima pengaturan berbeda: 360, 180, 90, dan 45 derajat, ditambah opsi untuk menonaktifkan simetris rotational.",
+                    "updated": 1643473550089
                 }
             ]
         },
@@ -118,8 +118,8 @@
                 },
                 {
                     "language": "ID",
-                    "text": "Coba lihatlah pengaturan yang dipilih pada masing-masing offspring dari node Lightning Strike Backtesting Session node: Trading Parameters, Trading System Reference, dan the Trading Engine Reference. Semuanya diatur ke 180 derajat, benar?",
-                    "updated": 1643336277623
+                    "text": "Coba lihatlah pengaturan yang dipilih pada masing-masing turunan dari node Lightning Strike Backtesting Session : Trading Parameters, Trading System Reference, dan the Trading Engine Reference. Semuanya diatur ke 180 derajat, benar?",
+                    "updated": 1643473584884
                 }
             ]
         }

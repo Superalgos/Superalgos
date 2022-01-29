@@ -355,7 +355,10 @@ function newUiObject() {
             }
         }
 
-        thisObject.payload.floatingObject.container.frame.radius = thisObject.payload.floatingObject.targetRadius + ((openMenuCount - 1) * (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
+        thisObject.payload.floatingObject.container.frame.radius =
+            thisObject.payload.floatingObject.targetRadius +
+            ((openMenuCount - 1) *
+                (250 * UI.projects.foundations.spaces.floatingSpace.settings.node.menuItem.widthPercentage / 100))
 
         if (thisObject.conditionEditor !== undefined) {
             thisObject.conditionEditor.physics()
@@ -2082,7 +2085,7 @@ function newUiObject() {
             drawHierarchyHeadRing()
             drawProjectHeadRing()
             drawInfoRing()
-            drawWarningRing() 
+            drawWarningRing()
             drawErrorRing()
             drawHighlighted()
             drawReadyToChainAttach()
@@ -2449,7 +2452,7 @@ function newUiObject() {
                 }
 
                 // If this UiObject is being loaded then display at half opacity
-                if(thisObject.payload.isLoading === true) {
+                if (thisObject.payload.isLoading === true) {
                     browserCanvasContext.globalAlpha = 0.5
                 } else {
                     browserCanvasContext.globalAlpha = 1

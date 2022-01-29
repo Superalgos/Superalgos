@@ -18,7 +18,10 @@ exports.newFoundationsUtilitiesWebAccess = function () {
 
                     if (response.status !== 200) {
                         console.log('[ERROR] fetchAPIData -> then -> url =' + url)
-                        reject()
+                        let err = {
+                            message: 'Fetch of ' + url + ' failed with status ' + response.status
+                        }
+                        reject(err)
                         return
                     }
                     getResponseBody()
@@ -31,7 +34,7 @@ exports.newFoundationsUtilitiesWebAccess = function () {
                 })
                 .catch(err => {
                     console.log('[ERROR] fetchAPIData -> url =' + url)
-                    reject()
+                    reject(err)
                 })
         }
         )

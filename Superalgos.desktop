@@ -1,0 +1,10 @@
+[Desktop Entry]
+            Type=Application
+            Encoding=UTF-8
+            Name=Superalgos
+            Comment=Launch Shortcut for Superalgos
+            Path=/home/benedictjaeger/Superalgos/Launch-Scripts
+            Exec=/home/benedictjaeger/Superalgos/Launch-Scripts/launch-linux-mac.sh
+            Terminal=true
+            Icon=/home/benedictjaeger/Superalgos/Projects/Foundations/Icons/superalgos.png
+            Categories=Application;

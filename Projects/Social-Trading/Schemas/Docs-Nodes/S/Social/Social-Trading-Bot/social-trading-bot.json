@@ -48,9 +48,13 @@
             "text": "Social Trading Bot Configuration"
         },
         {
+            "style": "Subtitle",
+            "text": "Properties",
+            "updated": 1643399791705
+        },
+        {
             "style": "List",
-            "text": "codeName This is the name this bot will use internally within the user's instance of the Superalgos Platform.",
-            "updated": 1642907946205
+            "text": "codeName This is the name this bot will use internally within the user's instance of the Superalgos Platform."
         },
         {
             "style": "List",

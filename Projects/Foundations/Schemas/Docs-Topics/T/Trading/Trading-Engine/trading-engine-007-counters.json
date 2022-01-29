@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Отслеживайте, сколько экземпляров определенных объектов существовало в данном контексте. На этой странице: Periods, Strategy, Positions, Orders и Days.",
                 "updated": 1640345970767
+            },
+            {
+                "language": "DE",
+                "text": "Behalte im Auge, wie viele Instanzen bestimmter Objekte in einem bestimmten Kontext existiert haben. Auf dieser Seite: Periods, Strategies, Positions, Orders, and Days.",
+                "updated": 1643480983409
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Счетчик отслеживает, сколько экземпляров определенных объектов появилось или приняло определенное значение за время действия определенного контекста.",
                     "updated": 1640346086817
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Counter hält fest, wie viele Instanzen bestimmter Objekte während der Dauer eines bestimmten Kontextes entstanden sind oder einen bestimmten Wert angenommen haben.",
+                    "updated": 1643481235816
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Например, сколько позиций было открыто в течение эпизода, или сколько из этих позиций было закрыто.",
                     "updated": 1640346179212
+                },
+                {
+                    "language": "DE",
+                    "text": "Zum Beispiel, wie viele Positionen während einer Episode offen waren oder wie viele dieser Positionen Treffer waren.",
+                    "updated": 1643481123744
                 }
             ]
         },
@@ -45,6 +60,11 @@
                     "language": "RU",
                     "text": "Счетчики ведутся одновременно в нескольких контекстах. В частности, вы найдете счетчики эпизодов, счетчики стратегий, счетчики позиций и счетчики ордеров.",
                     "updated": 1640346196289
+                },
+                {
+                    "language": "DE",
+                    "text": "Counter werden in mehreren Kontexten gleichzeitig geführt. Es gibt insbesondere episode counters, strategy counters, position counters und order counters.",
+                    "updated": 1643481245773
                 }
             ]
         },

@@ -36,6 +36,7 @@ function newUiObject() {
         statusAngleOffset: 0,
         highlightReferenceChildren: false,
         drawReferenceLine: false,
+        getHighlightReferenceChildrenStatus: getHighlightReferenceChildrenStatus,
         run: run,
         stop: stop,
         heartBeat: heartBeat,
@@ -2483,5 +2484,9 @@ function newUiObject() {
                 }
             }
         }
+    }
+
+    function getHighlightReferenceChildrenStatus() {
+        return thisObject.highlightReferenceChildren
     }
 }

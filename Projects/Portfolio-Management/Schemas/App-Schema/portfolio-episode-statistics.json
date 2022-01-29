@@ -39,36 +39,42 @@
             "name": "profitLoss",
             "type": "node",
             "childType": "Profit Loss",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "ROI",
             "type": "node",
             "childType": "ROI",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "hitFail",
             "type": "node",
             "childType": "Hit Fail",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "days",
             "type": "node",
             "childType": "Days",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "annualizedRateOfReturn",
             "type": "node",
             "childType": "Annualized Rate Of Return",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "userDefinedStatistics",
             "type": "array",
             "childType": "User Defined Statistic",
+            "project": "Foundations",
             "autoAdd": true
         }
     ]

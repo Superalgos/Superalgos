@@ -10,6 +10,11 @@
         "text": "The Events Server provides the communication model between processes and the UI. It essentially allows any entity inside each process to create a system-wide event handler and allow any other entity inside a process (or the UI) to subscribe or emit events at that event handler.",
         "translations": [
             {
+                "language": "DE",
+                "text": "Der Eventserver stellt das Kommunikationsmodell zwischen Prozessen und der Benutzeroberfläche bereit. Er erlaubt im Wesentlichen jeder Entität innerhalb eines Prozesses, einen systemweiten Event-Handler zu erstellen und jeder anderen Entität innerhalb eines Prozesses (oder der Benutzeroberfläche) zu erlauben, Events bei diesem Event-Handler zu abonnieren oder zu emittieren.",
+                "updated": 1641729769800
+            },
+            {
                 "language": "RU",
                 "text": "Events Server обеспечивает модель взаимодействия между процессами и пользовательским интерфейсом. По сути, он позволяет любому объекту внутри каждого процесса создать общесистемный обработчик событий и позволить любому другому объекту внутри процесса (или пользовательского интерфейса) подписываться на события в этом обработчике.",
                 "updated": 1640929889192
@@ -27,6 +32,11 @@
             "text": "Events-based communication happens between:",
             "translations": [
                 {
+                    "language": "DE",
+                    "text": "Ereignisbasierte Kommunikation findet statt zwischen:",
+                    "updated": 1641729776199
+                },
+                {
                     "language": "RU",
                     "text": "Связь, основанная на событиях, происходит между:",
                     "updated": 1640929910880
@@ -42,6 +52,11 @@
             "style": "List",
             "text": "UI and Task Manager: To run and stop Task Server processes.",
             "translations": [
+                {
+                    "language": "DE",
+                    "text": "UI and Task Manager: Zum Starten und Stoppen von Task-Server-Prozessen.",
+                    "updated": 1641729787523
+                },
                 {
                     "language": "RU",
                     "text": "UI и Task Manager: Для запуска и остановки процессов Task Server.",
@@ -59,6 +74,11 @@
             "text": "Task Server and UI: To get online feedback of what is going on at the Task Server, to display relevant status info at the UI.",
             "translations": [
                 {
+                    "language": "DE",
+                    "text": "Task Server and UI: Um eine Online-Rückmeldung darüber zu erhalten, was auf dem Task-Server vor sich geht, und um relevante Statusinformationen auf der Benutzeroberfläche anzuzeigen.",
+                    "updated": 1641729799669
+                },
+                {
                     "language": "RU",
                     "text": "Task Server и UI: Получение обратной связи в режиме онлайн о том, что происходит на сервере задач, для отображения соответствующей информации о состоянии на пользовательском интерфейсе.",
                     "updated": 1640929963627
@@ -74,6 +94,11 @@
             "style": "Note",
             "text": "The communication between the UI and the Web Server is HTTP only.",
             "translations": [
+                {
+                    "language": "DE",
+                    "text": "Die Kommunikation zwischen der Benutzeroberfläche und dem Webserver erfolgt ausschließlich über HTTP.",
+                    "updated": 1641729806533
+                },
                 {
                     "language": "RU",
                     "text": "Связь между пользовательским интерфейсом и веб-сервером осуществляется только по протоколу HTTP.",

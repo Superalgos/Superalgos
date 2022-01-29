@@ -127,8 +127,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Ein solches Setup erlaubt es Ihnen, die stabile Version für Ihre Produktionsaufgaben zu verwenden und die Version in einem anderen Zweig, um neue Funktionen zu testen! Aber Sie können nicht zwei Versionen gleichzeitig laufen lassen, es sei denn, Sie ändern die Ports! Wir werden jetzt nicht darauf eingehen!",
-                    "updated": 1635147735085
+                    "text": "So können Sie die stabile Version für Ihre Produktionsaufgaben verwenden und die Version in einem anderen Zweig, um neue Funktionen beizusteuern und zu testen! Aber Sie können nicht zwei Versionen gleichzeitig laufen lassen, es sei denn, Sie ändern die Ports!",
+                    "updated": 1641741650053
                 },
                 {
                     "language": "RU",

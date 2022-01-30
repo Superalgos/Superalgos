@@ -7,7 +7,7 @@ import UsersSidebar from "../userSideBar/UsersSidebar";
 import {getProfile, getSocialPersona} from "../../api/profile.httpService";
 import {setActualProfile, setSocialPersona} from "../../store/slices/Profile.slice";
 import {STATUS_OK} from "../../api/httpConfig";
-import {isEmpty} from "../../utils/helper";
+import {isObjectEmpty} from "../../utils/helper";
 
 function App() {
     const dispatch = useDispatch();
@@ -16,27 +16,30 @@ function App() {
     let navigate = useNavigate();
 
     const loadUser = async () => {
-        let loadUser = isEmpty(loadedUser) && isEmpty(loadedSocialPersona);
+        let loadUser = isObjectEmpty(loadedUser) && isObjectEmpty(loadedSocialPersona);
         if (!loadUser) return;
         let socialPersona = await getSocialPersona().then(response => response.json());
         if (socialPersona.error) return;
         dispatch(setSocialPersona(socialPersona))
+        dispatch(setActualProfile(socialPersona))
         /* TODO refactor
                 if (data) {
                     navigate("/signUp")
                 }
         */
 
-        let {profileData, result} = await getProfile().then(response => response.json())
+        let {
+            data,
+            result
+        } = await getProfile(socialPersona.nodeId).then(response => response.json());
         if (result === STATUS_OK) {
-            dispatch(setActualProfile(profileData))
+            dispatch(setActualProfile(data))
         }
-
     }
 
     useEffect(() => {
         loadUser();
-    }, [navigate]);
+    }, [/*navigate*/]);
 
     return (
         <div className="app">

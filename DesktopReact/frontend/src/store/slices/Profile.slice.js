@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {cleanObject} from "../../utils/helper";
 
 /* TODO REMOVE HARDCODED VALUES*/
 export const ProfileSlice = createSlice({
@@ -44,13 +45,13 @@ export const ProfileSlice = createSlice({
     },
     reducers: {
         setSocialPersona: (state, action) => {
-            Object.assign(state.socialPersona, action.payload);
+            Object.assign(state.socialPersona, cleanObject(action.payload));
         },
         setActualProfile: (state, action) => {
-            Object.assign(state.actualUser, action.payload);
+            Object.assign(state.actualUser, cleanObject(action.payload));
         },
         setSelectedProfile: (state, action) => {
-            Object.assign(state.selectedUser, action.payload);
+            Object.assign(state.selectedUser, cleanObject(action.payload));
         }
     },
 })

@@ -427,11 +427,11 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                             */
                             let portfolioTasks = UI.projects.visualScripting.utilities.branches.findInBranch(lanNetworkNode, environmentType, node, true)
                             if (portfolioTasks === undefined) {
-                                portfolioTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType)
+                                portfolioTasks = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(lanNetworkNode, environmentType, undefined, 'Portfolio-Management')
                             }
                             /*
-                             We will make ourselves sure that the Project Portfolio Tasks nodes are there.
-                             */
+                            We will make ourselves sure that the Project Portfolio Tasks nodes are there.
+                            */
                             portfolioTasks.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Tasks')
                             portfolioTasks.payload.uiObject.menu.internalClick('Add Missing Project Portfolio Tasks')
 
@@ -849,7 +849,7 @@ function newFoundationsFunctionLibraryCryptoEcosystemFunctions() {
                 uninstalMarketArray(marketTradingProductsArray)
                 uninstalMarketArray(marketPortfolioProductsArray)
                 uninstalMarketArray(marketLearningProductsArray)
-
+             
                 function uninstalMarketArray(marketArray) {
                     for (let i = 0; i < marketArray.length; i++) {
                         let marketReference = marketArray[i]

@@ -28,9 +28,10 @@
     "propertyNameAtParent": "managedAssets",
     "childrenNodesProperties": [
         {
-            "name": "managedAsset",
+            "name": "managedAssets",
             "type": "array",
             "childType": "Managed Asset",
+            "project": "Portfolio-Management",
             "autoAdd": true
         }
     ]

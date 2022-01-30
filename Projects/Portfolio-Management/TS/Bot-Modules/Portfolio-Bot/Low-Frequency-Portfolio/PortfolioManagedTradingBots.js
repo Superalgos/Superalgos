@@ -5,7 +5,8 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
     Trading Bot Simulation.
     */
     let thisObject = {
-        run: run,
+        moveTradingEnginesIntoPortfolioEngine: moveTradingEnginesIntoPortfolioEngine,
+        waitForManagedTradingBotsToAskTheirQuestions: waitForManagedTradingBotsToAskTheirQuestions,
         checkInCandle: checkInCandle,
         checkOutCandle: checkOutCandle,
         initialize: initialize,
@@ -14,6 +15,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
     let portfolioEngine
     let isRunning
     let tradingBotsCheckInStatusMap
+    let tradingBotsTradingEngineMap
 
     return thisObject
 
@@ -25,13 +27,31 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
     function finalize() {
         portfolioEngine = undefined
         tradingBotsCheckInStatusMap = undefined
+        tradingBotsTradingEngineMap = undefined
     }
 
-    async function run() {
+    function moveTradingEnginesIntoPortfolioEngine() {
+
+        for (let i = 0; i < TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES.length; i++) {
+
+            let SESSION_KEY = TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.name +
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
+                '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id
+
+            let tradingEngine = tradingBotsTradingEngineMap.get(SESSION_KEY)
+            let managedTradingBotEngine = portfolioEngine.managedTradingBots.managedTradingBots[i].managedTradingBotEngine
+
+            TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngine, managedTradingBotEngine)
+
+        }
+    }
+
+    async function waitForManagedTradingBotsToAskTheirQuestions() {
         let promise = new Promise((resolve, reject) => {
             isRunning = true
 
             tradingBotsCheckInStatusMap = new Map()
+            tradingBotsTradingEngineMap = new Map()
             let intervalId = setInterval(checkTradingBotsStatus, 10)
 
             function checkTradingBotsStatus() {
@@ -114,7 +134,8 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
 
     function checkOutCandle(
         SESSION_KEY,
-        candle
+        candle,
+        tradingEngine
     ) {
         let response
         if (isRunning === false) {
@@ -138,10 +159,13 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
                 reason: "Acknowledged"
             }
             /*
-            Remember that this Trading Bot Checked In.
+            Remember that this Trading Bot Checked Out.
             */
             tradingBotsCheckInStatusMap.set(SESSION_KEY, 'Checked Out')
-
+            /*
+            Remember that this Trading Bot's Trading Engine.
+            */
+            tradingBotsTradingEngineMap.set(SESSION_KEY, tradingEngine)
         } else {
             response = {
                 status: 'Not Ok',

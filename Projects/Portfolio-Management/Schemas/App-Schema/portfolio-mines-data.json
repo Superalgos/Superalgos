@@ -40,7 +40,8 @@
         {
             "name": "projectPortfolioProducts",
             "type": "array",
-            "childType": "Project Portfolio Products"
+            "childType": "Project Portfolio Products",
+            "project": "Portfolio-Management"
         }
     ]
 }

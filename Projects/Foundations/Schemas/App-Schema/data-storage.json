@@ -75,6 +75,7 @@
             "name": "portfolioMinesData",
             "type": "node",
             "childType": "Portfolio Mines Data",
+            "project": "Portfolio-Management",
             "autoAdd": true
         },
         {

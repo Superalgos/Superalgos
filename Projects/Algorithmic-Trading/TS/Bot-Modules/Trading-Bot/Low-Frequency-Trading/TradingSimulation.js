@@ -226,6 +226,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                     await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                         portfolioManagerClientModuleObject,
                         tradingSystem,
+                        tradingEngine,
                         candle
                     )
                     break
@@ -253,6 +254,7 @@ exports.newAlgorithmicTradingBotModulesTradingSimulation = function (processInde
                 await TS.projects.simulation.functionLibraries.simulationFunctions.syncronizeLoopCandleExitPortfolioManager(
                     portfolioManagerClientModuleObject,
                     tradingSystem,
+                    tradingEngine,
                     candle
                 )
                 /*

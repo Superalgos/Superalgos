@@ -175,13 +175,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     function maintain() {
         // Move Current to Last:
-        for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free;
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked;
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total;
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance;
-            portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name;
-        }
+
     }
 
     function reset() {
@@ -209,7 +203,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     async function run() {
         try {
-            await fetchBalances()
+            // await fetchBalances()
 
         } catch (err) {
             /*

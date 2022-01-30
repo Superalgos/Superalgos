@@ -56,9 +56,30 @@
             "autoAdd": true
         },
         {
+            "name": "beginRate",
+            "type": "node",
+            "childType": "Begin Rate",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "endRate",
+            "type": "node",
+            "childType": "End Rate",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
             "name": "status",
             "type": "node",
             "childType": "Status",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "exitType",
+            "type": "node",
+            "childType": "Exit Type",
             "project": "Foundations",
             "autoAdd": true
         },
@@ -73,6 +94,20 @@
             "name": "processDate",
             "type": "node",
             "childType": "Process Date",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "episodeBaseAsset",
+            "type": "node",
+            "childType": "Episode Base Asset",
+            "project": "Foundations",
+            "autoAdd": true
+        },
+        {
+            "name": "episodeQuotedAsset",
+            "type": "node",
+            "childType": "Episode Quoted Asset",
             "project": "Foundations",
             "autoAdd": true
         },

@@ -153,6 +153,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     async function syncronizeLoopCandleExitPortfolioManager(
         portfolioManagerClientModuleObject,
         system,
+        engine,
         candle
     ) {
         if (
@@ -162,7 +163,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Report to Portfolio Manager that we are exiting this candle.
             */
             await portfolioManagerClientModuleObject.candleExit(
-                candle
+                candle,
+                engine
             )
         }
     }

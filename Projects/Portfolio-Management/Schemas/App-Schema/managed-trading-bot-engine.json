@@ -17,5 +17,28 @@
     "attachingRules": {
         "compatibleTypes": "->Managed Trading Bot->"
     },
-    "propertyNameAtParent": "managedTradingBotEngine"
+    "propertyNameAtParent": "managedTradingBotEngine",
+    "childrenNodesProperties": [
+        {
+            "name": "tradingCurrent",
+            "type": "node",
+            "childType": "Trading Current",
+            "autoAdd": false,
+            "project": "Foundations"
+        },
+        {
+            "name": "tradingLast",
+            "type": "node",
+            "childType": "Trading Last",
+            "autoAdd": false,
+            "project": "Foundations"
+        },
+        {
+            "name": "exchangeOrders",
+            "type": "node",
+            "childType": "Exchange Orders",
+            "autoAdd": false,
+            "project": "Foundations"
+        }
+    ]
 }

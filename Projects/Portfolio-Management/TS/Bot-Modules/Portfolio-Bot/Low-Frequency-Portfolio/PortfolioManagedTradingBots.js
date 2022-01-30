@@ -39,7 +39,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
                 '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id
 
             let tradingEngine = tradingBotsTradingEngineMap.get(SESSION_KEY)
-            let managedTradingBotEngine = portfolioEngine.managedTradingBots.managedTradingBots[i].managedTradingBot.managedTradingBotEngine
+            let managedTradingBotEngine = portfolioEngine.managedTradingBots.managedTradingBots[i].managedTradingBotEngine
 
             TS.projects.foundations.globals.processModuleObjects.MODULE_OBJECTS_BY_PROCESS_INDEX_MAP.get(processIndex).ENGINE_MODULE_OBJECT.cloneValues(tradingEngine, managedTradingBotEngine)
 

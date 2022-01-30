@@ -13,8 +13,9 @@
                 "language": "DE",
                 "text": "Hier wird die Dokumentations-Website geladen. Es handelt sich um einen HTML-iFrame in einem DIV, der auf dem Bildschirm ein- und ausgeblendet wird.",
                 "updated": 1641736246104
-        },
-        {                "language": "RU",
+            },
+            {
+                "language": "RU",
                 "text": "Здесь загружается веб-сайт документации. Это HTML iFrame внутри DIV, анимированный на экране и за его пределами.",
                 "updated": 1640931621573
             },
@@ -34,8 +35,9 @@
                     "language": "DE",
                     "text": "Es gibt laufende Bemühungen, die Dokumentations-Website in die App zu integrieren. Was Sie heute sehen können, ist nur der erste Schritt in diese Richtung.",
                     "updated": 1641736255938
-        },
-        {                    "language": "RU",
+                },
+                {
+                    "language": "RU",
                     "text": "В настоящее время ведется работа по внедрению веб-сайта документации в приложение. То, что вы видите сегодня, - лишь первый шаг в этом направлении.",
                     "updated": 1640931640816
                 },
@@ -54,8 +56,9 @@
                     "language": "DE",
                     "text": "Die aktuelle Dokumentation ist in einem separaten Repository implementiert, das von Github Pages gehostet wird.",
                     "updated": 1641736262530
-        },
-        {                    "language": "RU",
+                },
+                {
+                    "language": "RU",
                     "text": "Текущая документация реализована в виде отдельного репозитория, размещенного на Github.",
                     "updated": 1640931687040
                 },

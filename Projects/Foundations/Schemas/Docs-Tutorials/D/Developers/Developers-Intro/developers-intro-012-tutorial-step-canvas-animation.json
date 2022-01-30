@@ -14,7 +14,7 @@
                 "text": "Die Animation führt für jeden Raum eine physics()- und eine draw()-Funktion aus, so dass jeder Raum seine eigene Physik-Engine bzw. seine eigenen Regeln hat und sich selbst als oberste Ebene auf der Benutzeroberfläche darstellen kann.",
                 "updated": 1641730326103
             },
-            {       
+            {
                 "language": "RU",
                 "text": "Анимации запускают функции physics() и draw() для каждого пространства, позволяя каждому из них иметь свой собственный физический движок / правила и визуализировать себя как слой верхнего уровня на пользовательском интерфейсе.",
                 "updated": 1640930807995
@@ -36,7 +36,7 @@
                     "text": "Bei jedem Frame ruft die Animation zuerst die physics()-Funktion jedes Raums und anschließend die draw()-Funktion auf. Dann wird ein Callback vom Browser angefordert und alles beginnt von vorne.",
                     "updated": 1641730335050
                 },
-                {           
+                {
                     "language": "RU",
                     "text": "На каждом кадре анимация вызывает сначала функцию physics() каждого пространства, а затем функцию draw(). Затем она запрашивает обратный вызов у браузера и начинает все сначала.",
                     "updated": 1640930831392

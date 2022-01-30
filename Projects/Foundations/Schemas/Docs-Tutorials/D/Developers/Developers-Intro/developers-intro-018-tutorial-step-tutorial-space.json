@@ -13,8 +13,9 @@
                 "language": "DE",
                 "text": "Ermöglicht die Durchführung von Tutorials. Er basiert nicht auf dem HTML-Canvas, sondern auf HTML + CSS.",
                 "updated": 1641736573750
-        },
-        {                "language": "RU",
+            },
+            {
+                "language": "RU",
                 "text": "Позволяет запускать учебные пособия. Он основан не на HTML canvas, а на HTML + CSS.",
                 "updated": 1640931706945
             },
@@ -34,8 +35,9 @@
                     "language": "DE",
                     "text": "Der Tutorial-Bereich ist die oberste Ebene des gesamten Systems, da er über allem anderen gerendert wird. Er kann andere Bereiche auf der Grundlage der Konfiguration der einzelnen Tutorial-Themen und -Schritte manipulieren.",
                     "updated": 1641736580652
-        },
-        {                    "language": "RU",
+                },
+                {
+                    "language": "RU",
                     "text": "Tutorial Space - это самый верхний уровень всей системы, поскольку оно отображается выше всего остального. Оно может манипулировать другими пространствами на основе конфигурации каждой темы и шага обучения.",
                     "updated": 1640931783169
                 },
@@ -54,8 +56,9 @@
                     "language": "DE",
                     "text": "Tutorials können den Benutzer nicht nur auf der Benutzeroberfläche bewegen, sondern auch die meisten Aktionen ausführen, die der Benutzer selbst durchführen kann, wie z. B. das Ausführen von Aufgaben jeglicher Art.",
                     "updated": 1641736590095
-        },
-        {                    "language": "RU",
+                },
+                {
+                    "language": "RU",
                     "text": "Учебники могут не только перемещать пользователя по пользовательскому интерфейсу, но и выполнять большинство действий, которые могут выполнять сами пользователи, например, запускать задачи любого рода.",
                     "updated": 1640931801687
                 },
@@ -74,8 +77,9 @@
                     "language": "DE",
                     "text": "Der Tutorial-Bereich ist eine neue Ergänzung des Systems. Aus diesem Grund gibt es heute nur wenige Tutorials, aber wir erwarten, dass sich dies in Zukunft ändern wird.",
                     "updated": 1641736596282
-        },
-        {                    "language": "RU",
+                },
+                {
+                    "language": "RU",
                     "text": "Пространство учебников (Tutorial Space) - это новое дополнение к системе. По этой причине на сегодняшний день существует мало учебных пособий, но мы ожидаем, что в будущем ситуация изменится.",
                     "updated": 1640931833127
                 },

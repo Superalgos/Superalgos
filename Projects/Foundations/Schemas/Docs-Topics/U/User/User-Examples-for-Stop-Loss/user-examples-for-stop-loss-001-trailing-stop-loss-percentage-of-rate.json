@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Trailing Stop Loss отслеживает курс и устанавливает Stop Loss на заданном расстоянии от него",
                 "updated": 1640358483696
+            },
+            {
+                "language": "DE",
+                "text": "Ein Trailing Stop Loss verfolgt den Kurs und setzt den Stop Loss in einem bestimmten Abstand zu diesem.",
+                "updated": 1643631434380
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Измените значение \"trailingStopLoss\" на то, которое вы считаете нужным.",
                     "updated": 1640358499793
+                },
+                {
+                    "language": "DE",
+                    "text": "Ändern Sie den \"trailingStopLoss\"-Wert so, wie Sie es für richtig halten.",
+                    "updated": 1643631472221
                 }
             ]
         },
@@ -34,6 +44,11 @@
                     "language": "RU",
                     "text": "Trailing Stop Loss для длинной позиции",
                     "updated": 1640358524914
+                },
+                {
+                    "language": "DE",
+                    "text": "Trailing Stop Loss für eine Long Position",
+                    "updated": 1643631632466
                 }
             ]
         },
@@ -51,6 +66,11 @@
                     "language": "RU",
                     "text": "Для длинной позиции мы хотим, чтобы наш Stop Loss был ниже фактической цены.",
                     "updated": 1640358553699
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei einer Long Position soll der Stop Loss unter dem aktuellen Kurs liegen.",
+                    "updated": 1643631624151
                 }
             ]
         },
@@ -62,6 +82,11 @@
                     "language": "RU",
                     "text": "Trailing Stop Loss для короткой позиции",
                     "updated": 1640358573088
+                },
+                {
+                    "language": "DE",
+                    "text": "Trailing Stop Loss für eine Short Position",
+                    "updated": 1643631539967
                 }
             ]
         },
@@ -79,6 +104,11 @@
                     "language": "RU",
                     "text": "Для короткой позиции мы хотим, чтобы наш Stop Loss был выше фактической цены.",
                     "updated": 1640358596488
+                },
+                {
+                    "language": "DE",
+                    "text": "Bei einer Short Position soll der Stop Loss über dem aktuellen Kurs liegen.",
+                    "updated": 1643631673219
                 }
             ]
         }

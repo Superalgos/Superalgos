@@ -3,7 +3,7 @@ const isObjectEmpty = (obj) => Object.values(obj).every(value => value === null 
 
 
 /*** removes empty or null fields from an object*/
-const cleanObject = (obj) => Object.fromEntries(Object.entries(obj).filter(([_, v]) => v !== null || v !== void 0  || v !== ''));
+const cleanObject = (obj) => Object.fromEntries(Object.entries(obj).filter(([_, v]) => (v !== null || v !== void 0) && v !== ''));
 
 export {
     isObjectEmpty,

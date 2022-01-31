@@ -10,6 +10,11 @@
                 "language": "RU",
                 "text": "Существует ряд скриптов, помогающих облегчить запуск Superalgos и сделать его более \"родным\". Конечная цель состоит в том, чтобы Superalgos чувствовал себя как любая другая программа, установленная в операционной системе.",
                 "updated": 1640354837284
+            },
+            {
+                "language": "DE",
+                "text": "Es gibt eine Reihe von Skripten, die das Starten von Superalgos einfacher machen und sich nativer anfühlen. Das Ziel ist es, dass sich Superalgos wie jedes andere auf einem Betriebssystem installierte Programm anfühlt.",
+                "updated": 1643629121044
             }
         ]
     },
@@ -23,6 +28,11 @@
                     "language": "RU",
                     "text": "Текущее решение заключается в использовании двух наборов скриптов:",
                     "updated": 1640354851208
+                },
+                {
+                    "language": "DE",
+                    "text": "Die derzeitige Lösung besteht darin, zwei Skriptsätze zu verwenden:",
+                    "updated": 1643629153970
                 }
             ]
         },
@@ -35,6 +45,11 @@
                     "language": "RU",
                     "text": "Первый набор для выполнения запуска узла и фактического запуска Superalgos.",
                     "updated": 1640354899948
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Satz zum Ausführen von node run und zum tatsächlichen Starten von Superalgos.",
+                    "updated": 1643629202682
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Второй - создать и разместить ярлыки этих сценариев запуска для удобного использования.",
                     "updated": 1640354888195
+                },
+                {
+                    "language": "DE",
+                    "text": "Der zweite Satz besteht darin, Verknüpfungen zu diesen Startskripten zu erstellen und zu platzieren, um sie bequem nutzen zu können.",
+                    "updated": 1643629307247
                 }
             ]
         },
@@ -59,6 +79,11 @@
                     "language": "RU",
                     "text": "На этой странице приведено описание каждого сценария и его действий.",
                     "updated": 1640354959415
+                },
+                {
+                    "language": "DE",
+                    "text": "Auf der folgenden Seite finden Sie eine Beschreibung der einzelnen Skripte und ihrer Funktionen.",
+                    "updated": 1643629328447
                 }
             ]
         },
@@ -71,6 +96,11 @@
                     "language": "RU",
                     "text": "Все скрипты, связанные с запуском, хранятся в папке Launch-Scripts в главном каталоге Superalgos.",
                     "updated": 1640354977215
+                },
+                {
+                    "language": "DE",
+                    "text": "Alle Skripte, die sich auf den Start beziehen, befinden sich im Ordner Launch-Scripts im Hauptverzeichnis von Superalgos.",
+                    "updated": 1643629354081
                 }
             ]
         },
@@ -86,6 +116,11 @@
                     "language": "RU",
                     "text": "Основные скрипты запуска",
                     "updated": 1640354999012
+                },
+                {
+                    "language": "DE",
+                    "text": "Grundlegende Startskripte",
+                    "updated": 1643630340314
                 }
             ]
         },
@@ -98,6 +133,11 @@
                     "language": "RU",
                     "text": "Эти скрипты выполняют команду node run для запуска Superalgos. Их можно запускать из командной строки или через файловый менеджер.",
                     "updated": 1640355110390
+                },
+                {
+                    "language": "DE",
+                    "text": "Diese Skripte führen den Befehl node run aus, um Superalgos zu starten. Sie können über Kommandozeilenaufrufe oder einen Dateibrowser ausgeführt werden.",
+                    "updated": 1643629404771
                 }
             ]
         },
@@ -128,6 +168,11 @@
                     "language": "RU",
                     "text": "Этот сценарий использует основные команды оболочки, чтобы быть совместимым с системами Linux и OSX.",
                     "updated": 1640355200208
+                },
+                {
+                    "language": "DE",
+                    "text": "Dieses Skript verwendet einfache Shell-Befehle, um sowohl mit Linux- als auch mit OSX-Systemen kompatibel zu sein.",
+                    "updated": 1643629489077
                 }
             ]
         },
@@ -144,6 +189,11 @@
                     "language": "RU",
                     "text": "Создание ярлыков рабочего стола/лаунчера",
                     "updated": 1640355253661
+                },
+                {
+                    "language": "DE",
+                    "text": "Desktop/Launcher-Verknüpfungen erstellen",
+                    "updated": 1643630388779
                 }
             ]
         },
@@ -161,6 +211,11 @@
                     "language": "RU",
                     "text": "Существует один унифицированный сценарий для автоматического создания и размещения ярлыков к соответствующему скрипту запуска. Этот скрипт автоматически запускается во время команды \"node setup\". Его также можно запустить отдельно следующим образом.",
                     "updated": 1640355285529
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt ein einheitliches Skript zur automatischen Erstellung und Platzierung von Verknüpfungen zum entsprechenden Startskript. Dieses Skript wird automatisch während des Befehls \"node setup\" ausgeführt. Es kann auch einzeln wie folgt ausgeführt werden.",
+                    "updated": 1643629533207
                 }
             ]
         },
@@ -173,6 +228,11 @@
                     "language": "RU",
                     "text": "В терминале или командной строке перейдите к файлу Launch-Scripts и введите:",
                     "updated": 1640355299283
+                },
+                {
+                    "language": "DE",
+                    "text": "Navigieren Sie in einem Terminalfenster oder einer Eingabeaufforderung zu der Datei Launch-Scripts und geben Sie ein:",
+                    "updated": 1643629596765
                 }
             ]
         },
@@ -189,6 +249,11 @@
                     "language": "RU",
                     "text": "Это позволит разместить ярлыки в меню Пуск/Запуск, а также на рабочем столе. В Windows ярлык в меню \"Пуск\" также можно искать с помощью строки поиска в меню \"Пуск\".",
                     "updated": 1640355337926
+                },
+                {
+                    "language": "DE",
+                    "text": "Dadurch werden Verknüpfungen in Ihrem Startmenü/Launcher sowie auf Ihrem Desktop platziert. In Windows kann die Startmenü-Verknüpfung auch über die Suchleiste im Startmenü gesucht werden.",
+                    "updated": 1643629630208
                 }
             ]
         },
@@ -200,6 +265,11 @@
                     "language": "RU",
                     "text": "Расположение ярлыков",
                     "updated": 1640355349637
+                },
+                {
+                    "language": "DE",
+                    "text": "Speicherorte der Verknüpfungen",
+                    "updated": 1643630436660
                 }
             ]
         },
@@ -212,6 +282,11 @@
                     "language": "RU",
                     "text": "В зависимости от вашей операционной системы ярлыки будут располагаться в разных каталогах. Ниже перечислены расположения в зависимости от операционной системы.",
                     "updated": 1640355363859
+                },
+                {
+                    "language": "DE",
+                    "text": "Je nach Betriebssystem befinden sich die Verknüpfungen in unterschiedlichen Verzeichnissen. Im Folgenden sind die Speicherorte nach Betriebssystem aufgeführt.",
+                    "updated": 1643629653386
                 }
             ]
         },
@@ -255,6 +330,11 @@
                     "language": "RU",
                     "text": "В настоящее время требуется коллаборатор.",
                     "updated": 1640355499888
+                },
+                {
+                    "language": "DE",
+                    "text": "Derzeit unbehandelter Mitarbeiter benötigt.",
+                    "updated": 1643629688726
                 }
             ]
         },
@@ -267,6 +347,11 @@
                     "language": "RU",
                     "text": "Необходима дополнительная настройка на Ubuntu",
                     "updated": 1640355477648
+                },
+                {
+                    "language": "DE",
+                    "text": "Zusätzliches Einrichten unter Ubuntu erforderlich",
+                    "updated": 1643630475646
                 }
             ]
         },
@@ -279,6 +364,11 @@
                     "language": "RU",
                     "text": "Большинство ярлыков будут работать из коробки. Однако для настройки ярлыков на рабочем столе Ubuntu требуется несколько дополнительных действий. В следующем разделе мы их рассмотрим.",
                     "updated": 1640355542401
+                },
+                {
+                    "language": "DE",
+                    "text": "Die meisten Verknüpfungen funktionieren sofort. Bei Ubuntu-Desktop-Verknüpfungen sind jedoch einige zusätzliche Schritte zur Einrichtung erforderlich. Der folgende Abschnitt wird Sie durch diese Schritte führen.",
+                    "updated": 1643629875194
                 }
             ]
         },
@@ -291,6 +381,11 @@
                     "language": "RU",
                     "text": "Во-первых, значки рабочего стола должны быть включены в приложении Tweaks.",
                     "updated": 1640355554121
+                },
+                {
+                    "language": "DE",
+                    "text": "Zunächst müssen die Desktop-Symbole in der Tweaks-App aktiviert werden.",
+                    "updated": 1643629894280
                 }
             ]
         },
@@ -303,6 +398,11 @@
                     "language": "RU",
                     "text": "Проверьте, установлен ли Tweaks.",
                     "updated": 1640355565179
+                },
+                {
+                    "language": "DE",
+                    "text": "Prüfen Sie, ob Tweaks installiert ist.",
+                    "updated": 1643629950173
                 }
             ]
         },
@@ -315,6 +415,11 @@
                     "language": "RU",
                     "text": "Если нет, перейдите в раздел Ubuntu Software.",
                     "updated": 1640355576669
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn nicht, gehen Sie zu Ubuntu Software.",
+                    "updated": 1643629974745
                 }
             ]
         },
@@ -327,6 +432,11 @@
                     "language": "RU",
                     "text": "Установите Tweaks.",
                     "updated": 1640355590844
+                },
+                {
+                    "language": "DE",
+                    "text": "Tweaks installieren.",
+                    "updated": 1643629994741
                 }
             ]
         },
@@ -339,6 +449,11 @@
                     "language": "RU",
                     "text": "Откройте Tweaks.",
                     "updated": 1640355614437
+                },
+                {
+                    "language": "DE",
+                    "text": "Tweaks öffnen.",
+                    "updated": 1643630017193
                 }
             ]
         },
@@ -351,6 +466,11 @@
                     "language": "RU",
                     "text": "В разделе Extensions (Расширения) включите Desktop Icons (Значки рабочего стола).",
                     "updated": 1640355639244
+                },
+                {
+                    "language": "DE",
+                    "text": "Aktivieren Sie unter Erweiterungen die Option Desktop-Symbole.",
+                    "updated": 1643630037241
                 }
             ]
         },
@@ -367,6 +487,11 @@
                     "language": "RU",
                     "text": "Если ярлык на рабочем столе не появился сразу, возможно, вам нужно перезагрузить компьютер.",
                     "updated": 1640355656555
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn die Desktop-Verknüpfung nicht sofort angezeigt wird, müssen Sie Ihren Computer neu starten.",
+                    "updated": 1643630079266
                 }
             ]
         },
@@ -379,6 +504,11 @@
                     "language": "RU",
                     "text": "Наконец, необходимо включить ярлык на рабочем столе.",
                     "updated": 1640355669515
+                },
+                {
+                    "language": "DE",
+                    "text": "Schließlich müssen Sie die Desktop-Verknüpfung aktivieren.",
+                    "updated": 1643630094984
                 }
             ]
         },
@@ -391,6 +521,11 @@
                     "language": "RU",
                     "text": "Щелкните правой кнопкой мыши Superalgos.desktop и выберите Allow Launching (Разрешить запуск).",
                     "updated": 1640355712503
+                },
+                {
+                    "language": "DE",
+                    "text": "Klicken Sie mit der rechten Maustaste auf Superalgos.desktop und wählen Sie Starten zulassen.",
+                    "updated": 1643630108924
                 }
             ]
         },
@@ -408,6 +543,11 @@
                     "language": "RU",
                     "text": "Удаление ярлыков",
                     "updated": 1640355725714
+                },
+                {
+                    "language": "DE",
+                    "text": "Shortcuts deinstallieren",
+                    "updated": 1643630503102
                 }
             ]
         },
@@ -420,6 +560,11 @@
                     "language": "RU",
                     "text": "Существует один универсальный скрипт для автоматического удаления ярлыков. Для его выполнения откройте командную строку или терминал. Затем перейдите в каталог Superalgos и введите следующую команду:",
                     "updated": 1640355752799
+                },
+                {
+                    "language": "DE",
+                    "text": "Es gibt ein einheitliches Skript zur automatischen Deinstallation von Verknüpfungen. Öffnen Sie dazu eine Eingabeaufforderung oder ein Terminal. Navigieren Sie dann zu Ihrem Superalgos-Verzeichnis und geben Sie den folgenden Befehl ein:",
+                    "updated": 1643630133502
                 }
             ]
         },

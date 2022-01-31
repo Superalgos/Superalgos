@@ -47,8 +47,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Trailing Stop Loss für eine Long Position",
-                    "updated": 1643631632466
+                    "text": "Trailing Stop Loss für eine Long-Position",
+                    "updated": 1643652929295
                 }
             ]
         },
@@ -85,8 +85,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Trailing Stop Loss für eine Short Position",
-                    "updated": 1643631539967
+                    "text": "Trailing Stop Loss für eine Short-Position",
+                    "updated": 1643652920517
                 }
             ]
         },

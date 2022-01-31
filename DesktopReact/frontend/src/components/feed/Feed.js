@@ -39,7 +39,6 @@ const Feed = () => {
                         postText: post.postText,
                         originPostHash: post.originPost.originPostHash,
                         reactions: post.originPost.reactions,
-                        originPostHash: post.originPost.originPostHash,
                         postType: post.originPost.postType,
                         repliesCount: post.originPost.repliesCount,
                         creator: {

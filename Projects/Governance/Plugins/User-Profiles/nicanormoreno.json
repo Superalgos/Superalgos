@@ -492,13 +492,13 @@
                     "signingAccount": {
                         "type": "Signing Account",
                         "name": "New Signing Account",
-                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xab024296e2eb8aea3bb5ffa950a7502a7cc2fc31b53330190ebc94838e587ac5\",\n        \"s\": \"0x65ef06bb10718556e604d2248af9eb25584fd701063a2092adb8cbeaa8cfde56\",\n        \"signature\": \"0xab024296e2eb8aea3bb5ffa950a7502a7cc2fc31b53330190ebc94838e587ac565ef06bb10718556e604d2248af9eb25584fd701063a2092adb8cbeaa8cfde561c\"\n    }\n}",
+                        "config": "{\n    \"codeName\": \"Social-Trading-Desktop-App-1\",\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xad8eff58c5a02d7d438638d2a44446c51fc90edafd56b0b7a149e085f2194953\",\n        \"s\": \"0x31959053b975a1a2ddb3c7cc33289b9f3a9d1df829cc952d3ee5a9fcb1fb08d2\",\n        \"signature\": \"0xad8eff58c5a02d7d438638d2a44446c51fc90edafd56b0b7a149e085f219495331959053b975a1a2ddb3c7cc33289b9f3a9d1df829cc952d3ee5a9fcb1fb08d21b\"\n    }\n}",
                         "project": "Governance",
-                        "id": "60b37da5-7ae1-480b-8fc5-b1d6096cc302",
+                        "id": "28e630bb-c0de-4171-8e10-e1aadc555f56",
                         "savedPayload": {
                             "position": {
-                                "x": 24713.731159439314,
-                                "y": 24399.43512096364
+                                "x": 24732.97487925242,
+                                "y": 24769.913494618188
                             },
                             "targetPosition": {
                                 "x": 24799.731159439314,
@@ -602,13 +602,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0xa9257cb0c82ba7771c04fb3dc0332f074050bcdf8e808308df123f16b521092b\",\n        \"s\": \"0x1f4699992ac0e2d37415971433ba8bfcde8e93e8cea51a85f490b8168dee6b38\",\n        \"signature\": \"0xa9257cb0c82ba7771c04fb3dc0332f074050bcdf8e808308df123f16b521092b1f4699992ac0e2d37415971433ba8bfcde8e93e8cea51a85f490b8168dee6b381c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"Social-Persona-1\",\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xd2d35bb8d66d9195908d33000ce4aa63522d95ed00d3ef7df6f1a0d1eba92f3e\",\n        \"s\": \"0x4ba9ae4c2fdb6d64bb022645c51976b0b8470a0a7832c6b0847daf1c67d0eaac\",\n        \"signature\": \"0xd2d35bb8d66d9195908d33000ce4aa63522d95ed00d3ef7df6f1a0d1eba92f3e4ba9ae4c2fdb6d64bb022645c51976b0b8470a0a7832c6b0847daf1c67d0eaac1b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "c4692a6c-e84e-498c-9d62-addb15b3ba77",
+                    "id": "15e4ba58-4e15-4017-950c-4fb161a9a054",
                     "savedPayload": {
                         "position": {
-                            "x": 24376.418679258546,
-                            "y": 23805.330243470533
+                            "x": 24436.999651182618,
+                            "y": 24159.49138262489
                         },
                         "targetPosition": {
                             "x": 24459.418679258546,
@@ -769,13 +769,13 @@
                 "signingAccount": {
                     "type": "Signing Account",
                     "name": "New Signing Account",
-                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1c\",\n        \"r\": \"0x2dd928f0ab2e7088be4f7bcbfaaf3d2ed77e0b40bfbb6db55804190ae5afa125\",\n        \"s\": \"0x7ee3cbd44322fa3dab86aa0bb51b2c72a2ba43f02749e71d34ee58d539b63b40\",\n        \"signature\": \"0x2dd928f0ab2e7088be4f7bcbfaaf3d2ed77e0b40bfbb6db55804190ae5afa1257ee3cbd44322fa3dab86aa0bb51b2c72a2ba43f02749e71d34ee58d539b63b401c\"\n    }\n}",
+                    "config": "{\n    \"codeName\": \"P2P-Network-Node-1\",\n    \"signature\": {\n        \"message\": \"nicanormoreno\",\n        \"messageHash\": \"0x38d579fc091b081a12a64e0cfef80bb0fb562a932c3a5ea47bd696e979780bf4\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xe8dfd8c22f50e3feed62a136916afc094c89e969b27b9600a3abc0a64858c6a1\",\n        \"s\": \"0x07773b08f6c210bca5c6de09c0a469779ad2bb91bfc3f8f0b53f3fe8303ce648\",\n        \"signature\": \"0xe8dfd8c22f50e3feed62a136916afc094c89e969b27b9600a3abc0a64858c6a107773b08f6c210bca5c6de09c0a469779ad2bb91bfc3f8f0b53f3fe8303ce6481b\"\n    }\n}",
                     "project": "Governance",
-                    "id": "cec52ac0-928b-4f2b-8f2b-ef3daf184ef4",
+                    "id": "18377079-ec22-4a80-b9d3-ec86fd8e09ea",
                     "savedPayload": {
                         "position": {
-                            "x": 24369.418679258546,
-                            "y": 23317.669756529467
+                            "x": 24329.25355752328,
+                            "y": 23609.960416900194
                         },
                         "targetPosition": {
                             "x": 24459.418679258546,
@@ -1164,7 +1164,7 @@
         "floatingObject": {
             "isPinned": false,
             "isFrozen": false,
-            "isCollapsed": true,
+            "isCollapsed": false,
             "angleToParent": 1,
             "distanceToParent": 3,
             "arrangementStyle": 0

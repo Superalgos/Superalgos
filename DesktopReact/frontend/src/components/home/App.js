@@ -15,20 +15,21 @@ function App() {
     let navigate = useNavigate();
 
     const loadUser = async () => {
-        if (loadedUser && loadedSocialPersona) return;
-        let socialPersona = await getSocialPersona().then(response => response.json());
-        if (user.error) return;
+        if (loadedUser.name && loadedSocialPersona.nodeId) return;
+        const socialPersona = await getSocialPersona().then(response => response.json());
+        if (socialPersona.error) return;
         dispatch(setSocialPersona(socialPersona))
+
+        const {data, result} = await getProfile({socialPersonaId: socialPersona.nodeId}).then(response => response.json())
+        if (result === STATUS_OK) {
+            dispatch(setActualProfile(data))
+        }
+
         /* TODO refactor
                 if (data) {
                     navigate("/signUp")
                 }
         */
-
-        let {profileData, result} = await getProfile().then(response => response.json())
-        if (result === STATUS_OK) {
-            dispatch(setActualProfile(profileData))
-        }
 
     }
 

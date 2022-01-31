@@ -1,8 +1,8 @@
 import React from 'react';
 import {Box, Modal} from "@mui/material";
 import "./FooterReplyModal.css"
-import Post from "../post/Post";
 import ReplyBox from "../replyBox/ReplyBox";
+import PostBody from "../post/PostBody";
 
 const FooterReplyModal = ({show, close, post}) => {
     return (
@@ -11,7 +11,7 @@ const FooterReplyModal = ({show, close, post}) => {
         >
             <Box className="replyModal">
                 <div className="replyFeedContainer"> {/*feed of the post clicked*/}
-                    <Post postData={post}/>
+                    <PostBody postData={post}/>
                 </div>
                 <div className="replyModalFooter">
                     <ReplyBox

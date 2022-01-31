@@ -13,6 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 16px !important;
+    border-radius: 1rem;
 }
 
 .editProfile {

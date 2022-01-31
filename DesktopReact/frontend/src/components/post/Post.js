@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
-import { getUserSocialPersona, getProfile } from '../../api/profile.httpService'
+import { getSocialPersona, getProfile } from '../../api/profile.httpService'
 import { setSocialPersona } from '../../store/slices/Profile.slice'
 import PostFooter from "../postFooter/PostFooter";
 import { setPostList, setSelectedPost } from "../../store/slices/post.slice";
@@ -13,36 +13,36 @@ const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const socialPersona = useSelector(state => state.profile.socialPersona);
     const [collapse, setCollapse] = useState(true);
     const [postUser, setPostUser] = useState({})
     const ToggleCollapse = () => setCollapse(!collapse);
-    console.log(postData)
+
 
     const {
-        originSocialPersonaId,
         postText,
+        originPostHash,
         reactions,
-        originPostHash
-    } = postData;
-    console.log(postData)
-
-    const {
-        userProfileHandle
-    } = socialPersona
-
-    useEffect( async () => {
-        if (!socialPersona.userProfileId) {
-            const userSocialPersona = await getUserSocialPersona().then(response => response.json())
-            dispatch( setSocialPersona(userSocialPersona) );
+        postType,
+        repliesCount,
+        creator:{
+            name,
+            profilePic,
+            originSocialPersonaId
         }
-        if (postData.originPost && socialPersona.userProfileId !== postData.originPost.originSocialPersonaId) {
-            const {profileData} = await getProfile( {socialPersonaId: postData.originPost.originSocialPersonaId} )
-                .then(response => response.json())
-            console.log(profileData)
-            setPostUser(profileData);
-        }
-    },[])
+    } = postData 
+
+    // useEffect( async () => {
+    //     if (!socialPersona.userProfileId) {
+
+    //         const userSocialPersona = await getSocialPersona().then(response => response.json())
+    //         dispatch( setSocialPersona(userSocialPersona) );
+    //     }
+    //     if (postData.originPost && socialPersona.userProfileId !== postData.originPost.originSocialPersonaId) {
+    //         const {profileData} = await getProfile( {socialPersonaId: postData.originPost.originSocialPersonaId} )
+    //             .then(response => response.json())
+    //         setPostUser(profileData);
+    //     }
+    // },[])
 
     const handlePostClick = (e) => {
         if (postIdParameter !== originPostHash) {
@@ -56,10 +56,10 @@ const Post = ({postData}) => {
             <div className="post">
                 <Stack direction="row" onClick={handlePostClick}>
                     <div className="postAvatarContainer">
-                        <Avatar src={pic} className="avatar"/>
+                        <Avatar src={profilePic? profilePic : pic} className="avatar"/>
                     </div>
                     <Typography className="postUserName">
-                        {postUser.name? postUser.name : userProfileHandle} {/* TODO use name */}
+                        {name? name : 'userProfileHandle'}
                     </Typography>
                 </Stack>
                 <div className="postBody">

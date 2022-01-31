@@ -17,8 +17,6 @@ const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
     }
 
     const onButtonClick = async () => {
-        console.log("replying")
-        console.log(postHash)
         let {status} = await createReply({
             postText: reply,
             postHash,

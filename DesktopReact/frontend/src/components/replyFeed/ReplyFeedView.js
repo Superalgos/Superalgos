@@ -4,8 +4,8 @@ import Post from "../post/Post";
 import ReplyBox from "../replyBox/ReplyBox";
 import {Stack} from "@mui/material";
 
-const ReplyFeedView = ({goBack, selectedPost, replies}) => {
-    const {originSocialPersonaId, originPostHash} = selectedPost;
+const ReplyFeedView = ({goBack, selectedPost, replies, callbackEvent}) => {
+    const {creator: {originSocialPersonaId}, originPostHash} = selectedPost;
 
     return (
         <Stack className="middleSection">
@@ -14,7 +14,7 @@ const ReplyFeedView = ({goBack, selectedPost, replies}) => {
             </div>
             <Post postData={selectedPost}/>
             <ReplyBox
-                className="reply" postHash={originPostHash} targetSocialPersonaId={originSocialPersonaId}/>
+                className="reply" postHash={originPostHash} targetSocialPersonaId={originSocialPersonaId} closeModal={callbackEvent}/>
             { replies }
         </Stack>
     );

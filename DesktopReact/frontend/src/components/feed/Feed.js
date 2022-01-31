@@ -44,12 +44,11 @@ const Feed = () => {
                         creator: {
                             name: data.name,
                             profilePic: data.profilePic,
-                            originSocialPersonaId: data.nodeId
+                            originSocialPersonaId: data.originSocialPersonaId
                         }
                     }
                     return <Post key={Math.random()} id={index} postData={postData}/> 
-                }
-                
+                } 
             })
         )
         setPosts(mappedPosts)

@@ -1,5 +1,6 @@
 function newFoundationsFunctionLibraryTaskFunctions() {
     let thisObject = {
+
         synchronizeTaskWithBackEnd: synchronizeTaskWithBackEnd,
 
         runTask: runTask,
@@ -105,6 +106,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function runTask(node, isDebugging, callBackFunction) {
+        node.payload.uiObject.isDebugging = isDebugging
 
         if (UI.environment.DEMO_MODE === true) {
             if (window.location.hostname !== 'localhost') {
@@ -257,6 +259,7 @@ function newFoundationsFunctionLibraryTaskFunctions() {
     }
 
     function stopTask(node, callBackFunction) {
+        node.payload.uiObject.isDebugging = false
 
         if (UI.environment.DEMO_MODE === true) {
             if (window.location.hostname !== 'localhost') {

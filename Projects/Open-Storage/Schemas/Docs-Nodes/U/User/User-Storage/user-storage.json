@@ -1,0 +1,24 @@
+{
+    "type": "User Storage",
+    "definition": {
+        "text": "The User Storage hierarchy stores the definitions for all available Open Storage associated with the current User Profile.",
+        "updated": 1643397850275
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643398042723
+        },
+        {
+            "style": "Text",
+            "text": "Open Storage locations defined under this hierarchy are used to store data in order to be accessible by users of the Superalgos Peer to Peer network.",
+            "updated": 1643398089359
+        },
+        {
+            "style": "Text",
+            "text": "The first and primary use of this open storage is to host the content of Trading Signals in an open and accesible location.",
+            "updated": 1643398120075
+        }
+    ]
+}

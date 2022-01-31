@@ -29,7 +29,7 @@ const Post = ({postData}) => {
             profilePic,
             originSocialPersonaId
         }
-    } = postData 
+    } = postData;
 
     // useEffect( async () => {
     //     if (!socialPersona.userProfileId) {

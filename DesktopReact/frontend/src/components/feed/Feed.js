@@ -39,18 +39,16 @@ const Feed = () => {
                         postText: post.postText,
                         originPostHash: post.originPost.originPostHash,
                         reactions: post.originPost.reactions,
-                        originPostHash: post.originPost.originPostHash,
                         postType: post.originPost.postType,
                         repliesCount: post.originPost.repliesCount,
                         creator: {
                             name: data.name,
                             profilePic: data.profilePic,
-                            originSocialPersonaId: data.nodeId
+                            originSocialPersonaId: data.originSocialPersonaId
                         }
                     }
                     return <Post key={Math.random()} id={index} postData={postData}/> 
-                }
-                
+                } 
             })
         )
         setPosts(mappedPosts)

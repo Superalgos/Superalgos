@@ -3,12 +3,13 @@ import './ReplyFeed.css'
 import {useLocation, useNavigate} from "react-router-dom";
 import ReplyFeedView from "./ReplyFeedView";
 import {getPost, getReplies} from "../../api/post.httpService";
+import { getProfile } from '../../api/profile.httpService'
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import {Skeleton} from "@mui/material";
 
 const ReplyFeed = () => {
-    const [post, setPost] = useState({});
+    const [post, setPost] = useState(undefined);
     const [mappedReplies, setMappedReplies] = useState([]);
     const navigate = useNavigate();
     const {search} = useLocation();
@@ -23,45 +24,69 @@ const ReplyFeed = () => {
         <Skeleton key={1} variant="rectangular" width="100%" height="12rem"/>
     ]
 
+    useEffect(() => {
+        loadPost();
+        loadReplies();
+      }, [])
+
     const goBack = () => navigate(-1); /* TODO improve this cause it breaks on multiple navigation*/
+
+    const loadPostCreator = async (socialPersonaId) => {
+        const {data, result} = await getProfile({socialPersonaId: socialPersonaId}).then(response => response.json());
+        if(result === STATUS_OK){
+            return data;   
+        }
+    }
+
+    const assemblePostInfo = (post, creator) => {
+        return {
+            postText: post.postText,
+            originPostHash: post.originPostHash,
+            reactions: post.reactions,
+            postType: post.postType,
+            repliesCount: post.repliesCount,
+            creator:{
+                name: creator.name,
+                profilePic: creator.profilePic,
+                originSocialPersonaId: creator.originSocialPersonaId
+            }
+        }
+    }
 
     const loadPost = async () => {
         const {result, data} = await getPost(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
-            setPost(data)
+            const creator = await loadPostCreator(data.originSocialPersona.socialPersonaId);
+            setPost( assemblePostInfo(data, creator) );
         }
     }
 
     const loadReplies = async () => {
-        let replies = [];
+
         const {result, data} = await getReplies(queryParams).then(response => response.json());
         if (result === STATUS_OK) {
-            data.map((post, index) => {
-                replies.push(<Post key={post.originPostHash} id={post.originPostHash} postData={post}/>);
-            })
+            const mappdResponses = await Promise.all(
+                data.map( async (post, index) => {
+                    const creator = await loadPostCreator(post.originSocialPersona.socialPersonaId)
+                    return <Post  key= { post.originPostHash } 
+                                  id= { post.originPostHash } 
+                                  postData= { assemblePostInfo(post, creator) }/>
+                })
+            )
+            setMappedReplies(mappdResponses);
         }
-        setMappedReplies(replies);
     }
-
-    useEffect(() => {
-        console.log("loading everything")
-        loadPost();
-        loadReplies();
-        return () => {
-            console.log("destroying everything")
-            setMappedReplies([]);
-            setPost({});
-        }
-    }, [urlSearchParams]);
-
-
-    return (
-        <ReplyFeedView
-            selectedPost={post}
-            goBack={goBack}
-            replies={mappedReplies}
-        />
-    );
+ 
+    if(post)
+        return (
+            <ReplyFeedView
+                selectedPost={post}
+                goBack={goBack}
+                callbackEvent = {loadReplies}
+                replies={mappedReplies}
+            />
+        );
+    return <></>
 };
 
 export default ReplyFeed;

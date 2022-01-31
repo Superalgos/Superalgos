@@ -23,7 +23,6 @@ const UserProfile = () => {
             const postData = {
                 postText: post.postText,
                 originPostHash: post.originPostHash,
-                originSocialPersonaId: post.originSocialPersonaId,
                 reactions: post.reactions,
                 originPostHash: post.originPostHash,
                 postType: post.postType,
@@ -31,7 +30,7 @@ const UserProfile = () => {
                 creator: {
                     name: actualUser.name,
                     profilePic: actualUser.profilePic,
-                    originSocialPersonaId: actualUser.nodeId
+                    originSocialPersonaId: actualUser.originSocialPersonaId
                 }
             }
             return <Post key={post.originPostHash} id={post.originPostHash}

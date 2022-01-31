@@ -2,7 +2,7 @@ const getFeed = async (req, res) => {
     try {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
-            originSocialPersonaId: undefined,
+            originSocialPersonaId: req.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -29,8 +29,8 @@ const getPosts = async (body, res) => {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POSTS,
-            originSocialPersonaId: undefined,
-            targetSocialPersonaId: body?.postHash, /* TODO CHECK */
+            originSocialPersonaId: body?.originSocialPersonaId,
+            targetSocialPersonaId: body?.targetSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST

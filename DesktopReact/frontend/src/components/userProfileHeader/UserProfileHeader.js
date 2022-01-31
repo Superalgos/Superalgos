@@ -16,26 +16,18 @@ const UserProfileHeader = () => {
 
     return (
         <div className="profileSection">
-            {user.bannerPic ? (<CardMedia className="banner"
-                                          component="img"
-                                          src={`${user.bannerPic}`}
-                                          alt="PP"
-            />) : (<CardMedia className="banner"
-                              component="img"
-                              image={pfp}
-                              alt="PP"
-            />)}
+            <CardMedia className="banner"
+                       component="img"
+                       src={user.bannerPic || pfp}
+                       alt="PP"
+            />
             <div className="profileCard">
                 <div className="profilePicBG">
-                    {user.profilePic ? (<CardMedia className="profileAvatar"
-                                                   component="img"
-                                                   src={`${user.profilePic}`}
-                                                   alt="ProfilePic"
-                    />) : (<CardMedia className="profileAvatar"
-                                      component="img"
-                                      image={pfp}
-                                      alt="ProfilePic"
-                    />)}
+                    <CardMedia className="profileAvatar"
+                               component="img"
+                               src={user.profilePic || pfp}
+                               alt="ProfilePic"
+                    />
                 </div>
                 <Button className="editProfileButton"
                         variant="outlined"
@@ -49,7 +41,7 @@ const UserProfileHeader = () => {
                 <CardContent className="userSection">
                     {user.name ? (<Typography className="username" variant="h5">{user.name}</Typography>) : null}
                     <Typography className="userHandle" variant="subtitle2">
-                        @{user.username}
+                        @{user.userProfileHandle}
                     </Typography>
                     {user.web ? (<Typography className="stats" variant="subtitle2">
                         {user.web}

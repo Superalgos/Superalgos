@@ -1,10 +1,10 @@
 import React from 'react';
 import "./Repost.css"
 import "../userProfileHeader/UserProfileHeader.css"
-import {Box, Modal} from "@mui/material";
+import {Box, IconButton, Modal} from "@mui/material";
 import {CloseOutlined} from "@mui/icons-material";
-import ReplyBox from "../replyBox/ReplyBox";
 import PostBody from "../post/PostBody";
+import Repost from "./Repost";
 
 const RepostModal = ({show, close, postId, postData}) => {
 
@@ -15,12 +15,12 @@ const RepostModal = ({show, close, postId, postData}) => {
             >
                 <Box className="repostQuoteModal">
                     <div className="repostHeader">
-                        <div className="repostCloseButton">
-                            <CloseOutlined onClick={close}/>
-                        </div>
+                        <IconButton onClick={close}>
+                            <CloseOutlined/>
+                        </IconButton>
                     </div>
                     <div className="replyModalFooter">
-                        <ReplyBox
+                        <Repost
                             closeModal={close}
                             className="reply" postHash={postId.originPostHash}
                             targetSocialPersonaId={postId.originSocialPersonaId}/>

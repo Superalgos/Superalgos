@@ -153,6 +153,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     exchange,
                     market
                 )
+                await portfolioEngineModuleObject.updateExchangeAssets()
                 /*
                 Do the stuff needed previous to the run like
                 Episode Counters and Statistics update. Maintenance is done

@@ -5,7 +5,7 @@ import {
     CardContent,
     CardMedia,
     FormControl,
-    FormHelperText,
+    FormHelperText, IconButton,
     InputLabel,
     Modal,
     OutlinedInput,
@@ -36,7 +36,9 @@ const UserProfileModalView = (props) => {
         return (
             <div className="editProfileHeader">
                 <div className="editProfileCloseBtn">
-                    <CloseOutlined onClick={close}/>
+                    <IconButton onClick={close}>
+                    <CloseOutlined/>
+                    </IconButton>
                 </div>
                 <div className="editProfileHeaderTitleAndBtn">
                     <Typography className="editProfileTitle" variant="h5">

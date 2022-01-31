@@ -31,7 +31,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     let portfolioEventsManagerModuleObject
     let portfolioFormulasManagerModuleObject
-    let exchangeAPIModuleObject
 
     /*let taskParameters = {
         market: TS.projects.foundations.globals.taskConstants.TASK_NODE.parentNode.parentNode.parentNode.referenceParent.baseAsset.referenceParent.config.codeName +
@@ -53,9 +52,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
         portfolioFormulasManagerModuleObject = TS.projects.portfolioManagement.botModules.portfolioFormulasManager.newPortfolioManagementBotModulesPortfolioFormulasManager(processIndex)
         portfolioFormulasManagerModuleObject.initialize()
-
-        exchangeAPIModuleObject = TS.projects.portfolioManagement.botModules.exchangeAPI.newPortfolioManagementBotModulesExchangeAPI(processIndex)
-        exchangeAPIModuleObject.initialize()
 
         /* Adding Functions used elsewhere to Portfolio System Definition */
         portfolioSystem.checkConditions = function (situation, passed) {
@@ -203,7 +199,7 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
 
     async function run() {
         try {
-            // await fetchBalances()
+ 
 
         } catch (err) {
             /*
@@ -217,50 +213,6 @@ exports.newPortfolioManagementBotModulesPortfolioSystem = function (processIndex
             if (err.stack !== undefined) {
                 TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME, '[ERROR] runExecution -> err = ' + err.stack)
             }
-        }
-    }
-
-    async function fetchBalances(init) {
-
-            // update balances:
-            if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Live Portfolio Session') {
-                
-            } else if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type === 'Backtesting Portfolio Session') {
-                fetchLastBalances();
-            }
-
-        let balances = await exchangeAPIModuleObject.fetchBalance();
-
-        if (balances) {
-            for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
-                // Set the node name and balances at the trading engine:
-                let assetBalToSet = sessionParameters.managedAssets.managedAssets[i].referenceParent.config.codeName;
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = assetBalToSet;
-
-                // Needs error checks: 
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = balances[assetBalToSet].free;
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked = balances[assetBalToSet].used;
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total = balances[assetBalToSet].total;
-                portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.intitialBalance = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance;
-            }
-        }
-
-        if (init) {
-            for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
-                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free;
-                
-                portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name;
-            }
-        }
-    }
-
-    function fetchLastBalances() {
-        for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
-            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.config.initialBalance;
-            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].name;
-            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.config.free;
-            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.config.locked;
-            portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total = portfolioEngine.portfolioLast.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.config.total;
         }
     }
 

@@ -14,7 +14,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
     }
     let portfolioEngine
     let isRunning
-    let tradingBotsCheckInStatusMap
+    let tradingBotsCheckInCheckOutStatusMap
     let tradingBotsTradingEngineMap
 
     return thisObject
@@ -26,7 +26,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
 
     function finalize() {
         portfolioEngine = undefined
-        tradingBotsCheckInStatusMap = undefined
+        tradingBotsCheckInCheckOutStatusMap = undefined
         tradingBotsTradingEngineMap = undefined
     }
 
@@ -50,7 +50,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
         let promise = new Promise((resolve, reject) => {
             isRunning = true
 
-            tradingBotsCheckInStatusMap = new Map()
+            tradingBotsCheckInCheckOutStatusMap = new Map()
             tradingBotsTradingEngineMap = new Map()
             let intervalId = setInterval(checkTradingBotsStatus, 10)
 
@@ -65,7 +65,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
                         '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.type +
                         '-' + TS.projects.foundations.globals.taskConstants.MANAGED_SESSIONS_REFERENCES[i].referenceParent.id
 
-                    let status = tradingBotsCheckInStatusMap.get(SESSION_KEY)
+                    let status = tradingBotsCheckInCheckOutStatusMap.get(SESSION_KEY)
 
                     switch (status) {
                         case 'Checked In': {
@@ -117,16 +117,43 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
             /*
             Remember that this Trading Bot Checked In.
             */
-            tradingBotsCheckInStatusMap.set(SESSION_KEY, 'Checked In')
+            tradingBotsCheckInCheckOutStatusMap.set(SESSION_KEY, 'Checked In')
+            return response
+        }
 
-        } else {
+        if (
+            candle.end - candle.begin !== portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value - portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value
+        ) {
             response = {
                 status: 'Not Ok',
-                reason: "Portfolio Manager Is At This Candle",
+                reason: "Time Frame of the Trading Bot and Portfolio Bot are Different."
+            }
+            return response
+        }
+
+        if (candle.begin > portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value) {
+            response = {
+                status: 'Not Ok',
+                reason: "Portfolio Manager Is Behind Trading Bot.",
                 candle: {
                     begin: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value,
                     end: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
                 }
+            }            
+            /*
+            The trading Bot is ahead of time relative to the Portfolio Bot, so in order to allow the Portfolio Bot to 
+            move fordward, we will consider that this tradinb bot has made a Checked Out.
+            */
+            tradingBotsCheckInCheckOutStatusMap.set(SESSION_KEY, 'Checked Out')
+            return response
+        }
+
+        response = {
+            status: 'Not Ok',
+            reason: "Portfolio Manager Is Ahead of Trading Bot.",
+            candle: {
+                begin: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.begin.value,
+                end: portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
             }
         }
         return response
@@ -161,7 +188,7 @@ exports.newPortfolioManagementBotModulesPortfolioManagedTradingBots = function (
             /*
             Remember that this Trading Bot Checked Out.
             */
-            tradingBotsCheckInStatusMap.set(SESSION_KEY, 'Checked Out')
+            tradingBotsCheckInCheckOutStatusMap.set(SESSION_KEY, 'Checked Out')
             /*
             Remember that this Trading Bot's Trading Engine.
             */

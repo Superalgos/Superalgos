@@ -33,7 +33,16 @@ const createProfile = async (req, res) => {
   const result = await userService.createProfile(req.body);
   res.send(result);
 };
-createProfile
+
+const listSocialEntities = async (req, res) => {
+  const result = await userService.listSocialEntities();
+  res.send(result);
+};
+
+const createSocialPersona = async (req, res) => {
+  const result = await userService.createSocialPersona(req.body);
+  res.send(result);
+};
 
 
 module.exports = {
@@ -42,7 +51,9 @@ module.exports = {
   loadProfile,
   saveProfile,
   getSocialPersonaId,
-  createProfile
+  createProfile,
+  listSocialEntities,
+  createSocialPersona
 };
 
 

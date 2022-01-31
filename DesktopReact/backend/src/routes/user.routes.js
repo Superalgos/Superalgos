@@ -27,5 +27,12 @@ router
   .route('/create-profile')
   .post(userController.createProfile)
 
+router
+  .route('/social-entities')
+  .get(userController.listSocialEntities)
+
+router
+  .route('/social-entities')
+  .post(userController.createSocialPersona)
 
 module.exports = router;

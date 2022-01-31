@@ -147,6 +147,56 @@ const createProfile =  async (body, res) => {
     }
 }
 
+const listSocialEntities =  async (req, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.LIST_SOCIAL_ENTITIES,
+            socialEntityType: "Social Persona",
+            userAppType:"Social Trading Desktop App"
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const createSocialPersona =  async (body, res) => {
+
+    try {
+        let profileMessage = {
+            profileType: SA.projects.socialTrading.globals.profileTypes.CREATE_SOCIAL_ENTITY,
+            socialEntityHandle:body.name,
+            socialEntityType: "Social Persona",
+            userAppType:"Social Trading Desktop App"
+        }
+
+        let query = {
+            networkService: 'Social Graph',
+            requestType: 'Profile',
+            profileMessage: JSON.stringify(profileMessage)
+        }
+
+        return await webAppInterface.sendMessage(
+            JSON.stringify(query)
+        )
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
 
 
 module.exports = {
@@ -155,6 +205,8 @@ module.exports = {
     loadProfile,
     saveProfile,
     getSocialPersonaId,
-    createProfile
+    createProfile,
+    listSocialEntities,
+    createSocialPersona
 };
 

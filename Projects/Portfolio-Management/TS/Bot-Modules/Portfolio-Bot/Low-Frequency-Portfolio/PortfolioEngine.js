@@ -67,19 +67,19 @@ exports.newPortfolioManagementBotModulesPortfolioEngine = function (processIndex
             Iterate the assets list and fetch for each one of them, their balance from the exchange.
             Then put the values into the right place at the Portfolio Engine.
             */
-            let balances = await exchangeAPIModuleObject.fetchBalance()
-            if (balances !== undefined) {
+            let balances = await exchangeAPIModuleObject.fetchAllBalances()
+            if (balances !== undefined && balances !== false) {
                 for (let i = 0; i < sessionParameters.managedAssets.managedAssets.length; i++) {
 
                     let managedAssetCodeName = sessionParameters.managedAssets.managedAssets[i].referenceParent.config.codeName
 
-                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].name = managedAssetCodeName
-                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetFreeBalance.value = balances[managedAssetCodeName].free
-                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetLockedBalance.value = balances[managedAssetCodeName].used
-                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetTotalBalance.value = balances[managedAssetCodeName].total
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].value = managedAssetCodeName
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetFreeBalance.value = balances[managedAssetCodeName].free
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetLockedBalance.value = balances[managedAssetCodeName].used
+                    portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetTotalBalance.value = balances[managedAssetCodeName].total
 
-                    if (portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.value === undefined) {
-                        portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAsset[i].assetInitialBalance.value = balances[managedAssetCodeName].total
+                    if (portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetInitialBalance.value === undefined) {
+                        portfolioEngine.portfolioCurrent.exchangeManagedAssets.exchangeManagedAssets[i].assetInitialBalance.value = balances[managedAssetCodeName].total
                     }
                 }
             }

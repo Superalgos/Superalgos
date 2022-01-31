@@ -6,6 +6,7 @@ import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 import React, {useEffect, useState} from "react";
 import {Divider} from "@mui/material";
+import {getProfile} from "../../api/profile.httpService";
 
 const Feed = () => {
     const [posts, setPosts] = useState([]);
@@ -20,9 +21,13 @@ const Feed = () => {
                 const {data, result} = response
                 if (result === STATUS_OK) {
                     data.map((post, index) => {
-                        if (post.eventType === 10) {
-                            mappedPosts.push(<Post key={Math.random()} id={index} postData={post}/>)
-                        }
+                        getProfile(post.originSocialPersonaId).then(response => {
+                            const {result, data} = response.json();
+                            if (result === STATUS_OK) post.profilePic = data.profilePic;
+                            if (post.eventType === 10) {
+                                mappedPosts.push(<Post key={Math.random()} id={index} postData={post}/>)
+                            }
+                        });
                     })
                     setPosts(mappedPosts);
                 }
@@ -41,7 +46,7 @@ const Feed = () => {
                 <PostPlaceholder reloadPostCallback={loadPosts}/>
             </div>
             <Divider flexItem/>
-                <PostsFeed posts={posts} loading={loading}/>
+            <PostsFeed posts={posts} loading={loading}/>
         </div>
     );
 }

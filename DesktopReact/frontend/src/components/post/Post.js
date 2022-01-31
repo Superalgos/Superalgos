@@ -30,7 +30,7 @@ const Post = ({postData}) => {
             <div className="post">
                 <Stack direction="row" onClick={handlePostClick}>
                     <div className="postAvatarContainer">
-                        <Avatar src={pic} className="avatar"/>
+                        <Avatar src={postData.profilePic || pic} className="avatar"/>
                     </div>
                     <Typography className="postUserName">
                         {originSocialPersonaId} {/* TODO use name */}
@@ -39,7 +39,8 @@ const Post = ({postData}) => {
                 <div className="postBody">
                     {postText ? postText.toString() : ''}
                 </div>
-                <PostFooter postData={postData} postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
+                <PostFooter postData={postData} postId={originPostHash} reactions={reactions}
+                            actualReaction={reactions}/>
             </div>
         </div>
     );

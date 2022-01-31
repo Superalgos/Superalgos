@@ -42,7 +42,8 @@ exports.newPortfolioManagementModulesPortfolioManagerTradingBotsInterface = func
             case 'Check Out Candle': {
                 response = portfolioManagedTradingBotsModuleObject.checkOutCandle(
                     SESSION_KEY,
-                    message.candle
+                    message.candle,
+                    message.tradingEngine
                 )
                 break
             }

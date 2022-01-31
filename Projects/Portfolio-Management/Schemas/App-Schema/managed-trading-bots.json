@@ -28,7 +28,7 @@
     "propertyNameAtParent": "managedTradingBots",
     "childrenNodesProperties": [
         {
-            "name": "managedTradingBot",
+            "name": "managedTradingBots",
             "type": "array",
             "childType": "Managed Trading Bot",
             "autoAdd": true

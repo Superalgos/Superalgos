@@ -404,23 +404,6 @@ function newUiObjectConstructor() {
         )
         menuItemsInitialValues.push(
             {
-                action: 'Parent Detach',
-                askConfirmation: true,
-                confirmationLabel: "Confirm to Detach",
-                actionFunction: floatingObject.payload.executeAction,
-                actionProject: 'Visual-Scripting',
-                label: undefined,
-                visible: true,
-                iconPathOn: 'detach-node',
-                iconPathOff: 'detach-node',
-                rawRadius: 12,
-                targetRadius: 0,
-                currentRadius: 0,
-                ring: 3
-            }
-        )
-        menuItemsInitialValues.push(
-            {
                 action: 'Reference Detach',
                 askConfirmation: true,
                 confirmationLabel: "Confirm to Detach",
@@ -468,6 +451,23 @@ function newUiObjectConstructor() {
                 targetRadius: 0,
                 currentRadius: 0,
                 ring: 3
+            }
+        )
+        menuItemsInitialValues.push(
+            {
+                action: 'Parent Detach',
+                askConfirmation: true,
+                confirmationLabel: "Confirm to Detach",
+                actionFunction: floatingObject.payload.executeAction,
+                actionProject: 'Visual-Scripting',
+                label: undefined,
+                visible: true,
+                iconPathOn: 'detach-node',
+                iconPathOff: 'detach-node',
+                rawRadius: 12,
+                targetRadius: 0,
+                currentRadius: 0,
+                ring: 4
             }
         )
     menuItemsInitialValues.push(

@@ -81,7 +81,11 @@ function newAlgorithmicTradingFunctionLibraryTradingSessionFunctions() {
             eventsServerClient.stopListening(eventHandlerKey, eventSubscriptionIdOnStatus, node.id)
 
             /* If Task is Not Running Display Error */
-            if (message.event.status === 'Task Process Not Running') {
+            let task = UI.projects.visualScripting.utilities.meshes.findNodeInNodeMesh(node, 'Task', undefined, true, false, true, false)            
+            if (
+                message.event.status === 'Task Process Not Running' &&
+                task.payload.uiObject.isDebugging === undefined
+                ) {
                 node.payload.uiObject.setErrorMessage('Parent Task Not Running.')
                 callBackFunction(GLOBAL.DEFAULT_FAIL_RESPONSE)
             } else {

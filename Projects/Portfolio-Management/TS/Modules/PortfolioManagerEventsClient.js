@@ -1,5 +1,7 @@
 exports.newPortfolioManagementModulesPortfolioManagerEventsClient = function (processIndex) {
     /*
+    This code runs inside the Trading Bots.
+    
     This object represents the client to access the Portfolio Manager Interface from a Trading Bot.
     It is an events client because the communication with the Portfolio Manager happens 
     at the events layer, provided by the Events Server.

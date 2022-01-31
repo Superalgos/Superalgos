@@ -20,7 +20,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
     let portfolioSystemModuleObject
     let portfolioEpisodeModuleObject
     let portfolioEngineModuleObject
-    let portfolioManagedTradingBotsModuleObject    
+    let portfolioManagedTradingBotsModuleObject
 
     /* Events Interface */
     let eventsInterfaceModuleObject
@@ -153,6 +153,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                     exchange,
                     market
                 )
+                await portfolioEngineModuleObject.updateExchangeAssets()
                 /*
                 Do the stuff needed previous to the run like
                 Episode Counters and Statistics update. Maintenance is done
@@ -180,7 +181,8 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 /*
                 Managed Trading Bots
                 */
-                await portfolioManagedTradingBotsModuleObject.run()
+                await portfolioManagedTradingBotsModuleObject.waitForManagedTradingBotsToAskTheirQuestions()
+                portfolioManagedTradingBotsModuleObject.moveTradingEnginesIntoPortfolioEngine()
                 /*
                 We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. 

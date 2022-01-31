@@ -4,7 +4,7 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
     let MODULE_NAME = "Exchange API";
   
     let thisObject = {
-        fetchBalance: fetchBalance,
+        fetchAllBalances: fetchAllBalances,
         initialize: initialize,
         finalize: finalize
     };
@@ -67,10 +67,10 @@ exports.newPortfolioManagementBotModulesExchangeAPI = function (processIndex) {
         exchange = undefined
     }
 
-    async function fetchBalance() {
+    async function fetchAllBalances() {
         // Validations:
         if (exchange.has['fetchBalance'] === false) {
-            logError("fetchBalance -> Exchange does not support fetchBalance command.");
+            logError("fetchAllBalances -> Exchange does not support fetchBalance command.");
         }
         try {
             let balances = await exchange.fetchBalance();

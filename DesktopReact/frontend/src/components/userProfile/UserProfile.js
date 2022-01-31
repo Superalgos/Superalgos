@@ -1,5 +1,6 @@
 import "./UserProfile.css"
 import React, {useEffect, useState} from 'react';
+import { useSelector } from 'react-redux'
 import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
 import {Alert, Snackbar, Stack} from "@mui/material";
 import PostsFeed from "../postsFeed/PostsFeed";
@@ -11,29 +12,39 @@ const UserProfile = () => {
     const [posts, setPosts] = useState([]);
     const [postLoading, setPostLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
+    const actualUser = useSelector(state => state.profile.actualUser)
 
     useEffect(() => {
         loadPosts();
     }, []);
 
+    const drawPosts = (rawPosts) =>{
+        const mappedPosts = rawPosts.map( (post, index) => {
+            const postData = {
+                postText: post.postText,
+                originPostHash: post.originPostHash,
+                originSocialPersonaId: post.originSocialPersonaId,
+                reactions: post.reactions,
+                originPostHash: post.originPostHash,
+                postType: post.postType,
+                repliesCount: post.repliesCount,
+                creator: {
+                    name: actualUser.name,
+                    profilePic: actualUser.profilePic,
+                    originSocialPersonaId: actualUser.nodeId
+                }
+            }
+            return <Post key={post.originPostHash} id={post.originPostHash}
+                         postData={postData}/>
+        });
+        setPosts(mappedPosts)
+    }
+
     const loadPosts = async () => {
         setPostLoading(true)
-        // let queryParams = userId ? {userId: userId} : undefined;
-        let {
-            data, result
-        } = await getPosts().then(response => response.json());
+        const { data, result } = await getPosts().then(response => response.json());
         if (result === STATUS_OK) {
-            let mappedPosts = data.map((post, index) => {
-/*
-                if (post.eventType !== 10) {
-                    /!* TODO add other post types*!/
-                    return;
-                }
-*/
-                return <Post key={post.originPostHash} id={post.originPostHash}
-                             postData={post}/>
-            });
-            setPosts(mappedPosts);
+            drawPosts(data);
         }
         setPostLoading(false);
     }

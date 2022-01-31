@@ -25,6 +25,7 @@ function updateProfile(profileData) {
     return httpRequest('/users/profile', POST, profileData)
 }
 
+
 export {
     getProfiles,
     getProfile,

@@ -16,30 +16,30 @@ function App() {
     let navigate = useNavigate();
 
     const loadUser = async () => {
-        let loadUser = isObjectEmpty(loadedUser) && isObjectEmpty(loadedSocialPersona);
-        if (!loadUser) return;
-        let socialPersona = await getSocialPersona().then(response => response.json());
+        if (!(isObjectEmpty(loadedUser) && isObjectEmpty(loadedSocialPersona))) return;
+        const socialPersona = await getSocialPersona().then(response => response.json());
         if (socialPersona.error) return;
         dispatch(setSocialPersona(socialPersona))
         dispatch(setActualProfile(socialPersona))
+        const {
+            data,
+            result
+        } = await getProfile({socialPersonaId: socialPersona.nodeId}).then(response => response.json())
+        if (result === STATUS_OK) {
+            dispatch(setActualProfile(data))
+        }
+
         /* TODO refactor
                 if (data) {
                     navigate("/signUp")
                 }
         */
 
-        let {
-            data,
-            result
-        } = await getProfile(socialPersona.nodeId).then(response => response.json());
-        if (result === STATUS_OK) {
-            dispatch(setActualProfile(data))
-        }
     }
 
     useEffect(() => {
         loadUser();
-    }, [/*navigate*/]);
+    }, [navigate]);
 
     return (
         <div className="app">

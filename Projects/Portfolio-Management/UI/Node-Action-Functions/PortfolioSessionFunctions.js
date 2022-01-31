@@ -143,7 +143,7 @@ function newPortfolioManagementFunctionLibraryPortfolioSessionFunctions() {
         lightingPath = '' +
             'Portfolio Engine->' +
             'Portfolio Current->Portfolio Last->' +
-            'Exchange Managed Assets->Exchange Managed Asset->' +
+            'Exchange Managed Assets->Exchange Managed Asset->Asset Initial Balance->Asset Free Balance->Asset Locked Balance->Asset Total Balance->' +
             'Managed Trading Bots->Managed Trading Bot->Managed Trading Bot Engine->' +
             /*
             Portfolio Episode

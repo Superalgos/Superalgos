@@ -375,7 +375,7 @@ function newCircularMenuItem() {
             }
 
             if (thisObject.label === undefined) {
-                thisObject.payload.uiObject.setInfoMessage(text)
+                thisObject.payload.uiObject.setQuickInfo(text)
             }
             isMouseOver = true
         } else {
@@ -386,6 +386,7 @@ function newCircularMenuItem() {
 
     function onMouseNotOver(point) {
         isMouseOver = false
+        thisObject.payload.uiObject.resetQuickInfo()
         MENU_ITEM_ON_FOCUS = undefined
     }
 

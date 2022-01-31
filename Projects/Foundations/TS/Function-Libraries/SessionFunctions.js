@@ -1,7 +1,7 @@
 exports.newFoundationsFunctionLibrariesSessionFunctions = function () {
 
     const MODULE_NAME = "Session Functions"
-     
+
     let thisObject = {
         sessionHeartBeat: sessionHeartBeat,
         stopSession: stopSession,
@@ -32,6 +32,7 @@ exports.newFoundationsFunctionLibrariesSessionFunctions = function () {
     }
 
     function stopSession(processIndex, commandOrigin) {
+        if (TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE === undefined) { return }
 
         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.sendMessage(TS.projects.foundations.globals.processConstants.CONSTANTS_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_NODE.type + " '" + TS.projects.foundations.globals.taskConstants.TASK_NODE.bot.processes[processIndex].session.name + "' is stopping " + commandOrigin)
         TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SOCIAL_BOTS_MODULE.finalize()
@@ -83,9 +84,9 @@ exports.newFoundationsFunctionLibrariesSessionFunctions = function () {
             event = {
                 warningMessage: "Session could not be ran. Check the Workspace Map for Nodes with errors."
             }
-            
+
             TS.projects.foundations.globals.taskConstants.EVENT_SERVER_CLIENT_MODULE_OBJECT.raiseEvent(
-                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Warning', event)    
+                TS.projects.foundations.globals.processVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).SESSION_KEY, 'Warning', event)
         }
 
         if (TS.projects.foundations.globals.taskVariables.IS_TASK_STOPPING === true) {

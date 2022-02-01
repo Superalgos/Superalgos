@@ -5,13 +5,6 @@ import {cleanObject} from "../../utils/helper";
 export const ProfileSlice = createSlice({
     name: 'profile',
     initialState: {
-        socialPersona: {
-            nodeCodeName: "",
-            blockchainAccount: "",
-            userProfileId: "",
-            userProfileHandle: "",
-            nodeId: "",
-        },
         actualUser: {
             nodeCodeName: "",
             blockchainAccount: "",
@@ -30,7 +23,6 @@ export const ProfileSlice = createSlice({
         selectedUser: {
             nodeCodeName: "",
             blockchainAccount: "",
-            userProfileId: "",
             userProfileHandle: "",
             nodeId: "",
             name: '',
@@ -53,17 +45,11 @@ export const ProfileSlice = createSlice({
 
     },
     reducers: {
-        setSocialPersona: (state, action) => {
-            Object.assign(state.socialPersona, cleanObject(action.payload));
-        },
         setActualProfile: (state, action) => {
             Object.assign(state.actualUser, cleanObject(action.payload));
         },
-        setOpenedProfile: (state, action) => {
-            Object.assign(state.openedUser, action.payload);
-        },
         setSocialPersona: (state, action) => {
-            Object.assign( state.socialPersona, action.payload);
+            Object.assign(state.socialPersona, action.payload);
         },
         setSelectedProfile: (state, action) => {
             Object.assign(state.selectedUser, cleanObject(action.payload));
@@ -72,7 +58,7 @@ export const ProfileSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setOpenedProfile, setActualProfile, setSocialPersona, setSelectedProfile } = ProfileSlice.actions
+export const {setActualProfile, setSocialPersona, setSelectedProfile} = ProfileSlice.actions
 
 export default ProfileSlice.reducer
 

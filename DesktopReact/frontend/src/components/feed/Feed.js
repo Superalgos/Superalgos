@@ -18,6 +18,7 @@ const Feed = () => {
     const actualUser = useSelector(state => state.profile.actualUser)
 
     useEffect(() => {
+        console.log('effect', socialPersona, actualUser )
         if (!socialPersona.nodeId || !actualUser.name) {
             async () => {
                 const socialPersona = await getSocialPersona().then(response => response.json());
@@ -38,7 +39,7 @@ const Feed = () => {
                     const {
                         data,
                         result
-                    } = await getProfile({socialPersonaId: post?.originPost?.originSocialPersonaId}).then(response => response.json())
+                    } = await getProfile({socialPersonaId: post.originPost.originSocialPersonaId}).then(response => response.json())
                     const postData = {
                         postText: post?.postText,
                         originPostHash: post?.originPost.originPostHash,
@@ -65,7 +66,7 @@ const Feed = () => {
         setLoading(true);
         const {data, result} = await getFeed().then(response => response.json());
         if (result === STATUS_OK) {
-            drawFeedPosts(data);
+            await drawFeedPosts(data);
         }
         setLoading(false);
     }

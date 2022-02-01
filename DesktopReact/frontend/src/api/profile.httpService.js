@@ -10,7 +10,7 @@ function getProfiles() {
 }
 
 function getProfile(socialPersonaId) {
-    return httpRequest('/users/profile', GET, undefined, {socialPersonaId})
+    return httpRequest('/users/profile', GET, undefined, socialPersonaId)
 }
 
 function getPaginationProfiles(initialPaginationIndex, pagination) {

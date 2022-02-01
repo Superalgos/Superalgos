@@ -1,6 +1,6 @@
 .replyText {
     margin: 0 1rem;
-    width: 30rem;
+    width: -webkit-fill-available;
 }
 
 .replyButton {

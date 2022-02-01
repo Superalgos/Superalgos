@@ -100,9 +100,6 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Crypto Exchanges':
                     case 'Add Missing Assets':
                     case 'Add Missing Markets':
-                    //doesn’t work:
-                    //case 'Install Market':
-                    //case 'Uninstall Market':
                     case 'Add All Data Products':
                     case 'Add All Data Mine Products':
                     case 'Add All Learning Mine Products':
@@ -405,9 +402,6 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Crypto Exchanges':
                     case 'Add Missing Assets':
                     case 'Add Missing Markets':
-                    //doesn’t work:
-                    //case 'Install Market':
-                    //case 'Uninstall Market':
                     case 'Add All Data Products':
                     case 'Add All Data Mine Products':
                     case 'Add All Learning Mine Products':

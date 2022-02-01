@@ -60,6 +60,8 @@ function newUiObject() {
         resetPercentage: resetPercentage,
         setStatus: setStatus,
         resetStatus: resetStatus,
+        setQuickInfo: setQuickInfo,
+        resetQuickInfo: resetQuickInfo,
         physics: physics,
         invisiblePhysics: invisiblePhysics,
         drawBackground: drawBackground,
@@ -108,6 +110,8 @@ function newUiObject() {
     let hasStatus
     let statusCounter = 0
 
+    let hasQuickInfo
+
     let previousDistanceToChainParent
     let readyToChainAttachDisplayCounter = 5
     let readyToChainAttachDisplayIncrement = 0.1
@@ -142,6 +146,7 @@ function newUiObject() {
     let valueMinDecimals = undefined
     let currentPercentage = ''
     let currentStatus = ''
+    let currentQuickInfo = ''
     let rightDragging = false
 
     let eventSubscriptionIdOnError
@@ -1033,6 +1038,18 @@ function newUiObject() {
         statusCounter = 0
     }
 
+    function setQuickInfo(quickInfo) {
+        if (quickInfo !== undefined) {
+            currentQuickInfo = quickInfo
+            hasQuickInfo = true
+        }
+    }
+
+    function resetQuickInfo() {
+        currentQuickInfo = undefined
+        hasQuickInfo = false
+    }
+
     function heartBeat() {
         lastHeartBeat = new Date()
         thisObject.isRunning = true
@@ -1485,6 +1502,7 @@ function newUiObject() {
             drawValue()
             drawPercentage()
             drawStatus()
+            drawQuickInfo()
 
             if (drawTitle === true) {
                 thisObject.uiObjectTitle.draw()
@@ -1958,6 +1976,64 @@ function newUiObject() {
 
                 browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.TITANIUM_YELLOW + ', 1)'
                 browserCanvasContext.fillText(label, labelPoint.x, labelPoint.y)
+            }
+        }
+    }
+
+    function drawQuickInfo() {
+        if (hasQuickInfo === false) { return }
+        if (UI.projects.foundations.spaces.floatingSpace.inMapMode === true) { return }
+
+        let position = {
+            x: 0,
+            y: 0
+        }
+
+        position = thisObject.container.frame.frameThisPoint(position)
+
+        let radius = thisObject.payload.floatingObject.container.frame.radius
+        /* Label Text */
+        let labelPoint
+        let fontSize = 20
+        let lineSeparator = 25
+        let label
+
+        browserCanvasContext.font = fontSize + 'px ' + UI_FONT.PRIMARY
+
+        if (radius > 6) {
+            const IDEAL_LABEL_LENGTH = 80
+
+            label = currentQuickInfo
+
+            if (label !== undefined && label !== null) {
+                if (label.length > IDEAL_LABEL_LENGTH) {
+                    if (label.length > IDEAL_LABEL_LENGTH * 3) {
+                        label = label.substring(0, IDEAL_LABEL_LENGTH * 3) + '...'
+                    }
+                }
+
+                /* Split the line into Phrases */
+                let phrases = splitTextIntoPhrases(label, 5)
+                if (phrases.length === 1) {
+                    phrases.push("")
+                }
+                if (phrases.length === 2) {
+                    phrases.push("")
+                }
+
+                for (let i = 0; i < phrases.length; i++) {
+                    let phrase = phrases[i]
+                    labelPoint = {
+                        x: position.x - getTextWidth(phrase) / 2,
+                        y: position.y + lineSeparator * (10 - phrases.length + 1 + i)
+                    }
+                    printMessage(phrase)
+                }
+
+                function printMessage(text) {
+                    browserCanvasContext.fillStyle = 'rgba(' + UI_COLOR.WHITE + ', 1)'
+                    browserCanvasContext.fillText(text, labelPoint.x, labelPoint.y)
+                }
             }
         }
     }

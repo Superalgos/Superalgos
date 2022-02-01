@@ -422,6 +422,11 @@
                     "language": "RU",
                     "text": "Ветка Plugins-Docs является УСТАРЕВШЕЙ. Все материалы теперь направляются в ветку develop. Если у вас есть вопросы по этому поводу, не стесняйтесь задавать их в группах Telegram.",
                     "updated": 1640258801426
+                },
+                {
+                    "language": "DE",
+                    "text": "Der Plugins-Docs Branch ist veraltet. Alle contributions (Beiträge) gehen jetzt in die Develop-Branch.",
+                    "updated": 1643679538461
                 }
             ]
         },
@@ -448,8 +453,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Um in den Branch plugins-docs oder den Branch develop zu wechseln:",
-                    "updated": 1634294172533
+                    "text": "Um zwischen branches zu wechseln:",
+                    "updated": 1643679316423
                 },
                 {
                     "language": "RU",
@@ -464,8 +469,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Gehen Sie zur Fußzeile dieser Seite.",
-                    "updated": 1634294184016
+                    "text": "Gehen Sie zur Fußzeile (footer) dieser Seite. ",
+                    "updated": 1643679333665
                 },
                 {
                     "language": "RU",
@@ -482,8 +487,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wählen Sie Plugins-Docs oder Develop unter dem Titel Contributions Branch.",
-                    "updated": 1634294206303
+                    "text": "Wählen Sie Develop oder Master unter dem Titel \"Contributions Branch\".",
+                    "updated": 1643679479699
                 },
                 {
                     "language": "RU",
@@ -499,8 +504,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Wählen Sie dann Plugins-Docs oder Develop unter dem Titel Choose the Current Branch.",
-                    "updated": 1634294219034
+                    "text": "Wählen Sie dann Develop oder Master unter dem Titel \"Choose the Current Branch\".",
+                    "updated": 1643679471257
                 },
                 {
                     "language": "RU",
@@ -544,8 +549,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Führen Sie den App Update Command aus, indem Sie ihn in das Suchfeld oben in den Docs eingeben",
-                    "updated": 1634294256578
+                    "text": "Führen Sie den app.update Command aus, indem Sie ihn in das Suchfeld oben in den Docs eingeben.",
+                    "updated": 1643679198344
                 },
                 {
                     "language": "RU",
@@ -564,8 +569,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schließen Sie die Anwendung und starten Sie sie neu.",
-                    "updated": 1634294268406
+                    "text": "Schließen Sie nun die Anwendung und starten Sie sie neu.",
+                    "updated": 1643679235066
                 },
                 {
                     "language": "RU",

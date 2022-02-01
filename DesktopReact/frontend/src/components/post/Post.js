@@ -23,23 +23,12 @@ const Post = ({postData}) => {
         repliesCount,
         creator: {
             name,
+            userName,
             profilePic,
             originSocialPersonaId
         }
     } = postData;
 
-    // useEffect( async () => {
-    //     if (!socialPersona.userProfileId) {
-
-    //         const userSocialPersona = await getSocialPersona().then(response => response.json())
-    //         dispatch( setSocialPersona(userSocialPersona) );
-    //     }
-    //     if (postData.originPost && socialPersona.userProfileId !== postData.originPost.originSocialPersonaId) {
-    //         const {profileData} = await getProfile( {socialPersonaId: postData.originPost.originSocialPersonaId} )
-    //             .then(response => response.json())
-    //         setPostUser(profileData);
-    //     }
-    // },[])
 
     const handlePostClick = (e) => {
         if (postIdParameter !== originPostHash) {

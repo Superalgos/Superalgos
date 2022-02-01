@@ -49,9 +49,8 @@ const Feed = () => {
                         creator: {
                             name: data?.name,
                             profilePic: data?.profilePic,
-                            originSocialPersonaId: data?.nodeId
-                            // originSocialPersonaId: data.originSocialPersonaId
-
+                            originSocialPersonaId: data?.nodeId,
+                            userName: data?.userProfileHandle
                         }
                     }
                     return <Post key={Math.random()} id={index} postData={postData}/>

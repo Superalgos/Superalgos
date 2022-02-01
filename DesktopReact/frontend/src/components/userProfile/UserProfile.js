@@ -17,7 +17,6 @@ const UserProfile = () => {
     useEffect(() => {
         loadPosts();
     }, []);
-
     const drawPosts = (rawPosts) =>{
         const mappedPosts = rawPosts.map( (post, index) => {
             const postData = {
@@ -29,9 +28,11 @@ const UserProfile = () => {
                 creator: {
                     name: actualUser.name,
                     profilePic: actualUser.profilePic,
-                    originSocialPersonaId: actualUser.originSocialPersonaId
+                    originSocialPersonaId: actualUser.originSocialPersonaId,
+                    username: actualUser.userProfileHandle
                 }
             }
+
             return <Post key={post.originPostHash} id={post.originPostHash}
                          postData={postData}/>
         });

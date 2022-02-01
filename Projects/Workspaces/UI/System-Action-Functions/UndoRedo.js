@@ -133,7 +133,7 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Children':
                     /* Workspaces actions */
                     case 'Add Missing Workspace Projects':
-                    case 'Add Specified Workspace Project':
+                    case 'Add Specified Project':
                         undoStack[i].nodeClones = []
                         for (let newUiObject of undoStack[i].newUiObjects) {
                             node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(newUiObject.id)
@@ -435,7 +435,7 @@ function newWorkspacesSystemActionUndoRedo() {
                     case 'Add Missing Children':
                     /* Workspaces actions */
                     case 'Add Missing Workspace Projects':
-                    case 'Add Specified Workspace Project':
+                    case 'Add Specified Project':
                         for (let nodeClone of redoStack[i].nodeClones) {
                             node = (nodeClone.cleaned !== true) ?
                                 nodeClone :

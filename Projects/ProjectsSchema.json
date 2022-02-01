@@ -162,6 +162,28 @@
         ]
     },
     {
+        "name": "Decentralized-Exchanges",
+        "propertyName": "decentralizedExchanges",
+        "UI": {
+            "nodeActionFunctions": [
+                {
+                    "name": "Decentralized Exchanges Functions",
+                    "propertyName": "decentralizedExchangesFunctions",
+                    "functionName": "newFoundationsFunctionLibraryDecentralizedExchangesFunctions"
+                }
+            ],
+            "systemActionFunctions": [],
+            "functionLibraries": []
+        },
+        "SA":{},
+        "TS": {
+            "functionLibraries": [],
+            "botModules": []
+        },
+        "plugins": [],
+        "tasks": []
+    },
+    {
         "name": "Portfolio-Management",
         "propertyName": "portfolioManagement",
         "UI": {
@@ -2130,12 +2152,34 @@
             ]
         },
         "SA": {
+            "globals": [
+                {
+                    "name": "Memory",
+                    "propertyName": "memory",
+                    "functionName": "newTradingSignalsGlobalsMemory",
+                    "fileName": "Memory.js"
+                }
+            ],
+            "modules": [
+                {
+                    "name": "P2P Network Interface",
+                    "propertyName": "p2pNetworkInterface",
+                    "functionName": "newTradingSignalsModulesP2PNetworkInterface",
+                    "fileName": "P2PNetworkInterface.js"
+                },
+                {
+                    "name": "Trading Signals Network Service Client",
+                    "propertyName": "tradingSignalsNetworkServiceClient",
+                    "functionName": "newTradingSignalsModulesTradingSignalsNetworkServiceClient",
+                    "fileName": "TradingSignalsNetworkServiceClient.js"
+                }
+            ],
             "utilities": [
                 {
-                    "name": "Signal Validations",
-                    "propertyName": "signalValidations",
-                    "functionName": "newTradingSignalsUtilitiesSignalValidations",
-                    "fileName": "SignalValidations.js"
+                    "name": "Signal Signature Validations",
+                    "propertyName": "signalSignatureValidations",
+                    "functionName": "newTradingSignalsUtilitiesSignalSignatureValidations",
+                    "fileName": "SignalSignatureValidations.js"
                 }
             ]
         }

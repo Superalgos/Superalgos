@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Pozisyon almak için gerekli tanımlamaları tamamladık ve ilk zararı durdur ve kar hedefini belirlemeye hazırız!",
                 "updated": 1641747442311
+            },
+            {
+                "language": "RU",
+                "text": "Мы закончили определения, необходимые для принятия позиции, и готовы определить начальные цели стоп-лосс и тейк-профит!",
+                "updated": 1642941736328
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Fikri geliştirirken belirlediğimiz hedefleri hatırlayalım.",
                     "updated": 1641747452883
+                },
+                {
+                    "language": "RU",
+                    "text": "Давайте вспомним, какие цели мы определили для себя при разработке идеи.",
+                    "updated": 1642941745307
                 }
             ]
         },
@@ -51,6 +61,11 @@
                     "language": "TR",
                     "text": "Düşüş trendleri için (For downtrends): Hedef olarak %3 Zarar Durdur ve %10 Kâr Al belirleyeceğiz.",
                     "updated": 1641747484059
+                },
+                {
+                    "language": "RU",
+                    "text": "Для нисходящих трендов: мы установим 3% стоп-лосс и 10% тейк-профит.",
+                    "updated": 1642941752291
                 }
             ]
         },
@@ -67,6 +82,11 @@
                     "language": "TR",
                     "text": "Bir süre dokunmayacağımız için Açık Aşama (open stage) düğümünü devre dışı bırakın <br> <br> Şimdi Aşamayı Yönet (Manage Stage ) düğümünü genişletin ve içine bir göz atın!",
                     "updated": 1641747501800
+                },
+                {
+                    "language": "RU",
+                    "text": "Сверните узел Open Stage, так как мы не будем его трогать некоторое время. Теперь разверните узел Manage Stage и загляните внутрь!",
+                    "updated": 1642941772734
                 }
             ]
         }

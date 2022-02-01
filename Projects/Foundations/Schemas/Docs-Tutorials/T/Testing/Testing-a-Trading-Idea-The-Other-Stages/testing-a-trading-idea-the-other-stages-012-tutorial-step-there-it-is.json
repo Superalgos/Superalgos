@@ -18,6 +18,11 @@
                 "language": "TR",
                 "text": "Umarım bulmuşsundur, ama bulamadıysan endişelenme! Bütün tartışmayı tekrar gözden geçireceğiz!",
                 "updated": 1641746129449
+            },
+            {
+                "language": "RU",
+                "text": "Надеюсь, вы нашли его самостоятельно, но не волнуйтесь, если не нашли! Мы пройдемся по всем рассуждениям еще раз!",
+                "updated": 1642779282477
             }
         ]
     },
@@ -35,6 +40,11 @@
                     "language": "TR",
                     "text": "Amaç, mantıksal olarak yapılandırılmış ticaret motorunda ( Trading Engine ) ihtiyaç duyduğunuz verileri nasıl bulacağınızı öğrenmenizdir... İpuçlarını mutlaka okuyun!",
                     "updated": 1641746234647
+                },
+                {
+                    "language": "RU",
+                    "text": "Цель состоит в том, чтобы вы научились находить нужные вам данные в пределах Trading Engine, который структурирован логически... Обязательно читайте подсказки!",
+                    "updated": 1642779299203
                 }
             ]
         },
@@ -52,6 +62,11 @@
                     "language": "TR",
                     "text": "İşlem Akımı ( Trading Current ), çünkü değerlendirme anında bakiyeye ihtiyacımız var!",
                     "updated": 1641746155822
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Current, потому что нам нужен баланс в момент оценки!",
+                    "updated": 1642779315600
                 }
             ]
         },
@@ -69,6 +84,11 @@
                     "language": "TR",
                     "text": "Ticaret Bölümü ( Trading Episode ) çünkü tüm alım satım seansı boyunca tutulacak olan bakiye!",
                     "updated": 1641746167500
+                },
+                {
+                    "language": "RU",
+                    "text": "Trading Episode потому что это текущий баланс, сохраняемый в течение всей торговой сессии!",
+                    "updated": 1642779329687
                 }
             ]
         },
@@ -85,6 +105,11 @@
                     "language": "TR",
                     "text": "Bölüm Temel Varlık ( Episode Base Asset ) , çünkü tanımlarımızın geri kalanıyla eşleşiyor!",
                     "updated": 1641746176814
+                },
+                {
+                    "language": "RU",
+                    "text": "Episode Base Asset, потому что он согласуется с остальными нашими определениями!",
+                    "updated": 1642779339362
                 }
             ]
         },
@@ -101,6 +126,11 @@
                     "language": "TR",
                     "text": "Denge ( Balance ) çünkü istediğimiz buydu!",
                     "updated": 1641746185630
+                },
+                {
+                    "language": "RU",
+                    "text": "Balance, потому что это то, чего мы хотим!",
+                    "updated": 1642779361176
                 }
             ]
         }

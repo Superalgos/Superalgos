@@ -13,6 +13,11 @@
                 "language": "RU",
                 "text": "Управляет основной схемой узлов, которые, будучи присоединенными друг к другу, могут образовывать обширные определения, легко создаваемые и поддерживаемые пользователями.",
                 "updated": 1640931112373
+            },
+            {
+                "language": "TR",
+                "text": "Özet: Birbirine eklendiğinde, kullanıcılar tarafından kolaylıkla yapılan ve sürdürülen geniş tanımlar oluşturabilen çekirdek düğüm kavramını yönetir.",
+                "updated": 1643202258879
             }
         ]
     },
@@ -25,6 +30,11 @@
                     "language": "RU",
                     "text": "В системе имеется файл под названием App Schema, который содержит правила о существующих типах узлов, о том, какие узлы могут быть дочерними по отношению к другим узлам, какие узлы могут ссылаться на другие узлы, а какие нет. Он также определяет пункты меню узлов. Все эти правила применяются в пространстве проектирования (Design Space).",
                     "updated": 1640931154257
+                },
+                {
+                    "language": "TR",
+                    "text": "Sistem, varolan düğüm türleri, hangi düğümlerin diğer düğümlerin alt öğesi olabileceği ve diğer düğümlere ve hangi düğümlere başvurulabileceği hakkında kurallara sahip Uygulama Şeması ( App Schema ) adlı bir dosyaya sahiptir. Ayrıca düğümlerin menü öğelerini tanımlar. Tüm bu kurallar Tasarım Alanı'nda (  Design Space ) uygulanır.",
+                    "updated": 1643202465834
                 }
             ]
         },
@@ -36,6 +46,11 @@
                     "language": "RU",
                     "text": "Пользователи могут присоединять узлы, устанавливать ссылки между узлами, выбирать пункты меню и многое другое...",
                     "updated": 1640931176660
+                },
+                {
+                    "language": "TR",
+                    "text": "Kullanıcılar daha sonra düğümler ekleyebilir, düğümler arasında referanslar oluşturabilir, menü öğelerini seçebilir ve daha fazlasını yapabilir...",
+                    "updated": 1643202492299
                 }
             ]
         },
@@ -47,6 +62,11 @@
                     "language": "RU",
                     "text": "Design Space тесно связано с Floating Space.",
                     "updated": 1640931199401
+                },
+                {
+                    "language": "TR",
+                    "text": "Not: Tasarım Alanı ( Design Space ) , Kayan Alan ile sıkı bir şekilde bağlantılıdır.",
+                    "updated": 1643202548550
                 }
             ]
         }

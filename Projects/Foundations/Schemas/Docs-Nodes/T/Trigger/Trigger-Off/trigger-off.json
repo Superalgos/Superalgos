@@ -7,6 +7,11 @@
                 "language": "RU",
                 "text": "Считает периоды с момента последнего срабатывания стратегии.",
                 "updated": 1640856142730
+            },
+            {
+                "language": "DE",
+                "text": "Zählt die Perioden seit der letzten Ausschaltung einer Strategie.",
+                "updated": 1641735782507
             }
         ]
     },
@@ -36,6 +41,11 @@
                     "language": "RU",
                     "text": "Конфигурация Trigger Off",
                     "updated": 1640856187487
+                },
+                {
+                    "language": "DE",
+                    "text": "Trigger Off Konfiguration",
+                    "updated": 1641735862775
                 }
             ]
         },
@@ -47,6 +57,11 @@
                     "language": "RU",
                     "text": "Свойства",
                     "updated": 1640856194351
+                },
+                {
+                    "language": "DE",
+                    "text": "Eigenschaften",
+                    "updated": 1641735871122
                 }
             ]
         },
@@ -58,6 +73,11 @@
                     "language": "RU",
                     "text": "initialValue позволяет сбросить начальное состояние узла на произвольное значение.",
                     "updated": 1640856203951
+                },
+                {
+                    "language": "DE",
+                    "text": "initialValue ermöglicht es, den Grundzustand des Knotens auf einen beliebigen Wert zurückzusetzen.",
+                    "updated": 1641735901853
                 }
             ]
         }

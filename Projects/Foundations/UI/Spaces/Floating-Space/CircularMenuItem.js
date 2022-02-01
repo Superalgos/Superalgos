@@ -118,7 +118,17 @@ function newCircularMenuItem() {
         iconPhysics()
 
         if (thisObject.icon === undefined) {
-            console.log('[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' + thisObject.action + '", relatedUiObject: "' + thisObject.relatedUiObject + '", label: "' + thisObject.label + '"')
+            console.log(
+                '[ERROR] newCircularMenuItem -> initialize -> err = Icon not found, Action: "' +
+                thisObject.action +
+                '", relatedUiObject: "' +
+                thisObject.relatedUiObject +
+                '", label: "' +
+                thisObject.label +
+                '"'
+            )
+            console.log(thisObject.payload.node)
+            console.log(thisObject)
         }
 
         selfMouseOverEventSubscriptionId = thisObject.container.eventHandler.listenToEvent('onMouseOver', onMouseOver)
@@ -542,7 +552,7 @@ function newCircularMenuItem() {
             for (let i = 0; i < thisObject.circularMenu.menuItems.length; i++) {
                 if (thisObject.circularMenu.menuItems[i].menu !== undefined) {
                     if (thisObject.menu.container.id !== thisObject.circularMenu.menuItems[i].menu.container.id)
-                    thisObject.circularMenu.menuItems[i].menu.setMenuOpenState(false)
+                        thisObject.circularMenu.menuItems[i].menu.setMenuOpenState(false)
                 }
             }
         }

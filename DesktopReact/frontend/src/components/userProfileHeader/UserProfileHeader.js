@@ -8,6 +8,7 @@ import {useSelector} from "react-redux";
 
 const UserProfileHeader = () => {
     const user = useSelector(state => state.profile.actualUser);
+    console.log({user})
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px", height: "15px", verticalAlign: "text-top"
     }

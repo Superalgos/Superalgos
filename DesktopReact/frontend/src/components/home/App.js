@@ -7,6 +7,7 @@ import UsersSidebar from "../userSideBar/UsersSidebar";
 import {getProfile, getSocialPersona} from "../../api/profile.httpService";
 import {setActualProfile, setSocialPersona} from "../../store/slices/Profile.slice";
 import {STATUS_OK} from "../../api/httpConfig";
+import {isObjectEmpty} from "../../utils/helper";
 
 function App() {
     const dispatch = useDispatch();
@@ -15,12 +16,15 @@ function App() {
     let navigate = useNavigate();
 
     const loadUser = async () => {
-        if (loadedUser.name && loadedSocialPersona.nodeId) return;
+        if (!(isObjectEmpty(loadedUser) && isObjectEmpty(loadedSocialPersona))) return;
         const socialPersona = await getSocialPersona().then(response => response.json());
         if (socialPersona.error) return;
         dispatch(setSocialPersona(socialPersona))
-
-        const {data, result} = await getProfile({socialPersonaId: socialPersona.nodeId}).then(response => response.json())
+        dispatch(setActualProfile(socialPersona))
+        const {
+            data,
+            result
+        } = await getProfile({socialPersonaId: socialPersona.nodeId}).then(response => response.json())
         if (result === STATUS_OK) {
             dispatch(setActualProfile(data))
         }

@@ -218,8 +218,7 @@ For this to work you will need to [use NVM to install and control node] (https:/
 - __This is necessary before proceeding.__ 
 
 ```sh
-sudo apt \
-remove nodejs -y && \
+sudo apt remove nodejs -y
 ```
 
 ```sh
@@ -257,13 +256,13 @@ _Make sure things are up to date and packages not needed are removed_
 
 
 ```sh
-sudo apt update \
+sudo apt update &&\
 sudo apt upgrade && \
 apt autoremove -y
 ```
 
 ```sh
-cd
+cd Superalgos
 ```
 
 into the directory of SuperAlgos

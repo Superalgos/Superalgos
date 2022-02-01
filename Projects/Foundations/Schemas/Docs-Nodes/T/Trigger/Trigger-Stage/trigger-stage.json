@@ -17,6 +17,11 @@
                 "language": "TR",
                 "text": "Tetik aşaması, ilgili strateji ile ticaret fırsatlarını araştırmak için piyasayı izlemekle ilgilenir.",
                 "updated": 1642500142465
+            },
+            {
+                "language": "DE",
+                "text": "In der Triggerphase geht es um die Beobachtung des Marktes auf der Suche nach Handelsmöglichkeiten mit der entsprechenden Strategie.",
+                "updated": 1641635238635
             }
         ]
     },
@@ -38,6 +43,11 @@
                     "language": "TR",
                     "text": "Bir ticaret sistemi, aynı pazar için tasarlanmış birden fazla stratejiye sahip olabilir.",
                     "updated": 1642500202182
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein Handelssystem kann mehrere Strategien enthalten, die für denselben Markt entwickelt wurden.",
+                    "updated": 1641635293521
                 }
             ]
         },
@@ -54,6 +64,11 @@
                     "language": "TR",
                     "text": "Alım satım sistemlerinin önemli bir yönü, kendilerine belirli bir miktarda sermaye tahsis edilmiş olmalarıdır (ticaret seansının temel varlık parametresine bakın). Sonuç olarak, bir ticaret sistemi içindeki stratejiler, belirli bir sermaye tahsisini paylaşır.",
                     "updated": 1642500186374
+                },
+                {
+                    "language": "DE",
+                    "text": "Ein wichtiger Aspekt von Handelssystemen ist, dass ihnen eine bestimmte Menge an Kapital zugewiesen wird (siehe den Parameter für den Basiswert der Handelssitzung). Infolgedessen teilen sich die Strategien innerhalb eines Handelssystems eine bestimmte Kapitalzuweisung.",
+                    "updated": 1641635330768
                 }
             ]
         },
@@ -70,6 +85,11 @@
                     "language": "TR",
                     "text": "Tetik aşaması kavramının arkasındaki mantık, bir ticaret sistemi içindeki farklı stratejilerin, farklı piyasa durumlarında ticaret için özelleşebileceğini varsayar. Bu nedenle, her stratejideki tetikleme aşaması, belirli bir piyasa durumu göz önüne alındığında, ticaret sistemi içindeki herhangi bir belirli stratejinin ticaret için seçilebileceği mekanizmadır.",
                     "updated": 1642500228916
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Logik hinter dem Konzept der Auslösestufe geht davon aus, dass verschiedene Strategien innerhalb eines Handelssystems auf den Handel in unterschiedlichen Marktsituationen spezialisiert sein können. Die Auslösestufe in jeder Strategie ist daher der Mechanismus, durch den eine bestimmte Strategie innerhalb des Handelssystems für den Handel in einer bestimmten Marktsituation ausgewählt werden kann.",
+                    "updated": 1641635356462
                 }
             ]
         },
@@ -86,6 +106,11 @@
                     "language": "TR",
                     "text": "Bir stratejinin tetiklenmesi, ticaret sistemindeki diğer herhangi bir stratejinin seçimini etkili bir şekilde engeller ve strateji tetiklenene kadar seçilen bir strateji için tüm sermaye tahsisini rezerve eder.",
                     "updated": 1642500267920
+                },
+                {
+                    "language": "DE",
+                    "text": "Das Auslösen einer Strategie blockiert effektiv die Auswahl jeder anderen Strategie im Handelssystem und reserviert die gesamte Kapitalalzuweisung für die ausgewählte Strategie, bis die Strategie ausgelöst wird.",
+                    "updated": 1641635408892
                 }
             ]
         },
@@ -102,6 +127,11 @@
                     "language": "TR",
                     "text": "Bu nedenle, belirli stratejiler aynı piyasa koşulları altında alım satım yapmak ve aynı anda alım satım yapmak için tasarlanmışsa, bu stratejiler ayrı alım satım sistemlerinde konuşlandırılmalıdır.",
                     "updated": 1642500318933
+                },
+                {
+                    "language": "DE",
+                    "text": "Wenn also bestimmte Strategien in denselben Marktsituationen handeln und gleichzeitig Geschäfte eröffnen sollen, müssen diese Strategien in separaten Handelssystemen eingesetzt werden.",
+                    "updated": 1641635488817
                 }
             ]
         },
@@ -118,6 +148,11 @@
                     "language": "TR",
                     "text": "Bir strateji tetiklendiğinde, strateji bir pozisyon almaya karar verebilir veya vermeyebilir. Bir pozisyon alınırsa, geri kalan aşamalar sonunda aktif hale gelir.",
                     "updated": 1642500347909
+                },
+                {
+                    "language": "DE",
+                    "text": "Sobald eine Strategie ausgelöst wird, kann die Strategie entscheiden, ob sie eine Position einnimmt oder nicht. Wird eine Position eingenommen, werden die übrigen Phasen schließlich aktiv.",
+                    "updated": 1641635506634
                 }
             ]
         },
@@ -134,6 +169,11 @@
                     "language": "TR",
                     "text": "Ancak, strateji pozisyon almadan da tetiklenebilir. Bir strateji tetiklendiğinde, ticaret sistemi tüm stratejiler için tetikleme tanımlarını izlemeye geri döner ve bir sonraki tetiklenen strateji tarafından kullanılmak üzere sermaye serbest bırakılır.",
                     "updated": 1642500370042
+                },
+                {
+                    "language": "DE",
+                    "text": "Die Strategie kann jedoch auch ausgelöst werden, ohne eine Position einzugehen. Wenn eine Strategie ausgeschaltet wird, kehrt das Handelssystem zur Überwachung der Trigger-On-Definitionen für alle Strategien zurück, und das Kapital wird freigegeben, um von der Strategie verwendet zu werden, die als nächstes ausgelöst wird.",
+                    "updated": 1641635523773
                 }
             ]
         }

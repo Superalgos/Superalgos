@@ -51,7 +51,6 @@ function newCircularMenu() {
     }
 
     function initialize(menuItemsInitialValues, payload) {
-
         /* Create the array of Menu Items */
         let iconAndTextArray = []
         let iconOnlyArray
@@ -101,7 +100,7 @@ function newCircularMenu() {
             menuItem.circularMenu = thisObject
 
             menuItem.payload = {
-                targetPosition : {
+                targetPosition: {
                     x: 0,
                     y: 0
                 },

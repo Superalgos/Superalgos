@@ -32,7 +32,6 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             const completePath = filePath + '/' + fileName + '.json'
             const buff = new Buffer.from(fileContent, 'utf-8');
             const content = buff.toString('base64');
-            let fileSha;
 
             try {
                 const { data: { sha } } = await octokit.request('GET /repos/{owner}/{repo}/contents/{file_path}', {
@@ -40,21 +39,32 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                     repo: repo,
                     file_path: completePath
                 });
-                fileSha = sha;
-                
-            } catch (error) {
-                await octokit.repos.createOrUpdateFileContents({
-                    owner: owner,
-                    repo: repo,
-                    path: completePath,
-                    message: message,
-                    content: content,
-                    branch: branch,
-                })
-                    .then(githubSaysOK)
-                    .catch(githubError)
+                if (sha) {
+                    await octokit.repos.createOrUpdateFileContents({
+                        owner: owner,
+                        repo: repo,
+                        path: completePath,
+                        message: message,
+                        content: content,
+                        branch: branch,
+                        sha: sha
+                    })
+                        .then(githubSaysOK)
+                        .catch(githubError)
+                } else {
+                    createNewFile()
+                }
+
+            } catch (err) {
+                if (err.status === 404) {
+                    createNewFile()
+                } else {
+                    console.log('[ERROR] File could not be saved at Github.com. -> err.stack = ' + err.stack)
+                    reject(err)
+                }
             }
-            if(fileSha){
+
+            async function createNewFile() {
                 await octokit.repos.createOrUpdateFileContents({
                     owner: owner,
                     repo: repo,
@@ -62,7 +72,6 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
                     message: message,
                     content: content,
                     branch: branch,
-                    sha:fileSha
                 })
                     .then(githubSaysOK)
                     .catch(githubError)
@@ -73,7 +82,7 @@ exports.newOpenStorageUtilitiesGithubStorage = function () {
             }
 
             function githubError(err) {
-                console.log('[ERROR] Github Storage -> saveFile -> err = ' + err)
+                console.log('[ERROR] Github Storage -> saveFile -> err.stack = ' + err.stack)
                 reject()
             }
         }

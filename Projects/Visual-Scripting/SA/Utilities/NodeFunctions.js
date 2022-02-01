@@ -67,7 +67,6 @@ exports.newVisualScriptingUtilitiesNodeFunctions = function () {
         function scanNodeMesh(startingNode) {
             if (startingNode === undefined) { return }
             if (nodeFound !== undefined) { return }
-            if ((startingNode.type === 'Task' || startingNode.type === 'Task Manager') && startingNode.project === 'Portfolio-Management') { startingNode.project = 'Foundations' }
 
             let schemaDocument = SA.projects.foundations.globals.schemas.APP_SCHEMA_MAP.get(startingNode.project + '-' + startingNode.type)
             if (schemaDocument === undefined) { return }

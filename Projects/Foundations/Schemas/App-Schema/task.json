@@ -123,7 +123,7 @@
             "relatedUiObject": "Task Server App Reference",
             "actionFunction": "payload.executeAction",
             "actionProject": "Visual-Scripting",
-            "relatedUiObjectProject": "Governance"
+            "relatedUiObjectProject": "User-Apps"
         },
         {
             "action": "Delete UI Object",
@@ -187,8 +187,9 @@
             "name": "taskServerAppReference",
             "type": "node",
             "childType": "Task Server App Reference",
-            "project": "Governance"
+            "project": "User-Apps"
         }
     ],
-    "propertyNameAtParent": "tasks"
+    "propertyNameAtParent": "tasks",
+    "project": "Foundations"
 }

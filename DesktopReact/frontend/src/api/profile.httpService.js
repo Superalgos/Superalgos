@@ -9,8 +9,8 @@ function getProfiles() {
     return httpRequest('/users/profiles', GET);
 }
 
-function getProfile(queryParams) {
-    return httpRequest('/users/profile', GET, undefined, queryParams)
+function getProfile(socialPersonaId) {
+    return httpRequest('/users/profile', GET, undefined, {socialPersonaId})
 }
 
 function getPaginationProfiles(initialPaginationIndex, pagination) {

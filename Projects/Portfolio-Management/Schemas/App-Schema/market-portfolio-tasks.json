@@ -63,7 +63,7 @@
         "Use Reference Parent Parent Parent",
         "Use Reference Parent"
     ],
-    "isTitleAllwaysVisible": true,
+    "isTitleAllwaysVisible": false,
     "propertyNameAtParent": "marketPortfolioTasks",
     "childrenNodesProperties": [
         {

@@ -3,19 +3,40 @@
     "pageNumber": "8",
     "type": "Conservative Moving Average",
     "definition": {
-        "text": "This indicator, as it\u2019s name suggests, is a moving average that takes a conservative approach to it\u2019s rate of change. It is less susceptible to volatile spikes, but is also slow to react to rapid changes in price action.",
-        "updated": 1617958214490
+        "text": "This indicator, as it’s name suggests, is a moving average that takes a conservative approach to it’s rate of change. It is less susceptible to volatile spikes, but is also slow to react to rapid changes in price action.",
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Этот индикатор, как следует из его названия, представляет собой скользящую среднюю, которая использует консервативный подход к скорости изменения. Он менее восприимчив к волатильным скачкам, но также медленно реагирует на быстрые изменения в ценовом движении.",
+                "updated": 1643526215622
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "This indicator uses a 20 period value to calulate the moving average values.",
-            "updated": 1617958138349
-        },       
-		{
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Этот индикатор использует значение 20 периода для расчета значений скользящей средней.",
+                    "updated": 1643526246380
+                }
+            ]
+        },
+        {
             "style": "Text",
             "text": "It differs in calculation from the standard moving average as it only considers candle values within double the candle average at maximum, and half the average at its lowest.",
-            "updated": 1617958138349
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Она отличается по расчету от стандартной скользящей средней, поскольку учитывает только значения свечей в пределах удвоенной средней в максимуме и половины средней в минимуме.",
+                    "updated": 1643526257320
+                }
+            ]
         },
         {
             "style": "Png",
@@ -24,46 +45,116 @@
         {
             "style": "Subtitle",
             "text": "Change the input to optimise it for your use case!",
-            "updated": 1617953879921
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643526263636
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most of Omega indicators can use different period values. To change periods:",
-            "updated": 1617955135049
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643526270067
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Locate the Data Mine and expand it."
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643526277207
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Expand the Indicator Bot node."
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643526282580
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643526290659
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Edit the Procedure Javascript Code node."
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643526298961
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643526307745
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Look for \"User defined values\".",
-            "updated": 1617954642138
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643526319695
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter the values of your choice."
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643526325298
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
-            "updated": 1617954918128
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643526331219
+                }
+            ]
         },
         {
             "style": "Png",
@@ -73,7 +164,14 @@
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643526343832
+                }
+            ]
         },
         {
             "style": "Table",

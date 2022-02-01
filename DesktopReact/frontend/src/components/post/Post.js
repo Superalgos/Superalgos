@@ -23,7 +23,7 @@ const Post = ({postData}) => {
         repliesCount,
         creator: {
             name,
-            userName,
+            username,
             profilePic,
             originSocialPersonaId
         }
@@ -44,8 +44,11 @@ const Post = ({postData}) => {
                     <div className="postAvatarContainer">
                         <Avatar src={profilePic || pic} className="avatar"/>
                     </div>
-                    <Typography className="postUserName">
+                    <Typography className="postName">
                         {name ? name : 'userProfileHandle'}
+                    </Typography>
+                    <Typography className="postUserName">
+                        @{username ? username : 'userProfileHandle'}
                     </Typography>
                 </Stack>
                 <div className="postBody">

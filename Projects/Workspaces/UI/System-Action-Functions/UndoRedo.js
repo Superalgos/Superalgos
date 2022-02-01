@@ -288,7 +288,7 @@ function newWorkspacesSystemActionUndoRedo() {
 
                     case 'Snap saved node to position':
                         node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(undoStack[i].nodeId)
-                    case 'Drag Node':
+                    case 'Move Node':
                         previousPosition = {
                             x: node.payload.position.x,
                             y: node.payload.position.y
@@ -592,7 +592,7 @@ function newWorkspacesSystemActionUndoRedo() {
 
                     case 'Snap saved node to position':
                         node = await UI.projects.workspaces.spaces.designSpace.workspace.getNodeById(redoStack[i].nodeId)
-                    case 'Drag Node':
+                    case 'Move Node':
                         let previousPosition = {
                             x: node.payload.position.x,
                             y: node.payload.position.y

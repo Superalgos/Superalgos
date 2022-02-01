@@ -24,7 +24,6 @@ const UserProfile = () => {
                 postText: post.postText,
                 originPostHash: post.originPostHash,
                 reactions: post.reactions,
-                originPostHash: post.originPostHash,
                 postType: post.postType,
                 repliesCount: post.repliesCount,
                 creator: {

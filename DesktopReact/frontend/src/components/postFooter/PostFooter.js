@@ -1,6 +1,6 @@
 import "./PostFooter.css"
 import React, {useEffect, useState} from 'react';
-import {IconButton, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
+import {IconButton, Menu, MenuItem, SpeedDial, SpeedDialAction, Stack} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {
     AccessibilityNewOutlined,
@@ -20,6 +20,8 @@ import {STATUS_OK} from "../../api/httpConfig";
 import {useDispatch} from "react-redux";
 import {setModalPost} from "../../store/slices/post.slice";
 import FooterReplyModal from "../footerReplyModal/FooterReplyModal";
+import UserProfileModal from "../userProfileModal/UserProfileModal";
+import RepostModal from "../repost/RepostModal";
 
 // todo need proper style, and handle from css file
 const StyledBadge = styled(Badge)(({theme}) => ({
@@ -71,6 +73,11 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
     const [likeBadgeValue, setLikeBadgeValue] = useState()
     const [replyModal, setReplyModal] = useState(false)
     const [speedDialIsOpened, setSpeedDialIsOpened] = useState(false)
+    const [repost, setRepost] = React.useState(null);
+    const [repostQuoteModal, setRepostQuoteModal] = useState(false);
+    const openRepost = Boolean(repost);
+    const handleClickCallback = () => setRepostQuoteModal(!repostQuoteModal);
+
     // const dispatch = useDispatch();
     const BadgeCounterValue = () => {
         // setLikeBadgeValue(reactions[0][1]) // need an callback
@@ -85,28 +92,42 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
 
     const handleRepost = (e) => { // not implemented yet
         e.stopPropagation();
-        console.log('clicked repost')
+        console.log('clicked repost');
+        setRepost(null);
     }
 
     const HandleCommentContainer = (e) => {
-        e.stopPropagation()
+        e.stopPropagation();
         setReplyModal(!replyModal);
-        console.log("Hello from Comment")
+        console.log("Hello from Comment");
         // dispatch(setModalPost(postData))
     }
-
 
     const handleReactions = async (e, id, name) => {
         e.stopPropagation();
         let {result} = await reactedPost({eventType: 100 + (+id), postId}).then(response => response.json());
         if (result === STATUS_OK) {
-            console.log(`correctly reacted with ${name}`)
+            console.log(`correctly reacted with ${name}`);
         }
         //console.log(`click on button ${name}, id ${id}`)
     }
 
     const toggle = () => {
         setSpeedDialIsOpened(!speedDialIsOpened);
+    }
+
+    const handleClick = (event) => {
+        setRepost(event.currentTarget);
+    };
+    const handleClose = () => {
+        setRepost(null);
+    };
+
+    const quoteRepost = () => {
+        setRepost(null);
+        /*setRepostQuoteModal(repostQuoteModal => !repostQuoteModal)*/ // this way gives console error
+        setRepostQuoteModal(!repostQuoteModal);
+        /*return */
     }
 
     const getIcon = (icon) => {
@@ -187,9 +208,38 @@ const PostFooter = ({postId, reactions, actualReaction, postData}) => { // props
                                 close={HandleCommentContainer}/> : null} {/* todo pass postData to the modal from props */}
                     </div>
                     <div className="postFooterRepost"> {/*todo not implemented yet*/}
-                        <IconButton className="repostIconButton" onClick={handleRepost} size="small">
+                        <IconButton className="repostIconButton"
+                                    id="basic-button"
+                                    aria-controls={openRepost ? 'basic-menu' : undefined}
+                                    aria-haspopup="true"
+                                    aria-expanded={openRepost ? 'true' : undefined}
+                                    onClick={handleClick} size="small">
                             <Autorenew/>
                         </IconButton>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={repost}
+                            open={openRepost}
+                            onClose={handleClose}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                            }}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                        >
+                            <MenuItem onClick={handleRepost}>Repost</MenuItem>
+                            <MenuItem onClick={quoteRepost}>Quote Repost</MenuItem>
+                        </Menu>
+                        {repostQuoteModal ? (
+                            <RepostModal show={repostQuoteModal} close={handleClickCallback}
+                            postId={postId} postData={postData}
+                            />) : null}
                     </div>
                 </div>
         </div>

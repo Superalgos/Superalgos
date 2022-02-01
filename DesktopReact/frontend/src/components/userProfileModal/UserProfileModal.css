@@ -13,6 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 16px !important;
+    border-radius: 1rem;
 }
 
 .editProfile {
@@ -42,7 +43,7 @@
 .editProfileCloseBtn{
     display: flex;
     align-items: center;
-    padding: 1rem 0 ;
+    padding: 0.5rem 0;
 }
 
 .editProfileTitle {

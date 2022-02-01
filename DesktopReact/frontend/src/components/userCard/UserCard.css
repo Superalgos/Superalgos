@@ -25,6 +25,14 @@
 }
 
 .username {
+    max-width: 20rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sideBarUsername {
+    max-width: 10rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

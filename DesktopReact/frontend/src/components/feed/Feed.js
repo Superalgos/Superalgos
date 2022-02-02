@@ -50,7 +50,7 @@ const Feed = () => {
                             name: data?.name,
                             profilePic: data?.profilePic,
                             originSocialPersonaId: data?.nodeId,
-                            userName: data?.userProfileHandle
+                            username: data?.userProfileHandle
                         }
                     }
                     return <Post key={Math.random()} id={index} postData={postData}/>

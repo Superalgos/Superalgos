@@ -4,17 +4,38 @@
     "type": "Moving Average Convergence Divergence (MACD) - Sparta Indicator",
     "definition": {
         "text": "The indicator produces de MACD indicator in the most popular 12, 26, 9 setting, and the following less usual settings: a fast 3, 10, 16, an intermediate 8, 17, 9, and a slow 24, 52, 9.",
-        "updated": 1611662439678
+        "updated": 1611662439678,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Индикатор выдает индикатор MACD в наиболее популярной настройке 12, 26, 9, а также в следующих менее распространенных настройках: быстрая 3, 10, 16, промежуточная 8, 17, 9 и медленная 24, 52, 9.",
+                "updated": 1643529817417
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Text",
             "text": "Moving Average Convergence/Divergence Products & Properties",
-            "updated": 1611662450791
+            "updated": 1611662450791,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты и свойства конвергенции/дивергенции скользящих средних",
+                    "updated": 1643529845729
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "There are four different products, each configured with a specific setting for the fast and slow moving averages and the MACD Signal line."
+            "text": "There are four different products, each configured with a specific setting for the fast and slow moving averages and the MACD Signal line.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Существует четыре различных продукта, каждый из которых имеет определенные настройки для быстрой и медленной скользящих средних и сигнальной линии MACD.",
+                    "updated": 1643529855677
+                }
+            ]
         },
         {
             "style": "Table",
@@ -24,21 +45,49 @@
         {
             "style": "Text",
             "text": "The first few variables you may use from these products are those corresponding to the EMAs used to calculate the MACD line and the MACD signal line, as shown in the table above.",
-            "updated": 1611662568834
+            "updated": 1611662568834,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Первые несколько переменных, которые вы можете использовать из этих продуктов, соответствуют EMA, используемым для расчета линии MACD и сигнальной линии MACD, как показано в таблице выше.",
+                    "updated": 1643529867503
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Also, each of the products in the above table feature the following properties:"
+            "text": "Also, each of the products in the above table feature the following properties:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Кроме того, каждый из продуктов, представленных в таблице выше, обладает следующими свойствами:",
+                    "updated": 1643529874791
+                }
+            ]
         },
         {
             "style": "Table",
             "text": "| Property | Description |\n| line | The MACD line, that is, the fast EMA minus the slow EMA. |\n| signal | The Signal line, that is, the n-period EMA of the MACD line (n is the last setting) |\n| histogram | The value of the histogram, that is, the difference between the MACD line and the MACD signal line. |",
-            "updated": 1611662631591
+            "updated": 1611662631591,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "| Property | Description |\n| line | Линия MACD, то есть быстрая EMA минус медленная EMA. |\n| signal | Сигнальная линия, то есть n-периодная EMA линии MACD (n - последняя настройка). |\n| histogram | Значение гистограммы, то есть разница между линией MACD и сигнальной линией MACD. |",
+                    "updated": 1643529907494
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Examples:",
-            "updated": 1611662641354
+            "updated": 1611662641354,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Примеры:",
+                    "updated": 1643529912716
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -47,7 +96,14 @@
         },
         {
             "style": "Text",
-            "text": "A centerline crossover at the 30-minutes chart."
+            "text": "A centerline crossover at the 30-minutes chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересечение центральной линии на 30-минутном графике.",
+                    "updated": 1643529920112
+                }
+            ]
         },
         {
             "style": "Javascript",
@@ -56,7 +112,14 @@
         },
         {
             "style": "Text",
-            "text": "A signal line crossover at the 15-minutes chart."
+            "text": "A signal line crossover at the 15-minutes chart.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пересечение сигнальной линии на 15-минутном графике.",
+                    "updated": 1643529927966
+                }
+            ]
         }
     ]
 }

@@ -228,15 +228,15 @@ function newCircularMenuItem() {
         if (thisObject.type === 'Icon Only') {
             switch (thisObject.ring) {
                 case 1: {
-                    radiusGrowthFactor = 5.5
+                    radiusGrowthFactor = 6.5
                     break
                 }
                 case 2: {
-                    radiusGrowthFactor = 4.0
+                    radiusGrowthFactor = 5.0
                     break
                 }
                 case 3: {
-                    radiusGrowthFactor = 3.0
+                    radiusGrowthFactor = 3.5
                     break
                 }
                 case 4: {
@@ -375,7 +375,7 @@ function newCircularMenuItem() {
             }
 
             if (thisObject.label === undefined) {
-                thisObject.payload.uiObject.setInfoMessage(text)
+                thisObject.payload.uiObject.setQuickInfo(text)
             }
             isMouseOver = true
         } else {
@@ -386,6 +386,7 @@ function newCircularMenuItem() {
 
     function onMouseNotOver(point) {
         isMouseOver = false
+        thisObject.payload.uiObject.resetQuickInfo()
         MENU_ITEM_ON_FOCUS = undefined
     }
 

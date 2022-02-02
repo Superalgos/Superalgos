@@ -24,8 +24,8 @@
             },
             {
                 "language": "DE",
-                "text": "Der App Update Command holt die neueste Version der Software aus dem Upstream Repository im aktuellen Zweig!",
-                "updated": 1635148204351
+                "text": "Es ist eine gute Praxis, auf dem neuesten Stand zu sein, bevor man einen Beitrag leistet oder wenn man Fehler jeglicher Art behebt oder meldet!",
+                "updated": 1641741722279
             },
             {
                 "language": "RU",
@@ -59,8 +59,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Das bedeutet, dass Sie diesen Befehl in jedem der Zweige verwenden können! Das ist es:",
-                    "updated": 1635148211414
+                    "text": "Der App-Update-Befehl holt sich die neueste Version der Software aus dem Upstream-Repository im Current Branch! ",
+                    "updated": 1641741748139
                 },
                 {
                     "language": "RU",
@@ -126,8 +126,8 @@
                 },
                 {
                     "language": "DE",
-                    "text": "Sobald die Aktualisierung abgeschlossen ist, müssen Sie die App wieder schließen, neu starten, das Tutorial finden und auf Fortsetzen klicken, genau wie Sie es zuvor getan haben!",
-                    "updated": 1635148282859
+                    "text": "Da Sie gerade die Branche gewechselt haben, sollten Sie bereits auf dem neuesten Stand sein!",
+                    "updated": 1641741763842
                 },
                 {
                     "language": "RU",

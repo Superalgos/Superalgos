@@ -3,13 +3,27 @@
     "pageNumber": "1",
     "type": "Omega One - Overview",
     "definition": {
-        "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node."
+        "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                "updated": 1643524249143
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Title",
             "text": "Indicator list:",
-            "updated": 1617873731007
+            "updated": 1617873731007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Список индикаторов:",
+                    "updated": 1643524255533
+                }
+            ]
         },
         {
             "style": "List",
@@ -17,7 +31,14 @@
         },
         {
             "style": "Text",
-            "text": "The Chaikin Oscillator is the difference between the 3-day and 10-day EMAs of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements."
+            "text": "The Chaikin Oscillator is the difference between the 3-day and 10-day EMAs of the Accumulation Distribution Line. Like other momentum indicators, this indicator is designed to anticipate directional changes in the Accumulation Distribution Line by measuring the momentum behind the movements.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Chaikin Oscillator - это разница между 3-дневной и 10-дневной EMA линии распределения накопления. Как и другие индикаторы импульса, этот индикатор предназначен для предвидения направленных изменений в линии распределения накопления путем измерения импульса, стоящего за движениями.",
+                    "updated": 1643524287379
+                }
+            ]
         },
         {
             "style": "List",
@@ -27,7 +48,14 @@
         {
             "style": "Text",
             "text": "ARPS - Average Range Percentage Spread measures the amount force of Bull Power and Bear Power. Two separate indicators measuring the same thing, in order to be used either separately or combined.",
-            "updated": 1617957855552
+            "updated": 1617957855552,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS - Average Range Percentage Spread измеряет силу бычьей и медвежьей мощи. Два отдельных индикатора, измеряющих одно и то же, для использования как по отдельности, так и вместе.",
+                    "updated": 1643524329018
+                }
+            ]
         },
         {
             "style": "List",
@@ -36,7 +64,14 @@
         {
             "style": "Text",
             "text": "The Average VS Average Oscillator can be used to recognize changes between a fast average and a slow average. Considering price movement, volume and a so called \"open interest\".",
-            "updated": 1617957863133
+            "updated": 1617957863133,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Осциллятор Average VS Average можно использовать для распознавания изменений между быстрой средней и медленной средней. При этом учитывается движение цены, объем и так называемый \"открытый интерес\".",
+                    "updated": 1643524343553
+                }
+            ]
         }
     ]
 }

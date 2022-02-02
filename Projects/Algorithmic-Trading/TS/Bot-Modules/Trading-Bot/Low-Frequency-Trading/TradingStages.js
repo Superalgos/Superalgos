@@ -154,13 +154,13 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 passed = tradingSystem.checkConditions(situation, passed)
 
-                                tradingSystem.values.push([situation.id, passed])
-
                                 if (triggerStage.triggerOn.askPortfolioEventsManager !== undefined) {
                                     let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.triggerOn, passed)
                                     passed = response.passed
                                 }
-                                
+
+                                tradingSystem.values.push([situation.id, passed])
+
                                 if (passed) {
 
                                     tradingSystem.highlights.push(situation.id)
@@ -183,7 +183,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                         }
                                     }
                                     changeStageStatus('Trigger Stage', 'Open')
-                                    break 
+                                    break
                                 }
                             }
                         }
@@ -214,12 +214,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             passed = tradingSystem.checkConditions(situation, passed)
 
-                            tradingSystem.values.push([situation.id, passed])
-
                             if (triggerStage.triggerOff.askPortfolioEventsManager !== undefined) {
                                 let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.triggerOff, passed)
                                 passed = response.passed
                             }
+
+                            tradingSystem.values.push([situation.id, passed])
 
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
@@ -232,7 +232,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 announcementsModuleObject.makeAnnouncements(triggerStage.triggerOff)
                                 changeStageStatus('Trigger Stage', 'Closed', 'Trigger Off Event')
                                 tradingStrategyModuleObject.closeStrategy('Trigger Off')
-                                break 
+                                break
                             }
                         }
                     }
@@ -262,12 +262,12 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             passed = tradingSystem.checkConditions(situation, passed)
 
-                            tradingSystem.values.push([situation.id, passed])
-
                             if (triggerStage.takePosition.askPortfolioEventsManager !== undefined) {
                                 let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(triggerStage.takePosition, passed)
                                 passed = response.passed
                             }
+
+                            tradingSystem.values.push([situation.id, passed])
 
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
@@ -290,7 +290,7 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                                 changeStageStatus('Trigger Stage', 'Closed', 'Position Taken')
                                 changeStageStatus('Open Stage', 'Opening')
                                 changeStageStatus('Manage Stage', 'Opening')
-                                break 
+                                break
                             } else {
                                 checkUserDefinedCode('Trigger Stage', 'Running', 'last')
                             }
@@ -733,6 +733,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                             passed = tradingSystem.checkConditions(situation, passed)
 
+                            if (nextPhaseEvent.askPortfolioEventsManager !== undefined) {
+                                let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(nextPhaseEvent, passed)
+                                passed = response.passed
+                            }
+
                             tradingSystem.values.push([situation.id, passed])
                             if (passed) {
                                 tradingSystem.highlights.push(situation.id)
@@ -771,7 +776,13 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
 
                                 passed = tradingSystem.checkConditions(situation, passed)
 
+                                if (moveToPhaseEvent.askPortfolioEventsManager !== undefined) {
+                                    let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(moveToPhaseEvent, passed)
+                                    passed = response.passed
+                                }
+
                                 tradingSystem.values.push([situation.id, passed])
+
                                 if (passed) {
                                     tradingSystem.highlights.push(situation.id)
                                     tradingSystem.highlights.push(moveToPhaseEvent.id)
@@ -1150,6 +1161,11 @@ exports.newAlgorithmicTradingBotModulesTradingStages = function (processIndex) {
                 }
 
                 passed = tradingSystem.checkConditions(situation, passed)
+
+                if (closeStageEvent.askPortfolioEventsManager !== undefined) {
+                    let response = await portfolioManagerClientModuleObject.askPortfolioEventsManager(closeStageEvent, passed)
+                    passed = response.passed
+                }
 
                 tradingSystem.values.push([situation.id, passed])
                 if (passed) {

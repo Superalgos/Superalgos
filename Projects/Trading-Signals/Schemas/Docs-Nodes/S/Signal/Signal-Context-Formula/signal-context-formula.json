@@ -1,0 +1,19 @@
+{
+    "type": "Signal Context Formula",
+    "definition": {
+        "text": "Allows the signal provider to send addtional data surrounding an Outgoing Formula Signal.",
+        "updated": 1643429287201
+    },
+    "paragraphs": [
+        {
+            "style": "Text",
+            "text": "Example setup:",
+            "updated": 1643429166228
+        },
+        {
+            "style": "Javascript",
+            "text": "let context = {\n    profitLoss: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.profitLoss.value,\n    hitFail: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.hitFail.value,\n    roi: tradingEngine.tradingCurrent.tradingEpisode.tradingEpisodeStatistics.ROI.value\n}\n\ncontext // return the context object",
+            "updated": 1643429104204
+        }
+    ]
+}

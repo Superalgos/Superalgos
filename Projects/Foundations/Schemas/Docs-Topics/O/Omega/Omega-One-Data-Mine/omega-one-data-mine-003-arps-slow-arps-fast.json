@@ -4,13 +4,27 @@
     "type": "ARPS Slow & ARPS Fast",
     "definition": {
         "text": "Measures the average Bull Power and average Bear Power in the average Total Range.",
-        "updated": 1617958264294
+        "updated": 1617958264294,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Измеряет среднюю Bull Power (\"Бычья сила\") и среднюю Bear Power (\"Медвежья сила\") в среднем общем диапазоне.",
+                "updated": 1643524806220
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
-            "updated": 1617957983880
+            "updated": 1617957983880,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643524819581
+                }
+            ]
         },
         {
             "style": "Png",
@@ -19,99 +33,253 @@
         {
             "style": "Subtitle",
             "text": "ARPS - Average Range Percentage Spread",
-            "updated": 1617957610783
+            "updated": 1617957610783,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS - Average Range Percentage Spread (средний процентный разброс)",
+                    "updated": 1643524856344
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "ARPS Slow and ARPS Fast measures the Average Bull and Average Bear power within a given, configurable range."
+            "text": "ARPS Slow and ARPS Fast measures the Average Bull and Average Bear power within a given, configurable range.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS Slow и ARPS Fast измеряют среднюю бычью и среднюю медвежью силу в заданном, настраиваемом диапазоне.",
+                    "updated": 1643524869021
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Two separate indicators that can be used either separately or in combination with others."
+            "text": "Two separate indicators that can be used either separately or in combination with others.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Два отдельных показателя, которые можно использовать как отдельно, так и в сочетании с другими.",
+                    "updated": 1643524877652
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "ARPS follows price action by using a SMA center line, and prints out the bullish power visualised by a blue line, and a red line for bearish power. The distance from the centerline represents the strength of the powers. The greater distance away from the center line, the greater advantage.",
-            "updated": 1617953949590
+            "updated": 1617953949590,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "ARPS отслеживает ценовое действие с помощью центральной линии SMA и выводит бычью силу, изображенную синей линией, и красную линию для медвежьей силы. Расстояние от центральной линии отражает силу действия. Чем больше расстояние от центральной линии, тем больше преимущество.",
+                    "updated": 1643524918850
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The distance between the bull and bear lines represents the average total range for the period."
+            "text": "The distance between the bull and bear lines represents the average total range for the period.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Расстояние между бычьей и медвежьей линиями представляет собой средний общий диапазон за период.",
+                    "updated": 1643524930457
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "Looking at the Plotter Panel will give you the values measured in percentage (%)."
+            "text": "Looking at the Plotter Panel will give you the values measured in percentage (%).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Взглянув на панель плоттера (Plotter Panel), вы увидите значения, измеренные в процентах (%).",
+                    "updated": 1643524950945
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "How is ARPS calculated?"
+            "text": "How is ARPS calculated?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как рассчитывается ARPS?",
+                    "updated": 1643524958974
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "All values are being calculated through a SMA function."
+            "text": "All values are being calculated through a SMA function.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все значения рассчитываются через функцию SMA.",
+                    "updated": 1643524968050
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bull Power is the measured distance between the candle low and candle close, divided the candle range.",
-            "updated": 1617952901003
+            "updated": 1617952901003,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Bull Power (Бычья сила) - это измеренное расстояние между минимумом свечи и закрытием свечи, разделенное на диапазон свечи.",
+                    "updated": 1643525029897
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bear Power is the measured distance between the candle high and candle close, divided the candle range.",
-            "updated": 1617952943789
+            "updated": 1617952943789,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Bear Power (Медвежья сила) - это измеренное расстояние между максимумом свечи и закрытием свечи, разделенное на диапазон свечи.",
+                    "updated": 1643525004302
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The average Bull Power and average Bear Power are divided through the Average Total Range for the same given period - Giving the Average Range Spread.",
-            "updated": 1617953325703
+            "updated": 1617953325703,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Среднее значение Bull Power и среднее значение Bear Power делятся на среднее значение Total Range за тот же период - получается средний Range Spread.",
+                    "updated": 1643525049715
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "All values are multiplied by 100 to convert it to percentage form (%)."
+            "text": "All values are multiplied by 100 to convert it to percentage form (%).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Все значения умножаются на 100, чтобы перевести их в процентную форму (%).",
+                    "updated": 1643525058766
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Change the input to optimise it for your use case!",
-            "updated": 1617953879921
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643525070755
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most of Omega indicators can use different period values. To change periods:",
-            "updated": 1617955135049
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643525082112
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Locate the Data Mine and expand it."
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643525093092
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Expand the Indicator Bot node."
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643525098912
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525109621
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Edit the Procedure Javascript Code node."
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643525127186
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643525166302
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Look for \"User defined values\".",
-            "updated": 1617954642138
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643525881341
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter the values of your choice."
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643525182480
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
-            "updated": 1617954918128
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643525197767
+                }
+            ]
         },
         {
             "style": "Png",
@@ -126,7 +294,14 @@
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643525205749
+                }
+            ]
         },
         {
             "style": "Table",
@@ -151,7 +326,14 @@
         {
             "style": "Subtitle",
             "text": "That Wombo-Combo!",
-            "updated": 1617969861080
+            "updated": 1617969861080,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Это Wombo-Combo!",
+                    "updated": 1643525228579
+                }
+            ]
         },
         {
             "style": "Javascript",

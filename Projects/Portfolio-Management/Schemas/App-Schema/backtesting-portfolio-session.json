@@ -107,18 +107,21 @@
             "name": "portfolioParameters",
             "type": "node",
             "childType": "Portfolio Parameters",
+            "project": "Portfolio-Management",
             "autoAdd": true
         },
         {
             "name": "portfolioSystemReference",
             "type": "node",
             "childType": "Portfolio System Reference",
+            "project": "Portfolio-Management",
             "autoAdd": true
         },
         {
             "name": "portfolioEngineReference",
             "type": "node",
             "childType": "Portfolio Engine Reference",
+            "project": "Portfolio-Management",
             "autoAdd": true
         },
         {
@@ -130,7 +133,8 @@
         {
           "name": "managedSessions",
           "type": "node",
-          "childType": "Managed Sessions"
+          "childType": "Managed Sessions",
+          "project": "Portfolio-Management"
         }
     ],
     "propertyNameAtParent": "session"

@@ -39,36 +39,42 @@
             "name": "periods",
             "type": "node",
             "childType": "Periods",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "strategies",
             "type": "node",
             "childType": "Strategies",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "positions",
             "type": "node",
             "childType": "Positions",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "orders",
             "type": "node",
             "childType": "Orders",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "hits",
             "type": "node",
             "childType": "Hits",
+            "project": "Foundations",
             "autoAdd": true
         },
         {
             "name": "fails",
             "type": "node",
             "childType": "Fails",
+            "project": "Foundations",
             "autoAdd": true
         },
         {

@@ -56,10 +56,6 @@
         },
         {
             "style": "Text",
-            "text": "To recap, an Outgoing Signal node captures and then tells the system where to send signal information. This is achieved by connecting the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider.  "
-        },
-        {
-            "style": "Text",
             "text": "An Incoming Signal node receives the signal information and then injects this data into a specific part of a trading system. This is achieved by connecting the Signal’s Reference node to the matching Signals node under the Social Trading Bot of the Provider."
         }
     ]

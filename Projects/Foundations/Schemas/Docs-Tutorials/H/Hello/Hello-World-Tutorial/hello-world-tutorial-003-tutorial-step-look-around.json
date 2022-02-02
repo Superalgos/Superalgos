@@ -12,8 +12,8 @@
         "translations": [
             {
                 "language": "DE",
-                "text": "Workspaces können angepasst werden!",
-                "updated": 1622977673407,
+                "text": "Workspaces können geändert werden!",
+                "updated": 1641764248622,
                 "style": "Definition"
             },
             {
@@ -52,8 +52,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Ich habe den Workspace im Vergleich zu Getting Started (\"Erste Schritte\") etwas anders angeordnet. Es ist eine gute Praxis, den Workspace anzupassen, um ihn aufgeräumt und sauber zu halten. Denke daran, dass jede Hierarchie, jeder Knoten und jeder Nachfolgende Auswirkungen auf deine Maschinenressourcen haben kann.",
-                    "updated": 1622977620392,
+                    "text": "Ich habe den Workspace im Vergleich zu Getting Started etwas anders angeordnet. Es ist eine gute Praxis, den Workspace anzupassen, um ihn übersichtlich und sauber zu halten. Denken Sie daran, dass jede Hierarchie, jeder Knoten und jeder Ableger Auswirkungen auf Ihre Rechnerressourcen haben kann.",
+                    "updated": 1641764230826,
                     "style": "Text"
                 },
                 {
@@ -91,8 +91,8 @@
             "translations": [
                 {
                     "language": "DE",
-                    "text": "Schau dich um, klicke mit der rechten Maustaste auf eine leere Fläche und erkunde den Workspace, den ich für dich eingerichtet habe!",
-                    "updated": 1622977643971,
+                    "text": "Schauen Sie sich um, klicken Sie mit der rechten Maustaste auf einen leeren Raum und erkunden Sie den Workspace, den ich für Sie eingerichtet habe! ",
+                    "updated": 1641764265638,
                     "style": "Success"
                 },
                 {

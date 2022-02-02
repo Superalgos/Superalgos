@@ -6,8 +6,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     let thisObject = {
         createInfoMessage: createInfoMessage,
-        checkIfWeNeedToStopTheSimulation: checkIfWeNeedToStopTheSimulation,
-        checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
+        earlyCheckIfWeNeedToStopTheSimulation: earlyCheckIfWeNeedToStopTheSimulation,
+        laterCheckIfWeNeedToStopTheSimulation: laterCheckIfWeNeedToStopTheSimulation,
         setCurrentCandle: setCurrentCandle,
         syncronizeLoopCandleEntryPortfolioManager: syncronizeLoopCandleEntryPortfolioManager,
         syncronizeLoopCandleExitPortfolioManager: syncronizeLoopCandleExitPortfolioManager,
@@ -52,7 +52,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         system.addInfo([system.id, infoMessage, docs])
     }
 
-    function checkIfWeNeedToStopTheSimulation(
+    function earlyCheckIfWeNeedToStopTheSimulation(
         episodeModuleObject,
         sessionParameters,
         episode,
@@ -82,7 +82,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return false
     }
 
-    function checkIfWeNeedToStopAfterBothCycles(episodeModuleObject, episode, sessionParameters, candles, processIndex) {
+    function laterCheckIfWeNeedToStopTheSimulation(episodeModuleObject, episode, sessionParameters, candles, processIndex) {
         if (TS.projects.simulation.functionLibraries.simulationFunctions.checkNextCandle(episode, sessionParameters, candles, processIndex) === false) {
             TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'All Candles Processed')
             return true
@@ -119,7 +119,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     async function syncronizeLoopCandleEntryPortfolioManager(
         portfolioManagerClientModuleObject,
         system,
-        candle
+        candle,
+        processIndex
     ) {
         if (
             system.portfolioManagedSystem !== undefined
@@ -138,12 +139,41 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
                     candle
                 )
                 if (reponse.status !== 'Ok') {
-                    /*
-                    This means that we need to wait for Portfolio Manager to be available and
-                    give us permission to continue.
-                    */
+
+                    switch (reponse.reason) {
+                        case "Portfolio Manager Is Not Ready": {
+                            /*
+                            This means that we need to wait for Portfolio Manager to be available and
+                            give us permission to continue.
+                            */
+                            break
+                        }
+                        case "Time Frame of the Trading Bot and Portfolio Bot are Different.": {
+                            let err = new Error(reponse.reason + " Please fix one of the two Time Frames so that they match and run again.")
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                '[ERROR] ' + err.stack)
+                            throw (err)
+                        }
+                        case "Portfolio Manager Is Behind Trading Bot.": {
+                            /*
+                            No problem, the we will continue trying to check in until Portfolio Bot 
+                            is eventually at the same candle that the Trading Bot.
+                            */
+                            break
+                        }
+                        case "Portfolio Manager Is Ahead of Trading Bot.": {
+                            let err = new Error(reponse.reason + " The Trading Bot can not continue running because it depends on the Portfolio Bot that is already ahead of time. Run the Trading Bot again.")
+                            TS.projects.foundations.globals.loggerVariables.VARIABLES_BY_PROCESS_INDEX_MAP.get(processIndex).BOT_MAIN_LOOP_LOGGER_MODULE_OBJECT.write(MODULE_NAME,
+                                '[ERROR] ' + err.stack)
+                            throw (err)
+                        }
+                    }
+
                     await SA.projects.foundations.utilities.asyncFunctions.sleep(50)
                 } else {
+                    /*
+                    If the status is ok, then we break the loop and process this candle.
+                    */
                     break
                 }
             }
@@ -153,6 +183,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
     async function syncronizeLoopCandleExitPortfolioManager(
         portfolioManagerClientModuleObject,
         system,
+        engine,
         candle
     ) {
         if (
@@ -162,7 +193,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
             Report to Portfolio Manager that we are exiting this candle.
             */
             await portfolioManagerClientModuleObject.candleExit(
-                candle
+                candle,
+                engine
             )
         }
     }

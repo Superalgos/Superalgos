@@ -4,13 +4,27 @@
     "type": "Average VS Average",
     "definition": {
         "text": "An oscillator that considers averages of price, volume and \"open interest\".",
-        "updated": 1617958214490
+        "updated": 1617958214490,
+        "translations": [
+            {
+                "language": "RU",
+                "text": "Осциллятор, учитывающий средние значения цены, объема и \"открытого интереса\".",
+                "updated": 1643525246740
+            }
+        ]
     },
     "paragraphs": [
         {
             "style": "Note",
             "text": "You can set different values for used periods at the top section of most indicators found in the Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code node.",
-            "updated": 1617958138349
+            "updated": 1617958138349,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Вы можете установить различные значения для используемых периодов в верхней части большинства индикаторов, расположенных в узле Omega Data Mine -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525258405
+                }
+            ]
         },
         {
             "style": "Png",
@@ -23,137 +37,347 @@
         {
             "style": "Text",
             "text": "The Average VS Average Oscillator can be used to recognize changes between a fast average and a slow average. It measures Price Movement, Volume and a so called Open Interest.",
-            "updated": 1617958497266
+            "updated": 1617958497266,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Осциллятор Average VS Average можно использовать для распознавания изменений между быстрой средней и медленной средней. Он измеряет движение цены, объем и так называемый открытый интерес.",
+                    "updated": 1643525284396
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The idea is to visualise if the trend weakens or gets stronger, within the current trend."
+            "text": "The idea is to visualise if the trend weakens or gets stronger, within the current trend.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идея заключается в том, чтобы визуализировать ослабление или усиление тренда в рамках текущей тенденции.",
+                    "updated": 1643525294787
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The indicator is a zero-line cross indicator that is best used with an own rate and scale (in order to place it below the candle chart)."
+            "text": "The indicator is a zero-line cross indicator that is best used with an own rate and scale (in order to place it below the candle chart).",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Индикатор представляет собой индикатор пересечения нулевой линии, который лучше всего использовать с собственной ставкой и шкалой (чтобы разместить его ниже свечного графика).",
+                    "updated": 1643525340803
+                }
+            ]
         },
         {
             "style": "Text",
-            "text": "The elements in the indicator are:"
+            "text": "The elements in the indicator are:",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Элементами индикатора являются:",
+                    "updated": 1643525348210
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A mid-line that represents the slow average of the elements (it always has the value 1).",
-            "updated": 1617973206308
+            "updated": 1617973206308,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Средняя линия, которая представляет собой медленное среднее значение элементов (она всегда имеет значение 1).",
+                    "updated": 1643525357518
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A green line that shows fast average Bull Power compared to the slow average.",
-            "updated": 1617960429886
+            "updated": 1617960429886,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Зеленая линия, которая показывает быструю среднюю Bull Power по сравнению с медленной средней.",
+                    "updated": 1643525369002
+                }
+            ]
         },
         {
             "style": "List",
             "text": "A dotted line that shows the fast average Open Interest compared to the slow average.",
-            "updated": 1617960458863
+            "updated": 1617960458863,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Пунктирная линия, показывающая быстрый средний открытый интерес по сравнению с медленным средним.",
+                    "updated": 1643525377543
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Faded green and red bars in the background that shows the fast average volume compared to the slow average volume. It changes colors depending on the previous value.",
-            "updated": 1617961835292
+            "updated": 1617961835292,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Блеклые зеленые и красные полосы на заднем плане, которые показывают быстрый средний объем по сравнению с медленным средним объемом. Он меняет цвет в зависимости от предыдущего значения.",
+                    "updated": 1643525389310
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Non-faded green and red bars close to the zero-line showing the fast price average compared to the slow price average. It changes colors depending on the previous value.",
-            "updated": 1617961849374
+            "updated": 1617961849374,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Не затухающие зеленые и красные полосы вблизи нулевой линии, показывающие среднее значение быстрой цены по сравнению со средним значением медленной цены. Меняет цвет в зависимости от предыдущего значения.",
+                    "updated": 1643525402744
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "What is \"Open Interest\"?"
+            "text": "What is \"Open Interest\"?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Что такое \"Open Interest\" (\"Открытый интерес\")?",
+                    "updated": 1643525424533
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "The idea of measuring Open Interest - is that a red candle might not be an indication of a bearish interest and vice versa. Considering volume, candle direction and amount movement defines the strength of Open Interest.",
-            "updated": 1617961616124
+            "updated": 1617961616124,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Идея измерения открытого интереса заключается в том, что красная свеча не может быть признаком медвежьего интереса и наоборот. Учет объема, направления свечи и количества движения определяет силу открытого интереса.",
+                    "updated": 1643525444522
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bull Candle and Volume Increase = Bull Interest"
+            "text": "Bull Candle and Volume Increase = Bull Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычья свеча и увеличение объема = бычий интерес",
+                    "updated": 1643525458667
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bull Candle and Volume Decrease = Bear Interest"
+            "text": "Bull Candle and Volume Decrease = Bear Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Бычья свеча и снижение объема = медвежий интерес",
+                    "updated": 1643525465691
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bear Candle and Volume Increase = Bear Interest"
+            "text": "Bear Candle and Volume Increase = Bear Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежья свеча и увеличение объема = медвежий интерес",
+                    "updated": 1643525471690
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Bear Candle and Volume Decrease = Bull Interest"
+            "text": "Bear Candle and Volume Decrease = Bull Interest",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Медвежья свеча и снижение объема = бычий интерес",
+                    "updated": 1643525477578
+                }
+            ]
         },
         {
             "style": "Subtitle",
-            "text": "How is the Average VS Average calculated?"
+            "text": "How is the Average VS Average calculated?",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Как рассчитывается Average VS Average?",
+                    "updated": 1643525492009
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Bull Power is defined by measuring the value between candle min and candle close, out of the total candle range. Comparing the fast average Bull Power through the slow average Bull Power.",
-            "updated": 1617961207015
+            "updated": 1617961207015,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Bull Power определяется путем измерения значения между минимумом свечи и закрытием свечи, из общего диапазона свечей. Сравнение быстрой средней Bull Power с медленной средней Bull Power.",
+                    "updated": 1643525531913
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Volume is measured by the fast average Total Volume through the slow average Total Volume.",
-            "updated": 1617961227511
+            "updated": 1617961227511,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Объем измеряется с помощью быстрого среднего Total Volume (\"Общий объем\") через медленный средний Total Volume (\"Общий объем\").",
+                    "updated": 1643525595365
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The fast average Price is compared to the slow average Price.",
-            "updated": 1617961304593
+            "updated": 1617961304593,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Быстрая средняя цена сравнивается с медленной средней ценой.",
+                    "updated": 1643525608808
+                }
+            ]
         },
         {
             "style": "List",
             "text": "The fast average Open Interest is compared to the slow average Open Interest. ",
-            "updated": 1617961386984
+            "updated": 1617961386984,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Быстрый средний открытый интерес сравнивается с медленным средним открытым интересом.",
+                    "updated": 1643525616305
+                }
+            ]
         },
         {
             "style": "Subtitle",
             "text": "Change the input to optimise it for your use case!",
-            "updated": 1617953879921
+            "updated": 1617953879921,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Измените входные данные, чтобы оптимизировать их для вашего случая использования!",
+                    "updated": 1643525623597
+                }
+            ]
         },
         {
             "style": "Text",
             "text": "Most of Omega indicators can use different period values. To change periods:",
-            "updated": 1617955135049
+            "updated": 1617955135049,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Большинство индикаторов Omega могут использовать различные значения периодов. Чтобы изменить периоды:",
+                    "updated": 1643525633734
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Locate the Data Mine and expand it."
+            "text": "Locate the Data Mine and expand it.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Data Mine и разверните его.",
+                    "updated": 1643525642419
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Expand the Indicator Bot node."
+            "text": "Expand the Indicator Bot node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Разверните узел Indicator Bot.",
+                    "updated": 1643525649883
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code."
+            "text": "Find the Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите Product Definition -> Data Building Procedure -> Procedure Loop -> Procedure Javascript Code.",
+                    "updated": 1643525664357
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Edit the Procedure Javascript Code node."
+            "text": "Edit the Procedure Javascript Code node.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Отредактируйте узел Procedure Javascript Code.",
+                    "updated": 1643525682892
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code."
+            "text": "Put the text marker in the edit box, and press Arrow Up until you reach the top of the code.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Поместите текстовый маркер в поле редактирования и нажимайте стрелку вверх, пока не достигнете верхней части кода.",
+                    "updated": 1643525693663
+                }
+            ]
         },
         {
             "style": "List",
             "text": "Look for \"User defined values\".",
-            "updated": 1617954642138
+            "updated": 1617954642138,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Найдите \"User defined values\".",
+                    "updated": 1643525871149
+                }
+            ]
         },
         {
             "style": "List",
-            "text": "Enter the values of your choice."
+            "text": "Enter the values of your choice.",
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Введите значения по своему выбору.",
+                    "updated": 1643525706367
+                }
+            ]
         },
         {
             "style": "Note",
             "text": "Remember that you have to delete existing data for the indicator in the Data-Storage folder, and re-start the Data Tasks needed for the indicator in the Network node before you can see any changes.",
-            "updated": 1617954918128
+            "updated": 1617954918128,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Помните, что необходимо удалить существующие данные для индикатора в папке Data-Storage и заново запустить Data Tasks, необходимые для индикатора, в узле Network, прежде чем вы сможете увидеть какие-либо изменения.",
+                    "updated": 1643525717317
+                }
+            ]
         },
         {
             "style": "Png",
@@ -168,7 +392,14 @@
         {
             "style": "Subtitle",
             "text": "Products, Properties & Examples",
-            "updated": 1617967853007
+            "updated": 1617967853007,
+            "translations": [
+                {
+                    "language": "RU",
+                    "text": "Продукты, свойства и примеры",
+                    "updated": 1643525724657
+                }
+            ]
         },
         {
             "style": "Table",

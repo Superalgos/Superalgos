@@ -29,7 +29,6 @@ const Post = ({postData}) => {
         }
     } = postData;
 
-
     const handlePostClick = (e) => {
         if (postIdParameter !== originPostHash) {
             e.preventDefault()

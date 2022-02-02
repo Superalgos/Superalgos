@@ -1,12 +1,12 @@
 import "./UserProfile.css"
 import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux'
+import { Alert, Snackbar, Stack } from "@mui/material";
 import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
-import {Alert, Snackbar, Stack} from "@mui/material";
-import PostsFeed from "../postsFeed/PostsFeed";
-import {getPosts} from "../../api/post.httpService";
-import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
+import PostsFeed from "../postsFeed/PostsFeed";
+import { getPosts } from "../../api/post.httpService";
+import { STATUS_OK } from "../../api/httpConfig";
 
 const UserProfile = () => {
     const [posts, setPosts] = useState([]);
@@ -32,7 +32,6 @@ const UserProfile = () => {
                     username: actualUser.userProfileHandle
                 }
             }
-
             return <Post key={post.originPostHash} id={post.originPostHash}
                          postData={postData}/>
         });

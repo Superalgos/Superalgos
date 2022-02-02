@@ -5,6 +5,11 @@
     border-radius: 1.25rem !important;
 }
 
+.avatar {
+    height: 3rem !important;
+    width: 3rem !important;
+}
+
 .userCard {
     display: flex;
     flex-direction: row;

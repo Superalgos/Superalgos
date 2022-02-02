@@ -22,7 +22,9 @@ const Feed = () => {
         if (!socialPersona.nodeId || !actualUser.name) {
             async () => {
                 const socialPersona = await getSocialPersona().then(response => response.json());
-                const {data} = await getProfile({socialPersonaId: socialPersona.nodeId}).then(response => response.json());
+                const {data} = await getProfile({socialPersonaId: socialPersona.nodeId})
+                    .then(response => response.json());
+
                 dispatch(setSocialPersona(socialPersona));
                 dispatch(setActualProfile(data));
             }
@@ -36,10 +38,8 @@ const Feed = () => {
         const mappedPosts = await Promise.all(
             rawPosts.map(async (post, index) => {
                 if (post.eventType === 10) {
-                    const {
-                        data,
-                        result
-                    } = await getProfile({socialPersonaId: post.originPost.originSocialPersonaId}).then(response => response.json())
+                    const { data,result} = await getProfile( {socialPersonaId: post.originPost.originSocialPersonaId} )
+                                                    .then( response => response.json() )
                     const postData = {
                         postText: post?.postText,
                         originPostHash: post?.originPost.originPostHash,

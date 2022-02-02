@@ -1,22 +1,40 @@
 import "./UserProfile.css"
 import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import { Alert, Snackbar, Stack } from "@mui/material";
 import UserProfileHeader from "../userProfileHeader/UserProfileHeader";
 import Post from "../post/Post";
 import PostsFeed from "../postsFeed/PostsFeed";
 import { getPosts } from "../../api/post.httpService";
+import { getProfile, getSocialPersona } from "../../api/profile.httpService";
 import { STATUS_OK } from "../../api/httpConfig";
 
 const UserProfile = () => {
     const [posts, setPosts] = useState([]);
     const [postLoading, setPostLoading] = useState(true);
     const [openSnack, setSnackOpen] = useState(false);
+    const [externalProfile, setExternalProfile] = useState();
     const actualUser = useSelector(state => state.profile.actualUser)
+    const {search} = useLocation();
+    const urlSearchParams = React.useMemo(() => new URLSearchParams(search), [search]);
+    const queryParams = {
+        externalProfile: urlSearchParams.get("p"),
+    }
 
     useEffect(() => {
+        const loadExternalprofile = async () => {
+            const {data, result } = await getProfile({socialPersonaId: queryParams.externalProfile}).then( response => response.json() )
+            if (result === STATUS_OK) {
+                setExternalProfile(data);
+            }
+        }
+        if( queryParams.externalProfile ) {
+            loadExternalprofile();
+        }
         loadPosts();
-    }, []);
+    }, [queryParams.externalProfile]);
+
     const drawPosts = (rawPosts) =>{
         const mappedPosts = rawPosts.map( (post, index) => {
             const postData = {
@@ -58,8 +76,12 @@ const UserProfile = () => {
                alignItems="center"
                spacing={1}
                className="middleSection">
-            <UserProfileHeader/>
-            <PostsFeed posts={posts} loading={postLoading}/>
+            <UserProfileHeader user= {externalProfile? externalProfile : actualUser} isExternalProfile= {!!externalProfile}/>
+            {
+                !externalProfile
+                ? <PostsFeed posts={posts} loading={postLoading}/>
+                : <></>
+            }
         </Stack>
         <Snackbar open={openSnack} autoHideDuration={6000} onClose={handleSnackClose}>
             <Alert onClose={handleSnackClose} severity="info" sx={{width: '100%'}}>

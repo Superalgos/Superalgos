@@ -4,11 +4,8 @@ import "./UserProfileHeader.css"
 import UserProfileModal from "../userProfileModal/UserProfileModal";
 import {DateRangeOutlined, LocationOnOutlined} from "@mui/icons-material";
 import pfp from "../../images/superalgos.png";
-import {useSelector} from "react-redux";
 
-const UserProfileHeader = () => {
-    const user = useSelector(state => state.profile.actualUser);
-    console.log({user})
+const UserProfileHeader = ({user, isExternalProfile}) => {
     const profileIcons = { // todo need proper style, and handle from css file
         width: "15px", height: "15px", verticalAlign: "text-top"
     }
@@ -30,11 +27,14 @@ const UserProfileHeader = () => {
                                alt="ProfilePic"
                     />
                 </div>
-                <Button className="editProfileButton"
-                        variant="outlined"
-                        onClick={handleClickCallback}>
-                    Edit profile
-                </Button>
+                {
+                    !isExternalProfile
+                        ?  <Button className="editProfileButton" variant="outlined" onClick={handleClickCallback}>
+                                    Edit profile
+                            </Button> 
+                        : <></>
+                }
+               
                 {/* {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null} */}
                 {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null}
             </div>

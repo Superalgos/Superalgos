@@ -9,9 +9,17 @@ const Post = ({postData}) => {
     const navigate = useNavigate();
 
     const {
-        originSocialPersonaId,
         postText,
-        originPostHash
+        originPostHash,
+        reactions,
+        postType,
+        repliesCount,
+        creator: {
+            name,
+            username,
+            profilePic,
+            originSocialPersonaId
+        }
     } = postData;
 
     const handlePostClick = (e) => {
@@ -24,16 +32,25 @@ const Post = ({postData}) => {
     return (
         <div className="postWrapper">
             <div className="post">
-                <Stack direction="row" onClick={handlePostClick}>
-                    <div className="postAvatarContainer">
-                        <Avatar src={pic} className="avatar"/>
+                <div className="grid-container">
+                    <div className="postHeader">
+                        <Typography className="postName">
+                            {name ? name : 'userProfileHandle'}
+                        </Typography>
+                        <Typography className="postUserName">
+                            @{username ? username : 'userProfileHandle'}
+                        </Typography>
                     </div>
-                    <Typography className="postUserName">
-                        {originSocialPersonaId} {/* TODO use name */}
-                    </Typography>
-                </Stack>
-                <div className="postBody">
-                    {postText ? postText.toString() : ''}
+                    <div className="postAvatar">
+                        <div className="postAvatarContainer">
+                            <Avatar src={profilePic || pic} className="avatar"/>
+                        </div>
+                    </div>
+                    <div className="postBodyContainer">
+                        <div className="postBody">
+                            {postText ? postText.toString() : ''}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

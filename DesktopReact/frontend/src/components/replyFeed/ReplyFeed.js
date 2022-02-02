@@ -47,6 +47,7 @@ const ReplyFeed = () => {
             repliesCount: post.repliesCount,
             creator:{
                 name: creator.name,
+                username: creator.username,
                 profilePic: creator.profilePic,
                 originSocialPersonaId: creator.originSocialPersonaId
             }

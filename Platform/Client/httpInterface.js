@@ -258,7 +258,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             //stuff
                             console.log(config)
                         })
-                        .catch (err => {
+                        .catch(err => {
                             console.error(err)
                         })
                     break
@@ -903,7 +903,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                             error = err
                                         }
                                     }
-
                                 }
 
                                 async function doGithub() {
@@ -1005,16 +1004,32 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-
-                                    let message
                                     try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        /*
+                                        Update the Main Superalgos Repository.
+                                        */
+                                        let options = {
+                                            baseDir: process.cwd(),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
+                                        }
+                                        let git = simpleGit(options)
+
+                                        let message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+
+                                        if (message.error === undefined) {
+                                            /*
+                                            Update the Submodules
+                                            */
+                                            options = {
+                                                baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
+                                                binary: 'git',
+                                                maxConcurrentProcesses: 6,
+                                            }
+                                            git = simpleGit(options)
+                                            message = await git.pull('https://github.com/Superalgos/Governance-Plugins', currentBranch)
+                                        }
+
                                         return { message: message }
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
@@ -1044,7 +1059,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 checkout().catch(errorResp)
 
-                                function errorResp (e) {
+                                function errorResp(e) {
                                     error = e
                                     console.error(error)
                                     let docs = {
@@ -1081,7 +1096,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
-                                async function doGit(dir, repo='Superalgos') {
+                                async function doGit(dir, repo = 'Superalgos') {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
                                         binary: 'git',
@@ -1473,7 +1488,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         await checkFork('Governance-Plugins')
                                         await updateUser()
 
-                                        async function checkFork(repo='Superalgos') {
+                                        async function checkFork(repo = 'Superalgos') {
                                             let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
                                                 username,
                                                 token,

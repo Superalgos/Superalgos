@@ -31,7 +31,7 @@ const UserProfile = () => {
         }
         if( queryParams.externalProfile ) {
             loadExternalprofile();
-        }
+        }else { setExternalProfile(null)}
         loadPosts();
     }, [queryParams.externalProfile]);
 

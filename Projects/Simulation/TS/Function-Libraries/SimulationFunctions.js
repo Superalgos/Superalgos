@@ -6,8 +6,8 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
 
     let thisObject = {
         createInfoMessage: createInfoMessage,
-        checkIfWeNeedToStopTheSimulation: checkIfWeNeedToStopTheSimulation,
-        checkIfWeNeedToStopAfterBothCycles: checkIfWeNeedToStopAfterBothCycles,
+        earlyCheckIfWeNeedToStopTheSimulation: earlyCheckIfWeNeedToStopTheSimulation,
+        laterCheckIfWeNeedToStopTheSimulation: laterCheckIfWeNeedToStopTheSimulation,
         setCurrentCandle: setCurrentCandle,
         syncronizeLoopCandleEntryPortfolioManager: syncronizeLoopCandleEntryPortfolioManager,
         syncronizeLoopCandleExitPortfolioManager: syncronizeLoopCandleExitPortfolioManager,
@@ -52,7 +52,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         system.addInfo([system.id, infoMessage, docs])
     }
 
-    function checkIfWeNeedToStopTheSimulation(
+    function earlyCheckIfWeNeedToStopTheSimulation(
         episodeModuleObject,
         sessionParameters,
         episode,
@@ -82,7 +82,7 @@ exports.newSimulationFunctionLibrariesSimulationFunctions = function () {
         return false
     }
 
-    function checkIfWeNeedToStopAfterBothCycles(episodeModuleObject, episode, sessionParameters, candles, processIndex) {
+    function laterCheckIfWeNeedToStopTheSimulation(episodeModuleObject, episode, sessionParameters, candles, processIndex) {
         if (TS.projects.simulation.functionLibraries.simulationFunctions.checkNextCandle(episode, sessionParameters, candles, processIndex) === false) {
             TS.projects.simulation.functionLibraries.simulationFunctions.updateEpisode(episodeModuleObject, 'All Candles Processed')
             return true

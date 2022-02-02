@@ -118,6 +118,7 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
             that still can change. So effectively will be processing all closed candles.
             */
             for (let i = initialCandle; i < candles.length - 1; i++) {
+ 
                 /* Next Candle */
                 let candle = TS.projects.simulation.functionLibraries.simulationFunctions.setCurrentCandle(
                     portfolioEngine.portfolioCurrent.portfolioEpisode.candle,
@@ -187,12 +188,24 @@ exports.newPortfolioManagementBotModulesPortfolioSimulation = function (processI
                 We check if we need to stop before appending the records so that the stop
                 reason is also properly recorded. 
                 */
-                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.checkIfWeNeedToStopTheSimulation(
+                let breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.earlyCheckIfWeNeedToStopTheSimulation(
                     portfolioEpisodeModuleObject,
                     sessionParameters,
                     portfolioEngine.portfolioCurrent.portfolioEpisode,
                     processIndex
                 )
+                /*
+                Check if we need to stop.
+                */
+                if (breakLoop === false) {
+                    breakLoop = TS.projects.simulation.functionLibraries.simulationFunctions.laterCheckIfWeNeedToStopTheSimulation(
+                        portfolioEpisodeModuleObject,
+                        portfolioEngine.portfolioCurrent.portfolioEpisode,
+                        sessionParameters,
+                        candles,
+                        processIndex
+                    )
+                }
                 /* Add new records to the process output */
                 portfolioRecordsModuleObject.appendRecords()
 

@@ -2,6 +2,12 @@
     margin: 0.5rem;
     width: 7rem;
     max-height: 1.5rem;
+    border-radius: 1.25rem !important;
+}
+
+.avatar {
+    height: 3rem !important;
+    width: 3rem !important;
 }
 
 .userCard {
@@ -24,6 +30,14 @@
 }
 
 .username {
+    max-width: 20rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sideBarUsername {
+    max-width: 10rem;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;

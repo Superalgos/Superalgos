@@ -9,6 +9,7 @@
     background-color: white;
     border: 1px solid #000;
     box-shadow: 24px 24px 100px black;
+    border-radius: 1rem;
 }
 
 .replyFeedContainer {

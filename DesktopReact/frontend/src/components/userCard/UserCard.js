@@ -1,29 +1,29 @@
 import "./UserCard.css"
 import React, {useState} from 'react';
-import {Button, Card, CardContent, CardMedia, Typography} from "@mui/material";
+import { useNavigate } from 'react-router-dom'
+import {Button, Card, CardContent, CardMedia, Typography, Avatar} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {followUser} from "../../api/follow.httpService";
 import {STATUS_OK} from "../../api/httpConfig";
 
-const UserCard = ({name, userId}) => {
-
+const UserCard = ({name, userId, profilePic}) => {
+    const navigate = useNavigate();
     const [followed, setFollowed] = useState(false);
 
     const followCallback = async () => {
-        let eventType = followed ? 16 : 15;/* TODO use constant */
-        let {result} = await followUser(userId, eventType).then(response => response.json());
-        console.log({userId, followed, result, eventType})
+        const eventType = followed ? 16 : 15;/* TODO use constant */
+        const { result } = await followUser(userId, eventType).then(response => response.json());
         setFollowed(value => ((result === STATUS_OK) ? (!value) : (value)));
     }
 
+    const navigateToprofile = () => {
+        navigate(`/Profile/?p=${userId}`)
+    }
+    
+
     return (
         <Card className="userCard" variant="outlined">
-            <CardMedia className="avatar"
-                       component="img"
-                       image={pic}
-                       alt="PP"
-
-            />
+            <Avatar src={ profilePic? profilePic: pic } className='avatar' onClick={navigateToprofile}/>
             <CardContent className="usernameCard">
                 {/*TODO name should not exceed certain length */}
                 <Typography className="username" variant="body2">{name}</Typography>

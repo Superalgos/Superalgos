@@ -2,7 +2,7 @@ const getFeed = async (req, res) => {
     try {
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.EVENTS,
-            originSocialPersonaId: undefined,
+            originSocialPersonaId: req.originSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -29,8 +29,8 @@ const getPosts = async (body, res) => {
 
         let queryMessage = {
             queryType: SA.projects.socialTrading.globals.queryTypes.POSTS,
-            originSocialPersonaId: undefined,
-            targetSocialPersonaId: body?.postHash, /* TODO CHECK */
+            originSocialPersonaId: body?.originSocialPersonaId,
+            targetSocialPersonaId: body?.targetSocialPersonaId,
             initialIndex: SA.projects.socialTrading.globals.queryConstants.INITIAL_INDEX_LAST,
             amountRequested: 20,
             direction: SA.projects.socialTrading.globals.queryConstants.DIRECTION_PAST
@@ -167,11 +167,41 @@ const createReply = async (body, res) => {
 };
 
 
+const postReactions = async (body,res) => {
+    try {
+
+        let eventMessage;
+        let event;
+
+        eventMessage = {
+            eventType: SA.projects.socialTrading.globals.eventTypes.ADD_REACTION_LIKE,
+            originSocialPersonaId: body.originSocialPersonaId,
+            eventId: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
+            targetPostHash: body.postHash,
+        }
+
+        event = {
+            networkService: 'Social Graph',
+            requestType: 'Event',
+            eventMessage: JSON.stringify(eventMessage)
+        }
+        let response = await NT.projects.socialTrading.modules.event.newSocialTradingModulesEvent(event);
+        return await webAppInterface.sendMessage(
+            JSON.stringify(event)
+        );
+    } catch (e) {
+        console.log(e);
+        return {status: 'Ko'};
+    }
+}
+
+
 module.exports = {
     getPosts,
     createPost,
     getFeed,
     getReplies,
     createReply,
-    getPost
+    getPost,
+    postReactions
 };

@@ -1,19 +1,12 @@
 import "./Post.css"
-import React, {useState} from 'react';
-import {useDispatch} from 'react-redux'
+import React from 'react';
 import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
-import PostFooter from "../postFooter/PostFooter";
 
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [collapse, setCollapse] = useState(true);
-    const [postUser, setPostUser] = useState({})
-    const ToggleCollapse = () => setCollapse(!collapse);
-
 
     const {
         postText,
@@ -38,9 +31,9 @@ const Post = ({postData}) => {
 
     return (
         <div className="postWrapper">
-          <div className="post">
+            <div className="post">
                 <div className="grid-container">
-                    <div className="postHeader" onClick={handlePostClick}>
+                    <div className="postHeader">
                         <Typography className="postName">
                             {name ? name : 'userProfileHandle'}
                         </Typography>
@@ -53,14 +46,10 @@ const Post = ({postData}) => {
                             <Avatar src={profilePic || pic} className="avatar"/>
                         </div>
                     </div>
-                    <div className="postBodyContainer" onClick={handlePostClick}>
-                        <div className="postBody" >
+                    <div className="postBodyContainer">
+                        <div className="postBody">
                             {postText ? postText.toString() : ''}
                         </div>
-                    </div>
-                    <div className="postFooter">
-                        <PostFooter postData={postData} postId={originPostHash} reactions={reactions}
-                                    actualReaction={reactions}/>
                     </div>
                 </div>
             </div>

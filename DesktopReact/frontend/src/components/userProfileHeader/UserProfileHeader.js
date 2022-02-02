@@ -31,10 +31,10 @@ const UserProfileHeader = ({user, isExternalProfile}) => {
                     !isExternalProfile
                         ?  <Button className="editProfileButton" variant="outlined" onClick={handleClickCallback}>
                                     Edit profile
-                            </Button> 
+                            </Button>
                         : <></>
                 }
-               
+
                 {/* {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null} */}
                 {modal ? (<UserProfileModal user={user} show={modal} close={handleClickCallback}/>) : null}
             </div>

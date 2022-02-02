@@ -5,8 +5,7 @@ import {Divider} from "@mui/material";
 import PostPlaceholder from "../postPlaceholder/PostPlaceholder";
 import PostsFeed from "../postsFeed/PostsFeed";
 import {getFeed} from "../../api/post.httpService";
-import {getProfile, getSocialPersona} from '../../api/profile.httpService'
-import {setActualProfile, setSocialPersona} from "../../store/slices/Profile.slice";
+import {getProfile} from '../../api/profile.httpService'
 import {STATUS_OK} from "../../api/httpConfig";
 import Post from "../post/Post";
 
@@ -18,19 +17,6 @@ const Feed = () => {
     const actualUser = useSelector(state => state.profile.actualUser)
 
     useEffect(() => {
-        console.log('effect', socialPersona, actualUser )
-        if (!socialPersona.nodeId || !actualUser.name) {
-            async () => {
-                const socialPersona = await getSocialPersona().then(response => response.json());
-                const {data} = await getProfile({socialPersonaId: socialPersona.nodeId})
-                    .then(response => response.json());
-
-                dispatch(setSocialPersona(socialPersona));
-                dispatch(setActualProfile(data));
-            }
-
-        }
-
         loadPosts();
     }, []);
 
@@ -63,7 +49,10 @@ const Feed = () => {
 
     const loadPosts = async () => {
         setLoading(true);
-        const {data, result} = await getFeed().then(response => response.json());
+        const {
+            data,
+            result
+        } = await getFeed({originSocialPersonaId: socialPersona.nodeId}).then(response => response.json());
         if (result === STATUS_OK) {
             await drawFeedPosts(data);
         }

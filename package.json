@@ -17,7 +17,8 @@
     "startNetwork": "node network",
     "startDesktop": "node desktop",
     "installDesktopReact": "cd ./DesktopReact && npm ci",
-    "startDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
+    "startLocalDesktopReact": "start npm run startNetwork && cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend",
+    "startDesktopReact": "cd ./DesktopReact && start npm run startDesktopReactBackend && start npm run startDesktopReactFrontend"
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",

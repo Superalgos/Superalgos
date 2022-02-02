@@ -6,7 +6,7 @@ const isObjectEmpty = (obj) => Object.values(obj).every(value => value === null 
 const cleanObject = (obj) => Object.fromEntries(Object.entries(obj).filter(([_, v]) => (v !== null || v !== void 0) && v !== ''));
 
 /*** validates files uploaded are not bigger than the limit in MB*/
-const validateFileSize = (file, limit) => file.size <= 1048576 * limit;
+const validateFileSize = (file, limit) => file.size <= (1024000) * limit;
 
 
 export {

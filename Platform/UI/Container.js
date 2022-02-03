@@ -51,7 +51,7 @@ function newContainer() {
     /* for undo/redo dragging: */
     let historyObject = {
         action: {
-            name: 'Drag Node',
+            name: 'Move Node',
             node: undefined
         },
         previousPosition: undefined

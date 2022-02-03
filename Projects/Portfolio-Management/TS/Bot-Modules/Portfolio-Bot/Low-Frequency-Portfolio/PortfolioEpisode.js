@@ -55,12 +55,12 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
         portfolioEngine.portfolioCurrent.portfolioEpisode.end.value = portfolioEngine.portfolioCurrent.portfolioEpisode.candle.end.value
 
         /* Getting the begin Balance from the session configuration */
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.beginBalance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.beginBalance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.beginBalance.value = 0 //sessionParameters.sessionBaseAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.beginBalance.value = 0 //sessionParameters.sessionQuotedAsset.config.initialBalance
 
         /* The current balance is also the begin balance, that is how this starts. */
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.balance.value = sessionParameters.sessionBaseAsset.config.initialBalance
-        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.balance.value = sessionParameters.sessionQuotedAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.balance.value = 0 //sessionParameters.sessionBaseAsset.config.initialBalance
+        portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.balance.value = 0 //sessionParameters.sessionQuotedAsset.config.initialBalance
 
         /* Recording the opening at the Portfolio Engine Data Structure */
         portfolioEngine.portfolioCurrent.portfolioEpisode.status.value = 'Open'
@@ -124,11 +124,11 @@ exports.newPortfolioManagementBotModulesPortfolioEpisode = function (processInde
             /* Updating Profit Loss */
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.profitLoss.value =
                 portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.balance.value -
-                sessionParameters.sessionBaseAsset.config.initialBalance
+                0 // sessionParameters.sessionBaseAsset.config.initialBalance
 
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.profitLoss.value =
                 portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.balance.value -
-                sessionParameters.sessionQuotedAsset.config.initialBalance
+                0 // sessionParameters.sessionQuotedAsset.config.initialBalance
 
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.profitLoss.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(portfolioEngine.portfolioCurrent.portfolioEpisode.episodeBaseAsset.profitLoss.value, 10)
             portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.profitLoss.value = TS.projects.foundations.utilities.miscellaneousFunctions.truncateToThisPrecision(portfolioEngine.portfolioCurrent.portfolioEpisode.episodeQuotedAsset.profitLoss.value, 10)

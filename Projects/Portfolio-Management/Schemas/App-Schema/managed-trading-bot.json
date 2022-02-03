@@ -25,7 +25,7 @@
     "attachingRules": {
         "compatibleTypes": "->Managed Trading Bots->"
     },
-    "propertyNameAtParent": "managedTradingBot",
+    "propertyNameAtParent": "managedTradingBots",
     "childrenNodesProperties": [
         {
             "name": "managedTradingBotEngine",

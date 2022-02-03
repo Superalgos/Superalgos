@@ -28,7 +28,7 @@
     "propertyNameAtParent": "exchangeManagedAssets",
     "childrenNodesProperties": [
         {
-            "name": "exchangeManagedAsset",
+            "name": "exchangeManagedAssets",
             "type": "array",
             "childType": "Exchange Managed Asset",
             "autoAdd": true

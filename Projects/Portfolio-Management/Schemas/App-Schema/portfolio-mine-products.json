@@ -48,6 +48,7 @@
             "name": "botProducts",
             "type": "array",
             "childType": "Bot Products",
+            "project": "Foundations",
             "autoAdd": false
         }
     ]

@@ -179,7 +179,7 @@ function newFoundationsFunctionLibraryProductFunctions() {
                                 if (botProductDependencies !== undefined) {
                                     createDataProductIfNotPresent(botProductDependencies)
                                 } else {
-                                    let newBotProductDependencies = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataMineProduct, 'Bot Products')
+                                    let newBotProductDependencies = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(dataMineProduct, 'Bot Products', undefined, 'Foundations')
                                     newBotProductDependencies.name = productIndicatorBot.name
                                     createDataProductIfNotPresent(newBotProductDependencies)
                                 }

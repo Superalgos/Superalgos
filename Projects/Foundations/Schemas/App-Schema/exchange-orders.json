@@ -55,7 +55,7 @@
     "addLeftIcons": true,
     "level": 3,
     "attachingRules": {
-        "compatibleTypes": "->Trading Engine->Portfolio Engine->"
+        "compatibleTypes": "->Trading Engine->Managed Trading Bot Engine->"
     },
     "propertyNameAtParent": "exchangeOrders",
     "childrenNodesProperties": [

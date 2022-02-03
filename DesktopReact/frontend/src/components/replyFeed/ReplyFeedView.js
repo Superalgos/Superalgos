@@ -1,6 +1,7 @@
 import React from 'react';
 import {ArrowBackOutlined} from "@mui/icons-material";
 import ReplyBox from "../replyBox/ReplyBox";
+import Post from '../post/Post'
 import {Skeleton, Stack} from "@mui/material";
 
 const ReplyFeedView = ({loading, goBack, selectedPost, replies, callbackEvent}) => {

@@ -59,7 +59,7 @@ function newFoundationsFunctionLibraryDataStorageFunctions() {
 
             for (let i = 0; i < botArray.length; i++) {
                 let bot = botArray[i]
-                let botProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Bot Products')
+                let botProducts = UI.projects.visualScripting.nodeActionFunctions.uiObjectsFromNodes.addUIObject(node, 'Bot Products', undefined, 'Foundations')
                 botProducts.name = bot.name
                 botProducts.payload.floatingObject.collapseToggle()
 

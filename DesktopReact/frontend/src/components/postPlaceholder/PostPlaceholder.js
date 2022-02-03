@@ -50,7 +50,7 @@ const PostPlaceholder = ({reloadPostCallback}) => {
                         <Typography gutterBottom variant="subtitle1" component="div">
                             <TextField
                                 id="outlined-multiline-flexible"
-                                label="what's happening?"
+                                label="What's happening?"
                                 fullWidth
                                 multiline
                                 maxRows={6}

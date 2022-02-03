@@ -12,7 +12,7 @@ const Signup = () => {
     const [inputCharNumber, setInputCharNumber] = useState(false);
     const [userInfo, setUserInfo] = useState(useSelector(state => state.profile.actualUser));
     // Stepper Component
-    const steps = ['Enter your username', 'Additional profile data'];
+    const steps = [/*'Enter your username', 'Additional p*/'Profile data'];
     const [activeStep, setActiveStep] = React.useState(0);
     const [skipped, setSkipped] = React.useState(new Set());
     const navigate = useNavigate();

@@ -1014,20 +1014,26 @@ exports.newHttpInterface = function newHttpInterface() {
                                             maxConcurrentProcesses: 6,
                                         }
                                         let git = simpleGit(options)
-
-                                        let message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                        console.log('[INFO] Updating from ' + repoURL)
+                                        let message = await git.pull(repoURL, currentBranch)
 
                                         if (message.error === undefined) {
-                                            /*
-                                            Update the Submodules
-                                            */
-                                            options = {
-                                                baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
-                                                binary: 'git',
-                                                maxConcurrentProcesses: 6,
+
+                                            for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                                /*
+                                                Update the Plugins
+                                                */
+                                                options = {
+                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                                                    binary: 'git',
+                                                    maxConcurrentProcesses: 6,
+                                                }
+                                                git = simpleGit(options)
+                                                repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                                console.log('[INFO] Updating from ' + repoURL)
+                                                message = await git.pull(repoURL, currentBranch)
                                             }
-                                            git = simpleGit(options)
-                                            message = await git.pull('https://github.com/Superalgos/Governance-Plugins', currentBranch)
                                         }
 
                                         return { message: message }

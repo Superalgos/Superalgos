@@ -867,22 +867,28 @@ exports.newHttpInterface = function newHttpInterface() {
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
+                                    let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                    console.log('[INFO] Uploading to ' + repoURL)
                                     let git = simpleGit(options)
-                                    // first look for modified user profile, since that's the most popular contribution
-                                    let summary = await git.diffSummary()
-                                    if (summary && summary.files && summary.files.length > 0) {
-                                        for (let i = 0; i < summary.files.length; i++) {
-                                            if (summary.files[i].file === 'Plugins/Governance' && summary.files[i].changes === 0) {
-                                                // switch to working in governance plugin submodule, since this must be changed first anyway
-                                                governanceModified = true
-                                                options = {
-                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
-                                                    binary: 'git',
-                                                    maxConcurrentProcesses: 6,
-                                                }
-                                                git = simpleGit(options)
-                                            }
+
+                                    await pushFiles(git) // Main Repo
+
+                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                        /*
+                                        Update the Plugins
+                                        */
+                                        options = {
+                                            baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
                                         }
+                                        git = simpleGit(options)
+                                        repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        console.log('[INFO] Uploading to ' + repoURL)
+                                        pushFiles(git)
+                                    }
+
+                                    async function pushFiles(git) {
                                         try {
                                             await git.add('./*')
                                             await git.commit(commitMessage)
@@ -900,6 +906,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log('2. Make sure you are running the latest version of Git available for your OS.')
                                             console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
                                             console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+
                                             error = err
                                         }
                                     }
@@ -1015,7 +1022,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         let git = simpleGit(options)
                                         let repoURL = 'https://github.com/Superalgos/Superalgos'
-                                        console.log('[INFO] Updating from ' + repoURL)
+                                        console.log('[INFO] Downloading from ' + repoURL)
                                         let message = await git.pull(repoURL, currentBranch)
 
                                         if (message.error === undefined) {
@@ -1031,7 +1038,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 }
                                                 git = simpleGit(options)
                                                 repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                                console.log('[INFO] Updating from ' + repoURL)
+                                                console.log('[INFO] Downloading from ' + repoURL)
                                                 message = await git.pull(repoURL, currentBranch)
                                             }
                                         }

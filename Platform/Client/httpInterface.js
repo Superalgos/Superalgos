@@ -950,6 +950,12 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 err.stack.indexOf('A pull request already exists') >= 0 ||
                                                 err.stack.indexOf('No commits between') >= 0
                                                 ) {
+                                                    if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                        console.log('[WARN] A pull request already exists. Commits added to the existing Pull Request. ')
+                                                    }
+                                                    if (err.stack.indexOf('No commits between') >= 0) {
+                                                        console.log('[WARN] No commits detected. Pull request not created. ')
+                                                    }
                                                 return
                                             } else {
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')

@@ -937,6 +937,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function createPullRequest(repo) {
                                         try {
+                                            console.log('[INFO] Creating Pull Request at repository ' + repo)
                                             await octokit.pulls.create({
                                                 owner,
                                                 repo,
@@ -945,7 +946,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                                 base,
                                             });
                                         } catch (err) {
-                                            if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                            if (
+                                                err.stack.indexOf('A pull request already exists') >= 0 ||
+                                                err.stack.indexOf('No commits between') >= 0
+                                                ) {
                                                 return
                                             } else {
                                                 console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')

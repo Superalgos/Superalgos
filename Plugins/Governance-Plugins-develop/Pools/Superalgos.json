@@ -1,0 +1,1050 @@
+{
+    "type": "Pools",
+    "name": "Superalgos",
+    "config": "{\"tokens\":\"10000000\",\"codeName\":\"Superalgos\"}",
+    "project": "Governance",
+    "poolClasses": [
+        {
+            "type": "Pool Class",
+            "name": "Governance Programs ",
+            "config": "{}",
+            "project": "Governance",
+            "poolClasses": [
+                {
+                    "type": "Pool Class",
+                    "name": "Community Building Programs",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [
+                        {
+                            "type": "Pool Class",
+                            "name": "Referrals Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Referrals Rewards",
+                                    "config": "{\n    \"codeName\": \"Referrals-Rewards\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "cb91762a-871b-4de8-9fa6-b65336c227e1",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15201.687619802573,
+                                            "y": 44241.45530705624
+                                        },
+                                        "targetPosition": {
+                                            "x": 15351.687619802573,
+                                            "y": 44501.26292819157
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 3,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Pool",
+                                    "name": "Referrals Bonus",
+                                    "config": "{\n    \"codeName\": \"Referrals-Bonus\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "0770dfef-8c97-42b0-8b09-3258151a8cb1",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15312.529762136559,
+                                            "y": 44203.829469779426
+                                        },
+                                        "targetPosition": {
+                                            "x": 15351.687619802573,
+                                            "y": 44501.26292819157
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 4,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "a7c93133-eddd-4101-bf2d-6566598fab83",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15351.687619802573,
+                                    "y": 44501.26292819157
+                                },
+                                "targetPosition": {
+                                    "x": 15429.33333333333,
+                                    "y": 44791.04067607829
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Pool Class",
+                            "name": "Support Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Support Rewards",
+                                    "config": "{\n    \"codeName\": \"Support-Rewards\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "1ed7bc01-31f8-485d-be2f-09bc6fcf6bcf",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15656.979046864088,
+                                            "y": 44241.45530705624
+                                        },
+                                        "targetPosition": {
+                                            "x": 15579.33333333333,
+                                            "y": 44531.23305494296
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 3,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Pool",
+                                    "name": "Support Bonus",
+                                    "config": "{\n    \"codeName\": \"Support-Bonus\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "64238814-56bb-431e-aa42-498959d59365",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15761.96176203595,
+                                            "y": 44293.22705285559
+                                        },
+                                        "targetPosition": {
+                                            "x": 15579.33333333333,
+                                            "y": 44531.23305494296
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 4,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "aaa7de57-3007-4e9b-bb3c-cba366e46a20",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15579.33333333333,
+                                    "y": 44531.23305494296
+                                },
+                                "targetPosition": {
+                                    "x": 15429.33333333333,
+                                    "y": 44791.04067607829
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Pool Class",
+                            "name": "Mentorship Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Mentorship Rewards",
+                                    "config": "{\n    \"codeName\": \"Mentorship-Rewards\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "e708a130-7f4b-4ae0-a602-f9cc70c2662a",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15978.918702355382,
+                                            "y": 44563.394962547536
+                                        },
+                                        "targetPosition": {
+                                            "x": 15719.111081220051,
+                                            "y": 44713.394962547536
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 3,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Pool",
+                                    "name": "Mentorship Bonus",
+                                    "config": "{\n    \"codeName\": \"Mentorship-Bonus\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "7405d205-a191-4d62-bd75-00ea89283d33",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16016.544539632196,
+                                            "y": 44674.23710488152
+                                        },
+                                        "targetPosition": {
+                                            "x": 15719.111081220051,
+                                            "y": 44713.394962547536
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 4,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "f20ee66d-2632-45c3-8404-891838e2784f",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15719.111081220051,
+                                    "y": 44713.394962547536
+                                },
+                                "targetPosition": {
+                                    "x": 15429.33333333333,
+                                    "y": 44791.04067607829
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "pools": [],
+                    "id": "0212b0f5-1459-4a1d-a79b-05e11a7071cc",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15957.833333333328,
+                            "y": 44515.04067607829
+                        },
+                        "targetPosition": {
+                            "x": 15807.833333333328,
+                            "y": 44774.848297213626
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Pool Class",
+                    "name": "Onboarding Programs",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [
+                        {
+                            "type": "Pool Class",
+                            "name": "Airdrop Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Airdrop Rewards",
+                                    "config": "{\n    \"codeName\": \"Airdrop-Rewards\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "89783f03-070d-473a-a35b-d006555e7e2b",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15829.140954468661,
+                                            "y": 44820.23305494296
+                                        },
+                                        "targetPosition": {
+                                            "x": 15679.140954468663,
+                                            "y": 45080.04067607829
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "69de773c-af96-4126-bc53-dcc098827eff",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15679.140954468663,
+                                    "y": 45080.04067607829
+                                },
+                                "targetPosition": {
+                                    "x": 15529.140954468663,
+                                    "y": 45339.848297213626
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Pool Class",
+                            "name": "Github Prgoram",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Github Rewards",
+                                    "config": "{\n    \"codeName\": \"Github-Rewards\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "57744eaa-51a1-450c-9760-d811c3900733",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16129.140954468661,
+                                            "y": 45339.848297213626
+                                        },
+                                        "targetPosition": {
+                                            "x": 15829.140954468661,
+                                            "y": 45339.848297213626
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "5a51dbc8-54f9-46d5-a08e-9e970a12ad61",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15829.140954468661,
+                                    "y": 45339.848297213626
+                                },
+                                "targetPosition": {
+                                    "x": 15529.140954468663,
+                                    "y": 45339.848297213626
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "pools": [],
+                    "id": "1d589fac-7bc6-4de3-aa49-aa7af8bc5b62",
+                    "savedPayload": {
+                        "position": {
+                            "x": 16067.640954468661,
+                            "y": 44624.848297213626
+                        },
+                        "targetPosition": {
+                            "x": 15807.833333333328,
+                            "y": 44774.848297213626
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Pool Class",
+                    "name": "Incentives for Voting",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [
+                        {
+                            "type": "Pool Class",
+                            "name": "Voting Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Voting Bonus",
+                                    "config": "{\n    \"codeName\": \"Voting-Bonus\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "b73b401b-6d47-4b34-bfe7-7570b56aa1f8",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16169.333333333328,
+                                            "y": 45489.848297213626
+                                        },
+                                        "targetPosition": {
+                                            "x": 15869.333333333328,
+                                            "y": 45489.848297213626
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 4,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "8de1aa7f-5ec1-4afd-82c3-783aeedc7585",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15869.333333333328,
+                                    "y": 45489.848297213626
+                                },
+                                "targetPosition": {
+                                    "x": 15569.33333333333,
+                                    "y": 45489.848297213626
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "pools": [],
+                    "id": "7adbac65-db68-47a3-be78-de097d0b2f00",
+                    "savedPayload": {
+                        "position": {
+                            "x": 16107.833333333328,
+                            "y": 44774.848297213626
+                        },
+                        "targetPosition": {
+                            "x": 15807.833333333328,
+                            "y": 44774.848297213626
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Pool Class",
+                    "name": "Incentives for Providing Liquidity to SA Markets",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [
+                        {
+                            "type": "Pool Class",
+                            "name": "Liquidity Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Liquidity Rewards BTCB",
+                                    "config": "{\n    \"codeName\": \"Liquidity-Rewards-BTCB\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "06de22dd-75dd-4dae-996c-47bcd27c7326",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16617.226323490715,
+                                            "y": 44997.20258368287
+                                        },
+                                        "targetPosition": {
+                                            "x": 16327.448575603994,
+                                            "y": 45074.848297213626
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Pool",
+                                    "name": "Liquidity Rewards BNB",
+                                    "config": "{\n    \"codeName\": \"Liquidity-Rewards-BNB\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "dea43cb6-3b94-4f6b-a03c-c76232f5037e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16587.256196739327,
+                                            "y": 45224.848297213626
+                                        },
+                                        "targetPosition": {
+                                            "x": 16327.448575603994,
+                                            "y": 45074.848297213626
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "Pool",
+                                    "name": "Liquidity Rewards BUSD",
+                                    "config": "{\n    \"codeName\": \"Liquidity-Rewards-BUSD\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "160f3de8-f78d-4af7-9fe7-3d60ea92c03d",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16405.09428913475,
+                                            "y": 45364.62604510035
+                                        },
+                                        "targetPosition": {
+                                            "x": 16327.448575603994,
+                                            "y": 45074.848297213626
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 2,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "884c7a59-2d2e-4846-965f-63133d56974a",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 16327.448575603994,
+                                    "y": 45074.848297213626
+                                },
+                                "targetPosition": {
+                                    "x": 16067.640954468661,
+                                    "y": 44924.848297213626
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "pools": [],
+                    "id": "3063d35e-c1ed-4225-9fa0-1f9db02682e9",
+                    "savedPayload": {
+                        "position": {
+                            "x": 16067.640954468661,
+                            "y": 44924.848297213626
+                        },
+                        "targetPosition": {
+                            "x": 15807.833333333328,
+                            "y": 44774.848297213626
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                {
+                    "type": "Pool Class",
+                    "name": "Incentives for Staking & Delegating SA Tokens",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [
+                        {
+                            "type": "Pool Class",
+                            "name": "Staking Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Staking Rewards",
+                                    "config": "{\n    \"codeName\": \"Staking-Rewards\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "215680a9-a094-4e2f-ac02-a7b838cf002e",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 16477.448575603994,
+                                            "y": 45334.65591834896
+                                        },
+                                        "targetPosition": {
+                                            "x": 16217.640954468661,
+                                            "y": 45184.65591834896
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 4,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "e35ae21c-ce69-4af6-8c55-ea05118c1859",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 16217.640954468661,
+                                    "y": 45184.65591834896
+                                },
+                                "targetPosition": {
+                                    "x": 15957.833333333328,
+                                    "y": 45034.65591834896
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        },
+                        {
+                            "type": "Pool Class",
+                            "name": "Delegation Program",
+                            "config": "{}",
+                            "project": "Governance",
+                            "poolClasses": [],
+                            "pools": [
+                                {
+                                    "type": "Pool",
+                                    "name": "Delegation Bonus",
+                                    "config": "{\n    \"codeName\": \"Delegation-Bonus\"\n}",
+                                    "project": "Governance",
+                                    "poolClasses": [],
+                                    "pools": [],
+                                    "id": "3c70e836-19a5-4b84-8111-11eb1d525968",
+                                    "savedPayload": {
+                                        "position": {
+                                            "x": 15957.833333333328,
+                                            "y": 45634.65591834896
+                                        },
+                                        "targetPosition": {
+                                            "x": 15957.833333333328,
+                                            "y": 45334.65591834896
+                                        },
+                                        "floatingObject": {
+                                            "isPinned": false,
+                                            "isFrozen": false,
+                                            "isCollapsed": false,
+                                            "angleToParent": 4,
+                                            "distanceToParent": 3,
+                                            "arrangementStyle": 0
+                                        },
+                                        "uiObject": {
+                                            "isRunning": false
+                                        }
+                                    }
+                                }
+                            ],
+                            "id": "34bb180e-dd4f-4dae-85d1-e4279fd3229e",
+                            "savedPayload": {
+                                "position": {
+                                    "x": 15957.833333333328,
+                                    "y": 45334.65591834896
+                                },
+                                "targetPosition": {
+                                    "x": 15957.833333333328,
+                                    "y": 45034.65591834896
+                                },
+                                "floatingObject": {
+                                    "isPinned": false,
+                                    "isFrozen": false,
+                                    "isCollapsed": false,
+                                    "angleToParent": 2,
+                                    "distanceToParent": 3,
+                                    "arrangementStyle": 0
+                                },
+                                "uiObject": {
+                                    "isRunning": false
+                                }
+                            }
+                        }
+                    ],
+                    "pools": [],
+                    "id": "98932e02-c91b-4745-ba98-15ad19ba1548",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15957.833333333328,
+                            "y": 45034.65591834896
+                        },
+                        "targetPosition": {
+                            "x": 15807.833333333328,
+                            "y": 44774.848297213626
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": true,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "pools": [],
+            "id": "72075b69-be90-44c0-9d67-c20ada515884",
+            "savedPayload": {
+                "position": {
+                    "x": 15807.83333333333,
+                    "y": 44774.848297213626
+                },
+                "targetPosition": {
+                    "x": 15507.83333333333,
+                    "y": 44774.848297213626
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Pool Class",
+            "name": "Teams Work ",
+            "config": "{}",
+            "project": "Governance",
+            "poolClasses": [],
+            "pools": [
+                {
+                    "type": "Pool",
+                    "name": "Team Positions",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [],
+                    "pools": [],
+                    "id": "9cace6d7-4460-46a4-8399-d2164884270a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15207.83333333333,
+                            "y": 45294.46353948429
+                        },
+                        "targetPosition": {
+                            "x": 15357.83333333333,
+                            "y": 45034.65591834896
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 2,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        },
+                        "referenceParent": {
+                            "type": "Positions",
+                            "name": "Teams of Contributors",
+                            "id": "a7165cc0-e715-402f-a758-7556f8275582"
+                        },
+                        "referenceParentCombinedNodePath": [
+                            [
+                                "Teams of Contributors",
+                                "Positions"
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "id": "33c918d4-84c7-450a-9cea-e54f06c97034",
+            "savedPayload": {
+                "position": {
+                    "x": 15357.83333333333,
+                    "y": 45034.65591834896
+                },
+                "targetPosition": {
+                    "x": 15507.83333333333,
+                    "y": 44774.848297213626
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        {
+            "type": "Pool Class",
+            "name": "Do Not Distribute",
+            "config": "{}",
+            "project": "Governance",
+            "poolClasses": [],
+            "pools": [
+                {
+                    "type": "Pool",
+                    "name": "Reserve For Future Distributions",
+                    "config": "{}",
+                    "project": "Governance",
+                    "poolClasses": [],
+                    "pools": [],
+                    "id": "56e142b5-d11f-48fd-98d6-6a2b2d78804a",
+                    "savedPayload": {
+                        "position": {
+                            "x": 15207.83333333333,
+                            "y": 44255.23305494296
+                        },
+                        "targetPosition": {
+                            "x": 15357.83333333333,
+                            "y": 44515.04067607829
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                }
+            ],
+            "id": "8687a065-5d58-4754-bb9f-2ea6d3999ba5",
+            "savedPayload": {
+                "position": {
+                    "x": 15357.83333333333,
+                    "y": 44515.04067607829
+                },
+                "targetPosition": {
+                    "x": 15507.83333333333,
+                    "y": 44774.848297213626
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": true,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        }
+    ],
+    "pools": [],
+    "id": "f95e991a-b744-4e36-8ec3-6768ff3f918c",
+    "savedPayload": {
+        "position": {
+            "x": 15507.83333333333,
+            "y": 44774.848297213626
+        },
+        "targetPosition": {
+            "x": 15507.83333333333,
+            "y": 44774.848297213626
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": true,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false,
+            "shortcutKey": ""
+        }
+    }
+}

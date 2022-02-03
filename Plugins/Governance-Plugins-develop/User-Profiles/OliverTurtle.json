@@ -1,0 +1,1112 @@
+{
+    "type": "User Profile",
+    "name": "OliverTurtle",
+    "config": "{\n    \"signature\": {\n        \"message\": \"OliverTurtle\",\n        \"messageHash\": \"0x1cc56caab2ab132f1f2e263cac635638a5ed18c13e54909ff60d48ddd695bf80\",\n        \"v\": \"0x1b\",\n        \"r\": \"0xc040709f93011eedc6b6970cdc71474db6c839a65bae18a5060545d45e9f11f6\",\n        \"s\": \"0x3614a2d7f149090f98a0cec3a5dadad8654b281ef2c48c2b683d6375f1c1023c\",\n        \"signature\": \"0xc040709f93011eedc6b6970cdc71474db6c839a65bae18a5060545d45e9f11f63614a2d7f149090f98a0cec3a5dadad8654b281ef2c48c2b683d6375f1c1023c1b\"\n    }\n}",
+    "project": "Governance",
+    "tokenPowerSwitch": {
+        "type": "Token Power Switch",
+        "name": "New Token Power Switch",
+        "config": "{}",
+        "project": "Governance",
+        "tokenPowerSwitch": [],
+        "onboardingPrograms": {
+            "type": "Onboarding Programs",
+            "name": "New Onboarding Programs",
+            "config": "{\n    \"percentage\": 0\n}",
+            "project": "Governance",
+            "airdropProgram": {
+                "type": "Airdrop Program",
+                "name": "New Airdrop Program",
+                "config": "{}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "cd7d8107-39b6-4fa3-841c-53ad15b9555c",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24056.884757729335,
+                            "y": 24455.5
+                        },
+                        "targetPosition": {
+                            "x": 24316.692378864667,
+                            "y": 24605.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "0d9669f3-f26c-40e2-bb4e-1b366d24dc8d",
+                "savedPayload": {
+                    "position": {
+                        "x": 24316.692378864667,
+                        "y": 24605.5
+                    },
+                    "targetPosition": {
+                        "x": 24576.5,
+                        "y": 24755.5
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "githubProgram": {
+                "type": "Github Program",
+                "name": "New Github Program",
+                "config": "{}",
+                "project": "Governance",
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "d4990472-5b57-474d-b6d2-b846730c02ed",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25096.115242270665,
+                            "y": 24455.5
+                        },
+                        "targetPosition": {
+                            "x": 24836.307621135333,
+                            "y": 24605.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "5163595c-92c8-4405-89f3-3a6d8a61ce7a",
+                "savedPayload": {
+                    "position": {
+                        "x": 24836.307621135333,
+                        "y": 24605.5
+                    },
+                    "targetPosition": {
+                        "x": 24576.5,
+                        "y": 24755.5
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "0d76026e-0180-480f-a640-306ff6843fae",
+            "savedPayload": {
+                "position": {
+                    "x": 24576.5,
+                    "y": 24755.5
+                },
+                "targetPosition": {
+                    "x": 24576.5,
+                    "y": 25055.5
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "communityBuildingPrograms": {
+            "type": "Community Building Programs",
+            "name": "New Community Building Programs",
+            "config": "{}",
+            "project": "Governance",
+            "referralProgram": {
+                "type": "Referral Program",
+                "name": "New Referral Program",
+                "config": "{}",
+                "project": "Governance",
+                "userReferrers": [
+                    {
+                        "type": "User Referrer",
+                        "name": "PLuv",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "20844a3a-3794-46f6-a96d-60207bada0cf",
+                        "savedPayload": {
+                            "position": {
+                                "x": 24766.692378864667,
+                                "y": 24645.692378864667
+                            },
+                            "targetPosition": {
+                                "x": 25026.5,
+                                "y": 24795.692378864667
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "PLuv",
+                                "id": "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "PLuv",
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "4677fdcd-a7c8-4b10-a8d8-6c8bf6fcf5f7",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25176.5,
+                            "y": 24535.884757729335
+                        },
+                        "targetPosition": {
+                            "x": 25026.5,
+                            "y": 24795.692378864667
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "8a13ce49-c820-44b9-92be-936e5d979800",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25286.307621135333,
+                            "y": 24945.692378864667
+                        },
+                        "targetPosition": {
+                            "x": 25026.5,
+                            "y": 24795.692378864667
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "b42ac8aa-06e6-4d1e-89d5-57b5c3e07fa5",
+                "savedPayload": {
+                    "position": {
+                        "x": 25026.5,
+                        "y": 24795.692378864667
+                    },
+                    "targetPosition": {
+                        "x": 24876.5,
+                        "y": 25055.5
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "supportProgram": {
+                "type": "Support Program",
+                "name": "New Support Program",
+                "config": "{}",
+                "project": "Governance",
+                "userSupporters": [
+                    {
+                        "type": "User Supporter",
+                        "name": "PLuv",
+                        "config": "{}",
+                        "project": "Governance",
+                        "id": "b524dd0f-35b1-4ca4-b56d-291e1c66f6fe",
+                        "savedPayload": {
+                            "position": {
+                                "x": 25286.307621135333,
+                                "y": 25165.307621135333
+                            },
+                            "targetPosition": {
+                                "x": 25026.5,
+                                "y": 25315.307621135333
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            },
+                            "referenceParent": {
+                                "type": "User Profile",
+                                "name": "PLuv",
+                                "id": "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                            },
+                            "referenceParentCombinedNodePath": [
+                                [
+                                    "PLuv",
+                                    "User Profile",
+                                    "Governance",
+                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                ]
+                            ]
+                        }
+                    }
+                ],
+                "tokensAwarded": {
+                    "type": "Tokens Awarded",
+                    "name": "New Tokens Awarded",
+                    "project": "Governance",
+                    "id": "e49d3210-65d8-41ec-8df2-795974ade3ba",
+                    "savedPayload": {
+                        "position": {
+                            "x": 25176.5,
+                            "y": 25575.115242270665
+                        },
+                        "targetPosition": {
+                            "x": 25026.5,
+                            "y": 25315.307621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "eacd5948-da81-4537-ab46-9ce1493a863e",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24766.692378864667,
+                            "y": 25465.307621135333
+                        },
+                        "targetPosition": {
+                            "x": 25026.5,
+                            "y": 25315.307621135333
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "e19a6323-0d11-4218-a583-afb767961c09",
+                "savedPayload": {
+                    "position": {
+                        "x": 25026.5,
+                        "y": 25315.307621135333
+                    },
+                    "targetPosition": {
+                        "x": 24876.5,
+                        "y": 25055.5
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "fce27b09-86e3-4078-9b83-6f8b97f2063b",
+            "savedPayload": {
+                "position": {
+                    "x": 24876.5,
+                    "y": 25055.5
+                },
+                "targetPosition": {
+                    "x": 24576.5,
+                    "y": 25055.5
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "votesAndClaimsPrograms": {
+            "type": "Votes And Claims Programs",
+            "name": "New Votes And Claims Programs",
+            "config": "{}",
+            "project": "Governance",
+            "votingProgram": {
+                "type": "Voting Program",
+                "name": "New Voting Program",
+                "config": "{}",
+                "project": "Governance",
+                "votesSwitch": [
+                    {
+                        "type": "Votes Switch",
+                        "name": "New Votes Switch",
+                        "config": "{}",
+                        "project": "Governance",
+                        "votesSwitch": [],
+                        "claimVotesSwitch": [
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "Pluvtech Data Mine",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [],
+                                "assetClaimVotes": [
+                                    {
+                                        "type": "Asset Claim Vote",
+                                        "name": "PLuv ",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "f5f84033-a7cf-4dd0-81e4-ca137c48d6f5",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25136.307621135333,
+                                                "y": 25285.884757729335
+                                            },
+                                            "targetPosition": {
+                                                "x": 24986.307621135333,
+                                                "y": 25545.692378864667
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Asset Contribution Claim",
+                                                "name": "",
+                                                "id": "e0f84f5a-a3fc-4fc2-8c82-9116b20ea4d5"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "PLuv",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
+                                                ],
+                                                [
+                                                    "Pluvtech Data Mine",
+                                                    "Asset Claims Folder",
+                                                    "Governance",
+                                                    "dc382aa3-fb73-4770-817d-2d69da57fd26"
+                                                ],
+                                                [
+                                                    "",
+                                                    "Asset Contribution Claim",
+                                                    "Governance",
+                                                    "e0f84f5a-a3fc-4fc2-8c82-9116b20ea4d5"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "featureClaimVotes": [],
+                                "id": "c002fe0e-f1b8-4bc7-958a-e25df548457f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 24986.307621135333,
+                                        "y": 25545.692378864667
+                                    },
+                                    "targetPosition": {
+                                        "x": 24836.307621135333,
+                                        "y": 25805.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Asset Claims Folder",
+                                        "name": "Pluvtech Data Mine",
+                                        "id": "dc382aa3-fb73-4770-817d-2d69da57fd26"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "PLuv",
+                                            "User Profile",
+                                            "Governance",
+                                            "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                        ],
+                                        [
+                                            "New Token Power Switch",
+                                            "Token Power Switch",
+                                            "Governance",
+                                            "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                        ],
+                                        [
+                                            "New Votes And Claims Programs",
+                                            "Votes And Claims Programs",
+                                            "Governance",
+                                            "704ea112-7592-4d37-b300-9227448bfe9f"
+                                        ],
+                                        [
+                                            "New Claims Program",
+                                            "Claims Program",
+                                            "Governance",
+                                            "647eddb0-6989-49ca-9288-8aaade078bec"
+                                        ],
+                                        [
+                                            "Pluvtech Data Mine",
+                                            "Asset Claims Folder",
+                                            "Governance",
+                                            "dc382aa3-fb73-4770-817d-2d69da57fd26"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Feature Claims Folder",
+                                "config": "{}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [
+                                    {
+                                        "type": "Feature Claim Vote",
+                                        "name": "PLuv Tensor Flow Integration New Features",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "68d4d3f0-02b7-4b70-a6b1-1f75706870c8",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25355.922863406,
+                                                "y": 25805.5
+                                            },
+                                            "targetPosition": {
+                                                "x": 25096.115242270665,
+                                                "y": 25955.5
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "Tensor Flow Integration New Features",
+                                                "id": "b79c3adb-f641-42a9-bba9-312afb225a7b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "PLuv",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
+                                                ],
+                                                [
+                                                    "New Feature Claims Folder",
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "7f8f1fec-5a45-41c1-a297-a92a22b3e524"
+                                                ],
+                                                [
+                                                    "Tensor Flow Integration New Features",
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "b79c3adb-f641-42a9-bba9-312afb225a7b"
+                                                ]
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "Feature Claim Vote",
+                                        "name": "PLuv User Defined Variables and Code New Features",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "cabcf946-3b76-4ac0-87ba-0c1215f71d38",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 25096.115242270665,
+                                                "y": 26255.5
+                                            },
+                                            "targetPosition": {
+                                                "x": 25096.115242270665,
+                                                "y": 25955.5
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Feature Contribution Claim",
+                                                "name": "User Defined Variables and Code New Features",
+                                                "id": "9d526dfa-522d-463f-9569-383be672d116"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "PLuv",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
+                                                ],
+                                                [
+                                                    "New Feature Claims Folder",
+                                                    "Feature Claims Folder",
+                                                    "Governance",
+                                                    "7f8f1fec-5a45-41c1-a297-a92a22b3e524"
+                                                ],
+                                                [
+                                                    "User Defined Variables and Code New Features",
+                                                    "Feature Contribution Claim",
+                                                    "Governance",
+                                                    "9d526dfa-522d-463f-9569-383be672d116"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "id": "748754e0-66d1-4fec-bb69-56e82fcdea26",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 25096.115242270665,
+                                        "y": 25955.5
+                                    },
+                                    "targetPosition": {
+                                        "x": 24836.307621135333,
+                                        "y": 25805.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Feature Claims Folder",
+                                        "name": "New Feature Claims Folder",
+                                        "id": "7f8f1fec-5a45-41c1-a297-a92a22b3e524"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "PLuv",
+                                            "User Profile",
+                                            "Governance",
+                                            "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                        ],
+                                        [
+                                            "New Token Power Switch",
+                                            "Token Power Switch",
+                                            "Governance",
+                                            "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                        ],
+                                        [
+                                            "New Votes And Claims Programs",
+                                            "Votes And Claims Programs",
+                                            "Governance",
+                                            "704ea112-7592-4d37-b300-9227448bfe9f"
+                                        ],
+                                        [
+                                            "New Claims Program",
+                                            "Claims Program",
+                                            "Governance",
+                                            "647eddb0-6989-49ca-9288-8aaade078bec"
+                                        ],
+                                        [
+                                            "New Feature Claims Folder",
+                                            "Feature Claims Folder",
+                                            "Governance",
+                                            "7f8f1fec-5a45-41c1-a297-a92a22b3e524"
+                                        ]
+                                    ]
+                                }
+                            },
+                            {
+                                "type": "Claim Votes Switch",
+                                "name": "New Position Claims Folder",
+                                "config": "{\n    \"percentage\": 20\n}",
+                                "project": "Governance",
+                                "claimVotesSwitch": [],
+                                "positionClaimVotes": [
+                                    {
+                                        "type": "Position Claim Vote",
+                                        "name": "PLuv Moderator Community Management",
+                                        "config": "{}",
+                                        "project": "Governance",
+                                        "id": "4a09a5b6-0135-4e04-be6b-e382c3ccc9bc",
+                                        "savedPayload": {
+                                            "position": {
+                                                "x": 24536.307621135333,
+                                                "y": 26325.115242270665
+                                            },
+                                            "targetPosition": {
+                                                "x": 24686.307621135333,
+                                                "y": 26065.307621135333
+                                            },
+                                            "floatingObject": {
+                                                "isPinned": false,
+                                                "isFrozen": false,
+                                                "isCollapsed": false,
+                                                "angleToParent": 1,
+                                                "distanceToParent": 3,
+                                                "arrangementStyle": 0
+                                            },
+                                            "uiObject": {
+                                                "isRunning": false
+                                            },
+                                            "referenceParent": {
+                                                "type": "Position Contribution Claim",
+                                                "name": "Moderator Community Management",
+                                                "id": "ffeb7ead-1cfd-4c0f-802a-64ab3d0ca55b"
+                                            },
+                                            "referenceParentCombinedNodePath": [
+                                                [
+                                                    "PLuv",
+                                                    "User Profile",
+                                                    "Governance",
+                                                    "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                                ],
+                                                [
+                                                    "New Token Power Switch",
+                                                    "Token Power Switch",
+                                                    "Governance",
+                                                    "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                                ],
+                                                [
+                                                    "New Votes And Claims Programs",
+                                                    "Votes And Claims Programs",
+                                                    "Governance",
+                                                    "704ea112-7592-4d37-b300-9227448bfe9f"
+                                                ],
+                                                [
+                                                    "New Claims Program",
+                                                    "Claims Program",
+                                                    "Governance",
+                                                    "647eddb0-6989-49ca-9288-8aaade078bec"
+                                                ],
+                                                [
+                                                    "New Position Claims Folder",
+                                                    "Position Claims Folder",
+                                                    "Governance",
+                                                    "5cbec4c5-0432-4cf9-b105-34342ca701db"
+                                                ],
+                                                [
+                                                    "Moderator Community Management",
+                                                    "Position Contribution Claim",
+                                                    "Governance",
+                                                    "ffeb7ead-1cfd-4c0f-802a-64ab3d0ca55b"
+                                                ]
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "assetClaimVotes": [],
+                                "featureClaimVotes": [],
+                                "id": "8967175f-8c8d-48e8-b595-037e733bbf6f",
+                                "savedPayload": {
+                                    "position": {
+                                        "x": 24686.307621135333,
+                                        "y": 26065.307621135333
+                                    },
+                                    "targetPosition": {
+                                        "x": 24836.307621135333,
+                                        "y": 25805.5
+                                    },
+                                    "floatingObject": {
+                                        "isPinned": false,
+                                        "isFrozen": false,
+                                        "isCollapsed": false,
+                                        "angleToParent": 1,
+                                        "distanceToParent": 3,
+                                        "arrangementStyle": 0
+                                    },
+                                    "uiObject": {
+                                        "isRunning": false
+                                    },
+                                    "referenceParent": {
+                                        "type": "Position Claims Folder",
+                                        "name": "New Position Claims Folder",
+                                        "id": "5cbec4c5-0432-4cf9-b105-34342ca701db"
+                                    },
+                                    "referenceParentCombinedNodePath": [
+                                        [
+                                            "PLuv",
+                                            "User Profile",
+                                            "Governance",
+                                            "142f5de2-3762-4f55-a839-22eac5c03c8f"
+                                        ],
+                                        [
+                                            "New Token Power Switch",
+                                            "Token Power Switch",
+                                            "Governance",
+                                            "9b72df20-a4f0-4023-ae17-c46a64920716"
+                                        ],
+                                        [
+                                            "New Votes And Claims Programs",
+                                            "Votes And Claims Programs",
+                                            "Governance",
+                                            "704ea112-7592-4d37-b300-9227448bfe9f"
+                                        ],
+                                        [
+                                            "New Claims Program",
+                                            "Claims Program",
+                                            "Governance",
+                                            "647eddb0-6989-49ca-9288-8aaade078bec"
+                                        ],
+                                        [
+                                            "New Position Claims Folder",
+                                            "Position Claims Folder",
+                                            "Governance",
+                                            "5cbec4c5-0432-4cf9-b105-34342ca701db"
+                                        ]
+                                    ]
+                                }
+                            }
+                        ],
+                        "weightVotesSwitch": [],
+                        "userProfileVotesSwitch": [],
+                        "id": "f624d4c4-7cb7-44ce-848e-29b99d0ad71d",
+                        "savedPayload": {
+                            "position": {
+                                "x": 24836.307621135333,
+                                "y": 25805.5
+                            },
+                            "targetPosition": {
+                                "x": 24576.5,
+                                "y": 25655.5
+                            },
+                            "floatingObject": {
+                                "isPinned": false,
+                                "isFrozen": false,
+                                "isCollapsed": false,
+                                "angleToParent": 1,
+                                "distanceToParent": 3,
+                                "arrangementStyle": 0
+                            },
+                            "uiObject": {
+                                "isRunning": false
+                            }
+                        }
+                    }
+                ],
+                "tokensBonus": {
+                    "type": "Tokens Bonus",
+                    "name": "New Tokens Bonus",
+                    "project": "Governance",
+                    "id": "951931e8-8b53-40a2-85f5-360df2992153",
+                    "savedPayload": {
+                        "position": {
+                            "x": 24316.692378864667,
+                            "y": 25805.5
+                        },
+                        "targetPosition": {
+                            "x": 24576.5,
+                            "y": 25655.5
+                        },
+                        "floatingObject": {
+                            "isPinned": false,
+                            "isFrozen": false,
+                            "isCollapsed": false,
+                            "angleToParent": 1,
+                            "distanceToParent": 3,
+                            "arrangementStyle": 0
+                        },
+                        "uiObject": {
+                            "isRunning": false
+                        }
+                    }
+                },
+                "id": "ca5b1754-f0ee-4022-b74c-1a9acfa6b621",
+                "savedPayload": {
+                    "position": {
+                        "x": 24576.5,
+                        "y": 25655.5
+                    },
+                    "targetPosition": {
+                        "x": 24576.5,
+                        "y": 25355.5
+                    },
+                    "floatingObject": {
+                        "isPinned": false,
+                        "isFrozen": false,
+                        "isCollapsed": false,
+                        "angleToParent": 1,
+                        "distanceToParent": 3,
+                        "arrangementStyle": 0
+                    },
+                    "uiObject": {
+                        "isRunning": false
+                    }
+                }
+            },
+            "id": "87d3c953-9653-43b1-828b-030fba889c83",
+            "savedPayload": {
+                "position": {
+                    "x": 24576.5,
+                    "y": 25355.5
+                },
+                "targetPosition": {
+                    "x": 24576.5,
+                    "y": 25055.5
+                },
+                "floatingObject": {
+                    "isPinned": false,
+                    "isFrozen": false,
+                    "isCollapsed": false,
+                    "angleToParent": 1,
+                    "distanceToParent": 3,
+                    "arrangementStyle": 0
+                },
+                "uiObject": {
+                    "isRunning": false
+                }
+            }
+        },
+        "id": "d83f0851-ad68-4931-96e9-5844e13a7ec9",
+        "savedPayload": {
+            "position": {
+                "x": 24576.5,
+                "y": 25055.5
+            },
+            "targetPosition": {
+                "x": 24276.5,
+                "y": 25055.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "tokensMined": {
+        "type": "Tokens Mined",
+        "name": "New Tokens Mined",
+        "project": "Governance",
+        "id": "df1b0a74-fa21-4304-810c-145f86fdd86e",
+        "savedPayload": {
+            "position": {
+                "x": 23976.5,
+                "y": 25055.5
+            },
+            "targetPosition": {
+                "x": 24276.5,
+                "y": 25055.5
+            },
+            "floatingObject": {
+                "isPinned": false,
+                "isFrozen": false,
+                "isCollapsed": false,
+                "angleToParent": 1,
+                "distanceToParent": 3,
+                "arrangementStyle": 0
+            },
+            "uiObject": {
+                "isRunning": false
+            }
+        }
+    },
+    "id": "ce6184d6-543c-4358-b16b-ffcf653c80d4",
+    "savedPayload": {
+        "position": {
+            "x": 24276.5,
+            "y": 25055.5
+        },
+        "targetPosition": {
+            "x": 24276.5,
+            "y": 25055.5
+        },
+        "floatingObject": {
+            "isPinned": false,
+            "isFrozen": false,
+            "isCollapsed": false,
+            "angleToParent": 1,
+            "distanceToParent": 3,
+            "arrangementStyle": 0
+        },
+        "uiObject": {
+            "isRunning": false
+        }
+    }
+}

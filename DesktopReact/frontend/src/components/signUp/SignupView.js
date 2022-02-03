@@ -176,13 +176,13 @@ const SignupView = (props) => {
                             </div>
                         </CardContent>
                         <Box sx={{display: 'flex', flexDirection: 'row', pt: 2, minWidth: "20rem", maxWidth: "40rem"}}>
-                            <Button
+                            {/*<Button
                                 color="inherit"
                                 disabled={activeStep === 5}
                                 onClick={handleBack}
                                 sx={{mr: 1}}
                             >Back
-                            </Button>
+                            </Button>*/}
                             <Box sx={{flex: '1 1 auto'}}/>
                             {/* todo Loui: handle save profile func */}
                             <Button onClick={activeStep === 5 ? (handleNext) : saveProfile}

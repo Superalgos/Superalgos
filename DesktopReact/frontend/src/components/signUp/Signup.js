@@ -68,7 +68,9 @@ const Signup = () => {
     }
 
     const saveProfile = async () => {
-        let profileData = {...userInfo, joined: new Date().getTime()};
+        let profileData = {
+            ...userInfo, joined: new Date().getTime(), originSocialPersonaId: userInfo.nodeId
+        };
         console.log({profileData})
         let {result} = await updateProfile(profileData).then(response => response.json());
         console.log({result})

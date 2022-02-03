@@ -1,50 +1,49 @@
+import React, {useState} from 'react';
 import {Avatar, Button, Stack, TextField} from "@mui/material";
 import pic from "../../images/superalgos.png";
-import React, {useState} from "react";
-import {createReply} from "../../api/post.httpService";
-import "./ReplyBox.css"
-import {STATUS_OK} from "../../api/httpConfig";
 
-
-const ReplyBox = ({postHash, targetSocialPersonaId, closeModal}) => {
+const Repost = ({postHash, targetSocialPersonaId, closeModal}) => {
     /*** Variables */
-    const [reply, setReply] = useState('');
-
+    const [repost, setRepost] = useState('');
 
     /*** Methods */
     const handleChange = (event) => {
-        setReply(event.target.value);
+        setRepost(event.target.value);
     }
 
-    const onButtonClick = async () => {
+    const onButtonClick = async () => { // todo add repost functionality
+        console.log("reposting with quote")
+        setRepost('');
+        closeModal && closeModal();
+        /*console.log(postHash)
         let {status} = await createReply({
-            postText: reply,
+            postText: repost,
             postHash,
             targetSocialPersonaId
         }).then(response => response.json());
         if (status !== STATUS_OK) {
-            setReply('');
-            closeModal && closeModal(); /* TODO make this better*/
-        }
+            setRepost('');
+            closeModal && closeModal(); /!* TODO make this better*!/
+        }*/
     }
 
     return <Stack direction="row" className="reply" /*justifyContent="space-between"*/>
         <Avatar src={pic} className="avatar"/>
         <TextField className="replyText"
                    id="outlined-multiline-flexible"
-                   label="Post your reply"
+                   label="Add a comment"
                    multiline
                    maxRows={6}
-                   value={reply}
+                   value={repost}
                    onChange={handleChange}
         />
         <Button
-            disabled={!reply}
+            disabled={!repost}
             onClick={onButtonClick}
             className="replyButton" variant="outlined">
-            Reply
+            Repost
         </Button>
     </Stack>;
-}
+};
 
-export default ReplyBox;
+export default Repost;

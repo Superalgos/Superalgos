@@ -41,9 +41,9 @@
             "relatedUiObjectProject": "Foundations"
         },
         {
-            "action": "Add Specified Workspace Project",
+            "action": "Add Specified Project",
             "actionProject": "Workspaces",
-            "label": "Add Specified Workspace Project",
+            "label": "Add Specified Project",
             "relatedUiObject": "Workspace",
             "actionFunction": "payload.executeAction",
             "relatedUiObjectProject": "Foundations"

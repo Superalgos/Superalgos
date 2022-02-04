@@ -938,7 +938,8 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                     async function createPullRequest(repo) {
                                         try {
-                                            console.log('[INFO] Creating Pull Request at repository ' + repo)
+                                            console.log(' ')
+                                            console.log('[INFO] Checking if we need to create Pull Request at repository ' + repo)
                                             await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
                                             await octokit.pulls.create({
                                                 owner,

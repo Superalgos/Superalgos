@@ -113,7 +113,7 @@ function tfjsWinInstall() {
 Here we will go and clone all the plugins repositories that have not been cloned yet.
 */
 const SETUP_PLUGINS_MODULE = require("./plugins/setupPlugins.js")
-SETUP_PLUGINS_MODULE.run()
+SETUP_PLUGINS_MODULE.run(githubUserName, token)
 
 // Donload external scripts
 console.log("");
@@ -215,57 +215,6 @@ nodeInstPromise.then(() => {
             else orURL = `https://github.com/${gitUser}/${repo}.git`
             await git.addRemote('origin', orURL).catch(errorResp)
         }
-    }
-
-    // Initialize app like in PlatformRoot.js
-    // This is to run fork for all submodules, to catch developers up on the new plugin repos.
-    // After current batch of devs are caught up, this should be phased out, to allow the httpInterface
-    // to create the forks on explicit user request.
-    global.PL = {}
-    global.SA = {}
-    let ENVIRONMENT = require('./Environment.js')
-    let ENVIRONMENT_MODULE = ENVIRONMENT.newEnvironment()
-    global.env = ENVIRONMENT_MODULE
-    global.PROJECTS_SCHEMA = require(global.env.PATH_TO_PROJECT_SCHEMA)
-    let MULTI_PROJECT = require('./MultiProject.js')
-    let MULTI_PROJECT_MODULE = MULTI_PROJECT.newMultiProject()
-    MULTI_PROJECT_MODULE.initialize(PL, 'PL')
-    MULTI_PROJECT_MODULE.initialize(SA, 'SA')
-
-    const newGithubServer = require('./Platform/Client/githubServer.js').newGithubServer
-    const githubServer = newGithubServer()
-
-    global.SA.version = require('./package.json').version
-
-    // try to get github token
-    try {
-        var tokenDist = require("./Platform/My-Workspaces/Token-Distribution-Superalgos.json")
-        if (tokenDist) {
-            tokenDist.rootNodes.forEach(node => {
-                if (node.githubAPI && node.githubAPI.config) {
-                    var githubConf = JSON.parse(node.githubAPI.config)
-                    // use github APi config to try to fork each plugin
-                    Object.values(projectPluginMap).forEach(plugin => {
-                        githubServer.createGithubFork(
-                            githubConf.username,
-                            githubConf.token,
-                            plugin.repo
-                        )
-                    })
-                }
-            })
-        }
-    } catch (e) {
-        console.log(`PLUGIN SETUP WARNING:
-Unable to fork the plugins in ./Plugins. There was an error detecting or using your github credentials. Please manually fork any plugins you contribute to. List:
-
-https://github.com/Superalgos/Governance-Plugins.git
-https://github.com/Superalgos/Portfolio-Management-Plugins.git
-https://github.com/Superalgos/Foundations-Plugins.git
-https://github.com/Superalgos/Algorithmic-Trading-Plugins.git
-https://github.com/Superalgos/Machine-Learning-Plugins.git
-https://github.com/Superalgos/TensorFlow-Plugins.git
-https://github.com/Superalgos/Trading-Signals-Plugins.git`)
     }
 })
 

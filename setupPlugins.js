@@ -10,7 +10,7 @@ async function run() {
     await forkPluginRepos(username, token)
     clonePluginRepos(username)
 
-    async function forkPluginRepos() {
+    async function forkPluginRepos(username, token) {
 
         return new Promise(promiseWork)
 

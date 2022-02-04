@@ -868,7 +868,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         maxConcurrentProcesses: 6,
                                     }
                                     let repoURL = 'https://github.com/Superalgos/Superalgos'
-                                    console.log('[INFO] Uploading to ' + repoURL)
+                                    console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                     let git = simpleGit(options)
 
                                     await pushFiles(git) // Main Repo
@@ -884,8 +884,8 @@ exports.newHttpInterface = function newHttpInterface() {
                                         }
                                         git = simpleGit(options)
                                         repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
-                                        console.log('[INFO] Uploading to ' + repoURL)
-                                        pushFiles(git)
+                                        console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                        await pushFiles(git)
                                     }
 
                                     async function pushFiles(git) {

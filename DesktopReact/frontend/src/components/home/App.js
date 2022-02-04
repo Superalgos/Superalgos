@@ -25,16 +25,11 @@ function App() {
             data,
             result
         } = await getProfile({socialPersonaId: socialPersona.nodeId}).then(response => response.json())
-        if (result === STATUS_OK) {
+        if (result === STATUS_OK && (!isObjectEmpty(data))) {
             dispatch(setActualProfile(data))
+        } else {
+            navigate("/signUp")
         }
-
-        /* TODO refactor
-                if (data) {
-                    navigate("/signUp")
-                }
-        */
-
     }
 
     useEffect(() => {

@@ -8,9 +8,6 @@ import {
     FormHelperText,
     InputLabel,
     OutlinedInput,
-    Step,
-    StepLabel,
-    Stepper,
     Typography
 } from "@mui/material";
 import {LoginOutlined} from "@mui/icons-material";
@@ -35,7 +32,9 @@ const SignupView = (props) => {
         handleSkip,
         handleReset
     } = props;
+
     const inputCharLimit = [{name: 50, bio: 150, location: 30, web: 100}] // temporal char limiter constant. Use json file instead?
+
     const Input = styled('input')({
         display: 'none',
     });
@@ -74,20 +73,25 @@ const SignupView = (props) => {
                                     <label htmlFor="profilePic">
                                         <Input className="input" accept="image/*" id="profilePic" multiple type="file"
                                                onChange={selectProfilePic}/>
-                                        {activeStep === 1 ? (
-                                            <Button className="signupPicButton" variant="outlined" component="span">
-                                                Upload Profile Picture
-                                            </Button>) : null}
+                                        {
+                                            activeStep === 0 ? (
+                                                <Button className="signupPicButton" variant="outlined" component="span">
+                                                    Upload Profile Picture
+                                                </Button>) : null
+                                        }
                                     </label>
                                     <div>
                                         <label htmlFor="bannerPic">
                                             <Input className="input" accept="image/*" id="bannerPic" multiple
                                                    type="file"
                                                    onChange={selectBannerPic}/>
-                                            {activeStep === 1 ? (
-                                                <Button className="signupPicButton" variant="outlined" component="span">
-                                                    Upload Banner Picture
-                                                </Button>) : null}
+                                            {
+                                                activeStep === 0 ? (
+                                                    <Button className="signupPicButton" variant="outlined"
+                                                            component="span">
+                                                        Upload Banner Picture
+                                                    </Button>) : null
+                                            }
 
                                         </label>
                                     </div>
@@ -115,7 +119,7 @@ const SignupView = (props) => {
                                             </FormControl>
                                         </React.Fragment>
                                     ) : null}
-                                    {activeStep === 1 ? (
+                                    {activeStep === 0 ? (
                                         <React.Fragment>
                                             <FormControl className="signupFormControl">
                                                 <InputLabel htmlFor="bio">Bio</InputLabel>
@@ -152,6 +156,7 @@ const SignupView = (props) => {
                                 </div>
                                 <div className="signupFooter">
                                     {/* Stepper */}
+                                    {/*
                                     <Stepper activeStep={activeStep}>
                                         {steps.map((label, index) => {
                                             const stepProps = {};
@@ -166,22 +171,23 @@ const SignupView = (props) => {
                                             );
                                         })}
                                     </Stepper>
+*/}
                                 </div>
                             </div>
                         </CardContent>
                         <Box sx={{display: 'flex', flexDirection: 'row', pt: 2, minWidth: "20rem", maxWidth: "40rem"}}>
-                            <Button
+                            {/*<Button
                                 color="inherit"
-                                disabled={activeStep === 0}
+                                disabled={activeStep === 5}
                                 onClick={handleBack}
                                 sx={{mr: 1}}
                             >Back
-                            </Button>
+                            </Button>*/}
                             <Box sx={{flex: '1 1 auto'}}/>
                             {/* todo Loui: handle save profile func */}
-                            <Button onClick={activeStep === 0 ? (handleNext) : saveProfile}
+                            <Button onClick={activeStep === 5 ? (handleNext) : saveProfile}
                                     disabled={errorState}
-                                    startIcon={activeStep === 1 ? (<LoginOutlined/>) : null}
+                                    startIcon={activeStep === 0 ? (<LoginOutlined/>) : null}
                             >
                                 {activeStep === steps.length - 1 ? 'Sign Up' : 'Next'}
                             </Button>

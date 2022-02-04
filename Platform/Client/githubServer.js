@@ -123,8 +123,8 @@ exports.newGithubServer = function newGithubServer() {
 
                                 githubListArray.push(githubUsername)
                             }
-                            console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
-                            console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
+                            // console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Page = ' + page)
+                            // console.log('[INFO] Github Server -> getRepoInfo -> doGithub -> getList -> ' + method + ' Received = ' + listResponse.data.length)
 
                         } catch (err) {
                             console.log(err)

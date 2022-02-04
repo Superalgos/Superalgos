@@ -411,7 +411,7 @@ Before using the software, you will need to install the Plugins built by the com
 node setupPlugins <Your-Github-Username> <Your-Github-Token>
 ```
 
-This script is going to fork all Community Plugins repositories into your own Github Account, and then it will clone each of these repositories into your local Superalgos/Plugins folder. The process is designed in a way that if someday a new type of plugins are added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing fork needed and clone if needed. You are safe running it whenever you think is good.
+This script is going to fork all Community Plugins repositories into your own Github Account, and then it will clone each of these repositories into your local Superalgos/Plugins folder. The process is designed in a way that if someday a new type of plugins is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
 
 ### Installation Notes
 

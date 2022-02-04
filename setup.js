@@ -125,23 +125,6 @@ let nodeInstPromise = new Promise(resolve => {
             }
             console.log('');
             console.log( stdout );
-
-            exec( `git submodule update --init Plugins/*`,
-                {
-                    cwd: dir
-                },
-                function ( error, stdout ){
-                    if (error) {
-                        console.log('');
-                        console.log("There was an error initializing the git submodules error: ");
-                        console.log('');
-                        console.log( error );
-                        process.exit(1)
-                    }
-                    console.log('');
-                    console.log( stdout );
-                    resolve()
-            });
     });
 })
 

@@ -97,6 +97,23 @@ function newGovernanceUtilitiesCommonTables() {
             }
             name = name + node.name
 
+	    /*
+	    Reformatting names for legibility
+	    */
+	    let nameArray = name.split(' - ')
+	    if (nameArray.length > 1) { 
+		nameArray.unshift(nameArray.pop())
+		name = '<b>' + nameArray[0] + '</b>'
+		name = name + ' ('
+		for (let i = 1; i < nameArray.length; i++) {
+		    name = name + nameArray[i]
+		    if (i < (nameArray.length - 1)) { name = name + ' - ' }
+		}
+		name = name + ')'
+	    } else {
+		name = '<b>' + name + '</b>'
+	    }
+
             let tableRecord = {
                 "name": name,
                 "tokensReward": node.payload.tokens | 0,

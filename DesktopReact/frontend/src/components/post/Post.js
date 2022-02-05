@@ -1,5 +1,6 @@
 import "./Post.css"
 import React, {useState} from 'react';
+import {useDispatch} from 'react-redux'
 import {Avatar, Stack, Typography} from "@mui/material";
 import pic from "../../images/superalgos.png"
 import {useNavigate, useParams} from "react-router-dom";
@@ -8,14 +9,24 @@ import PostFooter from "../postFooter/PostFooter";
 const Post = ({postData}) => {
     const {postId: postIdParameter} = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [collapse, setCollapse] = useState(true);
+    const [postUser, setPostUser] = useState({})
     const ToggleCollapse = () => setCollapse(!collapse);
 
+
     const {
-        originSocialPersonaId,
         postText,
+        originPostHash,
         reactions,
-        originPostHash
+        postType,
+        repliesCount,
+        creator: {
+            name,
+            username,
+            profilePic,
+            originSocialPersonaId
+        }
     } = postData;
 
     const handlePostClick = (e) => {
@@ -27,20 +38,31 @@ const Post = ({postData}) => {
 
     return (
         <div className="postWrapper">
-            <div className="post">
-                {/* TODO remove stacks inside of stacks*/}
-                <Stack direction="row" onClick={handlePostClick} stateCallback={ToggleCollapse}>
-                    <div className="postAvatarContainer">
-                        <Avatar src={pic} className="avatar"/>
+          <div className="post">
+                <div className="grid-container">
+                    <div className="postHeader" onClick={handlePostClick}>
+                        <Typography className="postName">
+                            {name ? name : 'userProfileHandle'}
+                        </Typography>
+                        <Typography className="postUserName">
+                            @{username ? username : 'userProfileHandle'}
+                        </Typography>
                     </div>
-                    <Typography className="postUserName">
-                        {originSocialPersonaId} {/* TODO use name */}
-                    </Typography>
-                </Stack>
-                <div className="postBody">
-                    {postText ? postText.toString() : ''}
+                    <div className="postAvatar">
+                        <div className="postAvatarContainer">
+                            <Avatar src={profilePic || pic} className="avatar"/>
+                        </div>
+                    </div>
+                    <div className="postBodyContainer" onClick={handlePostClick}>
+                        <div className="postBody" >
+                            {postText ? postText.toString() : ''}
+                        </div>
+                    </div>
+                    <div className="postFooter">
+                        <PostFooter postData={postData} postId={originPostHash} reactions={reactions}
+                                    actualReaction={reactions}/>
+                    </div>
                 </div>
-                <PostFooter postData={postData} postId={originPostHash} reactions={reactions} actualReaction={reactions}/>
             </div>
         </div>
     );

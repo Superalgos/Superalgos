@@ -258,7 +258,7 @@ exports.newHttpInterface = function newHttpInterface() {
                             //stuff
                             console.log(config)
                         })
-                        .catch (err => {
+                        .catch(err => {
                             console.error(err)
                         })
                     break
@@ -791,6 +791,7 @@ exports.newHttpInterface = function newHttpInterface() {
                 }
                     break
                 case 'App': {
+                    const GITHUB_API_WAITING_TIME = 3000
                     // If running the electron app do not try to get git tool. I don't allow it.
                     if (process.env.SA_MODE === 'gitDisable') {
                         console.log('[WARN] No contributions on binary distributions. Do manual installation')
@@ -805,7 +806,6 @@ exports.newHttpInterface = function newHttpInterface() {
                                 const token = unescape(requestPath[5])
                                 const currentBranch = unescape(requestPath[6])
                                 const contributionsBranch = unescape(requestPath[7])
-                                let governanceModified = false
                                 let error
 
                                 /* Unsaving # */
@@ -867,22 +867,28 @@ exports.newHttpInterface = function newHttpInterface() {
                                         binary: 'git',
                                         maxConcurrentProcesses: 6,
                                     }
+                                    let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                    console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
                                     let git = simpleGit(options)
-                                    // first look for modified user profile, since that's the most popular contribution
-                                    let summary = await git.diffSummary()
-                                    if (summary && summary.files && summary.files.length > 0) {
-                                        for (let i = 0; i < summary.files.length; i++) {
-                                            if (summary.files[i].file === 'Plugins/Governance' && summary.files[i].changes === 0) {
-                                                // switch to working in governance plugin submodule, since this must be changed first anyway
-                                                governanceModified = true
-                                                options = {
-                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', 'Governance'),
-                                                    binary: 'git',
-                                                    maxConcurrentProcesses: 6,
-                                                }
-                                                git = simpleGit(options)
-                                            }
+
+                                    await pushFiles(git) // Main Repo
+
+                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                        /*
+                                        Upload the Plugins
+                                        */
+                                        options = {
+                                            baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
                                         }
+                                        git = simpleGit(options)
+                                        repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                        console.log('[INFO] Starting process of uploading changes (if any) to ' + repoURL)
+                                        await pushFiles(git)
+                                    }
+
+                                    async function pushFiles(git) {
                                         try {
                                             await git.add('./*')
                                             await git.commit(commitMessage)
@@ -900,10 +906,10 @@ exports.newHttpInterface = function newHttpInterface() {
                                             console.log('2. Make sure you are running the latest version of Git available for your OS.')
                                             console.log('3. Make sure that you have cloned your Superalgos repository fork, and not the main Superalgos repository.')
                                             console.log('4. If your fork is old, you might need to do an app.update and also a node setup at every branch. If you just reforked all is good.')
+
                                             error = err
                                         }
                                     }
-
                                 }
 
                                 async function doGithub() {
@@ -915,35 +921,57 @@ exports.newHttpInterface = function newHttpInterface() {
                                         userAgent: 'Superalgos ' + SA.version
                                     })
 
-                                    let repo
-                                    if (governanceModified) repo = 'Governance-Plugins'
-                                    else repo = 'Superalgos'
+                                    let repo = 'Superalgos'
                                     const owner = 'Superalgos'
                                     const head = username + ':' + contributionsBranch
                                     const base = currentBranch
                                     const title = 'Contribution: ' + commitMessage
 
-                                    try {
-                                        await octokit.pulls.create({
-                                            owner,
-                                            repo,
-                                            title,
-                                            head,
-                                            base,
-                                        });
-                                    } catch (err) {
-                                        if (err.stack.indexOf('A pull request already exists') >= 0) {
-                                            return
-                                        } else {
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
-                                            console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
-                                            error = err
+                                    await createPullRequest(repo)
+
+                                    for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                        /*
+                                        Upload the Plugins
+                                        */
+                                        await createPullRequest(global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                    }
+
+                                    async function createPullRequest(repo) {
+                                        try {
+                                            console.log(' ')
+                                            console.log('[INFO] Checking if we need to create Pull Request at repository ' + repo)
+                                            await SA.projects.foundations.utilities.asyncFunctions.sleep(GITHUB_API_WAITING_TIME)
+                                            await octokit.pulls.create({
+                                                owner,
+                                                repo,
+                                                title,
+                                                head,
+                                                base,
+                                            });
+                                            console.log('[INFO] A pull request has been succesfully created. ')
+                                        } catch (err) {
+                                            if (
+                                                err.stack.indexOf('A pull request already exists') >= 0 ||
+                                                err.stack.indexOf('No commits between') >= 0
+                                            ) {
+                                                if (err.stack.indexOf('A pull request already exists') >= 0) {
+                                                    console.log('[WARN] A pull request already exists. If any, commits would added to the existing Pull Request. ')
+                                                }
+                                                if (err.stack.indexOf('No commits between') >= 0) {
+                                                    console.log('[WARN] No commits detected. Pull request not created. ')
+                                                }
+                                                return
+                                            } else {
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> Method call produced an error.')
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> err.stack = ' + err.stack)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> commitMessage = ' + commitMessage)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> username = ' + username)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token starts with = ' + token.substring(0, 10) + '...')
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> token ends with = ' + '...' + token.substring(token.length - 10))
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> currentBranch = ' + currentBranch)
+                                                console.log('[ERROR] httpInterface -> App -> Contribute -> doGithub -> contributionsBranch = ' + contributionsBranch)
+                                                error = err
+                                            }
                                         }
                                     }
                                 }
@@ -1005,17 +1033,57 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 async function doGit() {
                                     const simpleGit = SA.nodeModules.simpleGit
-                                    const options = {
-                                        baseDir: process.cwd(),
-                                        binary: 'git',
-                                        maxConcurrentProcesses: 6,
-                                    }
-                                    const git = simpleGit(options)
-
-                                    let message
                                     try {
-                                        message = await git.pull('https://github.com/Superalgos/Superalgos', currentBranch)
+                                        /*
+                                        Update the Main Superalgos Repository.
+                                        */
+                                        let reposUpdated = false
+                                        let options = {
+                                            baseDir: process.cwd(),
+                                            binary: 'git',
+                                            maxConcurrentProcesses: 6,
+                                        }
+                                        let git = simpleGit(options)
+                                        let repoURL = 'https://github.com/Superalgos/Superalgos'
+                                        console.log('[INFO] Downloading from ' + repoURL)
+                                        let message = await git.pull(repoURL, currentBranch)
+
+                                        if (message.error === undefined) {
+                                            addToReposUpdated(message, 'Superalgos')
+
+                                            for (const propertyName in global.env.PROJECT_PLUGIN_MAP) {
+                                                /*
+                                                Update the Plugins
+                                                */
+                                                options = {
+                                                    baseDir: SA.nodeModules.path.join(process.cwd(), 'Plugins', global.env.PROJECT_PLUGIN_MAP[propertyName].dir),
+                                                    binary: 'git',
+                                                    maxConcurrentProcesses: 6,
+                                                }
+                                                git = simpleGit(options)
+                                                repoURL = 'https://github.com/Superalgos/' + global.env.PROJECT_PLUGIN_MAP[propertyName].repo
+                                                console.log('[INFO] Downloading from ' + repoURL)
+                                                message = await git.pull(repoURL, currentBranch)
+                                                if (message.error === undefined) {
+                                                    addToReposUpdated(message, global.env.PROJECT_PLUGIN_MAP[propertyName].repo)
+                                                }
+                                            }
+                                        }
+
+                                        message = {
+                                            reposUpdated: reposUpdated
+                                        }
                                         return { message: message }
+
+                                        function addToReposUpdated(message, repo) {
+                                            if (message.summary.changes + message.summary.deletions + message.summary.insertions > 0) {
+                                                reposUpdated = true
+                                                console.log('[INFO] Your local repository ' + repo + ' was successfully updated. ')
+                                            } else {
+                                                console.log('[INFO] Your local repository ' + repo + ' was already up-to-date. ')
+                                            }
+                                        }
+
                                     } catch (err) {
                                         console.log('[ERROR] Error updating ' + currentBranch)
                                         console.log(err.stack)
@@ -1044,7 +1112,7 @@ exports.newHttpInterface = function newHttpInterface() {
 
                                 checkout().catch(errorResp)
 
-                                function errorResp (e) {
+                                function errorResp(e) {
                                     error = e
                                     console.error(error)
                                     let docs = {
@@ -1081,7 +1149,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                     }
                                 }
 
-                                async function doGit(dir, repo='Superalgos') {
+                                async function doGit(dir, repo = 'Superalgos') {
                                     const simpleGit = SA.nodeModules.simpleGit
                                     const options = {
                                         binary: 'git',
@@ -1473,7 +1541,7 @@ exports.newHttpInterface = function newHttpInterface() {
                                         await checkFork('Governance-Plugins')
                                         await updateUser()
 
-                                        async function checkFork(repo='Superalgos') {
+                                        async function checkFork(repo = 'Superalgos') {
                                             let serverResponse = await PL.servers.GITHUB_SERVER.createGithubFork(
                                                 username,
                                                 token,

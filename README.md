@@ -403,6 +403,20 @@ Finally, you will need to enable the desktop shortcut. Right click Superalgos.de
 
 Now both launcher and desktop shortcuts will launch Superalgos like any other program on your computer.
 
+### Install Community Plugins 
+
+Before using the software, you will need to install the Plugins built by the community. To do so, just run this command from the Superalgos main folder:
+
+```sh
+node setupPlugins <Your-Github-Username> <Your-Github-Token>
+```
+
+This script is going to fork all Community Plugins repositories into your own Github Account, and then it will clone each of these repositories into your local Superalgos/Plugins folder. The process is designed in a way that if someday a new type of plugins is added, you just need to run this command again and it will fork the new repo and clone it. This script will also find any missing forks needed and clone them too. You are safe running this script whenever you think is good.
+
+If you are having some mess with your plugins repos, you can delete individual folders inside Superalgos/Plugins and run this script to fix the problems for you. 
+
+If you are having issues with any of your plugin forks at your Github account, you can delete that fork and run this script again to fix the problem. 
+
 ### Installation Notes
 
 - You need to make a fork so that you may contribute work. Superalgos is a Community project and you are expected to contribute, like everyone else. You don't need to be a technical person to contribute. Fixing a typo in the docs or translating a paragraph into your native language are valuable contributions too. Superalgos has built-in features that make contributing easy. Help make Superalgos better and Superalgos will better serve you! Free-riding is not cool, particularly on free, open-source, Community-driven projects.

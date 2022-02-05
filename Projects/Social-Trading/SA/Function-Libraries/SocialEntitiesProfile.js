@@ -225,7 +225,8 @@ exports.newSocialTradingFunctionLibrariesSocialEntitiesProfile = function () {
                                 name: 'New Social Personas',
                                 project: 'Social-Trading',
                                 id: SA.projects.foundations.utilities.miscellaneousFunctions.genereteUniqueId(),
-                                config: '{}'
+                                config: '{}',
+                                socialPersonas: []
                             }
                         }
                         targetNode = {

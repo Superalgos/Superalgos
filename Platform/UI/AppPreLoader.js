@@ -72,7 +72,7 @@ function loadSuperalgos() {
     function setupHTMLTextArea() {
         let textArea = document.createElement('textarea')
         textArea.id = "textArea"
-        textArea.spellcheck = false
+        textArea.spellcheck = true
         textArea.style = 'resize: none;' +
             ' border: none;' +
             ' outline: none;' +
@@ -93,7 +93,7 @@ function loadSuperalgos() {
     function setupHTMLInput() {
         let input = document.createElement('input')
         input.id = "input"
-        input.spellcheck = false
+        input.spellcheck = true
         input.style = "border: none; outline: none; box-shadow: none; overflow:hidden;  width: 0px; height: 0px;"
 
         let inputDiv = document.getElementById('inputDiv')

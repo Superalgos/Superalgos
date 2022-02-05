@@ -1,8 +1,8 @@
 {
     "type": "Outgoing Signals",
     "definition": {
-        "text": "The Outgoing Signals node defines the location within a Trading System from which a signal can be composed to be sent.",
-        "updated": 1643404994527
+        "text": "The Outgoing Signals node defines the location within a Trading System from which data can be gathered and composed into a Trading Signal. ",
+        "updated": 1644029844037
     },
     "paragraphs": [
         {
@@ -22,7 +22,8 @@
         },
         {
             "style": "Text",
-            "text": "There are three main types of signals that can be sent:"
+            "text": "There are three types of signals that can be sent:",
+            "updated": 1644029880507
         },
         {
             "style": "Text",
@@ -73,9 +74,8 @@
             "text": "Creating a formula signal is the same as establishing an event signal."
         },
         {
-            "style": "Text",
-            "text": "There is however one added layer of complexity. A standard formula signal sends the result of its associated formula. So for example the resulting Order Rate of an order rate formula. A signal provider can also set up a Signal Context Formula node. This node allows the provider to send additional information coming out of the trading system.  This can be values used to help calculate the current formula, values from the Trading Engine or any other available variables.",
-            "updated": 1643428990646
+            "style": "Include",
+            "text": "Trading-Signals->Node->Signal Context Formula->Content"
         }
     ]
 }

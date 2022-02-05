@@ -1,0 +1,27 @@
+{
+    "type": "Available Storage",
+    "definition": {
+        "text": "The Available Storage node stores references to Open Storage locations available for use by the current hierarchy.",
+        "updated": 1643981961354
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643982703770
+        },
+        {
+            "style": "Text",
+            "text": "The main hierarchies that make use of this node are:"
+        },
+        {
+            "style": "List",
+            "text": "Social Trading Bot"
+        },
+        {
+            "style": "List",
+            "text": "Social Persona",
+            "updated": 1643982149657
+        }
+    ]
+}

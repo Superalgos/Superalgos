@@ -111,9 +111,12 @@ function tfjsWinInstall() {
 
 /*
 Here we will go and clone all the plugins repositories that have not been cloned yet.
-*/
-const SETUP_PLUGINS_MODULE = require("./plugins/setupPlugins.js")
+Temporarily commenting this section as source for githubUserName and token in this script are not clear.
+
+const SETUP_PLUGINS_MODULE = require("./setupPlugins.js")
 SETUP_PLUGINS_MODULE.run(githubUserName, token)
+*/
+
 
 // Donload external scripts
 console.log("");

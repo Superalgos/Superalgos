@@ -2,13 +2,31 @@
     "type": "Signal Context Formula",
     "definition": {
         "text": "Allows the signal provider to send addtional data surrounding an Outgoing Formula Signal.",
-        "updated": 1643429287201
+        "updated": 1644030421348
     },
     "paragraphs": [
         {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1644030134004
+        },
+        {
             "style": "Text",
-            "text": "Example setup:",
-            "updated": 1643429166228
+            "text": "A standard formula signal sends the result of its associated formula. So for example the resulting Order Rate of an order rate formula. A signal provider can also set up a Signal Context Formula node. This node allows the provider to send additional information coming out of the trading system. This can be values used to help calculate the current formula, values from the Trading Engine or any other available variables."
+        },
+        {
+            "style": "Block",
+            "text": "Configuration",
+            "updated": 1644030390795
+        },
+        {
+            "style": "Title",
+            "text": "Signal Context Formula Configuration"
+        },
+        {
+            "style": "Subtitle",
+            "text": "Example",
+            "updated": 1644030374260
         },
         {
             "style": "Javascript",

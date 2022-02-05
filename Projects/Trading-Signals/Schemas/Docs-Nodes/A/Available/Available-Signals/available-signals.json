@@ -1,0 +1,14 @@
+{
+    "type": "Available Signals",
+    "definition": {
+        "text": "The Available Signals node houses the definitions for all signals provided by the current Social Trading Bot.",
+        "updated": 1643982483763
+    },
+    "paragraphs": [
+        {
+            "style": "Block",
+            "text": "Content",
+            "updated": 1643982667075
+        }
+    ]
+}
